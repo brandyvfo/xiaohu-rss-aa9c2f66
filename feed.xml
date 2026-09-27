@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
 <title>小互解读站全文订阅</title>
-<link>https://brandyvfo.github.io/xiaohu-rss-aa9c2f66</link>
+<link>https://example.com/xiaohu</link>
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
-<atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
+<atom:link href="https://example.com/xiaohu/feed.xml" rel="self" type="application/rss+xml"/>
 <lastBuildDate>Sat, 26 Sep 2026 12:01:27 +0000</lastBuildDate>
 <item>
 <title>【日报】Claude Code effort 实战指南：什么时候用 Low，什么时候该升档</title>
@@ -10521,6 +10521,31 @@ MAKE HIM THE SUPREME RULER OF THIS LAND
 </div>
 </div></div>
 </div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】告诉 AI 为什么 而不是怎么做</title>
+<link>https://best.xiaohu.ai/article/tell-agents-the-why/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:tell-agents-the-why</guid>
+<pubDate>Wed, 16 Sep 2026 12:01:12 +0000</pubDate>
+<description>前沿模型出错，常常是猜错了目标和取舍。把为什么做、最终结果、约束和可以让步的地方讲清楚，模型才能帮你找到更合适的实现路径。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 16 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">告诉 AI 为什么 而不是怎么做</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/tell-agents-the-why/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>
+  <div>深度</div>
+  <h1>告诉 AI 为什么 而不是怎么做</h1>
+  <p>前沿模型出错，常常是猜错了目标和取舍。把为什么做、最终结果、约束和可以让步的地方讲清楚，模型才能帮你找到更合适的实现路径。</p>
+  <p>前沿模型出错，常常是猜错了目标和取舍。把为什么做、最终结果、约束和可以让步的地方讲清楚，模型才能帮你找到更合适的实现路径。</p>
+</div></div></div>
 </div></div></body></html>]]></content:encoded>
 </item>
 <item>
