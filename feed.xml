@@ -6,7 +6,849 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Mon, 28 Sep 2026 12:01:37 +0000</lastBuildDate>
+<lastBuildDate>Tue, 29 Sep 2026 12:01:36 +0000</lastBuildDate>
+<item>
+<title>【日报】Sonnet 5.5 上手指南：怎么选、多少钱、从 Sonnet 5 怎么迁</title>
+<link>https://best.xiaohu.ai/article/building-with-claude-sonnet-5-5/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:building-with-claude-sonnet-5-5</guid>
+<pubDate>Tue, 29 Sep 2026 12:01:36 +0000</pubDate>
+<description>Anthropic 官方指南讲透：Sonnet 5.5 和 Opus 5.5 的分工、单价不变账单却会变的原因，以及迁移时会直接报错的几处改动。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 29 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Sonnet 5.5 上手指南：怎么选、多少钱、从 Sonnet 5 怎么迁</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/building-with-claude-sonnet-5-5/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>Sonnet 5.5 上手指南：怎么选、多少钱、从 Sonnet 5 怎么迁</h1><p>Anthropic 官方指南讲透：Sonnet 5.5 和 Opus 5.5 的分工、单价不变账单却会变的原因，以及迁移时会直接报错的几处改动。</p><strong>一分钟速览</strong><ul><li>Sonnet 5.5 单价没涨、同样的活还更省 token：定义清楚、结果能检查的任务交给它，最难的长程判断留给 Opus 5.5，价格正好是 Opus 的一半。</li><li>从 Sonnet 5 迁过来不是改个模型 ID：关思考、强制指定工具、旧的计算机使用工具都会直接 400；它默认先思考，读 content[0].text 的老代码也会出错。</li><li>调优先做减法：重扫 effort，删掉给 Sonnet 5 打的补丁；低 effort 时补一句“必须跑真检查再报完成”。</li></ul><div><p>Anthropic 发布了 Claude Sonnet 5.5，它是 5.5 家族继 Opus 5.5 之后的第二个模型。官方说它比 Sonnet 5 更聪明、更省 token、快 30%；每个 token 的单价没变，但同样的活通常用更少 token，所以多数场景下账单最多能低 30%。</p>
+<p>这篇是 Anthropic 工程师 Addy Osmani 写在 claude.dev 官方博客上的上手指南。它不讲发布会式的跑分，主要回答开发者三件事：<strong>Sonnet 5.5 和 Opus 5.5 该选哪个、钱怎么算、从 Sonnet 5 迁过来要改哪几处代码</strong>。下面按这个顺序讲清楚，参数和代码尽量保留原样，方便你直接照着改。</p>
+<h2>先看一个直观对比：让模型写代码重画一张照片</h2>
+<p>文章开头放了 Lance Martin 做的一个演示：给三个模型同一张日落时分的城市航拍照片，让它们各自写 Python 代码把照片重新“画”出来。没有用任何图像模型，画面里每一笔都是模型写的代码画出来的。</p>
+<figure><figcaption>Lance Martin 的 code-to-painting 演示：每个模型写代码重画同一张照片。结尾四联图从左到右依次为照片、Claude Sonnet 5、Claude Sonnet 5.5、Claude Opus 5.5。想法致谢 @jkeatn，参考图致谢 @IceSolst。</figcaption></figure>
+<p>看视频里的过程和结果，差别很直白：</p>
+<ul>
+<li><strong>Sonnet 5</strong> 的天空渐变不错，但城市是一排排竖条色块，中间杵着一根很突兀的亮黄色长条，桥和河也简化成平面。</li>
+<li><strong>Sonnet 5.5</strong> 画出了密密麻麻的街区纹理，中央建筑群有明暗和反光，前景还有桥、白色高楼和蓝顶小楼，整体色调和景深更接近照片。</li>
+<li><strong>Opus 5.5</strong> 从视频结果看，和 Sonnet 5.5 在同一个细节量级，建筑轮廓更挺拔清楚，桥也更细。官方没有给这三张图打分，以上是看画面的观感。</li>
+</ul>
+<p>视频里每块画布下面还有一个“engine calls”计数：模型自己先写了一套“笔刷引擎”，再靠不断调用它来上色。最终 Sonnet 5 一共调用了 12,249 次，Sonnet 5.5 是 44,561 次，大约是 3.6 倍。这个数说明 5.5 画得更细，但它是这次演示里笔刷引擎的调用次数，不是 token 用量，也不是价格，不能拿来推算成本。另外这只是一次演示、一张照片，官方没有给出评分，也没有给出 Opus 5.5 的调用次数。</p>
+<h2>先跑起来：一个必须注意的写法</h2>
+<p>文章给了一个可以直接运行的最小请求：</p>
+<div><pre><code>import anthropic
+client = anthropic.Anthropic()
+response = client.messages.create(
+    model="claude-sonnet-5-5",
+    max_tokens=4096,
+    messages=[
+        {
+            "role": "user",
+            "content": "Analyze the trade-offs between microservices and monolithic architectures",
+        }
+    ],
+    output_config={"effort": "medium"},
+)
+for block in response.content:
+    if block.type == "text":
+        print(block.text)
+</code></pre></div>
+<p>注意最后那个循环：它按每个内容块的类型（<code>block.type</code>）挑出文本来读，而不是直接取 <code>content[0].text</code>。原因是 <strong>Sonnet 5.5 默认会先思考</strong>，回复的第一块可能是 thinking 块，直接取第一块的文本就会出错。如果你现有代码写的是 <code>content[0].text</code>，迁移时先改这里。</p>
+<h2>选 Sonnet 5.5 还是 Opus 5.5</h2>
+<p>官方的划分很干脆：Opus 5.5 面向需要仔细判断的复杂工作；Sonnet 5.5 面向范围明确的日常任务，比如修 bug、快速迭代功能。它还能做出比较像样的文档、幻灯片和表格，官方说它“对设计有不错的眼光”，速度快也适合反复改稿。Haiku 5.5 会在未来几周加入家族，面向高吞吐、低延迟的场景。</p>
+<div><table>
+<thead>
+<tr>
+<th>你的工作</th>
+<th>先选</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>范围明确的日常编码：修 bug、快速迭代功能、按需求验证</td>
+<td>Sonnet 5.5</td>
+</tr>
+<tr>
+<td>大量的日常开发</td>
+<td>Sonnet 5.5</td>
+</tr>
+<tr>
+<td>要有设计感的文档、幻灯片、表格：一页纸、图解、总结页、文档修改、表格整理</td>
+<td>Sonnet 5.5</td>
+</tr>
+<tr>
+<td>反复运行、定义清楚的 Agent 任务：调查、审阅、起草</td>
+<td>Sonnet 5.5</td>
+</tr>
+<tr>
+<td>需要仔细判断的复杂工作，包括长程 Agent 式编程（让模型自己连续多步做事）和知识工作</td>
+<td>Opus 5.5</td>
+</tr>
+<tr>
+<td>最难的问题，需要最强的智力</td>
+<td>Opus 5.5</td>
+</tr>
+</tbody>
+</table></div>
+<p>一条更实用的判断标准是：<strong>任务有清晰的规格，并且有办法检查结果，就适合 Sonnet 5.5</strong>。官方的 prompting guide（提示词指南）里也说，最难的长程工作，Opus 是更好的选择。</p>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Cloudflare 新命令行 cf：为 Agent 重做的一套工具</title>
+<link>https://best.xiaohu.ai/article/cloudflare-cf-cli/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:cloudflare-cf-cli</guid>
+<pubDate>Tue, 29 Sep 2026 12:01:36 +0000</pubDate>
+<description>Cloudflare 把整个 API 的 3000 多个操作搬进命令行，输出默认 JSON、配置改用 TypeScript，第一用户从人换成 Agent。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 29 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Cloudflare 新命令行 cf：为 Agent 重做的一套工具</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/cloudflare-cf-cli/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>Cloudflare 新命令行 cf：为 Agent 重做的一套工具</h1><p>Cloudflare 把整个 API 的 3000 多个操作搬进命令行，输出默认 JSON、配置改用 TypeScript，第一用户从人换成 Agent。</p><strong>一分钟速览</strong><ul><li>Cloudflare 命令行工具 Wrangler 的用户，上周有 48% 是 AI Agent，于是它重做了一个以 Agent 为第一用户的新工具：cf。</li><li>Wrangler 只能做约 280 件事，cf 覆盖 Cloudflare 的 3000 多个操作，Agent 从部署网站到买域名，一个工具就能走完。</li><li>最值得看的是设计思路：默认输出 JSON 而不是表格，用一句话搜命令，配置改成编辑器能查错的 TypeScript，工具默认服务的对象从人变成了 Agent。</li></ul><div><p>Cloudflare 的命令行工具 Wrangler，用户正在变成 Agent。Cloudflare 自己给的数字：今年早些时候，Agent 已占 Wrangler 使用量的四分之一，一年前还只是个位数百分比；上周这个比例到了 48%。</p>
+<p>而且 Agent 比人用得更狠：每天用到的不同命令数差不多是人的两倍，一次用到六个以上命令的概率接近人的四倍。</p>
+<p>整个网络的流量也在往同一个方向走。下面是 Cloudflare Radar（Cloudflare 公开的网络流量统计页面）的截图：网页（HTML）请求里，机器发出的占 57.5%，人只占 42.5%；再看所有响应的内容类型，JSON 占 33.1%，比 HTML 的 12% 高出不少。这里的“机器”指所有自动化程序，AI Agent 只是其中一部分，所以它不能直接当成 Agent 的占比，但能说明机器读的数据格式已经比网页还常见。</p>
+<figure>
+<img />
+<figcaption>Cloudflare Radar 截图（近一周数据）：上，机器与人类的 HTML 页面请求占比；下，各类响应的内容类型占比。</figcaption>
+</figure>
+<p>回到 Cloudflare 自己的工具：Wrangler 只覆盖大约 280 个操作，Cloudflare 的产品却有几千个。Agent 能调用的 Cloudflare 功能，因此被 Wrangler 的命令清单卡住了。所以 Cloudflare 做了一个新的命令行工具 <code>cf</code>，目标是把整个 Cloudflare API 都搬进命令行，并且整套设计都以 Agent 为第一用户。目前是开放测试版，用 <code>npm i -g cf</code> 安装。</p>
+<p>下面按 Agent 用起来会卡在哪，讲 <code>cf</code> 的四个改动。</p>
+<h2>一个工具，能做 Cloudflare 上的所有事</h2>
+<p>先看 Wrangler 为什么停在 280 个。它是各个产品团队各自手写的：同样是查看一个资源的信息，有的叫 <code>d1 info</code>，有的叫 <code>hyperdrive get</code>，有的叫 <code>workflows describe</code>；有些团队写了几千行定制体验，结果几乎没人用。团队多了，命令风格很难统一。</p>
+<p><code>cf</code> 换了一种做法：不再手写命令，而是从 API 的 OpenAPI 规范（描述每个接口有哪些参数的标准文档）直接生成。Cloudflare 每个 API 本来就有这份规范，用来生成 API 文档和各语言 SDK；在规范里多标注一点信息，一条叫 Forge 的统一生成流水线就能顺带产出命令行命令。结果是命令从大约 280 个扩到覆盖 3000 多个 API 操作。</p>
+<p>对使用者最直接的变化是：你可以让 Agent 用同一个工具，连着做完“建一个 Worker（Cloudflare 上跑的一小段服务端代码）、部署、监控、用 Cloudflare Access 保护起来、买一个域名、前面再挂 WAF（网站防火墙）”这一串事，中间不用换工具，也不用你去控制台点。</p>
+<figure><figcaption>官方演示：在终端里用 cf 构建并部署 Worker、注册域名、创建访问保护（Access）应用和策略。</figcaption></figure>
+<h2>输出默认是 JSON，不是给人看的表格</h2>
+<p>Agent 用 Wrangler 时，几乎每条命令都会自己加上 <code>--json</code>，再用 <code>jq</code>（命令行里筛选 JSON 字段的小工具）只取需要的几项。但 Wrangler 只有一部分命令支持 <code>--json</code>，其余命令输出的是为人排版的表格。Agent 也能读懂表格，只是比用一条 <code>jq</code> 更费时间、更费 token。</p>
+<figure><figcaption>官方演示：先是 Wrangler，加 <code>--json</code> 报“未知参数”，去掉后输出给人看的表格；再是 cf，默认输出 JSON，接一条 jq 就取出需要的字段。</figcaption></figure>
+<p><code>cf</code> 直接反过来：JSON 是默认输出。给人看时会排版美化，给 Agent 看时压缩掉多余空白，省上下文。Cloudflare 的判断是，这个工具大多数命令人很少直接碰，你真正的用法是让 Agent 先筛选结果，再按你要的格式汇报，给你一张你根本不会细看的表格没有意义。</p>
+<p>但有些事确实需要人来定，比如搜一个域名并购买。这类命令如果用一长串命名参数拼出来很难写，<code>cf</code> 把 API 的要求拆成一组带校验的输入，让人像填表单一样一步步填。</p>
+<figure><figcaption>官方演示：注册域名时，cf 先列出年限、价格、自动续费等条目，再问一句“是否继续”，确认后才注册。</figcaption></figure>
+<p>你也可以直接让 Agent 代办；演示里加上 <code>--force</code>，命令就跳过确认，直接返回 JSON 结果。</p>
+<figure><figcaption>官方演示：同一条注册命令加上 <code>--force</code>，不再询问确认，直接返回 JSON 结果。</figcaption></figure>
+<h2>3000 个命令，Agent 怎么找到要用的那一个</h2>
+<p>命令一多，光把命令清单塞给 Agent 就会撑爆上下文。<code>cf</code> 加了一个 <code>cf cli search</code>：Agent 用自然语言说出想做什么，一个小型搜索索引会根据每个命令的 API 描述和参数，返回匹配的命令列表。Agent 第一次运行 <code>--help</code> 时，<code>cf</code> 会自动告诉它有这个命令可用，不用你在提示词里交代。</p>
+<figure><figcaption>官方演示：先用 <code>cf cli search</code> 描述要做的事（例如“查看队列里卡住的消息”），再运行匹配到的命令 <code>cf queues messages peek</code>。</figcaption></figure>
+<h2>配置文件改成 TypeScript，编辑器会替 Agent 纠错</h2>
+<p>Wrangler 用 TOML 或 JSONC 写配置。Cloudflare 的观察是：TOML 没有可访问的规范，JSONC 虽然可以链接一份规范，Agent 很少去看。<code>cf</code> 的新配置文件叫 <code>cloudflare.config.ts</code>，用 TypeScript 写。好处是，用了 LSP（语言服务协议，编辑器据此提供补全和报错）插件的 Agent，比如 Claude Code 和 Codex，可以直接读到每个字段是什么、能填什么，给出的修改更准。Cloudflare 说，即使 Agent 事先没见过这个格式，也能顺利找到并修改配置，包括 <code>env</code> 这种和 Wrangler 里同名但含义已大幅变化的部分。</p>
+<p>还有一个副作用：配置可以用代码生成。Cloudflare 内部有些 Wrangler 配置文件原本超过 5000 行，里面为每个开发者复制了很多份自定义环境；改成从同一个基础配置按环境生成后，缩短了 40%。一个多环境的 Worker，只需要根据 Vite 自带的 <code>mode</code> 参数切换两套配置：</p>
+<div><pre><code>import { bindings, defineConfig } from "cf/config";
+import * as entrypoint from "./index.js" with { type: "cf-worker" };
+export default defineConfig(({ mode }) =&gt; ({
+  worker: {
+    name: "example-worker",
+    entrypoint,
+    compatibilityDate: "2026-09-27",
+    env: {
+      Environment: bindings.text(`This is ${mode} environment`),
+    },
+  },
+}));
+</code></pre></div>
+<p><code>bindings</code> 是 Worker 能连接的东西（环境变量、密钥、KV 缓存、D1 数据库、R2 存储、队列、AI、向量库、另一个 Worker）的统一入口，编辑器可以自动补全并解释每一项，等于给 Agent 一份可以直接查的清单：</p>
+<div><pre><code>env: {
+  API_URL: bindings.text(
+    mode === "production" ? "https://example.com" : "https://staging.example.com",
+  ),
+  API_TOKEN: bindings.secret(),
+  CACHE: bindings.kv({ id: mode === "production" ? "production-namespace-id" : "staging-namespace-id" }),
+  DATABASE: bindings.d1({ name: `example-${mode}-database` }),
+  UPLOADS: bindings.r2({ name: `example-${mode}-uploads` }),
+  AI: bindings.ai(),
+  // 还有 queue、vectorize、worker 等
+}
+</code></pre></div>
+<p><code>triggers</code> 则把“什么会让这个 Worker 跑起来”集中到一处：网页请求、定时任务、队列消息、收到邮件，以前散在配置文件各处，现在写在同一个块里：</p>
+<div><pre><code>triggers: [
+  triggers.fetch({ pattern: "example.com/*" }),
+  triggers.scheduled({ schedule: "0 * * * *" }),
+  triggers.queue({ name: "jobs", maxBatchSize: 10 }),
+  triggers.email({ addresses: ["<a>[email&#160;protected]</a>"] }),
+],
+</code></pre></div>
+<p>现在这份配置只支持 Worker，官方的计划是让它管理整个 Cloudflare：接下来会加策略、域名区域（zone）、DNS 等，全部用同一种带类型的配置来写。</p>
+<h2>本地开发默认换成 Vite</h2>
+<p>Wrangler 诞生时 Vite 还不存在，所以它用 esbuild 打包，本地开发服务器（默认在 8787 端口）也是自己写的，想改就得深入 Miniflare（Cloudflare 的本地运行环境）内部。现在 Vite 生态成熟，有大量插件和带热更新（HMR，改代码后页面自动刷新）的开发服务器，打包用 Rust 写的 Rolldown 做 tree-shaking（剔除没用到的代码）。<code>cf</code> 默认建立在 Vite 和 Cloudflare Vite 插件之上，配合 Vitest 插件做测试，得到和 Workers 线上运行环境一致的开发测试环境。</p>
+<p>Cloudflare 说，大多数 Worker 可以很顺利地让 Agent 帮你迁过去。但不是所有项目都能马上搬：仍然依赖 esbuild 的 JavaScript Worker，以及 Rust 和 Python 写的 Worker，<code>cf</code> 会继续把开发和部署交给 Wrangler 处理。</p>
+<h2>从 Wrangler 迁移</h2>
+<p>已有的 Worker，运行 <code>cf migrate</code> 即可：已经用 Vite 构建的，会被转换成 <code>cloudflare.config.ts</code>；还靠 Wrangler 跑 esbuild 的，构建仍交给 Wrangler。新项目用 <code>cf init</code> 起步，<code>cf init</code> 和 <code>cf deploy</code> 会替你装好 Cloudflare Vite 插件并生成配置文件；静态网站依旧不需要配置文件，在项目里运行 <code>cf deploy</code> 就能部署。</p>
+<p>时间表方面：开放测试结束后，Cloudflare 会发布 Wrangler 的最后一个大版本，它会引导你和你的 Agent 改用 <code>cf</code>，之后 Wrangler 再维护 18 个月，给大家留出迁移时间。<code>cf</code> 本身是开源的，问题可以提到 GitHub 的 cloudflare/cf 仓库。</p>
+<h2>为什么不给 Wrangler 打补丁，而是换新工具</h2>
+<p>这里有个反直觉的点。Wrangler 有多年文档、博客和第三方教程被大模型学进去，Agent 对它已经很熟；换一个 Agent 没见过的新工具，听上去更容易出错。Cloudflare 的看法是恰恰相反：要在旧工具里做这么大的改动，就得让 Agent 忘掉学过的旧用法，比如同名的 <code>env</code> 含义变了；而全新的工具反而干净，官方可以靠设计上的取舍、能注入的上下文和可追加的 AGENTS.md 文件（项目里写给 Agent 看的说明），把新用法直接教给 Agent。这类给 Agent 的引导，官方说目前只做了几项，后续还会增加；其中让 Agent 自己找命令的办法，官方认为以后会成为更多命令行工具的标配。</p>
+<h2>该怎么看</h2>
+<p>这篇讲的不只是 Cloudflare 多了一个命令行，而是一个更大的转向：<strong>工具的主要用户从人变成 Agent 后，产品设计的默认值都要反过来。</strong> 输出格式默认给机器，找命令靠搜索而不是背，配置要让编辑器能检查，旧习惯不惜断代。如果你在做面向 Agent 的工具或 API，这四点可以直接对照。</p>
+<p>两点要注意：开头的 48% 是 Cloudflare 统计的 Wrangler 使用量里 Agent 的占比，不代表所有开发者；<code>cf</code> 目前是开放测试版，配置格式现在只支持 Worker，DNS、策略等其余产品的配置还在计划中。</p>
+</div><div><div><div>来源</div><div><span>Introducing cf: the agentic CLI for the entire Cloudflare API</span><span>Matt “TK” Taylor, Samuel Macleod（Cloudflare）<span>·</span><a href="https://blog.cloudflare.com/cloudflare-cf-cli-launch">查看主材料</a></span></div></div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】让 Claude 帮你建 eval、调 prompt，怎么不被分数骗</title>
+<link>https://best.xiaohu.ai/article/eval-design-hillclimbing/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:eval-design-hillclimbing</guid>
+<pubDate>Tue, 29 Sep 2026 12:01:36 +0000</pubDate>
+<description>Anthropic 给 claude-api skill 加了 build-eval 和 hillclimb 两条命令：一条帮你出题打分，一条每轮只改一处、拿留出的题抓过拟合。客服案例里成本降到原来的五分之一，skill 自己从 66% 调到约 88%。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 29 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">让 Claude 帮你建 eval、调 prompt，怎么不被分数骗</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/eval-design-hillclimbing/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>让 Claude 帮你建 eval、调 prompt，怎么不被分数骗</h1><p>Anthropic 给 claude-api skill 加了 build-eval 和 hillclimb 两条命令：一条帮你出题打分，一条每轮只改一处、拿留出的题抓过拟合。客服案例里成本降到原来的五分之一，skill 自己从 66% 调到约 88%。</p><strong>一分钟速览</strong><ul><li>让 Claude 帮你调 prompt 最怕的不是改不好，是分数涨了线上没变：它每轮只改一处，还留一批从不给它看的题当裁判，train 涨 test 不动就回退。</li><li>前提是 eval 本身可信：题要像生产、别只挑今天模型答错的题，评分方式先由你批准，再读一批打过分的记录。</li><li>客服案例里这套流程把成本压到原来的五分之一，留出集准确率从 78.6% 升到 90.5%。</li></ul><div><p>做 AI 应用的人迟早会碰到两件事：怎么知道它做得好不好，以及怎么让它变得更好。前一件靠 eval（评测，一批固定的题加一个打分办法），后一件靠 hillclimb（爬山，字面意思是每次改一点、看分数涨没涨、涨了就留下）。听起来简单，难在两头都很容易自己骗自己：题出得不对，分数就没意义；改得太贴着这批题，分数涨了线上却没变好。</p>
+<p>Anthropic 的 Lance Martin 写了一篇长文，把这两件事的原则讲了一遍，然后说明 Claude Code 里的 claude-api skill 新增的两条命令怎么把这些原则变成流程：<code>/claude-api build-eval</code> 在你的代码库里建一套评测，<code>/claude-api hillclimb</code> 拿这套评测去改进你的应用，每次只改一处，还留一批从不给它看的题来抓过拟合。文章最后用两个实际案例收尾：一个把客服场景的成本压到原来的五分之一，一个把 claude-api skill 自己从 66% 调到约 88%。</p>
+<p>下面按文章的顺序讲：先是好 eval 的样子，再是 build-eval 怎么建，然后是 hillclimb 怎么爬又怎么防过拟合，最后看两个案例。</p>
+<h2>一套好 eval 长什么样</h2>
+<p>文章给了四个特征（图 1）。</p>
+<figure>
+<img />
+<figcaption>图 1：好 eval 的四个特征：更强的模型分数更高、更高的 effort 分数更高、离满分还有空隙、多次运行波动小</figcaption>
+</figure>
+<p><strong>题要像生产环境里的题。</strong> 有人挑题是因为好生成、好打分，结果题目分布和真实用户遇到的完全不是一回事。评测要测的是你在乎的那类任务。</p>
+<p><strong>模型越强、想得越多，分数应该越高。</strong> 换更强的模型、把 <a>effort</a>（推理投入档位）调高，分数理应上升。如果不升，多半是题目有歧义，或者打分的 grader 校准得不对，把成绩拖住了。</p>
+<p><strong>最强模型也得留出空隙。</strong> 最强模型在最高 effort 下应该明显低于 100%，否则你改了什么都看不出差别。而且这个空隙不能是「不可能的题」造成的：一个常见的信号是，某道题不管重复跑多少次都全军覆没。好题的标准是，两个领域专家看了会给出同一个结论，而且 grader 检查的每一点，题目里都写明了。</p>
+<p><strong>每次跑的结果波动要小。</strong> 波动大，往往是题有歧义，或者 grader 对同一份输出前后判得不一样。波动也可能藏在配置里，比如 effort 其实没有被一致地应用；还有环境的影响，上一轮遗留的文件、git 历史，可能把答案直接递给了 Agent。</p>
+<h3>别只挑「今天的模型做不好」的题</h3>
+<p>文章专门警告了一种很自然的做法：把当前模型答错的题收集起来当评测。模型的能力是参差的，有的地方很强，有的地方莫名其妙地弱。你专挑它今天的弱点，量到的只是这个模型的「失败指纹」，而不是你的应用里真正难、真正有价值的部分。等下一代模型出来，这些谷底可能被整体抬平，你的评测就失去了意义（图 2）。</p>
+<figure>
+<img />
+<figcaption>图 2：左：只在当前模型出错处取样，题目全落在能力曲线的谷底；右：由人判断哪些题难，题目分布在峰谷各处，还包含不应触发的用例</figcaption>
+</figure>
+<p>更好的做法是让人来判断哪些题难，并且能说出它为什么难，说不出就先别放进去。另外要放进从生产流量、bug 报告和工单里来的具体失败。但也不要只信用户流量：用户往往只会试他们预期能成的事，所以纯从流量里抽的题可能偏简单。图 2 右侧还画了一类「不应触发」的用例，也就是该不动作的场景，同样要有。</p>
+<h2>/claude-api build-eval：让 Claude 采访你，然后把评测建好</h2>
+<p>在 Claude Code 里运行这条命令，Claude 会先采访你，然后在你的代码库里把评测建出来，并且在几个关键点停下来等你批准。</p>
+<h3>先定题目：谁的数据优先</h3>
+<p>Claude 帮你找输入的顺序是这样的：</p>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Claude Sonnet 5.5 发布：编码性能和 Opus 5.5不相上下 价格是后者一半</title>
+<link>https://best.xiaohu.ai/article/claude-sonnet-5-5/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:claude-sonnet-5-5</guid>
+<pubDate>Tue, 29 Sep 2026 12:01:36 +0000</pubDate>
+<description>同价升级的重点，不是单个基准分数，而是修 bug、操作工具和制作文档时少等待、少迭代；结合官方演示看清它能做什么。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 29 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Claude Sonnet 5.5 发布：编码性能和 Opus 5.5不相上下 价格是后者一半</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/claude-sonnet-5-5/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>Claude Sonnet 5.5 发布：编码性能和 Opus 5.5不相上下 价格是后者一半</h1><p>同价升级的重点，不是单个基准分数，而是修 bug、操作工具和制作文档时少等待、少迭代；结合官方演示看清它能做什么。</p><strong>一分钟速览</strong><ul><li>Anthropic 发布 Sonnet 5.5，要让边界清楚的日常工作以接近高端模型的质量、更少的等待和步骤完成。</li><li>它与 Sonnet 5 同价；官方测试里输出更快、每项任务的总费用更低，编码和知识工作能力也明显提高。</li><li>先用真实任务试 Medium 或更低 effort；任务复杂、目标持续变化时，再考虑提高档位或改用 Opus。</li></ul><div><p>Anthropic 发布了 Claude Sonnet 5.5：Sonnet 5 的同价升级，也是 Opus 5.5 更快、价格更低的搭档。它要解决的痛点很实际——修一个 bug、改一组文件或做一份汇报，模型也许都能完成，但如果反复试错、调用工具和生成长篇中间结果，等待时间与整项任务的费用就会上升。Sonnet 5.5 希望让这些边界清楚的日常工作更快交付，同时把需要长期判断的开放任务留给 Opus。</p>
+<p>这次发布的主要特点可以先记住四点：</p>
+<ul>
+<li><strong>更快完成同一项任务。</strong> Sonnet 5.5 与 Sonnet 5 的 API 单价相同；Anthropic 称它输出快 30% 以上、通常使用更少 token，在其测试中每任务成本最多低 30%。</li>
+<li><strong>更会连续做编码工作。</strong> 提升不只体现在补代码，还体现在命令行操作、多文件修改、工具调用和反复迭代。</li>
+<li><strong>更接近可交付的办公产物。</strong> 它能按材料和模板制作文档、幻灯片与表格，知识工作评测的部分得分已接近 Opus 5.5。</li>
+<li><strong>可以按任务调节投入。</strong> 用 effort 档位在速度、费用和质量之间取舍；简单任务不必一律开到 Max。</li>
+</ul>
+<figure><figcaption>Claude 官方的 Sonnet 5.5 发布短片。</figcaption></figure>
+<p>下面按这四点展开：它到底快在哪里、能接哪些工作，以及怎么设置才划算。</p>
+<h2>同样的价格，为什么一件事做下来可能更省</h2>
+<p>先看两个容易混淆的价格。Sonnet 5.5 输入每百万 token 2 美元，输出 10 美元，缓存读取 0.20 美元、缓存写入 2.50 美元；Sonnet 5 也是同一档价格。与 Opus 5.5 相比，它的输入、输出和缓存写入单价是后者的一半，缓存读取则同为 0.20 美元。</p>
+<div><table>
+<thead>
+<tr>
+<th>API 计费项（每百万 token）</th>
+<th>Sonnet 5.5</th>
+<th>Opus 5.5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入</td>
+<td>2 美元</td>
+<td>4 美元</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>10 美元</td>
+<td>20 美元</td>
+</tr>
+<tr>
+<td>缓存读取</td>
+<td>0.20 美元</td>
+<td>0.20 美元</td>
+</tr>
+<tr>
+<td>缓存写入</td>
+<td>2.50 美元</td>
+<td>5 美元</td>
+</tr>
+</tbody>
+</table></div>
+<p>但只比单价会漏掉更重要的一半。假设两个模型完成同一个修复，其中一个反复搜索、重写和调用工具，最终仍可能花得更多。Anthropic 的成本—得分图因此把横轴设为<strong>每次任务的实际成本</strong>，纵轴设为得分；同一个模型的 Low、Medium、High、Xhigh、Max effort 分别是不同的点。越靠左上，代表在这项评测里花更少的钱拿到更高的分数。</p>
+<p>在几项评测中，Sonnet 5.5 用 Low 或 Medium effort 就超过了 Sonnet 5 的最佳成绩，而每任务成本约为后者的十分之一。到了高 effort，它有时接近 Opus 5.5 的得分，费用也逐渐接近。也就是说，升级的价值不只是“换个更聪明的模型”，而是让常规任务用较少投入达到可用质量；十分之一是这些评测中的结果，不是所有账单都会打这个折。</p>
+<figure><figcaption>Claude 官方的并列演示：同一可视化任务中，两代模型从编写代码到出现运行画面的过程。</figcaption></figure>
+<h2>编码：从补一行代码，进到连续操作和完成任务</h2>
+<p>Sonnet 5.5 最醒目的数字是 Terminal-Bench 4.0 的 70.6%，Sonnet 5 为 10.3%。这项评测要求代理在命令行里完成多步骤专业任务，所以它反映的不是孤立地补一行代码，而是读环境、操作工具、修改、运行和收尾这一串动作。发布表中 Opus 5.5 为 66.4%；其脚注明确说这个 Opus 数字取自 Xhigh effort。Sonnet 在这个基准上领先，不等于它在所有复杂编码项目里都比 Opus 强。</p>
+<p>其他两个编码基准对应不同工作。CursorBench 4.0 取自真实 Cursor 会话中的多文件、含糊任务，Sonnet 5.5 为 55.5%，Sonnet 5 为 34.1%，Opus 5.5 为 57.8%。FrontierCode 看代码变更能否不经人工修改就合并；Sonnet 5.5 的 Xhigh 结果是 52.1%，Opus 5.5 为 54.4%。三项测试合起来说明，它在读环境、使用工具、修改并交付变更这一整串工作上进步明显。</p>
+<figure><img /><figcaption>Claude 官方主题帖发布的完整评测表；不同测试的分数单位和条件各不相同，点击可放大。</figcaption></figure>
+<p>真实产品测试更能说明这些能力如何用起来。Base44 在 118 次应用构建中记录到，Sonnet 5.5 的应用得分与 Opus 5 持平，平均只需 3.6 轮迭代，Opus 5 为 7.7 轮。Unity 的测试会重新打开项目并在运行时检查结果；它报告 Sonnet 5.5 完成了多步骤编辑器与编码任务中的 90%。Epic Games 提到游戏系统架构和多小时任务，CodeRabbit 则准备先迁移简单、中等难度的代码审查。这些是各家公司自己的测试和使用计划，不是同一张排行榜。</p>
+<p>ClaudeDevs 的短视频给出另一个更小的例子：一个调度器让四个代理从不同位置并行尝试解谜。视频标注的是 10 次运行的中位数，Sonnet 5.5 在 10 秒、约 2.3 万 token、0.11 美元时完成；Sonnet 5 在 15 秒、约 2.8 万 token、0.15 美元时完成。差异不只在模型回答速度，还在整条工具调用链里走了多少步。</p>
+<figure><figcaption>ClaudeDevs 官方并行代理解谜演示：画面同时记录时间、探索位置、工具调用、token 与费用。</figcaption></figure>
+<h2>文档、幻灯片和表格：从找材料走向成品</h2>
+<p>Anthropic 把 Sonnet 5.5 的另一重点放在知识工作：不是只回答“财报里有什么”，而是把材料读完、组织要点，再按指定格式做出可用文件。GDPval-AA 涵盖 44 种职业、九个行业的工作任务，Sonnet 5.5 得到 1844，Opus 5.5 为 1846，Sonnet 5 为 1449。长流程知识工作评测 AA-Briefcase v1.1 中，三者分别是 1811、1822 和 1359。两项分数显示，Sonnet 5.5 在这些任务上已非常接近 Opus 5.5。</p>
+<p>发布页给了一个更直观的例子：把一家上市公司的季度财报材料、电话会记录和幻灯片模板交给模型，要求制作 10 页经营复盘；Anthropic 请的两位专家认为第一稿就能发送。这里的重点不是“会写幻灯片”，而是它能把找材料、提炼重点、遵循模板连成一项任务。Claude 官方主题帖还放出了沙丘网页的并列演示，让人看到它在视觉产物上的具体表现。</p>
+<figure><figcaption>Claude 官方设计演示：两代模型根据同一提示制作“风塑造沙丘”的单文件网页。</figcaption></figure>
+<p>实际团队看重的还包括“同样质量用了几步”。Slack 说未改提示词时，其离线 Slackbot 测试几乎全面优于 Sonnet 5，输出 token 少约 14%；Zendesk 称在数百个客服回复和升级案例中，工单处理快了 20%；Balyasny Asset Management 说，在其 2441 道金融任务的私有测试里，每答案约用 12.1 万 token，而 Sonnet 5 约用 49.7 万；Lovable 的编码评测则记录到工具调用少约三分之一、shell 运行约减半。Box 报告 2.4 倍的处理速度和少 12% 的总 token；Atlassian 预计 Rovo Agents 可提速最多 30%。这些数字来自不同公司的不同任务，意义是提示团队应测自己的“每件事成本”，不能加总或相互当作复现。</p>
+<p>其他任务也有提升：Sonnet 5.5 在 Humanity’s Last Exam 得到 64.5%（使用工具），OSWorld 2.1 得到 80.1%（部分任务集），Chartography 看图表得到 61.6%（不使用工具）；Sonnet 5 对应为 54.9%、57.0% 和 15.6%。这些分数指向更广的推理、电脑操作和读图能力，但它们不是同一种测试，不能相加成一个总分。</p>
+<h2>effort：先按任务调档，不要习惯性开 Max</h2>
+<p>effort 是模型在一项任务中投入多少推理与检查。Claude Code 和 Claude 应用默认 Medium，Claude Platform 默认 High。低档通常更快、更省；高档可以多检查，适合更难的任务，但投入增加也会拉高每任务费用。官方四张成本—得分图把这件事画得很清楚：蓝色的 Sonnet 5.5 在较低档位就能超过旧版不少结果；档位继续升高，得分和成本都向 Opus 靠拢。</p>
+<p>FrontierCode 还出现一个值得记住的例外：Sonnet 5.5 在 Xhigh 得到 52.1%，开到 Max 反而是 46.2%。Anthropic 解释，Max 更常触发多代理代码审查；两个被检查的案例因此超时或改了任务范围外的代码。对修 bug、改文件这类有明确验收标准的工作，先从 Medium 或较低档位测起，结果不够再加投入，比一上来开 Max 更符合这次发布展示的成本优势。</p>
+查看四张官方成本—得分图：知识工作、CursorBench、FrontierCode、Terminal-Bench
+<figure><img /><figcaption>AA-Briefcase：横轴是每任务成本，纵轴是知识工作得分。</figcaption></figure>
+<figure><img /><figcaption>CursorBench：低档 Sonnet 5.5 已高于旧版较高档位。</figcaption></figure>
+<figure><img /><figcaption>FrontierCode：Max 不一定比 Xhigh 更好。</figcaption></figure>
+<figure><img /><figcaption>Terminal-Bench：图中横轴是每次尝试成本，与其他图的每任务口径不同。</figcaption></figure>
+<h2>同一提示词，两代模型的网页作品有什么不同</h2>
+<p>发布页让 Sonnet 5 与 5.5 各用一个 HTML 文件完成三项可视化任务。静态图方便看清两边到达了哪一步；下方的原始动态程序还能看到代码生成和作品运行的过程。</p>
+<h3>400 只椋鸟群飞</h3>
+<p>Sonnet 5 的截图仍在写入代码（4520 token）；Sonnet 5.5 在输出 4158 token 后，画面已有运行中的群飞效果。</p>
+<figure><img /><figcaption>同一椋鸟群提示词下，Sonnet 5 的官方演示截图仍处于编写代码阶段。</figcaption></figure>
+<figure><img /><figcaption>Sonnet 5.5 的对应截图已有可见运行画面。</figcaption></figure>
+<h3>风塑造沙丘</h3>
+<p>旧版截图仍在写代码（2966 token）；新版在输出 2720 token 后，呈现出多层线条沙丘与红日。</p>
+<figure><img /><figcaption>沙丘任务中，Sonnet 5 的截图尚未显示运行结果。</figcaption></figure>
+<figure><img /><figcaption>Sonnet 5.5 的对应截图展示了绘制结果。</figcaption></figure>
+<h3>24 个小钟组成大钟</h3>
+<p>这一组的差别尤其直观：Sonnet 5 在写入 27,581 token 时仍停留在代码画面；Sonnet 5.5 输出 14,386 token 后，画面上的小钟指针已拼出大数字。</p>
+<figure><img /><figcaption>小钟任务中，Sonnet 5 的截图仍在生成代码。</figcaption></figure>
+<figure><img /><figcaption>Sonnet 5.5 的对应截图已有可见结果。</figcaption></figure>
+<p>想看完整过程，可展开下面六个原始动态程序。旧版截图拍在编写过程中，并不意味着它最终做不出作品；这里展示的是这些官方演示在对应时刻的进度。</p>
+播放三组对照的六个原始动态程序
+<p><strong>椋鸟群飞 · Sonnet 5</strong></p>
+<p><strong>椋鸟群飞 · Sonnet 5.5</strong></p>
+<p><strong>风塑造沙丘 · Sonnet 5</strong></p>
+<p><strong>风塑造沙丘 · Sonnet 5.5</strong></p>
+<p><strong>小钟组成大钟 · Sonnet 5</strong></p>
+<p><strong>小钟组成大钟 · Sonnet 5.5</strong></p>
+<h2>上线使用时，还会遇到哪些设置和限制</h2>
+<p>除了性能，Sonnet 5.5 还调整了安全处理。Anthropic 的约 1850 个自动化行为场景测试中，它在多数对齐、诚实和抗滥用指标上追平或优于 Sonnet 5；Opus 5.5 的整体结果仍略好。这说明新版通过了更严格的发布检查，但具体工作流仍需要照常设置权限和验收。</p>
+<p>实际会遇到的变化有三类：普通找 bug、修 bug 不受网络安全回退影响，更高风险的网络安全请求则可能转到 Sonnet 5；生物领域沿用原有防护，少数正当请求可能被误拦；跨账号移动对话时，扩展后的 preserved thinking 会要求在新账号重新生成推理内容。对一般写代码和做文档的人，前两项可能不常出现；团队如果有安全研究或跨组织会话迁移，就需要提前测试。</p>
+<h2>哪些任务先换 Sonnet 5.5</h2>
+<p>先从输入、验收标准都清楚的任务试起：修一个可复现的 bug、按模板做经营复盘、批量处理客服工单。让 Sonnet 5.5 在 Medium 或较低 effort 跑一组真实样本，记录完成率、返工时间、工具调用、耗时和最终费用，再与 Sonnet 5 或 Opus 比。若目标不断变化、需要长期取舍，Opus 5.5 仍是 Anthropic 推荐的起点。</p>
+<p>开发者可在 Claude Platform 使用模型 ID <code>claude-sonnet-5-5</code>，也可通过 AWS、Google Cloud 和 Microsoft Azure 使用；Anthropic 称它支持零数据保留。已经把 Sonnet 的 thinking 关闭的团队，迁移到 5.5 时还需按官方迁移指南改用 <code>between_tools</code> 设置。下一款面向高吞吐、成本敏感应用的 Haiku 5.5，发布页说将在随后加入家族；这里还没有可据以选型的实测数据。</p>
+<p>Sonnet 5.5 的价值不是每个榜单都赢，而是让更多日常编码和办公任务不必动用 Opus，也能较快做出可交付的结果。最值得验证的不是单个分数，而是你自己的工作究竟少等了多久、少返工了几轮、少花了多少钱。</p>
+</div><div><div><div>来源</div><div><span>Introducing Claude Sonnet 5.5</span><span>Anthropic<span>·</span><a href="https://www.anthropic.com/claude-sonnet-5-5">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/claudeai/status/2104633115620823187">Claude Sonnet 5.5 官方主题帖</a><span>·</span><a href="https://x.com/ClaudeDevs/status/2104641318555353400">Sonnet 5.5 开发者主题帖</a></div></div><div><div>本站说明</div><div>图像、视频与数据来自 Anthropic 发布页及其官方账号；客户测试按原出处标注。</div></div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Manus 发布 Manus 2.0、视频编辑器Alchemy、Game Dev和个人Agent： Cue</title>
+<link>https://best.xiaohu.ai/article/manus-2-0-cascade-studio-cue/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:manus-2-0-cascade-studio-cue</guid>
+<pubDate>Tue, 29 Sep 2026 12:01:36 +0000</pubDate>
+<description>Manus 2.0 发布 Cascade、云电脑、事件自动化、Studio、视频编辑器、Game Dev、Computer Use 与 Cue，把一次性 Agent 任务变成能持续运行和继续修改的项目。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 29 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Manus 发布 Manus 2.0、视频编辑器Alchemy、Game Dev和个人Agent： Cue</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/manus-2-0-cascade-studio-cue/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>Manus 发布 Manus 2.0、视频编辑器Alchemy、Game Dev和个人Agent： Cue</h1><p>Manus 2.0 发布 Cascade、云电脑、事件自动化、Studio、视频编辑器、Game Dev、Computer Use 与 Cue，把一次性 Agent 任务变成能持续运行和继续修改的项目。</p><strong>一分钟速览</strong><ul><li>Manus 2.0 的核心不是多了几个创作入口，而是把一次性 Agent 任务改造成能持续运行、被事件触发并由人接手修改的项目。</li><li>Cascade、自动化和云电脑分别解决工具负担、何时开工和在哪里长期运行，三者合在一起才构成全天候 Agent。</li><li>12 个 Alchemy 示例说明高质量成片靠的是搜索、代码、生成、配音、剪辑和导出的混合工具链，短提示词本身并不能保证复现展示片。</li><li>真正决定这套系统是否好用的，是长流程能否稳定运行、权限是否好控制、失败能否恢复，以及持续使用的成本是否可预期。</li></ul><div><p>Manus 发布了 Manus 2.0：它不只升级了负责调度 Agent 的底层框架，还同时推出云电脑、事件自动化、Manus Studio、视频编辑器、Alchemy、Game Dev、Computer Use，以及独立的个人 Agent 应用 Cue。</p>
+<p>这些功能共同解决一个很实际的问题：过去的 Agent 擅长“一次生成”，却不擅长把工作持续做下去。视频生成后很难只换一个片段，自动化会随着本机关闭而中断，任务也无法在邮件、日历或业务数据发生变化时自己开始。Manus 2.0 想把一次性任务变成一个<strong>能持续运行、可以继续编辑、也能随时由人接手的项目</strong>。</p>
+<figure>
+<img />
+<figcaption>Manus 2.0 同时更新了 Agent 底座、运行环境、创作工作台和个人 Agent 应用。</figcaption>
+</figure>
+<h2>Manus 2.0 发布了哪些主要功能</h2>
+<ul>
+<li><strong>Cascade</strong>：新版 Agent 框架，根据任务按需加载工具，并把互不依赖的步骤并行执行。</li>
+<li><strong>云电脑</strong>：为项目提供一台持续在线的计算机，可运行自动化、应用、游戏服务器和渲染任务。</li>
+<li><strong>事件自动化</strong>：除了定时执行，还能在收到邮件、出现弃购、竞品调价或日历事件发生时启动任务。</li>
+<li><strong>Manus Studio</strong>：把文档、表格、幻灯片、网站、代码、游戏和视频放进同一个项目空间。</li>
+<li><strong>视频编辑器与 Alchemy</strong>：先生成初剪，再直接修改时间线、素材、文字和音频；Alchemy 会组合视频生成与代码生成完成更复杂的作品。</li>
+<li><strong>Game Dev</strong>：从可玩模板开始制作游戏，管理素材和代码，随后发布成网页或连接云电脑运行多人服务器。</li>
+<li><strong>Computer Use</strong>：在授权范围内远程操作本地电脑中的文件、浏览器和应用。</li>
+<li><strong>Cue</strong>：让不同个人 Agent 拥有自己的邮箱、电话、电脑、支付额度、自动化和记忆。</li>
+</ul>
+<p>下面这段官方总览视频把这些能力串在了一起：从生成视频和多人游戏，到云电脑、事件自动化、远程控制，再到 Cue 的邮箱、电话和协作。</p>
+<p></p>
+<h2>Cascade：需要什么工具，再加载什么工具</h2>
+<p>Cascade 是 Manus 新版自研 Agent 框架。它不是一个新的大模型，而是负责给模型准备工具、保存项目上下文、安排执行步骤和处理结果的那一层。</p>
+<p>旧式 Agent 往往在任务开始前就把大量工具说明塞进上下文，无论这次任务是否用得上。Cascade 让项目先保持轻量：需要剪视频时才加载视频能力，需要写代码时才加载开发环境；搜索素材和生成配音如果互不依赖，也可以同时执行。</p>
+<figure>
+<img />
+<figcaption>在 Manus 展示的同一项内部测试配置中，Cascade 的 Token 消耗减少 23.2%，完成时间缩短 28.2%，系统成本降低 32%。</figcaption>
+</figure>
+<p>这三个数字指向同一件事：减少不必要的上下文和等待，让 Agent 用更少资源完成任务。它们来自 Manus 自己的一项测试配置，适合用来理解 Cascade 的优化方向，不等于每种任务都会固定提升三成。</p>
+<h2>云电脑与事件自动化：人下线了，项目还在运行</h2>
+<p>Agent 要持续工作，需要一台不会随着笔记本合盖而消失的机器。Manus 的云电脑给每个项目提供独立运行环境，可以长期保存文件、服务和进程。</p>
+<figure>
+<img />
+<figcaption>云电脑可用于运行自动化、构建 Mac 与 iOS 应用、托管游戏服务器、3D 渲染、Windows 软件，以及网站或应用托管。</figcaption>
+</figure>
+<p>事件自动化负责决定任务何时开始。它不再局限于“每天九点运行”，还可以监听已经连接的服务：收到新邮件、Shopify 出现弃购、广告数据变化、日历事件开始或竞品价格发生变化，都能触发后续任务。</p>
+<figure>
+<img />
+<figcaption>事件发生后，Manus 可以继续完成生成周报、起草挽回邮件或更新销售资料等后续步骤。</figcaption>
+</figure>
+<p>把两者放在一起就容易理解：事件自动化负责叫醒任务，云电脑负责让任务有地方持续运行，Cascade 再为它调来所需工具。</p>
+<h2>Manus Studio：AI 交付的不只是文件，而是可继续修改的项目</h2>
+<p>Manus Studio 是新版的统一创作空间。网站、应用、自动化归入 Build，文档、幻灯片和媒体归入 Create，也可以直接从本地文件开始。</p>
+<figure>
+<img />
+<figcaption>不同类型的产物被放进同一个 Studio，而不是散落在彼此独立的聊天任务里。</figcaption>
+</figure>
+<p>它最重要的变化不是工具数量，而是交付形式。AI 做完第一轮后，项目仍保留素材、代码、时间线和上下文。人可以进入项目修改细节，再让 Manus 接着处理修改后的版本。</p>
+<h2>视频编辑器：初剪交给 AI，细节留在时间线上改</h2>
+<p>过去的一键视频生成很像自动售货机：提示词进去，成片出来。只想替换一张产品图、换一首音乐或缩短一个镜头，也可能要整条重做。</p>
+<p>Manus 视频编辑器把片段、图片、文字、贴纸、动态图形和音频拆成独立素材，再放进时间线。这样既可以让 Agent 修改，也可以由人直接拖动和替换。</p>
+<figure>
+<img />
+<figcaption>生成的成片会回到可编辑时间线，素材、文字与音频不再被锁死在一个最终文件里。</figcaption>
+</figure>
+<p></p>
+<p>官方演示中，用户先用三个海岸片段生成 15 秒视频，随后直接拖动结尾片段，把总时长缩短为 13 秒。整个过程不需要重新描述或重新生成前面的内容。</p>
+<h2>Alchemy：根据目标组合代码、素材、生成模型和剪辑</h2>
+<p>Alchemy 是视频编辑器里的高质量创作模式。用户先提出作品目标，系统再选择视频生成、代码渲染、素材搜索、配音和剪辑等能力，最后把结果放回时间线。</p>
+<figure>
+<img />
+<figcaption>官方界面中的“Made with Alchemy”区域展示了产品广告、故事片、知识解读、软件演示和教程等多种作品。</figcaption>
+</figure>
+<p>Manus Alchemy 展示了 12 个创建视频的示例：每条一个视频，附完整 Prompt。这些 Prompt 也可以交给 Opus 5.5 或 Sonnet 5.5，放在能执行代码、渲染导出、调用工具的 Agent 环境里使用。</p>
+<div><table>
+<thead>
+<tr>
+<th>制作方式</th>
+<th>代表案例</th>
+<th>需要组合的能力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>代码直接渲染</td>
+<td>Ball Escape、Equilibrium、Less, but Better</td>
+<td>代码执行、逐帧渲染、字体、音频和 MP4 导出</td>
+</tr>
+<tr>
+<td>搜索素材再剪辑</td>
+<td>AI 新闻、Fat Bear Week、Creative Montage</td>
+<td>联网检索、脚本、素材、TTS 和剪辑</td>
+</tr>
+<tr>
+<td>生成模型与代码合成</td>
+<td>Emberkeep、BEAT RUSH</td>
+<td>视频生成、角色或镜头一致性、代码特效和节拍同步</td>
+</tr>
+<tr>
+<td>交付可继续编辑的项目</td>
+<td>Equilibrium、视频编辑器示例</td>
+<td>成片、源代码、时间线、字幕和压缩版本</td>
+</tr>
+</tbody>
+</table></div>
+<p>下面的案例库保留了 12 段展示视频，并为每条提示词提供中文翻译和英文原文。选择案例后可以查看对应作品并复制提示词。</p>
+<div>
+<div>
+<p>ALCHEMY PROMPT LIBRARY</p>
+<h3>12 条提示词，12 种制作路径</h3>
+<p>选择案例查看原始提示词与展示视频。提示词可复制，但成片还依赖代码、素材、模型、音频与渲染环境。</p>
+</div>
+<div>
+<div></div>
+<div></div>
+<div>
+<div>01 / 12 · 代码动效</div>
+<h4>Motion Design Showreel</h4>
+<p>文字、图形、转场与音效的 15 秒作品集。</p>
+<div>
+<p>中文翻译</p>
+<blockquote>制作一段充满动感的 15 秒动态图形视频，展现你作为动效设计师有多出色。</blockquote>
+<p>English prompt</p>
+<blockquote>Make a dynamic 15-second motion graphics video that shows what an incredible motion designer you are.</blockquote>
+复制中英提示词
+</div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Google 推出一个类似个人 Agent 的实验性产品：CC，一个专门服务于家庭场景的“群组级 AI 助理”</title>
+<link>https://best.xiaohu.ai/article/google-cc-family-agent/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:google-cc-family-agent</guid>
+<pubDate>Tue, 29 Sep 2026 12:01:36 +0000</pubDate>
+<description>它更像一个数字家庭管家：拥有独立 Google 身份，由最多六名成员分别授权，再把分散的通知、日程和表格转成全家可见的安排与待办。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 29 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Google 推出一个类似个人 Agent 的实验性产品：CC，一个专门服务于家庭场景的“群组级 AI 助理”</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/google-cc-family-agent/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>Google 推出一个类似个人 Agent 的实验性产品：CC，一个专门服务于家庭场景的“群组级 AI 助理”</h1><p>它更像一个数字家庭管家：拥有独立 Google 身份，由最多六名成员分别授权，再把分散的通知、日程和表格转成全家可见的安排与待办。</p><strong>一分钟速览</strong><ul><li>Google Labs 把 CC 扩展为家庭群组代理，最多六名成员可共同使用一个拥有独立 Google 身份的 CC。</li><li>每位成员决定分享哪些发送者、邮件、图片、文件和日历；Google 表示，CC 的群组记忆会区分家庭信息与个人偏好。</li><li>官方展示了共享晨报、日历创建和报名表预填；缺少信息或需要对外行动时，CC 会询问成员或请求许可。</li><li>CC 仍是面向美国成年个人账号用户的候补实验，现有演示没有给出错误率、稳定性或外部安全验证。</li></ul><div><p>Google Labs 推出了一款类似个人 Agent 的实验性产品：<strong>CC，一个专门服务于家庭场景的“群组级 AI 助理”</strong>。它由最多六名家庭成员共同使用，帮助处理原本分散在不同邮箱、日历、图片和文件里的家庭事务。</p>
+<p>它要解决的痛点很具体：学校通知可能在一位家长的 Gmail 里，训练安排是一张图片，报名信息藏在 PDF 中，接送和聚餐又需要几个人共同决定。真正耗时的不是看懂某条信息，而是不断转发、补充、确认和执行。</p>
+<h2>这款 AI 究竟是什么？</h2>
+<p>以往的 AI 助手大多是一对一的个人工具，而 <strong>CC 更像一个数字家庭管家，或者被拉进家庭协作中的“新成员”</strong>：</p>
+<ul>
+<li><strong>拥有独立身份：</strong> CC 有自己的、经过验证的 Google 账号和专属邮箱，不需要全家人共享同一个账号密码。</li>
+<li><strong>像协作者一样加入现有工具：</strong> 家庭成员可以直接在 Gmail、Google Chat、Calendar 和 Drive 等日常工具中与它互动，就像把一名助理加入家庭邮件和协作群组。</li>
+<li><strong>由每个人分别授权：</strong> 每名成员自行选择要分享的邮件、发送者、图片、文件夹或日历，其余内容不会自动进入 CC 的共享上下文。</li>
+</ul>
+<h2>它能帮家庭做些什么？</h2>
+<ol>
+<li><strong>自动打理琐碎日程：</strong> 把学校邮件、课程变动或训练时间表发给 CC，它可以识别时间、地点和准备事项，再写入家庭共享日历。</li>
+<li><strong>帮全家做选择与规划：</strong> 例如家庭聚餐时，CC 可以在对话中推荐餐厅、缩小范围；选定后，它会在需要许可时先询问成员，再安排日程。</li>
+<li><strong>协助处理繁琐事务：</strong> 官方展示了预填活动报名 PDF、制作学校用品清单和每周餐食计划，以及通过 Google Maps API 查询连续活动之间的实时车程。</li>
+<li><strong>兼顾全家信息与个人偏好：</strong> 整理购物或餐食计划时，CC 的群组记忆会区分家庭常用信息与某位成员的饮食需求、时区等个人偏好。</li>
+<li><strong>每天汇总全家安排：</strong> 家庭版 “Your Day Ahead” 会集中显示当天日程、截止事项、待办，以及 CC 前一天完成的工作。</li>
+</ol>
+<figure><img /><figcaption>Google 将 CC 标注为“实验”。官方主视觉展示了家庭晨报和孩子的课程安排。</figcaption></figure>
+<p>下面再逐项展开这些功能是怎样实现的，以及官方材料尚未证明什么。</p>
+<h2>1. CC 用独立账号加入家庭群组</h2>
+<p>CC 最初是一项个人效率实验：连接 Gmail、Calendar、Drive 和网页信息，每天发送一封 “Your Day Ahead”，汇总个人日程、待办和需要跟进的邮件。Google 这次把它扩展为最多六人使用的群组代理，重点场景是家庭和住户。</p>
+<p>CC 有自己的、经过验证的 Google 账号和邮箱。家庭成员可以像与其他协作者一样，通过现有的 Google 工具与它互动，而不必彼此共享邮箱或其他平台的密码。</p>
+<p>需要注意的是，“独立账号”是 Google 公布的产品设计，并不意味着 CC 已经成为一个法律意义上的独立主体，也不自动证明所有隐私和安全问题都已解决。</p>
+<h2>2. 每位成员选择 CC 可以看到什么</h2>
+<p>Google 展示了两类分享方式。</p>
+<p>一种是单次分享：把某封邮件转给 CC，在 Google Chat 中发送一张邀请函或训练安排图片，分享一个 Drive 文件夹，或者把 CC 加入一个日历。</p>
+<p>另一种是持续分享：成员可以选择特定发送者，让这些来源的新邮件自动转给 CC，例如学校、航空公司、游泳馆或宠物医院。演示中的设置页还能按类别和具体发送者细分；未选择的来源保持关闭。</p>
+<figure><figcaption>官方权限演示：成员可以按类别和具体发送者选择要分享的来源。</figcaption></figure>
+<p>Google 表示，CC 只响应群组成员，未经许可不会向群组外分享信息或执行动作。这是 Google 对当前产品规则的说明。公开材料没有给出数据保留时间、错误分享率、记忆删除流程或外部安全审计结果，因此不能据此认定相关风险已经消失。</p>
+<h2>3. 用共享晨报同步日程和待办</h2>
+<p>CC 每天会向家庭成员发送共享的 “Your Day Ahead”。官方演示中的晨报汇总了接送、牙医、晚餐、停车许可续期、报名费和学校用品等事项，并用成员标记说明不同事项与谁有关。</p>
+<p>它还会列出 CC 前一天完成的工作。这样，原本只在某位成员邮箱或个人清单里的信息，可以在成员选择分享后，进入全家可见的日程和待办视图。</p>
+<figure><figcaption>官方晨报演示：多名家庭成员的日程、截止事项和任务被集中展示。</figcaption></figure>
+<h2>4. 把邮件和图片转成日历事项</h2>
+<p>官方演示中，CC 收到一封游泳课通知后，识别出孩子姓名、上课时间、地点、需要携带的泳具，以及第一天要提交的免责表，并创建一条家庭日历事项。</p>
+<p>这段演示说明，CC 不只是生成一段邮件摘要，还会把来源中的结构化信息写入日历，并保留与执行有关的细节。</p>
+<figure><figcaption>官方日历演示：课程时间、地点、装备和表格要求一起进入日历事项。</figcaption></figure>
+<h2>5. 预填表格，缺少信息时再询问成员</h2>
+<p>另一段演示中，CC 收到一份夏令营报名 PDF，根据已有信息预填孩子姓名、场次和主要联系人。发现缺少“第二紧急联系人”后，它在家庭对话中询问成员；拿到回答后更新文件，并请成员检查是否可以发送。</p>
+<p>这段演示呈现的是“先准备、再确认”的流程，而不是无人复核的完全自动提交。Google 还列举了制作学校用品购物清单、安排每周餐食、通过 Google Maps API 查询连续活动之间实时车程，以及创建共享 Docs 和 Sheets 等能力。</p>
+<figure><figcaption>官方填表演示：CC 发现缺少第二联系人后提问，补全 PDF 后请成员检查。</figcaption></figure>
+<p>从官方展示的几个场景看，CC 的处理流程可以概括为：接收成员主动分享的信息，整理日程或任务，调用相应工具，遇到缺项或需要许可的动作时向成员询问，再把结果放回家庭使用的 Google 工具中。</p>
+<div>
+<p>从演示可见的使用路径</p>
+<h3>CC 怎样把家庭信息变成下一步动作</h3>
+<ol>
+<li><strong>选择性分享</strong><span>成员转发邮件、图片或文件，或只开放特定发送者。</span></li>
+<li><strong>区分上下文</strong><span>把全家共用的信息与个人偏好分别记住。</span></li>
+<li><strong>整理与执行</strong><span>Gemini 理解内容，CC 在 Calendar、Docs、Sheets 等工具中准备动作。</span></li>
+<li><strong>遇到缺口就询问</strong><span>缺少联系人或需要外部行动时，把问题交还给有权决定的人。</span></li>
+<li><strong>结果回到共享工具</strong><span>形成晨报、日历事项、任务或待复核文件，让群组继续协作。</span></li>
+</ol>
+<p>这是根据 Google 官方文字与演示整理的使用路径，不代表所有内部处理步骤。</p>
+</div>
+<h2>6. 群组记忆区分家庭信息与个人偏好</h2>
+<p>Google 表示，CC 的共享记忆会区分两类信息：一类适用于整个家庭，例如常用购物清单和全家喜欢的餐厅；另一类属于具体成员，例如饮食偏好和所在时区。</p>
+<p>公开材料说明了这种记忆分类的产品目标，但没有解释冲突信息如何处理、成员退出后相关记忆如何删除，也没有给出长期记忆的准确率。因此，目前能确认的是 Google 设计了这套区分机制，不能进一步认定它已经能稳定处理所有家庭权限冲突。</p>
+<h2>CC 背后的技术</h2>
+<p>Google 表示，每个 CC 都运行在独立的<a>隔离云电脑</a>上，由智能体执行框架 Antigravity 和最新 Gemini 模型驱动，并连接 Gmail、Chat、Docs、Calendar、Sheets 和 Maps API 等服务。</p>
+<p>这里的“隔离云电脑”指 Google 为每个 CC 提供独立的执行环境。它是官方描述的架构措施，不等同于外部安全认证，也不能单独证明误操作、错误分享或记忆污染不会发生。</p>
+<h2>目前的使用范围和事实边界</h2>
+<p>CC 仍是 Google Labs 的早期实验，目前面向美国、年满 18 岁、使用个人 Google 账号的用户，支持网页端和移动端；现有用户将收到升级通知，新用户需要加入候补名单。</p>
+<p>官方材料展示了共享晨报、权限设置、日历创建和 PDF 预填等具体流程，但没有公布任务成功率、错误率、响应速度、长期记忆保留规则或外部安全测试。四段视频属于官方选择的产品演示，不能视为复杂家庭环境中的稳定性测试。</p>
+<p>基于目前资料，可以把 CC 理解为 Google 对“多人共同使用一个 AI 代理”的一次具体产品实验：它尝试用独立身份、成员分别授权、共享晨报、任务执行和人工确认来处理家庭协作。至于这些机制在真实家庭中是否足够可靠，还需要后续开放测试和实际数据证明。</p>
+</div><div><div><div>来源</div><div><span>CC, our experimental AI agent built for families</span><span>Google AI<span>·</span><a href="https://x.com/GoogleAI/status/2104645904682946908">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/cc-expanding-to-groups/">The new CC, an AI agent built for families</a><span>·</span><a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/cc-ai-agent/">Help boost your daily productivity with CC</a></div></div><div><div>本站说明</div><div>能力、权限和可用范围均按 Google 官方说明；产品演示不等于独立实测。</div></div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】为什么在 AI 泛滥的时代，最终赢家依然大概率是 OpenAI？</title>
+<link>https://best.xiaohu.ai/article/openai-creates-customers-distribution/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:openai-creates-customers-distribution</guid>
+<pubDate>Tue, 29 Sep 2026 12:01:36 +0000</pubDate>
+<description>模型会被追平，API 流量也会搬家。David George 仍然看好 OpenAI，因为它最擅长让人形成新的 AI 使用习惯，再从海量真实需求中找出下一步该造什么。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 29 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">为什么在 AI 泛滥的时代，最终赢家依然大概率是 OpenAI？</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/openai-creates-customers-distribution/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>为什么在 AI 泛滥的时代，最终赢家依然大概率是 OpenAI？</h1><p>模型会被追平，API 流量也会搬家。David George 仍然看好 OpenAI，因为它最擅长让人形成新的 AI 使用习惯，再从海量真实需求中找出下一步该造什么。</p><strong>一分钟速览</strong><ul><li>当模型可以按任务随时替换，一时的跑分、价格和 API 份额很难单独构成长期护城河。</li><li>OpenAI 更特别的能力，是让人开始用 AI 做以前不会做的事；ChatGPT 的空白对话框就是最典型的一次。</li><li>用户越多、需求越杂，OpenAI 越容易看见大家反复卡在哪里，再把解决办法做成所有开发者都能使用的基础能力。</li><li>真正的平台不只提供模型接口，还要让 Agent 能安全地运行代码、读取数据、调用工具，并在越权或失败时停下来。</li><li>这套看多逻辑仍是一项投资判断：它押注广泛分发会反过来改善模型、产品和成本，但这条因果链尚未被证明。</li></ul><div><p>如果各家的模型都会变强，今天的第一名明天就可能被追上，那么 OpenAI 凭什么长期赢？</p>
+<p>a16z 合伙人 David George 给出的答案，不是模型、芯片，也不是谁的 Token 更便宜。他看好 OpenAI，是因为它同时擅长两件更难复制的事：<strong>先让人形成一种以前没有的 AI 使用习惯，再把这种习惯推向足够多的人。</strong></p>
+<p>ChatGPT 就是最典型的例子。它不是把已有的聊天机器人做得更好，而是让普通人第一次习惯了这样解决问题：不必先找软件、学菜单、想关键词，只要在一个空白框里直接说自己想要什么。</p>
+<p>这篇文章最重要的地方，是把 AI 竞争的因果关系倒了过来。通常我们以为，模型更强，所以用户更多。David George 的判断是：将来可能恰好相反——<strong>因为 OpenAI 接触的用户最多、问题最杂，它才更容易知道下一代模型和产品应该补什么。</strong> 用户越多，它越会造；越会造，又会吸引更多用户。</p>
+<figure>
+<img />
+<figcaption>OAI Signals 图表显示，OpenAI 内部每周活跃企业用户中，插件和 Skills 使用率分别为 95% 和 93%；“头部企业”为 21% 和 19%，“典型企业”为 9% 和 3%。</figcaption>
+</figure>
+<h2>前沿 AI 公司要把领先变成长期优势，有四种办法</h2>
+<ol>
+<li>创造以前没有的使用行为。</li>
+<li>把产品分发给大量用户。</li>
+<li>找到能把价值变成收入的定价方式。</li>
+<li>建立让客户不愿意换走的迁移成本。</li>
+</ol>
+<p>他先把第 4 项——让客户难以换走——大幅打了折扣，范围是模型 API 层。开发者可以让 Claude 写代码、用 GPT 做分析，再给批处理任务接入更便宜的模型，甚至按每项任务选择供应商。接入和评测仍有成本，但通常不必因为换一个模型就推倒整个产品。各家的模型又都在进步，很难指望一次领先就让客户长期留下来。至于产品、协作关系和平台层能否形成迁移成本，原文把它留作尚未解决的问题。</p>
+<p>文中援引的一组 OpenRouter 市场份额变化，也显示 OpenAI 与 Anthropic 的调用份额可以在短时间内大幅翻转。它不能单独证明用户没有忠诚度，但至少说明一件事：<strong>调用量不等于牢固的客户关系。价格或性能一变，流量就可能搬家。</strong></p>
+<p>再看第三项：把价格降下来。便宜当然重要，但各家都在用规模效应、垂直整合和自研芯片压低 Token 成本。David George 的判断是，最后能做到最好价格性能比的，很可能本来就是规模最大的公司。因此，“便宜”更像赢得规模之后得到的奖励，而不是最初赢下市场的原因。</p>
+<p>因此，第 4 项在模型层很难守住；第 3 项仍重要，却更像赢得规模后的结果。David George 把决定长期差距的关键放在前两项：</p>
+<ol>
+<li><strong>创造新行为</strong>：让人开始用 AI 做以前不会做、也没想到能做的事。</li>
+<li><strong>建立分发</strong>：把这种新行为送到更多人手里，并不断看见他们接下来还想做什么。</li>
+</ol>
+<p>后面的整套论证，其实都在解释这两件事为什么会互相强化。</p>
+<h2>“创造客户”不是找客户，而是创造一种新习惯</h2>
+<p>ChatGPT 刚上线时，OpenAI 内部并没有把它当成注定成功的消费产品。Sam Altman 后来回忆，产品虽然增长很快，不少人仍觉得大家只是图新鲜聊几句：“这很好玩，但聊天机器人总不能就是我们真正要做的产品吧？”团队甚至讨论过继续寻找别的方向。</p>
+<p>彼得·蒂尔看到的却不是一个聊天玩具，而是一种刚刚诞生的客户。他提醒 Altman：这就是产品。那个空白对话框和 Google 搜索框一样，表面上几乎什么都没有，却允许任何人带着自己的问题走进来。</p>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Elevenlab 发布两款新语音模型：Eleven v4 和 Eleven v4 Turbo  能根据文本内容“按剧情表演”声音</title>
+<link>https://best.xiaohu.ai/article/elevenlabs-v4-expressive-voice/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:elevenlabs-v4-expressive-voice</guid>
+<pubDate>Tue, 29 Sep 2026 12:01:36 +0000</pubDate>
+<description>ElevenLabs 发布 Eleven v4 和 v4 Turbo：前者让文字转语音能够按脚本控制情绪、角色、音效和多人表演，后者把同样的能力带进实时电话与语音代理。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 29 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Elevenlab 发布两款新语音模型：Eleven v4 和 Eleven v4 Turbo  能根据文本内容“按剧情表演”声音</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/elevenlabs-v4-expressive-voice/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Elevenlab 发布两款新语音模型：Eleven v4 和 Eleven v4 Turbo  能根据文本内容“按剧情表演”声音</h1><p>ElevenLabs 发布 Eleven v4 和 v4 Turbo：前者让文字转语音能够按脚本控制情绪、角色、音效和多人表演，后者把同样的能力带进实时电话与语音代理。</p><strong>一分钟速览</strong><ul><li>Eleven v4 的核心变化是让脚本同时写台词和表演：情绪、停顿、笑声、音效、多人接话都能成为文本中的明确指令。</li><li>v4 负责成品内容的音质与表演，v4 Turbo 负责实时代理的低延迟；约 100ms 是模型推理，约 150ms 是首次出声，都不是整通 AI 电话的端到端等待。</li><li>声音克隆、context stitching 和 speaker stability 共同解决一句返工或跨章节生成后，角色声音和表演状态容易漂移的问题。</li><li>Artificial Analysis 的当前盲听榜单把 v4 排在第一；中文、长篇和真实电话仍应使用自己的声音与脚本验收。</li></ul><div><p>ElevenLabs 发布了两款新语音模型：Eleven v4 和 Eleven v4 Turbo。Eleven v4 面向有声书、角色配音、动画、广告和播客等成品内容，重点提升声音的情绪、节奏、角色表演和长篇一致性；v4 Turbo 面向客服电话和语音代理，在保留这些表现力的同时，把首次出声压到适合实时对话的水平。</p>
+<p>现在的 AI 语音，大多已经不难听了。真正还会让人出戏的，是另一件事：它知道每个字怎么念，却不知道这句话为什么要这样说。</p>
+<p>角色明明刚受了惊吓，声音还是四平八稳；客服刚查到好消息，语气和让用户继续等待时没有区别；一段对白重做第三句，人物忽然像换了演员。Eleven v4 瞄准的就是这个缺口：把文字转语音从“正确朗读”再往前推一步，变成“按剧情表演”。v4 Turbo 则要让同样的表现力及时进入实时电话和语音代理。</p>
+<h2>Eleven v4 的主要功能特点</h2>
+<ul>
+<li><strong>脚本可以直接控制表演。</strong> 在台词中写入情绪、停顿、笑声、耳语、动作和环境音效，也可以用自然语言说明一句话应该怎样说。</li>
+<li><strong>声音克隆兼顾相似度和表现力。</strong> Instant Voice Clone 可用大约 10 秒录音创建声音，Professional Voice Clone 重新支持 v4 的完整情绪范围。</li>
+<li><strong>长篇和重生成更连贯。</strong> context stitching 负责衔接不同生成片段的节奏与状态，speaker stability 尽量让角色在旁白、对话和返工片段里保持同一声线。</li>
+<li><strong>支持多人对话和发音控制。</strong> 同一脚本可安排多个说话者、接话关系和音效，并通过 IPA 与发音词典固定姓名、缩写和专业词的读法。</li>
+<li><strong>覆盖 90 多种语言。</strong> 官方点名支持粤语、蒙古语和奥里亚语，演示还展示了加泰罗尼亚语旁白与音效标签。</li>
+<li><strong>Turbo 为实时对话降低等待。</strong> 官方给出的中位模型推理时间约为 100ms，中位首次出声约为 150ms，并支持双向流式生成。</li>
+</ul>
+<figure><figcaption>ElevenLabs 官方总览演示：同段表演中的情绪和动作、专业声音克隆、长篇声线一致性，以及 Turbo 在客服电话中切换语言。视频开头说明声音由画面提示直接生成、没有后期修改。已烧录中英双语字幕。</figcaption></figure>
+<h2>脚本里的表演控制：情绪、停顿、动作和音效</h2>
+<p>过去写 TTS 脚本，核心内容通常只有台词。想让声音更紧张、更温柔或停顿得更自然，要么调整模型参数，要么生成很多遍再挑选。v4 把一部分导演工作直接搬进了文本：你可以在台词里写 <code>[whispers]</code>、<code>[laughs]</code>、<code>[long pause]</code>、<code>[door slams]</code>，也可以用一句自然语言说明“这一句要像刚发现真相那样说”。</p>
+<p>这些标签可以连续出现，共同组成一场戏。官网的答题节目例子里，主持人先以温暖语气铺垫，再逐渐制造紧张感，锣声响起后留出五秒；选手用英式口音低声猜答案，带着不确定和紧张的笑；答对以后，主持人、掌声和调侃自然接上。脚本写的不再只有“说什么”，还包括谁在说、刚刚发生了什么，以及这句话应该怎样落地。</p>
+<p>主题帖下面那段恐怖独白更能说明问题。画面中的脚本直接写着 <code>[exhaling]</code>、<code>[chuckling]</code>、<code>[smacking lips]</code>。同一个声音先贴着耳边威胁，数着对方睡觉时的呼吸，随后又转成思念母亲的哽咽和亲昵。这里的难点不是把“笑声”插进去，而是情绪要随着角色关系改变，不能像把几个音效按钮依次按下。</p>
+<figure><figcaption>内联标签演示：呼气、咂嘴、轻笑、耳语和哽咽被写进同一段角色表演。自动转写会漏掉部分标签，因此这里保留原视频画面。已烧录中英双语字幕。</figcaption></figure>
+<p>有一个实际迁移点值得注意：v4 里控制停顿主要靠自然语言音频标签，例如 <code>[pause]</code> 和 <code>[long pause]</code>。官网 FAQ 明确说，<code>&lt;break&gt;</code> 这类 SSML 标签在 v4 中不可用。已有大量 SSML 脚本的团队不能只换一个模型 ID 就结束，还要改写停顿和表演指令。</p>
+<h2>声音克隆：保持声线，同时允许情绪变化</h2>
+<p>声音克隆一直有一组互相拉扯的目标：既要像本人，又要有足够的情绪；既要能夸张表演，又不能一激动就丢掉原来的声线。</p>
+<p>ElevenLabs 在官方演示里把旧模型的差别说得很直接：v2 比较像本人，也稳定；v3 的表现力明显更强，还能用音频标签和高级提示，但演示者认为听起来“不太像我”；v4 的目标就是把两者合并，让声音在一句话中途改变情绪时，仍然保持同一个人的身份。</p>
+<figure><figcaption>官方克隆对比：演示者用自己的声音说明 v2、v3 与 v4 的取舍，并在一句话中切换笑声、耳语和喘气。已烧录中英双语字幕。</figcaption></figure>
+<p>v4 的即时声音克隆只要求大约 10 秒音频；Professional Voice Clone 在 v3 缺席后也重新支持，并能使用 v4 的完整情绪范围。不过，官网同时藏着一个容易被忽略的条件：在 v4 发布前创建的 IVC 或 PVC，如果要在 v4 中有效工作，需要重新训练。对已经积累大量品牌声音资产的团队，这不是完全无摩擦的替换。</p>
+<p>这段对比展示的是 v4 的产品目标：让克隆声音在笑、耳语、喘气和句中情绪变化时，仍然听起来像同一个人。实际使用时，10 秒录音的质量、噪声和说话状态都会影响最终效果，仍应使用自己的样本测试。</p>
+<h2>长篇连续性：跨片段保持节奏和角色身份</h2>
+<p>长篇音频通常不是一次生成完。一本有声书会分章、分段生成，某句读错了还要单独重做。问题在于，每次生成都是一次新的开始：速度、音高和情绪可能逐渐漂移，重做的那一句甚至会像另一位演员突然接班。</p>
+<p>v4 用两项能力应对这个问题。第一是 context stitching，也就是把前后文的节奏和表演状态接起来，让分段生成听上去像同一次录音。第二是 speaker stability，让对话、旁白和重生成的台词尽量维持同一说话者身份。官网把它描述成可以覆盖任意长度的脚本，主题帖则用了“无限文本生成”的说法。</p>
+<p>实际使用时，单次生成仍有 10,000 字符上限。“任意长度”不是一口气塞进无限文本，而是不断分段，再依靠上下文拼接维持连续性。对有声书和长篇旁白来说，最关键的工作流变化，是分段生成和单句返工不再需要完全从头重建角色状态。</p>
+<h2>v4 与 v4 Turbo：成品内容和实时对话</h2>
+<p>如果一句广告旁白可以多等几秒再挑最好的一版，质量和表演优先；如果电话另一端的人说完以后，AI 还沉默一秒，体验就已经坏了。v4 与 Turbo 的差别，本质上是把计算预算花在不同地方。</p>
+<div><table>
+<thead>
+<tr>
+<th></th>
+<th>Eleven v4</th>
+<th>Eleven v4 Turbo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优先目标</td>
+<td>成品内容的音质、情绪与角色表演</td>
+<td>实时对话中的低延迟与连续性</td>
+</tr>
+<tr>
+<td>典型场景</td>
+<td>有声书、角色、动画、广告、播客</td>
+<td>客服、销售、预约、语音代理</td>
+</tr>
+<tr>
+<td>官方延迟口径</td>
+<td>页面没有公布对应的中位推理延迟</td>
+<td>中位模型推理约 100ms；中位首次出声约 150ms</td>
+</tr>
+<tr>
+<td>输入方式</td>
+<td>普通生成与流式 API</td>
+<td>API 与 ElevenAgents，支持双向流式</td>
+</tr>
+<tr>
+<td>克隆与语言</td>
+<td>Professional Voice Clone，90+ 语言</td>
+<td>同样支持 Professional Voice Clone 与 90+ 语言</td>
+</tr>
+</tbody>
+</table></div>
+<p>这两个延迟数字不能混成一个。约 100ms 指模型本身开始生成音频所花的中位推理时间；约 150ms 指请求发出后到第一段声音出现的中位时间。真正一通 AI 电话还要经过语音识别、LLM 思考、网络往返和播放器缓冲，端到端等待一定比单个 TTS 模型的数字更长。</p>
+<p>Turbo 的关键配套是双向流式：上游 LLM 不必等整句写完，可以边生成文字边推给 TTS，音频也边生成边返回。这样省下的不是“整段音频多久做完”，而是用户什么时候听见第一个字。主题帖的最小 JavaScript 示例把 <code>modelId</code> 写成 <code>eleven_v4_turbo</code>；但那张图展示的是普通 <code>textToSpeech.convert()</code> 调用，并没有把双向流式接口完整展开。</p>
+<p>官方主视频把 Turbo 放进了一通药品授权电话。代理要正确处理医生姓名和 semaglutide 这类专业词，确认处方批准后，又应请求切到普通话向母亲解释药品信息。这个场景把发音、角色稳定、对话节奏和语言切换放在同一通电话里，比单纯念一段旁白更接近语音代理的实际工作方式。</p>
+<h2>多人对话、IPA 和发音词典</h2>
+<p>v4 支持在同一脚本里放多个说话者和音效。棒球解说演示里，两位主播在比赛间隙互相打趣：一人揭出另一人曾给 Backstreet Boys 编舞，另一人顺势自嘲年龄和“有 rizz”；下一秒比赛恢复，两人又切回高能量的本垒打解说，背景补上观众欢呼。</p>
+<figure><figcaption>多人对话演示：两位解说者在闲聊、互相接话和比赛高潮之间切换，画面中还写入了 `[crowd cheering]`。已烧录中英双语字幕。</figcaption></figure>
+<p>多人脚本不只是轮流切换声音。每个人还要保住自己的身份，同时共享当前情境，知道上一位说了什么、笑点落在哪里、比赛何时又开始。它直接对应官网那句“知道谁在说、刚刚发生了什么、每句应该怎样落地”。</p>
+<p>发音控制则通过 IPA 和发音词典处理。名字、缩写和技术词可以预先规定读法，之后每次生成沿用。主题帖中的棒球视频展示的是多人互动；IPA 支持来自同一主题帖和官网的功能说明。</p>
+<h2>90 多种语言：同一套表演控制可用于非英语脚本</h2>
+<p>两款模型都宣称支持 90 多种语言，主题帖特别点名粤语、蒙古语和奥里亚语。配套短片用加泰罗尼亚语念了一段旁白，画面还加入了 <code>[música de transició]</code>，说明非英语输入也能同时带表演与音效指令。</p>
+<figure><figcaption>加泰罗尼亚语样本：旁白与 `[música de transició]` 音效标签同时出现。已烧录中英双语字幕。</figcaption></figure>
+<p>对中文、粤语或小语种有生产要求的团队，语言数量只是第一层。真正决定能否上线的仍是自己的口音、韵律、术语读法和克隆相似度，因此最好用真实声音和生产脚本做盲听。</p>
+<h2>Artificial Analysis 榜单：当前排名第一</h2>
+<p>首帖写着 Eleven v4 在 Artificial Analysis 排名第一。实时读取 Provider Voice Arena 榜单时，它确实排在第一，Elo 为 1315，95% 置信区间为 ±18，累计 1,693 个比较样本、使用 8 个声音；紧随其后的 Cartesia Sonic 3.6 为 1275，Gemini 3.8 Flash TTS 为 1267。</p>
+<p>这个榜单不是厂商自己打分。听众会在看不到模型身份的情况下，试听两段用相同文本生成的声音，再选择哪一段更自然，Elo 根据这些成对偏好投票更新。因此，它能支持一个具体结论：在这个 Provider Voice Arena 的当前盲听样本里，Eleven v4 的人类偏好排名第一。</p>
+<p>这个排名衡量的是盲听中的整体自然度偏好，不直接测克隆相似度、中文脚本、长篇漂移、真实电话网络和成本。Elo 也会随着新投票变化——发布当日的公开快照曾是 1319，本次读取已经变成 1315。它说明 v4 值得优先测试，但具体生产场景仍要单独验收。</p>
+<h2>上线前需要核对的五件事</h2>
+<p>第一，旧脚本不一定原样兼容。SSML 的 <code>&lt;break&gt;</code> 要换成 v4 的自然语言停顿标签；旧 IVC/PVC 也可能需要重新训练。</p>
+<p>第二，长篇不是无限单次输入。每次最多 10,000 字符，超长内容仍要分段，context stitching 负责尽量接住前后状态。最该测试的不是第一段听起来多惊艳，而是第十章以后是否还像同一个人，以及重做一句能否无缝插回去。</p>
+<p>第三，实时指标要按整条链路验收。Turbo 的约 100ms 和 150ms 都是 TTS 层口径。你的语音代理还要算上听清用户、理解问题、调用工具和播放缓冲。客服场景尤其要测试打断、长号码、姓名、药名、噪声和跨语言切换。</p>
+<p>第四，价格要看时限。发布后的两周推广期里，ElevenLabs 给出的 API 折扣价是 v4 每百万字符 22 美元、Turbo 11 美元；Creator+ 用户在 ElevenCreative 内可免费使用 v4，额度上限为每月 credits 的两倍。这是限时发布优惠，不是可以长期写进成本模型的固定价格。官网常规页面同时显示免费档每月 10,000 credits，并称大约可生成 10 分钟音频。</p>
+<p>第五，克隆声音不是只有效果问题，还有授权和数据留存。ElevenLabs 称即时与专业克隆都要求声音所有者通过验证；脚本和音频标签未经用户同意不会用于训练。符合资格的企业服务可以启用 Zero Retention Mode，但前提是具体服务支持并且已正确开启，不能把“企业账户”直接等同于所有数据都不保留。</p>
+<h2>Eleven v4 把一部分配音导演工作写进了脚本</h2>
+<p>Eleven v4 最值得关注的，不是又多了一款听起来很真的 TTS，而是它试图把原来散落在配音演员、导演、音效和后期里的部分意图，压缩回一份可以直接写的脚本：人物是谁、刚发生了什么、这句要压低还是爆发、哪里停、何时笑、背景发生什么。</p>
+<p>v4 负责把这些指令演成可交付的内容；Turbo 负责在对话还没凉掉以前把它说出来。两者都已经进入 ElevenCreative、ElevenAgents 和 ElevenAPI，覆盖从角色表演到<a>实时代理</a>的两端。</p>
+<p>官方演示已经展示了情绪、多人、音效、克隆和语言切换可以出现在同一套生成流程里；Artificial Analysis 的盲听榜单则说明 v4 的整体自然度获得了很强的人类偏好。</p>
+<p>接下来最有价值的测试，是把自己的难片段直接交给它：同一角色跨章节、句中情绪翻转、两人接话、中文专有名词、重做一句再拼回去。v4 的价值不只在第一耳有多惊艳，更在反复修改以后，人物还能不能保持原来的声音和表演状态。</p>
+</div><div><div><div>来源</div><div><span>Eleven v4 and Eleven v4 Turbo Text to Speech models</span><span>ElevenLabs<span>·</span><a href="https://elevenlabs.io/v4">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/ElevenLabs/status/2104572127617994917">ElevenLabs v4 发布主题帖</a><span>·</span><a href="https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice">Provider Voice Arena Leaderboard</a></div></div><div><div>本站说明</div><div>产品能力、延迟、语言与克隆表现主要来自 ElevenLabs 官方页面和演示；榜单名次与 Elo 取自阅读时的 Artificial Analysis 实时快照，会随投票变化。</div></div></div></div></div>
+<div>
+<p>ELEVENLABS · ELEVEN v4</p><h1>让脚本不只写台词，也写表演</h1><p>过去的 TTS 解决“怎么念”；Eleven v4 想进一步理解<strong>为什么这句话要这样说</strong>。v4 做成品表演，Turbo 把同样的能力带进实时对话。</p>
+<h2>从正确朗读，到按剧情表演</h2><div><div><b>台词</b><p>说什么、谁在说、专有名词怎样读</p></div><div>＋</div><div><b>表演指令</b><p>情绪、停顿、耳语、笑声、动作、环境音</p></div></div><div>↓</div><div>Eleven v4 · 读取上下文与角色状态</div><div>↓</div><p>声音不只把字念对，还要接住人物关系和刚刚发生的事</p>
+<h2>同一套表现力，两条交付路径</h2><div>ELEVEN v4<h3>成品内容优先</h3><p>面向有声书、角色、动画、广告和播客，把更多计算预算留给音质、情绪和角色表演。</p></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】xAI 发布了 Team Bots：能融入团队工作流，随着用得越多，它会变得越来越懂业务</title>
+<link>https://best.xiaohu.ai/article/team-bots/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:team-bots</guid>
+<pubDate>Tue, 29 Sep 2026 12:01:36 +0000</pubDate>
+<description>它像团队新招的一位虚拟同事：拿到工作手册、工具、受限权限和工作记忆后，能跨应用推进任务，并把团队的决定与纠正带到下一次工作里。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 29 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">xAI 发布了 Team Bots：能融入团队工作流，随着用得越多，它会变得越来越懂业务</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/team-bots/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>xAI 发布了 Team Bots：能融入团队工作流，随着用得越多，它会变得越来越懂业务</h1><p>它像团队新招的一位虚拟同事：拿到工作手册、工具、受限权限和工作记忆后，能跨应用推进任务，并把团队的决定与纠正带到下一次工作里。</p><strong>一分钟速览</strong><ul><li>Team Bot 更像一位有工作手册、工具权限和工作笔记的虚拟同事，而不是每次都要重新交代背景的临时聊天助手。</li><li>它把散落在 Slack、文档、业务软件和数据仓库里的信息接成一条工作链，减少人来回查资料、转工单和追进度的协调成本。</li><li>所谓越用越懂业务，是把团队确认过的决定、纠正和技能留给后续任务使用，并不等于模型自动吸收公司的所有数据。</li><li>销售、工程、营销和数据四个案例都保留人的控制点：明确权限、规定何时求助，并让最终结果可以检查。</li></ul><div><p>xAI 发布了 <strong>Team Bots</strong>，一种可以由整个团队共享、能进入实际工作流的 Grok Bot。你可以把它理解成团队新招的一位“虚拟同事”：普通聊天助手更像临时顾问，每次见面都要重新告诉它项目背景；Team Bot 则带着团队的工作手册、工具箱、门禁卡和工作笔记，知道该去哪里找资料、按什么规则办事，以及上次和团队一起做到了哪一步。</p>
+<p>它要解决的痛点不是“AI 不会回答”，而是企业的业务上下文太分散：客户动态在 Gong，项目决定在 Slack，任务在 Linear，规范在 Notion，数据又在仓库里。每次提问都要重新搬运这些背景，换人时还可能把已经做过的判断一起丢掉。团队可以围绕销售账户、工程项目、品牌审核或数据分析建立一个 Team Bot，把这些资料、规则、应用连接、API 权限和长期记忆放进去，让它持续跟进同一项工作。</p>
+<figure>
+<figcaption>xAI 官方演示：创建 Team Bot、连接工作应用、执行跨工具任务，再把它分享给团队或加入 Slack。</figcaption>
+</figure>
+<h2>主要功能特点</h2>
+<ul>
+<li><strong>围绕一个岗位或流程建立共享 Bot</strong>：把销售账户、工程项目、营销审核或数据问答交给一个持续工作的角色，而不是每次新开一段对话。</li>
+<li><strong>把上下文、插件、凭据和记忆放在一起</strong>：既知道团队怎样做事，也能进入工作系统、调用获准使用的能力，并记住后续决定和纠正。</li>
+<li><strong>连接 Slack 和业务应用</strong>：可以从 Gong、Notion、GitHub、Linear、Databricks 等系统读取变化，并把简报、工单、预览或分析结果带回团队协作现场。</li>
+<li><strong>共享团队能力，保留个人对话</strong>：团队成员使用同一套知识和技能，但各自与 Bot 的单独对话及个人上下文保持分开。</li>
+<li><strong>在持续使用中积累组织知识</strong>：Bot 会记住团队确认过的决定和纠正，让后来处理同类任务时不必每次从头解释。</li>
+</ul>
+<h2>1. 用共享上下文统一一个岗位的工作方法</h2>
+<p>Team Bot 围绕一个团队共同承担的角色或流程建立。团队可以把内部文件、操作说明和技能交给它，让它理解这家公司怎样处理客户、交付代码、审核品牌内容或解释数据。</p>
+<p>xAI 将这种岗位能力拆成四个部分：</p>
+<ul>
+<li><strong>上下文（Context）</strong>：文件、说明和技能，例如品牌手册、内部文档与交付流程，负责告诉 Bot 公司怎样做事。</li>
+<li><strong>插件（Plugins）</strong>：Salesforce、Notion、GitHub 等应用连接，让 Bot 能读取或操作工作实际发生的系统。</li>
+<li><strong>凭据（Credentials）</strong>：第三方 API 的访问凭据，用来连接没有现成插件的团队系统，并限定它获准调用的范围。</li>
+<li><strong>记忆（Memories）</strong>：工作中积累的决定、纠正和使用者上下文，让后续任务可以延续此前判断。</li>
+</ul>
+<p>如果继续用“虚拟同事”的类比：Context 是它入职时拿到的工作手册，Plugins 是它使用 Salesforce、Notion、GitHub 等软件的工具，Credentials 是只允许进入指定系统的门禁卡，Memories 则是它随工作不断更新的笔记本。</p>
+<p>四项能力必须连起来才有意义。只有工作手册，它只是会查资料；只有插件和凭据，它虽然能进入系统，却不知道团队希望它怎样做；没有记忆，每次任务结束后，团队刚纠正过的判断下次还要再讲一遍。四项合起来，Bot 才能从“回答一个问题”变成“持续跟进一项工作”：先理解规则，再去相应系统取信息和执行动作，最后把新的决定与纠正带到下一次任务里。原本由成员临时拼装的<a>上下文</a>，也因此变成整个团队反复使用的工作底座。</p>
+<h2>2. 连接应用和 API，把信息变成下一步动作</h2>
+<p>Team Bot 不只读取资料。通过插件和 API 凭据，它可以跟踪不同系统里的变化，再按照团队设定的流程推动下一步。</p>
+<p>四个案例虽然工作不同，基本链条却很一致：</p>
+<ol>
+<li>从文档、通话、Slack、工单、监控或数据表读取最新状态；</li>
+<li>使用品牌规范、交付流程、指标定义或账户策略解释这些变化；</li>
+<li>生成草稿、创建工单、调用执行 Agent、更新内容或发起只读查询；</li>
+<li>把简报、预览、证据和阻塞带回 Slack，交给团队继续处理；</li>
+<li>记录新的决定和纠正，供下一次任务使用。</li>
+</ol>
+<p>它的作用因此不止是生成一段答案，而是把分散的信息接回一条可以继续推进的工作链。</p>
+<h2>3. 共享团队能力，同时保留个人对话</h2>
+<p>团队共享的是 Bot 及其岗位知识、技能和团队配置。Team Bot 也可以拥有自己的 Slack 账号；加入频道后，频道成员能够向它提问、补充信息，并共同看到它的回答。</p>
+<p>个人与 Team Bot 的单独对话则保持私密。按照 xAI 的说明，Bot 会为每位用户保留彼此分开的上下文和记忆，同时调用团队共同拥有的技能；插件既可以由个人连接，也可以由团队统一配置。</p>
+<p>因此，共享的重点是一套工作方法，而不是把所有人的聊天记录合并到一起。公开频道承载共同协作，个人对话保存各自的工作现场。</p>
+<h2>4. 在持续使用中积累决定和纠正</h2>
+<p>记忆让 Team Bot 能够延续一项长期工作，但“越用越懂业务”并不是一句自动变聪明的口号。它背后有一条具体闭环：先读取团队已经提供的资料和规则，在 Slack 与业务系统中参与任务，再记下团队确认过的决定、纠正和使用者上下文；以后遇到同类任务时，它沿用这些信息，而不是重新从零猜测。</p>
+<p>xAI 的数据团队已经为超过 4.5 万张表建立技能库，用来说明正确的数据来源、分析方法和图表规范。Data Bot 接入这套既有知识后，还会记住使用者对查询的纠正。这里的“学习”不是自动读取公司的所有数据，也不能理解为每次对话都在重新训练基础模型；原文明确描述的是技能、记忆以及查询纠正被后续任务继续使用。Team Bot 越用越懂业务，靠的是组织知识与反馈被持续留下，而不是模型凭空获得了业务常识。</p>
+<p>越用越懂业务，具体发生在哪里？</p>
+<h3>知识不是一次性喂进去，而是在工作中形成闭环</h3>
+<p>四步默认全部可见。选择任一步，可以查看它在真实工作里的作用。</p>
+<div>
+<span>01</span>
+<strong>读懂已有规则</strong>
+<span>资料、说明与技能</span>
+<span>02</span>
+<strong>进入工作现场</strong>
+<span>应用、API 与权限</span>
+<span>03</span>
+<strong>留下真实反馈</strong>
+<span>决定、纠正与确认</span>
+<span>04</span>
+<strong>在下次任务复用</strong>
+<span>记忆回到新一轮工作</span>
+</div>
+<div>
+<p>当前环节</p>
+<h4>先拿到团队的工作底稿</h4>
+<p>Bot 先读取文件、规范与技能。它的起点不是空白聊天框，而是团队已经写下来的做事方法。</p>
+<p>例如：品牌指南、账户资料、PR 完成标准、指标定义。</p>
+</div>
+<p>这里展示的是技能、记忆和反馈如何被后续任务复用，不代表基础模型会自动读取或训练公司全部数据。</p>
+<h2>四个场景，Team Bot 具体怎样工作</h2>
+<h3>销售与客户成功：每天生成账户简报</h3>
+<p>xAI 为重要销售账户配置专用 Team Bot，由客户经理（AE）、客户成功经理（CSM）、解决方案架构师（SA）和销售负责人共同使用。过去，这几类人各自掌握一部分客户情况：有人知道最近的通话内容，有人知道技术阻塞，有人知道账户策略，完整背景散在不同工具和成员手里。</p>
+<p>Team Bot 每晚查看公司新闻、近期 Gong 通话、Notion 文档和相关 Slack 讨论；第二天早上在账户频道发布简报，为不同角色列出下一步建议和草稿。白天，团队再用账户数据核对它的判断，并把新决定留下来。它因此更像这个账户的“活字典”：省掉的不只是写晨报的时间，还包括反复向不同同事追问背景、手工拼接最新状态，以及成员轮换后重新口头交接的成本。</p>
+<p>Harper CEO Dakotah Rice 表示，其团队在 24 小时内搭建了一个 Team Bot，用来跨三个平台检查保单失效客户、查询余额并发送个性化邮件，并称这套流程在数百份保单中为客户节省了超过 12 万美元。这是客户提供的案例数据。</p>
+<h3>产品与工程：协调工单、Agent 和交付证据</h3>
+<p>xAI 的工程 Team Bot 从项目 Slack 频道获取信息，并连接 Notion、Linear、Hex、Datadog 和 Cursor。工程流程原本容易断在工具之间：产品决定留在聊天里，Bug 还要有人整理成工单，执行 Agent 修完代码后，又要有人确认测试与交付证据。</p>
+<p>Team Bot 把这条链串起来：跟踪决定、分拣缺陷、在 Linear 创建清楚的工单，再把边界明确的修复交给 Cloud Agents。团队通过技能告诉它怎样做 PR 审查、什么时候必须向人求助，以及一项改动需要哪些证据才算完成。执行 Agent 返回通过检查、有验证证据的 PR 后，Bot 再回到 Slack 汇报进度和阻塞。它替代的是跨工具搬运信息和盯进度的协调劳动，不是取消工程师对复杂改动的判断。</p>
+<p>xAI 称，一个 Team Bot 在开发这项产品时编排了数百个 Cloud Agents，帮助 5 人团队在几周内完成发布，并实现每天提交超过 100 个 PR。这是 xAI 自报的生产数据，原文没有披露 PR 规模、返工率或与人工基线的比较。</p>
+<h3>营销：按统一规则审核并送到预览</h3>
+<p>大型营销团队常卡在两段等待上：地区团队写完内容，要跨时区等总部检查品牌口径；网页或 SEO 文案通过后，还要向工程团队提工单才能改到网站上。营销 Bot 获得品牌指南、博客文章和社交媒体文案后，有人在 Slack 提交草稿，它就能先按照品牌语气和最新信息审核，让不同地区使用同一套标准。</p>
+<p>内容通过审核后，它还可以继续更新网站和 SEO 内容、生成预览链接，再回到 Slack 等待最终确认。这样缩短的是“等总部初审”和“等工程排期”两段时间；最后的人类签字仍然保留，并不是让 AI 自己决定上线。</p>
+<p>Amplitude 营销负责人 Angela Ferrante 表示，公司正在尝试把 Team Bots 用于市场与客户情报、AI 搜索可见性、发布审核和效果判断。</p>
+<h3>数据分析：用只读权限回答临时问题</h3>
+<p>xAI 的数据团队每天会收到数十个临时分析请求。传统流程里，业务人员要先找分析师排期，分析师再确认指标口径、寻找正确的数据表并写查询；即使只是一次临时问题，也可能消耗多轮沟通。</p>
+<p>Data Bot 使用共享的只读凭据查询 Databricks 中获准访问的表，并连接 Datadog、Hex 和 Statsig 完成调查、分析和展示。员工因此可以直接问业务问题，不必先等待分析师排期，也不用自己申请和配置仓库访问。数据团队此前两年为超过 4.5 万张表积累的技能库，帮助它找到正确数据、理解指标并按公司规范制图；有人纠正查询后，这次纠正还会帮助之后提问的人少踩一次同样的坑。这里的前提是访问范围已经限定：Bot 使用只读凭据，并且只能查询获准访问的表。</p>
+<h2>四个场景共同改变了什么</h2>
+<p>表面上看，四个 Bot 分别在写晨报、建工单、审文案和查数据；真正共同的变化，是团队不再每次都由人来充当“信息搬运工”。Bot 把散落在聊天、文档、业务软件和数据仓库里的信息拉回同一条工作链，再按照已经写清的团队规则推进下一步。</p>
+<p>这带来三种具体价值：信息不会因为分散在不同工具里而反复重找；员工轮岗或离开后，已经确认的决定和做法仍可继续使用；分析师、工程师、总部审核者等稀缺角色，也能少花时间处理查资料、转工单和第一轮审核，把注意力留给真正需要判断的例外和复杂问题。</p>
+<h2>哪些团队工作适合先做成 Team Bot</h2>
+<p>Team Bots 目前面向 Teams 和 Enterprise 计划公开测试。用户可以把已有的 Grok Bot 分享给团队，也可以从 xAI 提供的销售、产品管理、营销和数据分析预制 Bot 开始。</p>
+<p>如果要判断一项工作是否适合先交给类似 Team Bot 的系统，可以检查五件事：</p>
+<ul>
+<li><strong>任务是否反复发生，而且上下文分散？</strong> 每天都要跨多个系统查资料、汇总变化的流程，比一次性问题更适合建立共享 Bot。</li>
+<li><strong>团队规则是否已经说得清？</strong> 品牌指南、PR 完成标准、指标定义和升级条件越明确，Bot 越容易稳定执行。</li>
+<li><strong>能否用最低权限完成工作？</strong> 能只读就不先给写入；需要修改内容时，把预览与最终确认分开。</li>
+<li><strong>共享与私密的边界是否明确？</strong> 团队技能、公开频道和个人对话分别承载不同信息，需要提前定义可见性和交接规则。</li>
+<li><strong>结果能否被检查？</strong> 除了生成数量，还应观察等待时间、返工、错误、人工升级次数，以及结果是否通过原有质量门槛。</li>
+</ul>
+<p>最合适的起点，是一个角色清楚、资料可控、结果可复核的流程。Team Bots 展示的产品方向也很明确：<a>企业 AI</a> 正从个人问答工具，走向由团队共同配置、能连接系统并持续积累工作记忆的岗位角色。</p>
+</div><div><div><div>来源</div><div><span>Team Bots: AI coworkers that learn from your team</span><span>SpaceXAI<span>·</span><a href="https://x.ai/news/team-bots">查看主材料</a></span></div></div><div><div>本站说明</div><div>依据官方文章与 26 秒产品演示整理；产品能力、效率数据与客户收益均保留原始归属，本次未实际部署 Team Bot。</div></div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】3 天做完 18 个镜头：Higgsfield 动画团队怎样把 AI 放进传统动画流程</title>
 <link>https://best.xiaohu.ai/article/higgsfield-passport-rush-animation/</link>
