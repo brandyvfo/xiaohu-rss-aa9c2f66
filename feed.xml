@@ -6,7 +6,1241 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Tue, 29 Sep 2026 12:01:36 +0000</lastBuildDate>
+<lastBuildDate>Wed, 30 Sep 2026 12:01:51 +0000</lastBuildDate>
+<item>
+<title>【日报】TypeSafe 创始人讲 Jev：Jev 到底是什么？AI 聪明得离谱，自动化到底去哪了？</title>
+<link>https://best.xiaohu.ai/article/typesafe-jev-a16z/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:typesafe-jev-a16z</guid>
+<pubDate>Wed, 30 Sep 2026 12:01:51 +0000</pubDate>
+<description>a16z 访谈加官方博客、专访和外界质疑：一位前 OpenAI 研究员认为聊天式训练走偏了，他做的 Jev 不聊天，只在软件预设的选项里给出带把握的判断。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 30 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">TypeSafe 创始人讲 Jev：Jev 到底是什么？AI 聪明得离谱，自动化到底去哪了？</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/typesafe-jev-a16z/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>TypeSafe 创始人讲 Jev：Jev 到底是什么？AI 聪明得离谱，自动化到底去哪了？</h1><p>a16z 访谈加官方博客、专访和外界质疑：一位前 OpenAI 研究员认为聊天式训练走偏了，他做的 Jev 不聊天，只在软件预设的选项里给出带把握的判断。</p><strong>一分钟速览</strong><ul><li>AI 越来越聪明，企业里被自动化的活却很少。TypeSafe 创始人的解释是：聊天式训练优化的是“让人满意”，而不是“让软件能依赖”，所以他做了一个不聊天、只在预设选项里给出带把握的判断的模型 Jev。</li><li>和 Claude Code 这类编程 Agent 的分别在于：它们让写软件更快，写出来的仍是老样子的软件；Jev 是塞进代码里的一个零件，让软件本身多一种带着把握做选择的能力。</li><li>官方说它更快更便宜，也承认数字来自自家评测；外界的质疑是，“不会幻觉”只保证格式合法，不保证选对，这也不是全新的东西。</li></ul><div><p>这期访谈只想说服你一件事：AI 这两年缺的不是聪明，而是没能真正嵌进软件里干活；TypeSafe 的创始人 Diogo Almeida 做的 Jev，就是补这一环的零件。</p>
+<p>本文以 a16z 频道 2026 年 9 月 28 日发布的这期访谈为主线：Ben Horowitz 和 Martin Casado 与 Diogo 对谈，时长 42 分钟。访谈里讲得简略的地方，我用 TypeSafe 官方发布博客和 Latent Space 对他的长专访补全；外界的质疑来自 KDnuggets 的评论和 Hacker News 的讨论，各处都标了出处，来源列在页尾。</p>
+<figure><figcaption>原视频来自 a16z 的 YouTube 频道（<a href="https://youtu.be/Ut3LOjKNJaE">youtu.be/Ut3LOjKNJaE</a>），时长 42 分钟；这里是本站制作的中英双语字幕版，中文在上、英文在下。</figcaption></figure>
+<h2>他觉得现在哪里出了问题</h2>
+<p>开场，Diogo 抛了一句带脏字的反问：自动化到底都去哪了？他的意思是，AI 聪明得离谱，可除了聊天和编程，它在别的事上几乎没帮上忙。他特意说明自己不是在黑聊天机器人和编程 Agent，这两样他自己也爱用。在他眼里，手里有一大堆璞玉，却没打磨到能干活，这很“惨”。</p>
+<p>对话里给了几个具体的画面。</p>
+<p><strong>企业内部。</strong> 一位主持人说，OpenAI 从 2020 年就在尝试自动化客服，可现在企业内部被自动化的东西非常少，项目也没做成，编程是唯一的例外。</p>
+<p><strong>客服的“95%”。</strong> Diogo 讲了自己在这波生成式 AI 之前研究客服的经历：有家公司说，自己回答了 95% 的帮助台来电，他觉得这也太高了，一看数据，几乎都是重置密码。如果按问题的独特程度算，真正被解决的大概只有 50%。他的结论是，只要面对的是人和自然的系统，后面总拖着一条很长的例外长尾。</p>
+<p><strong>烦人的杂事。</strong> 一位主持人讲了个小故事：他们成长基金的负责人 David George 试了一个新工具（转写里听起来是 Muse），用它做的第一件事，是终于退订了纽约时报。主持人说，这只是冰山一角，这类“做起来很烦人”的事都需要自动化。</p>
+<p><strong>“扩散慢”不是理由。</strong> 有人拿新技术普及需要时间来解释为什么没自动化，Diogo 说自己完全不信：AI 的潜力这么大，自动化的经济动力也这么大。</p>
+<p>他在 Latent Space 的专访里说得更狠：如果模型真能做世界上大部分有经济价值的工作，就该回答一个问题，为什么它能解数学难题，却几乎完成不了经济上有价值的工作。他的判断是，各家模型在这件事上大约都还是零，即使已经开始了，也不到 1%；等它真发生时，会体现在经济统计里。</p>
+<h2>他的诊断：你优化什么，就得到什么</h2>
+<p><strong>他自己的转折。</strong> Diogo 在访谈里讲了自己是怎么想明白的。2021 年底，他对 RLHF（用人类反馈训练模型）的泛化能力大为惊讶，团队还专门做实验想证伪它是不是在“作弊”，比如问“为什么冥想前要吃袜子”这类网上查不到的问题，看它能不能编出合理的回答。他说自己当时是“重能力派”，一度真觉得那个模型有机会成为 AGI，结果发现不是，世界观瞬间崩塌。官方博客里他写得更直接：他在 OpenAI 参与做出了让语言模型学会听指令、和人聊天的方法，这些成了 ChatGPT 背后的研究；那时他以为聊天模型可能通向 AGI，但很快发现“缺了非常大的一块”。（Latent Space 的导读说他是 InstructGPT 论文的合著者。）</p>
+<p><strong>他的判断：裁判被优化了，任务没有。</strong> 他对 AGI 的看法更务实：OpenAI 定义的 AGI，也就是自动化世上多数有经济价值的工作，他认为是非常可行的，因为很多工作机械简单，能外包出去的工作，本来就得有普通人能照做的简单指令，据他所见，这种程度的智能在模型里早就有了。他的“心结”就是这为什么还没落地。他给的解释是，RLHF 之后，行业分化成了“夸下海口、兑现不足”：模型好不好由人来评，所以看起来很好，被优化的是裁判，而不是自动化本身。他把“能不能自动化那些明摆着该自动化的事”比作煤矿里的金丝雀：数学被“解决”了，两年前防谷歌搜索的问答基准 GPQA 也被解决了，可汽车得来速点餐还是搞不定。</p>
+<p><strong>在专访里，他把这个想法说成一个公式：训练时用什么当目标，模型就会长成什么样。</strong> 三种主流的训练方式，目标各不相同（下表综合官方博客和专访里他的说法，最后一行是专访导读的概括）：</p>
+<div><table>
+<thead>
+<tr>
+<th></th>
+<th>RLHF</th>
+<th>RLVR</th>
+<th>RLCD（Jev）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优化什么</td>
+<td>让人类评分者满意</td>
+<td>能被程序验证的结果</td>
+<td>有“诚实概率”的决策</td>
+</tr>
+<tr>
+<td>擅长</td>
+<td>聊天、写作</td>
+<td>数学、内核优化</td>
+<td>软件能直接用的判断</td>
+</tr>
+<tr>
+<td>代价</td>
+<td>迎合、失去校准，一直需要人在回路</td>
+<td>智能参差不齐，和其它软件不好集成</td>
+<td>放弃自由文本，能力更窄</td>
+</tr>
+</tbody>
+</table></div>
+<p>RLVR 指用可验证的奖励训练，RLCD 是他们自己提出的训练方法，意思是“面向校准决策的强化学习”，专访导读说这项技术还没公开发表。他说，RLVR 让模型的“系统 2”（慢思考）做出了惊人的成绩，但这种能力很脆、很“锯齿”，而预训练出来的模型，本质上是“系统 1”（快直觉）的思考者。</p>
+<p><strong>为什么聊天训练会伤害可靠性。</strong> 他在专访里给了一个技术解释，讲得比较绕，大意是：字符串生成有个反直觉的事实。一篇很长的文字，越长越可能出错，这在数学上看起来显然，但在实际里不成立。原因是，为了在很长的文字里不出错，模型必须变得极度保守，而这种保守会破坏概率的“校准”（模型说自己有多大把握，和它实际有多准是否对得上）；他把这叫模式坍缩，也就是模型只输出最常见的几种答案。他的结论是，拿字符串模型来做决策是“糟糕的一件事”。这是他的观点，专访里没有给出实验数据。</p>
+<p><strong>他对“失控”的看法。</strong> 访谈里他还说，自己出于一些细微的原因，当时和现在都不认为我们走在 RSI（通常指 AI 递归式自我改进）的路上；早期 OpenAI 里，人们形容 AGI 是“Ilya 加每一个 if 语句”，这个说法是有意含糊的，帐篷搭得很大，谁都能进来。</p>
+<p>一位主持人提出了一个反驳：会不会是现实世界的数据是重尾的、有大量例外，而 AI 主要在数学、代码这类低维的世界里训练？Diogo 不完全认同“缺数据”这个解释。长尾当然存在，但他说，在金丝雀这个语境里，并不需要自动化整条长尾，凡事要务实，做可靠的软件本来就是投资。</p>
+<h2>Jev 到底是什么</h2>
+<p>拿访谈里提到的“分析邮件”来想象：软件读到一封客户来信，要判断它该走哪条处理流程。过去要么写一堆规则，要么请机器学习团队训练一个专用模型。用 Jev，思路是让开发者直接用自然语言说明每条流程是干什么的，让它在里面挑。Diogo 说，这类能力包括分析日志、分析邮件、提供界面、和人对话。</p>
+<p>官方博客给的一句话定义是：Jev 是“前沿智能的函数调用”，也就是非结构化的状态进去，类型化的概率决策出来。它属于官方所说的“System One 模型”（名字取自卡尼曼《思考，快与慢》里的“系统 1”，快速、直觉的那一套）。和普通语言模型比，官方强调三点不同：</p>
+<ul>
+<li><strong>一次并行给出全部答案</strong>，不是一个 token 一个 token 地往后写；</li>
+<li><strong>输出是类型化的值</strong>，选项和结构由开发者提前定义，模型不会输出结构以外的东西；</li>
+<li><strong>每个答案都带校准过的概率和置信度</strong>，置信度高的应该更准。</li>
+</ul>
+<p>对机制，a16z 的一位主持人给了个概括：把它想成一个库，你用自然语言描述想要什么，再给它一个状态机（一组状态，加上状态之间怎么跳转的规则），它就会带着一定的置信度，选择该怎么做。主持人说，这种“带置信度的选择”是软件以前没有过的东西。Diogo 没有反对，还补充了几点：</p>
+<ul>
+<li>Jev 从技术上讲，“绝对是个分类器”。他不觉得这是贬低，分类器生来就是为了有用。</li>
+<li>他们的入职第一天就会画一张韦恩图：一边是 AI 擅长的，一边是代码里有价值的，Jev 就站在中间。所以它不输出外推出来的浮点数，因为 AI 不擅长这个；但概率并不新鲜。</li>
+<li>他猜 Jev 可能比 2019 年一个机器学习工程团队做得还好：那时好的团队不多，得挑一个窄场景，自己收集数据集、做评测；现在你可以现场用自然语言“编程”。</li>
+<li>接口把输入叫“状态”，他说是有意为之。</li>
+</ul>
+<p>下面这个小演示把“状态机加置信度”摆在一起：选一封来信，看软件会把它交给哪个状态、把握有多大，再自己调一个“多有把握才放手”的门槛。演示里的信件和数值都是示意，不是 Jev 的真实输出。</p>
+<p>示意演示 · 数值不是 Jev 的真实输出</p>
+<h3>选一封来信，看软件怎么放手</h3>
+<p>先看客户来信</p>
+<div>
+重复扣款
+登录转圈
+一封信两件事
+</div>
+<blockquote>“我这个月被重复扣款了，请把多扣的那一笔退给我。”</blockquote>
+<p>软件提前定义好的状态（每个状态用一句自然语言描述）</p>
+<ul>
+<li><strong>退款</strong><span>客户要求退回已付款项</span></li>
+<li><strong>技术故障</strong><span>产品用不了或报错</span></li>
+<li><strong>咨询</strong><span>询问功能、价格、开票等</span></li>
+</ul>
+<p>模型选出的状态和把握</p>
+<div>
+<p><span>选中：退款</span> · 把握 <span>92%</span></p>
+<div><i></i><b></b></div>
+</div>
+<div>
+多有把握才让程序自动处理：<strong>75%</strong>
+</div>
+<p>把握达到门槛，程序自动走「退款」流程，不必人工介入。</p>
+<p>主持人还追问：这是一条滑杆，一头是语言进、语言出，一头是传统的命令式程序，还是设计空间里的一个点？Diogo 的答案是滑杆。他说自己设计时的“北极星”是每美元智能，同时承认短期内每秒智能可能更有价值。官方博客给的速度和价格是：响应约 70 到 500 毫秒，输入每百万 token 0.042 美元，输出免费。主页上写的“快 193.6 倍、便宜 444.6 倍”，官方自己注明是偏高端的情形，后面会讲这些数字是怎么测的。</p>
+<p>名字方面，官方博客说，Jev 取自经济学家 William Stanley Jevons：蒸汽机效率提高后，煤炭的需求反而增加了，同理，智能的成本每降一个数量级，就会解锁数量级更多的用例。访谈里 Diogo 也顺带说过，这些事变得可做之后，人们会创造出新的工作。</p>
+<p>发布之后的反应也出乎他意料。他说，他认识的每个开发者都打电话来，说这东西好用、速度快；每小时都有人告诉他“我在用 Jev 做一个我完全没想到的新场景”。他觉得没人能预料到“给开发者用的 ChatGPT”，连非开发者朋友也在推特上玩梗。</p>
+<h2>和 Claude Code、Codex 有什么不一样</h2>
+<p>这是多数人最想问的：我们已经有 Claude Code 和 Codex 了，还要它干嘛？</p>
+<p>Diogo 先承认这两样很好，还转述了别人的一个说法，叫“即时软件”（转写里的人名是 Gary Tannenbaum，可能有误）：它们能现场造软件，用自然语言编程，表达力和软件一样强。但他想要的是“智能软件”：不是去自动化软件工程，而是扩展软件本身能做的事，让本该能自动化的东西真的能自动化。</p>
+<p>一位主持人把区别讲得更直白：Claude Code、Codex、Cursor 写出来的是代码，这段代码和人写的没有本质差别，可能更好，也可能更差，本质上还是十年前那种代码。而 Jev 是不管写代码的是人还是编程 Agent，都多了一个新零件，能塞进代码里扩展软件的能力。所以它不是用一个更快的程序员去顶替工程师，而是让现有的工程师做出更好、更有意思的东西。</p>
+<p>对话后段，这位主持人又给了一个数字来说明为什么光提速不够：大公司里一个 PR（代码合并请求）平均只有十行左右，他说自己在谷歌待过，团队做过这个研究。所以就算 AI 把这十行写得更快，被自动化的也只是软件工作里相对次要的部分，而且这十行往往还来自对客户的某个洞察，软件本身并没有因此长出新能力。他说，在 Jev 出现之前，他都没意识到：不管用多少 AI 编程 Agent，软件其实没变好，写得更快了，甚至可以说更糟，因为监督变少了，往往还更不安全。</p>
+<p>另一位主持人问了个怪问题：有了这样的零件，编程 Agent 的价值会不会下降？Diogo 说这更像编程 Agent 的问题。他自己的体验是，这些工具擅长语法，不擅长语义，架构尤其弱，大概处在第 50 百分位；如果你不懂架构，这样够用，有时候速度才是那个要拧的旋钮。</p>
+<p>在专访里，他从另一个角度批评了今天的编程 Agent：它们建立在“单个模型”上，被锁在一个模型里，状态只能不断往后追加，所以没法让子任务用更便宜的智能。他设想过另一种做法：给每个子任务一个便宜的模型，用带标签的任务树管理状态，并行的子 Agent 之间共享状态，靠智能去协调，而不是靠简单的锁。他说这方面有很多值得重新想的地方。</p>
+<h2>怎么用才靠谱</h2>
+<p><strong>先看 AI 为什么一直进不了软件。</strong> 这是一位主持人的分析。他说，人们不明白 AI 和软件是怎样“擦肩而过”的：就算你想把 AI 嵌进软件，它也不听话，因为软件不吃自然语言。你在 prompt 里写“我要这样的 JSON 输出，这是 schema”，它常常不照办。于是最后只有两条路：要么把输出交给人看，也就是聊天；要么交给另一个大模型，也就是 Agent 的 while 循环，因为自然语言得再喂给下一步。他说自己见过这个过程，像悲伤的五个阶段：先是否认，拼命想让它跑通，再是愤怒，最后接受，算了，交给人或者另一个大模型吧。他说，这是他第一次见到有人说，其实可以把 AI 映射成状态机，而且真能用起来。</p>
+<p>把三条路放在一起看，差别在于“谁来做最后那个决定”。</p>
+<p>示意流程 · 以一封客户来信为例</p>
+<h3>让 AI 进软件的三条路，谁来做最后的决定</h3>
+<div>
+聊天：交给人
+Agent 循环：交给另一个模型
+状态机：让模型直接选
+</div>
+<ol>
+<li>客户来信进来</li>
+<li>AI 读信，写出一段分析（一段自然语言）</li>
+<li>人读懂这段话</li>
+<li>人自己去系统里点操作</li>
+</ol>
+<p><strong>决定由谁做：</strong><span>人。AI 只负责说，最后一步始终要人来接。</span></p>
+<p><strong>再看 Diogo 教的用法：拆成很多小问题。</strong> 专访里他说，写 Jev 的查询，要像写程序一样明确、结构化，让问题尽量字面，因为写程序要的就是能被严格执行。他的例子是拒答：不要问“这里该不该拒绝”，而是拆成许多个独立的问题，每个问题问一种具体情形，各设一个阈值，由你的代码决定最后怎么做。这样做有个好处：发现哪里出错了，就加一个问题、一个阈值，再记成一个测试用例，这个问题就永久解决了，软件不会像塞在 prompt 里的说明那样，随着上下文变长而“腐烂”；他把这叫“没有机器学习的机器学习”。</p>
+<p>下面这个演示用退款做例子（不是他的原例，只借他讲的加问题、加阈值、加测试用例这三步），看“一个大问题”和“拆开”在出错时有什么区别：</p>
+<p>示意演示 · 借用 Diogo 讲的“加问题、加阈值、加测试用例”，退款场景和数值为编写</p>
+<h3>一个大问题，还是拆成小问题</h3>
+<div>
+一个大问题
+拆成小问题
+出错以后
+</div>
+<div>
+<p>这笔退款该不该自动批准？</p>
+<p>批准，把握 71%</p>
+</div>
+<p>所有判断挤在一个答案里。出了错，你只能去改提示词，而且说不清是哪一环判断歪了，也没法单独测它。</p>
+<p><strong>最后是他对“可靠”的要求。</strong> 主持人问，可靠性指模型的可用性，还是同样的调用返回同样的结果？Diogo 把它拆成三层：</p>
+<ul>
+<li><strong>可用性</strong>：能不能正常调用，他称之为正常运行时间或 SLA；</li>
+<li><strong>确定性</strong>：调用两次是不是逐字返回一样的结果；</li>
+<li><strong>稳健性</strong>：每次都有相近的智能水平。</li>
+</ul>
+<p>他说第三层最接近他要的东西。他的看法是，确定性对单元测试有用，但不是对的北极星；他们测稳健性的办法，是往 prompt 里塞一串无关的随机编号（他在专访里说叫 nonce，访谈里说 UUID），语义上是同一个问题，输出应该相近。他想要的是，每次不必是同一个函数，但每次都得够聪明，让人看了觉得“这个反应合理”，这样开发者才敢围绕它编程。在专访里他还说，可以做出确定性的模型，但那意味着更低的每美元智能。</p>
+<p>用同一封来信试三种情形，就能看出三层可靠的差别（同样是示意，不是真实输出）：</p>
+<p>示意演示 · 回答内容是编写的例子，不是真实输出</p>
+<h3>同一封来信问三次，三层可靠差在哪</h3>
+<p>来信：“我这个月被重复扣款了，请把多扣的那一笔退给我。”</p>
+<div>
+原样问三次
+每次多加一串 UUID
+这次模型不太稳
+</div>
+<ul>
+<li><span>第 1 次</span><p>判断为退款请求，先核对这个月的扣款记录。</p><b>退款</b></li>
+<li><span>第 2 次</span><p>判断为退款请求，先核对这个月的扣款记录。</p><b>退款</b></li>
+<li><span>第 3 次</span><p>判断为退款请求，先核对这个月的扣款记录。</p><b>退款</b></li>
+</ul>
+<ul>
+<li><strong>可用性</strong><span>三次都返回了 ✓</span></li>
+<li><strong>确定性</strong><span>逐字一样 ✓</span></li>
+<li><strong>稳健性</strong><span>结论一致且合理 ✓</span></li>
+</ul>
+<p>这是最理想的情形，但真实系统里很难做到，也没必要做到。</p>
+<p>他给可靠性的“最高荣誉”是：人们可以直接针对 Jev 编程，而不用再写示例查询。他还说，每多一个 9 的可靠性都很有价值，哪怕它不是市值上最值钱的部分，因为它会催生新的应用。</p>
+<p>他对“什么算靠谱”的要求也比较苛刻。有人问他最喜欢什么用例，他说不确定它们真能用；他要的是能在后台跑、让人放心，不会半夜叫醒人，别人还能在上面搭，也就是“可组合”。他说，AI 圈掉进了一个反模式：只盯着极端案例和演示。专访里他还提过一个设想，并说自己也不确定会怎么走：靠校准加模型级联，很自信就用小模型，中间地带升级到更大的模型，一层层往上。</p>
+<h2>外界怎么看：几个尖锐的质疑</h2>
+<p>这些都不是 Diogo 说的，是外界的看法，放在这里，是因为它们直接影响你怎么判断 Jev。</p>
+<p><strong>“零幻觉”的意思是“零越界”，不是“零错误”。</strong> 官方博客写“Jev 不会幻觉”。KDnuggets 的评论和 HN 上的讨论都指出：如果你给的选项是账单、技术、销售，它不可能突然答出“法务”，因为这个答案不在选项里；但它仍然可能把该选“技术”的问题选成“账单”。官方自己的措辞其实更克制：类型错误在数学上不可能，这个数字不是实测，是保证。</p>
+<p>示意演示 · 概率数字取自 KDnuggets 转引的官方示例，其余为编写的例子</p>
+<h3>“不会幻觉”到底保证了什么</h3>
+<p>来信：“我昨天升级了，但付费功能还是用不了。”</p>
+<div>
+自由回答的大模型
+Jev：只能在选项里选
+选项里也可能选错
+</div>
+<div>
+<p>这可能涉及合同条款，建议转交法务部门。</p>
+<p>超出了你定义的选项</p>
+</div>
+<p>自由文本什么都可能说，程序得再去解析、校验，才能知道能不能用。</p>
+<p><strong>“这不就是分类器吗？”</strong> KDnuggets 的作者做过多年分类和语言模型，他说分类、零样本分类、校准概率、用专用小模型省钱，这些都不是新东西；真正新的可能是围绕这类任务重做的架构、训练和产品。Diogo 在访谈里自己就说 Jev“绝对是个分类器”，并不回避。HN 上也有人说，早就用 BERT 做过类似的事。</p>
+<p><strong>数字是自家评测的结果。</strong> 官方的“更快更便宜”来自他们自建的“工作流评测”：参考答案是 GPT-6 Astra 与 Fable 5.1 的平均，题目由自家团队做，官方承认可能有偏差，并说这些倍数是真实场景里偏高端的情形。KDnuggets 还指出，官方报的约 68% 是“与前沿模型答案的一致度”，不是真实准确率；已有的独立小测，比如一个事实核查测试的 96.3%、一个 275 篇文档的分类测试，规模都很小。官方也说，速度数据是从他们西海岸的笔记本上跑出来的，无法证明定价不是补贴，要靠长期证明。</p>
+<p><strong>有没有护城河。</strong> HN 上有一条讨论，认为 OpenAI 很容易跟进：Jev 没有别的护城河，只是没人这样打包过一个模型。也有人反驳，重要的是它把接口做对了，不是护城河。这两种说法都只是网友观点，我没有核实。</p>
+<p>对这些质疑，Diogo 的态度是：官方博客写“我们喜欢怀疑者，我们自己也是”，也承认有些说法没法证明；访谈里他也说，自己不知道 Jev 是否已经能满足所有被吹过头的应用，只是团队会为此拼命。</p>
+<h2>两个有争议的立场</h2>
+<p><strong>不做拒答。</strong> 专访里，他解释了为什么反对在 API 层做安全对齐：拒答对他来说是一个“类型错误”。在聊天里，你被拒绝，只是烦；但如果模型藏在软件的依赖里，别人不知道里面是什么，它却因为用户发来一条奇怪的信息就随机拒答，软件就会随机崩。他说，安全对齐对聊天产品是合理的，因为那是在按别人（OpenAI、Anthropic）的指令行事，但在 API 层是不能接受的，因为开发者需要围绕它编程。主持人反驳：那要是被用来杀人呢？他说自己当然希望不被用于这类事，也会在别处使劲，但不会在技术这一层加价值观，因为每次让模型去迎合某个奇怪的目标，都在“割裂”它的智能；他认为智能会更像数据库，而不是同事，数据库不该检查用户拿它做什么。这个立场有争议，我只转述，不评判。</p>
+<p><strong>不看公开基准。</strong> 他在专访里说，公开基准很容易被刷，过去每家实验室都有团队专门收集“长得像 MMLU”的数据；长期来看，信任要靠“感觉”，加上把它放进自己的工作流里去测。官方博客也是这么做的：用他们设计的“工作流评测”，而不是通用的排行榜。代价是外界难以独立复核，这正是上面那些质疑的来源。</p>
+<h2>对不同的人意味着什么</h2>
+<p><strong>对开发者</strong>：多了一个可以塞进自己代码的零件，不用先训练模型。他的期待是，人们直接针对它编程，而不是不断调 prompt。官方和外部的早期用例包括：Agent 路由（一位开发者报告决策在 145 到 271 毫秒之间）、模型路由、浏览器 Agent 等。</p>
+<p><strong>对 SaaS 公司</strong>：一位主持人说，编程 Agent 出来时，出现过“SaaS 末日”的说法，估值一落千丈；Jev 出来后，每家 SaaS 公司又都说这是最棒的东西。Diogo 说，“SaaS 末日”里最站不住脚的是“软件很便宜也容易复制”：前半句他信，后半句不信，因为软件底下压着很多历史包袱。他反而认为 SaaS 会是这轮 AI 最大的赢家之一：最大、最无聊、最懂用户问题的公司，最清楚哪些工作流该自动化，而且它们的资本投入很大一部分本来就花在触达所有客户上，现在能让软件本身好上一大截，而不只是在产品上加个聊天机器人。他说自己不预测金融市场，讲的是能力层面的判断，还把它叫“反向的 SaaS 末日”。</p>
+<p><strong>对普通用户</strong>：他设想过，多选表单可能会消失，因为它们总是在把软件里已有的自然语言映射成类似 Jev 的输出。他提到 20 世纪 80 年代有个东西叫 4GL，当年也想让人用接近自然语言的方式写程序。他觉得界面可能会彻底改变，不过得让它更便宜、更快。他还说，智能可能像正则表达式那样，融进背景里，不再引人注意。</p>
+<p><strong>对系统层面的人</strong>：他说，当有了大量不同成本、不同速度的智能，最“系统派”的人会自己做取舍，Jev 对他们来说会“聪明一千倍”，用不上，他们只想要一个近似的猜测，乐观地把请求路由到各处。他说好消息是，这意味着我们又有机会重建系统：有了新的基础零件，就像互联网和客户端服务器时代那样，周期性地这么干。一位主持人还提到，仅网络安全的问题，就可能得重建几乎所有系统，至少关键基础设施肯定要。</p>
+<p><strong>对工作岗位</strong>：一位主持人说，他最喜欢 TypeSafe 的一句话是“我们做产品，不造神”（build prod, not God）：别的大实验室负责人就算心里高兴，也会藏起来，而 TypeSafe 的态度是：我们要造一个好得多的世界，岗位不会变少，还会更多、更好。Diogo 表示认同，说自己不认同悲观叙事，认为那源于大家信了“一个大脑统治一切”的单一模型迷魂汤。</p>
+<h2>还没有答案的地方</h2>
+<p>Diogo 划了自己的边界：先自动化容易的活，再碰难的。一位主持人指出，这到底能做到多深还是很开放的问题，比如状态一致性、持久性，或需要强保证的系统层面；Diogo 同意，并说能确定的是，分析日志、分析邮件、提供界面、和人对话这些一定会改变。至于更远的，他说久而久之它可能变成智能数据库，甚至空中交通管制系统，对话里有人说这“有点吓人”。他还说，如果要给它接上资源和权限，就需要保证，至少是统计意义上的保证，这一点他们的模型短期内做不到，除非有人写软件来做。</p>
+<p>他也提到方向上的几点：概率编程有很长的历史，大约在 20 世纪 70 年代没落，他觉得这次也会有起伏；他自己的标签是“极度务实”，并不喜欢受生物启发的东西，说那从来没成功过；他说自己为世界兴奋，而不是为自己去编写这套东西，因为听起来太复杂了。</p>
+<h2>这个人是谁</h2>
+<p>他的路径有点野。数学竞赛选手出身，但说自己其实从没真正喜欢过数学，觉得计算机科学“像数学，但酷、有用、有趣”，更认同自己是计算机科学家，而不是 AI 研究员。他靠赢下一场 Kaggle 比赛入行，那次靠的不是高深数学，而是疯狂自动化；后来还得去 NeurIPS 演讲，他说这本是荣誉，自己却讨厌，只想埋头干活。之后他和 Jeremy Howard 创过业，在 Google Brain 待过，又在 OpenAI 工作。官方博客说，TypeSafe 在隐身状态下做了两年，才发布 Jev。</p>
+<p>访谈结尾，他把自己想要的东西归结成四个字：do what I mean。他说，那是世界的顺滑，所有东西像齿轮一样咬合；想象所有技术都照你的意思办，这不是科幻。</p>
+</div><div><div><div>来源</div><div><span>How Jev Turns AI Into Software That Gets Things Done</span><span>a16z（YouTube 频道访谈）<span>·</span>2026-09-28<span>·</span><a href="https://youtu.be/Ut3LOjKNJaE">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">Introducing System One Models &amp; Jev</a><span>·</span><a href="https://www.latent.space/p/jev">Jev: System One models for Prod, not God — with Diogo Almeida</a><span>·</span><a href="https://www.kdnuggets.com/what-everyone-is-getting-wrong-about-typesafe-ais-jev">What Everyone Is Getting Wrong About TypeSafe AI's Jev</a><span>·</span><a href="https://news.ycombinator.com/item?id=49802161">OpenAI is well positioned to fast-follow Jev（Hacker News 讨论）</a><span>·</span><a href="https://news.ycombinator.com/item?id=49767192">Hacker News 讨论：Jev 的主要槽点</a><span>·</span><a href="https://typesafe.ai/">TypeSafe AI 官网</a></div></div><div><div>本站说明</div><div>主线依据 a16z 访谈的语音转写，并与视频简介、章节、画面核对；官方数字与名字来源来自官方博客，训练观点与用法来自 Latent Space 专访（按章节抽读，未通读），外界质疑来自 KDnuggets 与 HN 网友评论（观点未逐条核实）。交互演示中的信件、回答和数值为示意（概率数字取自 KDnuggets 转引的官方示例），不是 Jev 真实输出。</div></div></div></div></div>
+<div>
+<div>a16z Interview · TypeSafe · Jev</div>
+<h1>TypeSafe 创始人讲 Jev：Jev 到底是什么？AI 聪明得离谱，自动化到底去哪了？</h1>
+<p>AI 聪明得离谱，软件却没怎么变。一位前 OpenAI 研究员认为，问题出在训练目标上，于是做了一个不聊天、只在预设选项里给出带把握判断的模型。</p>
+<p>一页读懂：问题 → 他的诊断 → Jev 是什么 → 怎么用 → 外界怎么看</p>
+<p>访谈的起点是一句反问：<strong>自动化到底都去哪了？</strong>除了聊天和编程，AI 在企业里几乎没帮上忙。他给了三个依据：</p>
+<div>
+<div><div>95%→50%</div><div>客服号称答了 95% 的来电，多是重置密码；按问题独特程度算约 50%</div></div>
+<div><div>≈10 行</div><div>大公司一个 PR 平均十行左右，AI 写得再快，自动化的也只是次要部分</div></div>
+<div><div>&lt;1%</div><div>他估计模型完成有经济价值工作的比例，大约还是零，不到 1%</div></div>
+</div>
+<div>核心机制</div>
+<p><strong>Jev 是塞进代码里的零件，不是写代码的工具。</strong>官方的定义是“前沿智能的函数调用”：非结构化的状态进去，类型化的概率决策出来。区别在于：让 AI 进软件，最后那个决定由谁来做。</p>
+<div>
+<div><b>聊天</b><span>AI 写一段话，人读懂后自己去操作。决定在人手里。</span></div>
+<div><b>Agent 循环</b><span>AI 的文字交给另一个模型解读，一圈圈转。决定在一串模型里。</span></div>
+<div><b>状态机（Jev）</b><span>模型在预设选项里选一个并给出把握，软件自己往下走。</span></div>
+</div>
+<ol>
+<li><em>STATE</em>一封客户来信</li>
+<li><em>CHOICES</em>退款 / 技术故障 / 咨询</li>
+<li><em>OUTPUT</em>选中一项，附置信度</li>
+<li><em>CODE</em>够把握就自动处理，不够转人工</li>
+</ol>
+<p>所以它和 Claude Code、Codex 不在一层：编程 Agent 让写软件更快，写出来的仍是老样子的代码；Jev 让软件本身多一种带着把握做选择的能力。官方给的速度是 70 到 500 毫秒，输入每百万 token 0.042 美元。</p>
+<p><strong>他的诊断：训练时用什么当目标，模型就会长成什么样。</strong>聊天模型为让人满意而训练，概率变得不诚实，不适合在软件里做决定。</p>
+<div>
+<div><strong>RLHF</strong><span>优化：让人类评分者满意</span>代价：迎合、失去校准</div>
+<div><strong>RLVR</strong><span>优化：能被程序验证的结果</span>代价：能力参差，难与软件集成</div>
+<div><strong>RLCD</strong><span>优化：带诚实概率的决策（Jev）</span>代价：放弃自由文本，能力更窄</div>
+</div>
+<p><strong>怎么用才靠谱：</strong>别问一个大问题，拆开问。</p>
+<ol>
+<li>把一个大判断拆成许多独立的小问题，每个只问一种具体情形。</li>
+<li>每个小问题各设一个阈值，最后怎么办由你的代码决定。</li>
+<li>出错时加一个问题、一个阈值，再记成测试用例，这类错误就被永久固定，不像提示词会随上下文“腐烂”。</li>
+</ol>
+<div>
+<div>可用性：能不能调用</div>
+<div>确定性：逐字相同</div>
+<div>稳健性：每次都够聪明（他要的是这个）</div>
+</div>
+<p><strong>外界质疑（不是他的说法）</strong></p>
+<ul>
+<li>“零幻觉”等于零越界：不会答出选项外的东西，但仍可能选错。</li>
+<li>分类、零样本分类都不是新东西，新的可能是架构和产品。</li>
+<li>官方数字来自自家评测；外界指出 68% 是与前沿模型答案的一致度，不是准确率。</li>
+<li>有人认为 OpenAI 很容易跟进，护城河存疑。</li>
+</ul>
+<div>还没答案的是需要强保证的系统场景：状态一致性、持久性、给它接上资源和权限。他自己说，这些短期内做不到；他想要的终点是 do what I mean。</div>
+</div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】OpenAI 发布全天候个人Agent ：Dot  主动跟进你的目标 可以同时管理你的工作和家庭事物</title>
+<link>https://best.xiaohu.ai/article/openai-dots/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:openai-dots</guid>
+<pubDate>Wed, 30 Sep 2026 12:01:51 +0000</pubDate>
+<description>Dot 能持续留意已授权应用里的变化，在云端电脑处理任务，并同时跟进多个目标；重要动作仍由你批准。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 30 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">OpenAI 发布全天候个人Agent ：Dot  主动跟进你的目标 可以同时管理你的工作和家庭事物</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/openai-dots/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>OpenAI 发布全天候个人Agent ：Dot  主动跟进你的目标 可以同时管理你的工作和家庭事物</h1><p>Dot 能持续留意已授权应用里的变化，在云端电脑处理任务，并同时跟进多个目标；重要动作仍由你批准。</p><strong>一分钟速览</strong><ul><li>Dot 是 OpenAI 推出的个人 Agent：交代目标后，它会在已授权的应用里留意变化，继续推进任务。</li><li>它适合接住那些容易漏掉的后续工作，例如查反复出现的 bug，或在数据变化后更新相关材料。</li><li>目前仍在分批开放；长期用量规则未公布，接入应用前也要看清它能读取和保存什么。</li></ul><div><p>OpenAI 发布了 Dot，一款全天候跟进目标的个人 Agent。它不只是等你提问的聊天工具：你交代目标、连接相关应用后，它能在你离开聊天窗口时继续留意进展，发现需要处理的事，再把结果或待批准的动作带回来。官方演示里，Dot 同时跟进工作项目和家庭安排。</p>
+<p>它主要做四件事：</p>
+<ul>
+<li><strong>主动发现后续工作</strong>：留意已授权应用里的变化，例如客户反馈再次出现，或一项安排有了变动。</li>
+<li><strong>自己动手准备结果</strong>：在独立的云端电脑里查资料、操作浏览器、写代码和运行测试，不只给你一段建议。</li>
+<li><strong>同时跟进多个目标</strong>：保留不同项目的进度；你换到 ChatGPT、Slack 或 Teams，也能接着谈同一件事。</li>
+<li><strong>把关键决定留给你</strong>：发送消息、购买、永久删除等动作需要批准；你能查看进度，也能暂停它。</li>
+</ul>
+<p>下面分开看：它怎么发现任务、能把工作推进到哪一步，以及把权限交给它之前需要知道什么。</p>
+<h2>它和 ChatGPT 最大的不同：谁先发现工作</h2>
+<p>用普通 ChatGPT 聊天时，通常得先由你发现问题，再把材料和要求发进去。Dot 接到一个持续任务后，会留意已授权应用里的变化。例如客户又报了同一个 bug，它可以先查问题、准备修复，把 PR 交给你审；你不必每次重新开一个对话，让它从头理解项目。</p>
+<p>OpenAI 举了一个早期测试者的例子：他忘记给一家出版机构开发票，Dot 发现漏项、准备发票，等他批准后才发出。查漏和准备工作交给了 Dot，最后的决定仍由人来做。</p>
+<p>OpenAI 把后台寻找线索叫作“主动研究”。这一步使用只读工具：能查看已连接应用里的信息，不能发消息、改内容，也不能控制你的电脑。查到问题之后要动手处理，还得经过相应的应用权限和动作规则。</p>
+<p>它要持续跟进任务，至少得记住三件事：</p>
+<ul>
+<li><strong>目标状态</strong>：这个项目要做到什么、现在卡在哪里、下一步是什么。</li>
+<li><strong>个人标准</strong>：你偏好的表达方式、判断习惯，以及什么样的结果才算“做得好”。</li>
+<li><strong>工作状态</strong>：哪些文件、应用和任务发生了变化，哪些动作已经完成，哪些仍等你批准。</li>
+</ul>
+<p>宣传片把工作和生活剪在了一起：Dot 更新网站、董事会材料和代码，也处理婚礼蛋糕、课后班和家庭日程。用户仍在改方向、审结果、批准关键动作。</p>
+<figure><figcaption>OpenAI 的 Dot 宣传片，小互制作中英双语字幕版。视频展示的是产品设想，并非实际使用测试。</figcaption></figure>
+<h2>Dot 靠什么把任务继续做下去</h2>
+<p>Dot 由 GPT-6 Astra 驱动。它有自己的云端电脑和浏览器，需要时能写代码、运行测试。你可以打开那台电脑查看它做到哪一步；本机访问默认关闭，只有在桌面应用里明确授权，它才能使用你电脑上的文件和浏览器。</p>
+<p>它还能连接应用。OpenAI 称插件生态覆盖 4,000 多款应用，但你仍要逐个选择连接什么、给什么权限。连接以后，Dot 可以从这些应用获取项目背景；在 ChatGPT、Slack 或 Teams 里继续同一项工作时，也不用重新交代一遍。它可以同时保留多个项目的进度，等你回来再接着做。</p>
+<figure><figcaption>官方演示：左侧是对话和项目材料，右侧是 Dot 操作的云端浏览器。</figcaption></figure>
+<h2>一处发生变化，其他材料也得跟着改</h2>
+<p>OpenAI 展示了五种工作。它们有一个共同点：事情变了，相关材料也要跟着改，人却常常漏掉其中一处。</p>
+<p>开发者收到反复出现的客户反馈，Dot 会界定问题、修复和测试，再交出 PR 和演示视频供人审查。产品发布临时改了范围，它会检查哪些文案、素材和文档需要重做，并准备草稿。</p>
+<p>科研数据出现意外结果，它会重新分析、改图表和解释，标出需要研究者复核的地方。销售客户改了需求，它会核查文档、测试集成，更新提案和未决问题。内容创作者改了剪辑意见，它会把修改带到节目笔记和社交帖草稿里。价值在于：你改动一件事，它能帮你找出还得跟着改的那些东西。</p>
+<figure><img /><figcaption>开发场景：Dot 发现界面回归并准备修复，但是否合并仍由人决定。</figcaption></figure>
+<figure><img /><figcaption>发布场景：需求改变后，Dot 保留既有视觉标准并给出两个方案供审阅。</figcaption></figure>
+<figure><img /><figcaption>科研场景：第一批结果没有复现，Dot 同步更新图表、解释和下一步建议，而不是继续沿用旧结论。</figcaption></figure>
+<figure><img /><figcaption>销售场景：数字变化会联动提案，但安全评审、商业条款和客户承诺仍保留明确负责人。</figcaption></figure>
+<figure><img /><figcaption>内容场景：一次反馈会同步到相关材料；正式发布没有在演示中自动发生。</figcaption></figure>
+<p>这些场景说明 OpenAI 希望 Dot 接手哪类工作。它们还没有回答另一个问题：任务一多、情况一变，Dot 能有多稳定，出了错又要花多少时间收拾。</p>
+<h2>换个地方说话，事情还能接着做吗</h2>
+<p>Dot 能主动汇报进度或找你做决定。官方的短信演示里，它根据日历和菜单提出晚餐方案，连价格、税费和小费都算好了，却明确说还没下单，等用户确认后才继续。这件事从日历开始，在短信里完成决定，中途不用重新解释背景。</p>
+<figure><figcaption>官方短信演示：Dot 补全晚餐方案和费用估算，并把真正下单留到用户确认之后。</figcaption></figure>
+<p>各渠道的开放程度不同。ChatGPT 电脑端可以创建 Dot，设置好之后才能在移动应用里使用；手机网页暂不支持。短信目前是美国 Pro 用户的限量测试，会经过第三方服务商，Business 和 Enterprise 工作空间不能用。Dot 也还不能主动给你打电话。<a href="https://help.openai.com/en/articles/20001530-getting-started-with-your-dot">OpenAI 帮助中心</a>列出了这些条件。</p>
+<h2>它能看到什么，什么时候必须问你</h2>
+<p>Dot 会接触应用里的信息，也可能操作浏览器或写代码。OpenAI 为此设置了几道控制：</p>
+<div><table>
+<thead>
+<tr>
+<th>层级</th>
+<th>它解决什么问题</th>
+<th>你能看到或决定什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>隔离环境</td>
+<td>避免默认接触你的本机与全部文件</td>
+<td>Dot 先在独立云端电脑工作；连接个人设备需要你选择</td>
+</tr>
+<tr>
+<td>应用权限</td>
+<td>限制它能读写哪些系统</td>
+<td>你选择应用和权限；受支持的密码由系统管理，不直接暴露给模型</td>
+</tr>
+<tr>
+<td>行动规则</td>
+<td>区分可自动做、需批准和禁止的事</td>
+<td>可设自定义规则，但核心安全要求不能关闭</td>
+</tr>
+<tr>
+<td>AutoReview</td>
+<td>在动作真正发生前再检查一次</td>
+<td>系统对照权限、安全规则和对话指令，决定继续、请示或交回给人</td>
+</tr>
+</tbody>
+</table></div>
+<p>官方安全视频举了几个例子：新购买、永久删除数据、向他人发送消息等动作要请求批准；修改密码要由用户亲自完成。你可以在活动视图里看它做过什么、正在做什么，也可以暂停工作。</p>
+<figure><figcaption>OpenAI 的 Dot 安全说明，依次解释模型红队测试、独立虚拟电脑、沙箱、权限、活动视图、自定义规则与 AutoReview。</figcaption></figure>
+<p>这些控制也有实际使用上的麻烦。比如你断开一个应用，Dot 已经从中获取的信息不会随之删除；<a href="https://help.openai.com/en/articles/20001530-getting-started-with-your-dot">帮助中心</a>说，清除 Dot 自己保存的记忆需要重置整个 Dot，连对话和定时任务也会一起删除。因此，接入邮箱、文件或客户系统之前，要先想清楚它能读哪些内容。OpenAI 也提醒，重要结果仍要由人检查。</p>
+<p>Dot 发布前一天，OpenAI 暂停了 GPT-6.1 Astra 的推出；<a href="https://www.cbsnews.com/news/sam-altman-openai-dots-chatgpt-agents-safety/">CBS 报道</a>提到范围与授权方面的安全问题。Dot 当前使用的是 GPT-6 Astra，不是这款被暂停的模型。两件事不能混为一谈，但也提醒我们：让 Agent 代人行动时，权限边界得经得起实际使用。</p>
+<h2>数据是否训练模型，要看套餐和数据流向</h2>
+<p>Business、Enterprise 和 Edu 工作空间的内容，默认不用于改进模型。个人套餐用户则可以控制 Dot 对话和工作内容是否用于训练。</p>
+<p>主动研究内容和 Dot 自己记的笔记不会直接用于训练；如果这些信息后来进入符合训练条件的对话或任务，则仍可能按你的数据设置使用。Dot 还会读取 ChatGPT 已有记忆，并从已连接应用形成自己的记忆。想撤回这部分记录，单纯断开应用不够。</p>
+<p>企业版还有“专职 Dot”试点：它代表一个岗位工作，有自己的身份、凭据和系统访问权限。OpenAI 目前只与少量企业一起确定职责、工具和人工审核方式；与微软 Agent 365 的治理控制集成也还在推进。</p>
+<h2>现在能不能用，取决于市场、套餐和额度</h2>
+<p>目前要在电脑上的 ChatGPT 创建 Dot，开通会分批到达账户。<a href="https://help.openai.com/en/articles/20001530-getting-started-with-your-dot">OpenAI 帮助中心</a>写明：Pro 用户的首批开放地区排除欧洲经济区、瑞士和英国；Business Premium 覆盖其支持的 ChatGPT 地区；Enterprise 的测试版默认关闭，需管理员启用。Pro 和 Business Premium 套餐都包含第一个 Dot。</p>
+<p>用量最容易看错。帮助中心说，首月符合条件用户的 Dot 用量暂不计入套餐额度，之后各套餐的规则会另行公布；<a href="https://openai.com/zh-Hans-CN/index/introducing-dots/">发布公告</a>同时说，Dot 发起或管理的 Codex、ChatGPT 工作任务仍按对应产品的额度计算。两份说明针对的用量对象不同。现阶段别把“包含一个 Dot”理解成所有任务都无限量，也别根据首月体验推断长期成本。</p>
+<p>宣传片很流畅，<a href="https://www.axios.com/2026/09/29/openai-dots-ai-assistant-devday">Axios 的现场报道</a>则记录了语音呼叫 Dot 时的一次明显延迟。一次卡顿说明不了长期表现，但足以提醒人：眼下看到的宣传片和你自己实际能用到的产品之间，还有分批开放和现场体验这两层距离。</p>
+<p>普通用户目前从一个 Dot 开始。多个 Dot 组队是 OpenAI 提出的后续方向，尚未开放。</p>
+<h2>值不值得把工作交给它</h2>
+<p>发票漏开、客户反复报 bug、数据变了却忘记改图表，这些事单件不难，难在没人一直记着。Dot 的吸引力就在这里：有人替你盯住变化，把需要处理的事送到你面前，或先做出一版供你审查。</p>
+<p>但是否真能省时间，要看它在你的任务里会不会漏看、误改，以及你得花多少精力检查结果。现在适合先给它范围清楚、结果容易核对的工作；接入更多应用或让它碰对外承诺之前，再看实际表现和权限记录。判断时问四个具体问题就够了：<strong>它能读什么？能改什么？哪些动作必须问我？出了错我到哪里查？</strong></p>
+</div><div><div><div>来源</div><div><span>隆重推出 Dot</span><span>OpenAI<span>·</span>2026-09-29<span>·</span><a href="https://openai.com/zh-Hans-CN/index/introducing-dots/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://apnews.com/article/sam-altman-openai-conference-dots-agent-77b6b8888145869206996d7509d24256">Altman unveils ‘always-on’ AI agent after OpenAI shelves model over safety concerns</a><span>·</span><a href="https://www.axios.com/2026/09/29/openai-dots-ai-assistant-devday">OpenAI launches dots AI assistant to take on Meta's Muse</a><span>·</span><a href="https://www.cbsnews.com/news/sam-altman-openai-dots-chatgpt-agents-safety/">Sam Altman unveils ‘dots,’ OpenAI's new AI personal agent</a><span>·</span><a href="https://help.openai.com/en/articles/20001530-getting-started-with-your-dot">Getting started with your dot</a></div></div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】OpenAI DevDay 2026 的 25 项更新：会自己干活的 Dots、五分之一价的新模型、500 美元的 Pro</title>
+<link>https://best.xiaohu.ai/article/openai-devday-2026-recap/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:openai-devday-2026-recap</guid>
+<pubDate>Wed, 30 Sep 2026 12:01:51 +0000</pubDate>
+<description>会自己干活的 Dots、五分之一价格的 GPT-6.1 Sol、搬上云的 Codex：OpenAI 这次想接手的，是 AI 回答完之后的那些活。25 项更新逐个拆开，哪些现在能用、要花多少钱，一次看清。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 30 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">OpenAI DevDay 2026 的 25 项更新：会自己干活的 Dots、五分之一价的新模型、500 美元的 Pro</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/openai-devday-2026-recap/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>OpenAI DevDay 2026 的 25 项更新：会自己干活的 Dots、五分之一价的新模型、500 美元的 Pro</h1><p>会自己干活的 Dots、五分之一价格的 GPT-6.1 Sol、搬上云的 Codex：OpenAI 这次想接手的，是 AI 回答完之后的那些活。25 项更新逐个拆开，哪些现在能用、要花多少钱，一次看清。</p><strong>一分钟速览</strong><ul><li>最大的变化是起点：Dots 是有自己云端电脑、能连 4000 多款应用的常驻 Agent，你给目标、划权限，它自己去做，你随时能打开它的电脑检查。</li><li>钱的账有两条：GPT-6.1 Sol 用最强模型五分之一的价格换来接近它的智力，第三方评测基本印证，但榜首仍是 Opus 5.5；想更快就付 6 倍价钱买超高速，或上每月 500 美元的 Pro。</li><li>其余 20 来项是在搭同一个工作台：Codex 上云、Agents API 能操作软件、插件能在 ChatGPT 里长成完整应用、资料空间让人和 AI 共改一份文档；但成熟度差别很大，不少还是预览、测试或分批开放。</li></ul><div><p>OpenAI 在昨天的 DevDay 上，一口气公布了 25 项重大更新：能持续替你跟进工作的个人 Agent Dots、更便宜的 GPT-6.1 Sol、提速的 Ultrafast，以及重新设计的 Codex 云端体验。</p>
+<p>其中最让人想试的，是你离开之后，AI 还能做多少事。合上电脑，Codex 的云端任务继续跑；不用每次重新交代背景，Dot 可以接着跟进项目；写好的文档也有了共享、编辑和交给同事接着做的地方。OpenAI 想让用户交给 AI 的工作，持续到聊天窗口之外。</p>
+<p>模型升级同样有看头。按 OpenAI 的评测，GPT-6.1 Sol 在部分编程和专业任务上接近 Astra，标准输入、输出单价却只有它的五分之一。Ultrafast 则走了另一条路：多付钱，换更短的生成等待时间。前者要让复杂任务做得起，后者要让高频使用的人少等一会儿。</p>
+<p>这批更新还包括团队文档、会议记录、插件，以及把 ChatGPT 订阅额度带到第三方工具里的新用法。不过，有的已经开放，有的仍在预览或等待推送。下面按官方的 25 项清单逐一展开：分别能做什么、谁能用、要花多少钱，以及哪些变化值得现在就试。</p>
+<figure><img /><figcaption>Altman 讲分发时的大屏：每周 12 亿人使用 ChatGPT，这是 OpenAI 敢把 ChatGPT 做成平台的底气（图：OpenAI 发布会现场）</figcaption></figure>
+<h2>主动智能：一直在线的 Agent、更便宜的模型、更快的速度</h2>
+<h3>1. Dots：一个不下班的 AI 同事</h3>
+<p><strong>Dots 是 ChatGPT 里新出的常驻 Agent。</strong> 你给它一个目标、划好权限，它就自己一直做下去，不用你一句一句地问。每个人可以给自己的 Dot 取名字。</p>
+<figure><figcaption>OpenAI 的 Dots 宣传片（中英双语字幕，约 2 分半）：一个 Dot 在一个人的一天里，同时照看工作和生活</figcaption></figure>
+<figure><img /><figcaption>每个 Dot 都是一个可以自己挑、自己取名的小角色：戴贝雷帽的蓝色云朵、戴眼镜打领结的黄色三角、绿色青蛙等（图：OpenAI 发布会现场）</figcaption></figure>
+<p>先看它怎么工作：</p>
+<ul>
+<li><strong>有自己的电脑。</strong> 每个 Dot 有独立的云端电脑和浏览器，能写代码、测代码。你可以随时打开它的电脑看它在干什么，甚至接管其中一步再交还给它；除非你主动授权，它碰不到你自己的笔记本。</li>
+<li><strong>接得到你的软件。</strong> 通过插件，它能连 4000 多款应用。在 ChatGPT（网页、手机、桌面）、Slack、Teams 里都能找它，也能给它打语音电话，短信渠道很快也会开。不管从哪个渠道找它，上下文都是连着的。</li>
+<li><strong>由 GPT-6 Astra 驱动。</strong> <a>Astra</a> 是 OpenAI 目前最强的模型。</li>
+</ul>
+<figure><figcaption>Dot 在自己的云端电脑和浏览器里干活，你随时可以打开看（约 17 秒）</figcaption></figure>
+<figure><figcaption>在短信里让 Dot 补全晚餐方案和费用估算（约 28 秒）</figcaption></figure>
+<p>交给它的最好是一份长期职责，比如：</p>
+<ul>
+<li><strong>开发者：</strong> 盯着客户反馈里反复出现的需求，自己划出小改进和 bug 修复的范围，写完、测完，把附着改动演示视频的 PR 交给你审。</li>
+<li><strong>科学家：</strong> 新数据一到，重跑分析、追查意外结果、更新论文里的图表，并标出要你看的地方。</li>
+<li><strong>销售负责人：</strong> 对照产品文档核对客户需求，给关键集成做概念验证，随需求变化更新提案。</li>
+<li><strong>内容创作者：</strong> 收到访谈文字稿，挑出适合剪的片段、写节目笔记，起草社交媒体帖子等你批。</li>
+</ul>
+<figure><img /><figcaption>开发者场景：Dot 一边和你对话，一边在自己的电脑里处理 iOS 测试版检查清单里的问题（图：OpenAI）</figcaption></figure>
+<figure><img /><figcaption>销售场景：对话一侧是客户需求的变化，另一侧的文档列出促成交易的下一步（图：OpenAI）</figcaption></figure>
+<figure><img /><figcaption>科学家场景：Dot 汇报重复试验的结果，旁边是邮件草稿和对比图表（图：OpenAI）</figcaption></figure>
+<p>Altman 在台上挑了一个难的例子：在旧 API 关停之前把 app 迁出去。旧 API 的调用可能散落在整个代码库里，Dot 会顺着依赖关系找出所有要改的地方，写代码、跑测试，最后提 PR 给团队审。按老办法，这得几个人花不少时间。</p>
+<p>现场演示由 OpenAI 产品团队的 Holly Li 来做。她用一个虚构的歌单 app 模拟上线前一天，她的 Dot 叫 Dottie：</p>
+<ul>
+<li>早上 Dottie 已经把要她看的事理好了：发布评审提前了，日历改好了；昨晚测试用户的反馈看完了；设计临时改了一版首页，设计稿直接推到她手机上。</li>
+<li>在 Slack 里，同事随手一个 @ 常常会变成一整个项目，她现在直接把讨论串转给 Dottie，一句"你能接一下吗"就交出去。OpenAI 内部甚至出现了一个新习惯：建群聊时先把各自的 Dot 拉进来。</li>
+<li>她说 OpenAI 工程师的 Dots 每天会修几十个 bug：有人在反馈频道贴一个会话 ID 和用户报的问题，Dot 接手调查，提修复 PR。</li>
+</ul>
+<p>演示也翻了车：她问 Dottie 昨晚用户测试的结果，它一直回"还在查"；让它调用笔记本上的 Codex 把新首页做成 iPhone 模拟器里的 app，第一次报错，重试后时间到了也没跑完。</p>
+<figure><img /><figcaption>Holly Li 的 Dot 叫 Dottie，大屏列出它能碰到的地方：ChatGPT、Slack、Teams、电话、电脑、虚拟机、手机 app 和插件（图：OpenAI 发布会现场）</figcaption></figure>
+<p>它会自己动手，所以控制是 Dots 最要紧的部分：</p>
+<ul>
+<li>你决定它能访问哪些应用，并设规则：哪些事它可以自己做，哪些必须先问你，哪些永远不许做。</li>
+<li>没人找它时，它会在后台"主动研究"，找能帮上忙的地方，但这一步只用<strong>只读</strong>工具，不能发消息、不能改内容、不能操作你的浏览器或电脑。</li>
+<li>会动你账户或往外发信息的操作，先过一道自动审核；改密码这类敏感事，永远得你本人来。登录网站时它能用你存的密码，但密码不会暴露给模型。</li>
+<li>有一个活动视图，能看它的进度，包括后台在做的事。</li>
+</ul>
+<p>价格方面，首个 Dot 含在 Pro（包括 100 美元档）和 Business Premium 套餐里，不另收费，上线首月额度更高；和它聊天不占 ChatGPT 额度，但它替你在 Codex 或 ChatGPT 工作里开的任务照常计。Enterprise 要等管理员打开测试版。首批只能在桌面端创建，Pro 用户里欧洲经济区、英国和瑞士暂时不在首批。</p>
+<p>企业还有更进一步的形态，叫<strong>专职 Dot</strong>：不替某个人干活，而是在公司里担一个岗位，有独立身份、凭据和系统权限。OpenAI 内部已经在采购、发票处理、邮件营销、客服、合同签订这些岗位上试过。现在是小范围企业试点，OpenAI 的工程师直接和企业一起定义职责、工具和审批流程；微软那边会把它接进 Agent 365，企业可以用现有的微软工具来管。</p>
+<p>我的看法是，Dots 的形态和 Meta 最近的 Muse 很像，连取名字、卡通头像都像；它的很多能力，懂行的人之前用 Codex 之类的 Agent 框架也搭得出来，Dots 做的是把这些打包成普通人不用配置就能用的产品。好不好用，一次演示看不出来，得连续用上一周：看它有没有抓对值得跟进的事、记不记得你的纠正、该停下来问你的时候有没有停。</p>
+<h3>2. GPT-6.1 Sol：接近最强模型的智力，价格只要五分之一</h3>
+<p>OpenAI 现在的 GPT-6 家族有三个型号：<strong>Astra 最强，Sol 居中，Luna 最便宜</strong>（<a>GPT-6 Sol 与 Luna 的发布解读</a>）。GPT-6.1 Sol 是 Sol 的大升级，主攻 Agent 编程、操作电脑和专业工作，<strong>智力接近 Astra，标准输入输出价格只有 Astra 的五分之一</strong>。</p>
+<figure><img /><figcaption>三个型号的定位：Astra 最聪明，Sol 接近 Astra、价格五分之一，Luna 快而便宜（图：OpenAI）</figcaption></figure>
+<p>价格（API，每百万 token）：</p>
+<div><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>输入</th>
+<th>缓存输入</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Astra</td>
+<td>10 美元</td>
+<td>1 美元</td>
+<td>50 美元</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td>2 美元</td>
+<td>0.10 美元</td>
+<td>10 美元</td>
+</tr>
+<tr>
+<td>GPT-6 Luna</td>
+<td>0.10 美元</td>
+<td>0.01 美元</td>
+<td>0.50 美元</td>
+</tr>
+</tbody>
+</table></div>
+<p>细看价格表，Sol 的标准价和一周前的 GPT-6 Sol 一样，降下来的是缓存价：比标准输入便宜 95%，比上一代 Sol 的缓存价还低一半。缓存价是反复读同一段上下文时的计费，Agent 一个任务要来回请求几十次，账单的大头就在这里，所以做 Agent 的人更该看缓存价。</p>
+<p>OpenAI 公布的评测里，Sol 和对手的对比是这样的：</p>
+<ul>
+<li><strong>DeepSWE（真实代码库里的软件工程任务）：</strong> 以约五分之一的成本追平 Astra，比上一代 Sol 的最好成绩高 6.4 个百分点。</li>
+<li><strong>GDP.pdf（读复杂 PDF 回答专业问题）：</strong> 各个推理档位都高于 Opus 5.5，单任务成本不到它一半。</li>
+<li><strong>AutomationBench（用 47 种工具走完多步业务流程）：</strong> 中等推理强度下比 Opus 5.5 高 2.2 个百分点，成本约三分之一。</li>
+<li><strong>OSWorld 2.0（长流程的电脑操作）：</strong> 和 Astra 差距在 2.1 分以内，单任务成本约七分之一。</li>
+<li><strong>Terminal-Bench Science（科研任务）：</strong> 单任务平均 5.47 美元，Opus 5.5 是 23.21 美元，Astra 是 23.80 美元；但得分第一的还是 Astra（68.1%），最难的科研活仍该交给 Astra。</li>
+<li><strong>事实错误：</strong> 专挑容易答错的难题，低推理强度下含事实错误的回答从 11.4% 降到 7.7%；最高档下 Sol 4.1%，Astra 4.0%，几乎持平。</li>
+<li><strong>诚实度：</strong> 搜索工具坏了该告诉用户，而不是编一个答案。没说出来的比例 Sol 是 2.1%，上一代 Sol 4.9%，Astra 1.5%，Luna 高达 28.7%。</li>
+</ul>
+<figure><img /><figcaption>DeepSWE 1.1：横轴是单任务成本，纵轴是得分；GPT-6.1 Sol 用更低的成本追到 Astra 的水平（图：OpenAI 发布会现场）</figcaption></figure>
+<figure><img /><figcaption>Terminal-Bench Science 0.1：Sol 成本远低，但最高分仍是 Astra（图：OpenAI 发布会现场）</figcaption></figure>
+<p>DeepSWE 的原始数据还能看出一件对使用者更有用的事：<strong>推理强度开得越高，不一定越好。</strong></p>
+<div><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>推理强度</th>
+<th>单任务成本</th>
+<th>得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td>中</td>
+<td>0.42 美元</td>
+<td>73.0%</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td>高</td>
+<td>0.65 美元</td>
+<td>75.2%</td>
+</tr>
+<tr>
+<td>GPT-6.1 Sol</td>
+<td>Max</td>
+<td>1.57 美元</td>
+<td>71.9%</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td>中</td>
+<td>3.08 美元</td>
+<td>72.8%</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td>超高</td>
+<td>4.43 美元</td>
+<td>74.1%</td>
+</tr>
+<tr>
+<td>GPT-6 Astra</td>
+<td>Max</td>
+<td>7.50 美元</td>
+<td>73.2%</td>
+</tr>
+<tr>
+<td>GPT-6 Sol（上一代）</td>
+<td>Max</td>
+<td>2.74 美元</td>
+<td>68.8%</td>
+</tr>
+</tbody>
+</table></div>
+<p>新 Sol 开到"中"档，花 0.42 美元就略高于 Astra 同档的 3.08 美元；它的最好成绩出现在"高"档，再开到 Max，成本翻了一倍多，分数反而掉了 3 个多点。Astra 也一样，Max 比"超高"更贵、分数更低。所以挑推理强度时，先在自己的任务上试"中"和"高"，别默认开到最大。</p>
+<p>放到外部的独立综合榜单上，Sol 52 分、Astra 53 分，每个任务的成本 Sol 大约是 Astra 的 22%，"接近 Astra、约五分之一价格"的说法站得住；排第一的仍是 Anthropic 的 Opus 5.5（58 分）。Sol 拼的是性价比。</p>
+<p><strong>规格：</strong> 上下文窗口 105 万 token，最大输出 12.8 万 token，支持文字和图片输入，推理强度分五档；单次输入超过 27.2 万 token 价格翻倍，Batch 和 Flex 半价。</p>
+<p>Sol 目前还没进聊天窗口，开放在 ChatGPT 工作和 Codex 里（Plus、Pro、Business、Enterprise、Edu），开发者用 API 模型名 <code>gpt-6.1-sol</code>。</p>
+<h3>3. 超高速（Ultrafast）：花更多钱，换更快的输出</h3>
+<figure><img /><figcaption>Ultrafast 可用于 ChatGPT、Codex 和 API（图：OpenAI）</figcaption></figure>
+<p><strong>超高速是一个付费提速档。</strong> 在 Codex 里，token 生成最高快 8 倍，约每秒 300 个 token；在 API 里快 6 到 7 倍。</p>
+<figure><figcaption>Ultrafast 短片（中英双语字幕，约 45 秒）：给赛车游戏实时生成精灵图，普通档还在跑，超高速已经做完</figcaption></figure>
+<p>Agent 做一件事要走几十个小步骤，每一步都在等模型，模型快一截，你等的时间就短一截。现场 Altman 放了一段并排对比：同一句"造一枚 DevDay 配色、带大舷窗的白色火箭，并发射"，超高速那边火箭已经升空，标准档还远没搭完。</p>
+<p>代价是钱。API 里超高速是标准价的 6 倍，Astra 超高速每百万输入 60 美元、输出 300 美元；在 ChatGPT 套餐里，用超高速会按 8 倍的速度消耗额度。它跑在 Cerebras 的芯片上。</p>
+<p>现在能用的是 <strong>Astra 超高速</strong>：API 已上线，ChatGPT 工作和 Codex 里只有 Pro 500 和 Enterprise 能用。<strong>Sol 超高速</strong>这几天就到，价格大致和原来用 Astra 标准版差不多，却能拿到接近 Astra 的智力和最高 8 倍的速度，这可能是整场发布里对开发者最划算的组合。</p>
+<p>适合付这个钱的，是人在盯着等结果的场景，比如在 Codex 里和 AI 结对写代码；批量任务没人在等，用 Sol 标准速度加缓存便宜得多。</p>
+<h3>4. 隐私智能：给不敢把数据交出去的企业</h3>
+<figure><img /><figcaption>按项目设置保留策略：零数据保留加隐私安全处理，外部存储状态显示已验证（图：OpenAI）</figcaption></figure>
+<p>医院、银行、律所这类客户，最大的顾虑是数据。<strong>隐私智能</strong>是 OpenAI 给它们的方案，分两块：</p>
+<ul>
+<li>
+<p><strong>带隐私安全处理的零数据保留。</strong> 它要解决一个矛盾：企业开了零数据保留，就是不让 OpenAI 留存提示词和回答；可 OpenAI 又得做安全审查，防止模型被滥用。做法是把记录搬到客户那边：被安全系统挑中的对话，加密后写进<strong>客户自己的云存储</strong>，OpenAI 只留一个索引，不留内容。要审查时，只有一个禁止人工访问的硬件环境能解密这些记录，自动审完，只带出一个限定格式的安全信号。</p>
+<p>"零数据保留"的准确意思是：OpenAI 不保留你的内容，安全记录放在你自己的存储里 30 天，由你来管。再加一层企业自己的密钥，撤销之后，这些记录谁也解不开。</p>
+</li>
+<li>
+<p><strong>隐私推理（预览）。</strong> 用机密计算技术，让数据在模型生成回答的那一刻也处在可验证的保护之下，今秋开始预览。</p>
+</li>
+</ul>
+<p>Altman 说，这套体系是和 Cisco、Databricks、Snowflake 这些大客户一起设计的。</p>
+<h2>用 Codex 和 API 构建：让 Agent 上云、给开发者更多零件</h2>
+<p>Codex 是 OpenAI 的编程 Agent。这一栏 7 项，4 项给 Codex 本身加能力，3 项是给开发者的 API 零件。</p>
+<h3>5. Codex Cloud：合上电脑，它还在干活</h3>
+<p>Altman 一上台，先把用户在 X 上呼声最高的三个 Codex 需求打了勾：Codex app 支持 Linux、一个项目可以跨多个文件夹、手机上也能用 Codex。</p>
+<figure><img /><figcaption>开场大屏：用户在 X 上要 Codex Linux 版的推文被逐一打勾（图：OpenAI 发布会现场）</figcaption></figure>
+<p>更大的变化在运行位置。Codex 现在有三种跑法：<strong>在你的电脑上跑、用手机遥控你的电脑跑、或者直接在云端跑</strong>。放到云端，任务就不用靠你的笔记本开着了。</p>
+<figure><img /><figcaption>手机上的 Codex 可以选择跑在云端，或遥控你自己的 Mac（图：OpenAI）</figcaption></figure>
+<p>新增的是<strong>可复用的云端开发环境</strong>，配一次，以后每个任务直接开跑，团队还能共用一套批准过的设置和权限。</p>
+<figure><figcaption>Codex Cloud 介绍片（中英双语字幕，约 3 分半）</figcaption></figure>
+<p>短片里演示了新环境的几种用法：</p>
+<ul>
+<li><strong>合上电脑照跑：</strong> 任务在云端运行，合上笔记本也不停；可以从手机给正在跑的任务追加内容，甚至戴着耳机用语音发起会话，做完了它来通知你。</li>
+<li><strong>对话式配置：</strong> 新建环境时把仓库交给它，它自己研究这个仓库需要什么：网络、环境变量、密钥。</li>
+<li><strong>一次配好反复用：</strong> 配好后存成一个有名字的环境快照，可以从它出发同时开多个独立任务。分享给团队时，成员可以换上自己的密钥。</li>
+<li><strong>收尾：</strong> 做完可以直接提 PR，或者走新的代码审查流程（第 7 项）。</li>
+</ul>
+<p>现场 Romain Huet 演示了本地和云端的接力：新建一个云端任务，只发一句"把整个后端用 Rust 重写"，然后就去演示别的，回头再看结果。</p>
+<p>Plus、Pro、Business、Enterprise、Edu 和医疗版都能用。</p>
+<h3>6. 焕新的 Codex CLI：能对它说话，还能同时管多个任务</h3>
+<p>CLI 是命令行里的 Codex。这次的变化：</p>
+<figure><img /><figcaption>命令行里让 Codex 加快捷键、补测试（图：OpenAI）</figcaption></figure>
+<ul>
+<li><strong>语音对话：</strong> 直接说话来启动任务、纠正方向。</li>
+<li><strong>/agents 视图：</strong> 把活分给多个 Agent，在一个界面里看每件事的进度。</li>
+<li><strong>日常打磨：</strong> 改提示词更顺手、能恢复之前的会话、内置 Git 工作树（让多个任务在互不干扰的代码副本里跑），长会话更好读。</li>
+</ul>
+<p>/agents 视图管的是多任务下的混乱：AI 同时干好几件事时，人最容易搞不清哪个在等回复、哪个在改文件、哪个做完了等审。任务越多，这个视图越有用。</p>
+<p>Romain 在台上从一个空项目开始，让 CLI 做一个随机抽三位观众、送下一届 DevDay 门票的 app，几秒后页面就出来了；再说一句"改成六位"，页面立刻更新，现场抽出了六位观众。本来要用语音演示，当天语音没能启动，他改成了打字。所有套餐都能用。</p>
+<h3>7. 代码审查：你不在的时候，Codex 先看一遍</h3>
+<p>ChatGPT 桌面应用里有了专门的代码审查界面：先看改动摘要，再深入看具体的 diff，有疑问直接问 Codex；开了<strong>自动审查</strong>，你不在电脑前时 Codex 会在云端先审一遍。支持 GitHub 的 Pull Request 和 GitLab 的合并请求，所有套餐可用。</p>
+<figure><img /><figcaption>Codex 在审查界面里给出评论，并带回复、解决、修复按钮（图：OpenAI）</figcaption></figure>
+<h3>8. Codex Security Cloud：让 AI 盯着代码里的安全漏洞</h3>
+<p>Security Cloud 面向安全团队，让 Codex 在云端持续盯着代码仓库找漏洞。</p>
+<figure><img /><figcaption>每个漏洞从发现到修复的流水线（图：OpenAI）</figcaption></figure>
+<ul>
+<li>可以盯住每一次新提交，也可以按需或定时扫描整个 GitHub 仓库。</li>
+<li>发现问题后，它自己调查、去重、准备修复补丁，全在云端完成，合上笔记本也照跑。</li>
+<li>附带用上 OpenAI 网络安全计划里偏防御的 Daybreak Blue 模型，不用再单独申请。</li>
+</ul>
+<p>扫描本身不难，费时间的是扫完之后：判断是不是真问题、去重、定位、写补丁。Security Cloud 把这一轮也先替安全团队做了。目前是研究预览，面向 Pro、Business、Enterprise 和 Edu，在 Codex 桌面端和网页版以插件形式提供。</p>
+<h3>9. Decisions API：只做选择题的快速模型</h3>
+<p><strong>问题：</strong> 很多应用里都有一种"小决定"：这张工单转给哪个团队？这条内容算哪一类？Agent 下一步调哪个工具？现在通常是调一个大模型，逼它只输出规定格式，再写代码检查格式、出错重试，又慢又绕。</p>
+<p><strong>做法：</strong> 你定义一个问题和几个固定答案，用文字或图片给上下文，它直接从选项里挑一个返回。背后是 GPT-6 Luna，也就是最便宜的那个型号。</p>
+<p>同样把 1 万条客服请求按账单、技术、销售三类分流，走普通的 Responses API 每条约 1.6 秒，走 Decisions API 每条约 150 毫秒，快了差不多 10 倍。</p>
+<figure><figcaption>同样分流 1 万条客服请求，Decisions API 每条约 150 毫秒，Responses API 每条约 1.6 秒（画面为 15 倍速，约 29 秒）</figcaption></figure>
+<p>现场还演示了用它操作电脑订机票，画面没加速，每一步几乎一闪而过。另一个用法是机器人：Romain 最后请出一台 Hugging Face 还没发布的可编程小鸭子机器人 MicroDuck，视觉用 Astra、画图用 GPT Image 2.5、实时语音用 GPT Live 1。他说做机器人的朋友最期待的，就是用能看图的 Decisions API，让机器人根据看到的东西近乎实时地做动作。</p>
+<figure><img /><figcaption>MicroDuck 小机器人，视觉、画图和实时语音分别接了 OpenAI 不同的模型（图：OpenAI 发布会现场）</figcaption></figure>
+<p>这类模型有个说法叫 <a>System One</a>（快思考），和 TypeSafe 不久前推出的 Jev 思路相通：让强模型想大方向，让快速的决策模型挑每一步动作。用的时候记得在选项里留一个"需要人工确认"，别让含糊的输入被硬塞进错误的类别。现在是限量预览，几天内全面开放。</p>
+<h3>10. Agents API 加入"计算机使用"：让你的 Agent 直接操作软件</h3>
+<p><a>Agents API</a> 是 OpenAI 的云端 Agent 托管服务，本身之前就推出了，这次的新东西是<strong>计算机使用</strong>。</p>
+<figure><img /><figcaption>你的应用把任务交给 OpenAI 托管的 Codex 执行框架，工具调用在沙箱里运行，沙箱可以在 OpenAI 或你自己的基础设施上（图：OpenAI）</figcaption></figure>
+<p>做一个能长时间干活的 Agent，光有模型不够，还得管上下文、调工具、协调多个子 Agent，还要一个能连跑几天的运行环境。这一整套叫"执行框架（harness）"，Agents API 把 Codex 用的那一套直接托管给你：</p>
+<ul>
+<li><strong>一次 API 调用就能建一个云端 Agent</strong>，指定任务、模型、工具和运行环境就行。</li>
+<li><strong>环境自己选</strong>：OpenAI 托管的沙箱、你自己的基础设施，或者 Cloudflare、Vercel、Modal 这些合作方的环境。</li>
+<li><strong>自带的能力</strong>：上下文快满时自动压缩、按需加载工具、多个子 Agent 并行干活。</li>
+<li><strong>计费</strong>：Agents API 本身不收钱，只按 token 和工具用量算。</li>
+</ul>
+<p>新加的<strong>计算机使用</strong>，让你的 Agent 能像人一样点击、输入、操作软件界面。现实里很多系统根本没有好用的接口，只能打开网页、看状态、点按钮，计算机使用补的就是这一块。通过 API 就能用；Pro 500 和 Enterprise 用户在 Codex 和 ChatGPT 工作里也能用。</p>
+<p>另外，Altman 宣布 <strong>Codex Harness 开源</strong>。它驱动着 Codex、ChatGPT 工作，现在也驱动 Dots，开发者可以直接拿去搭自己的 Agent。</p>
+<p>OpenAI 后训练研究负责人 Tejal Patwardhan 讲了计算机使用的两组数据。速度上，他们让模型在循环里反复找能降延迟的改进，再合进正式的框架，电脑操作的延迟改善了一倍多，已经上线。安全上，在电脑操作的安全压力测试里，行为偏离用户意图的比例 Claude Fable 5.1 是 9.5%，Opus 5.5 是 6.1%，GPT-6 Astra 是 2.4%。</p>
+<figure><img /><figcaption>电脑操作安全压力测试：偏离用户意图的比例，越低越好（图：OpenAI 发布会现场）</figcaption></figure>
+<p>她还给了一个研究进度的数字：人要花一天左右的研究任务，年初模型基本做不下来，到年中，超过三分之一已经能不用人插手做完。</p>
+<p>Romain 用几段演示展示了这些能力：Astra 通过浏览器接管一款它没见过的 3D 太空游戏，自己点开始、选飞船、开起来；他对手机模拟器里的一个 app 截了一张 AppShot，说一句"在各种屏幕尺寸下审一遍我的 app"，Codex 就自己去点模拟器、打开 app、逐个试功能、截图。</p>
+<figure><img /><figcaption>Astra 通过浏览器接管一款 3D 太空游戏，一边是它的决策，一边是它按下的键（图：OpenAI 发布会现场）</figcaption></figure>
+<p>API 整体也提速了：工具调用快 30% 以上，首个 token 快 45% 以上，Responses API 可用性 99.9% 以上。</p>
+<figure><img /><figcaption>工具调用快 30%+、首 token 快 45%+、可用性 99.9%+（图：OpenAI 发布会现场）</figcaption></figure>
+<h3>11. Amazon Bedrock 托管 Agent：整个跑在 AWS 里</h3>
+<p>对数据和采购都在 AWS 的公司，这一项解决"想用 OpenAI 的 Agent，又不想离开 AWS"的问题。Bedrock 托管 Agent 以 Agents API 的核心能力为基础，加上 AWS 的定制和集成，跑在客户自己的 AWS 资源上，紧挨着现有的应用和数据。AWS 客户还能用上 GPT-6 Astra、超高速、Codex 和 ChatGPT 工作。</p>
+<figure><img /><figcaption>OpenAI 与 AWS 合作推出 Bedrock 托管 Agent（图：OpenAI）</figcaption></figure>
+<h2>用插件定制 ChatGPT：把 ChatGPT 变成你产品的入口</h2>
+<p>从 2023 年的 GPTs，到后来 ChatGPT 里的应用，现在都统一叫<strong>插件</strong>。每周 12 亿用户的 ChatGPT，这次把自己做功能用的那套平台开放给了开发者。这一栏 4 项都是给开发者的。</p>
+<h3>12. 插件扩展：在 ChatGPT 里做出一整个应用</h3>
+<p><strong>以前的插件更像"一个能被 ChatGPT 调用的工具"，现在能长成"ChatGPT 里的一个完整应用"。</strong> 开发者可以：</p>
+<figure><img /><figcaption>第三方产品作为交互面板嵌进 ChatGPT（图：OpenAI）</figcaption></figure>
+<ul>
+<li>在侧边栏给插件设一个专属入口；</li>
+<li>做一个交互面板，让用户一边聊天一边操作；</li>
+<li>给自家产品支持的文件类型做查看器。</li>
+</ul>
+<p>Altman 举了两个例子。一个是 OpenAI 自己新做的会议 app，就是用插件扩展做的：在聊天里看接下来的会议，点"在 ChatGPT 里做纪要"，纪要页直接变成一个资料空间，同事和 Dots 在里面跟进待办。另一个是 Figma：在 ChatGPT 里打开设计稿、看团队评论、让 ChatGPT 改一版，设计和对话并排进行。所有套餐都能用。</p>
+<h3>13. 更顺手的创建、提交和发现</h3>
+<ul>
+<li><strong>创建：</strong> 有插件创建工具帮你搭。</li>
+<li><strong>提交：</strong> 提交流程重做了，能看审核进度、看哪里要改、申请人工复审，更新插件也不用从头再提交。</li>
+<li><strong>被发现：</strong> 除了在插件库里搜，用户提问时 ChatGPT 会判断你的插件能不能帮上忙，当场就能连上。</li>
+<li><strong>用户说了算：</strong> 用哪个插件由用户自己选，每个插件的权限逐一批准。</li>
+</ul>
+<figure><img /><figcaption>插件的创建、提交与发现（图：OpenAI）</figcaption></figure>
+<p>对插件开发者，对话里的自动推荐影响最大，每周 12 亿人的提问都可能变成分发入口。它也很像搜索引擎里的推荐位，以后怎么排序、会不会收费，还要再观察。所有套餐可用。</p>
+<h3>14. 接入插件的站点：让团队用各自的权限登录同一个应用</h3>
+<p>Sites 是 ChatGPT 里做网站的功能，上线几个月，用户已经建了几百万个网站。现在这些网站能接入 ChatGPT 插件：团队成员用各自的账号登录同一个应用，用的是自己连接的数据和权限，看到的内容也因人而异。财务仪表盘、活动预订、项目追踪、预算规划、多人小游戏，都能这么做。适用于 Business、Enterprise、医疗版和 Education。</p>
+<figure><img /><figcaption>一个接入了 ChatGPT 插件的网站（图：OpenAI）</figcaption></figure>
+<h3>15. 用 MCP 事件驱动自动化：有事发生，它自己动起来</h3>
+<p>MCP 是让 AI 连接外部工具的开放协议。这次 ChatGPT 支持了 MCP 的事件机制：<strong>连接的应用里一发生什么事，就能自动触发插件的工作流。</strong></p>
+<figure><img /><figcaption>MCP 事件触发插件自动化（图：OpenAI）</figcaption></figure>
+<p>它和普通的工具调用方向正好相反。普通调用是 AI 主动去问外部系统"有什么新东西"，得一遍遍回去问；事件是外部系统一有变化，主动把消息推过来。流程大致是：你的服务声明自己支持哪些事件（比如"有人发了新评论"）；用户告诉 ChatGPT 要盯什么、盯到了怎么处理；ChatGPT 通过你的 MCP 服务订阅；之后一有匹配的变化，你的服务就把事件推过来，ChatGPT 在原来的对话里按指令接着干。</p>
+<p>比如让 ChatGPT 盯着项目看板，一有新任务，不管你在不在，它就去读关联文档、起草计划。所有套餐可用。</p>
+<h2>人与 AI 协作：一个共享的工作空间</h2>
+<p>这一栏 7 项可以放在一起看，它们搭起的是一个"人、ChatGPT 和 Dots 一起上班的办公室"。</p>
+<h3>16. ChatGPT 资料空间：团队和 AI 共用的地方</h3>
+<p>把团队拉进一个专属空间，包括 ChatGPT 在内的所有成员，都能接着共同的目标和过往成果往下做，不用每次重新交代背景。你可以让 ChatGPT 把一段对话变成页面或幻灯片，它先问清需求，再当着你的面起草，你自己改、让它再改、或者拉同事一起改，全程不用换工具。它取代了原来的 Library，可以理解成"共享网盘加群聊，只不过有些成员是 AI"。</p>
+<figure><img /><figcaption>空间里汇集团队成员和 ChatGPT 共同做出的页面、报告、幻灯片（图：OpenAI）</figcaption></figure>
+<p>Pro、Business、Enterprise 能用，网页和桌面端可以创建编辑，手机上目前只能看；Plus 不在名单里。</p>
+<h3>17. 动态页面（Pages）：一种给人和 Agent 一起编辑的新文档</h3>
+<p>页面适合写项目计划、报告、视觉方案。你可以在里面和 ChatGPT 或你的 Dot 一起生成图表、交互式仪表盘和图片；同事可以评论或直接改，再 @ 你的 Dot 或 ChatGPT 让它改内容、做下一步。</p>
+<figure><img /><figcaption>同事和 ChatGPT 在同一份 Q4 发布计划里编辑、勾选待办（图：OpenAI）</figcaption></figure>
+<p>Holly 在演示里 @ 了两位同事和 Dottie，说一句"chart, please"，页面里就多出一张可以按反馈类型筛选的用户反馈图表，由 Dottie 每小时更新一次。页面还能设成从连接的工具自动更新，比如一个随工作进展变化的待办清单。</p>
+<p>团队用之前先注意权限：分享页面不会顺带分享你的私人聊天和记忆，也不会把外部文件的访问权限给出去；但只要 ChatGPT 把其中的内容摘录或总结进了共享页面，所有能看页面的人就都能看到。什么内容能进共享页，最好先定个规矩。适用于 Pro、Business、Enterprise。</p>
+<h3>18. 协作式幻灯片：多人加 AI 同时改一份 PPT</h3>
+<p>一个新的演示文稿编辑器：</p>
+<figure><img /><figcaption>多人和 ChatGPT 同时编辑一份幻灯片，右侧是评论（图：OpenAI）</figcaption></figure>
+<ul>
+<li>有原生可编辑的图表，以及文本、形状、图片；</li>
+<li>可以把对话直接变成幻灯片，也可以从自己的模板开始，边做边给 ChatGPT 反馈；</li>
+<li>多人同时编辑、评论，或者标出希望 ChatGPT 修改的地方；</li>
+<li>做完可以直接在 ChatGPT 里演示，也能导出到 PowerPoint 或 Google Slides 接着改。</li>
+</ul>
+<p>Altman 的说法是，这是"一种 Agent 容易读懂、也容易修改的幻灯片"。它更在意的是多人来回改时，内容、版式和修改意见都留在同一个地方。未来几周上线，Pro、Business、Enterprise 可用。</p>
+<h3>19. 创建团队，共享任务：把重复的活交给 ChatGPT</h3>
+<p>在 ChatGPT 里把同事拉进一个团队，就能共享页面、演示文稿、表格。更有用的是<strong>团队任务</strong>：比如每周项目进展汇报，你描述需求，ChatGPT 用连接好的工具收集信息、执行动作，可以定时跑，也可以由变化触发，比如来了一封新邮件或一条新 Slack 消息。团队成员能一起改指令，让任务跟着工作重点变。它用团队的服务账号执行，不借用某个人的全部权限。适用于 Business 和 Enterprise。</p>
+<figure><img /><figcaption>团队里定时运行的任务，每天汇总销售数据（图：OpenAI）</figcaption></figure>
+<h3>20. Slack 和 Teams 里 @ChatGPT</h3>
+<p>在频道、消息串或私信里 @ChatGPT，就能让它把一段讨论整理成项目简报、排查 bug 并准备修复方案，或者每天早上发一份客户动态。它能用管理员连好的工具，也能在你授权的范围内用你的工具。一个细节：没有 ChatGPT 账号的同事，也能在同一个对话里补充上下文、一起完善结果。适用于 Business 和 Enterprise。</p>
+<figure><img /><figcaption>在聊天里 @ChatGPT，让它把这段讨论做成幻灯片（图：OpenAI）</figcaption></figure>
+<h3>21. 会议插件：开完会，纪要和待办自动到位</h3>
+<p>用会议插件录下会议音频，纪要存进资料空间，可以只给自己看，也可以分享给团队。ChatGPT 会结合你们之前的合作背景，提炼和你最相关的要点、决定和下一步，还能帮你处理待办，比如站会后按新的决定和卡点更新项目计划。</p>
+<figure><img /><figcaption>会议纪要页，列出摘要和行动项（图：OpenAI）</figcaption></figure>
+<p>纪要生成后录音就删掉，不能回放，要留原始录音的场合别指望它。目前是 macOS 桌面端测试版，面向 Pro 和 Business，Enterprise 随后。</p>
+<h3>22. 可分享的个人资料页：给你的插件和站点一个名片</h3>
+<p>个人资料页把你做过的站点和插件集中展示，方便别人发现和复用；团队成员还能发现被共享的"技能"，技能只在工作空间内共享。对做小工具的人来说，这比把链接散落在各个群里好找得多。Enterprise、Edu 和医疗版即将推出，其他套餐已经能用。</p>
+<figure><img /><figcaption>个人资料页展示活跃度、常用插件和作品（图：OpenAI）</figcaption></figure>
+<h2>用 ChatGPT 订阅做更多：账号、套餐、采购</h2>
+<h3>23. 使用 ChatGPT 登录：一个账号，走到别的产品里</h3>
+<p>在合作产品里用 ChatGPT 账号登录，不用再设密码。对方只拿到你的姓名、邮箱和头像，聊天记录和记忆不会给出去。</p>
+<figure><img /><figcaption>连接 ChatGPT 和 Devin，并可选择使用 ChatGPT 套餐额度（图：OpenAI）</figcaption></figure>
+<p>登录之外还有额度：Plus 和 Pro 用户可以在合作应用里直接花自己 ChatGPT 套餐里的用量，每个应用最多能用多少由你来定。首发 16 家，包括 Devin、Notion、Vercel、Lovable、Warp、Amp、Conductor、Kilo、T3、OpenClaw、Dactyl 等。注意这是从你原有的额度里扣，不会因为多接一个应用就多一份额度。</p>
+<figure><img /><figcaption>"用 ChatGPT 登录"的首发合作方（图：OpenAI 发布会现场）</figcaption></figure>
+<p>Altman 在台上坦白，这类做法以前试过，"结果好坏参半"。这次给开发者的好处是：推理成本由用户的订阅来付，你不用再替重度用户垫 token 钱。代价是：你的登录、用户的额度和你的成本结构，都压在了 OpenAI 的账号体系上。</p>
+<h3>24. 新的 Pro 档位：每月 500 美元</h3>
+<p>OpenAI 推出每月 500 美元的 Pro 500：用量是 Plus 的 25 倍，没有 5 小时限额，额度还能通过"用 ChatGPT 登录"在合作方的应用里花，而且只有这一档能在 ChatGPT 和 Codex 里用超高速，在 100 或 200 美元档上另买额度也解锁不了。现在 Pro 分三档：每月 100、200、500 美元。</p>
+<figure><img /><figcaption>Pro 的三档：100、200 和新的 Pro 500（含超高速、无 5 小时限额、可在合作方应用里用、Plus 的 25 倍用量）（图：OpenAI 发布会现场）</figcaption></figure>
+<p>200 美元档也有变化：重新开放订阅，但新订阅的用量缩水了，在 ChatGPT 工作和 Codex 里从 Plus 的 20 倍降到 10 倍，GPT-6 Pro 在聊天里的消息数也从每周 200 条减到 100 条；老用户过渡期内保留原来的额度。200 美元档的重度用户，最好重新算一下自己的用量。</p>
+<p>要不要升，看你是不是每天都被额度和等待卡住。整天在 Codex 里干活的人，500 美元换 25 倍用量加超高速可能划算；偶尔用的人，多花的钱换不来相应的体验。</p>
+<h3>25. OpenAI 软件市场：用你和 OpenAI 的合同额度买别家的软件</h3>
+<p>符合条件的企业客户，可以把已经承诺给 OpenAI 的一部分消费额度，拿去买合作伙伴的软件，不用为每家供应商单独走采购。首批 32 家：创意领域的 Adobe 和 Figma，客户体验领域的 Sierra、Decagon、HubSpot、Salesforce、ServiceNow，法律领域的 Harvey 和 Legora，安全领域的 Palo Alto Networks 和 CrowdStrike，还有提供开源模型的 Baseten。目前是测试版，企业可以先登记意向。</p>
+<figure><img /><figcaption>软件市场首批合作方（图：OpenAI）</figcaption></figure>
+<h2>一张表看谁现在能用</h2>
+<div><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>项目</th>
+<th>现在的状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Dots</td>
+<td>逐步开放：Pro（首批不含欧洲经济区、英国、瑞士）、Business Premium；Enterprise 测试版需管理员开启；首批只能在桌面端创建</td>
+</tr>
+<tr>
+<td>2</td>
+<td>GPT-6.1 Sol</td>
+<td>已上线：ChatGPT 工作和 Codex（Plus、Pro、Business、Enterprise、Edu）、API；聊天窗口暂无</td>
+</tr>
+<tr>
+<td>3</td>
+<td>超高速</td>
+<td>Astra 版已上线（API；Pro 500 和 Enterprise 的 ChatGPT 工作、Codex）；Sol 版几天内</td>
+</tr>
+<tr>
+<td>4</td>
+<td>隐私智能</td>
+<td>零数据保留加隐私安全处理已可用；隐私推理今秋预览</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Codex Cloud</td>
+<td>已上线：Plus、Pro、Business、医疗版、Education、Enterprise</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Codex CLI 更新</td>
+<td>所有套餐</td>
+</tr>
+<tr>
+<td>7</td>
+<td>代码审查</td>
+<td>所有套餐</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Codex Security Cloud</td>
+<td>研究预览：Pro、Business、Enterprise、Edu</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Decisions API</td>
+<td>限量预览，几天内全面开放</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Agents API 计算机使用</td>
+<td>API 可用；Pro 500 与 Enterprise 可在 Codex、ChatGPT 工作里用</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Bedrock 托管 Agent</td>
+<td>通过 AWS 使用</td>
+</tr>
+<tr>
+<td>12</td>
+<td>插件扩展</td>
+<td>所有套餐</td>
+</tr>
+<tr>
+<td>13</td>
+<td>创建、提交与发现</td>
+<td>所有套餐</td>
+</tr>
+<tr>
+<td>14</td>
+<td>接入插件的站点</td>
+<td>Business、Enterprise、医疗版、Education</td>
+</tr>
+<tr>
+<td>15</td>
+<td>MCP 事件</td>
+<td>所有套餐</td>
+</tr>
+<tr>
+<td>16</td>
+<td>资料空间</td>
+<td>Pro、Business、Enterprise；网页和桌面可创建编辑，手机可查看</td>
+</tr>
+<tr>
+<td>17</td>
+<td>动态页面</td>
+<td>Pro、Business、Enterprise</td>
+</tr>
+<tr>
+<td>18</td>
+<td>协作式幻灯片</td>
+<td>未来几周上线：Pro、Business、Enterprise</td>
+</tr>
+<tr>
+<td>19</td>
+<td>团队与团队任务</td>
+<td>Business、Enterprise</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Slack、Teams 里的 @ChatGPT</td>
+<td>Business、Enterprise</td>
+</tr>
+<tr>
+<td>21</td>
+<td>会议插件</td>
+<td>macOS 测试版：Pro、Business；Enterprise 随后</td>
+</tr>
+<tr>
+<td>22</td>
+<td>个人资料页</td>
+<td>多数套餐已可用；Enterprise、Edu、医疗版即将</td>
+</tr>
+<tr>
+<td>23</td>
+<td>使用 ChatGPT 登录</td>
+<td>登录全球可用；套餐额度共享面向 Plus、Pro</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Pro 500</td>
+<td>已推出</td>
+</tr>
+<tr>
+<td>25</td>
+<td>软件市场</td>
+<td>测试版，符合条件的企业客户</td>
+</tr>
+</tbody>
+</table></div>
+<h2>把 25 项放在一起看</h2>
+<p>按"它降低了哪一种工作成本"，这 25 项可以归成五组：</p>
+<ul>
+<li><strong>持续跟进的成本：Dots。</strong> 以前你既要派任务，还得不停提醒 AI 接着做。Dots 要省掉的，是"盯着"本身占用的注意力。</li>
+<li><strong>能力的价格和等待的价格：GPT-6.1 Sol 和超高速。</strong> 一个让更多复杂任务能交给便宜的模型，一个让着急的任务花钱买速度。这是两笔账，要分开算。</li>
+<li><strong>任务对"人在场"的依赖：Codex 云端、MCP 事件、团队任务。</strong> 有地方跑、有事件触发、有团队共同管理的身份，自动化才能从一次性脚本变成长期运转的流程。</li>
+<li><strong>成果交接的方式：资料空间、动态页面、插件扩展。</strong> AI 的产出从聊天记录里搬出来，变成能编辑、能共享、能接着操作的文档。这一组离普通上班族最近。</li>
+<li><strong>分发和采购的路径：用 ChatGPT 登录、软件市场。</strong> 前者让个人订阅额度走出 ChatGPT，后者让企业的采购预算流向合作软件。这跟模型能力无关，影响的是以后大家在哪用、在哪买 AI 工具。</li>
+</ul>
+<p>协作那几项单看有点零碎，放进一次交接流程里看：</p>
+<div><table>
+<thead>
+<tr>
+<th>工作里的问题</th>
+<th>对应的更新</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成果放哪，下次怎么找到</td>
+<td>资料空间</td>
+</tr>
+<tr>
+<td>一份东西怎么接着编辑、讨论</td>
+<td>动态页面、协作式幻灯片</td>
+</tr>
+<tr>
+<td>离开对话之后，谁接着干</td>
+<td>Dots、团队任务</td>
+</tr>
+<tr>
+<td>有了新情况，怎么自动开工</td>
+<td>MCP 事件</td>
+</tr>
+<tr>
+<td>同事在哪参与、在哪看到结果</td>
+<td>Slack 和 Teams 里的 @ChatGPT、接入插件的站点</td>
+</tr>
+<tr>
+<td>开完会的待办怎么接上</td>
+<td>会议插件</td>
+</tr>
+</tbody>
+</table></div>
+<p>一次完整的流程是：会议产生待办，待办写进页面，页面放进共享空间，团队任务或 Dot 盯着后续变化，结果回到大家讨论的地方。</p>
+<h2>几个还没有答案的问题</h2>
+<ul>
+<li><strong>现场演示频频卡壳。</strong> Dot 一直"还在查"，语音两次没启动，和宣传片里顺滑的一天对比明显。Dots 这类产品好不好用，要看用上一个月后，你少追了多少事、多返工了多少活。</li>
+<li><strong>500 美元贵不贵，取决于能不能算出回报。</strong> 一年 6000 美元一个席位，对开发工具不算离谱，前提是你能说清它省了多少时间。500 美元档的价值高度集中在超高速上，而超高速只在人盯着等的场景里才显出来。</li>
+<li><strong>对话里的插件推荐，会不会变成广告位。</strong> 12 亿人的提问现场是最好的分发渠道，推荐怎么排、谁排在前面，还要看后面怎么做。</li>
+<li><strong>Dots 和 Muse 撞上了。</strong> 两家都在做"有名字、有头像、一直在线"的个人 Agent。OpenAI 的优势在于它背后连着 Codex、插件和 ChatGPT 的用户盘子；最后比的是谁先让普通人放心把一份职责交出去。</li>
+</ul>
+</div><div><div><div>来源</div><div><span>DevDay 2026 回顾</span><span>OpenAI<span>·</span><a href="https://openai.com/zh-Hans-CN/index/devday-2026-recap/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://openai.com/zh-Hans-CN/index/introducing-dots/">隆重推出 Dot</a><span>·</span><a href="https://openai.com/zh-Hans-CN/index/introducing-gpt-6-1-sol/">推出 GPT-6.1 Sol</a><span>·</span><a href="https://openai.com/zh-Hans-CN/index/introducing-the-agents-api/">推出 Agents API</a><span>·</span><a href="https://the-decoder.com/openai-expands-codex-and-its-api-at-devday-with-security-scans-a-decisions-api-and-ultrafast/">OpenAI expands Codex and its API at DevDay</a><span>·</span><a href="https://decrypt.co/379584/openai-ai-agents-computers-devday-2026-everything-announced">OpenAI Gave AI Agents Their Own Computers at DevDay 2026</a><span>·</span><a href="https://dev.to/axrisi/openai-devday-2026-every-announcement-with-prices-and-availability-1mbh">OpenAI DevDay 2026: every announcement, with prices and availability</a><span>·</span><a href="https://community.openai.com/t/devday-2026-announcements-and-developer-resources/1402006">DevDay 2026 announcements and developer resources</a></div></div></div></div></div>
+<div>
+<p>OPENAI DEVDAY 2026 · 25 项更新</p><h1>AI 回答完之后的活，OpenAI 想全接过去</h1><p>今天把材料丢给 AI，几秒就有摘要；费劲的是后面：谁接着盯、谁动手、成果放哪、团队怎么接力。这次 25 项更新大多落在<strong>「回答之后」</strong>这一段，另外用一个更便宜的模型和一个更贵的提速档，重新给「能力」和「等待」定价。</p>
+<h2>一件工作离开聊天框之后，每一段都有人接</h2>
+<ol>
+<li><span>谁一直盯着？</span><span>Dots</span><span>有自己云端电脑、连着 4000 多个应用的常驻 Agent；动账户、往外发的操作先过自动审核，哪些要问你由你定规则</span></li>
+<li><span>谁动手干？</span><span>Codex 云端 · Agents API</span><span>合上电脑任务照跑；开发者的 Agent 能直接点、输、操作软件</span></li>
+<li><span>外面有变化怎么办？</span><span>插件 · MCP 事件</span><span>别人的产品长在 ChatGPT 里；外部系统一变化就自动开工</span></li>
+<li><span>成果放哪？</span><span>资料空间 · 动态页面</span><span>产出变成能编辑、能共享、能 @ AI 接着改的文档</span></li>
+<li><span>团队怎么接力？</span><span>团队任务 · @ChatGPT</span><span>定时或按事件跑的共享任务；在 Slack、Teams 里直接喊它</span></li>
+</ol>
+<p>串起来：会议产生待办 → 写进页面 → 放进共享空间 → 团队任务或 Dot 盯着后续 → 结果回到大家讨论的地方。</p>
+<h2>两笔账要分开算</h2><p>一个让复杂任务「做得起」，一个让着急的人「少等一会儿」，不是一回事。</p>
+<div>
+能力的价格<h3>GPT-6.1 Sol</h3><div><div><strong>1/5</strong><span>标准输入输出价格<br />是 Astra 的五分之一</span></div><div><strong>$0.10</strong><span>每百万 token 缓存输入<br />Agent 账单的大头</span></div></div>
+<p>参照物是 OpenAI 目前最强、也最贵的模型 GPT-6 Astra。Sol 智力接近它，拼的是性价比：外部独立榜单上排第一的仍是 Anthropic 的 Opus 5.5。推理强度也不是越高越好：</p>
+<div><div><span>DeepSWE 编程评测</span><span>单任务成本</span><span>得分</span></div><div><span>Sol · 中</span><span>$0.42</span><span>73.0%</span></div><div><span>Sol · 高</span><span>$0.65</span><span>75.2%</span></div><div><span>Sol · Max</span><span>$1.57</span><span>71.9%</span></div><div><span>Astra · 中</span><span>$3.08</span><span>72.8%</span></div></div>
+<p>先在自己的任务上试「中」和「高」，别默认开到最大。</p></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Cloudflare 发布 EmDash 1.0，Agent 友好的开源 CMS</title>
+<link>https://best.xiaohu.ai/article/cloudflare-emdash-plugin-registry/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:cloudflare-emdash-plugin-registry</guid>
+<pubDate>Wed, 30 Sep 2026 12:01:51 +0000</pubDate>
+<description>EmDash 是免费开源的 WordPress 替代品：Agent 能直接改内容，插件默认关进沙箱，插件目录也不归任何公司，1.0 起可用于正式网站。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 30 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Cloudflare 发布 EmDash 1.0，Agent 友好的开源 CMS</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/cloudflare-emdash-plugin-registry/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Cloudflare 发布 EmDash 1.0，Agent 友好的开源 CMS</h1><p>EmDash 是免费开源的 WordPress 替代品：Agent 能直接改内容，插件默认关进沙箱，插件目录也不归任何公司，1.0 起可用于正式网站。</p><strong>一分钟速览</strong><ul><li>Cloudflare 发布开源网站后台（CMS）EmDash 1.0 稳定版，可以当 WordPress 的替代品：免费、MIT 开源，开发者用 Astro 写站，编辑照常用后台，Agent 也能通过 API、命令行和 MCP 直接改内容。</li><li>它针对传统 CMS 的两个老痛点下手：插件默认关进沙箱，要什么权限先声明、站长批准才给，不再和主程序混在一起；插件目录也不归 Cloudflare 独占，发布者的身份和版本记录自己保管。</li><li>适合要搭正式网站、管多个站点或做建站平台的团队；现在用 npm create emdash@latest 或一键部署就能试，付费插件还没开放，AI 建站器 EmDash Build 只是 alpha。</li></ul><div><p>如果你做过网站，多半用过 WordPress 这类内容管理系统（CMS，编辑用来写文章、传图片、管理网页内容的后台）。Cloudflare 做了一个新的开源 CMS，叫 EmDash，官方叫它 WordPress 的“精神继任者”。它当初是在愚人节推出的，不少人因此怀疑只是个玩笑；现在，1.0 稳定版发布了：免费、MIT 协议开源，可以直接拿来跑正式网站。</p>
+<p>下面按一个普通读者最想问的顺序讲：它是什么，解决了传统 CMS 的什么麻烦，有哪些亮点，适合谁、什么场景，怎么用，以及哪些地方还要留意。</p>
+<h2>EmDash 是什么？</h2>
+<p>一句话：一个免费开源、对 Agent 友好的网站后台系统。它把三类人的活分开：</p>
+<ul>
+<li><strong>开发者</strong>用 Astro（一个做网站的前端框架）写网站；</li>
+<li><strong>编辑</strong>在 EmDash 的后台写文章、管媒体，和用 WordPress 的感觉类似；</li>
+<li><strong>Agent</strong>（能自己动手干活的 AI）可以通过 API、命令行，或者内置的 MCP 服务直接读写内容。</li>
+</ul>
+<figure>
+<img />
+<figcaption>EmDash 的文章编辑后台。</figcaption>
+</figure>
+<p>1.0 带来的不只是“稳定”，还有一个同时上线的插件注册中心（插件目录），以及一个开源的 AI 建站器 EmDash Build（alpha 版）。</p>
+<h2>它想解决传统 CMS 的什么麻烦？</h2>
+<p>从官方的讲法里，可以梳理出四个痛点。</p>
+<p><strong>一，维护负担重。</strong> Avulux 的例子最直接：他们受够了 WordPress 的维护负担，把一个自建的小站迁到了 EmDash。负责创新与系统的总监说，网站要好用、团队好更新，而 WordPress 恰恰成了反面；现在有了一个开发者能扩展、市场人员能直接改内容的共用平台。</p>
+<p><strong>二，插件权限没有边界。</strong> WordPress 的插件和整个应用跑在同一个 PHP 进程里，能直接访问数据库、文件系统和网络。一个联系表单插件，从技术上就能读没发布的文章、改别的插件、把数据发到任何地方。站长只能相信它不会这么做，也相信以后的更新不会改变它的行为。</p>
+<p><strong>三，插件商店由一家公司说了算。</strong> 传统插件商店通常把三个角色捏在一起：发布者的账号、插件包的权威记录、以及用户找插件的目录。账号被封、上架被撤、规则改了、服务关了，发布者都没法把同一个身份和发布历史带去别处。</p>
+<p><strong>四，AI 建站后的小改动成本高。</strong> 现在建站多半从对话框开始，向 Agent 描述想要什么。但做出来之后，想改点小东西，就得回到提示框里碰运气，或者为改一行字消耗额度。</p>
+<p>EmDash 对这四点的回答，分别是后面几节的内容。</p>
+<h2>亮点一：Agent 友好，不只是能调接口</h2>
+<p>传统 CMS 是给人点鼠标用的。EmDash 同时给 Agent 开了三扇门：API、命令行，以及内置的 MCP 服务，另外提供了 EmDash Agent Skills（给 Agent 用的技能包），让 Agent 更容易上手。官方的说法是，EmDash 是“Agent 最好的朋友”。前面 Avulux 借助 Agent Skills，迁站不到一天就做完了。</p>
+<p>对建站和托管公司，这条路还能往前走一步。这类公司可以用 Workers for Platforms（Cloudflare 让平台把每个客户的网站当作一个 Worker 来跑的服务），不用给每个网站单独配服务器，把精力放在客户建站和管理的体验上。EmDash 提供内容层：平台可以直接用后台界面，也可以基于 API 和命令行做自己的界面，或者在内置 MCP 服务前放一个 Agent。官方举的例子是，面包店老板用一句大白话让平台的 Agent 改营业时间，Agent 负责读取、更新和保存内容。官方还在找更多愿意一起做面向 Agent 的 CMS 体验的托管合作伙伴。</p>
+<h2>亮点二：插件关进沙箱，装之前先看权限</h2>
+<p>插件是 CMS 生态的核心：站点开发者不必重复造集成和流程，专家也能分享经验，甚至做成软件生意。官方认为 Agent 让这种复用更有价值：Agent 自己也能为你做一次性的集成，但它得弄懂问题、写代码、测试、再维护；插件把这些工作固化下来，另一个 Agent 可以直接安装配置一个成熟的方案，不必从头再来。</p>
+<p>EmDash 的沙箱插件换了一种模型：每个插件在隔离的运行环境里，能访问自己的私有存储，但访问不到网站的内容、媒体、用户、密钥、环境变量、文件系统和网络。额外的能力必须由插件声明，再由站点管理员批准，才会给。</p>
+<figure>
+<img />
+<figcaption>官方的运行结构对比图。左边是 WordPress：所有部分在一个整体里，恶意插件能伸手到任何地方。右边是 EmDash：中间的可信 Worker 当“能力守门人”，插件只能拿到自己被批准的那部分。</figcaption>
+</figure>
+<p>看图里右边的例子：一个只被批准读取媒体（media:read）的插件，如果去请求写文章（posts:write），守门人会发现它没有这个能力，什么都不返回；另一个被批准读取文章（posts:read）的插件，请求读文章才会被放行。资源之间是隔离的，一处漏洞的影响，只限于这个 Worker 能访问的范围。</p>
+<p>所以，装一个沙箱插件更像装手机 App，而不是装传统的 CMS 插件：运行之前，EmDash 会先告诉你它想做什么，运行时再限制它只能做被批准的事。下图是注册中心里 Cloudflare Email Sending 插件的页面，“安装前”一栏列出了它申请的三项权限：可以向声明过的外部地址（api.cloudflare.com）发网络请求、观察并可修改发出的邮件、以及提供邮件发送通道，替换当前的发送方式。</p>
+<figure>
+<img />
+<figcaption>注册中心里的 Cloudflare Email Sending 插件：安装前先列出它申请的权限。</figcaption>
+</figure>
+<p>这样，插件能干有用的活，又拿不到无关的权限：</p>
+<div><table>
+<thead>
+<tr>
+<th>插件可以是…</th>
+<th>它可能需要…</th>
+<th>它依然不能…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>给已发布文章建索引做搜索</td>
+<td>读取内容、联系搜索服务</td>
+<td>编辑文章、联系其他主机</td>
+</tr>
+<tr>
+<td>优化上传的图片</td>
+<td>读取和管理媒体</td>
+<td>读取用户内容</td>
+</tr>
+<tr>
+<td>发送发布通知</td>
+<td>观察发布动作、发送邮件</td>
+<td>修改正在发布的内容</td>
+</tr>
+<tr>
+<td>提供可配置的 webhook</td>
+<td>读取选定的事件、联系公网目标</td>
+<td>访问内网，或其他插件的存储</td>
+</tr>
+</tbody>
+</table></div>
+<p>关键在于这些能力彼此独立：给了媒体权限，不等于同时暴露用户和未发布内容；允许联系一个服务，也不等于放开整个网络。这些边界由运行环境来执行，不靠插件作者的自觉。</p>
+<p>隔离也不限于 Cloudflare。在 Cloudflare 上，EmDash 通过 Worker Loader 把每个插件当作一个 Dynamic Worker 运行；在 Node.js 上，EmDash 会把 workerd（Cloudflare 开源的 Workers 运行时）作为单独的进程启动，每个插件在里面作为一个隔离的服务运行。两边使用同样的清单和受能力限制的 API。</p>
+<h2>亮点三：插件目录不归任何公司</h2>
+<p>权限管住了插件运行时能做什么，还剩一个问题：插件从哪来、可信吗。插件目录网站 <a href="https://plugins.emdashcms.com/">plugins.emdashcms.com</a> 随 1.0 一起上线：开发者可以发布沙箱插件，站长可以搜索、查看、安装。</p>
+<figure>
+<img />
+<figcaption>EmDash 插件注册中心首页，可以按插件、作者和权限搜索。</figcaption>
+</figure>
+<p>EmDash 把插件和目录拆开。发布者自己保管插件包和发布历史，EmDash 只是提供一个方便找和装的地方。别的服务可以索引同一批发布内容，建自己的目录，套自己的规则，开发者不用重新来过。EmDash 的目录会对显示出来的名称、描述、链接和图片做默认审核，审核只能在这个目录里把有害内容隐藏起来，不会改写发布的版本，不会接管插件，也不会抹掉底层的发布记录。</p>
+<p>这套东西建在 AT Protocol（简称 atproto）上，它是驱动 Bluesky 的去中心化网络协议。插件作者用 Atmosphere 账号发布，这是这个生态里通用的、可携带的身份。插件包和每个版本的记录由发布者签名，存放在发布者自己的账号里。</p>
+<p>“去中心化”不等于放任不验证的代码。atproto 的仓库使用带签名的 Merkle 搜索树，一份包含证明能把某个具体的发布记录，连到发布者账号的一次签名提交上。所以 EmDash 可以独立验证，不必相信目录里的那份拷贝。之后它还会检查插件的校验和、包名、版本、申请的权限，以及需要时的构建来源证明，并确认下载下来的插件包和签名记录一致。</p>
+<p>EmDash 自己托管默认的注册服务，让发布者和站长不用自己搭设施。官方还把这些服务全部开源，包括驱动注册中心的聚合器、用 Workers AI 审核包描述的标注服务，以及方便在任意 Astro 网站里嵌入插件列表的加载器。目前只支持免费插件；官方希望以后在同样的去中心化模式下支持付费插件，也在关注 atproto 的 Spaces 内测，目标是让任何人都能运营安全的付费插件市场，让发布者靠软件赚钱。官方的说法是：没有一个中央控制者能一句话就拿走或撤下插件，插件和注册中心的安全，应该写进代码，而不是靠信任某个权威或行为准则。</p>
+<h2>亮点四：EmDash Build，让 Agent 从一句话搭出整站</h2>
+<p>同时发布并开源的 EmDash Build（alpha 版）是一个托管商、建站工具和平台可以自己运行，并接进自家系统的 AI 建站器。可以先在 <a href="http://build.emdashcms.com">build.emdashcms.com</a> 试 Demo，代码开源在 <a href="https://github.com/emdash-cms/emdash-build">github.com/emdash-cms/emdash-build</a>。</p>
+<p>它回应的是前面第四个痛点：EmDash Build 做出来的是一个完整的 EmDash 网站，带着整套东西：服务器渲染的 Astro 页面、数据库、媒体存储和后台。Agent 根据需求设计内容模型，通过 EmDash 的 MCP 服务把内容填进去，再写显示内容的页面。之后你或你的客户可以直接在页面上改字、定时发文，也可以让 Agent 来改，不必每次回到提示框。</p>
+<p>每个项目在 EmDash Build 里都有自己的 Cloudflare Sandbox 容器，基于 Agents SDK 的 Agent 在里面自己验证自己的工作；Artifacts 把每一次改动记成一次 git 提交。网站发布时，内容会转移到正式的 EmDash 站点，并部署到托管商的 Workers for Platforms 命名空间里。</p>
+<figure>
+<img />
+<figcaption>在 EmDash Build 里用一段提示词做出的网站：左边是对话，右边是预览和发布面板。</figcaption>
+</figure>
+<h2>1.0 靠什么让人放心？</h2>
+<p>EmDash 的第一个测试版出来后，已经有开发者用它上线了真实的网站。但官方一直听到同一种回应：“看起来有意思，等 1.0 了告诉我。”大家想先确认它足够稳定、安全，升级不会伤到内容，Cloudflare 也真的会长期维护。</p>
+<p>过去五个月，Cloudflare 和贡献者、正式使用者一起打磨每个网站都绕不开的部分：数据安全、数据库迁移、编辑流程、多语言、插件安全、性能，以及后台、API、MCP 和媒体库的可靠性。其中最有代表性的是 Cloudflare 自己：今年夏天，它把自家的 Cloudflare 博客迁到了 EmDash，官方称这是“Customer Zero”做法，也就是先让自己当第一个用户。博客要扛住每周数百万次页面访问、正常流量最高每秒 5000 个请求，以及偶尔的 DDoS 攻击。迁移过程中催生了三个可选功能，现在对所有用户开放：KV 对象缓存、Hyperdrive 数据库适配器（Hyperdrive 是 Cloudflare 加速数据库连接的服务），以及与 Workers Cache 的兼容。</p>
+<p>CMS 存着一个组织最重要的内容，常常有几十位编辑天天在用，所以官方特别强调不能被厂商锁死：EmDash 完全免费，采用宽松的 MIT 协议开源。截至发稿，已有超过 175 人给项目贡献过代码，累计超过 1800 次提交，界面被翻译成 25 种语言。官方还提到，他们刻意把项目做成“Agent 帮人类开发者，而不是把人淹没”的样子。Noah Pham 以实习生身份加入 Cloudflare，后来成了 EmDash 的第二位维护者，贡献了 80 多项改动，负责媒体库、内容编辑器和后台界面的多个重要部分。</p>
+<p>生态也在长起来：Lexington Themes 提供 44 个带 EmDash 版本的 Astro 主题；Urumi 正在用做 WooCommerce 的经验发布 EmDash 的第一个电商插件；Empress 在做面向多品牌主体的平台，可以用自然语言或传统后台管理一批网站。</p>
+<h2>适合谁、什么场景用？</h2>
+<p>按官方的讲法，可以对号入座：</p>
+<ul>
+<li><strong>要搭正式网站的团队</strong>：公司的营销站、内容站。官方建议现在是迁移公司营销站的好时机，Cloudflare 自己的博客就是先例。前提是有人会用 Astro 开发，编辑日常则在后台操作。</li>
+<li><strong>做网站的代理公司</strong>：官方点名的用途之一是“你的代理公司的 vibe-coding 平台”（用对话让 AI 搭站的服务），可以基于 EmDash 提供服务。</li>
+<li><strong>托管商和建站平台</strong>：用 Workers for Platforms 给每个客户一个独立网站，用沙箱插件给大量客户站点提供扩展，也可以自建插件市场，开放整个注册中心，或只挑一批预先批准的插件。</li>
+<li><strong>一个人的小项目</strong>：官方提到可以让 Agent 帮你搭起想做的小站；Avulux 的小站迁移也只用了不到一天。</li>
+<li><strong>插件开发者</strong>：想做扩展并靠它赚钱的人，可以不经 EmDash 许可直接发布；站长在运行前就能看清它被允许做什么。</li>
+<li><strong>要管一批站点的组织</strong>：例如 Empress 这类面向多品牌主体的平台，用自然语言或传统后台管理一批网站。</li>
+</ul>
+<h2>怎么用？</h2>
+<ol>
+<li><strong>先试玩</strong>：打开 <a href="https://try.emdashcms.com/">try.emdashcms.com</a> 的 playground，或在 <a href="http://build.emdashcms.com">build.emdashcms.com</a> 试 EmDash Build 的 Demo。</li>
+<li><strong>本地新建一个站点</strong>：终端里运行下面这行：</li>
+</ol>
+<div><pre><code>npm create emdash@latest
+</code></pre></div>
+<ol>
+<li><strong>部署</strong>：也可以在 Cloudflare 控制台一键部署<a href="https://github.com/emdash-cms/templates/tree/main/blog-cloudflare">官方博客模板</a>。</li>
+<li><strong>迁移已有网站</strong>：官方提到借助 <a href="https://github.com/emdash-cms/emdash/tree/main/skills">EmDash Agent Skills</a>，让 Agent 帮忙迁站；后台菜单里也有导入（Import）入口。</li>
+<li><strong>开发插件</strong>：<a href="https://docs.emdashcms.com/plugins/creating-plugins/your-first-plugin/">官方文档</a>有一份从零开始的教程，讲怎么创建插件并发布到<a href="https://plugins.emdashcms.com/">插件注册中心</a>。</li>
+<li><strong>看源码、自己搭</strong>：EmDash 主项目在 <a href="https://github.com/emdash-cms/emdash">github.com/emdash-cms/emdash</a>；AI 建站器 EmDash Build 的代码在 <a href="https://github.com/emdash-cms/emdash-build">github.com/emdash-cms/emdash-build</a>，托管商和平台可以自己运行并接进自家系统；注册中心的聚合器、审核标注服务和 Astro 加载器也都开源，代码在主项目里。</li>
+<li><strong>加入社区</strong>：<a href="https://discord.gg/YY9vBaQRYt">Discord</a> 上已有 800 多人；做贡献不一定要写代码，翻译、文档、测试、设计、整理问题、答疑都算。</li>
+</ol>
+<h2>该怎么看</h2>
+<p>EmDash 不只是“又一个 WordPress 替代品”。把前面几节合起来看，它让 CMS 同时回答三个问题——Agent 能不能读写内容（API、命令行、MCP），Agent 或人装的扩展会不会越权（默认没有权限、先声明再批准、运行环境强制执行），扩展的来源能不能独立验证（签名的发布记录，目录只是入口）。如果你在做要让 Agent 装扩展的产品，这三点可以直接对照。</p>
+<p>但也要看清现状：注册中心现在只支持免费插件，付费市场还在规划中；EmDash Build 目前是 alpha 版；站点本身要用 Astro 开发，所以自己上手需要有开发能力；不写代码的编辑，更多是在搭好的后台里日常使用。</p>
+</div><div><div><div>来源</div><div><span>EmDash 1.0: the stable CMS with a secure plugin registry</span><span>Scott Buscemi, Matt Kane, Noah Pham（Cloudflare）<span>·</span><a href="https://blog.cloudflare.com/emdash-cms-plugin-registry/">查看主材料</a></span></div></div></div></div></div>
+<div>
+<div>CLOUDFLARE EMDASH 1.0 · AGENT 友好的开源 CMS</div><h1>EmDash 1.0：把 Agent 当一等用户的开源 CMS</h1><p>Cloudflare 做的<strong>免费、MIT 开源的网站后台</strong>（CMS），官方称它是 WordPress 的精神继任者。1.0 起，可以直接拿来跑正式网站。</p>
+<h2>是什么：三类人各干各的</h2>
+<div><div><b>开发者</b>用 Astro（做网站的前端框架）写网站。</div><div><b>编辑</b>在 EmDash 后台写文章、管媒体，和用 WordPress 的感觉类似。</div><div><b>Agent</b>通过 API、命令行或内置 MCP 服务，直接读写内容。</div></div>
+<h2>WordPress 一类传统 CMS 的四个麻烦，EmDash 怎么解</h2><p>一个痛点对应一个做法。</p>
+<div><span></span><span>传统的麻烦</span><span>EmDash 的做法</span><span>你得到什么</span></div>
+<div><span>1</span><span><span>麻烦</span>维护负担重：Avulux 说 WordPress 曾让网站难用、难更新</span><span><span>做法</span>开发者能扩展、编辑直接改内容的<strong>共用平台</strong>；配 Agent Skills 让 Agent 帮忙迁站</span><span><span>得到</span>一个案例：Avulux 借助 Agent Skills，小站<strong>不到一天</strong>迁完</span></div>
+<div><span>2</span><span><span>麻烦</span>WordPress 插件和主程序同在一个 PHP 进程，权限没有边界</span><span><span>做法</span><strong>沙箱插件</strong>：只有私有存储；要什么权限先声明，管理员批准才给</span><span><span>得到</span>像装手机 App：<strong>装之前看得到</strong>它要什么</span></div>
+<div><span>3</span><span><span>麻烦</span>插件商店一家说了算：账号被封、下架，身份和历史带不走</span><span><span>做法</span>插件与目录<strong>拆开</strong>：版本记录由发布者签名，存在自己账号里，建在 atproto 上</span><span><span>得到</span>目录只是入口，<strong>别人也能另建</strong>；EmDash 安装时独立验证记录</span></div>
+<div><span>4</span><span><span>麻烦</span>AI 建站后改一行字，要回提示框碰运气或耗额度</span><span><span>做法</span><strong>EmDash Build</strong>：做出带页面、数据库、媒体、后台的完整站点</span><span><span>得到</span>之后可在页面上<strong>直接改</strong>，或让 Agent 改</span></div>
+<p><strong>装插件之前能看到什么？</strong>以注册中心里的 Cloudflare Email Sending 插件为例，“安装前”一栏列出它申请的三项权限：</p><div><span>向 api.cloudflare.com 发网络请求</span><span>观察并可修改发出的邮件</span><span>提供邮件发送通道</span></div>
+<h2>适合谁，怎么开始</h2>
+<ul><li><b>要搭正式网站的团队</b>：营销站、内容站；需要有人会用 Astro 开发，编辑日常在后台操作。</li><li><b>代理公司、托管商和建站平台</b>：用 Workers for Platforms 给每个客户独立站点，用沙箱插件提供扩展，可自建插件市场。</li><li><b>插件开发者</b>：不经 EmDash 许可就能发布，站长运行前能看清它被允许做什么。</li><li><b>个人小项目</b>：可以让 Agent 帮你把想做的小站搭起来。</li></ul>
+<div><div><b>1 先试玩</b>try.emdashcms.com 的 playground，或 build.emdashcms.com 的 Build Demo</div><div><b>2 本地新建</b><code>npm create emdash@latest</code></div><div><b>3 部署或看源码</b>Cloudflare 控制台一键部署官方模板；代码在 github.com/emdash-cms/emdash 与 emdash-build</div></div>
+<h2>1.0 靠什么让人放心</h2><p>Cloudflare 把自家的博客迁到了 EmDash，官方称这是先让自己当第一个用户。</p>
+<div><div><b>数百万次</b>要扛住的量：博客每周页面访问</div><div><b>5000</b>按此准备：正常流量最高每秒请求数</div><div><b>175+</b>项目贡献者（1800+ 次提交）</div></div>
+<div><strong>现状提醒：</strong>注册中心目前只支持免费插件，付费市场还在规划中；EmDash Build 是 alpha 版；站点本身要用 Astro 开发。</div>
+<p>依据 Cloudflare 官方博客《EmDash 1.0: the stable CMS with a secure plugin registry》与本站解读整理。</p>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】豆包创意设计操作手册：从一张参考图做到整套可改的设计</title>
+<link>https://best.xiaohu.ai/article/doubao-creative-design-upgrade/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:doubao-creative-design-upgrade</guid>
+<pubDate>Wed, 30 Sep 2026 12:01:51 +0000</pubDate>
+<description>从进入画布、引用素材和局部编辑，到选风格、写提示词、制作图片与视频，再按 19 类项目核对交付物。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 30 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">豆包创意设计操作手册：从一张参考图做到整套可改的设计</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/doubao-creative-design-upgrade/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>豆包创意设计操作手册：从一张参考图做到整套可改的设计</h1><p>从进入画布、引用素材和局部编辑，到选风格、写提示词、制作图片与视频，再按 19 类项目核对交付物。</p><strong>一分钟速览</strong><ul><li>无限画布：需求、参考素材、设计方案和生成结果放在同一处，可以并排比较，并引用已有内容继续创作。</li><li>可编辑设计：生成后还能调整文字、配色、布局和图层，局部修改不必整张重做。</li><li>Seedream 5.0 Flash：新增的图片模型，可在画布中选择，用于生成和比较不同视觉方向。</li><li>更懂设计的 Agent：把理解需求、规划方案和生成内容接起来，让主视觉与后续物料沿用同一方向。</li></ul><div>
+<p>一张商品图要同时变成详情页和广告，一份活动资料要拆成海报、社媒卡片和入场指南，以前往往需要在几个工具和文件之间来回搬运。最新的豆包创意设计能把<strong>需求、参考素材、生成结果和修改过程放进同一张画布</strong>：先在对话里说清任务，随后在画布上对比方案、引用已有图、选中局部继续改，最后把同一套视觉延展到不同交付物。</p>
+<p>你可以从一个小任务开始：带上一张参考图和必须准确保留的信息，先做主视觉，再在同一画布里延展详情页、社媒图或视频。下面依次讲入口与操作、风格选择，再在每个项目里给出交付思路、可改写提示词和成套结果图。</p>
+<h2>先认识这次升级：四个变化分别解决什么</h2>
+<ol>
+<li><strong>无限画布：把素材和方案摆在一起。</strong> 参考图、方案和生成结果可以同时铺开，方便横向比较，也方便统一管理同一品牌的多种物料。交付前检查不同版本有没有混用产品外观、字体和配色。</li>
+<li><strong>可编辑设计：生成后继续改局部。</strong> 选中文字、颜色、布局或局部对象调整，例如单独修改香氛瓶身和标题。交付前试改关键文字、价格、日期与图表标签，并检查导出后能否继续编辑。</li>
+<li><strong>Seedream 5.0 Flash：探索长图和视觉风格。</strong> 在画布的模型菜单中选择它，再比较不同方向。使用前确认当前账号是否有该模型，生成速度与细节是否满足项目。</li>
+<li><strong>设计 Agent：把一组交付物接起来。</strong> 从理解需求、规划方案，到生成图片、视频和成套设计，尽量沿用同一套要求。逐项检查规划是否符合 brief，交付物之间是否真的一致。</li>
+</ol>
+<p>这些功能连起来，核心是<strong>先把资料组织好，再让它连续完成一组相关输出</strong>。如果只写“做一张好看的图”，系统既不知道哪些文字不能改，也不知道下一张海报要和第一张保持什么一致。</p>
+<h2>第一步：从工作模式打开画布</h2>
+<p>两条入口都从“工作”开始：可以进入技能页后创建画布，也可以在输入区选“创意设计” skill、提交任务后自动创建。界面会变化，优先找“工作”“创意设计”“画布”这三个入口，不依赖固定按钮位置。</p>
+<h3>进入画布：两条路径</h3>
+<h4>01｜技能页创建</h4>
+<p>从工作任务进入技能页，再创建空画布；适合先整理资料、再写任务。</p>
+<p><img /></p>
+<h4>02｜提交需求自动创建</h4>
+<p>在工作输入区选“创意设计” skill，写好任务并提交，画布随任务出现；适合 brief 已经清楚的情况。</p>
+<p><img /></p>
+<h3>在同一画布组织素材与生成</h3>
+<h4>03｜铺开资料</h4>
+<p>把任务说明、参考图、标识和已有包装应用摆在一起，缩放比较，先标出产品外观、文字和配色里不能变的部分。</p>
+<p><img /></p>
+<h4>04｜选择图片模型</h4>
+<p>在生成区域的模型菜单中查看 Seedream 5.0 Flash，再提交图像或长图任务；能否选到它，以当前账号的菜单为准。</p>
+<p><img /></p>
+<h4>05｜快速引用</h4>
+<p>点击要沿用的参考图，让对象回到输入框，再明确写“沿用左图的配色，以右图的产品外形为准”。</p>
+<p><img /></p>
+<h4>06｜快速编辑</h4>
+<p>框选要修改的目标和生成区域，说明只改哪里、保留哪里；不要让一次局部修改重做整张图。</p>
+<p><img /></p>
+<h4>07｜快速生成</h4>
+<p>需要一组相关图时，同时选中产品图等参考素材发起生成，再把结果放回画布比较一致性。</p>
+<p><img /></p>
+<h3>把可编辑性实际试出来</h3>
+<h4>08｜图层编辑</h4>
+<p>选中香氛画面中的瓶身或文字图层，试着移动和局部调整，检查对象能否单独操作。</p>
+<p><img /></p>
+<h4>09｜直接改字</h4>
+<p>选中文本层，把标题字样和排版改掉；交付前再试价格、日期、图表标签，并检查导出文件是否还能编辑。</p>
+<p><img /></p>
+<h3>一条能直接改写的任务模板</h3>
+<blockquote>
+<p>@创意设计。我需要为【项目/产品】做【交付物清单与尺寸】。目标读者是【人群】，希望他们看完能【动作】。项目资料中的【产品外观/活动时间/价格/品牌标识】必须准确保留；参考图只借用【构图、色彩或质感】，不要照搬人物和文字。先在同一画布给我【方案数量】个方向，并说明每个方向适合什么场景。选定后做【主视觉 → 衍生页面/短视频 → 可编辑文件】。每一步请核对文字、尺寸、视觉一致性和资料要求；不确定的信息先标出来。</p>
+</blockquote>
+<p>这份模板把设计任务拆成目标、素材、交付物、保留项和验收标准。上传资料后，做图片和成套物料时使用 <code>@创意设计</code>，做视频时使用 <code>@创意视频</code>；需要时在视频阶段指定 Seedance 2.5。</p>
+<h2>第二步：先选视觉方向，再写细节</h2>
+<p>下面的 20 组风格可以当作选方向的速查表。用法是把<strong>主题 + 风格 + 配色 + 具体元素</strong>组合，而不是只扔一个风格名。比如“面包店”可以用浅天蓝、奶油白、小狗厨师、面包和粗刷痕字体；“品牌趋势报告”更适合超大无衬线标题、网格和可编辑图表。四组可滑动图集依次对应下面列出的 20 个方向。</p>
+<ul>
+<li><strong>01｜复古未来主义 × 孟菲斯几何 × 柔焦黏土 3D</strong>：深炭灰底，粉、钴蓝、芥末、薄荷、橙撞色，磨砂玻璃飘带。</li>
+<li><strong>02｜复古波普剪纸拼贴</strong>：珊瑚红、柠檬黄、黑白灰；人物、眼镜、花朵星芒与印刷颗粒。</li>
+<li><strong>03｜街头涂鸦抽象图形</strong>：黑白加鲜红粗框；手绘线、波浪、几何符号和越界构图。</li>
+<li><strong>04｜街头涂鸦漫画剪贴</strong>：电光蓝底、亮黄点缀；夸张粗字、斜网格、标签式日期。</li>
+<li><strong>05｜田园农场贴纸</strong>：草绿、奶油米黄、白；草地、农夫线描、波浪贴纸。</li>
+</ul>
+<div>
+<div><strong>风格方向 · 共 5 张</strong><div>←1 / 5→</div></div>
+<div><figure><a><img /></a><figcaption>01｜复古未来主义 × 孟菲斯几何 × 柔焦黏土 3D</figcaption></figure><figure><a><img /></a><figcaption>02｜复古波普剪纸拼贴</figcaption></figure><figure><a><img /></a><figcaption>03｜街头涂鸦抽象图形</figcaption></figure><figure><a><img /></a><figcaption>04｜街头涂鸦漫画剪贴</figcaption></figure><figure><a><img /></a><figcaption>05｜田园农场贴纸</figcaption></figure></div>
+<p>左右滑动或使用箭头切换；点图片可打开原图。</p>
+</div>
+<ul>
+<li><strong>06｜自然生态 3D 字体</strong>：草绿与黑白；毛茸茸草坪字、细草花朵。</li>
+<li><strong>07｜日系复古咖啡馆漫画</strong>：奶油米白、砖红、黑；超粗窄标题、人物线描、咖啡杯。</li>
+<li><strong>08｜极简黑白街头手绘</strong>：黑白高反差；变形手写字、人物群像和大片留白。</li>
+<li><strong>09｜涂鸦复古印刷</strong>：亮钴蓝配黑白；泡泡字、错位阴影、条形码、做旧颗粒。</li>
+<li><strong>10｜趣味极简手绘字体</strong>：黄、黑、白；错落字母、眼睛化双 O、有机色块。</li>
+</ul>
+<div>
+<div><strong>风格方向 · 共 5 张</strong><div>←1 / 5→</div></div>
+<div><figure><a><img /></a><figcaption>06｜自然生态 3D 字体</figcaption></figure><figure><a><img /></a><figcaption>07｜日系复古咖啡馆漫画</figcaption></figure><figure><a><img /></a><figcaption>08｜极简黑白街头手绘</figcaption></figure><figure><a><img /></a><figcaption>09｜涂鸦复古印刷</figcaption></figure><figure><a><img /></a><figcaption>10｜趣味极简手绘字体</figcaption></figure></div>
+<p>左右滑动或使用箭头切换；点图片可打开原图。</p>
+</div>
+<ul>
+<li><strong>11｜复古数字拼贴</strong>：米白纸纹、黑白灰、明黄浅青；剪报字母、地址栏、键盘。</li>
+<li><strong>12｜复古办公 CRT</strong>：深蓝、亮黄、黑与旧电脑米色；显示器、便签、键鼠。</li>
+<li><strong>13｜童趣手工剪纸</strong>：暖黄、橘红、天蓝、草绿；调色盘、腊肠犬、剪刀与纸边。</li>
+<li><strong>14｜东方禅意光影</strong>：低饱和米黄、灰褐、暖白；扇窗、树影、鸟剪影与留白。</li>
+<li><strong>15｜复古 Mac 像素界面</strong>：奶油米白与黑；点阵字、笑脸电脑、窗口标题栏。</li>
+</ul>
+<div>
+<div><strong>风格方向 · 共 5 张</strong><div>←1 / 5→</div></div>
+<div><figure><a><img /></a><figcaption>11｜复古数字拼贴</figcaption></figure><figure><a><img /></a><figcaption>12｜复古办公 CRT</figcaption></figure><figure><a><img /></a><figcaption>13｜童趣手工剪纸</figcaption></figure><figure><a><img /></a><figcaption>14｜东方禅意光影</figcaption></figure><figure><a><img /></a><figcaption>15｜复古 Mac 像素界面</figcaption></figure></div>
+<p>左右滑动或使用箭头切换；点图片可打开原图。</p>
+</div>
+<ul>
+<li><strong>16｜新中式书法编辑</strong>：灰白、墨黑、朱红；巨幅行草、飞白、篆刻印章。</li>
+<li><strong>17｜柔软充气字体 3D</strong>：纸纹白、黑、长春花蓝；圆润立体字与纤细背景字。</li>
+<li><strong>18｜童趣手绘烘焙</strong>：浅天蓝、奶油白、焦糖棕；小狗厨师、面包、擀面杖。</li>
+<li><strong>19｜金石拓印</strong>：骨灰白、碑石黑、铁锈褐；厚重刻字、缺墨与石粒。</li>
+<li><strong>20｜杂志剪报</strong>：象牙白、墨黑、暗朱红；衬线剪纸标题、建筑与植物切片。</li>
+</ul>
+<div>
+<div><strong>风格方向 · 共 5 张</strong><div>←1 / 5→</div></div>
+<div><figure><a><img /></a><figcaption>16｜新中式书法编辑</figcaption></figure><figure><a><img /></a><figcaption>17｜柔软充气字体 3D</figcaption></figure><figure><a><img /></a><figcaption>18｜童趣手绘烘焙</figcaption></figure><figure><a><img /></a><figcaption>19｜金石拓印</figcaption></figure><figure><a><img /></a><figcaption>20｜杂志剪报</figcaption></figure></div>
+<p>左右滑动或使用箭头切换；点图片可打开原图。</p>
+</div>
+<p><strong>选择时的判断方法：</strong>先看信息任务。要让人一眼读出时间和价格，优先保证字和层级；要营造情绪，才让材质、摄影或手绘占更大权重。风格提示词中的配色、材质和元素可以拆开重组，但不要把 20 个方向同时塞进一张图。视觉方向定下来，再用同一组标识、颜色和字级做后续物料，才不容易“每张都好看，放一起却不像一个项目”。</p>
+<h2>第三步：按场景完成交付</h2>
+<p>每个案例放在一处阅读：先看这套物料如何分工、哪些细节需要验收，再改写提示词，最后横向查看整组结果图；涉及视频的案例还可直接播放。提示词中的虚构名称、时间、地点和数字用于复现案例，实际项目要换成自己的资料并逐项核对。</p>
+<h3>商品、电商与广告：先锁定产品，再延展镜头</h3>
+<h4>01｜商品详情页与 TVC</h4>
+<p>先锁定产品参考图，再按“主 KV → 卖点详情 → 场景图 → 广告镜头”的顺序扩展。同一件商品的外观、色号和卖点要贯穿所有画幅。</p>
+<ul>
+<li><strong>手机</strong>：用深色产品摄影突出机身、镜头组和橙色侧键；详情页解释卖点，15 秒 TVC 用特写和快节奏转场，片尾出现 nubia Z80 Ultra。</li>
+<li><strong>眼镜</strong>：先确认廓形与玳瑁茶、冰透灰、曜石黑墨绿三种颜色，再做产品静物、男女佩戴场景及约 30 秒的城市广告。检查每个镜头的镜框形状和颜色是否与产品图一致。</li>
+</ul>
+可直接改写的提示词
+<blockquote>
+<p>@创意设计。为这张[产品参考图]做一套高质感商品图、主 KV 和详情页卖点图。保持产品外形、颜色、标识与已确认卖点一致；先给我[方案数量]种视觉方向，再做[画幅和尺寸]的交付物。</p>
+<p>@创意视频。沿用同一产品图和选定视觉方向，制作[15 或 30]秒广告。按“产品特写 → 使用/佩戴场景 → 卖点镜头 → 品牌片尾”安排节奏，说明转场与音乐卡点；逐镜保持产品外形和文字一致。</p>
+</blockquote>
+<p>手机可指定极简深色摄影、镜头组和橙色侧键；眼镜要先给廓形与三色图，再延展男女模特和城市镜头。</p>
+<div>
+<div><strong>案例画面 · 共 17 张</strong><div>←1 / 17→</div></div>
+<div><figure><a><img /></a><figcaption>01｜手机参考图</figcaption></figure><figure><a><img /></a><figcaption>02｜手机详情页主 KV</figcaption></figure><figure><a><img /></a><figcaption>03｜手机详情页</figcaption></figure><figure><a><img /></a><figcaption>04｜眼镜横版视觉方向 1</figcaption></figure><figure><a><img /></a><figcaption>05｜眼镜横版视觉方向 2</figcaption></figure><figure><a><img /></a><figcaption>06｜眼镜横版视觉方向 3</figcaption></figure><figure><a><img /></a><figcaption>07｜眼镜横版视觉方向 4</figcaption></figure><figure><a><img /></a><figcaption>08｜眼镜横版视觉方向 5</figcaption></figure><figure><a><img /></a><figcaption>09｜眼镜详情页</figcaption></figure><figure><a><img /></a><figcaption>10｜眼镜廓形</figcaption></figure><figure><a><img /></a><figcaption>11｜玳瑁茶镜框</figcaption></figure><figure><a><img /></a><figcaption>12｜冰透灰镜框</figcaption></figure><figure><a><img /></a><figcaption>13｜曜石黑墨绿镜框</figcaption></figure><figure><a><img /></a><figcaption>14｜眼镜竖版主视觉</figcaption></figure><figure><a><img /></a><figcaption>15｜女模佩戴场景 A</figcaption></figure><figure><a><img /></a><figcaption>16｜女模佩戴场景 B</figcaption></figure><figure><a><img /></a><figcaption>17｜男模佩戴场景</figcaption></figure></div>
+<p>左右滑动或使用箭头切换；点图片可打开原图。</p>
+</div>
+<div>
+浏览器无法播放此视频。
+</div>
+<p><em>手机 TVC：机身细节、镜头与片尾产品名组成快节奏广告。商用时核对口号和产品信息。</em></p>
+<div>
+浏览器无法播放此视频。
+</div>
+<p><em>眼镜广告：城市、人物、产品特写和收尾语组成 30 秒节奏。</em></p>
+<h4>02｜食品 Motion Graphic 广告</h4>
+<p>15 秒曲奇广告采用暖杏底色、深棕巧克力、真实曲奇、奶油白包装与白色粉笔线。镜头让巧克力碎块和手绘线推动转场，最后才形成产品与包装。写提示词时，明确<strong>开头元素、食材如何变成下一镜、包装出现时点、片尾短句</strong>，比只写“高质感食品广告”更可执行。</p>
+可直接改写的提示词
+<blockquote>
+<p>@创意视频，使用 Seedance 2.5 生成 15 秒食品 Motion Graphic 广告，主题为“FROM CHOCOLATE TO COOKIE”。保持暖杏色背景、奶油白包装、真实烘焙曲奇、深棕巧克力块、白色粉笔手绘线、顶视角静物摄影与统一硬光阴影。让所有转场由食材本身完成，画面干净、精准、有趣；片尾出现产品包装与已确认短句。</p>
+</blockquote>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Sonnet 5.5 上手指南：怎么选、多少钱、从 Sonnet 5 怎么迁</title>
 <link>https://best.xiaohu.ai/article/building-with-claude-sonnet-5-5/</link>
