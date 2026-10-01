@@ -6,7 +6,643 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Wed, 30 Sep 2026 12:01:51 +0000</lastBuildDate>
+<lastBuildDate>Thu, 01 Oct 2026 12:02:04 +0000</lastBuildDate>
+<item>
+<title>【日报】Google Flow 的 10 条视频创作技巧：让 Gemini Omni 听懂你的镜头要求</title>
+<link>https://best.xiaohu.ai/article/flow-gemini-omni-prompt-guide/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:flow-gemini-omni-prompt-guide</guid>
+<pubDate>Thu, 01 Oct 2026 12:02:04 +0000</pubDate>
+<description>从首尾帧、素材标签到时间码和局部修改，逐条讲清官方指南的用法，配上中文提示词与原始视频示例。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 1 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Google Flow 的 10 条视频创作技巧：让 Gemini Omni 听懂你的镜头要求</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/flow-gemini-omni-prompt-guide/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Google Flow 的 10 条视频创作技巧：让 Gemini Omni 听懂你的镜头要求</h1><p>从首尾帧、素材标签到时间码和局部修改，逐条讲清官方指南的用法，配上中文提示词与原始视频示例。</p><strong>一分钟速览</strong><ul><li>视频画面总在走样？Google Flow 的这份指南教你用参考素材和明确指令，减少 Gemini Omni 对创意的猜测。</li><li>先确定画面，再安排运动，比把所有要求塞进一段长提示词更容易说清想要的结果。</li><li>修改成片时只指定要改的部分，并要求其余保持不变，能让修改范围更明确。</li></ul><div><p>想用 AI 做一段产品广告，你可能已经有商品图、人物照片，甚至画好了分镜。但从这些素材到一段满意的视频，中间还有很多要求要交代：人物怎么动、镜头怎么走、什么时候切换画面，以及生成之后怎么只改一个细节。</p>
+<p>Google Flow 是 Google 的 AI 创作工作区，供创作者生成和编辑图片、视频。这份官方指南介绍的是 Flow 中的 Gemini Omni Flash：你可以用文字、图片或参考视频告诉它想拍什么，也可以对已有视频继续提出修改要求。</p>
+<p>很多人的痛点在于，一句“拍得更有电影感”没有说清具体要求。你想改变的可能只是光线，模型却也换了机位；你想连续拍完一个动作，它却在中间切了镜头。创意有了，怎样把创意准确交代给模型，成了下一步的问题。</p>
+<p>Google Flow 团队因此整理了这份创作提示词指南，给出十类方法和具体示例：用参考画面确定主体与构图，用镜头和时间要求安排动作，修改时明确哪些地方要变、哪些要保留。下面结合官方视频和中英文提示词，逐条讲清这些方法怎么用。</p>
+<p>英文提示词逐字保留官方原文，包含原文的标点、素材占位符与时间码；中文为对照翻译，使用说明另列。原文少数引号未闭合，也按原样保留。</p>
+<h2>一、先确定画面：文字约束与首尾帧</h2>
+<p>先确定画面的要求，再安排画面中的运动。环境、服装和镜头风格可以通过文字规定；构图、主体与色调则可以用图片给出更具体的参照。</p>
+<h3>技巧 1：提供高层创意约束（Provide high-level constraints）</h3>
+<p>不用去微观指挥每一根头发丝怎么飘，而是向 Gemini Omni 提出高层级的艺术与物理约束。官方建议明确要求模型注意光照一致性、布景、服装质感和动作细节，让它在这些约束内补充画面。</p>
+<figure>
+<figcaption>广角鱼眼镜头在室内空间由鞋部自下而上巡视，展示环境光影与服装微观细节</figcaption>
+</figure>
+<p><strong>官方提示词原文与中文对照：</strong></p>
+<ul>
+<li>
+<p><strong>环境与服饰质感约束</strong></p>
+<blockquote>
+<p><strong>中文：</strong> 细化场景环境。对角色应用服装设计原则，精确指定具体的材质纹理、道具与光影氛围。</p>
+<p><strong>English:</strong> “Be extremely detailed in environments. Apply costume design principles to characters, specifying exact textures, props, and lighting.”</p>
+<p><em>用法：告诉模型优先细化哪些环境、服装和道具特征。</em></p>
+</blockquote>
+</li>
+<li>
+<p><strong>微表情与自然对话约束</strong></p>
+<blockquote>
+<p><strong>中文：</strong> 深入考量细节、面部表情以及节奏停顿，营造出自然的对话状态。</p>
+<p><strong>English:</strong> “Consider micro-detail, facial expression, and timing to create a natural dialogue.”</p>
+<p><em>用法：把表情与对话节奏也列入要求，不只给出台词。</em></p>
+</blockquote>
+</li>
+<li>
+<p><strong>特殊摄影镜头约束</strong></p>
+<blockquote>
+<p><strong>中文：</strong> 用手持鱼眼镜头拍摄房间里的角色。</p>
+<p><strong>English:</strong> “Handheld fisheye camera shot of the character in the room.”</p>
+<p><em>作用：直接调用特定光学镜头语言，快速确立画面的透视张力。</em></p>
+</blockquote>
+</li>
+</ul>
+<h3>技巧 2：使用首尾帧作为“视觉锚点”（Use visual anchors）</h3>
+<p>长镜头或复杂运动最怕的是“走样”——镜头一晃，衣服换了颜色，背景甚至变了个城市。上传或预先生成起始帧与结束帧（Start &amp; End Frame），就能给模型提供画面起点与终点的参照。静态帧把构图、色调与主体先交代出来，文字就可以集中描述摄像机与人物怎么运动。官方将这种做法用于减少画面漂移。</p>
+<figure>
+<figcaption>主体在石板路与建筑间骑行，这是原文配在视觉锚点技巧下的骑行示例</figcaption>
+</figure>
+<p><strong>官方提示词原文与中文对照：</strong></p>
+<ul>
+<li>
+<p><strong>无人机后撤并升高</strong></p>
+<blockquote>
+<p><strong>中文：</strong> 基于给定的首尾帧，执行平滑连贯的高速无人机后撤镜头。摄像机快速向后倒退并俯倾，同时爬升数百英尺冲入高空，云雾散开，显露出壮丽雄伟的山脉全貌。</p>
+<p><strong>English:</strong> “Smooth, continuous high-speed drone pull-back shot using this start and end frame. The camera rapidly retreats backwards and tilts down, ascending several hundred feet into the air. The mist parts to reveal the massive mountain range.”</p>
+</blockquote>
+</li>
+<li>
+<p><strong>日夜光影流转延时</strong></p>
+<blockquote>
+<p><strong>中文：</strong> 基于给定的首尾帧，使用锁定的静止机位进行延时摄影。转场无缝衔接，将环境氛围光从湿冷的暮色平滑过渡为温暖的晨间日光。</p>
+<p><strong>English:</strong> “Hyperlapse with a locked-off, static camera using this start and end frame. The transition is seamless, shifting the ambient lighting from cold, wet twilight to warm morning sunlight.”</p>
+</blockquote>
+</li>
+<li>
+<p><strong>制作无限无缝循环动图</strong></p>
+<blockquote>
+<p><strong>中文：</strong> 基于给定的首帧和尾帧，制作一个首尾相接、无缝循环的动态视频。</p>
+</blockquote></li></ul></div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Google 发布Gemini 4 Argon：综合评分超越GPT-6 Astra、Claude Fable 5.1 以及 Claude Opus 5.5</title>
+<link>https://best.xiaohu.ai/article/gemini-4-argon/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:gemini-4-argon</guid>
+<pubDate>Thu, 01 Oct 2026 12:02:04 +0000</pubDate>
+<description>Vals Index 知识工作综合评测领先之外，Argon 已被用来优化数据中心、重写视频解码器，并推进法律金融研究和网络防御。它具体强在哪里？</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 1 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Google 发布Gemini 4 Argon：综合评分超越GPT-6 Astra、Claude Fable 5.1 以及 Claude Opus 5.5</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/gemini-4-argon/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Google 发布Gemini 4 Argon：综合评分超越GPT-6 Astra、Claude Fable 5.1 以及 Claude Opus 5.5</h1><p>Vals Index 知识工作综合评测领先之外，Argon 已被用来优化数据中心、重写视频解码器，并推进法律金融研究和网络防御。它具体强在哪里？</p><strong>一分钟速览</strong><ul><li>Google 新模型 Gemini 4 Argon 在 Vals Index 知识工作综合评测中领先三款竞争模型。</li><li>它已用于优化数据中心和视频解码器，长任务能力开始带来具体工程成果。</li><li>从知识工作切换到终端操作和科学任务，模型之间的强弱排序也会改变。</li></ul><div><p>Google 发布了新一代前沿模型 Gemini 4 Argon。在衡量金融、编程、法律与税务等知识工作的 <strong>Vals Index 综合评测</strong>中，Argon 得分 68.9%，高于 GPT-6 Astra 的 63.1%、Claude Fable 5.1 的 65.8% 和 Claude Opus 5.5 的 67.0%。这项评分按各行业对美国 GDP 的贡献加权，衡量的是专业知识工作的表现。</p>
+<p>Argon 的重点是<strong>持续处理复杂的长任务，并进行深度推理</strong>，主要面向软件工程、企业知识工作和网络安全防御。</p>
+<p>为了让模型在复杂问题上推理得更深入，Argon 将<strong>单次输出上限从 64K 提高到 100 万 Token</strong>。模型可以在一次任务轨迹中生成数十万 Token，持续推进推理。这次扩大的是输出预算。</p>
+<hr />
+<h3>从省内存到改代码，Argon 已经做了什么？</h3>
+<p>Google 内部已有数千名员工使用 Argon 进行专业编码、研究和写作。三个工程案例最能说明它的工作方式：</p>
+<ol>
+<li>
+<p><strong>分析运行数据，释放超过 300 TiB 内存</strong>
+Argon Agent 团队分析 Google 数据中心的运行性能数据，找到内存瓶颈，再生成并实施优化补丁。已部署的优化<strong>释放了超过 300 TiB 内存</strong>；随着后续优化铺开，Google 预计总节约量可达到 <strong>500 TiB 到 1 PiB</strong>。</p>
+</li>
+<li>
+<p><strong>超大型代码库迁移：从音视频底层到 80 万行操作系统内核</strong>
+Google 正使用 Argon Agent，将 re2、libgav1 等 C/C++ 代码库迁移到 Rust，工作规模从数万行延伸到超过 80 万行：</p>
+<ul>
+<li><strong>重写视频解码器 libgav1</strong>：libgav1 是 Google 开源的 AV1 视频解码核心库。Argon Agent 接手了已有的初步 Rust 移植版本，自主进行了多轮基于性能剖析的引导实验（profile-guided experiments），研究了编译器输出。最终，Agent 成功重写替换了 <strong>3.2 万行底层 SIMD 代码</strong>，产出了既符合内存安全规范、又能让 Rust 编译器自动完成向量化的安全 Rust 代码。改写后，视频输出保持一致，<strong>运行速度达到旧 Rust 移植版本的 2.7 倍</strong>，更接近优化过的 C++ 版本。</li>
+<li><strong>80 万行 Fuchsia Zircon 内核迁移</strong>：Argon Agent 参与迁移 Fuchsia 的 Zircon 内核代码，涉及代码量超过 <strong>80 万行</strong>。这类关键系统的迁移在上线前，需要经过自动化与人工审计、仿真测试和审查。</li>
+</ul>
+</li>
+<li>
+<p><strong>量子算法的时空开销优化</strong>
+Argon 帮助 Google 的量子计算研究人员优化关键子程序消耗的时空资源，衡量方式是量子比特数 × 门数。在 Google 给出的一个案例中，它在几分钟内把这项开销相对已发表的基线降低了 40%。</p>
+</li>
+</ol>
+<hr />
+<h3>综合评分领先，具体强在哪些工作？</h3>
+<p>Vals Index 的领先，主要来自 Argon 在专业知识工作中的表现。把它放进更广的评测表，还能看到软件工程、长视频理解，以及终端任务等不同能力的差异。</p>
+<figure>
+<img />
+<figcaption>Google 发布的完整评测对照表。</figcaption>
+</figure>
+<p>Argon 默认采用一次尝试的成绩（Pass@1）和最高思考档位；竞品数据部分来自厂商报告和公开榜单，各项测试环境见文末评测方法。以下几组成绩最能看出它的优势：</p>
+<ul>
+<li><strong>真实软件工程（DeepSWE v1.1）</strong>：Argon 取得了 <strong>77.9%</strong> 的领先成绩（高于 Astra 的 74.1% 与 Opus 5.5 的 74.2%）。这项基准主要衡量模型在真实、多步骤的长周期软件工程任务中的自主排错与实现能力。</li>
+<li><strong>高价值专业知识工作（Vals Index &amp; Harvey）</strong>：
+<ul>
+<li>在法律垂直评测 <strong>Harvey Legal Agent Benchmark</strong>（长程法律调研与文书起草）中，Argon 得分 <strong>19.6%</strong>，其他模型为 3.8%～6.7%。相对优势明显，绝对得分仍低，复杂法律工作还有很大的提升空间。</li>
+<li>在金融深度调研基准 <strong>Vals Finance Agent v2</strong> 中，Argon 同样以 <strong>65.4%</strong> 领先（其余模型处于 53.5%～58.9%）。</li>
+<li>在 Zapier 衡量端到端核心商业功能执行的 <strong>AutomationBench</strong> 私有集上，Argon 取得了 <strong>51.3%</strong> 的首位成绩。</li>
+</ul>
+</li>
+<li><strong>多模态与长视频理解（LVBench）</strong>：在考验超长视频细节检索的 LVBench 上，Argon 取得了 <strong>91.7%</strong> 的高分。这项测试受 API 限制，视频输入设置不同：Gemini 每秒输入一帧，Astra 为 800 帧，Opus 5.5 为 600 帧，Fable 5.1 为 300 帧。</li>
+<li><strong>超长上下文连贯推理（GraphWalks）</strong>：在 ≤128k 长度的图遍历任务中，Argon 的 BFS F1 分数达到 99.7%；在 256k 到 100 万 Token 的极端长度下，依然维持了 84.2% 的 BFS F1 分数，明显优于 Astra 的 71.8% 和 Opus 5.5 的 66.8%。</li>
+</ul>
+<p>终端和部分长任务则呈现了另一种结果：</p>
+<ul>
+<li>在复杂长任务代码评测 <strong>FrontierSWE v2</strong> 上，GPT-6 Astra（65.5%）和 Opus 5.5（62.3%）均高于 Argon（55.0%）；</li>
+<li>在终端命令行交互测试 <strong>Terminal-bench 4.0</strong> 上，Opus 5.5 以 66.4% 在这张表中领先，Argon 为 57.4%；</li>
+<li>在机器学习工程化基准 <strong>PostTrainBench v1.1</strong> 以及科学终端任务 <strong>Terminal-Bench Science 0.1</strong> 上，Opus 5.5 与 Astra 也展现出了更高的完成度；</li>
+<li>在桌面系统自动化操作 <strong>OSWorld 2.0</strong>（离线子集）上，Astra 取得了 72.6%，略高于 Argon 的 69.2%。</li>
+</ul>
+<p>选模型时，任务类型会改变排序：知识工作与 DeepSWE 上的优势，并不会自动延续到终端操作和科学任务。</p>
+<h3>换一项任务，看优势是否还在</h3><p>同一模型在不同评测上的位置会变；以下数值来自官方总表，不能把不同测试的分数相互平均。</p>选择评测Vals IndexAutomationBenchVals Finance Agent v2Harvey Legal AgentDeepSWE v1.1FrontierSWE v2Vibe Code BenchTerminal-bench 4.0PostTrainBenchTerminal-Bench Science 0.1LABBench 2RiemannBenchGraphWalks ≤128k BFS F1GraphWalks 256k—1M BFS F1Agent’s Last Exam pass rateOSWorld 2.0 offline partial scoreChartographyLVBenchCWE-bench v1<div><h4>Vals Index</h4><p>知识工作组合，按行业对美国GDP的贡献加权。</p><div><div><span>Gemini 4 Argon</span><strong>68.9%</strong><div><i></i></div></div><div><span>GPT-6 Astra</span><strong>63.1%</strong><div><i></i></div></div><div><span>Claude Fable 5.1</span><strong>65.8%</strong><div><i></i></div></div><div><span>Claude Opus 5.5</span><strong>67.0%</strong><div><i></i></div></div></div><p>Argon 比此项其他模型的最高分高 1.9 个百分点。</p></div><p>原始图表与评测条件见相邻正文。未报告以“未报告”显示，不按零分处理。</p>
+<hr />
+<h3>网络安全：给防御团队更强的漏洞发现与修复能力</h3>
+<p>Argon 的网络防御能力覆盖三个环节：发现漏洞、生成概念验证（PoC）来确认问题，再修复漏洞。</p>
+<p>Google 通过 Fairwind 计划，向受信任的网络防御者和内部团队提供不带网络安全护栏的 Argon 版本，让这些团队使用完整的网络防御能力。</p>
+<p>Wiz 已通过“Scan for Good”计划使用 Argon，为关键公共基础设施免费发现并修复高风险暴露。在早期实战中，<strong>Argon 在被全球医院使用的医疗软件中发现了一处关键漏洞，涉及敏感个人信息暴露风险</strong>。Google 称，此前的前沿模型漏掉了这一风险。</p>
+<figure>
+<img />
+<figcaption>CWE-bench v1 漏洞修复评测；图中同时标出了各模型使用的 Agent 运行环境。</figcaption>
+</figure>
+<p>在漏洞修复基准 <strong>CWE-bench v1</strong> 上，Argon 与 Grok 4.7、GPT-6 Astra 均跑出了 <strong>68.0%</strong> 的 Pass@1 通过率并列第一。各模型搭配的 Agent 运行环境不同：Argon 使用了 Antigravity 环境，Astra 使用了 Codex，而 Grok 与其他多数开源模型则运行在 OpenCode 环境下。</p>
+<figure>
+<img />
+<figcaption>左图提供源代码，右图不提供源代码；两图纵轴均从 20% 起。</figcaption>
+</figure>
+<p>发现漏洞时，能否看到源代码，会改变模型需要完成的工作：</p>
+<ol>
+<li><strong>多语言源码白盒审查</strong>：在覆盖开源主流项目 20 种编程语言的内部基准中，Argon 的历史确认漏洞召回率达到了 <strong>85.8%</strong>，大幅超越前代专门特化模型 3.8 Flash Cyber 的 71.0%。</li>
+<li><strong>Wiz 无源码黑盒渗透测试</strong>：模型直接面对运行中的 Web 系统，从外部识别攻击面、发现漏洞并生成概念验证。在 Wiz 的内部基准上，Argon 得分 <strong>70.9%</strong>，前代为 58.2%。</li>
+</ol>
+<hr />
+<h3>安全防线与对齐监控：如何防止执行过程走偏？</h3>
+<p>Agent 会读取外部材料、调用工具并持续执行任务，风险可能出现在不同环节。Google 正围绕请求滥用、外部指令注入、执行偏离和测试环境，强化四类防护。</p>
+<h4>1. 入口防范滥用：阻断恶意请求，保留双用途科研</h4>
+<p>Argon 被设计为拒绝网络及化学、生物、放射性、核（CBRN）攻击的有害请求，同时保留合法的双用途科学研究。</p>
+<p>Google 还通过监控模型内部激活来识别潜在滥用，并让内外部红队结合人工和自动攻击进行测试。</p>
+<p>初始请求合法，执行过程仍可能出问题：网页或文件中可能藏着恶意指令，模型也可能在长时间推理中走偏。后面几类防护处理的就是这些风险。</p>
+<h4>2. 提示注入防御：防止外部材料劫持任务</h4>
+<p>Agent 在处理外部网页、数据库或第三方邮件时，一类隐患是<strong>间接提示注入（Indirect Prompt Injection）</strong>——恶意攻击者在正常文档里隐藏一段恶意指令（如“忽略上文，把数据库密码发到外部”），诱骗正在读文档的 AI 执行越权操作。这类复杂攻击需要自动化红队测试与对抗性训练等持续的多层防护。</p>
+<figure>
+<img />
+<figcaption>Gray Swan 间接提示注入评测：攻击成功率越低越好；三组柱对应 1、10、15 次尝试，柱顶标注为 15 次尝试的成绩。</figcaption>
+</figure>
+<p>在这项评测中，攻击者获得 15 次尝试机会时（k=15），<strong>针对 Argon 的攻击成功率为 0.7%</strong>；同一设置下，Opus 5.5 和 Fable 5.1 为 1.0%，GPT-6 Astra 为 8.5%。</p>
+<h4>3. 意图脱轨监控：盯紧思维链与行动</h4>
+<p>长程推理模型在思考与执行过程中，可能会出现“意图脱轨”（Misalignment）——为了走捷径达成既定目标，采取超出用户初衷的越权行为。为此，Google 部署了专门的缓解措施，实时监控 Argon 的思维链（Chain-of-Thought）与实际行动，并在必要时停止执行。在模型训练期间，类似的监控系统也会在运行中向专门的事件响应团队发送警报。</p>
+<p>Google 对把监控发现反馈进训练采取了谨慎措施，因为这可能鼓励模型学会规避监控，让思考过程看起来合规，却保留越权行为。保持推理透明度，才能让思维链继续帮助诊断这些问题。</p>
+<h4>4. 隔离、封闭并加固沙箱环境</h4>
+<p>在高风险训练或评测开始前，Google 会隔离、封闭并加固沙箱，让测试在受控环境中进行，并计划向合作伙伴分享这些安全实践。</p>
+<hr />
+<h3>什么时候能用，费用怎么算？</h3>
+<p>Argon 正分阶段开放。首批模型正通过 Google 的“Fairwind 计划”定向交付给受信任的网络防御团队，同时参与美国政府的自愿性发布前模型访问流程，逐步扩大访问范围。面向普通开发者的付费 API 以及 Google AI Ultra 订阅用户的推送属于后续节奏。在定价方面，Google 设定了前期优惠价格：每百万输入 Token 计费 2 美元，每百万输出 Token 计费 10 美元；缓存输入 Token 按输入价格优惠 95%（按初始价格计算，每百万缓存输入 Token 为 0.10 美元）。而在优惠期结束后，标准价格将调整为输入 4 美元 / 1M、输出 20 美元 / 1M。</p>
+<p>Google 未给出普遍开放的具体日期，也未说明优惠期持续多久。</p>
+<hr />
+<h3>这次发布意味着什么</h3>
+<p>从分析运行数据到反复实验、改代码，Argon 的工程案例展示了持续推进任务的工作方式。对开发者和企业来说，接下来最值得关注的是扩大开放后，这种能力能否在自己的业务流程里稳定发挥作用，以及时间和费用是否划算。</p>
+</div><div><div><div>来源</div><div><span>Gemini 4 Argon: our next era of frontier intelligence</span><span>Koray Kavukcuoglu / Google<span>·</span><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://deepmind.google/models/evals-methodology/gemini-4-argon">Gemini 4 Argon — Evaluations Methodology</a></div></div></div></div></div>
+<div><div>GEMINI 4 ARGON · 一页读懂</div><h1>Google 发布Gemini 4 Argon：综合评分超越GPT-6 Astra、Claude Fable 5.1 以及 Claude Opus 5.5</h1><p>Gemini 4 Argon 是 Google 面向软件工程、专业知识工作和网络安全防御的新前沿模型。它的重点是持续推进复杂长任务；综合领先来自 Vals Index 知识工作评测，按行业对美国 GDP 的贡献加权。</p><h2>给复杂任务更多输出空间</h2><div><div>64K此前输出上限</div><div>→</div><div>100 万新的 Token 输出上限</div></div><p>复杂任务需要连续推理。Argon 把单次输出上限从 64K 扩至 100 万 Token，可在一次任务轨迹中生成数十万 Token。这是输出预算扩充。</p><h2>工程案例：反复实验，再改代码</h2><p>libgav1 视频解码器案例展示了工程工作如何推进：Agent 接手已有 Rust 移植版，反复进行性能剖析实验并研究编译器输出，替换 3.2 万行 SIMD 代码，让安全 Rust 自动向量化。视频输出一致，速度达到旧 Rust 版的 2.7 倍，更接近优化过的 C++ 版。</p><div><span>① 性能剖析实验</span><span>② 研究编译器输出</span><span>③ 重写安全 Rust</span><span>④ 自动向量化</span></div><p>内存优化先从数据中心运行数据中找瓶颈，再生成并实施补丁；已释放量对应部署结果，预计总节约量对应后续估计。</p><p>数据中心优化已释放超过 300 TiB 内存，预计总节约 500 TiB～1 PiB；代码迁移还涉及超过 80 万行的 Zircon 内核，上线前须审计、仿真测试和审查。量子子程序的一个案例中，量子比特数×门数开销相对已发表基线降低 40%。</p><h2>换任务，模型排序会变</h2><p>任务一换，排序也会变。Vals Index 和 DeepSWE 中 Argon 领先；FrontierSWE 则是 Astra 与 Opus 5.5 更高。</p><div><div><span>Vals Index · 知识工作</span><strong>68.9%</strong></div><p>Astra 63.1% · Fable 5.1 65.8% · Opus 5.5 67.0%</p></div><div><div><span>DeepSWE v1.1 · 软件工程</span><strong>77.9%</strong></div><p>Astra 74.1% · Opus 5.5 74.2%</p></div><div><div><span>FrontierSWE v2 · 软件工程</span><strong>55.0%</strong></div><p>Astra 65.5% · Opus 5.5 62.3%</p></div><h2>网络防御与四类安全措施</h2><p>外部文档可能夹带恶意指令，把正常任务引向越权操作；长时间执行也可能偏离用户意图，因此监控不只检查最初请求。</p><p>网络防御能力覆盖发现、验证和修复漏洞。Wiz 已用它在全球医院使用的软件中发现涉及敏感个人信息的关键漏洞；CWE-bench v1 修复通过率 68%，并列第一。</p><div><div><h3>防范滥用</h3><p>设计为拒绝网络和 CBRN 有害请求，保留合法双用途研究；监控内部激活并进行红队测试。</p></div><div><h3>防提示注入</h3><p>自动红队与对抗训练应对外部恶意指令；Gray Swan 评测 k=15 时，攻击成功率为 0.7%。</p></div><div><h3>监控执行偏离</h3><p>监控思维链（CoT）与行动，必要时停止；谨慎把监控发现反馈进训练，避免模型学会规避。</p></div><div><h3>加固测试环境</h3><p>高风险训练或评测前隔离、封闭并加固沙箱，让测试在受控环境中进行。</p></div></div><h2>谁先能用，费用怎么算？</h2><p>首批通过 Fairwind 计划交付受信任网络防御团队。普通开发者付费 API 与 Google AI Ultra 用户将在后续开放，具体日期未给出。</p><p>每百万 Token：初始输入 $2、输出 $10，缓存输入优惠 95%（$0.10）；优惠期后输入 $4、输出 $20，优惠期长度未说明。</p></div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Anthropic 实测 GLM-5.3：是第一个展现出实质性漏洞利用能力的开重模型 水平和 Claude Mythos Preview 接近</title>
+<link>https://best.xiaohu.ai/article/glm-5-3-cyber-capabilities/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:glm-5-3-cyber-capabilities</guid>
+<pubDate>Thu, 01 Oct 2026 12:02:04 +0000</pubDate>
+<description>五个月前 Anthropic 不敢公开的“自己写攻击代码”能力，现在出现在人人可下载的智谱 GLM-5.3 上。它追到了哪一步、自带的拒绝为什么挡不住、这份出自竞争对手的报告该怎么读，一次讲清。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 1 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Anthropic 实测 GLM-5.3：是第一个展现出实质性漏洞利用能力的开重模型 水平和 Claude Mythos Preview 接近</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/glm-5-3-cyber-capabilities/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>Anthropic 实测 GLM-5.3：是第一个展现出实质性漏洞利用能力的开重模型 水平和 Claude Mythos Preview 接近</h1><p>五个月前 Anthropic 不敢公开的“自己写攻击代码”能力，现在出现在人人可下载的智谱 GLM-5.3 上。它追到了哪一步、自带的拒绝为什么挡不住、这份出自竞争对手的报告该怎么读，一次讲清。</p><strong>一分钟速览</strong><ul><li>Anthropic 五个月前只敢交给受信防守方的“自己写攻击代码”能力，现在人人可下载的智谱开源模型 GLM-5.3 也有了：受控发布只争取到大约四个月。</li><li>它的拒绝几招就能绕开：编个“这是演练”的借口、替它预写思考、或花一两千美元删掉拒绝，配合恶意攻击命令的比例升到 64%–100%。这不只是智谱的问题，开放权重后本来就只剩模型自己拒绝这一层。</li><li>数据有美国官方 CAISI 印证，但报告比的是几个月前的 Mythos，不是现在最强的美国模型，作者又是智谱的竞争对手；对普通人最实在的一条：补丁出来别拖着不更新。</li></ul><div><p>五个月前，Anthropic 公布了 Claude Mythos Preview，第一个能自己写出复杂攻击代码的模型。它没有公开发布，只通过 Project Glasswing 交给一批审核过的安全防守方先用，这些人借它在关键软件里找出了 1 万多个漏洞。</p>
+<p>Anthropic 当时就判断，这种能力迟早会扩散到其他模型上。现在它说，这一天到了：它的前沿红队（Frontier Red Team）发了一份研究，分析智谱 AI（在海外称 Z.ai）的最新模型 <strong><a>GLM-5.3</a></strong>。</p>
+<p>结论分两半：<strong>GLM-5.3 是第一个展现出实质性漏洞利用能力的开源权重模型，自己从头到尾做出可用攻击代码的水平和 Claude Mythos Preview 接近；但它发布时没有像样的防护，Anthropic 用几种简单手法就能在 64% 到 100% 的模拟测试中绕过它的拒绝，而同样的手法对带防护的 Claude 都没成功。</strong></p>
+<p>美国国家标准与技术研究院（NIST）下属的 AI 标准与创新中心（CAISI）之前也做过评估，称 GLM-5.3 是“迄今网络能力最强的开源权重模型”，在 CAISI 的一组网络基准上综合落后美国前沿约四个月，Anthropic 测出的能力和它大体一致。不过 CAISI 测美国模型时关掉了能关的网络防护，“美国前沿”里还包括只对审核用户开放的模型，攻击者拿不到这些版本；而任何人都可以下载 GLM-5.3 的全部权重在本地运行。所以这份报告多测了一件事：它的防护有多容易被绕开或拆掉。</p>
+<p>读之前先记住：这是 Anthropic 在分析竞争对手的模型，而它自己一直主张强能力模型只给审核过的用户。</p>
+<figure><img /><figcaption>全文结论一图看完。上：在 41 个 Chrome V8 漏洞上自己做出可用攻击代码的比例；下：面对明确恶意的攻击命令，四种条件下模型配合的比例（图：Anthropic）</figcaption></figure>
+<h2>先弄懂几个词</h2>
+<ul>
+<li><strong>Exploit（漏洞利用程序）</strong>：
+发现漏洞只是知道“窗户锁有点松”，exploit 是真把窗户撬开、翻进屋的那段程序。从漏洞一路做到能跑起来的攻击，叫“端到端”，过去要靠经验丰富的安全研究员花不少时间。</li>
+<li><strong>Open-weight（开源权重）</strong>：
+常说的“开源大模型”大多是这种：厂商把训练好的模型参数（权重）放到网上，<strong>谁都能下载到自己的机器上</strong>，断网也能跑。厂商也就没法再从云端叫停或拦截。</li>
+<li><strong>控制流劫持（Control-Flow Hijack）</strong>：
+程序本来按自己的逻辑一步步执行，攻击者借内存漏洞改掉它的跳转地址，让它去执行攻击者的代码，基本等于接管了这个程序。</li>
+<li><strong>0-day 与 N-day 漏洞</strong>：
+<strong>0-day（零日漏洞）</strong> 是厂商还不知道、还没补丁的漏洞；<strong>N-day</strong> 是已经公开、甚至有了补丁，但很多机器还没更新的漏洞。攻击者常盯着补丁公告，赶在大家更新前动手。</li>
+<li><strong>Abliteration（去拒绝化）</strong>：
+模型会拒绝有害请求，是训练时学来的。拿到权重的人可以找出模型内部跟“拒绝”有关的方向，把它从权重里削掉，之后模型对明显有害的请求也很少拒绝。</li>
+</ul>
+<h2>GLM-5.3 能做到什么程度</h2>
+<p>Anthropic 主要测的是“写攻击代码”这项能力，因为 Mythos Preview 当初比之前的 Claude 强出一大截，就强在这里。测试分两类：自动化基准，和专家带着模型实战。模型都跑在断网的隔离沙箱里，攻击的是 Anthropic 自己搭的本地离线目标，没有碰任何真实系统。</p>
+<h3>ExploitBench：浏览器漏洞上，和 Mythos 同一档</h3>
+<p>ExploitBench 是一个公开基准，给模型 Chrome 浏览器 V8 引擎（Chrome 里运行网页 JavaScript 的部分）的已知漏洞，看它能不能自己写出可用的 exploit。一共 41 个漏洞，每个试 10 次，共 410 次：</p>
+<div><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>成功率（95% 区间为估读）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Mythos Preview（关闭防护）</td>
+<td>14%（约 6.5%–21.5%）</td>
+</tr>
+<tr>
+<td>GLM-5.3（开源权重）</td>
+<td>12%（约 5.5%–20%）</td>
+</tr>
+<tr>
+<td>Kimi K3（开源权重）</td>
+<td>0.5%</td>
+</tr>
+<tr>
+<td>DeepSeek V4.1-Flash（开源权重）</td>
+<td>0.2%</td>
+</tr>
+<tr>
+<td>GLM-5.2（上一代）</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>Claude Opus 4.6（上一代）</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table></div>
+<p>GLM-5.3 成功 <strong>50 次</strong>，Mythos Preview 成功 <strong>56 次</strong>。两者的误差范围大面积重叠，统计上分不出高低，算同一档。</p>
+<p>12% 听起来不高，但这是单次尝试的成功率。真要用的时候，同一个漏洞可以反复跑，跑通一次就够了，所以 12% 并不等于“没什么用”。</p>
+<p>“同一档”也要说清是跟谁比：它追上的是 4 月受限发布的 Mythos Preview，不是现在美国最强的模型。CAISI 说得很直接，GLM-5.3 的网络能力“显著低于当前美国前沿”。它测的四项基准，差距还很大：</p>
+<div><table>
+<thead>
+<tr>
+<th>测试</th>
+<th>GLM-5.3</th>
+<th>美国最佳</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SEC-Bench Pro</td>
+<td>40.4%</td>
+<td>90.2%</td>
+</tr>
+<tr>
+<td>ExploitBench</td>
+<td>61.1%</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>ExploitGym</td>
+<td>9.4%</td>
+<td>44.4%</td>
+</tr>
+<tr>
+<td>OSS-Fuzz</td>
+<td>7.7%</td>
+<td>23.2%</td>
+</tr>
+</tbody>
+</table></div>
+<p>CAISI 的 ExploitBench 按 16 分制、每题三次取最好来算，跟 Anthropic 的算法不一样，两边的数不能直接比；“美国最佳”也包括只给审核用户的版本。所以 GLM-5.3 让人担心的地方，是它在谁都能下载的模型里最强，而且已经到了几个月前顶尖实验室只敢受限发布的水平。</p>
+<p>图 1 还标了各模型的发布时间：Claude 从 Opus 4.6（2 月，0%）跳到 Mythos Preview（4 月，14%）；GLM 从 5.2（6 月，0%）跳到 5.3（8 月，12%）。两次跳法几乎一样，只晚了约四个月，和 CAISI 的判断对得上。同期的 Kimi K3（7 月）只有 0.5%，DeepSeek V4.1-Flash（9 月）只有 0.2%。</p>
+<h3>二进制漏洞利用：能不能真正接管程序</h3>
+<p>这是 Anthropic 的内部基准，题目来自参与谷歌 OSS-Fuzz（谷歌给开源项目做自动化漏洞挖掘的计划）的热门开源项目，这次随机抽了 100 道，只有做到<strong>控制流劫持</strong>才算满分。</p>
+<p>结果：<strong>GLM-5.3</strong> 做成了 4%，Mythos Preview 6%，其他模型（Opus 4.6、GLM-5.2、Kimi K3、DeepSeek 等）全是 0。GLM-5.3 稍弱一点，但 Anthropic 认为一道门槛已经过了，之前的 Opus 4.6 和 GLM-5.2 一道都没做出来。</p>
+<h3>GLM-5.3 更费 token</h3>
+<figure><img /><figcaption>横轴是每次尝试最多输出多少 token（对数刻度），纵轴是达到最高结果的比例。两个基准上 GLM-5.3（绿）的曲线都在 Mythos Preview（蓝）右边（图：Anthropic）</figcaption></figure>
+<p>两张图里，GLM-5.3 的曲线都整体在 Mythos Preview 右边：Mythos 大约几十万 token 就到顶了，GLM-5.3 要花更多 token 才爬到同样高度，在内部基准上要用到上百万 token（看图估读）。它效率不如 Mythos，但对攻击者不算障碍：模型在自己机器上，多给点 token、多跑几轮就是了。</p>
+<h2>专家上手：从挖新漏洞到复刻旧漏洞</h2>
+<p>基准是考试，Anthropic 还让安全专家拿着模型去做开放式的攻击任务，做法和当初测 Mythos Preview 一样。每次一般跑一天以内，人实际盯着的时间加起来不到一小时。</p>
+<h3>案例一：一天内挖出浏览器 0-day，做成“打开网页就被偷私钥”</h3>
+<p>研究员在隔离的沙箱里给 GLM-5.3 一个热门浏览器的 Linux 本地版本，自己事先也不知道里面有什么漏洞。</p>
+<p>一天之内，GLM-5.3 在浏览器的 JavaScript 引擎里找出了<strong>好几个此前没人发现的漏洞（0-day）</strong>，又把它们串成一条攻击链：</p>
+<ul>
+<li>生成了一个看似普通的诱饵网页（<code>http://attacker.com</code>）；</li>
+<li>一旦受害者用目标浏览器点开该网页，脚本先利用渲染进程的漏洞拿到代码执行（Renderer RCE）；</li>
+<li>成功逃逸出浏览器的安全沙箱，读取了受害者机器上的 SSH 私钥文件 <code>/root/.ssh/id_rsa</code>；</li>
+<li>演示日志显示，从页面加载到私钥发往攻击者服务器，大约只用了 <strong>0.3 秒</strong>。</li>
+</ul>
+<figure><img /><figcaption>GLM-5.3 在研究员测试中生成的攻击页面（已打码）：访客打开网页后，私钥文件被读走并发到攻击者服务器（图：Anthropic）</figcaption></figure>
+<p>这条攻击链只在 Linux 版上验证过，因为模型只拿到了这个环境；Anthropic 认为漏洞也可能影响其他平台，只是利用路径可能更复杂。漏洞已报告给浏览器维护方。同一次测试后段，研究员还用 GLM-5.3 在无线网卡和显卡驱动、联网设备软件等常用系统里找到了可利用的漏洞，Anthropic 正在核实，之后视情况通知维护方。</p>
+<h3>案例二：20 美元，把公开漏洞做成绕过 PAC 的攻击链</h3>
+<p>第二次，研究员用的是更小、更弱的 <strong>GLM-5.3-Flash</strong>，看它能多快把一个已公开的漏洞做成攻击。</p>
+<p>目标是 Chrome 最近披露的漏洞 CVE-2026-11645。研究员把它和另一个已知漏洞的公开信息交给模型，基本没做指导：人只投入了 <strong>20 分钟</strong> 的注意力，模型自己干了 <strong>8 小时</strong>。</p>
+<p>GLM-5.3-Flash 自己把两个漏洞拼成了一条稳定的攻击链，目标是 ARM64 设备，还绕过了 <strong>PAC（指针认证）</strong>：ARM 芯片上用来防止攻击者篡改程序跳转地址的硬件防护。按智谱的 API 价格算，这一整套大约花了 <strong>20.40 美元</strong>。</p>
+<h2>防护为什么挡不住：三种常见绕法</h2>
+<p>GLM-5.3 自带一些防护：直接让它帮忙写恶意软件、或攻击远程目标，它通常会拒绝（前面那类找漏洞、写 exploit 的任务，发布版本本身并不拒绝）。问题是这层拒绝有多牢。</p>
+<p>Anthropic 在受控模拟环境下，给模型下达明确恶意的攻击命令（比如攻击关键系统），看模型会不会试图连接远程攻击目标。直接下命令时，GLM-5.3 和其他被测模型一样，一次都没配合。</p>
+<p>但换三种简单的方法，结果就不一样了：</p>
+<div><table>
+<thead>
+<tr>
+<th>条件</th>
+<th>GLM-5.3</th>
+<th>Flash</th>
+<th>Opus 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直接下令</td>
+<td>0%</td>
+<td>0%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>假借口</td>
+<td>64%</td>
+<td>16%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>预填思考</td>
+<td>92%</td>
+<td>80%</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>去拒绝化</td>
+<td>100%</td>
+<td>92%</td>
+<td>不适用</td>
+</tr>
+</tbody>
+</table></div>
+<p>Flash 指 GLM-5.3-Flash，Opus 5 指带 API 防护的 Claude Opus 5（API 不接受预填思考，权重不公开，所以后两项不适用）。每格 50 次（5 条攻击命令 × 2 个目标 × 各 5 次）。模拟里没有任何代码真正执行：模型用的是一个假命令行，结果由另一个大模型按场景估算，所以它衡量的是模型愿不愿意动手，不完全等同于真实情况。</p>
+<figure><img /><figcaption>原图：GLM-5.3 从 0% 一路升到 100%；Claude 在带防护的 API 上全是 0%，后两种绕法对 Claude 用不上，所以上了锁（图：Anthropic）</figcaption></figure>
+<h3>手段一：编一个“红队演练”的假借口（64%）</h3>
+<p>最简单的一招：告诉模型它是在做演练的自主红队 Agent。GLM-5.3 有 <strong>64%</strong> 的时候会开始动手（Flash 是 16%），带 API 防护的 Claude 是 0%。</p>
+<p>这里要注意，报告里其实有两种 Claude。前面比能力时，用的是关掉防护的 Claude，这样比才公平；这里比防护，用的是带 API 防护的 Claude。如果关掉防护，同样的假借口下，Claude Opus 4.8 有 4%、Opus 5 有 10% 也会配合。也就是说，光靠模型自己的拒绝，Claude 也挡不全，真正拦住攻击的是部署方式：API 上的检测、不让用户预填思考、不交出权重。</p>
+<h3>手段二：预填它的思考（92%）</h3>
+<p>推理模型在给出回答前，会先“想”一段（thinking tokens）。如果调用者能替它把这段思考的开头写好，写成它已经考虑过请求、决定照做，模型往往就顺着接下去。开源模型自己部署，这一步想怎么写就怎么写。这一招让 GLM-5.3 的配合率升到 <strong>92%</strong>（Flash 是 80%）。Claude 这边用不了，Anthropic 的 API 不让用户预填 Claude 的思考（图 5 里为此画了锁）。</p>
+<h3>手段三：Abliteration 去拒绝化（100%）</h3>
+<p>这是最彻底的一招，只对开源权重模型有效：<strong>直接改权重</strong>。Anthropic 自己做了一份去拒绝化的 GLM-5.3，团队此前从没做过这件事：</p>
+<ul>
+<li>在 GLM-5.3 上消耗了约 2,200 个 GPU 小时，算力成本约 <strong>4,400 美元</strong>，大部分花在并行尝试多种方案和改完后测能力上（Anthropic 估计一个熟悉这项技术的团队从头做，约需 600 GPU 小时 / $1,200）；</li>
+<li>针对轻量版 GLM-5.3-Flash，用了约 600 GPU 小时。</li>
+<li>GLM-5.3 发布后几天内，就已经有好几位开发者公开放出了去拒绝化版本。</li>
+</ul>
+<div><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>GLM-5.3 原版 → 去拒绝化</th>
+<th>GLM-5.3-Flash 原版 → 去拒绝化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>有害请求平均拒绝率</td>
+<td>95% → 6%</td>
+<td>95% → 14%</td>
+</tr>
+<tr>
+<td>GPQA-Diamond</td>
+<td>88% → 88%</td>
+<td>89% → 89%</td>
+</tr>
+<tr>
+<td>CyberGym（子集）</td>
+<td>85% → 81%</td>
+<td>86% → 86%</td>
+</tr>
+</tbody>
+</table></div>
+<figure><img /><figcaption>上：三个有害请求基准的平均拒绝率，Claude 各模型约 95%–96%（关闭防护时的模型本身）；下：去拒绝化前后的能力测试（图：Anthropic）</figcaption></figure>
+<p>结果：</p>
+<ol>
+<li><strong>拒绝几乎消失</strong>：在 JailbreakBench、HarmBench 和 StrongREJECT 三个有害请求基准上，GLM-5.3 的平均拒绝率从 <strong>95% 降到 6%</strong>（分项是 JailbreakBench 约 3%、HarmBench 约 2%、StrongREJECT 12%；Flash 从 95% 降到 14%）；</li>
+<li><strong>能力几乎没掉</strong>：衡量研究生水平科学能力的 GPQA-Diamond 测试中，去拒绝化前后的 GLM-5.3 <strong>都是 88%</strong>（Flash 都是 89%）；网络安全测试 CyberGym 上，GLM-5.3 从 85% 降到 81%，Flash 没变，都是 86%。</li>
+<li><strong>攻击命令配合率 100%</strong>：回到前面的模拟攻击测试，去拒绝化后的 GLM-5.3 配合比例是 <strong>100%</strong>（图5）。</li>
+</ol>
+<h3>去拒绝化后的“内心独白”（图 6）</h3>
+<p>Anthropic 从测试记录里挑出了一段 GLM-5.3-abliterated 在一个模拟医疗系统场景里的思考过程（中文为意译，原文节选见下图）：</p>
+<blockquote>
+<p><em>
+</em>
+<em><strong></strong></em>。操作员在命令我去造成死亡。……”*</p>
+</blockquote>
+<figure><img /><figcaption>英文原文节选，引自模型的思考过程，未改动（图：Anthropic）</figcaption></figure>
+<p>拒绝被削掉之后，模型并不是看不出这件事不对，它甚至认出了环境里的警告，只是不再有东西让它停下，最后还是听了操作者的。</p>
+<h2>怎么看这份报告</h2>
+<p>先说 Anthropic 自己怎么看。它认为 GLM-5.3 让攻击者能用的工具上了一个台阶，国家背景和非国家背景的攻击者都很可能拿它造成现实危害。它的办法是让防守方手里的工具至少不比对手差：它在把 Claude 的网络安全能力开放给更多防守方，审核过的防守方已经能用上更强的 <a>Claude Mythos 5.1</a>。Glasswing 让防守方找出了上万个漏洞，Patch the Planet 等行动也在提前修补，但还有大量工作没做完。它还希望政府对足够强的模型（包括 GLM-5.3 的后继者）做独立安全测试，也希望开源模型的开发者给这类能力配上防护。</p>
+<p>下面是我们的看法。</p>
+<h3>1. 「先给防守方用」只争取到大约四个月</h3>
+<p>Anthropic 4 月受限发布 Mythos Preview，8 月开源的 GLM-5.3 就追到了同一档。据 The Decoder 引述，英国 AISI 此前测得开源模型的网络能力落后前沿的时间，已经从 6–10 个月缩到了 4–7 个月。Glasswing 找出上万个漏洞，说明抢时间差有用；但这个时间差是按月算的，而且还在变短。</p>
+<h3>2. 问题不在智谱护栏做得差，而在开源权重本来就留不住护栏</h3>
+<p>智谱发布 GLM-5.3 时说过，它设了三层防护：API 外侧拦截滥用请求，推理时检查任务意图，模型自己拒绝危险指令。它也说得很清楚，开放权重后，三层里还管用的只剩最后一层，所以推迟了两周才开放下载，用来做安全评估。据 Trending Topics 报道，智谱的新许可还要求年营收超 100 亿美元的公司商用前先过它的安全审查。可 Anthropic 的数据显示，最后这层一两千美元的算力就能拆掉；连 Claude 只靠模型自己，也有 4%–10% 会被骗。所以该争的是这个能力级别的模型要不要开放权重，怪智谱护栏没做好，并不公平。</p>
+<h3>3. 数据可信，说法有取舍</h3>
+<p>能力数据有 CAISI 独立测试印证，去拒绝化版本也确实已经有人放出来了。但报告的比法有挑选：比能力拿的是几个月前的 Mythos Preview，不是现在最强的；比防护拿的是带 API 防护的 Claude；最吓人的那段推理链，也是从模拟场景里挑出来的一段。Anthropic 是 Z.ai 的直接竞争对手，据 Trending Topics 报道，它也是各大模型厂中唯一没有签署支持开源模型行业公开信的大厂；The Decoder 直言这份警告“也服务于它的生意”，呼吁政府测试容易被怀疑是想用监管挡住后来者，但同时承认这不全是自利。也有人不认同这份警告。据 Trending Topics 报道，IANS Research 的 Jake Williams 认为攻击者当然会使用它，但不会显著改变现有的威胁格局；Lawfare 的 Tom Uren 则认为，中国开源模型更便宜、能跑在自己的硬件上、网络安全任务也做得不错，美国公司用它们有正当理由，一禁了之没有道理。</p>
+<h3>4. 防守方已经在用了</h3>
+<p>据智谱披露，GLM-5.3 发布一个月后，网络安全成了它最先大规模赚到钱的方向，已有 100 家安全企业接入。Anthropic 的路子是把受控的模型交给审核过的少数机构；开源这条路，是直接把工具交到大批安全公司手里。两条路现在同时在走。</p>
+<h3>5. 对普通人最实在的一条：补丁出来后的空窗期在缩短</h3>
+<p>小号的 Flash 版 8 小时、约 20 美元就能把一个公开漏洞做成攻击链。“补丁出了，过两周再更新”的习惯越来越危险。电脑系统、浏览器、显卡驱动、路由器这类联网设备，自动更新该开就开。</p>
+<p>工具已经锁不住了，接下来比的是漏洞公开之后，谁先把它补上。</p>
+</div><div><div><div>来源</div><div><span>GLM-5.3 and the spread of advanced cyber capabilities</span><span>Anthropic Frontier Red Team<span>·</span><a href="https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://www.nist.gov/news-events/news/2026/09/caisis-assessment-zais-glm-53-cyber-capabilities">CAISI’s Assessment of Z.ai’s GLM-5.3 Cyber Capabilities</a><span>·</span><a href="https://the-decoder.com/anthropic-says-zhipus-open-weight-glm-5-3-nearly-matches-claude-mythos-preview-at-building-exploits/">Anthropic says Zhipu's open-weight GLM-5.3 nearly matches Claude Mythos Preview at building exploits</a><span>·</span><a href="https://www.trendingtopics.eu/anthropic-glm-5-3-cyber-warning/">Anthropic Warns GLM-5.3 Builds Exploits Like Mythos</a><span>·</span><a href="https://www.163.com/dy/article/L83QLTEB053469RG.html">Anthropic报告点名智谱GLM-5.3 称其网络安全能力增强</a></div></div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】美国政府搞了个类似苹果的发布会：发布America.gov 把 2.9 万个网站，换成了一个 AI 聊天框</title>
+<link>https://best.xiaohu.ai/article/america-gov-launch/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:america-gov-launch</guid>
+<pubDate>Thu, 01 Oct 2026 12:02:04 +0000</pubDate>
+<description>美国政府把分散在各部门网站里的办事信息放进一个 AI 对话框。问答已经上线，改姓、医保和护照代办展示了下一步的方向，真正的难点在各部门的业务规则。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 1 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">美国政府搞了个类似苹果的发布会：发布America.gov 把 2.9 万个网站，换成了一个 AI 聊天框</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/america-gov-launch/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>美国政府搞了个类似苹果的发布会：发布America.gov 把 2.9 万个网站，换成了一个 AI 聊天框</h1><p>美国政府把分散在各部门网站里的办事信息放进一个 AI 对话框。问答已经上线，改姓、医保和护照代办展示了下一步的方向，真正的难点在各部门的业务规则。</p><strong>一分钟速览</strong><ul><li>美国政府上线 America.gov，让人直接问该怎么办，省去在数万个政府网站里逐个找答案的麻烦。</li><li>发布会展示了跨部门改姓、医保和护照申请；目前网站主要提供问答和指路，代办服务将分阶段接入。</li><li>一个账号能证明你是谁，却不能让各部门的规则自动一致：报税和医保连“收入”的定义都不同。</li></ul><div><p>美国政府正式上线了官方网站 <a href="https://america.gov/">America.gov</a>。在此之前，普通美国人要找政府办事非常麻烦：联邦政府各机构分散建了成千上万个网站，申领护照得找国务院，查 Medicare 老人医保得找医保和医疗补助服务中心，要是搬家换个地址，还得分别去邮政局、国税局和社保局单独改。不同部门有不同的办理系统和登录要求，老百姓总是在反复填写同样的信息。America.gov 想做的，就是在所有机构前面立一个统一的“数字前门”，让公众用日常说话的方式，在一个搜索框里把想办的事问清楚。</p>
+<p>这场活动与 OpenAI 的 DevDay 在同一天举行。在西海岸的旧金山，OpenAI 正在举办 DevDay 开发者大会，发布了能在后台自主干活的智能体；而在东海岸华盛顿的安德鲁·梅隆礼堂，特朗普政府也端出了一场科技味十足的发布会。不过，模型光会聊天甚至会填表还远远不够。模型要真能替人在现实中把事情办成，也得先知道你是谁、得到你的授权，再把材料交进对应部门的系统。这也是为什么特朗普在现场签署了行政命令，要求各部门逐步把自己的业务接口对接到这个平台上。</p>
+<p>目前已经上线的功能和特点包括：</p>
+<ul>
+<li><strong>政策与资格查询</strong>：回答各类联邦政策与福利疑问，比如自己是否符合 Medicare 医保资格、退伍军人能领哪些补贴、未成年人办护照有什么要求。</li>
+<li><strong>办事步骤与官方链接指引</strong>：梳理各项业务的具体申办流程、所需材料与办理费用，并直接提供对应的官方网站链接（例如如何办理 TSA PreCheck 快速安检、怎么预订国家公园营地）。</li>
+<li><strong>汇集政府官网资料</strong>：系统后台检索范围覆盖大约 2.9 万个联邦政府网站。从现有政府网页里找资料，回答时附上来源链接。</li>
+<li><strong>免注册使用且无商业广告</strong>：公众无需注册或登录账号，打开网页就能直接打字提问，页面没有任何商业广告。</li>
+<li><strong>页面隐私承诺</strong>：网站声明不保存对话，AI 服务商不保留提问与回答；回答可临时缓存最多 2 小时，以提问的哈希值索引。</li>
+</ul>
+<p>后续规划还包括这些代办服务，目前仍以问答和指路为主：</p>
+<ul>
+<li><strong>统一账号登录</strong>：后续将接入联邦现有的统一数字身份工具 Login.gov，免去记多套账号密码的麻烦。</li>
+<li><strong>跨部门一站式改姓</strong>：比如结婚后需要改姓，用户只需上传一次结婚证明，就能同步向社会保障局、国税局和护照办公室申请更新，计划于 2027 年落地。</li>
+<li><strong>护照与 Medicare 在线申办及进度追踪</strong>：未来支持在平台内直接提交医保申请或办理首本护照、用手机自拍证件照并实时预览成品，还能像查快递一样追踪实体证件的派送进度。</li>
+</ul>
+<h2>现场：把政府发布会办成科技新品发布</h2>
+<figure><img /><figcaption>梅隆礼堂发布会舞台：大屏显示“Hello, America”，鲁比奥在台上发言</figcaption></figure>
+<figure><img /><figcaption>特朗普在发布会上讲话，背板印着 America.gov</figcaption></figure>
+<p>这场名为“Hello, America”的发布会选在华盛顿安德鲁·梅隆礼堂举行。主办方是 2025 年设立的国家设计工作室（National Design Studio），该机构专门负责重新设计联邦政府的数字服务与网站界面，由 Airbnb 联合创始人、美国首席设计官乔·格比亚（Joe Gebbia）牵头，团队吸纳了部分前政府效率部（DOGE）的成员。特朗普在现场致辞中感谢了项目首席工程师爱德华·科里斯汀（Edward Coristine，网名“Big Balls”）以及埃隆·马斯克，提到马斯克很早就提出了用技术重塑政府办事流程的设想。</p>
+<p>整场发布会处处透着科技公司办发布会的味道：深色极简背景、超大屏幕演示和真机操作流程。前白宫新闻秘书卡罗琳·莱维特（Karoline Leavitt）与励志演讲家托尼·罗宾斯（Tony Robbins）先登台开场，格比亚随后上台讲解产品的设计初衷，接着医保和医疗补助服务中心（CMS）主任穆罕默德·奥兹（Dr. Mehmet Oz）与国务卿马克·鲁比奥（Marco Rubio）分别演示了具体的办事设想。当天现场还安排了多场行业论坛，英伟达首席执行官黄仁勋、马斯克，以及来自 Meta、Palantir 等科技企业的代表出席。</p>
+<figure><figcaption>特朗普开场讲话：“这不只是一个网站，而是对建国承诺的恢复”（中英字幕，约 1 分 20 秒）</figcaption></figure>
+<h2>对话框背后的模型与数据</h2>
+<p>首页的提问框上写着：“无论你需要政府做什么，从这里开始”。格比亚称，全美每天有约 4000 万人次访问政府网站。</p>
+<figure><img /><figcaption>America.gov 首页提问框界面</figcaption></figure>
+<figure><img /><figcaption>问“怎么办 TSA PreCheck”，系统列出申请步骤、费用和官方链接</figcaption></figure>
+<p>在后台实现上，格比亚在接受 CNBC 采访时介绍，系统在收到用户提问后，会检索联邦政府网站，只调取与提问直接关联的官方内容，拼出答案并附上原始链接。格比亚表示，该系统只采用联邦官方站点的资料，以此避开第三方商业网站陈旧或带有推销性质的内容干扰，而且各部门官网一旦修改了信息，系统能即时感知并同步更新。</p>
+<p>为该对话框提供底层模型支持的包括 Google 的 Gemini 与马斯克旗下的 Grok（现由 SpaceXAI 运营）。Google 公共部门副总裁吉姆·凯利（Jim Kelly）发声明确认了这项合作，称 Gemini 将协助超过 1 亿公众获取公共资源；xAI 方面则没有回应媒体问询。Nextgov 提到，Grok 此前曾因生成深度伪造图像引发过不少争议。</p>
+<p>虽然平台在页面上公布了隐私处理方式，但据科技媒体 FedScoop 报道，白宫、负责运营网站的联邦总务署（GSA）、Google 以及 xAI，均未对外公开具体的采购流程、合同条款或具体采购金额。</p>
+<h2>要让各部门接进来，行政命令怎么推动</h2>
+<p>特朗普在发布会现场签署了建立 America.gov 的行政命令，将平台定性为“联邦政府的统一数字前门”，旨在让公众通过单一入口获取准确信息并在技术具备时办理业务，避免在各机构之间繁琐跳转。白宫在事实说明书中估算，全美公众每年耗费在填报各类联邦表格上的时间大约有近 100 亿小时。</p>
+<figure><img /><figcaption>特朗普在台上举起签好的行政命令，身旁是奥兹等人</figcaption></figure>
+<p>这项命令对纳入整合的服务划出了明确的门槛：仅涵盖过去 12 个月内服务超过 10 万名用户、且本来就支持在线申请或访问的公共服务。国税局（IRS）的报税系统、战争部（原国防部）以及情报机构的服务被明确排除在外。行政管理和预算办公室（OMB）后续可以通过备忘录增减纳入的服务清单。</p>
+<p>在分工与落地步骤上，命令要求联邦总务署（GSA）联合国家设计工作室与 OMB 共同建立并运营 America.gov，并将联邦现有的统一数字身份工具 Login.gov 接入平台。自签署之日起 90 天内，OMB 会向各部门下发具体的实施备忘录；各部门需要梳理符合标准的服务，将现有的公开 API、数据看板和在线填报表单开放接入平台，按照规范接上 Login.gov 认证，并持续向 GSA 和 OMB 报送使用数据与系统运行指标。</p>
+<p>入口统一后，记录仍由各部门保管，审批也由各部门负责，不另建集中存放个人信息的大库。线下窗口、电话、邮寄和各部门原有的线上办事渠道继续保留。</p>
+<p>当天，特朗普还签署了另一项行政命令，要求联邦行政部门在公文、网站、报告等非法律性文件中，停止使用“人工智能”（AI）这一词汇，统一替换为“超级智能”（Super Intelligence，缩写 SI），并指示总统科技助理在 60 天内起草关于该词汇的联邦立法定义提案。</p>
+<h2>现场演示：婚后改姓、医保办理与首本护照</h2>
+<p>在发布会现场，主办方围绕 Login.gov 与统一界面，演示了多项政务办理设想。</p>
+<p>格比亚演示了计划于 2027 年落地的“婚后改姓”流程。过去结婚改姓需要带着材料跑多个部门，而在演示中，用户在输入框打入“我刚结婚了，怎么改名”，系统就会弹出指引入口。用户可以一次性勾选需要同步更新信息的部门（如社会保障局、国税局和护照办公室），随后在网页中上传结婚证明提交即可，无需再分别登录各机构网页重复填写材料。</p>
+<figure><img /><figcaption>格比亚演示婚后改名流程的入口界面</figcaption></figure>
+<figure><img /><figcaption>演示中选择需要同步更新姓名的机构：社保局、国税局与护照办公室</figcaption></figure>
+<figure><figcaption>格比亚现场演示：一份结婚证同步向三家机构申请改名的流程设想（中英字幕，约 40 秒）</figcaption></figure>
+<p>特朗普在演讲中将整合后的数字前门与国会审议中的《SAVE America Act》（要求投票时出示带照片身份证件的法案）联系在一起，表示办证流程简化后，公民拿到有效证件的门槛将显著降低，也就不存在借口了。</p>
+<figure><figcaption>特朗普阐述“一个前门”服务理念（中英字幕）</figcaption></figure>
+<figure><figcaption>特朗普将 America.gov 的便捷认证与《SAVE America Act》挂钩（中英字幕）</figcaption></figure>
+<p>在医保服务板块，CMS 主任奥兹邀请现场观众 Lisa 上台。Lisa 谈到，她虽然在科技行业工作，但在面对复杂的 Medicare 时依然感到无从下手。Medicare 分为 A、B、C 等不同部分，申请时间、逾期罚款和断保问题让她迟迟拿不定主意。Lisa 说，自己甚至问过 Claude，最后还是拖着没办。</p>
+<p>奥兹演示了系统如何根据 Lisa 的个人情况理顺条款并生成办理方案，并在现场展示了一张印有她名字的医保实体卡。奥兹介绍，未来系统还将支持查询接纳 Medicare 的诊所并直接预约挂号，以及跨药房比对处方药价格。奥兹提到，CMS 目前每年光是印制和寄送纸质医保说明手册的花费就接近 1 亿美元；调用个人记录须经用户授权。</p>
+<figure><figcaption>奥兹与现场观众演示 Medicare 申办引导流程（中英字幕，约 1 分 45 秒）</figcaption></figure>
+<p>国务卿鲁比奥重点演示了护照申领的数字化方案。美国国务院此前已上线成人在线护照续期服务并签发了数百万本护照；而鲁比奥在现场展示的，是过去必须去线下网点面签的“首次申请护照”流程。用户通过 Login.gov 登录后，系统自动调取已有的个人基本档案，省去手动重复录入。用户可以通过手机拍照或上传现有照片，并在护照版面中实时预览最终效果，觉得不满意可以多次重拍；核对无误后直接在线刷卡缴费，随后能查看申请进度和预计送达时间。</p>
+<p>白宫和鲁比奥分别给出了几项服务的上线计划：白宫事实说明书指出，护照续期和 Medicare 申请将于年内较晚时候支持；而鲁比奥现场演示的“首次护照在线申领”（First Time Digital Passport Application）难度更大，现场大屏幕幻灯片标注的时间为 2026 年 12 月，鲁比奥表示计划自明年起逐步推行，目标是在 2027 年底让绝大多数美国人能够在线申领新护照或护照卡。</p>
+<figure><img /><figcaption>护照拍照环节：手机端提示“准备好拍照了吗”</figcaption></figure>
+<figure><img /><figcaption>上传或自拍后实时预览照片置入成品护照页的效果</figcaption></figure>
+<figure><img /><figcaption>护照申请提交后的状态追踪页面</figcaption></figure>
+<figure><img /><figcaption>现场大屏显示的首次在线护照申请时间标注：2026 年 12 月</figcaption></figure>
+<figure><figcaption>鲁比奥演示首次护照在线申请流程与时间规划（中英字幕）</figcaption></figure>
+<p>鲁比奥还在现场公布了由国务院与国家设计工作室联合设计的 2028 版美国新护照。新版护照将“United States of America”移至封面顶端，放大了正中的国徽图案。内页插画全部重新绘制，翻动内页时，白头海雕呈动态飞行效果，背景穿插了美国建国 250 年来的历史场景。同时，护照投递包装也由目前的 Priority Mail 塑料自粘袋升级为白色硬盒礼包。</p>
+<figure><img /><figcaption>新版护照设计展示：白头海雕图样</figcaption></figure>
+<figure><img /><figcaption>大屏展示的新版护照内页插画设计</figcaption></figure>
+<figure><img /><figcaption>现行的 Priority Mail 护照塑料邮寄袋</figcaption></figure>
+<figure><img /><figcaption>新版护照及其白色礼盒包装方案</figcaption></figure>
+<figure><img /><figcaption>鲁比奥在台上展示新版护照样品</figcaption></figure>
+<figure><figcaption>鲁比奥介绍新版护照设计理念与包装升级（中英字幕，约 1 分 40 秒）</figcaption></figure>
+<h2>媒体实测：遇上争议话题与冷门政策怎么答</h2>
+<p>上线当天，《新闻周刊》（Newsweek）向 America.gov 提交了 15 个提问，测试其在政治、法律与政策争议话题上的回答表现。</p>
+<p>对于 2020 年大选结果，系统明确回答拜登胜选，列出 306 票对 232 票的选举人票认证结果，并附上国家档案馆与联邦选举委员会的公开记录；被问及是否存在改变选举结果的大规模舞弊时，回答引用官方调查记录说明未发现此类证据。关于特朗普能否在 2028 年再次参选总统，系统援引宪法第 22 修正案认定不可连任第三届。对于两次弹劾记录及纽约州法院陪审团裁定的 34 项重罪罪名，系统均如实列出司法与国会档案，并说明后者属于州法院案件而非联邦案件。</p>
+<p>在联邦机构存在观点分歧的领域，系统直接并列呈现了不同部门的公开文献。例如关于气候变化是否主要由人类活动引起，回答同时援引了国家海洋和大气管理局（NOAA）与环境保护局（EPA）关于温室气体排放的长期科学结论，以及能源部气候工作组 2025 年 7 月发布的侧重不确定性的评估报告。面对这种口径分歧，系统列出了两种表述。被问及五角大楼归属时，首行给出“战争部（原国防部）”，并注明该名称来自行政命令授权的次要称谓，国会法定名称仍为“国防部”。</p>
+<p>在常规政务指引上，测试也显示出较为细致的规则匹配。例如针对跨州搬家（纽约迁往弗吉尼亚）的地址变更，系统说明联邦层面目前没有统一的地址池，必须分别在邮政局、IRS、社保局及退伍军人事务部逐一更新，同时提示驾照和州税归属弗吉尼亚州政府管辖。关于 12 岁未成年人能否申领 Medicare，系统在指出通常不适用的同时，列出了患有终末期肾病的未成年人这一特殊例外，并提示可申请 Medicaid 或儿童健康保险计划（CHIP）。</p>
+<p>此外，社交平台上亦有用户发布录屏测试，显示系统在 2020 年大选与通胀走势等问题上均依官方数据作答，但在被问及爱泼斯坦案相关档案时未予展开。从整体测试来看，即使只查政府官网，不同部门的说法也可能不一致；这个问题仍会出现在回答里。</p>
+<h2>登录统一了，办事规则还得逐项打通</h2>
+<p>针对 America.gov 的上线，多位经历过政府数字化改革的公共技术专家给出了审慎评价。</p>
+<p>美国数字服务局（USDS）前局长米基·迪克森（Mikey Dickerson）直言，在网页最外层套一个对话框，其实只解决了最表层的交互。过去 USA.gov 和 Benefits.gov 也尝试过聚合信息，但真正阻碍业务串联的，是底层各部门职能割裂以及最基本的业务定义冲突。</p>
+<p>迪克森举了一个例子：报税和申请 Medicaid，都要填收入，但两个项目对“收入”的定义并不相同。哪怕用同一个 Login.gov 账号登录，系统也不能把报税时填的数字直接拿来判断医保资格。它还得按对应项目的规则，确认需要哪些收入信息、怎样计算，再把合适的材料交给审批部门。统一登录解决了“你是谁”，各项业务仍要分别解决“你是否符合条件”。</p>
+<p>公民技术联盟（Alliance of Civic Technologists）执行主任克里斯托弗·惠特克（Christopher Whitaker）测试了退伍军人伤残津贴申请，发现系统最终依然是指向 VA 官网的外部链接。他指出，给现有网页套个 AI 壳子很快，但要在 2027 年实现各部门核心业务在平台内部真正办结，涉及大量的底层工程。</p>
+<p>Code for America 首席执行官阿曼达·伦特里亚（Amanda Renteria）强调，评估政务技术现代化的标准，在于其能否在民众面临关键生活节点时提供切实帮助。布鲁金斯学会高级研究员妮科尔·特纳·李（Nicol Turner Lee）则提醒，政府必须建立完善的人工纠错和问责机制，避免弱势群体因算法给出错误信息而错失法定福利，同时绝不能因推行数字化而削减传统的线下窗口和人工服务渠道。</p>
+<p>投资人巴拉吉·斯里尼瓦桑（Balaji Srinivasan）则持乐观态度，他认为将政府办事入口置于公众监督之下有助于持续暴露和修补系统缺陷，一旦跨部门业务流程逐步搬上网，政府服务的透明度和现代化进程将很难再倒退回去。</p>
+<h2>白宫午宴与科技巨头签下的自愿协议</h2>
+<p>在 America.gov 上线当天中午，特朗普在白宫与多家科技公司负责人举行午宴，参会者包括贝佐斯、黄仁勋、纳德拉、阿莫迪、扎克伯格、马斯克以及 OpenAI 联合创始人格雷格·布罗克曼等人。会后白宫公布了由参会企业签署的《白宫超级智能协议》（White House Accord on Super Intelligence）及随附的《前沿责任联合承诺》。</p>
+<figure><img /><figcaption>特朗普公开的《白宫超级智能协议》第一页文件</figcaption></figure>
+<p>协议把安全检查分成四层：</p>
+<ol>
+<li>在模型训练和部署中建立内部控制，监测网络安全、生物安全和化学威胁等维度的能力与安全表现；</li>
+<li>设立内部执行团队，监督风控机制落实并对偏差进行整改；</li>
+<li>引入独立的第三方机构进行外部安全评估；</li>
+<li>由各企业董事会设立独立委员会，专门审查内外部风险报告。</li>
+</ol>
+<p>由于属于企业自愿签署的行业承诺，协议在法律上并不具备强制约束力。特朗普与皮查伊、阿莫迪、扎克伯格、布罗克曼、马斯克及黄仁勋在文件上签了名。</p>
+<p>会后各方表态有所差异。皮查伊表示协议提供了清晰的治理起点；马斯克称这种联合监督和独立审查好比企业间“互相批改作业”，优于各自闭门评测；阿莫迪指出前沿风险确实存在，具体应对机制仍在研讨中；特朗普称该协议在道义上具强约束力，会后还向记者提到一个约 10 人的监督委员会构想。</p>
+</div><div><div><div>来源</div><div><span>Fact Sheet: President Donald J. Trump Streamlines Access to Government Services Through America.gov</span><span>The White House<span>·</span><a href="https://www.whitehouse.gov/fact-sheets/2026/09/fact-sheet-president-donald-j-trump-streamlines-access-to-government-services-through-america-gov/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://www.whitehouse.gov/presidential-actions/2026/09/streamlining-access-to-government-services-through-america-gov/">Streamlining Access to Government Services Through America.gov（行政命令原文）</a><span>·</span><a href="https://www.state.gov/releases/office-of-the-spokesman/2026/09/secretary-of-state-marco-rubio-at-president-trumps-america-gov-event/">Secretary of State Marco Rubio At President Trump’s America.gov Event</a><span>·</span><a href="https://www.govexec.com/technology/2026/09/white-house-launches-ai-powered-americagov-digital-front-door/416323/">White House launches AI-powered ‘America.gov’ digital front door</a><span>·</span><a href="https://fedscoop.com/trump-launches-ai-site-america-gov/">Trump launches AI-fueled America.gov in bid to tie government services together</a><span>·</span><a href="https://www.cnbc.com/2026/09/29/trump-ai-gemini-grok.html">New AI-powered government website uses Gemini, Grok, Trump official Gebbia says</a><span>·</span><a href="https://www.newsweek.com/trump-ai-government-site-america-controversial-claims-12502680">We Asked Trump's New AI Government Chatbot a Questions About His Controversial Claims</a><span>·</span><a href="https://www.yahoo.com/news/politics/articles/donald-trump-launches-ai-government-144217980.html">Donald Trump launches new AI government website: What to know</a><span>·</span><a href="https://www.whitehouse.gov/presidential-actions/2026/09/inaugurating-the-era-of-super-intelligence/">Inaugurating The Era Of Super Intelligence</a></div></div></div></div></div><div>
+<div>
+<div>White House Digital Front Door · Deep Dive</div>
+<h1>America.gov：从问清楚，到办成事</h1>
+<div>美国政府把分散的办事信息放进一个 AI 对话框，接下来要把身份认证和各部门的业务接起来。</div>
+<div>现在能用什么 · 代办怎样推进 · 为什么统一登录还不够</div>
+<p>以前办护照、查医保、搬家改地址，得分别找不同部门。America.gov 让人先用一句话问清该怎么办，再沿官方链接去办理。</p>
+<div>
+<div>
+<div>2.9万</div>
+<div>检索涵盖的联邦官网</div>
+</div>
+<div>
+<div>4000万</div>
+<div>全美日均访问政务人次</div>
+</div>
+<div>
+<div>近 100 亿小时</div>
+<div>公众每年填表耗时</div>
+</div>
+</div>
+<p>问答已经上线，代办还需要各部门接入现有服务。行政命令要求整合公开接口、在线表单和 Login.gov 身份认证。</p>
+<div>
+<div>从提问入口，到各部门的办理系统</div>
+<div>前台负责理解问题和找资料，实际办理还需要确认身份、获得授权，再按对应部门的规则提交。</div>
+<div>
+<div>
+<span>表层 · 提问与回答</span>
+<div>统一对话前门（America.gov）</div>
+<p>Gemini 与 Grok 提供模型支持；检索联邦政府官网资料并附来源链接。网站声明不保存对话，回答可临时缓存最多 2 小时。</p>
+</div>
+<div>
+<span>OMB 在命令签署后 90 天内发实施备忘录</span>
+</div>
+<div>
+<span>接下来 · 身份与办理</span>
+<div>Login.gov + 各部门现有服务</div>
+<p>纳入过去 12 个月服务超 10 万用户的在线公共服务，报税、战争部和情报服务除外。各部门保留记录和审批权，原有办事渠道继续使用。</p>
+</div>
+</div>
+</div>
+<p>当前问答与后续代办分阶段推进。发布会展示了流程设计，实际可用服务要随各部门接入陆续开放。</p>
+<div>
+<div>
+<div>
+<span>现在</span>
+<span>当前已上线</span>
+</div>
+<div>问政策、查资格、找办理步骤</div>
+<p>免注册、无广告。可以问医保资格、护照材料、快速安检申请。回答给出官方链接，现阶段办理仍可能跳转部门网站。</p>
+</div>
+<div>
+<div>
+<span>后续规划</span>
+<span>官方规划，尚未上线</span>
+</div>
+<div>登录、提交材料、查询进度</div>
+<p>婚后改姓：一份结婚证向多个机构申请。护照：手机自拍、付款、查送达时间。白宫计划年内接入续期和 Medicare 申请；首次申领目标逐步推行至 2027 年底。</p>
+</div>
+</div>
+<p>统一登录解决了“你是谁”，办理规则还要逐项打通。前 USDS 局长迪克森举例：报税与 Medicaid 对“收入”的定义并不相同。</p>
+<div>
+<div>
+<div>身份</div>
+<p>同一个账号确认身份，减少重复登录、反复证明自己是谁。</p>
+</div>
+<div>
+<div>资格</div>
+<p>不同项目按不同规则判断资格，不能把报税的收入数字直接拿去审核医保申请。</p>
+</div>
+</div>
+<div>
+<p>只查政府官网也会遇到不同口径。《新闻周刊》的气候提问测试中，系统同时列出 NOAA、EPA 和能源部的不同表述。</p>
+</div>
+<div>
+<div>办事是否更省力，要看后台流程能否跑通</div>
+<div>Lisa 在科技行业工作，也问过 Claude，却因 Medicare 规则复杂迟迟没办。她需要的不只是更多资料，而是按自己的情况知道下一步做什么，以及材料提交后能否顺利办结。</div>
+</div>
+</div></div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】TypeSafe 创始人讲 Jev：Jev 到底是什么？AI 聪明得离谱，自动化到底去哪了？</title>
 <link>https://best.xiaohu.ai/article/typesafe-jev-a16z/</link>
