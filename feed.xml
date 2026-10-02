@@ -6,7 +6,1582 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Thu, 01 Oct 2026 12:02:04 +0000</lastBuildDate>
+<lastBuildDate>Fri, 02 Oct 2026 12:01:10 +0000</lastBuildDate>
+<item>
+<title>【日报】a16z 市场报告解读：AI 的钱流向硬件，软件要重新证明自己</title>
+<link>https://best.xiaohu.ai/article/a16z-state-of-markets-ii/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:a16z-state-of-markets-ii</guid>
+<pubDate>Fri, 02 Oct 2026 12:01:10 +0000</pubDate>
+<description>从巨头现金流、旧GPU租金，到企业AI收益与创业融资，读懂这轮科技市场变化的原因和仍未解决的问题。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 2 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">a16z 市场报告解读：AI 的钱流向硬件，软件要重新证明自己</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/a16z-state-of-markets-ii/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>a16z 市场报告解读：AI 的钱流向硬件，软件要重新证明自己</h1><p>从巨头现金流、旧GPU租金，到企业AI收益与创业融资，读懂这轮科技市场变化的原因和仍未解决的问题。</p><strong>一分钟速览</strong><ul><li>AI 基建把科技巨头的现金流变成硬件订单，回收投资还要等客户持续付费。</li><li>多数企业已开始用 AI，少数重度用户正在拉开使用强度的差距。</li><li>软件更赚钱却增长更慢；保持高增长的公司，仍能获得相应的估值。</li></ul><div><h2>科技如何从一个行业，变成经济增长的重要推力</h2>
+<p>在过去很长一段时间里，科技行业在传统投资人和宏观经济学家眼里，更像是一个高成长、轻资产的“小众赛道”。在金融危机之后，伴随移动互联网和云计算的兴起，软件行业凭借极低的边际成本与近乎无限扩张的市场空间，享受了十余年充沛的估值溢价。在更早的经济周期中，住房、汽车等耐用品的购买与建设需求往往是重要驱动力。</p>
+<p>在a16z看来，科技对经济的驱动作用正在显著增强。统计显示，科技投资已占到美国资本开支的约55%（涵盖高技术设备、软件和研发投入）。报告认为，AI基础设施建设可以说是眼下经济中拉动投资的重要力量；与此同时，几乎各行各业都在引入数字化工具，很难再找到纯粹依靠纸笔运行的传统业务，企业在不同程度上都在向科技化转型。</p>
+<figure>
+<img />
+<figcaption>PDF第7页：科技占标普500市值与利润变动，以2010年为基期，科技利润累计增长是非科技的3.8倍（来源：S&amp;P Capital IQ）</figcaption>
+</figure>
+<p>根据公开市场的财务口径，科技行业的利润存量已经接近标普500指数总利润的一半。如果以十余年前作为基期，科技板块累计实现的利润增长是非科技板块的约3.8倍。更直观的变化来自增量：在今年标普500指数全年的预期利润增量中，科技企业贡献了约76%。76%说的是新增利润的贡献，科技在利润总额中的占比则接近一半：前者回答增长从哪里来，后者回答谁已经赚得最多。</p>
+<p>关于当下的市场行情是否存在泡沫，报告指出，大盘刷新历史高位主要由企业利润增长所支撑，科技板块的估值倍数（如市盈率）相比过去五年均值反而压缩了约20%，显示股价上涨伴随着实际利润的扩张。然而，利润增长支持了当前行情，并不能据此完全排除泡沫可能，更无法消除未来利润落空或估值回调的风险；一旦后续盈利增长放缓或资本投入未能如期兑现，市场仍将面临重新定价的考验。</p>
+<h2>巨头赚到的钱，流向芯片、电力与数据中心</h2>
+<p>过去十年，“软件吞噬世界”是硅谷最响亮的信条，轻资产、高毛利、低维护成本让软件公司集万千宠爱于一身。然而本轮周期最鲜明的特征，恰恰是资本关注点“从比特向原子”（From Bits to Atoms）的大规模迁移。</p>
+<p>AI 模型运行需要芯片计算、网络传输、散热与供电，软件需求因此转成了大量实体设备订单。巨头持续扩建基础设施，源于下游前所未有的算力需求信号：前沿大模型公司的年化经常性收入（ARR）快速增长，头部云厂商的未履约收入与云订单积压（Backlog / RPO）同比也实现成倍增加。</p>
+<figure>
+<img />
+<figcaption>PDF第24页：微软、Google Cloud与Amazon的云订单积压，以及云厂商自由现金流实际值与预测（来源：公司披露、FactSet与Goldman Sachs）</figcaption>
+</figure>
+<p>ARR 只是某一时间点推算的年化收入规模，不等同于当年实际已确认的收入；订单积压代表未来的履约合同，并不等于已经到账的现金，这些云订单也涵盖传统业务需求，并不全属于 AI。</p>
+<p>基于这些庞大的需求信号，报告统计的超大规模云服务商（Hyperscalers）正在把账上充沛的经营现金流，源源不断地转化为硬件基础设施的真金白银。</p>
+<figure>
+<img />
+<figcaption>PDF第17页：云厂商资本开支预测与自由现金流占比走势，后段反弹为机构推演（来源：J.P. Morgan）</figcaption>
+</figure>
+<p>这笔资本开支的规模多次超出华尔街的预测。统计显示，前一年云厂商的资本开支总额达4160亿美元，今年预估将跃升至7910亿美元，并在未来两年向万亿美元迈进，这组数字统计云厂商的资本开支，并不全属于 AI 专项开支。在资金流向上，会计账面上的盈利与投资后剩余的现金是两种不同指标：企业日常运营所产生的经营现金流，在扣除厂房、设备等资本开支后，剩下的才是能够自由用于分红、回购或抗风险的自由现金流。巨头们的经营现金流虽然依然充沛，但由于资本开支急剧扩张，自由现金流占比在短期内明显滑落。机构预测这种现金流承压状态将持续到2028年左右，其后续回升依赖云业务收入的实际兑现。</p>
+<h3>谁出钱，谁先收到钱？</h3>
+<p>资金关系示意，箭头不代表金额比例。</p>
+<ol>
+<li><strong>云厂商的经营现金流</strong><span>现有业务赚钱，债务补充融资</span></li>
+<li><strong>投入 AI 基础设施</strong><span>购置 GPU、内存、网络和电力设备</span></li>
+<li><strong>供应商获得订单与收入</strong><span>芯片、光互联、液冷及电网设备企业</span></li>
+</ol>
+<p><strong>回收投资还有下一步：</strong>设备投入运行后，客户持续付费，收入才能转回云厂商的现金流；这部分未来回报仍需兑现。</p>
+<p>为了支撑大规模的基础设施建设，此前借贷很少的科技巨头开始更多通过信贷市场（包括表内与表外融资）筹集资金。对借贷方而言，科技巨头整体的投入资本回报率（ROIC）目前仍高于借款成本，且投资对象是能带来稳定现金流的实体资产。整体 ROIC 衡量公司全部投入资本的回报，成熟业务也在其中；新增 AI 项目是否划算，还要看项目自身能赚回多少现金。</p>
+</div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】为什么 Atlas 的新机器手只有四根手指？波士顿动力的工业取舍...</title>
+<link>https://best.xiaohu.ai/article/boston-dynamics-atlas-robot-hands/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:boston-dynamics-atlas-robot-hands</guid>
+<pubDate>Fri, 02 Oct 2026 12:01:10 +0000</pubDate>
+<description>从抓住物体到在手里调整姿态，波士顿动力把机械结构、力反馈和仿真训练放在一起设计，让 Atlas 朝着使用工具、适应真实工位迈进。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 2 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">为什么 Atlas 的新机器手只有四根手指？波士顿动力的工业取舍...</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/boston-dynamics-atlas-robot-hands/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>为什么 Atlas 的新机器手只有四根手指？波士顿动力的工业取舍...</h1><p>从抓住物体到在手里调整姿态，波士顿动力把机械结构、力反馈和仿真训练放在一起设计，让 Atlas 朝着使用工具、适应真实工位迈进。</p><strong>一分钟速览</strong><ul><li>波士顿动力给 Atlas 装上四指新手，目标是抓住东西后还能调整它、操作工具。</li><li>少一根小指，是用有限的灵巧增益换取更低的制造、维修与故障负担。</li><li>人类演示帮助机器人理解任务，仿真强化学习则训练接触中的快速力控。</li></ul><div><p>在这场人形机器人的竞速中，常见的行业设计选择是给机器人装上一只高度贴近人手的五指手。这个直觉很合常理：人类兼具出色的精细与粗大运动技能，现有许多工具都围绕人手设计，人类操作也为机器人学习提供了大量可作为起点的演示数据。</p>
+<p>Atlas 是波士顿动力的人形机器人。它的新一代机械手 GR3，尺寸略大于普通人手，平均力量也略强，基本情况可以概括为：</p>
+<ul>
+<li><strong>四根手指</strong>：一根对置大拇指加三根长指，没有小拇指。</li>
+<li><strong>13 个自由度，上一代为 7 个</strong>：也就是能独立控制的运动方向更多；大拇指有 4 个自由度，其他三根手指各有 3 个。</li>
+<li><strong>抓住以后还能操作</strong>：可以在手里调整物体朝向，用三指抓握稳住并移动物体，也能握住工具的同时扣动扳机。</li>
+<li><strong>指尖和手掌都有压力触觉传感器</strong>：帮助感知细微接触；执行器提供的本体感知则反馈手指的位置、运动和受力。</li>
+<li><strong>关节能在外力下退让</strong>：受到冲击时顺势移动，降低齿轮箱损坏的风险。</li>
+<li><strong>直接驱动，统一执行器类型</strong>：13 个自由度采用同一种执行器类型，执行器完全封闭，没有脆弱线缆跨越关节。</li>
+<li><strong>配合整机完成重载任务</strong>：官方用搬运重逾 100 磅（约 45 公斤以上）、装满物品的小冰箱举例；这是 Atlas 整机的负载语境，不能当作单手载荷参数。</li>
+</ul>
+<p>波士顿动力在一篇技术长文与设计复盘中指出，实用机械手的研发远不止追求理论能力，而是一场在灵巧性、力量、坚固耐用、成本、可维修性与传感之间的工程取舍。如果目标是进入工业与物流现场应对严苛的体力工作，机械手必须在满足多样化任务的同时，兼顾坚固耐磨与可规模量产的要求。</p>
+<h2>少一根手指，能省下多少复杂度</h2>
+<p>机械手设计初期，团队内部曾就到底要不要做第五根手指产生过激烈讨论。</p>
+<p>从模块化硬件设计来说，增加小拇指并不困难，也能让形态更接近人手。但在方案探索初期，团队面临许多没有明确答案的构型抉择，比如机械手究竟该设计为一个拇指还是两个拇指、到底需不需要保留小拇指等。团队用仿真、3D 打印模型和亲自试用来比较这些方案，在功能和复杂度之间做取舍。</p>
+<p>在切身体验环节，波士顿动力首席技术官（CTO）Zack 提议团队成员用胶带把自己的小拇指和相邻手指绑在一起体验一天，并观察到底有哪些事情无法完成。这种亲身体验帮助团队做出了取舍：多一根手指意味着要增加 3 个自由度与 3 个执行器，伴随而来的是额外的体积、功耗、成本以及潜在损坏概率；小拇指所能带来的额外灵巧度与任务能力，不足以抵消增加 3 个自由度带来的工程复杂度与体积代价。</p>
+<figure>
+<img />
+<figcaption>Atlas 新一代机械手与人手对比：由一根对置大拇指与三根长指组成，无小拇指，整体尺寸接近大号人手。</figcaption>
+</figure>
+<p>秉持“最好的零件就是没有零件”的思路，团队最终确定了四指方案。所谓自由度，可以理解为机械手能独立控制的运动方向。新机械手共有 13 个自由度：对置大拇指拥有更接近人手形态的 4 个自由度，其余三根手指各占 3 个自由度（4 + 3 × 3 = 13），其关节配置允许手指侧向张开（Finger Splaying）并控制指尖的位置。</p>
+<p>上一代 GR2 有 7 个自由度，主要为抓住多种物体而设计；这一代 GR3 提升到 13 个自由度，重点转向抓住以后继续操作物体。</p>
+<p>这种四指配置足以覆盖团队重视的核心灵巧操作：</p>
+<ol>
+<li><strong>指间滑动与对捏</strong>：大拇指指尖可以沿其余三根手指的长度和宽度滑动，并能与任意一根手指完成灵巧对捏；</li>
+<li><strong>三指抓握（Tripodal Grasp）</strong>：拇指与另外两指配合形成稳定抓取，在保持一定力量的同时依然能够调整物体；</li>
+<li><strong>手内重定位与滑移恢复</strong>：工件在手中可直接调整朝向，并在抓握发生微小滑动时动态调整恢复；</li>
+<li><strong>工具握持与触发</strong>：在牢固握持工具手柄的同时扣动开关或扳机（如电钻、手持电批、角磨机、气钉枪和焊接喷枪）。</li>
+</ol>
+<p>团队选择演示“手内重定向”，也就是拿着物体时调整它的朝向，因为这类动作对使用工具和把零件装配到一起都有代表性。眼下用这些任务练好手部操作，是在为长期的工具与装配技能打基础。</p>
+<figure>
+<figcaption>Boston Dynamics 官方设计介绍视频，补充制作中英双语字幕。画面分别标注 Teleoperated（遥操作）与 Fully Autonomous（完全自主），两类展示应分别理解。</figcaption>
+</figure>
+<h2>能做精细动作，也要扛住重物和碰撞</h2>
+<p>在工业与物流严苛的现场环境中，机械手既要完成精细操作，也要承受重体力作业。波士顿动力为此构建了面向实用作业的驱动方案：</p>
+<h3>1. 关节完全封闭封装，统一执行器类型</h3>
+<p>这只手不能为了增加力量就越做越大：Atlas 要使用为人设计的物品，还要伸进人能操作的空间。保持大号人手的尺寸，也能缩小它与人类演示动作的差异；代价是执行器必须装进有限的体积里。</p>
+<p>全手 13 个自由度全部采用同一种执行器类型，在关节处实现直接驱动（Direct Actuation）。所有执行器与 Atlas 躯干一样采用完全封闭封装，没有脆弱的线缆跨越关节。统一执行器类型与无外露线缆的设计，旨在支持机械手未来能够以低成本实现可靠的大规模制造与维护。</p>
+<h3>2. 维持与上一代相近的重载力量</h3>
+<p>新机械手的尺寸略大于普通人手，平均力量也略强。得益于采用的几项独特驱动技术，新机械手在提升灵活度的同时，保持了与上一代抓夹相仿的力量。波士顿动力以搬运重逾 100 磅（约 45 公斤以上）、装满物品的小冰箱作为整机负载例证，说明新手能够配合 Atlas 躯干自身百磅以上的负载能力，满足严苛任务中操纵重型工具与搬运重物的力量需求。</p>
+<h3>3. 反向驱动性与冲击保护</h3>
+<p>在工业作业中，手部经常会遭遇强烈撞击。波士顿动力将执行器的反向驱动性（Backdrivability）与力控透明度作为全机核心理念：</p>
+<ul>
+<li><strong>冲击退让</strong>：当手指受到外部剧烈冲击时，具备良好反向驱动能力的关节在外力作用下能够顺畅加速并退让卸力；相比高惯量或高摩擦传动，这种顺应退让显著降低了齿轮箱受冲击损坏的风险；</li>
+<li><strong>本体感知（Proprioception）</strong>：本体感知借用自生物学术语，指系统感知自身身体或肌肉在空间中所处位置、运动状态以及承受多少外力的能力。驱动机构的高透明度让环境作用在手指上的外力能够被本体感知直接捕捉，机器人施加给环境的动作也能直接传递；</li>
+<li><strong>触觉感知互补</strong>：与本体感知互补，研发团队在机械手的指尖与手掌表面覆盖了密集的高密度压力触觉传感器，专门用于捕捉细微的接触事件与压力分布变化。</li>
+</ul>
+<h2>为什么光靠人类演示还不够：仿真与强化学习的结合</h2>
+<p>直接模仿人类操作是训练机器人操作的重要助力。当前扩大数据采集的有效途径之一是使用手套或通用操作接口（UMI）等穿戴式设备。这类设备足够直观，能让人类演示者自然地完成任务，并且配备了传感器来捕捉接触事件和压力分布的快速调节等关键信号。此外，新机械手保持接近人手的形态，也能尽量缩小与人类演示数据之间的形态和动作差异。大规模人类演示尤其适合帮助机器人学习操作发生时的复杂视觉上下文。</p>
+<p>然而波士顿动力指出，直接模仿存在局限。穿戴设备记录下的接触与压力数据，对预训练物理交互直觉很有价值，但它们仍属于“代理信号（Proxy Signals）”，不能直接转换为控制灵巧手执行器的高速动作信号。快速敏捷的灵巧操作，底层高度依赖高频闭环控制与力调节。</p>
+<p>波士顿动力将其类比于人形机器人的全身控制路线：机器人的全身动态行为通常部署在全身控制器之上，负责处理高动态响应，例如维持平衡、绊倒时的恢复补步，以及补偿重力、自碰撞或外部推力。在波士顿动力的技术路线上，这类全身控制器正是通过仿真环境中的强化学习（RL）训练而来的。团队主张，对于手部灵巧操作，仿真环境下的强化学习同样是不可或缺的关键手段。</p>
+<div><table>
+<thead>
+<tr>
+<th>学习材料</th>
+<th>帮助机器人学什么</th>
+<th>仍需解决什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人类操作演示</td>
+<td>操作的视觉场景，以及接触与压力变化的线索</td>
+<td>人的记录信号与机器人执行器动作不同</td>
+</tr>
+<tr>
+<td>仿真强化学习</td>
+<td>在变化的物理条件下训练快速闭环控制</td>
+<td>仿真中的动力学要能迁移到真机</td>
+</tr>
+</tbody>
+</table></div>
+<p>为了让强化学习发挥作用并支持合成数据生成，波士顿动力从硬件到控制都将高保真仿真作为核心目标，并强调仿真与硬件的双向匹配：</p>
+<ol>
+<li><strong>运动学建模</strong>：明确机械手的几何结构，包括连杆位置与关节分布；</li>
+<li><strong>动力学建模</strong>：细致模拟摩擦力、关节可施加的力矩以及传动齿隙。由于电机转动时内部磁极会导致不均匀的阻力（即齿槽效应，Cogging），团队通过控制算法对摩擦和齿槽效应进行补偿，使系统在动力学上更易被高保真模拟；</li>
+<li><strong>接触动力学</strong>：建模机械手与环境之间的接触交互。</li>
+</ol>
+<p>在此基础上，团队在仿真中引入域随机化（Domain Randomization），在训练中随机扰动电机力矩曲线、表面摩擦系数、物体几何形状和任务外力扰动，使策略不只适应单一的理想条件。</p>
+<p>波士顿动力公布的实际进展显示，通过在仿真中结合域随机化进行训练，团队在动态任务中获得了初步有希望的真机迁移效果。这些初步动态任务在真机上仅依靠高频执行器本体感知提供反馈。团队正在继续扩大这条训练路线的规模。</p>
+<figure>
+<figcaption>官方仿真演示：旋转鼓槌。镜头从单个模型拉远到大量并行的 Atlas 模型；这是仿真画面。</figcaption>
+</figure>
+<h2>工具让一只可靠的手能做更多工作</h2>
+<p>手的设计始终需要取舍，真正意义上完全通用的“万能手”并不现实。任何设计都会更适合某些任务而更不适合另一些：有时需要较软的手指以避免划伤物体表面，有时则需要像钳子一样坚硬的手指来施加更大力量；有时需要镊子般小巧的指尖完成精细捏取，有时又需要钳夹般宽大的接触面来稳固抓握。</p>
+<p>人手同样符合这一规律。古希腊哲学家亚里士多德曾将人手称为<strong>“工具的工具”</strong>——它本身不是一把现成的专用工具，而是能够通过操纵各类工具来解锁无限可能。工具起到了能力倍增器的作用。</p>
+<p>在当今工业界，刚性零件的抓放等任务已经通过专用方案得到了有效自动化，但这往往高度依赖受严格控制的特定工件摆放（Part Presentation），以及针对特定零件量身定制的专用夹具与专用工位。人形机器人的真正价值在于泛化与灵活性：如果部署一个人形机器人仍然需要为它定制专用的工装夹具、末端执行器和专用工作单元，就会削弱它原有的泛化价值。</p>
+<p>放眼现有自动化尚未覆盖的环节，灵巧操作的需求更为显著。这类人工操作大量涉及复杂场景：在料架、板条箱、料盒、槽位、储物格或杂乱料堆中分拣抓取散乱零件，装配工件，处理易形变的软电缆，以及最重要的——使用工具。</p>
+<p>因此，人形机器人的终极通用操作器，不是追求过度复杂的手部结构，而是一只本身可靠且能够熟练使用工具的手。能够可靠握持并触发各类工具，正是波士顿动力团队在硬件与算法取舍中最为看重、并持续推进通用物理作业的核心方向。</p>
+</div><div><div><div>来源</div><div><span>Robot Hands for Modern AI and Real Work</span><span>Boston Dynamics<span>·</span><a href="https://bostondynamics.com/blog/robot-hands-for-modern-ai-and-real-work/">查看主材料</a></span></div></div></div></div></div><div>
+<div>Atlas · 机器手的工程取舍</div><h1>为什么 Atlas 的新机器手只有四根手指？波士顿动力的工业取舍...</h1><p>Atlas 是波士顿动力的人形机器人。GR3 新手要进入工业与物流现场：抓住东西以后，还要调整它、操作工具。为何不用五指？</p>
+<h2>小指的收益，抵不过新增复杂度</h2><div>4 + 3 × 3 = 13</div><p><b>一根拇指 4 个自由度，三根长指各 3 个。</b>自由度就是能独立控制的运动方向。GR2 → GR3：7 → 13，能力重点从抓住转向抓后操作。</p><p>加小指还要加 <b>3 个自由度 + 3 个执行器</b>，增加体积、功耗、成本和潜在损坏机会。团队认为，额外灵巧收益不足以抵消复杂度与体积代价。</p><p>判断来自仿真、3D 打印模型与亲自试用。CTO Zack 曾让大家把小指与相邻指绑住，体验一天。</p><p><b>四指保留：</b>对捏、三指抓握、手内调整朝向、滑移恢复，以及握住工具并扣动扳机。</p>
+<h2>精细操作，也要承受磕碰与重载</h2><div><div><h3>减少易损环节</h3><p>13 个自由度采用同一种执行器类型。执行器全封闭，没有脆弱线缆跨越关节；关节在外力下可退让，降低冲击损坏风险。</p></div><div><h3>两类感知互补</h3><p>本体感知提供自身运动与受力反馈；指尖和手掌的压力触觉传感器捕捉细微接触。新手保持上一代相近力量。</p></div></div><div>搬运重逾 100 磅的小冰箱是<b>整机负载例证</b>，不是单手载荷参数。退让降低损坏风险，也不等于不会损坏。</div>
+<h2>演示教场景，仿真练快速力控</h2><div><div><h3>人类演示</h3><p>学习复杂视觉场景，以及接触、压力变化的线索。采集到的代理信号不能直接变成机器人执行器的高速动作。</p></div><div><h3>仿真强化学习</h3><p>高保真建模与动力学补偿，加上力矩、摩擦等条件随机变化，训练面对扰动时的快速闭环控制。</p></div></div><div>初步动态任务已有有希望的真机迁移效果，反馈仅依赖<b>高频执行器本体感知</b>。官方旋转鼓槌视频是仿真画面。</div>
+<h2>工具扩大能力，可靠性决定实用性</h2><p>手指的软硬、大小和力量各有取舍。团队希望可靠地握持、触发工具，让同一只手适应更多任务。</p><p>手内重定位是在为长期工具与装配技能打基础；这不意味着已经全面替代工业夹具。</p>来源：Boston Dynamics · Robot Hands for Modern AI and Real Work</div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】你可以定制自己的 Claude Code 了：改界面、拦住危险命令、逐步查看代码改动</title>
+<link>https://best.xiaohu.ai/article/claude-code-mods/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:claude-code-mods</guid>
+<pubDate>Fri, 02 Oct 2026 12:01:10 +0000</pubDate>
+<description>把上下文读数放在输入框上方，在危险命令执行前查看影响，再按步骤复核一轮修改：三个官方例子讲清 Mods 的作用与写法。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 2 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">你可以定制自己的 Claude Code 了：改界面、拦住危险命令、逐步查看代码改动</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/claude-code-mods/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>你可以定制自己的 Claude Code 了：改界面、拦住危险命令、逐步查看代码改动</h1><p>把上下文读数放在输入框上方，在危险命令执行前查看影响，再按步骤复核一轮修改：三个官方例子讲清 Mods 的作用与写法。</p><strong>一分钟速览</strong><ul><li>Claude Code 的 Mods 是会话内运行的小插件，让你按自己的工作习惯定制行为和界面。</li><li>插件接入事件后，可以只记录信息、修改输入，也可以直接拒绝一次工具调用。</li><li>让 Claude 写出插件只是起点；长期使用还要保存并安装，第三方代码也拥有机器访问权限。</li></ul><div>
+<figure>
+<figcaption>ClaudeDevs 官方发布视频：看看 Mods 如何改变 Claude Code 的界面与工作流程。</figcaption>
+</figure>
+<p>在终端使用 Claude Code 编程时，不同开发者常有三种具体的工作需求：</p>
+<ul>
+<li><strong>随时查看关键读数</strong>：希望在输入框上方有一行常驻读数，直观确认当前上下文占用，而不用特意去查状态栏；</li>
+<li><strong>拦截让人不放心的命令</strong>：当准备执行清理、重置或迁移等高风险命令前，先停下来看清具体会触碰哪些文件，再决定是否放行；</li>
+<li><strong>按自己的习惯复核改动</strong>：在单轮涉及多处文件编辑后，能逐项查看每次修改的前后差异，而不是等全部改完再去翻零散的 Git diff。</li>
+</ul>
+<p>此前，Claude Code 已经支持通过设置（settings）、权限规则（permission rules）、斜杠命令（slash commands）、技能（skills）和状态行来调整行为。在版本 <strong>2.1.287 或更高</strong> 中默认启用的 <strong>Mods</strong> 则更进一步：它允许通过 JavaScript 或 TypeScript 模块重写或替换部分行为，甚至绘制自定义 UI。</p>
+<p>可以把它想成给 Claude Code 添几个你自己选的功能，想要什么，直接描述给 Claude：</p>
+<ul>
+<li><strong>输入框上方多一行用量</strong>：比如你可以这样描述需求：“在输入框上方加一行上下文用量，快满时变色，显示最近变化”。Claude 生成这个 Mod，你允许在当前会话热重载（保存代码即可生效）后，输入框上方就会出现一行每轮更新的用量显示；你若接着说“把暴风雨门槛从 75% 改成 70%”，保存修改后的代码，新的阈值就会生效。</li>
+<li><strong>删文件前，先看清会删什么</strong>：装上 Blast Radius 后，在执行删除 <code>build</code> 目录前，界面会打开面板，列出将删除的文件和占用空间，等待你按下数字键选择 Proceed 继续或 Cancel 取消。</li>
+<li><strong>改完后，逐项看哪里变了</strong>：装上 Replay Theater 后，一轮交互改完多个文件，输入框上方就会出现回放提示；只需按下 <code>r</code> 键或输入 <code>/replay</code>，即可在侧边面板逐项翻看每次编辑前后的差异（diff）。看完关闭面板即可，文件保持修改后的状态。</li>
+</ul>
+<p>在底层，Mod 本质上是包含在插件（Plugin）里的钩子，作为模块在会话中运行并接收各项事件。Anthropic 官方的部分能力（如侧边栏 <code>/diff</code> 面板与 <code>AGENTS.md</code> 规范支持）也是直接以 Mod 形式实现的。例如，内置的 <code>/diff</code> 功能现在就是一个 Mod，用户可以在 <code>/plugin</code> 中将其关闭，也可以替换成自己定制的版本；官方后续还计划将更多内置功能迁移为 Mod，让用户按需精简核心或扩展功能。</p>
+<p>官方教程用约 80 行代码做出一个上下文用量显示条，再用两个案例展示命令拦截和修改回放。看懂这些例子，就能知道自定义工具需要接入哪些事件、保存哪些状态。</p>
+<h2>一、 核心概念：什么是 Mod？它和以前的 Hooks 有什么本质不同？</h2>
+<p>用一句话总结：<strong>Mod 本质上就是一个打包在 Plugin 里的 JavaScript/TypeScript 模块，在你的会话内常驻运行，接入 Claude Code 提供的事件，观察、改写输入或直接返回结果。</strong></p>
+<h3>1. 它是如何运行的？</h3>
+<p>在文件结构上，Mod 依然遵循标准的 Claude Code Plugin 规范：</p>
+<ul>
+<li>根目录有一个 <code>.claude-plugin/plugin.json</code> 清单文件；</li>
+<li>在 <code>hooks/hooks.json</code> 里通过 <code>modules</code> 字段指向具体的 JS/TS 文件；</li>
+<li>该模块导出一个 <code>register(on, options)</code> 函数；</li>
+<li>在函数内部，通过 <code>on(event, matcher?, hook)</code> 注册各种钩子。</li>
+</ul>
+<p>每个钩子的基础代码骨架都长这样：</p>
+<div><pre><code>on("tool.call", { tool: "Bash" }, async ($, e, next) =&gt; {
+  // $    代表 Mods API：提供 ui、session、state、store、fs、process、clock 等系统能力
+  // e    本次事件的输入数据（纯数据对象）
+  // next 把事件传递给下一个插件，最后传递给 Claude Code 本身
+  return next(e);
+});
+</code></pre></div>
+<h3>2. 一个事件可以被观察、改写或直接回答</h3>
+<p>当一个事件触发时（例如 Claude 即将调用 Bash 执行一条命令），它会像 Express 或 Koa 的中间件一样，一层层流经你的 Mod、其他插件，最终到达 Claude Code 默认的执行器。</p>
+<p>你的 Mod 在这个链条里，拥有三种截然不同的控制手段：</p>
+<p><strong>Observe：观察，保留原行为。</strong> 在对话轮次结束后读取输入 Token 数，或者记录 Claude 改过的文件。</p>
+<div><pre><code>const r = await next(e); // 先让后续链条执行
+// 检查结果
+return r;               // 原样返回
+</code></pre></div>
+<p><strong>Rewrite：修改输入，再往下传。</strong> 比如替换命令参数，或在提交提示词时附加团队规范。后续插件和 Claude Code 收到修改后的数据。</p>
+<div><pre><code>return next({ ...e, command: saferCommand });
+</code></pre></div>
+<p><strong>Answer：直接返回自己的结果。</strong> 比如拒绝一次工具调用，或处理一个斜杠命令。没有调用 next，事件就不会继续传到后续链条。</p>
+<div><pre><code>return { deny: "拒绝原因" }; // 不调用 next
+</code></pre></div>
+<div>同一事件，三种处理方式</div>
+<p>事件链概念示意。切换方式，查看事件是否继续传递；这里不会运行任何命令。</p>
+<div>
+观察 Observe
+改写 Rewrite
+直接回答 Answer
+</div>
+<ol>
+<li><strong>工具调用事件</strong><span>原始输入 e</span></li>
+<li><strong>你的 Mod</strong><span>await next(e)，等待结果</span></li>
+<li><strong>其他插件</strong><span>收到原始输入 e</span></li>
+<li><strong>Claude Code</strong><span>执行原行为，结果沿链返回</span></li>
+</ol>
+<p>观察：事件继续传递，Mod 读取结果后原样返回，不改变原行为。</p>
+<p>改写：next(修改后的输入)，后续插件与 Claude Code 收到新输入。直接回答：返回结果且不调用 next，后续链条不再执行。</p>
+<h3>3. Mod 与 Settings Hooks 的区别</h3>
+<p>Settings hook 在每个事件发生时运行一条 Shell 命令，并通过标准输入（stdin）和标准输出（stdout）传递 JSON 数据。</p>
+<p>Mod 则在启动时加载一次并持续驻留在会话中：</p>
+<ul>
+<li><strong>保持状态</strong>：可以在整个会话期间保存内部状态；</li>
+<li><strong>界面与交互绘制</strong>：能够随着事件实时绘制和更新 UI，同时支持终端与桌面应用；除了自定义面板或提示外，还可以添加按钮与输入元素，并由其他 Mod 响应输入交互；</li>
+<li><strong>事件干预与改写</strong>：可以在提示词发送给模型前进行改写、拦截并重试工具调用、批准或拒绝权限请求，或者在模型读取工具输出前主动隐藏密钥（需要由 Mod 实现过滤规则）；</li>
+<li><strong>回调能力</strong>：可以调用 Claude Code 的宿主能力，例如打开侧边面板（Pane）、运行进程、注册新的斜杠命令，或者注册供模型调用的自定义工具。</li>
+</ul>
+<p>Mod 的运行时环境中没有浏览器 DOM，也没有 Node.js 全局对象，所有外部交互均通过 <code>$</code> 对象提供的 API 进行。这种运行环境隔离不限制 Mod 对机器的访问，Mod 依然拥有与 Claude Code 完全相同的本地系统权限。</p>
+<h2>二、 80 行代码实战：手把手写一个“Token 天气预报”（Token Weather）</h2>
+<p>官方教程从零实现了一个名为 <strong>Token Weather</strong> 的 Mod：在每轮对话后读取上下文窗口的占用情况，并在输入框上方绘制一行信息，包括天气图标、占用百分比、当前读数占窗口上限的比例、最近轮次的小趋势图（火花图），以及上一轮新增的 Token 数量。</p>
+<div><pre><code>☀ Clear   18% of context    36.1k / 200k     last turns ▁▂▃▄   ▲ +36.1k last turn
+</code></pre></div>
+<p>天气图标与文字仅根据当前占用比例进行映射，对应关系如下：</p>
+<ul>
+<li>25% 以下：☀ Clear</li>
+<li>25%–49%：☁ Cloudy</li>
+<li>50%–74%：☂ Showers</li>
+<li>75%–89%：☇ Storm</li>
+<li>90% 及以上：↯ Compact soon</li>
+</ul>
+<figure>
+<img />
+<figcaption>Token Weather 在终端会话中的运行过程：随读取文件增多，上下文占用从 Clear（18%）升至 Showers（67%）与 Storm（81%）。</figcaption>
+</figure>
+<h3>先试起来：描述需求，让 Claude 帮你写</h3>
+<p>Claude Code 内置了编写 Mod 的指引，可以按你的需求生成插件。在终端启动 <code>claude</code>，直接粘贴下面这段提示词：</p>
+<div><pre><code>Make me a Claude Code mod called token-weather: a live forecast of my context window, shown in the band above the prompt.
+What it should show, on one line:
+- A weather icon and word for how full the context window is: under 25% ☀ Clear (yellow), 25–49% ☁ Cloudy (cyan), 50–74% ☂ Showers (blue), 75–89% ☇ Storm (magenta), 90% and up ↯ Compact soon (red).
+- The percentage used, then the tokens used out of the window, like "134.4k / 200k".
+- A small chart of the last 12 turns, drawn with ▁▂▃▄▅▆▇█.
+- How much the last turn added, like "▲ +98.3k last turn".
+It should update after every turn.
+</code></pre></div>
+<p>Claude 会询问一次是否在当前会话开启热重载（Hot Reloading）。允许后，当该轮次结束，输入框上方就会出现这一行天气条。之后每次保存修改都会就地重载，可以直接让 Claude 进行微调（例如“把暴风雨门槛改成 70%”、“在末尾加上美元花费”）并实时查看变化。通过该捷径创建的 Mod 仅在当前会话中加载，其目录后续会被系统清理；如果想长期保留使用，需要将生成的目录复制出来，并按第 6 步的方式进行安装。</p>
+<p>如果你想深入理解它的构造，或者亲手定制更复杂的功能，我们一步步拆解它的内部实现。</p>
+<h3>第 1 步：搭建插件目录结构</h3>
+<p>首先确认本地的 Claude Code 版本是否满足要求：</p>
+<div><pre><code>claude --version   # 必须是 2.1.287 或更高版本
+</code></pre></div>
+<p>然后建立如下的标准目录：</p>
+<div><pre><code>token-weather/
+├── .claude-plugin/
+│   ├── plugin.json
+│   └── types/            （每次加载时，Claude Code 会写入本版类型声明）
+├── hooks/
+│   ├── hooks.json
+│   └── token-weather.mjs
+├── types/
+│   └── index.d.ts        （第 3 步声明插件状态类型）
+└── tests/
+    └── token-weather.test.ts
+</code></pre></div>
+<p><code>.claude-plugin/plugin.json</code> 是标准的清单描述：</p>
+<div><pre><code>{
+  "name": "token-weather",
+  "version": "0.1.0",
+  "description": "A live forecast of the context window, drawn above the prompt.",
+  "author": { "name": "You" }
+}
+</code></pre></div>
+<p><code>hooks/hooks.json</code> 用来告诉 Claude Code 钩子脚本在哪里（一个 Mod 对应一个入口模块）：</p>
+<div><pre><code>{
+  "modules": ["./token-weather.mjs"]
+}
+</code></pre></div>
+<h3>第 2 步：在界面上画出第一行文字（UI 挂载与热重载）</h3>
+<p>Claude Code 的界面划分成了不同的组件区域。在输入框正上方有一块空地，叫做 <code>AbovePrompt</code>。默认情况下官方在这里什么都不画，正好适合我们放置常驻状态栏。</p>
+<p>我们在 <code>hooks/token-weather.mjs</code> 里拦截 <code>ui.render</code> 事件：</p>
+<div><pre><code>// hooks/token-weather.mjs
+export function register(on) {
+  on("ui.render", { component: "AbovePrompt" }, ($, e, next) =&gt; {
+    // UI 组件不能使用全局变量，必须通过 $.ui.resolve(e) 解析当前渲染环境下的构造函数
+    const { Box, Text } = $.ui.resolve(e);
+    return Box({
+      paddingX: 1,
+      children: [Text({ color: "yellow", bold: true, children: "☀  Clear skies" })],
+    });
+  });
+}
+</code></pre></div>
+<blockquote>
+<p><strong>特别注意</strong>：Mod 运行在沙箱里，<code>Box</code>、<code>Text</code> 等组件并不是全局可用的对象。因为 Claude Code 可能运行在纯终端字符界面，也可能运行在桌面图形客户端，不同的渲染宿主支持的组件略有差异。因此必须通过 <code>$.ui.resolve(e)</code> 动态获取当前环境下的组件工厂方法。</p>
+</blockquote>
+<p>测试运行这个插件：</p>
+<div><pre><code>claude --plugin-dir ./token-weather
+</code></pre></div>
+<p>终端输入框上方会出现黄色的“☀ Clear skies”。保持会话开启，当修改并保存 token-weather.mjs 时，由于目录处于监视状态，代码会就地重载而无需重启会话。</p>
+<h3>第 3 步：采集真实数据与状态持久化（<code>$.state</code> 与响应式渲染）</h3>
+<p>有了界面壳子，接下来要抓取真实的 Token 占用。</p>
+<p>调用 <code>$.session.usage()</code> 可以拿到和状态栏完全一致的统计信息：</p>
+<ul>
+<li><code>context.tokens</code>：上一轮回答所依据的输入 Token 数；</li>
+<li><code>context.window</code>：模型的上下文窗口上限（如 200k）；</li>
+<li><code>context.percent</code>：两者相除得出的占用百分比。</li>
+</ul>
+<p>这个调用的开销非常低，因为除非你明确要求抓取详尽的细项分析（<code>breakdown</code>），否则它不会向远端发起额外的 Token 计算请求。</p>
+<p>我们需要在会话刚启动（<code>session.start</code>）以及每一轮对话完成（<code>turn.complete</code>）时记录一次数据：</p>
+<div><pre><code>on("session.start", async ($, e, next) =&gt; {
+  const result = await next(e);
+  await takeReading($);
+  return result;
+});
+on("turn.complete", async ($, e, next) =&gt; {
+  const result = await next(e);
+  if (!e.agentId) {
+    await takeReading($); // 关键细节：只统计主会话，忽略子 Agent 产生的内部轮次
+  }
+  return result;
+});
+</code></pre></div>
+<h4>为什么不能用普通的模块变量存储历史？</h4>
+<p>定义模块顶层变量（如 <code>let readings = []</code>）看似直观，但在热重载时无法保留数据。热重载是一次全新的加载过程：<code>register</code> 会重新执行，<code>session.start</code> 也会再次触发，模块作用域变量会重新初始化。</p>
+<p>正确做法是将历史记录保存在 <code>$.state</code> 中。它由宿主在会话期间统一维护，能够在热重载时保留数据。</p>
+<div><pre><code>// 声明保存在宿主中的状态 key
+const readings = { plugin: "token-weather", key: "readings" };
+async function takeReading($) {
+  const { context } = await $.session.usage();
+  if (!context?.window) return;
+  const tokens = context.tokens ?? 0;
+  const percent = context.percent ?? Math.round((tokens / context.window) * 100);
+  // 从 $.state 取出旧记录，追加新记录并保留最近 12 轮
+  const { value: history = [] } = await $.state.get(readings);
+  await $.state.set(readings, [...history, { tokens, window: context.window, percent }].slice(-HISTORY));
+}
+</code></pre></div>
+<h4>类型契约与自动重绘机制</h4>
+<p>使用 <code>$.state</code> 时，Claude Code 要求在插件的类型契约中做显式声明。我们在 <code>types/index.d.ts</code> 中添加：</p>
+<div><pre><code>export type TokenWeatherReading = { tokens: number; window: number; percent: number };
+declare module "claude-code" {
+  interface PluginState {
+    "token-weather": { readings: TokenWeatherReading[] };
+  }
+}
+</code></pre></div>
+<p>然后在 <code>plugin.json</code> 加上 <code>"types": "./types/index.d.ts"</code>。如果跳过这一步，<code>claude plugin validate</code> 会提示类型契约中缺少声明。</p>
+<p>在 <code>ui.render</code> 钩子运行期间调用 <code>$.state.get</code>，宿主会自动建立对该状态的订阅。后续只要调用 <code>$.state.set</code> 更新状态，状态条就会自动重新绘制，无需手动调用 <code>$.ui.invalidate</code>。</p>
+<h3>第 4 步：完整组装——天气映射、火花线与趋势展示</h3>
+<p>现在把所有逻辑拼合到一起。下面是 <code>hooks/token-weather.mjs</code> 的完整源码：</p>
+<div><pre><code>// Token Weather: 输入框上方的上下文窗口实时天气预报
+const HISTORY = 12;
+const BARS = "▁▂▃▄▅▆▇█";
+const FORECAST = [
+  { upTo: 25, icon: "☀", word: "Clear", color: "yellow" },
+  { upTo: 50, icon: "☁", word: "Cloudy", color: "cyan" },
+  { upTo: 75, icon: "☂", word: "Showers", color: "blue" },
+  { upTo: 90, icon: "☇", word: "Storm", color: "magenta" },
+  { upTo: Infinity, icon: "↯", word: "Compact soon", color: "red" },
+];
+const readings = { plugin: "token-weather", key: "readings" };
+export function register(on) {
+  on("session.start", async ($, e, next) =&gt; {
+    const result = await next(e);
+    await takeReading($);
+    return result;
+  });
+  on("turn.complete", async ($, e, next) =&gt; {
+    const result = await next(e);
+    if (!e.agentId) {
+      await takeReading($);
+    }
+    return result;
+  });
+  on("ui.render", { component: "AbovePrompt" }, async ($, e, next) =&gt; {
+    const { value: history = [] } = await $.state.get(readings);
+    // 礼貌让位：如果当前有官方满意度调查，或者没有历史读数，把该区域交回给官方默认行为
+    if (e.props.hasSurvey || history.length === 0) {
+      return next(e);
+    }
+    const { Box, Text } = $.ui.resolve(e);
+    return band(Box, Text, history, e.props.bodyColumns);
+  });
+}
+async function takeReading($) {
+  const { context } = await $.session.usage();
+  if (!context?.window) return;
+  const tokens = context.tokens ?? 0;
+  const percent = context.percent ?? Math.round((tokens / context.window) * 100);
+  const { value: history = [] } = await $.state.get(readings);
+  await $.state.set(readings, [...history, { tokens, window: context.window, percent }].slice(-HISTORY));
+}
+function band(Box, Text, history, columns) {
+  const now = history[history.length - 1];
+  const f = FORECAST.find((b) =&gt; now.percent &lt; b.upTo);
+  const parts = [
+    Text({ color: f.color, bold: true, children: `${f.icon}  ${f.word}` }),
+    Text({ children: `  ${now.percent}% of context` }),
+    Text({ dimColor: true, children: `  ${short(now.tokens)} / ${short(now.window)}` }),
+  ];
+  // 响应式自适应：如果终端可用宽度大于等于 60 列，才展示火花图和增量走势
+  if (columns &gt;= 60) {
+    parts.push(Text({ dimColor: true, children: "   last turns " }));
+    parts.push(Text({ color: f.color, children: sparkline(history) }));
+    if (history.length &gt; 1) {
+      parts.push(Text({ dimColor: true, children: trend(history) }));
+    }
+  }
+  return Box({ flexDirection: "row", paddingX: 1, children: parts });
+}
+// 用 Unicode 单字符高度块拼接最近 12 轮的微型趋势图
+function sparkline(history) {
+  const top = Math.max(...history.map((r) =&gt; r.tokens), 1);
+  return history.map((r) =&gt; BARS[Math.floor((r.tokens / top) * (BARS.length - 1))]).join("");
+}
+// 计算本轮相对于上一轮的 Token 增减量
+function trend(history) {
+  const delta = history[history.length - 1].tokens - history[history.length - 2].tokens;
+  if (delta === 0) return "  steady";
+  return delta &gt; 0 ? `  ▲ +${short(delta)} last turn` : `  ▼ ${short(-delta)} last turn`;
+}
+function short(n) {
+  if (n &gt;= 1_000_000) return `${+(n / 1_000_000).toFixed(1)}M`;
+  if (n &gt;= 1_000) return `${+(n / 1_000).toFixed(1)}k`;
+  return String(n);
+}
+</code></pre></div>
+<h4>这段代码里值得学习的 3 个工程细节：</h4>
+<ol>
+<li><strong>从 <code>e.props</code> 获取组件属性</strong>：
+<code>e.props.hasSurvey</code> 会告诉你官方是否有调查问卷正在占用该栏位，如果有，直接执行 <code>return next(e)</code> 让位；<code>e.props.bodyColumns</code> 代表当前终端这一行的真实可用列宽（比如旁边开了 diff 面板时，可用宽度会变窄）。</li>
+<li><strong>不画东西时一定要调用 <code>return next(e)</code></strong>：
+不要返回 <code>null</code> 或空节点，调用 <code>next(e)</code> 能把控制权交还给其他插件和官方行为。</li>
+<li><strong>坚持使用单宽字符，避免使用 Emoji</strong>：
+代码中使用了 <code>☀ ☁ ☂ ☇ ↯</code> 和 <code>▁▂▃▄▅▆▇█</code>。在终端中，复杂的 Emoji 经常会出现双字宽、字形截断甚至把光标错位的问题，而标准的单宽字符在所有终端等宽字体下都能对齐。</li>
+</ol>
+<h3>第 5 步：插件自检与自动化测试</h3>
+<p>Claude Code 提供了插件校验和测试命令，用于检查声明、调用与实际表现。</p>
+<h4>静态校验：<code>claude plugin validate</code></h4>
+<p>运行 <code>claude plugin validate ./token-weather</code>，它会静态扫描你的模块：</p>
+<div><pre><code>$ claude plugin validate ./token-weather
+  &gt; types ./types/index.d.ts declares state: token-weather.readings
+  &gt; ./token-weather.mjs hooks: session.start, turn.complete, ui.render{component=AbovePrompt}
+  &gt; ./token-weather.mjs calls: $.session.usage (via takeReading), $.state.get, $.state.set (via takeReading), $.ui.resolve
+  &gt; ./token-weather.mjs state writes: token-weather.readings
+  &gt; ./token-weather.mjs state reads: token-weather.readings
+√ Validation passed
+</code></pre></div>
+<p>它能清晰列出你监听了什么事件、调用了哪些 API、读写了什么状态，状态是否经过 TypeScript 类型契约声明。</p>
+<h4>单元测试：<code>claude plugin test</code></h4>
+<p>Mod 可以编写自动化测试。测试脚本直接在真正的 Claude Code 运行时环境中执行。测试里通过 <code>on</code> 注册的钩子会自动排在你的 Mod 后面，正好用来 Mock（模拟）官方的接口返回值：</p>
+<div><pre><code>// tests/token-weather.test.ts
+import { describe, expect, test } from "claude-code/testing";
+describe("token-weather", () =&gt; {
+  test("天气条能够随上下文增长正确切换", async ($, on) =&gt; {
+    let tokens = 36_100;
+    // 模拟会话环境与 Token 用量
+    on("session.start", ($, e) =&gt; ({ cwd: e.cwd }));
+    on("session.usage", () =&gt; ({
+      value: { startedAt: 0, rateLimits: [], context: { tokens, window: 200_000, percent: Math.round(tokens / 2_000) } },
+    }));
+    on("turn.complete", () =&gt; ({ text: "" }));
+    await $.session.start({ surface: "terminal", isInteractive: true, cwd: "/work" } as any);
+    const ui = await $.ui.mount({
+      plugin: "token-weather",
+      surface: "terminal",
+      component: "AbovePrompt",
+      props: { hasSurvey: false, isWorking: false, maxRows: 10, bodyColumns: 120 },
+    } as any);
+    // 初始状态：36.1k / 200k (18%)，应展示 Clear
+    expect(await ui.find({ type: "Text", text: /Clear/ })).toBeDefined();
+    // 模拟第二轮对话：Token 增长到 134.4k (67%)
+    tokens = 134_400;
+    await $.turn.complete({ reason: "answer", answer: "ok", durationMs: 1 } as any);
+    // 验证 UI 自动响应式刷新，无需手动触发 invalidate
+    expect(await ui.find({ type: "Text", text: /Showers/ })).toBeDefined();
+    expect(await ui.find({ type: "Text", text: /67% of context/ })).toBeDefined();
+    expect(await ui.find({ type: "Text", text: /▲ \+98\.3k last turn/ })).toBeDefined();
+    await ui.unmount();
+  });
+});
+</code></pre></div>
+<p>在官方示例测试中，<code>claude plugin test ./token-weather</code> 验证了输入框上方的状态行能随 Token 增长与轮次完成正确更新文本，同时也验证了第 3 步中的自动重绘机制：在 <code>turn.complete</code> 触发后，无需 Mod 手动请求重绘即可完成界面更新。</p>
+<h3>第 6 步：分享与安装</h3>
+<p>Mod 本身就是标准的 Claude Code 插件，因此分发方式完全一致。可以创建一个包含 <code>.claude-plugin/marketplace.json</code> 的目录或代码仓库作为市场：</p>
+<div><pre><code>{
+  "name": "my-mods",
+  "owner": { "name": "You" },
+  "plugins": [{ "name": "token-weather", "source": "./token-weather" }]
+}
+</code></pre></div>
+<p>对于本地插件目录，可通过 CLI 命令添加市场并安装：</p>
+<div><pre><code>claude plugin marketplace add ./my-mods
+claude plugin install token-weather@my-mods --scope user
+</code></pre></div>
+<p>如果将 Mod 与市场配置存放在 GitHub 仓库中，其他用户可以在 Claude Code 会话中通过三条命令完成安装：</p>
+<div><pre><code>/plugin marketplace add your-org/my-mods
+/plugin install token-weather@my-mods
+/reload-plugins
+</code></pre></div>
+<p>执行重载后 Mod 便会生效；如果未正常显示，可以重启 Claude Code。</p>
+<p>Mods API 可能会随版本更新发生变化。每次 Claude Code 加载 Mod 时，都会向 <code>.claude-plugin/types/</code> 写入当前版本对应的类型声明文件，本地编码和校验应以这套声明为准。此外，包含 Mod 的插件也可以提交至官方插件目录：<a href="https://claude.ai/directory/manage">claude.ai/directory/manage</a>。</p>
+<h2>三、 进阶拆解：官方两个高阶 Mod 还能怎么玩？</h2>
+<p>Token Weather 只是一个“只读并画图”的轻量 Mod。官方教程紧接着展示了两个更强大的 Mod，全面展示了事件拦截、弹窗交互以及复杂数据流的处理。</p>
+<h3>案例 1：Blast Radius（高危命令预演与拦截）</h3>
+<p>当 Claude 准备调用 Bash 执行 <code>rm -rf</code>、<code>git reset --hard</code>、<code>git clean</code>、强制推送（force push）或数据库迁移（database migration）时，Blast Radius 会暂停这次调用。它会先分析命令具体会触碰哪些文件，并打开一个包含 <strong>Proceed</strong> 与 <strong>Cancel</strong> 选项的确认面板。按 <code>2</code> 会向 Claude 返回拒绝原因，按 <code>1</code> 则放行命令继续执行。</p>
+<figure>
+<figcaption>Blast Radius 终端演示：拦截 rm -rf build 并列出将删除的 9 个文件（1.1 MB）；选择 Cancel 拒绝执行，第二次尝试时选择 Proceed 放行。</figcaption>
+</figure>
+<p>该 Mod 注册了三个钩子：针对 Bash 的 <code>tool.call</code>，以及针对 <code>Pane</code> 和 <code>AbovePrompt</code> 的 <code>ui.render</code>。其核心逻辑属于前文提到的“Answer（接管/拦截）”机制：</p>
+<div><pre><code>on("tool.call", { tool: "Bash" }, async ($, e, next) =&gt; {
+  const risk = classify(String(e.command ?? ""));
+  if (risk === null) return next(e); // 未被分类器识别的命令正常放行
+  const report = await measure($, risk, await $.session.cwd()); // dry-run：git status, git clean -n, du, ...
+  held = { command: e.command, risk, report, decision: null };
+  const opened = await $.ui.open({ id: "blast-radius", title: "Blast Radius", focus: true });
+  if (!opened.isPlaced) held.where = "band"; // 终端宽度不足以停靠侧边面板：降级到输入框上方绘制
+  while (held.decision === null &amp;&amp; !next.signal.aborted) {
+    await $.process.run(["sleep", "0.25"]); // 等待用户操作
+  }
+  if (held.decision === "proceed") return next(e); // 用户确认：放行
+  return { deny: `Blast Radius held this command: the user pressed Cancel. It would have: ${report.summary}.` };
+});
+</code></pre></div>
+<h4>核心机制与设计考量：</h4>
+<ol>
+<li><strong>使用 <code>$.process.run</code> 搭配参数数组执行预演（dry-run）</strong>：
+影响报告来自工具自身提供的命令（如 <code>git status --porcelain</code>、<code>git clean -n</code>、<code>git log HEAD..origin/main</code>、<code>showmigrations</code>）。参数通过 argv 数组传入，路径中的内容不会被当作 Shell 代码解析。</li>
+<li><strong>等待时间如何计算</strong>：
+每个钩子派发自身拥有 10 秒执行时间限制，但在 <code>$</code> API 调用内部等待的时间（例如这里的 <code>sleep</code> 进程）不计入钩子自身的时间限制。循环等待直到按钮触发决策，或者在 <code>next.signal.aborted</code>（如用户按 Esc）时退出循环。</li>
+<li><strong>按钮支持多种交互方式</strong>：
+<code>Button({ label: "Proceed", hotkey: "1", onPress })</code> 支持鼠标点击、Tab 选中后回车（Enter），或者直接按数字键 <code>1</code> 和 <code>2</code>。</li>
+<li><strong>降级到输入框上方绘制</strong>：
+当终端宽度足够时，面板会停靠在转录区右侧；当 <code>$.ui.open</code> 返回 <code>isPlaced: false</code>（例如在 120 列终端下宽度不足以停靠侧边面板）时，相同的报告会降级绘制在输入框上方。</li>
+</ol>
+<figure>
+<img />
+<figcaption>在 120 列终端下，Blast Radius 降级在输入框上方显示：展示 git reset --hard 即将丢弃的 2 个未提交修改文件，并提供编号的 Proceed 与 Cancel 选项。</figcaption>
+</figure>
+<p>Blast Radius 能在执行前展示影响、让用户决定是否放行。它依赖命令文本匹配，因此 <code>$(…)</code>、命令别名（alias）或内部调用 <code>rm</code> 的脚本可以绕过该检查。如需对高危操作进行硬性阻止（hard block），仍需使用 Claude Code 的原生权限规则（Permission Rules）。</p>
+<h3>案例 2：Replay Theater（单轮改动逐项复盘）</h3>
+<p>在单轮对话中，Replay Theater 记录每一次 Edit 和 Write 工具调用所涉及的文件及修改前后的文本。当轮次结束时，输入框上方会显示提示；按 <code>r</code>（或输入 <code>/replay</code>）即可打开面板，单步查看每一次编辑的 diff。面板提供了数字步骤条以及 Prev、Next 和 Close 按钮。</p>
+<p>该工具仅用于回放和复盘改动，并不执行代码回滚，关闭面板也不会更改任何文件。</p>
+<figure>
+<figcaption>Replay Theater 终端演示：在一轮重命名操作中，涉及 greet.js、main.js 和 README.md 3 个文件的 5 次编辑（将 greet 改为 welcome 并保留 greetAll）；轮次结束出现提示，打开后单步复盘 diff，关闭后文件保持不变。</figcaption>
+</figure>
+<p>它完全不阻拦也不篡改编辑，属于纯观察（Observe）钩子：</p>
+<div><pre><code>on("tool.call", async ($, e, next) =&gt; {
+  if (EDIT_TOOLS.has(e.tool)) state.pending.push(...(await stepsFor($, e))); // 旧/新文本生成 diff
+  return next(e);                                                             // 编辑原样执行
+});
+on("turn.start", ($, e, next) =&gt; { if (!e.agentId) state.pending = []; return next(e); });
+on("turn.complete", async ($, e, next) =&gt; {
+  const r = await next(e);
+  if (!e.agentId &amp;&amp; state.pending.length) state.replay = state.pending;       // 每轮生成一组回放
+  return r;
+});
+on("session.start", async ($, e, next) =&gt; {
+  const r = await next(e);
+  await $.command.register({ name: "replay", description: "Step through the last turn's file edits" });
+  return r;
+});
+on("command.run", { command: "replay" }, async ($, e) =&gt; ({ text: (await openReplay($)) ? "Replaying" : "No edits" }));
+</code></pre></div>
+<h4>核心机制与实现细节：</h4>
+<ul>
+<li><strong>配对事件组织生命周期</strong>：<code>turn.start</code> 与 <code>turn.complete</code> 将编辑划分到单轮中，并通过检查 <code>!e.agentId</code> 排除子 Agent 产生的内部轮次。</li>
+<li><strong>注册斜杠命令</strong>：在 <code>session.start</code> 中调用 <code>$.command.register</code> 注册命令，并在 <code>command.run</code> 钩子中响应处理。</li>
+<li><strong>写入前读取旧内容</strong>：对于 Write 操作，在实际写入前通过 <code>$.fs.read</code> 读取旧内容，从而计算出修改前后的真实 diff。</li>
+<li><strong>布局由渲染宿主决定</strong>：在全屏终端下，面板停靠在右侧；在 80 列宽度终端下，则内联在输入框上方打开，Mod 内部返回相同的组件树。</li>
+</ul>
+<figure>
+<img />
+<figcaption>在 80 列终端下，Replay Theater 内联在输入框上方显示：当前处于第 2/5 步，展示 greet.js 中将 greet 改为 welcome 的单行 diff，并提供 Prev、Next 与 Close 按钮。</figcaption>
+</figure>
+<h2>四、 编写 Mod 值得注意的 4 个习惯</h2>
+<p>结合官方实现，有 4 个开发习惯值得参考：</p>
+<ol>
+<li><strong>参考系统自动生成的类型定义</strong>：
+每当 Claude Code 加载 Mod 时，都会将当前构建版本的类型声明写入 <code>.claude-plugin/types/</code>。事件字段、<code>$</code> 上的 API 方法以及 UI 元素支持的属性，都可以直接查看该目录。</li>
+<li><strong>从 <code>e.props</code> 获取组件属性</strong>：
+在 <code>ui.render</code> 事件中，只有 <code>e.component</code>、<code>e.surface</code>、<code>e.requestId</code> 和 <code>e.viewport</code> 位于 <code>e</code> 顶层；具体的布局与业务参数（如 <code>bodyColumns</code>、<code>hasSurvey</code>）均在 <code>e.props</code> 中。</li>
+<li><strong>针对热重载规划数据存储</strong>：
+每次保存代码触发热重载时，<code>register</code> 与 <code>session.start</code> 都会重新执行。需要在会话内跨重载保留的数据应放入 <code>$.state</code>，避免仅保存在模块顶层变量中。</li>
+<li><strong>界面未显示时检查调试日志</strong>：
+如果组件未按预期渲染，可以启动 <code>claude --debug</code> 查看输出，排查钩子返回的组件树是否存在未通过校验的情况。</li>
+</ol>
+<h2>五、 扩展思路与安全考量</h2>
+<p>Token Weather、Blast Radius 和 Replay Theater 分别解决了三个具体问题：上下文用了多少、高危命令即将修改什么，以及上一轮具体改动了哪些代码。在实际开发中，官方也给出了几个可以继续探索的方向：</p>
+<ul>
+<li><strong>成本与用量监控</strong>：结合 <code>$.session.usage()</code> 与 <code>$.ui.status</code>，在状态行展示花费或速率限制情况；</li>
+<li><strong>提示词约定注入</strong>：通过 <code>prompt.submit</code> 钩子，在提交前为提示词附加团队协作规范；</li>
+<li><strong>已读文件列表</strong>：在面板中列出会话内读取过的文件，形成直观的上下文地图；</li>
+<li><strong>长轮次完成提醒</strong>：利用 <code>$.ui.toast</code>，在耗时较长的轮次结束时弹出 toast 提示；</li>
+<li><strong>命令调用守卫</strong>：针对生产环境上下文（如 <code>kubectl</code> 生产集群配置或 <code>terraform apply</code>）定制特定的 <code>tool.call</code> 拦截规则。</li>
+</ul>
+<h3>团队用途与集中管控</h3>
+<p>除了个人开发者的效率定制，Mod 也能为团队与企业级工程提供统一规范与安全管控：</p>
+<ul>
+<li><strong>CI/CD 状态显示</strong>：在对话侧边面板实时展示流水线构建状态，并随构建成功或失败动态更新，无需频繁切换到网页端查看；</li>
+<li><strong>生产配置操作前确认</strong>：在任何可能触碰生产配置的命令执行前增加二次确认面板，让操作者看清影响后再决定是否执行；</li>
+<li><strong>最先加载 Mod 做调用审计</strong>：由于事件链条中最先加载的 Mod 会最早接收到事件并最晚看到执行结果，团队可以把审计 Mod 配置在首位加载，记录其他 Mod 的调用。</li>
+</ul>
+<p>在组织管理方面，因为 Mod 均打包在插件中分发，企业现有的插件管控规则完全适用：</p>
+<ul>
+<li><strong>管理后台与托管设置</strong>：在 Team 和 Enterprise 订阅中，组织所有者可以直接在管理后台（admin console）统一允许或拦截插件市场；在 Claude API 或第三方 API 方案中，管理员则可以通过向用户设备下发托管设置（managed settings）进行集中管理；</li>
+<li><strong>内置安全默认 Mod（<code>sec-default</code>）</strong>：在 Team、Enterprise 订阅以及任何应用了托管设置的机器上，系统会默认最先加载名为 <code>sec-default</code>（security default）的内置 Mod。它的核心作用是约束用户自行安装的 Mod，防止它们执行高危越权操作，例如限制用户通过 Mod 覆盖企业预设的权限拒绝规则（permission deny rules）；</li>
+<li><strong>管理员自定义列表时的保留要求</strong>：管理员也可以选择让企业自研的 Mod 最先加载以实现自定义管控；但如果管理员指定了自己的 Mod 优先加载，需要将 <code>sec-default</code> 显式保留在列表中，才能保留它的限制。</li>
+</ul>
+<h3>安全与信任边界</h3>
+<p>理解 Mod 的安全性，需要区分运行环境与系统权限两个层面：</p>
+<p>在运行环境上，Mod 的执行环境中没有浏览器 DOM，也没有 Node.js 全局对象，所有外部交互均需通过 <code>$</code> 对象的 API 进行。但这种运行环境的隔离<strong>并不意味着对本地机器的访问受到沙箱限制</strong>——Mod 在本地设备上运行，具备与 Claude Code 完全相同的系统权限。</p>
+<p>因此，安装第三方 Mod 时应遵循与安装软件包相同的原则：代码由发布者编写，安装前先阅读仓库源码，仅安装来自可信来源的 Mod；在主动执行安装命令前，系统不会自动加载外部 Mod。</p>
+<p>同时，这并不意味着 Mod 在组织内不受任何控制。在企业与团队环境中，管理员依然可以通过管理后台禁用不可信市场、利用托管设置下发策略，并通过排在最前方的 <code>sec-default</code> 与审计 Mod 对行为进行约束与留痕。</p>
+<p>一个 Mod 可以从一个具体需求开始：把常查的数据放在手边，把执行前的影响列出来，或者按自己习惯复核一次修改。事件负责告诉它什么时候行动，状态负责记住数据，界面负责让你看见并操作。</p>
+</div><div><div><div>来源</div><div><span>Getting started with Claude Code mods</span><span>Addy Osmani / Anthropic<span>·</span><a href="https://claude.dev/blog/getting-started-with-claude-code-mods/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/ClaudeDevs/status/2105721434807083061">ClaudeDevs 官方发布推文串</a><span>·</span><a href="https://claude.com/blog/claude-code-mods">Customize Claude Code with mods · 官方发布公告</a></div></div></div></div></div><div>
+<div>Claude Code 2.1.287+ · 核心架构与扩展指南</div>
+<h1>你可以定制自己的 Claude Code 了：改界面、拦住危险命令、逐步查看代码改动</h1>
+<div>通过常驻会话的 JavaScript/TypeScript 模块，在中间件事件链中实现实时读数、命令拦截、界面渲染与安全管控</div>
+<div>解读站 · 架构机制与实践一页纸 · 对应版本 2.1.287+</div>
+<div>
+<p>在终端使用 Claude Code 编写代码时，开发者经常面临三大痛点：无法直观掌控上下文 Token 消耗、难以防止 rm -rf 等破坏性命令误执行、以及多文件批量编辑后难以逐项复查 diff。此前可以用设置、权限规则、命令和技能调整行为；Mods 进一步让模块在会话内持续运行，更新自定义界面并介入事件处理。</p>
+<p>从 <strong>2.1.287 版本起</strong>，Claude Code 正式内置并默认启用了 <strong>Mods（模块扩展体系）</strong>。它不再是单次触发的 Shell 钩子，而是常驻在会话进程中的完整 JS/TS 模块，让开发者像写中间件一样改写命令、挂载界面并构建安全防线。</p>
+<div>
+<div>
+<div>常驻会话</div>
+<div>单次加载持续运行，启动时加载一次，在会话期间保持状态</div>
+</div>
+<div>
+<div>中间件管道</div>
+<div>Observe / Rewrite / Answer 三路接管事件流</div>
+</div>
+<div>
+<div>全端自适应 UI</div>
+<div>支持 AbovePrompt 与侧边 Pane，终端与桌面通用</div>
+</div>
+</div>
+</div>
+<div>
+<p><strong>核心机制：事件驱动的中间件控制链</strong></p>
+<p>每个 Mod 都打包在标准的 Claude Code 插件中，向外暴露 <code>register(on)</code> 入口。当 Claude Code 触发工具调用、轮次完成或 UI 渲染时，事件会像 Express 或 Koa 中间件一样逐层流经每个已加载的 Mod。</p>
+<div>
+<div>Mods 中间件事件管道的三种控制范式</div>
+<div>每个钩子接收 <code>($, e, next)</code>：$ 提供系统能力，e 为事件载荷，next 传递给下个插件或原生执行器</div>
+<div>
+<div>
+<div>1. Observe · 观察</div>
+<div>const r = await next(e);<br />return r;</div>
+<div>先执行下游再观察结果，保留原样行为。用于会话 Token 统计、编辑文件历史追踪。</div>
+</div>
+<div>
+<div>2. Rewrite · 改写</div>
+<div>return next({ ...e,<br />  command: saferCmd });</div>
+<div>改写输入再下传，例如在提交提示词时附加团队规范。</div>
+</div>
+<div>
+<div>3. Answer · 拦截接管</div>
+<div>return {<br />  deny: "拒绝执行" };</div>
+<div>直接返回决断，不调用 next() 中断事件链。用于高危命令阻断、自定义斜杠命令响应。</div>
+</div>
+</div>
+<div>
+<strong>执行时间保障</strong>：每个钩子单次派发具备 10 秒硬性超时限制；但在 <code>$</code> API 内部等待的操作（如调用进程、等待用户按钮交互）不计入 10 秒计时。
+      </div>
+</div>
+<div>
+<strong>状态管理黄金法则</strong>：由于 Mod 支持热重载（保存即时生效），每次重载都会重新执行 <code>register</code>。需要在会话内跨热重载保留的历史，不应只放在模块顶层变量中；应通过 <code>$.state.get / set</code> 交由宿主保管，并在 <code>types/index.d.ts</code> 中显式声明扩展类型。
+    </div>
+</div>
+<div>
+<p><strong>落地范式：从状态预报到高危阻断与单步复盘</strong></p>
+<p>官方教程通过三个具体案例，展示了界面读数、执行前确认和编辑后复核：</p>
+<div>
+<div>高危拦截 · Blast Radius</div>
+<div>
+<p><strong>拦截 <code>rm -rf</code>、<code>git reset --hard</code> 与数据库迁移</strong>：注册 <code>tool.call</code> 拦截 Bash，利用 <code>$.process.run</code> 传入参数数组执行预演（dry-run，如 <code>git status --porcelain</code>），避免路径被当作 Shell 代码解析；随后打开交互面板，支持按键 <code>1</code> Proceed 放行或 <code>2</code> Cancel 阻断。</p>
+<div>
+<span>自适应降级</span>
+<span>当终端宽度不足以容纳侧边栏（<code>!opened.isPlaced</code>）时，自动从侧边 Pane 降级在输入框上方（AbovePrompt）内联展开，让窄终端也能显示报告与确认选项。</span>
+</div>
+</div>
+</div>
+<div><strong>拦截有边界</strong>：Blast Radius 依靠命令文本匹配，别名、命令替换或内部调用删除操作的脚本可能绕过检查。需要硬性阻止危险操作时，仍要配置 Claude Code 原生权限规则。</div>
+<div>
+<div>逐项复盘 · Replay Theater</div>
+<div>
+<p><strong>单轮多文件修改前后对照</strong>：通过 Observe 模式监听 Edit/Write 工具调用；在写入前用 <code>$.fs.read</code> 记录旧文件内容，启动会话时注册 <code>/replay</code> 命令；轮次结束后按 <code>r</code> 或输入该命令，单步查看每一次编辑生成的差异（diff），只查看，不回滚；关闭面板后文件保持修改后的状态。</p>
+</div>
+</div>
+<div>
+<div>轻量读数 · Token Weather</div>
+<div>
+<p><strong>约 80 行代码的上下文气象站</strong>：监听 <code>turn.complete</code> 并调用 <code>$.session.usage()</code>；在 <code>AbovePrompt</code> 挂载天气图标（☀/☁/☂/☇/↯）与 Unicode 单宽火花线（▁▂▃▄▅▆▇█），通过 <code>$.state</code> 响应式触发重绘且避开双宽 Emoji 排版抖动。</p>
+</div>
+</div>
+</div>
+<div><p><strong>从一个需求试起来</strong></p><p>先确认 <code>claude --version</code> 为 <strong>2.1.287+</strong>，再直接告诉 Claude：“在输入框上方加一行上下文用量，快满时变色，显示最近变化”。Claude 生成 Mod 后，允许当前会话热重载，保存代码即可看到变化。</p><div><strong>想长期用？</strong> 这种捷径生成的 Mod 只在当前会话加载，目录之后会清理。先复制生成目录，再按标准 Plugin 方式安装。接口以每次加载写入 <code>.claude-plugin/types/</code> 的当前类型声明为准。</div></div>
+<div>
+<p><strong>安全与信任边界：隔离沙箱不等于系统受限</strong></p>
+<p>理解 Mod 的安全性，必须分清运行环境隔离与系统访问权限两个截然不同的维度：</p>
+<div>
+<div>
+<div>
+<div>运行环境：无 DOM 与 Node 全局</div>
+<div>Mod 运行在纯净上下文中，外部交互全部收敛于 <code>$</code> 对象 API（如 <code>$.fs</code>、<code>$.process</code>、<code>$.ui</code>）。组件树必须通过 <code>$.ui.resolve(e)</code> 动态获取，不能访问浏览器 DOM。</div>
+</div>
+<div>
+<div>系统权限：与 Claude Code 相同</div>
+<div>这种隔离<strong>不是针对本地机器的沙箱</strong>。Mod 具备与 Claude Code 完全相同的系统权限。用户安装第三方 Mod 必须像审查 npm 包一样核验源码，系统不会自动加载外部插件。</div>
+</div>
+</div>
+<div>
+<strong>企业与团队级管控（sec-default）</strong>：在 Team、Enterprise 订阅或下发了托管设置的设备上，系统默认排在首位加载 <code>sec-default</code> 内置 Mod，限制用户 Mod 覆盖企业预设的权限拒绝规则。企业自研审计 Mod 若优先加载，必须在列表中显式保留 <code>sec-default</code> 才能维持安全基线。
+      </div>
+</div>
+</div>
+</div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Tavus 发布面对面交互模型 Griffin 称其为首个通过实时视频图灵测试的模型</title>
+<link>https://best.xiaohu.ai/article/tavus-griffin/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:tavus-griffin</guid>
+<pubDate>Fri, 02 Oct 2026 12:01:10 +0000</pubDate>
+<description>一分钟视频通话，54 人中有 26 人认为对面是真人。Griffin 怎样把声音、表情、手势和接话时机连起来？从原始演示到测试方法，讲清这次发布。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 2 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Tavus 发布面对面交互模型 Griffin 称其为首个通过实时视频图灵测试的模型</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/tavus-griffin/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Tavus 发布面对面交互模型 Griffin 称其为首个通过实时视频图灵测试的模型</h1><p>一分钟视频通话，54 人中有 26 人认为对面是真人。Griffin 怎样把声音、表情、手势和接话时机连起来？从原始演示到测试方法，讲清这次发布。</p><strong>一分钟速览</strong><ul><li>Tavus 发布 Griffin，并称其为首个通过实时视频图灵测试的模型：26/54 人在一分钟通话后认作真人，旧系统为 1/41。</li><li>它在说话时仍持续听看，协调语气、表情和手势，判断何时等待、附和、接话或停止。</li><li>NVIDIA VideoFDB 的感知与生成两轨评分领先；目前仅向少数测试者开放 Griffin-Lite 研究预览。</li></ul><div><h2>聊一分钟近半数人以为是真人：Tavus 推出面对面交互模型 Griffin</h2>
+<p>Tavus 推出了面对面 AI 交互系统 Griffin，并称其为首个通过实时视频图灵测试的模型。在官方测试中，54 名参与者进行了一分钟的一对一视频通话，有 26 人（48%）认为对方是真人；而在相同测试条件下，41 名参与者中只有 1 人（2.4%）把 Tavus 上一代串联系统认作真人。这项技术想解决的，正是以往与数字人或语音助手交流时常见的尴尬：你刚说了一半，稍微停顿两秒琢磨用词，AI 以为你说完了，立刻抢话；或者你分享了一件极度令人兴奋的事，屏幕里的虚拟形象依然面无表情，直到两三秒后才机械地蹦出一句“那太棒了”。</p>
+<p>许多轮流对话方案采用<strong>串联系统（Cascade System）</strong>：先把你的话转成文字，再生成回答，最后合成声音和人物画面。处理过程像一场接力：</p>
+<ol>
+<li><strong>第一棒（语音识别 ASR）</strong>：将声音转成文本，系统判断你说完后再进入回答阶段；</li>
+<li><strong>第二棒（大语言模型 LLM）</strong>：根据文字生成回答；</li>
+<li><strong>第三棒（语音合成 TTS）</strong>：把大模型的文字转成合成音频；</li>
+<li><strong>第四棒（数字人驱动 Avatar）</strong>：根据生成的音频驱动人脸和口型。</li>
+</ol>
+<p>每次交接都可能增加等待，下一步也可能收不到原始信息。声音只转成文字，语气里的迟疑就容易丢失；摄像头画面没有传给回答模型，眼神和动作也无法参与判断。依赖已生成音频来驱动的头像，则很难在你还在说话时，及时给出点头或附和。</p>
+<p>Tavus 将 Griffin 称为<strong>“人类交互模型”（Human Interaction Model，HIM）</strong>。它持续处理输入的音频和视频，并同时生成回应，这种双向通道同时工作的方式叫<strong>全双工</strong>。在你说话时它仍在听、仍在看；它自己出声时也继续接收你的动作和插话。对话引擎以亚秒级间隔重新判断：此刻该等待、点头、附和，还是开始回答。</p>
+<figure>
+<figcaption>演示案例 01：Tavus 团队与生成的虚拟形象交流人机交互设计，展示实时手势互动与无缝对话反馈。</figcaption>
+</figure>
+<hr />
+<h2>一边听看，一边回应，是怎样做到的？</h2>
+<p>要让机器像真人一样流畅接话，需要同时协调对话判断、发言时机和音视频生成节奏。Griffin 整体由两大核心引擎协同工作：<strong>连续对话建模引擎</strong>与<strong>音视频流式生成引擎</strong>。</p>
+<figure><div><div><strong>你持续说话、做动作</strong><span>音频 + 摄像头画面</span></div><div>↓</div><div><strong>持续对话建模</strong><span>亚秒级重新判断：等待 / 附和 / 发言 / 让出话轮</span>决定说什么，以及语气、表情与动作</div><div>↓ 控制信号</div><div><div><strong>流式语音生成</strong><span>逐块生成声音，边生成边播放</span></div><div><strong>流式视频生成</strong><span>用参考图、音频和控制信号生成整个画面</span></div></div><div><strong>你听见声音，也看见表情和手势</strong><span>↑ 输出时，输入仍在继续：它说话时也听、也看</span></div></div><figcaption>系统关系示意，依据 Tavus 研究说明；箭头不表示实测时间。</figcaption></figure>
+<h3>连续对话建模：持续判断的“小回合”（Mini-turns）</h3>
+<p>轮流式系统通常先等你说完，再开始回答。</p>
+<p>而在 Griffin 中，对话引擎在整个交谈过程中<strong>从未停止运转</strong>。它把交流拆解为极短的“微轮次（Mini-turns）”。在每一个微轮次内，它都在同步做几件事：</p>
+<ul>
+<li>
+<p><strong>实时倾听与注视</strong>：不管对方正在说话，还是自己正在出声，输入通道永远保持常开；</p>
+</li>
+<li>
+<p><strong>发言权管理（Turn-taking）</strong>：当你说话中途停顿、同时眼神向上看时，系统能结合视觉判断出你“还在思考”，从而主动保持安静等待；而不是听到静音就强行抢话；</p>
+</li>
+<li>
+<p><strong>伴随反馈（Backchanneling）</strong>：在对方长篇大论时，机器不需要等发言权交接，就能在微轮次中适时发出“嗯哼”或者轻轻点头，向对方传递“我在认真听”的积极信号；</p>
+</li>
+<li>
+<p><strong>回应打断（Barge-in）</strong>：一旦用户突然插话，系统重新决定继续、暂停还是停止发言。</p>
+</li>
+</ul>
+<h3>声音一小块一小块生成，先播出来再继续算</h3>
+<p>Griffin 的语音系统采用连续的潜在表示：先用一小组数表示声音，再由解码器还原成可播放的波形。它的主要环节是：</p>
+<ul>
+<li>
+<p><strong>Tavec 连续编解码器</strong>：这是一个卷积自编码器，它将 48 kHz 的高保真音频映射为连续潜在向量——每秒处理 100 帧，每帧仅包含 40 个连续数值，彻底去掉了离散代码本查找。1 分钟的原始音频对应多达 288 万个采样点，但在 Tavec 下被压缩为 6,000 个潜在帧，大幅缩减了序列长度。</p>
+</li>
+<li>
+<p><strong>自回归扩散 Transformer（VDiT）</strong>：只需一段大约 10 秒的人声前缀即可完成声音克隆。它不再等整句话文本生成完毕，而是随着对话引擎每送来一小段控制信号，就逐步生成对应音频。</p>
+</li>
+<li>
+<p><strong>最小 10 毫秒的音频包</strong>：搭配完全因果（Causal）的解码器，生成的音频包可以小到 10 毫秒。第一小包声音甚至在后续语音还没算完时就已经推送到扬声器开始播放。</p>
+</li>
+</ul>
+<h3>一张参考图，生成整个人和周围画面</h3>
+<p>Tavus 过去的视频模型较依赖 3D 先验，也就是预先引入的三维结构知识；按照团队的说明，这限制了复杂手势、大幅度身体动作和动态背景的表达。</p>
+<p>Griffin 转向了基于扩散模型的流式画面生成：用一张参考图，就能实时生成包含人物、手势、衣物褶皱、座椅晃动乃至身后环境投影在内的<strong>全像素 720p 画面</strong>。</p>
+<p>其工程突破的核心在于<strong>三阶段蒸馏工艺</strong>，将原本需要多步推理的双向扩散模型转成能流式运行的生成器：</p>
+<ol>
+<li><strong>分布匹配蒸馏（DMD）</strong>：把需要几十步推理的庞大教师模型，蒸馏成只需极少步数的高速学生模型，但此时它仍只能一次性生成整段长视频；</li>
+<li><strong>教师强制自回归化（Teacher Forcing）</strong>：将其改造为以历史帧为条件的自回归架构，实现单块潜在特征（Latent）的逐次推导；</li>
+<li><strong>自身驱动防漂移训练（Self-Forcing）</strong>：让模型在长序列生成中基于自己生成的历史帧继续推演，同时把较早的历史帧保留为更低分辨率，以减少长时间生成时积累的误差，并控制历史信息带来的计算负担。</li>
+</ol>
+<p>最终，每个潜在块只需 3 次扩散步骤；在 25 fps 帧率下，Griffin 能够以每块 8 帧（对应 320 毫秒）的节奏实时输出 720p 视频，接受对话引擎发来的眼神、表情与动作控制信号。</p>
+<p>“Simon Says”游戏要求先听到“Simon says”前缀，才照着对方做动作；对方省略前缀，就应该拒绝。视频里，系统要同时听辨口令、观察手势、判断该不该行动，再生成抬手、摸脸或摸头发的画面。听懂规则、看懂动作和做出回应在一场实时互动中连起来，展示了它如何把视觉信息用进对话，也展示了全场景生成能带来的肢体表达。</p>
+<figure>
+<figcaption>演示案例 03：Mars 与虚拟形象玩“Simon Says”手势游戏。演示中，听到指定前缀后虚拟形象抬手或摸脸；遇到未加前缀的指令则指出游戏规则并拒绝执行，全景肢体动作实时生成。</figcaption>
+</figure>
+<hr />
+<h2>评测看什么：能理解场面，也能作出合适回应</h2>
+<p>NVIDIA 的 <strong>VideoFDB</strong> 专门评估全双工音视频对话：模型能否用视觉和声音理解对方，以及自己的声音、表情和动作是否配合得当。</p>
+<p>该基准提取了 237 段来自真实双人视频通话的片段，覆盖了人际沟通学中 11 种关键非言语动态（包括停顿中的视线转移、情感表露、手势、打断与即时笑声响应），并由大模型作为裁判，在 0 到 5 分的区间内对“感知（Perception）”与“生成（Generation）”两条轨道进行独立裁判。</p>
+<div><table>
+<thead>
+<tr>
+<th>生成评分 / 5</th>
+<th>对比对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3.92</td>
+<td>人类参考</td>
+</tr>
+<tr>
+<td>3.83</td>
+<td>Griffin-Lite</td>
+</tr>
+<tr>
+<td>2.80</td>
+<td>Gemini 2.5 + Anam</td>
+</tr>
+<tr>
+<td>2.39</td>
+<td>Gemini 2.5 + Keyframe</td>
+</tr>
+</tbody>
+</table></div>
+<div><table>
+<thead>
+<tr>
+<th>感知评分 / 5</th>
+<th>对比对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4.20</td>
+<td>人类参考</td>
+</tr>
+<tr>
+<td>3.73</td>
+<td>Griffin-Lite（视听）</td>
+</tr>
+<tr>
+<td>3.44</td>
+<td>MiniCPM-o 4.5（纯音频）</td>
+</tr>
+<tr>
+<td>3.17</td>
+<td>Gemini 2.5 Flash Native（视听）</td>
+</tr>
+<tr>
+<td>2.75</td>
+<td>OpenAI gpt-realtime（视听）</td>
+</tr>
+</tbody>
+</table></div>
+<p>两条轨道分别评分，不能把其中一项当作模型通用智力的排名。</p>
+<p>官方还用“比次优系统高约 37%”和“与人类表现的距离拉近超过 12 倍”概括进展。若按公开的生成总分计算，3.83 相比 2.80 高约 36.8%；与人类参考 3.92 的差距，则由次优系统的 1.12 分缩小到 Griffin 的 0.09 分，前者约为后者的 12.4 倍。这里能复算的是评测分数和分数差距，不能据此说响应快了 37% 或整体能力强了 12 倍。</p>
+<p>从 NVIDIA 公布的榜单数据中，可以看出两组对比：</p>
+<ol>
+<li>
+<p><strong>生成轨道（评价 AI 自身言行举止的自然度与情绪协调性）</strong>：</p>
+<ul>
+<li>传统采用“Gemini 2.5 + Anam”等语音驱动数字人的串联管线仅拿到了 2.80 分；</li>
+<li>而 Griffin Lite 取得了 <strong>3.83 分</strong>，与人类真人的基准录像（3.92 分）仅差 <strong>0.09 分</strong>，远超同类对比方案。</li>
+<li>在表征发言时机契合度的 TOR-Alignment（发言接管时机对齐率）指标上，Griffin Lite 达到 62.8%，而串联数字人仅有 31%~44%。</li>
+</ul>
+</li>
+<li>
+<p><strong>感知轨道（评价 AI 理解用户视听语境并适时作答的能力）</strong>：</p>
+<ul>
+<li>在感知轨道的 15 个参测配置中，Griffin Lite 拿下 <strong>3.73 分</strong>，位居榜首；</li>
+<li>超过了以纯音频运行的 MiniCPM-o 4.5（3.44 分）、Google Gemini 2.5 Flash Native（3.17 分）以及以视听配置运行的 OpenAI gpt-realtime（2.75 分）。</li>
+</ul>
+</li>
+</ol>
+<p>在响应速度与时序表现上，NVIDIA 榜单显示 Griffin 生成中位响应为 1892 毫秒、感知为 2232 毫秒，发言接管对齐率分别为 62.8% 与 73.8%；作为对比，人类基准分别为 900 毫秒（78%）与 1400 毫秒（90%）。其中 MiniCPM-o 4.5 视听感知响应达 720 毫秒，说明总分最高并不代表响应最快。此外，Tavus 报告在 H100 上的平均 0.43 秒仅为音频到视频生成器延迟，10 毫秒是一个音频包可承载的声音时长，320 毫秒是一块视频覆盖的播放时长；这两项是输出块的粒度，都不等于整套对话的响应延迟。</p>
+<h3>摄像头接上了，画面却不一定参与对话</h3>
+<p>在对主流模型的横向测试中，NVIDIA 团队指出了目前大多数标榜“具备视觉能力”的对话模型普遍存在的两大系统性失效：</p>
+<ul>
+<li>
+<p><strong>第一种病：解说式坍缩（Captioning Collapse）</strong>
+模型拿到视频画面后，下意识地把画面当成了“图片标注”任务来做。比如 Mini-Omni2 在高达 87% 的多模态测试片段中，不会像一个正常对话者那样跟你聊天，而是脱口而出：“我看到你正在穿一件深色衣服……”、“你看起来坐在椅子上……”，硬生生把聊天变成了看图写话。</p>
+</li>
+<li>
+<p><strong>第二种病：视觉盲视（Visual-Stream Ignorance）</strong>
+有的模型虽然在后台吃进了视频帧的 Token，但其生成的回复无论在时序上还是文字内容上，与纯音频输入模式下的回复近乎同义改写（如 gpt-realtime-mini）。视觉输入很少改变回复内容或时机。</p>
+</li>
+</ul>
+<p>在纯画面渲染层面上，Tavus 将 Griffin-Lite 的视频生成器与 4 种主流流式扩散模型（共 5 个模型）进行了音频驱动视频的对比：</p>
+<ul>
+<li>在 H100 硬件环境下，从音频输入到屏幕画面产生相应视觉变化的平均延迟为 <strong>0.43 秒</strong>，约为对比中最快基线延迟的一半。</li>
+<li>在画面质量指标 DOVER（感知画质）、FID（帧分布保真度）与 THEval（数字人说话综合基准）三项上均拿下 <strong>第 1 名</strong>。</li>
+<li>在唇形同步置信度（LSE-C）上，Griffin-Lite 以 7.27 位列第 2。Tavus 对此解释：LSE-C 会奖励明显的嘴部运动，甚至超过自然程度，但在日常交流中，过度的嘴唇动作反而会破坏真实感，而兼顾自然度的综合评估框架 THEval 则把 Griffin 列在首位。</li>
+</ul>
+<p>升职分享演示把这种协调展示得很直观：用户还在说话，虚拟形象就笑起来、抬手庆祝，声音也变得兴奋。前面的连续对话引擎会把语气、表情和手势控制同时交给生成端，因此庆祝能在声音和画面上一起出现。对面对面交流而言，何时回应、如何回应，也影响着对方是否觉得自己被认真听见。</p>
+<figure>
+<figcaption>演示案例 08：Rudy 向虚拟形象分享自己升职的喜讯。AI 在听到消息时露出笑容并抬手欢呼，声音、表情与动作共同表达庆祝。</figcaption>
+</figure>
+<hr />
+<h2>放到日常交流里，它能怎样配合你？</h2>
+<p>在脱离静态评分的动态交互中，Griffin 展现出了哪些具体能力？Tavus 公布的演示展示了几种具体配合方式：</p>
+<h3>场景 1：情感共鸣与倾听反馈</h3>
+<p>在倾诉社交烦恼的演示中，用户诉说自己在约会后不知该如何体面拒绝对方。虚拟形象在用户说话时始终保持眼神聚焦、微微点头，并在用户自嘲时报以轻笑。随后给出了既直截了当又不至于拖泥带水的沟通建议。整个互动展现出连贯的社交节奏，而无需用户每讲一句话就停下来等待系统响应。</p>
+<figure>
+<figcaption>演示案例 04：用户讲述约会后的纠结经历，虚拟形象伴随倾听展现点头、微笑与思考神情，自然参与日常情感话题的探讨。</figcaption>
+</figure>
+<h3>场景 2：根据视觉道具即兴接梗</h3>
+<p>在互动故事接龙演示中，用户表示想跟学生玩“根据随机道具编故事”的游戏，并在摄像头前先后举起两个物件：</p>
+<ol>
+<li>先拿出一只<strong>绿色的毛绒小玩具</strong>：AI 没有机械报出“我看到一个玩具”，而是立刻把故事里的角色调整为“伪装成普通小鱼的绿色毛茸茸海底小怪兽”，并指定这个绿色小家伙为特工队长；</li>
+<li>随后又举起一个<strong>三阶魔方</strong>：AI 顺势接梗，将魔方改写为“必须把颜色转对才能解开隐藏宝藏坐标的高科技水下导航仪”。</li>
+</ol>
+<p>这一交互说明，当环境中的视觉元素发生改变时，系统能将其直接内化到对话语境中，而非生硬打断当前心流。</p>
+<figure>
+<figcaption>演示案例 05：交互式故事编织演示。用户先后展示绿色毛绒道具与魔方，AI 迅速理解画面并将其化用为“绿色海怪特工”与“水下 GPS 导航仪”。</figcaption>
+</figure>
+<h3>场景 3：陪伴型分步动手辅导</h3>
+<p>在魔方还原教学演示中，用户表示底两层已经拼好，顶层只有一个蓝色条状块。AI 采取了“小步慢跑”的指导策略，一次只发出三到四个顺时针或逆时针旋转的明确指令，随后主动要求：“做完这几步后把顶面举稳让我看一眼”。在确认对齐情况后，再下发下一组公式。
+发布视频包含标为 2 倍速的片段，不适合据此计算响应速度。这里值得留意的是它把指令分批给出，并等待用户完成动作和展示结果。</p>
+<figure>
+<figcaption>演示案例 06：魔方分步教学演示。AI 分小批次给出转动指令，并主动要求用户静止展示顶面以核对对齐情况（注：原视频包含 2 倍速快进剪辑）。</figcaption>
+</figure>
+<h3>场景 4：时序追踪与提示辅助</h3>
+<p>在电路板手工焊接的演示中，用户拧好螺丝后准备去取工具，并明确对 AI 说：“我已经把电烙铁打开了，热起来大概需要 12 秒，到时间麻烦提醒我一下。”AI 答应后保持倾听，随后开口提醒“12 秒到了”。随后在用户焊接元器件时，AI 辅助数出“One Mississippi, Two Mississippi, Three Mississippi”帮助把控按压时长。</p>
+<figure>
+<figcaption>演示案例 07：主板焊接辅助演示。用户事先请求 12 秒预热提醒，AI 按请求发声提醒，随后辅助读秒。</figcaption>
+</figure>
+<hr />
+<h2>聊一分钟，26 人认作真人：这个测试说明什么？</h2>
+<p>在这次发布中，Tavus 最受关注的一项主张，是宣称 Griffin 成为<strong>“首个通过实时视频图灵测试的模型”</strong>。</p>
+<p>这组数据的具体实验设计与统计分母如下：</p>
+<ul>
+<li>
+<p><strong>测试方法</strong>：通过第三方独立平台招募参与者，告诉他们将与“另一位参与者”进行一场时长仅有 <strong>1 分钟</strong> 的视频通话，两人共同聊聊“今年最期待的事情”。而屏幕对面的搭档实际上是由 Griffin-Lite 驱动的虚拟人 PAL；</p>
+</li>
+<li>
+<p><strong>统计结果</strong>：在 <strong>54 名</strong> 参与者中，有 <strong>26 人（占比 48%）</strong> 在通话结束后认为自己是在和真人交谈；</p>
+</li>
+<li>
+<p><strong>历史对比</strong>：在相同的测试协议下，Tavus 自家上一代基于 Phoenix-4.5 + Sparrow-2 + Raven-1 级联架构的系统，在 <strong>41 名</strong> 参与者中仅有 <strong>1 人（占比 2.4%）</strong> 误以为是真人；</p>
+</li>
+<li>
+<p><strong>置信度与疑点</strong>：认为对面是真人的组别，平均判断置信度为 79%；而察觉出异样的受访者平均置信度为 81%，并且多数在<strong>前 20 秒内</strong>就产生了怀疑；</p>
+</li>
+<li>
+<p><strong>维度打分（7 分满分）</strong>：在自然度上获得 5.4 分，可信赖度 5.6 分，再次交谈意愿 5.8 分，感知其认真倾听程度 5.5 分；而“谈话流动自然度”得分相对最低，为 4.9 分。</p>
+</li>
+</ul>
+<p>问卷最后才询问参与者是否怀疑对面不是真人，之后向所有人告知 AI 身份。官方还报告，超过一半参与者在通话期间没有想到对面可能是 AI，这一组中几乎所有人最后都判断对方是真人。认为对面是 AI 的参与者，再次交谈意愿仍有 5.4/7 分：认出 AI，也未必就不愿意继续交流。</p>
+<figure>
+<figcaption>演示案例 02：讨论 AI 伴侣角色。虚拟形象 Vanessa 明确表示：“我是 AI，我们的目的不是掩盖这一点，而是让交互足够自然，成为有用的伙伴。”</figcaption>
+</figure>
+<h3>这项主张到底意味着什么？</h3>
+<p>视频图灵测试问的是：交谈者能否分辨屏幕对面的对象是真人还是机器？视频通话让这个判断涉及更多线索：回答是否贴切，语调与表情是否搭配，手势是否自然，点头、笑声和接话是否出现在合适的时刻。Griffin-Lite 在这次研究中被 26/54 人认作真人，相比旧串联系统的 1/41，说明整套面对面交互带来的真人感明显提高。Tavus 据此将它称为首个通过实时视频图灵测试的模型。</p>
+<p>这次通话只有一分钟，参与者预先被告知要与“另一位参与者”交谈，仍有 28 人认为对面是 AI。报告也没有给出统一的行业通过门槛，因此这项结果不能直接推广到长期交谈，更不能证明机器有主观感受。它展示的进展是具体的：声音、表情和接话节奏一起改善后，一段短视频对话已经能让相当一部分人觉得是在与真人交流。</p>
+<hr />
+<h2>目前谁能用，下一步要解决什么？</h2>
+<p>当一种技术能够在这次短通话研究中让接近一半参与者误认成真人时，清晰告知 AI 身份就更有必要。</p>
+<p>Tavus 在报告中明确指出了这种<strong>双刃剑效应</strong>：让交互变得极其自然的同一种机制，也可能让使用者误认对方是真人。正因如此，Griffin-Lite 目前并未全面开放商业接口，而是仅以“研究预览（Research Preview）”的形式向少数受信任的测试者开放。Tavus 正在研发安全披露功能并推进进一步对齐和安全评测，计划解决相关问题后扩大发布。</p>
+<p>针对未来的落地场景，Tavus 提出了几个具体应用方向：在教学辅导中，导师能察觉学生听不懂的困惑神情并主动换一种讲法；在职场沟通中，员工可以进行困难谈话排练，对方会像真人一样作出即时反应；在日常检修时，用户无需知道专业名称，直接举起损坏零件对着摄像头就能一起排查故障；此外还包括面向老年人的日常情感陪伴。</p>
+<p>Griffin 目前尚未接入现有的 Tavus 客户平台。目前 Tavus 平台客户可用的，仍是基于 Phoenix 生成人脸、Raven 负责视觉理解、Sparrow 控制接话时机的旧架构；旧模型的可用并不代表 Griffin 已开放使用。这一步依然很早，但它的真正价值在于让用户少花精力去迁就系统的反应节奏。</p>
+</div><div><div><div>来源</div><div><span>Griffin: The First Human Interaction Model</span><span>Tavus Research<span>·</span><a href="https://www.tavus.io/griffin">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://research.nvidia.com/labs/amri/projects/video-fdb/">VideoFDB — Evaluating Full-Duplex Vision-Speech Capabilities in Conversational Agents</a><span>·</span><a href="https://x.com/tavus/status/2105704169009246248">Tavus Griffin 发布与演示推文</a></div></div></div></div></div><div>
+<div>Tavus · Griffin</div>
+<h1>Tavus 发布面对面交互模型 Griffin 称其为首个通过实时视频图灵测试的模型</h1>
+<p>Griffin 是能与你视频交谈的 AI。它的进展在于持续听看，把声音、表情、动作和接话时机一起协调，减少抢话与等待带来的机器感。</p>
+<div>
+<div><div><div>48%</div><div>Griffin-Lite<br />26 / 54 人认作真人</div></div><div><div>2.4%</div><div>Tavus 上一代串联系统<br />1 / 41 人认作真人</div></div></div>
+<p>同一协议下的一分钟视频通话。参与者事先被告知会与“另一位参与者”交流，问卷最后才问是否怀疑对方是 AI。Tavus 据此提出“首个通过”的主张；报告没有统一行业通过门槛，仍有 28 人认为对面是 AI，结果不能外推到长期交谈。</p></div>
+<div><h2>为什么会抢话、等半天？</h2><p>常见串联方案先转文字，再生成回答、合成声音、驱动头像。每一段交接都可能增加等待；转成文字后，语气里的迟疑也容易丢失。依赖生成音频的头像很难在你还在说话时给出点头回应。</p></div>
+<div><h2>两个引擎同时工作：说话时也继续听看</h2><div>你的声音与画面 → 持续输入，不因 AI 开口而停止</div><div><div><h3>① 连续对话引擎</h3><p>以亚秒级“小回合”判断：你在思考还是说完了？此刻该等、点头、附和、开口，还是让出发言权？</p></div><div><h3>② 流式生成引擎</h3><p>接收对话控制信号，一小块一小块生成声音和整幅画面，让语气、表情与手势配合出现，边生成边播放。</p></div></div><div>共同输出 → 声音、表情与动作；与此同时继续接收你的插话</div></div>
+<p>演示里，用户举起毛绒道具与魔方，AI 把它们接进故事；教魔方时，AI 分批给动作并等用户展示结果。画面因此能参与正在进行的交流。</p>
+<div><h2>评测也要把“看懂”与“回应”分开</h2><p>NVIDIA VideoFDB 用真实通话片段，交由大模型裁判按 0—5 分评分。</p><div><strong>生成</strong><div>Griffin-Lite <strong>3.83</strong> · 人类参考 3.92<br /><span>Gemini 2.5 + Anam 为 2.80；关注言行协调。</span></div></div><div><strong>感知</strong><div>Griffin-Lite <strong>3.73</strong> · 人类参考 4.20<br /><span>15 个参测配置中居首；关注视听语境理解。</span></div></div><p>两条轨道分别评分，不是通用智力排名；总分最高也不代表响应最快。</p></div>
+<div><h2>这些时长，量的不是同一件事</h2><div><div><strong>10 毫秒</strong><span>最小音频包承载的声音时长</span></div><div><strong>320 毫秒</strong><span>一块视频覆盖的播放时长</span></div><div><strong>0.43 秒</strong><span>H100 上音频到视频生成器的平均延迟</span></div></div><p>三者均不等于整套对话响应时间。NVIDIA 榜单中 Griffin 生成、感知的中位响应分别为 1892、2232 毫秒。</p></div>
+<div><h2>现在仍是研究预览</h2><p>Griffin-Lite 只向少数受信任测试者开放，尚未接入 Tavus 客户平台。真人感越强，清楚告知 AI 身份越必要。</p></div></div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】上百个 Agent 同时写代码，该怎么协作？Cloudflare 想让你造下一代 Git 平台</title>
+<link>https://best.xiaohu.ai/article/cloudflare-next-git-platform/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:cloudflare-next-git-platform</guid>
+<pubDate>Fri, 02 Oct 2026 12:01:10 +0000</pubDate>
+<description>Artifacts 把仓库变成可编程的基础设施：分配独立任务、保存上下文、接上审查与部署。真正要设计的，是这些并行改动如何汇合。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 2 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">上百个 Agent 同时写代码，该怎么协作？Cloudflare 想让你造下一代 Git 平台</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/cloudflare-next-git-platform/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>上百个 Agent 同时写代码，该怎么协作？Cloudflare 想让你造下一代 Git 平台</h1><p>Artifacts 把仓库变成可编程的基础设施：分配独立任务、保存上下文、接上审查与部署。真正要设计的，是这些并行改动如何汇合。</p><strong>一分钟速览</strong><ul><li>Agent 越会写代码，团队越需要解决“谁在改什么、哪些改动该合并”的协作问题。</li><li>Cloudflare 的 Artifacts 让程序按任务创建和分叉 Git 仓库，并保存代码与 Agent 上下文。</li><li>仓库、事件和部署已有底座，如何协调多个 Agent、审查结果和处理冲突，仍留给开发者设计。</li></ul><div><p>提到写代码，很多人会想到 GitHub。在过去十几年里，许多开发协作工具围绕“人类程序员”建立起来的：写完一段代码，存成一个记录（Commit），开个平行分支（Branch）去试新功能，最后发起一个合并请求（Pull Request，简称 PR），叫上同事帮忙审查（Code Review），没问题了再合进主代码库。</p>
+<p>这套模式在人类协作时代运转得极好。但如果今天写代码的主力不再是人类，而是成百上千个同时处理任务的 AI Agent，现有的 GitHub 还管用吗？</p>
+<p>Cloudflare 针对这个问题给出了他们的答案，并宣布旗下专为 AI 设计的 Git 基础设施 Artifacts 正式进入公测阶段，同时面向全球开发者发起挑战：用 Cloudflare 的底层能力，探索多 Agent 同时开发时需要怎样的协作平台。</p>
+<p>简单来说，Artifacts 是一套云端文件系统，支持标准 Git 操作，可以用程序管理仓库，并保留文件的历史版本。它作为面向 Agent 协作的代码底座，允许开发者用程序按需为各个 Agent、会话或任务创建独立的仓库，保存代码和 Agent 的任务背景、说明等上下文。其主要功能特点包括：</p>
+<ul>
+<li>通过 Worker 代码直接控制仓库：借助专门的绑定接口，可以直接在程序逻辑中创建或派生（fork）仓库、读取上下文文件、检查提交并按仓库范围签发 Git Token，把这些仓库操作接入任务流程。</li>
+<li>集成 Workers 构建与分支预览：仓库关联构建服务后，推送到生产分支可自动触发构建与部署，推送到其他分支则自动生成独立的预览环境，便于在上线前安全测试改动。</li>
+<li>订阅仓库事件：支持监听仓库的创建、派生、删除、推送与拉取等事件，以便在代码变更后自动触发后续流程（如拉起代码审查 Agent、执行 CI 任务或部署）。</li>
+<li>选择数据存储与处理区域：在创建命名空间时可指定数据存储与处理区域（如美国或欧盟），该空间下的所有仓库都会自动遵循相应的区域限制。</li>
+<li>查看仓库运行指标：可在控制台查看或直接查询每个仓库的操作总数、拉取量、推送量以及错误率，便于监控仓库实际调用状况并快速排查异常。</li>
+</ul>
+<h2>多个 Agent 一起写代码，难点会转向协调与审查</h2>
+<p>要理解 Cloudflare 为什么要做这件事，先得看看现有的开发模式在面对海量 AI 时遇到了什么尴尬。</p>
+<p>在传统的软件团队里，提交、审查和合并围绕人与人的协作展开，人类的精力和注意力是极其稀缺的：代码不能乱改，需要审查来控制改动风险。</p>
+<p>但现在，随着各类编码 Agent 的爆发，情况完全变了：</p>
+<ol>
+<li>并发规模爆炸：以前一个项目十个人维护，以后一个项目可能有上百个 Agent 同时在修 Bug、加新功能、补测试用例、升级依赖库。改动不断增加时，人类需要知道该优先审哪些，以及如何比较多个方案。</li>
+<li>代码冲突与协作混乱：当几十个 Agent 针对同一个代码库的不同逻辑进行修改时，谁知道其他 Agent 正在改什么？如果两个 Agent 改了同样的文件，谁来仲裁？</li>
+<li>“为什么修改”比“修改了什么”更难追溯：单看改了哪几行（Diff），未必能知道任务背景、约束和取舍；这些上下文同样需要保存，方便后续接力。</li>
+</ol>
+<p>Cloudflare 的判断是，面向人的协作模式需要进一步适应大量 Agent 同时开发。</p>
+<h2>核心基石：Artifacts 到底是个什么东西？</h2>
+<p>很多人第一反应可能会问：Cloudflare 难道是要做一个网页版界面去跟微软 GitHub 抢用户吗？</p>
+<p>并不是。Cloudflare 做的是更底层的事情。</p>
+<p>今年早些时候，Cloudflare 推出了名为 Artifacts 的底层服务。简单来说，它是一个具备版本控制能力、支持 Git 操作、Cloudflare 称可扩展至百万级仓库的云端文件系统。</p>
+<p>它提供可以由程序调用的仓库操作：</p>
+<ul>
+<li>仓库可以由程序创建或分叉：开发者可以为每个任务、会话、用户或 Agent 创建仓库，让并行工作拥有独立的版本历史。</li>
+<li>存代码，也存 Agent 的思考上下文：不仅保存源代码的历史版本，还能把 Agent 运行时的提示词、对话记录、上下文背景一并持久化保存。</li>
+<li>原生兼容 Git 语法：Agent 不需要学任何花哨的新接口，它原本就熟悉的 <code>git clone</code>、<code>git push</code>、<code>git fetch</code> 等操作，Artifacts 原生全部支持。</li>
+</ul>
+<p>在过去一段时间里，已经有许多 AI 编程工具（包括通过自然语言让 AI 生成项目的 Vibe-coding 平台）用 Artifacts 来保存用户创建的项目，或者让多个 Agent 在相互隔离的独立仓库中从同一起点出发各自尝试，最后再比对结果。</p>
+<p>而在最新的公测版本中，Cloudflare 又给这套底座装上了几块至关重要的关键拼图。</p>
+<h2>推送代码后，生产分支部署，其他分支生成预览</h2>
+<p>代码放进仓库后，还需要构建和部署，才能查看实际运行效果。</p>
+<p>现在，Artifacts 可以通过仓库连接接入 Workers Builds：</p>
+<ul>
+<li>生产分支自动发布：只要你或者 Agent 往生产分支（Production Branch）推送了代码，Cloudflare 会自动完成构建，并把更新后的 Worker 部署到线上。</li>
+<li>特性分支自动生成独立预览（Workers Previews）：如果 Agent 是在一个临时分支上开发，推送代码后，系统会自动创建或更新一个专属的预览环境。这个环境带有一个独立的专属访问链接，用于在正式上线前测试改动，不仅人可以直接点开看，其他负责测试的 Agent 也能直接访问该链接进行验证。</li>
+</ul>
+<figure>
+<img />
+<figcaption>在创建 Worker 项目的面板中，系统已直接提供“Continue with Artifacts”选项，与传统的 GitHub、GitLab 并列。</figcaption>
+</figure>
+<p>无论是一个新项目直接保存在 Artifacts 里，还是把现有的 Worker 绑定到仓库，整个开发到上线的流水线都被高度压缩到了 Git 推送这一动作中。</p>
+<h2>在 Worker 里直接用代码操控 Git 仓库</h2>
+<p>这项能力让任务分配中的仓库操作可以写进程序。</p>
+<p>Cloudflare Workers 是运行应用和自动化代码的平台。在 Worker 中配置 Artifacts Binding（环境绑定）后，开发者可以直接在 Worker 脚本里，通过绑定对象调用仓库接口。</p>
+<p>比如下面这段官方示例代码，展示了当系统接到一个新任务时，如何自动为 Agent 派发独立环境：</p>
+<div><pre><code>// 1. 获取主项目仓库
+using project = await env.ARTIFACTS.get("my-project");
+const { defaultBranch } = await project.info();
+// 2. 为当前任务分叉（Fork）出一个独立仓库
+const workspace = await project.fork(`task-${crypto.randomUUID()}`);
+// 3. 读取主分支里的说明文件（给 AI 看的指令）
+using repo = await env.ARTIFACTS.get(workspace.name);
+const instructions = await repo.readFile({
+  ref: defaultBranch,
+  path: "AGENTS.md",
+});
+// 4. 将仓库地址、鉴权 Token 和任务指南准备成任务信息
+const agentTask = {
+  remote: workspace.remote,
+  token: workspace.token,
+  instructions: instructions ? await instructions.text() : null,
+};
+</code></pre></div>
+<p>用大白话来翻译一下这个过程：</p>
+<ol>
+<li>开辟独立工位：主项目在那里不动，Worker 直接用随机生成的任务 ID 分叉出一个新仓库（workspace）。Agent 可以在里面放手大改，就算改崩了也完全不影响原本的代码。</li>
+<li>提取上下文锦囊：Worker 直接深入仓库读取 <code>AGENTS.md</code>，把写给 AI 的项目规范和背景指令拿出来。</li>
+<li>提供仓库访问凭据：拿到分叉仓库的 Git 访问凭据（Token）和远程地址（Remote），把代码和任务说明一股脑交给 Agent。</li>
+</ol>
+<p>上述仓库操作可以由代码完成；<code>agentTask</code> 只是准备好的任务信息，真正调用 Agent 的步骤还需开发者接上。</p>
+<h2>监听每一次变动，自动启动 AI 代码审查</h2>
+<p>当 Agent 改完代码、把代码推回仓库时，后续流程如何衔接？</p>
+<p>Artifacts 内置了一套事件订阅机制（Event Subscriptions）。只要仓库发生变动——不管是仓库被创建、分叉、删除，还是有人执行了 Push、Clone、Fetch，系统都会自动向外广播一个事件消息。</p>
+<p>你可以写一个 Worker 来专门接收这些消息。例如，官方给出了一个“代码推送就自动触发 Review”的例子：</p>
+<div><pre><code>export default {
+  async queue(batch, env) {
+    for (const message of batch.messages) {
+      const event = message.body;
+      // 只关注“代码被推入仓库”的事件
+      if (event.type !== "cf.artifacts.repo.pushed") continue;
+      // 自动启动一个后台审查工作流（Workflow）
+      await env.REVIEW_WORKFLOW.create({
+        params: {
+          namespace: event.source.namespace,
+          repo: event.source.repoName,
+          ref: event.payload.ref,
+          commit: event.payload.after, // 最新提交的 Commit 哈希值
+        },
+      });
+    }
+  },
+};
+</code></pre></div>
+<p>这段代码把“推送”接到“启动审查流程”上：Worker 筛选推送事件，再把命名空间、仓库、分支引用和新提交传给 <code>REVIEW_WORKFLOW</code>。审查流程据此知道要检查哪个版本。</p>
+<p>至于怎样调用审查 Agent、运行测试、处理冲突以及批准合并，仍由开发者在自己的 Workflow 中实现。事件订阅提供的是触发与衔接能力。</p>
+<h2>为仓库选择数据区域，并观察操作是否报错</h2>
+<p>除了开发流，企业级开发最关心的两件事是“数据放在哪里”以及“仓库操作是否失败”。</p>
+<h3>1. 数据存储与处理区域（Data Jurisdiction）</h3>
+<p>很多企业（尤其是欧洲企业）对数据出境有严格的法律限制。现在，在通过 API 创建命名空间时，只要指定数据区域参数（例如 <code>"jurisdiction": "eu"</code>），该空间下创建的所有代码仓库都会继承对应的美国或欧盟数据存储与处理限制。</p>
+<div><pre><code>curl "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/artifacts/namespaces" \
+  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+  --json '{"namespace":"my-eu-namespace","jurisdiction":"eu"}'
+</code></pre></div>
+<h3>2. 仓库指标可视化监控</h3>
+<p>当几百个 Agent 不停拉取、推送代码时，光靠人眼盯命令行肯定抓瞎。Cloudflare 在控制台里直接内置了指标面板，展示每个仓库的总操作量、拉取（Pulls）、推送（Pushes）、报错数以及错误率。</p>
+<figure>
+<img />
+<figcaption>Cloudflare 控制台展示的仓库监控指标看板，提供了操作统计、拉取与推送频次及错误率跟踪。</figcaption>
+</figure>
+<p>开发者不仅能在网页上看图表，还能直接通过 API 调取这些监控指标，接入自己团队的报警大盘。</p>
+<h2>商业化与 2.5 万美元平台额度奖励：一起设计“下一代 GitHub”</h2>
+<p>随着公测的展开，商业化计划也已明确：Artifacts 的收费将基于仓库的操作次数（Operations）以及实际存储的数据量。这项计费将在 10 月中旬正式生效。</p>
+<p>不过，最引人注目的还是 Cloudflare 同期发起的开发者挑战赛：</p>
+<ul>
+<li>目标：用 Cloudflare Workers 和 Artifacts 打造你心中的“AI 时代 Git 平台”。</li>
+<li>硬性底线：官方明确表示，不希望参赛作品只是给现有 GitHub 模式加上 Agent，项目至少要能支撑多个 Agent 同时并发修改代码。在此基础上，去重新思考仓库、分支、合并冲突以及保留决策上下文的形式。</li>
+<li>参赛方式：提交 5 到 10 分钟的演示视频、使用开源协议（MIT、Apache 或 BSD）的完整源代码以及运行部署指南。比赛截止时间为 10 月中旬。</li>
+<li>奖项：评选出的前三名团队（每队最多 2 人）将获邀飞往旧金山，参加 Cloudflare Connect 大会现场登台展示；冠军团队还将获得 25,000 美元的 Cloudflare 平台额度及 Connect 周一的 VIP 讲者晚宴邀请。</li>
+</ul>
+<p>目前，拥有 Workers Paid 付费计划的用户均可在控制台直接开启 Artifacts 公测体验。在官方博客末尾，Cloudflare 还提供了一个一键复制提示词的入口，供开发者引导自己的编码 Agent 自动初始化 Artifacts 仓库并推送代码。</p>
+<h2>底座已提供，协作规则仍是开发者要做的产品</h2>
+<p>Artifacts 提供可编程仓库、版本存储、事件触发及部署连接。开发者可以据此保存会话上下文、让多个 Agent 从同一起点各自修改，再比较结果。</p>
+<p>真正需要设计的是这些结果如何汇合：任务怎样分配，改动怎样审查，冲突怎样处理，以及为何选择某个方案。把仓库分叉出来能隔离修改，却不会自动替团队解决这些协作问题。Cloudflare 的比赛正是邀请开发者构建这一层。</p>
+</div><div><div><div>来源</div><div><span>We want you to build the next Git platform on Cloudflare</span><span>Dina Kozlov、Dillon Mulroy、Zebulon Piasecki<span>·</span><a href="https://blog.cloudflare.com/next-git-platform-on-cloudflare/">查看主材料</a></span></div></div></div></div></div><div><div>
+<div>Cloudflare Artifacts / Agent Infrastructure</div>
+<h1>多个 Agent 一起写代码，改动该怎么汇合？</h1>
+<div>Artifacts 提供可编程的 Git 仓库，用来隔离任务、保存上下文，并接上审查和部署流程。</div>
+<div>任务流程：分叉仓库 → 准备说明与凭据 → Agent 修改；推送后可接部署与审查</div>
+<div>
+<div>
+<div>百万级</div>
+<div>Cloudflare 称可扩展至百万级仓库，为大量独立任务提供版本存储</div>
+</div>
+<div>
+<div>Git 推送</div>
+<div>连接构建服务后部署或生成预览；订阅事件后可启动自定义审查流程</div>
+</div>
+<div>
+<div>$25,000</div>
+<div>挑战赛第一名获平台额度，项目至少展示多个 Agent 同时改代码</div>
+</div>
+</div>
+<div>
+<p>代码仓库记录文件版本；分支用于尝试改动，合并请求交给同事审查。大量 Agent 同时开发时，这些改动仍需要协调与筛选。</p>
+<p>一个项目由上百个 Agent 同时维护，就需要知道谁在改什么、怎样审查不断增加的改动。只看文件差异，还不够解释任务背景和为什么这么改。</p>
+<div>
+<p>Artifacts 是支持 Git 操作的版本化云端文件系统。开发者可以用程序为任务创建或分叉仓库，同时保存代码和任务上下文。</p>
+</div>
+</div>
+<div>
+<div>
+<div>核心流程：把独立任务接到后续审查</div>
+<p>Worker 可以运行分配任务的代码。下列能力可以组合使用；调用 Agent、测试与合并规则由开发者接上：</p>
+<div>
+<div>
+<div>01 动态分叉工位</div>
+<div>开辟隔离空间</div>
+<div>系统接到任务后，Worker 自动从主干派生出临时仓库。Agent 拥有专属工位与 Git Token，放手修改而不影响生产主干。</div>
+<div>project.fork(`task-${uuid}`)</div>
+</div>
+<div>
+<div>02 准备说明与凭据</div>
+<div>同步背景约束</div>
+<div>Worker 读取 AGENTS.md 项目说明，准备仓库地址、Git Token 和规范，交给执行任务的 Agent。</div>
+<div>读取 AGENTS.md（示意）</div>
+</div>
+<div>
+<div>03 部署与独立预览</div>
+<div>验证无需等合入</div>
+<div>连接 Workers Builds 后：生产分支推送构建并部署；其他分支推送生成或更新独立预览。</div>
+<div>Workers Previews (独立 URL)</div>
+</div>
+<div>
+<div>04 事件监听与审查</div>
+<div>推送广播接力</div>
+<div>Worker 订阅推送事件，把仓库、分支和新提交传给审查 Workflow；审查、测试及合并逻辑自行实现。</div>
+<div>cf.artifacts.repo.pushed</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<p>数据放在哪里，仓库操作是否失败</p>
+<p>创建命名空间时可选择美国或欧盟，旗下仓库继承数据存储与处理区域限制。控制台和查询接口提供总操作量、拉取、推送、错误数及错误率，帮助发现仓库调用失败。</p>
+</div>
+<div>
+<div>
+<p>底座已就绪，真正的产品是“多 Agent 协作规则”</p>
+<p>Cloudflare 提供的 Artifacts 本质上是可编程的 Git 原语集合。分叉仓库能够解决改动隔离，事件广播能够实现自动唤醒，但它们不会自动替开发团队决定代码该如何合并。</p>
+</div>
+<div>
+<div>
+<div>底座已解决的问题</div>
+<div>
+<div>用程序创建、分叉仓库，隔离不同任务的修改</div>
+<div>保存代码、会话和任务规范的历史版本</div>
+<div>连接构建服务，按分支部署或生成预览</div>
+</div>
+</div>
+<div>
+<div>留给开发者的核心命题</div>
+<div>
+<div>多 Agent 并发产生冲突时的仲裁与优选策略</div>
+<div>代码改动背后的决策动机与架构取舍追溯</div>
+<div>重构面向海量 AI 协同的“下一代开发平台”</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Ideogram 4.5：让 AI 连续改图，少动你没要求改的地方 主打“高精度局部编辑”与“超强一致性”的图像编辑模型</title>
+<link>https://best.xiaohu.ai/article/ideogram-4-5/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:ideogram-4-5</guid>
+<pubDate>Fri, 02 Oct 2026 12:01:10 +0000</pubDate>
+<description>连续换色、改文字、换场景，为什么越改越容易糊、偏色或丢细节？Ideogram 4.5 把重点放在改准目标、保住其余画面，并让修改能接着累积。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 2 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Ideogram 4.5：让 AI 连续改图，少动你没要求改的地方 主打“高精度局部编辑”与“超强一致性”的图像编辑模型</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/ideogram-4-5/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Ideogram 4.5：让 AI 连续改图，少动你没要求改的地方 主打“高精度局部编辑”与“超强一致性”的图像编辑模型</h1><p>连续换色、改文字、换场景，为什么越改越容易糊、偏色或丢细节？Ideogram 4.5 把重点放在改准目标、保住其余画面，并让修改能接着累积。</p><strong>一分钟速览</strong><ul><li>Ideogram 发布了 4.5 图像编辑模型，主打高精度局部修改：改准指定位置，尽量保留画面其他部分。</li><li>连续多轮改图时，重点减少偏色、细节走样和异常纹理，让上一轮已经满意的结果保留下来。</li><li>支持换色调光、改图中文字、产品换场景、老照片修复等；大图可裁出局部编辑，再拼回高清原图。</li></ul><div><h2>核心痛点与主打卖点：多轮编辑不“糊”、不“崩”</h2>
+<p>你已经选好一张商品图，先把产品换成红色，再换背景，最后调光线。每一步单独看都不难，可改到第三、第四轮，按钮开始走样，金属表面多了脏纹，连原本满意的颜色也偏了。你要改的地方改好了，没要求改的地方却越来越不像原图。</p>
+<p>这种“画质漂移”不只是清晰度下降，还包括位置、颜色和表面质感的变化：</p>
+<ul>
+<li><strong>像素位移</strong>：原来的边缘或细节位置发生了轻微移动。比如按钮轮廓、衣服接缝的位置变了，即使图片看着仍然清楚，也已经不是原来的形状。</li>
+<li><strong>颜色漂移</strong>：没要求换色的部分也跟着偏色。只改商品颜色，背景却更黄了，人物肤色也变了。</li>
+<li><strong>纹理伪影</strong>：模型生成了原图里没有、看起来又不自然的表面细节。比如皮肤多出奇怪的斑块，布料纹路扭曲，金属表面出现脏污般的杂纹。“伪”指这些细节是错误生成的；“纹理”指它们影响的是皮肤、布料、金属等表面的质感。</li>
+</ul>
+<p><strong>为什么连续改几次，问题会越来越明显？</strong> 因为下一轮通常接着修改上一轮的结果。第一轮多出的杂纹、偏掉的颜色，已经进入了第二轮的底图；下一轮如果没有纠正它们，还可能继续产生新的偏差。于是你不仅在累积想要的修改，也可能在累积不想要的错误。最后即使商品、人物还在，原来的形状、质感和配色也逐渐丢了。</p>
+<p>Ideogram 4.5 是一款主打<strong>高精度局部编辑与多轮一致性</strong>的图像编辑模型。Ideogram 对它的核心承诺，是消除这种逐轮堆积的伪影：改准你指定的目标，尽量保住其余画面，让下一轮能接着上一轮的成果做下去。比如先给烤面包机换色，再换旁边的水果，后一次修改仍要沿用前一次已经确定的机身颜色、按钮与镀铬细节。</p>
+<p>精确编辑会把<strong>未被本轮修改实质影响的像素直接复制到结果中</strong>。这些区域沿用输入图的像素，减少了重新生成带来的偏色和纹理变化。<a href="https://developer.ideogram.ai/ideogram-api/api-overview">API 文档</a></p>
+<p>“高精度”关注这一轮有没有改准、有没有误伤周围；“一致性”关注连续几轮之后，同一件商品或同一个人物还能不能保持原有特征。两者一起，才让改图从“每次重新试一张”，变成“沿着同一张图逐步完成”。</p>
+<p>模型已在 Ideogram 平台、API 和首发合作伙伴上线。开放权重仍是即将推出的预告，尚未给出具体日期。</p>
+<h2>连改多轮之后，图还能不能继续用？</h2>
+<p>下面这段 Ideogram 提供的对比视频，用相同提示词连续编辑 14 轮，比较 Ideogram 4.5 Medium、GPT Image 2.5 Sunburst High、Nano Banana Pro 和 Nano Banana 2。</p>
+<figure><figcaption>Ideogram 多轮编辑对比：相同提示词，14 轮修改。视频没有音轨。</figcaption></figure>
+<p>同一位女性先后换衣服颜色、唇色、头发与背景，再换成白裙。这里要看的，不只是每一步有没有完成换色，而是改到后面，人物面貌、服饰质感和整体色调还能不能继续沿用。</p>
+<p>视频中，Ideogram 一侧的画面较稳定，对比模型的后期结果出现了更明显的颜色和纹理变化。这也是多轮一致性的实际价值：每次修改之后，减少重新修补那些已经做好的细节。</p>
+<h2>局部缩放编辑：大图只改一个包，为什么要先裁一块？</h2>
+<p>一张两千多万像素的秀场照片，只想给模特手里的包换个颜色。如果先把整张图缩小再编辑，衣料、发丝和远处观众的细节也会被一起缩掉；改完再放大，并不能自动找回原图的所有细节。</p>
+<p><strong>Zoom Editing 的办法，是只把需要改的那一块交给模型：裁出手袋所在区域 → 修改裁片 → 拼回高分辨率原图。</strong> 大部分未编辑区域继续使用原图，不必跟着缩小或重新生成。</p>
+<p>难点在裁片的边缘。假如换包的颜色时，连边缘的衣服纹路、阴影或背景也变了，这块图拼回去就可能出现错位或接缝。保住这些边缘细节，才能让改好的局部与周围自然衔接。</p>
+<p>下面这张秀场照片的原图为 <strong>4,016 × 6,016 像素、约 24.2 MP</strong>，编辑目标是把浅蓝绿色手袋换成酒红色。</p>
+<div><h4>手袋改色：看局部，保住整张图</h4><div><figure><img /><figcaption>原图局部：浅蓝绿色手袋</figcaption></figure><figure><img /><figcaption>修改后局部：酒红色手袋</figcaption></figure></div><p>图：Ideogram 官方示例。</p></div>
+<p>修改完成后，手袋所在的裁片回到原位，整张照片继续沿用原图的 24.2 MP 尺寸与其他区域的细节。</p>
+<h2>精确修改，还是重新生成？先选对编辑入口</h2>
+<p>Ideogram 4.5 提供两个端点，适合不同的修改目标：</p>
+<div><table>
+<thead>
+<tr>
+<th>入口</th>
+<th>适合做什么</th>
+<th>输出怎么处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Precise Edit（精确编辑）</strong></td>
+<td>给同一件商品换色、改招牌文字，继续沿用既有画面</td>
+<td>保留未受编辑影响的像素，通常按输入图的宽高返回结果</td>
+</tr>
+<tr>
+<td><strong>Generate＋Edit（生成＋编辑）</strong></td>
+<td>从文字生成新图，或上传图片再重新组织画面</td>
+<td>可以选择输出尺寸；传入图片时也能进行编辑</td>
+</tr>
+</tbody>
+</table></div>
+<p>精确编辑还可以用<strong>蒙版</strong>圈定修改范围：黑色区域表示要改，白色区域表示保留。参考图则可以提供商品、材质或画风依据，最多四张；使用蒙版时最多三张。<a href="https://developer.ideogram.ai/api-reference/images/precise-edit/ideogram-4-5">精确编辑 API</a></p>
+<p>图片超过接口支持的尺寸时，会先按比例缩小。要保留超大原图的细节，可以只裁出需要修改的区域，编辑后再拼回原图。</p>
+<p>四档质量模式支持原生 2K 输出。2K 说的是模型的生成规格；要保留一张更大的原图，可以采用前面的裁片编辑与拼回流程。</p>
+<h2>十类案例，分别能帮你改什么？</h2>
+<p>这些编辑任务要保留的东西并不相同：有的要保留原来的商品，有的要保留文字，有的要保留空间结构，还有的只借用画风。先分清你想保住什么，才能理解这些能力的用途。</p>
+<h3>1. 色彩与光影（Color and lighting）</h3>
+<p>以<strong>保留物体造型与空间位置</strong>为编辑目标，对局部颜色、表面材质和照明进行连续编辑。</p>
+<p>改光线并不是给整张图叠一层暖色滤镜。光源方向或时段变了，阴影、反射和高光也应该跟着更新；这些是让场景可信的必要变化。需要保住的是商品的形状、位置与构图，而不是把所有光影都冻结。</p>
+<ul>
+<li><strong>跑鞋电商图（Knit running shoes）</strong>：
+<ul>
+<li>初始珊瑚红针织鞋➔ 换板岩蓝鞋面➔ 白色中底换半透明生胶大底➔ 换柔和淡紫背景纸➔ 切换午后左侧暖金自然光拉长阴影。</li>
+</ul>
+</li>
+<li><strong>鹅卵石音箱（Pebble speaker）</strong>：
+<ul>
+<li>米色布艺音箱置于反光水面，金属环上带有品牌文字；</li>
+<li>换赤陶深色布料（标志与金属环保留）➔ 换落日橙背景➔ 转为“蓝调时刻”（Blue Hour），水面泛起冷调暮色，铜圈倒影泛出暖光。</li>
+</ul>
+</li>
+<li><strong>意式咖啡机（Espresso machine）</strong>：薄荷绿烤漆换樱桃红；赤陶拱门背景换深蓝摩洛哥泽利吉瓷砖（Zellige）；在滴水盘旁增添两块杏仁脆饼；变换傍晚西斜光影。</li>
+<li><strong>祖母绿式切工单钻戒指（Emerald-cut solitaire）</strong>：手部佩戴的金色爪镶钻戒；先将戒托换成银色；再将中央主钻置换为同等切工比例的深绿祖母绿；最后过渡到暮色深琥珀色阳光。</li>
+<li><strong>保温钢瓶（Steel bottle）</strong>：钴蓝粉末涂层换薄荷绿；漂浮丝绸与背景换色；增加落日硬光与瓶身冰镇冷凝水珠细节。</li>
+</ul>
+<div><h4>跑鞋：每轮只改一个目标</h4><div><figure><img /><figcaption>原图：珊瑚红鞋面</figcaption></figure><figure><img /><figcaption>第4轮：换暖光与阴影</figcaption></figure></div><div>查看过程 原图：珊瑚红鞋面第1轮：改成蓝鞋面第2轮：换生胶鞋底第3轮：换淡紫背景第4轮：换暖光与阴影上一步下一步</div><p>图：Ideogram 官方示例；原图始终留在左侧，右侧可逐步切换。</p></div>
+<figure><figcaption>换色与重打光的连续过程：咖啡机、戒指、跑鞋和理发店。视频无音轨。</figcaption></figure>
+<h3>2. 文字与排版修改（Text modification）</h3>
+<p>改照片里的字，比在空白画布上打字多了一层要求：新文字还要融入原来的招牌、纸袋或粉笔黑板。换文案时，要同时保留文字的材质、排版和周围场景：</p>
+<ul>
+<li><strong>咖啡品牌包装系统与日文化</strong>：
+<ul>
+<li>从一个空白无标牛皮纸气阀袋起步；</li>
+<li>印制几何无衬线“NORTHBEAN”品牌名与产地规格；</li>
+<li>纸袋升级为哑光黑金烫金字体；</li>
+<li>加入 5 颗烘焙程度刻度圆点；</li>
+<li>增加一杯冒着热气的黑咖啡，再延伸出赤陶色哥伦比亚风味副款；</li>
+<li>将袋上英文说明<strong>转译为日文</strong>，指令要求保留文字风格、层级与布局；</li>
+<li>后续继续生成黑、灰绿、赤陶三袋家族陈列，陈列于咖啡馆木架上，悬挂“¥1,800”牛皮纸标签，最后叠加冬季金色雪花节日限定版。</li>
+</ul>
+</li>
+<li><strong>市场摊位黑板粉笔字更新</strong>：
+<ul>
+<li>原印尼文菜单黑板，价格“CREPES 10K”改成“CREPES 12K”；</li>
+<li>“SALAD BUAH 20K”换为“ES KOPI 15K”；</li>
+<li>进一步将黑板内容翻译为英文，编辑目标包括保留粉笔字风格和原来的现场画面。</li>
+</ul>
+</li>
+<li><strong>快餐网络营销横幅字体改造</strong>：
+<ul>
+<li>原炸鸡块促销 Banner；</li>
+<li>品牌换为虚构的“BUN &amp; BLAZE”；</li>
+<li>促销文案“BUY ONE, GET ONE / FREE”翻译替换为法文“UN ACHETÉ, UN OFFERT / GRATUIT”；</li>
+<li><strong>字体风格置换</strong>：将原本圆润复古的字体整体更换为冷峻现代的几何无衬线字体（如 Futura Bold 大写），指令同时要求保留鸡块与画框。</li>
+</ul>
+</li>
+</ul>
+<div><h4>咖啡包装：从单袋到节日产品家族</h4><div><figure><img /><figcaption>原图：空白牛皮纸袋</figcaption></figure><figure><img /><figcaption>第10轮：加冬季装饰</figcaption></figure></div><div>查看过程 原图：空白牛皮纸袋第1轮：加品牌与产地文字第2轮：改黑袋与金色文字第3轮：加烘焙程度刻度第4轮：加咖啡杯第5轮：改赤陶色与产地第6轮：文字转日文第7轮：扩成三袋家族第8轮：移入咖啡馆第9轮：加价格标签第10轮：加冬季装饰上一步下一步</div><p>图：Ideogram 官方示例；原图始终留在左侧，右侧可逐步切换。</p></div>
+<h3>3. 商业产品摄影（Product photography）</h3>
+<p>同一件商品要做车内、街头、居家和棚拍宣传图，可以沿用产品照片更换背景，同时调整与新场景相配的光影：</p>
+<ul>
+<li><strong>皮质旅行袋换场景（Leather duffel）</strong>：
+<ul>
+<li><strong>放入复古敞篷车后座</strong>：沿用同一个皮包，重新匹配车内场景与光影；</li>
+<li><strong>人物持包场景</strong>：穿驼色大衣的男士手提该皮包行走于车站；</li>
+<li><strong>欧洲古城窗边</strong>：酒店小桌上，窗外是欧洲老城蓝调暮色；</li>
+<li><strong>棚拍场景</strong>：深珊瑚粉背景墙与石台，单束硬窗光投射。</li>
+</ul>
+</li>
+<li><strong>手冲咖啡具套组（Pour-over set）</strong>：陶瓷滤杯与分享壶，先后置于橡木台面、雨天咖啡馆窗边注水动态（带细水流与蒸汽）、居家温馨烛光夜景，以及摄影棚悬浮高饱和动态大片。</li>
+<li><strong>客制化机械键盘（Mechanical keyboard）</strong>：将原背景换为纯白背景；将部分橙色键帽换为深青蓝（要求保留键帽字符与位置）；放置于带鼠标与绿植的桌面；旁边加一杯热咖啡。</li>
+<li><strong>耳饰搭配（Ear stack）</strong>：同一位浅肤色短发女性的耳骨夹与耳圈，从黄金材质换为亮银色；将白色珍珠坠换为大溪地黑珍珠；背景增加春季樱花枝丫光影。</li>
+</ul>
+<p>烤面包机的连续六轮修改尤其直观：薄荷绿机身改红，蓝莓换草莓，迷迭香换果酱，毛巾换红白格，晨光换暖光，最后调整相机角度。每轮指令继续要求沿用上一轮已经确定的商品细节。</p>
+<div><h4>烤面包机：六轮修改怎样累积</h4><div><figure><img /><figcaption>原图：薄荷绿机身与蓝莓</figcaption></figure><figure><img /><figcaption>第6轮：调相机角度</figcaption></figure></div><div>查看过程 原图：薄荷绿机身与蓝莓第1轮：机身改樱桃红第2轮：蓝莓换草莓第3轮：换果酱与抹刀第4轮：换红白格茶巾第5轮：换暖色日光第6轮：调相机角度上一步下一步</div><p>图：Ideogram 官方示例；原图始终留在左侧，右侧可逐步切换。</p></div>
+<h3>4. 室内空间设计（Interior design）</h3>
+<p>室内方案讨论常常只需要先看“换这张沙发会怎样”“墙面改成绿色合不合适”。在保留房间格局与视角的基础上逐步修改，有助于比较软装、材质和照明方案：</p>
+<ul>
+<li><strong>80 年代老旧客厅全面焕新（Living room refresh）</strong>：
+<ul>
+<li>保留原房间大窗与拍摄视角，将发黄墙面刷成暖白，米色地毯换为浅橡木人字拼木地板；</li>
+<li>破旧棕色皮沙发换为现代米白色羊羔绒（Boucle）弧形沙发；</li>
+<li>铺设圆形天然黄麻地毯与低矮洞石茶几；</li>
+<li>碎花厚窗帘换为透光的落地纯白亚麻帘；</li>
+<li>左侧墙面定制浅橡木壁龛书架，茶几上方悬挂和纸灯笼吊灯，转角添置大琴叶榕盆栽，沙发背景墙挂上抽象画。</li>
+</ul>
+</li>
+<li><strong>房间风格逐步变化</strong>：
+<ul>
+<li>房间还可以逐步改成几种不同风格：
+<ul>
+<li><strong>法式巴黎风（Parisian）</strong>：粉白护墙板、弧形天鹅绒沙发、地板和装饰；</li>
+<li><strong>装饰艺术风（Art Deco）</strong>：墨绿墙面、黑白几何大理石地面、黄铜天鹅绒家具与台灯；</li>
+<li><strong>日式与北欧融合风（Japandi）</strong>：暖黏土抹灰肌理墙面、原木亚麻矮沙发、单枝花道插花。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div><h4>客厅：保留房间视角，逐步换装修与软装</h4><div><figure><img /><figcaption>原客厅</figcaption></figure><figure><img /><figcaption>连续八轮修改后的方案</figcaption></figure></div><p>图：Ideogram 官方示例。</p></div>
+<h3>5. 建筑与外观改造（Architecture）</h3>
+<p>一张发黄的建筑手绘图纸，可以沿同一构图逐步深化：先清理图纸，再铺水彩、转成摄影外观，随后加前院、门窗、树木、午后光线、行人，最后变成夜景，共九轮修改。建筑的设计过程因此可以拆成连续的小步骤，每次集中调整一部分。</p>
+<div><h4>建筑立面：九轮深化，沿用同一构图</h4><div><figure><img /><figcaption>原图：手绘立面图纸</figcaption></figure><figure><img /><figcaption>第9轮：转成夜景</figcaption></figure></div><div>查看过程 原图：手绘立面图纸第1轮：清理纸面第2轮：水彩上色第3轮：转成摄影外观第4轮：增加前院与树篱第5轮：细化门窗第6轮：两侧加树第7轮：换午后光线第8轮：加行人作尺度参照第9轮：转成夜景上一步下一步</div><p>图：Ideogram 官方示例；原图始终留在左侧，右侧可逐步切换。</p></div>
+<ul>
+<li><strong>临街店铺品牌翻新（Storefront rebrand）</strong>：
+<ul>
+<li>移除街边停靠的蓝色汽车与黑色垃圾桶，再补全街面；</li>
+<li>灰色瓦片雨篷换为深藏青帆布雨篷；</li>
+<li>砖墙上方增加立体凸出的金色衬线字“HALDEN &amp; CO.”招牌，雨篷边缘增加“BOOKS · COFFEE”小字；</li>
+<li>窗框涂刷哑光黑漆，橱窗陈列书堆、垂坠绿植与暖光小台灯；</li>
+<li>门前增加人行道 A 字黑板手绘展架与黄杨木盆栽；</li>
+<li>进一步过渡到夜景橱窗透光，再到圣诞节日版本（挂门环、缠绕小彩灯与浅薄积雪）。</li>
+</ul>
+</li>
+<li><strong>废弃砖结构厂房改造 Loft</strong>：从屋顶长杂树、门窗破损的荒废红砖建筑，移除杂草瓦砾、换装黑钢框落地玻璃大门、外立面做暖白刷浆微透砖纹、沥青路面换花岗岩石块、屋顶增加绿植屋面，最后透出室内精装灯光。</li>
+<li><strong>维多利亚式老宅（Queen Anne Victorian）</strong>：米色外墙刷成柔和鼠尾草绿，白边保留；前门与塔尖漆成深李子紫；台阶两侧摆满整齐的黄杨球与吊篮蕨类植物。</li>
+</ul>
+<div><h4>门店：从清理街面到品牌与节日视觉</h4><div><figure><img /><figcaption>原门店</figcaption></figure><figure><img /><figcaption>连续十轮修改后的节日版本</figcaption></figure></div><p>图：Ideogram 官方示例。</p></div>
+<h3>6. 老照片修复与复原（Restore old photos）</h3>
+<p>修复老照片可以分三轮完成：先清除划痕和污斑，再上色，最后调整为更清晰的现代摄影质感。每轮只处理一个目标，上色不满意时，也容易定位到这一轮重新调整，保留此前已经完成的损伤修复：</p>
+<ul>
+<li><strong>1910 年代老机械车间（Machine shop c.1910）</strong>：
+<ul>
+<li>去除泛黄胶片上的所有刮痕斑点，保持黑白原貌；</li>
+<li>按提示词为画面赋予深绿铸铁机床、棕色皮带传动轴、工人们的白衬衫与深色围裙；</li>
+<li>最终输出如同现代数码定焦拍摄的更清晰的机械车间图像。</li>
+</ul>
+</li>
+<li><strong>西雅图海港 1920（Seattle harbor c.1920）</strong>：受损全景港口照 ➔ 修复平整影调 ➔ 白船身红烟囱蒸汽船、深绿海水、红砖街区上色 ➔ 清晰透亮的高清海报级画质。</li>
+<li><strong>1920 年代婚礼群像</strong>：象牙白丝绸婚纱与头纱、伴娘手捧花按提示词上色，并要求人物的面容与表情保持一致。</li>
+</ul>
+<div><h4>老车间照片：修损伤、上色、增加清晰质感</h4><div><figure><img /><figcaption>原始黑白照片</figcaption></figure><figure><img /><figcaption>清理、上色及现代摄影质感版本</figcaption></figure></div><p>图：Ideogram 官方示例。</p></div>
+<figure><figcaption>肖像、海港、车间和电车照片，分别经过清理、上色、增强三轮修改。视频无音轨。</figcaption></figure>
+<h3>7. 手绘草图转写实摄影（Sketch to image）</h3>
+<p>草图已经提供了物体位置、透视和场景骨架，模型再补上材质与光照。比起只写“画一条街道”，它让构图有了更具体的依据：</p>
+<ul>
+<li><strong>城市手绘街道向 2030 步行街深化（Urban sketch）</strong>：
+<ul>
+<li>炭笔速写转为写实乡村街道摄影；</li>
+<li>改为“行人优先”的浅色花岗岩铺装狭窄街道；</li>
+<li>街道右侧栽种整齐的行道树，左侧布置露天咖啡馆桌椅阳伞；</li>
+<li>开辟带自行车的隔离骑行道，增加长椅上休憩的市民；</li>
+<li>转换至暖光晚霞并悬挂连结两旁房屋的小灯串；</li>
+<li>左下角标注“Proposal — Main Street 2030”深绿标签；</li>
+<li>在右上角加入原炭笔素描的小画框，方便汇报方案对比；</li>
+<li>最终演进为带有地面真实雨水倒影的秋雨夜晚。</li>
+</ul>
+</li>
+</ul>
+<div><h4>街道草图：保留大体布局，深化成提案</h4><div><figure><img /><figcaption>炭笔草图</figcaption></figure><figure><img /><figcaption>连续修改后的雨天街道方案</figcaption></figure></div><p>图：Ideogram 官方示例。</p></div>
+<h3>8. 风格参考与题材迁移（Style reference）</h3>
+<p>将特定艺术流派的“笔触、色彩体系、空间平面化处理方式”提炼出来，创作完全不相干的现代题材：</p>
+<ul>
+<li><strong>古希腊黑绘陶器风（Greek black-figure pottery）</strong>：
+<ul>
+<li>原图为黑绘陶器图案；</li>
+<li>迁移创作 1：屋顶农园里正在给番茄浇水的老奶奶；</li>
+<li>迁移创作 2：荒凉沙漠星空下正在充电的现代电动汽车；</li>
+<li>迁移创作 3：雨夜城市中排队买发光墨西哥卷饼餐车的人群。</li>
+</ul>
+</li>
+<li><strong>克里姆特《吻》黄金装饰画风（Klimt）</strong>：
+<ul>
+<li>将其标志性的金色几何马赛克拼贴笔触，移植用于表现：现代城市夜景、落日余晖下涂鸦滑板池上腾空的滑板少年。</li>
+</ul>
+</li>
+<li><strong>巴厘岛叙事线描、玛雅纺织刺绣、Beatrix Potter 插画、传统塔罗牌版画</strong>：沿用这些媒介质感，表现火箭升空、雪山列车、灯塔冲浪等现代画意。</li>
+</ul>
+<div><h4>借用陶器画风，换成新的现代题材</h4><div><figure><img /><figcaption>黑绘陶器参考图</figcaption></figure><figure><img /><figcaption>以同类画风表现沙漠电动车</figcaption></figure></div><p>图：Ideogram 官方示例。</p></div>
+<h3>9. 智能重构与多画幅重排（Reframe）</h3>
+<p>一张竖海报要同时用于横幅、方图和手机故事页，直接裁切会丢内容，拉伸又会让字和图变形。更合适的办法是把同一套内容重新安排到新画幅里。</p>
+<p><strong>Reframe（重排）</strong> 会重新安排主体和文字的位置：</p>
+<ul>
+<li><strong>After Form 雕塑艺术展海报</strong>：
+<ul>
+<li>原版为竖版展演招贴（包含青铜雕塑、白色基座、主标题“AFTER FORM”、副标与展期“WHITNEY MUSEUM · MAR 6 — JUL 28”）；</li>
+<li><strong>16:9 宽屏广告牌重排</strong>：自动将雕塑移至一侧，文字在另一侧拉开优雅排版留白，指令要求不拉伸、不增加或删去文字；</li>
+<li><strong>1:1 方形社交媒体卡片</strong>：重新计算主体比例，紧凑规整；</li>
+<li><strong>9:16 Story 竖屏全屏</strong>：让主体与文字改为上下安排。</li>
+</ul>
+</li>
+<li><strong>日全食观测海报（Total Eclipse）</strong> &amp; <strong>周日拉面（Sunday Ramen）</strong>：分别围绕日冕图形、拉面碗及原标题，在新比例下重新组织位置与大小。</li>
+</ul>
+<div><h4>同一张海报，换比例也要重新安排内容</h4><div><figure><img /><figcaption>原版：竖幅海报</figcaption></figure><figure><img /><figcaption>9:16：手机竖幅重排</figcaption></figure></div><div>查看过程 原版：竖幅海报16:9：横幅重排1:1：方幅重排9:16：手机竖幅重排上一步下一步</div><p>图：Ideogram 官方示例；原图始终留在左侧，右侧可逐步切换。</p></div>
+<h3>10. 深度图引导写实生成（Depth to image）</h3>
+<p>深度图（Depth Map）是一张用明暗表示远近的图。在这些示例中，亮处表示更近，暗处表示更远。它给模型的是物体轮廓、姿势和前后位置，提示词再补上材质、环境和光线：</p>
+<ul>
+<li><strong>沙滩高难度瑜伽体式</strong>：单腿朝天的后弯瑜伽倒立，输入图规定人物抬腿与后弯的轮廓，输出图沿着这一构图补出人体、海面和自然光。</li>
+<li><strong>陶艺工匠拉坯双手</strong>：深度图先规定两只手与陶壶的位置，再生成皮肤、湿润陶土与转轮的照片质感。</li>
+<li><strong>杰克罗素梗犬</strong> &amp; <strong>草地郊狼</strong>：按深度图的姿态和大体构图生成毛发、草地与虚化背景。</li>
+</ul>
+<div><h4>用深度图规定姿势与前后关系</h4><div><figure><img /><figcaption>输入：灰度深度图</figcaption></figure><figure><img /><figcaption>输出：海滩瑜伽摄影外观</figcaption></figure></div><p>图：Ideogram 官方示例。</p></div>
+<h2>怎么用，每次编辑多少钱？</h2>
+<p>可以直接在 Ideogram 使用，也可以通过 API 或首发合作平台接入。合作伙伴包括 Picsart、Krea、Runware、fal、Gamma、ComfyUI 等；已有这些平台的工作流，可以先看其中的 Ideogram 4.5 入口。</p>
+<p><img /></p>
+<p>在 <a href="https://fal.ai/models/ideogram/v4.5/edit">fal 上调用 Ideogram 4.5 编辑接口</a>，按每张输出图计费，四档质量分别为 <strong>0.8、3、6 和 22 美分</strong>：</p>
+<div><table>
+<thead>
+<tr>
+<th>质量档位</th>
+<th>每张图价格（美元）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Very Low</td>
+<td>$0.008</td>
+</tr>
+<tr>
+<td>Low</td>
+<td>$0.03</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>$0.06</td>
+</tr>
+<tr>
+<td>High</td>
+<td>$0.22</td>
+</tr>
+</tbody>
+</table></div>
+<p>四档质量都能用于编辑，最低档 Very Low 需要上传源图。选择更高质量档位，处理时间和费用也会增加。<a href="https://developer.ideogram.ai/api-reference/images/generate/ideogram-4-5">生成 API</a></p>
+<p>多轮编辑也要按请求算预算：一张图改五轮，就是五次编辑。上表是 fal 编辑端点的按张报价，平台订阅、其他合作方与不同生成尺寸的计费要分别看对应价格页。</p>
+<h2>怎样写提示词，让每轮修改更明确？</h2>
+<p>每轮指令都要说清“要改什么”和“要保留什么”，让模型知道这次修改的目标。</p>
+<h3>明确写出要改和要保留的部分</h3>
+<p>例如，换烤面包机颜色时，不只写“变红”，还说明要保留产品形状、大小、比例、细节、位置，以及相机视角和其他内容。</p>
+<p>换水果的下一轮指令，则继续要求保留上一轮已确定的红色机身与镀铬细节。这种写法让修改逐步积累，而不是每次都重新描述一张图。</p>
+<p>“保持不变”是给模型的目标，生成后仍应回看按钮、商标和文字有没有连带变化。</p>
+<h3>把想要的材质和光线说清楚</h3>
+<p>把“高级、好看”换成具体的画面要求：皮肤要保留毛孔和细纹，光线从哪一侧的窗户照进来，物体接触桌面时应留下怎样的阴影。相机角度、材质和光线说清楚了，模型才更容易按你想要的效果修改。</p>
+<p>换产品颜色时，可以从这样一句具体指令开始，再按自己的图调整：</p>
+<blockquote>
+<p>将产品改成樱桃红，保持原有外形、比例、细节、位置和相机取景不变，其他未提及的内容也保持原样。</p>
+</blockquote>
+<h2>从“生成一张图”，走向“把一张图改到能用”</h2>
+<p>对商品图、门店视觉和营销素材来说，连续编辑的价值在于：第一版已有不少满意的地方，后续修改可以逐步积累，不用每轮都重新找回那些细节。咖啡包装案例从单袋设计一路扩展到日文化、产品家族、咖啡馆场景和节日版，就是这种工作方式的集中展示。</p>
+<p>不同任务要保留的东西也不同。商品换色，要检查外形和商标；海报改比例，要检查标题、价格和小字；老照片修复，则要记住新增颜色和补出的细节是生成重建，不能当成历史真实色彩。</p>
+<p>Ideogram 4.5 的卖点，是减少编辑时的连带变化。你判断它是否适合自己的工作，最有用的问题也是这个：同一张图连续改几轮之后，原本已经做好的部分还剩下多少？</p>
+</div><div><div><div>来源</div><div><span>Ideogram 4.5: The most precise edit model.</span><span>Ideogram<span>·</span><a href="https://ideogram.ai/models/4.5">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/ideogram_ai/status/2105327223431737780">Ideogram 4.5 发布推文及补充线程</a><span>·</span><a href="https://developer.ideogram.ai/ideogram-api/api-overview">Ideogram API Overview</a><span>·</span><a href="https://developer.ideogram.ai/api-reference/images/precise-edit/ideogram-4-5">Precise Edit API</a><span>·</span><a href="https://developer.ideogram.ai/api-reference/images/generate/ideogram-4-5">Generate API</a><span>·</span><a href="https://fal.ai/models/ideogram/v4.5/edit">fal Ideogram 4.5 Edit 价格</a></div></div></div></div></div><div><div>IDEOGRAM 4.5 · 图像编辑模型</div>
+<h1>Ideogram 4.5：让 AI 连续改图，少动你没要求改的地方 主打“高精度局部编辑”与“超强一致性”的图像编辑模型</h1><div>换色、改字、调光，再接着改下一轮：重点是减少连带变化，让已满意的细节保留下来。</div>
+<p>Ideogram 4.5 已在 Ideogram、API 和首发合作平台上线。它支持产品换场景、图中文字修改、老照片修复等编辑；开放权重仍是即将推出的预告。</p>
+<div><h2>为什么越改越偏？上一轮的偏差，也会进入下一轮</h2>
+<p>商品先换色，再换背景，最后调光。如果每轮都带来一点额外变化，后续修改就可能继续累积这些错误。</p>
+<div><div><div>需要减少的三类变化</div><ul><li><strong>像素位移</strong>：按钮轮廓、衣服接缝的位置变了。</li><li><strong>颜色漂移</strong>：只改商品，背景或肤色也偏了。</li><li><strong>纹理伪影</strong>：皮肤、布料或金属上，出现原图没有的不自然斑块与杂纹。</li></ul></div>
+<div><div>精确编辑怎样保留画面</div><p>未被本轮修改实质影响的像素，直接复制到结果中。这些区域沿用输入图，减少重新生成带来的偏色与纹理变化。</p><p>高精度看这一轮改得准不准；一致性看连续几轮后，原有特征还能保留多少。</p></div></div>
+<p>Ideogram 提供的 14 轮同提示词对比演示中，Ideogram 4.5 Medium 一侧的画面较稳定，其他模型后期出现了更明显的颜色与纹理变化。</p></div>
+<div><h2>24.2 MP 大图，只把要改的一块交给模型</h2><p>整张图缩小再编辑，会连衣料、发丝等细节一起缩掉；之后放大，不能自动找回所有细节。Zoom Editing 把修改限定在裁片上。</p>
+<div><div><span>01 裁出</span><div>从 4,016 × 6,016 像素原图裁出手袋所在区域。</div></div><div><span>02 修改</span><div>给手袋换色，保住裁片边缘的衣物纹路、阴影与背景。</div></div><div><span>03 拼回</span><div>裁片回到原位，其他区域继续使用高清原图。</div></div></div><p>边缘也被改动，就可能出现错位或接缝。接口对超限图片会按比例缩小；原生 2K 输出与这套保留超大原图的流程，是两个不同的概念。</p></div>
+<div><h2>先选编辑入口，再按修改轮数算费用</h2><div><p><strong>Precise Edit：</strong>商品换色、招牌改字，保留未受影响的像素，通常按输入图宽高返回。支持蒙版与最多四张参考图；使用蒙版时最多三张。</p><p><strong>Generate＋Edit：</strong>从文字生成新图，或上传图片重新组织画面，可以选择输出尺寸。</p></div><p>fal 编辑端点按每张输出图计费：</p><div><div><div>$0.008</div><div>Very Low</div><div>0.8 美分／张</div></div><div><div>$0.03</div><div>Low</div><div>3 美分／张</div></div><div><div>$0.06</div><div>Medium</div><div>6 美分／张</div></div><div><div>$0.22</div><div>High</div><div>22 美分／张</div></div></div><p>Very Low 需要上传源图。质量档位提高，处理时间与费用也增加。一张图改五轮，就要算五次编辑；平台订阅与其他合作方另看对应报价。</p></div>
+<div><h2>每轮都写清：改什么，保留什么</h2><div><p>将产品改成樱桃红，保持原有外形、比例、细节、位置和相机取景不变，其他未提及的内容也保持原样。</p></div><p>下一轮换水果时，继续要求保留已经确定的红色机身与镀铬细节。生成后回看按钮、商标和文字有没有连带变化。</p><div><p>判断是否适合你的工作：同一张图连续改几轮后，原本已经做好的部分还剩下多少？</p></div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Google Flow 的 10 条视频创作技巧：让 Gemini Omni 听懂你的镜头要求</title>
 <link>https://best.xiaohu.ai/article/flow-gemini-omni-prompt-guide/</link>
