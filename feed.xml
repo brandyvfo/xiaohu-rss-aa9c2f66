@@ -6,7 +6,254 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Sat, 03 Oct 2026 12:00:52 +0000</lastBuildDate>
+<lastBuildDate>Sun, 04 Oct 2026 12:00:48 +0000</lastBuildDate>
+<item>
+<title>【日报】Anthropic 官方 Skill 实践指南：怎样写、怎样改、怎样验证它有用</title>
+<link>https://best.xiaohu.ai/article/claude-skill-authoring-best-practices/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:claude-skill-authoring-best-practices</guid>
+<pubDate>Sun, 04 Oct 2026 12:00:48 +0000</pubDate>
+<description>沿着 PDF 填表和数据查询的官方示例，讲清楚一份技能怎样从真实失败出发，变成可复用的工作方法。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 4 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Anthropic 官方 Skill 实践指南：怎样写、怎样改、怎样验证它有用</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/claude-skill-authoring-best-practices/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Anthropic 官方 Skill 实践指南：怎样写、怎样改、怎样验证它有用</h1><p>沿着 PDF 填表和数据查询的官方示例，讲清楚一份技能怎样从真实失败出发，变成可复用的工作方法。</p><strong>一分钟速览</strong><ul><li>Skill 是 AI 按需读取的操作资料；先找真实任务里的失败，才能知道哪些指令值得写。</li><li>PDF 填表先检查修改计划、写完再核对成品，让错误在具体步骤中被发现和修正。</li><li>用新的会话执行任务，再与不用 Skill 的表现比较，才能看清技能有没有帮上忙。</li></ul><div><p>Anthropic 官方发布过一份 Agent Skill 编写最佳实践指南，专门探讨如何写出能被 Claude 顺利发现并高效调用的 Skill。不少开发者在刚开始编写时，容易将 Skill 写成详尽的“业务操作手册”。</p>
+<p>你可能也经历过类似的过程：Claude 某一次执行任务漏了个细节，你立刻在文件里加一条规矩；下一次它少考虑了一种情况，你再追加一段背景说明。久而久之，主说明文件写了上千行，里面塞满了各种库的介绍、参数列表和通用注意事项。主文件过长并不意味着模型能力必然下降，但上下文窗口始终是一项有限的共享资源。冗长的指令和通用知识一旦全部加载进来，不仅会与对话历史和当前任务争夺注意力，也容易增加模型定位关键信息的难度，带来不必要的推理消耗。</p>
+<p>在官方的最佳实践里，一个核心认知是：<strong>一份有效的 Skill，不需要把模型当成毫无常识的新手来教，而应该在特定场景下提供有针对性的操作指引。</strong></p>
+<p>衡量一份 Skill 是否真正有效，规则写得多，并不能直接证明有效；要看的是：<strong>在没有该 Skill 时，模型在哪些具体任务上容易出现缺口或遗漏？补充这些指令后，问题是否得到有效解决？以及，是否用了足够简练的表达和明确的流程来达成目标？</strong></p>
+<hr />
+<h2>Claude 什么时候读 Skill，什么时候去查资料？</h2>
+<p>要写好 Skill，首先得理解模型读取文件的机制。</p>
+<p>在与 Claude 的交互中，<strong>上下文窗口（Context Window）是一项共享资源</strong>。每一次对话，系统提示词、聊天历史记录、用户当前的提问、所有可用 Skill 的基础信息，都在争抢这块有限的注意力空间。若将大量背景和实现细节一次性全部塞入上下文，往往会造成不必要的空间挤占。</p>
+<p>官方设计 Skill 时，采用了一套基于<strong>渐进式披露（Progressive Disclosure）的三层加载机制</strong>：</p>
+<ol>
+<li><strong>第一层：元数据预加载（Metadata）</strong><br />
+在会话刚启动时，Claude 并不会读取 Skill 正文，只会把所有已安装 Skill 头部的名称（<code>name</code>）和说明（<code>description</code>）预先注入系统提示词。此时模型掌握的是一份全局的技能索引清单。</li>
+<li><strong>第二层：主文件按需触发（SKILL.md）</strong><br />
+只有当用户的提问触发了某个 Skill 的描述时，Claude 才会通过文件读取指令调入主文件 <code>SKILL.md</code>。如果任务只涉及基础操作，模型仅依赖正文即可执行。</li>
+<li><strong>第三层：参考资料随用随读（Reference Files &amp; Scripts）</strong><br />
+当任务需要处理更深入的业务规则、完整 API 规范或特定工作流时，Claude 才会循着主文件中的链接读取二级分册，或直接调用配套脚本。</li>
+</ol>
+<p>这就决定了 Skill 文件的核心结构：<strong>主文件应保持精炼概括，主要负责提供快速指引与目录跳转，引导模型在需要时再去抓取真正的深层知识。</strong></p>
+<figure>
+<img />
+<figcaption>单个 SKILL.md 文件的骨架设计：头部元数据（YAML Frontmatter）负责在启动时被系统登记，正文只保留快速上手与核心跳转。需注意图示中的 name 包含大写和空格，仅作结构示意；官方文字规范要求该字段只能使用小写字母、数字和连字符。</figcaption>
+</figure>
+<p>写头部元数据时，有两个关键的实战细节：</p>
+<ul>
+<li><strong>名称（name）的规范要求</strong>：长度在 64 字符以内，且<strong>只能包含小写字母、数字和连字符（如 <code>pdf-processing</code>）</strong>，不能包含 XML 标签或保留字（如 anthropic、claude）。官方示意图中若出现大写字母或空格，仅作结构示意，实际编写时应当遵循纯小写与连字符的标准命名规范。</li>
+<li><strong>描述（description）建议用客观第三人称写清触发场景</strong>：描述上限为 1024 字符，非空且不含 XML 标签。Claude 在启动时主要依靠描述在众多候选 Skill 中进行挑选与路由。若写成“你可以用这个工具处理 Excel”或“我能帮你整理文档”，注入系统提示词后容易带来人称视角的不一致。更稳妥的做法是采用客观第三人称，并明确列出触发场景与关键词，例如：“提取 PDF 文本与表格、填写表单并合并文档。当处理 PDF 文件，或用户提到 PDF、表单及文档提取时使用。”</li>
+</ul>
+<hr />
+<h2>查财务数据时，只读财务资料</h2>
+<p>官方建议，为了保持良好的运行表现，<code>SKILL.md</code> 主文档的正文建议保持在 500 行以内。这属于提高可维护性与专注度的最佳实践建议，而非平台的强制技术硬限；当内容接近或超过这一规模时，更适合拆分成独立的参考文件。</p>
+<p>在文件拆分方式上，官方推荐采用“单层引用建议（One level deep）”：<strong>所有二级参考文档尽量直接由主文件 <code>SKILL.md</code> 链接，避免层层多级嵌套。</strong></p>
+<figure>
+<img />
+<figcaption>渐进式披露组织结构：主文件 SKILL.md 相当于中枢索引，通过直接链接指向独立的功能分册（如 reference.md 和 forms.md）。模型按任务需要单向跳转，避免在多层子文件之间盲目穿梭。</figcaption>
+</figure>
+<p>为什么建议避免深层嵌套？
+如果文档结构是 <code>SKILL.md</code> 引用 <code>advanced.md</code>，而 <code>advanced.md</code> 内部又指向 <code>details.md</code>，Claude 在面对深层引用的文件时，有可能只调用类似 <code>head -100</code> 的命令进行局部预览，而不是完整读取整份文件，进而导致获取的信息不够全面。单层直接引用有助于引导模型在需要时更完整地调入目标内容，不过单层引用本身也只是一种组织建议，并不绝对保证模型每一次都会全文阅读。为此，官方进一步建议：对于超过 100 行的参考文档，最好在顶部附上目录（Table of Contents），以便模型即使进行局部快速预览，也能看清文件的全貌并准确跳转到相应章节。</p>
+<p>合适的方式是按领域划分、由主文件单层引出。例如官方给出的 BigQuery 数据分析设想：</p>
+<ul>
+<li><code>bigquery-skill/</code>
+<ul>
+<li><code>SKILL.md</code>（总览与快速检索入口）</li>
+<li><code>reference/finance.md</code>（收入、计费指标）</li>
+<li><code>reference/sales.md</code>（商机、客户漏斗）</li>
+<li><code>reference/product.md</code>（API 调用量、功能使用统计）</li>
+</ul>
+</li>
+</ul>
+<p>当用户提问“收入指标怎样计算”时，Claude 先查阅主文件，发现只需了解财务指标，便只读取 <code>reference/finance.md</code>。此时，只有实际读取的财务文档内容会计入上下文，尚未被读取的销售和产品文档依然留在文件系统中，不产生上下文开销。通过这种方式，既能按需提供详细的专业参考，又能减少不必要的上下文占用。</p>
+<p>在搭建好多文件体系后，还需要观察模型在真实交互中的访问路径，借此检验结构划分是否合理：</p>
+</div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】把任务交给 Dot，和 Codex 一起做：开发者的新协作方式</title>
+<link>https://best.xiaohu.ai/article/dots-codex-delegation/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:dots-codex-delegation</guid>
+<pubDate>Sun, 04 Oct 2026 12:00:48 +0000</pubDate>
+<description>从 Slack 里的一个 Bug，到通勤时的电话，再到部署后的提醒：Dominik Kundel 分享，主动个人 Agent 怎样接起 Codex 任务之间的跟进工作。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 4 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">把任务交给 Dot，和 Codex 一起做：开发者的新协作方式</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/dots-codex-delegation/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>把任务交给 Dot，和 Codex 一起做：开发者的新协作方式</h1><p>从 Slack 里的一个 Bug，到通勤时的电话，再到部署后的提醒：Dominik Kundel 分享，主动个人 Agent 怎样接起 Codex 任务之间的跟进工作。</p><strong>一分钟速览</strong><ul><li>Codex 能把任务做起来，Dots 这个主动个人 Agent 帮你接住任务之间的组织和后续跟进。</li><li>你可以一直和同一个 Dot 沟通，让它协调多个 Codex 任务，需要时再进入具体线程亲自协作。</li><li>它有用的提醒，是把工作变化与你要做的下一步联系起来，而不只是报告状态。</li></ul><div><p>OpenAI 开发者体验团队的 Dominik Kundel 已经花了不少功夫配置 Codex：用记忆记录偏好，装插件，设自动化，还专门开了一个“参谋长”线程统筹工作。可他用了一段时间 Dots 后，发现最明显的变化是自己不必再记着每一个跟进步骤。</p>
+<p><strong>会写代码，不等于替你记住后续的每件事。</strong> 作者过去的流程是：</p>
+<p>把 Appshot（应用画面快照）或 Slack 消息链接带给 Codex，让它实现功能，并交代它监控部署状态以及回到 Slack 回复结果；但每遇到一项新需求，都必须单独要求它设置自动化来跟进功能或发布计划的变动，每件事都要重复设置一次。</p>
+<p>真正的负担在于：每项新工作都要自己组织指令、额外配置跟进方式。</p>
+<p>现在，作者可以直接在同一个 Slack 线程里 @自己的 Dot。Chopper 接下任务、处理问题，再回到原线程回复结果，还会留意与发布有关的变化并提醒他。这让交办、执行、回报和后续跟进接在一起，作者不必每来一项新工作，就亲自拼好这套流程。</p>
+<p>而 Dots 的出现，正是为了接管这层组织与跟进的负担。它不是要取代 Codex，而是基于同一套开源 Codex Agent 执行框架（harness，也就是让模型调用工具、推进任务的运行系统），负责接住任务并持续跟进。</p>
+<p>这也解释了为什么已经配好 Codex 的人仍能用上它：Dot 可以沿用账号中已连接的 ChatGPT / Codex 插件，借助这些插件查询资料、在原有工具和服务中开展工作，也能利用已有的相关上下文。你不用为了增加一个交办入口，把之前的配置全部重做。</p>
+<hr />
+<h2>Dot 是一个可以持续交办工作的个人 Agent</h2>
+<p>简单来说，Dot 是由 GPT-6 Astra 模型驱动的常驻专属助理。作者写作时，只能创建一个 Dot，你可以给它自定义名字、专属外观，甚至可以用你家宠物的照片作为形象。</p>
+<p>例如 Dominik Kundel 就给自己的 Dot 起名叫 <strong>Chopper</strong>，并为它定制了一套顶着黑色小帽的橙色小兽形象。</p>
+<figure>
+    您的浏览器不支持 video 标签。
+<figcaption>作者为自己的 Dot 设定的个性化形象「Chopper」（16 秒，无音轨），展示个性化外观与“查看改动”“运行测试”等状态标签。</figcaption>
+</figure>
+<p>Dot 的特点在于<strong>常驻与跨端协同</strong>。它拥有专属 Handle（比如 <code>@tibo-alfred</code> 或 <code>@yourname-dot</code>），你可以直接向它派发任务，而无需在开始前先挑选具体的 Codex 线程。</p>
+<hr />
+<h2>从换个窗口聊天，到换一种交办方式</h2>
+<p>从直接使用 Codex 转向与 Dot 协同，主要体现在三方面的变化上：</p>
+<h3>1. 跨渠道连贯性：随时随地对话，上下文不再归零</h3>
+<p>平时和同事或家人沟通，我们可能会在聊天软件、电话、社交媒体之间切换，但彼此讨论的背景依然延续，不用每次都从头交代。Dot 也能做到类似的事情：</p>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】为什么专用 AI 可能胜过全能模型？</title>
+<link>https://best.xiaohu.ai/article/specialized-ai-god-model/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:specialized-ai-god-model</guid>
+<pubDate>Sun, 04 Oct 2026 12:00:48 +0000</pubDate>
+<description>OpenRouter 与 Replit 的一场对谈：通用模型负责探索，专用模型接手重复任务，企业用自己的数据、评测和权限把它们组合起来。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 4 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">为什么专用 AI 可能胜过全能模型？</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/specialized-ai-god-model/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>为什么专用 AI 可能胜过全能模型？</h1><p>OpenRouter 与 Replit 的一场对谈：通用模型负责探索，专用模型接手重复任务，企业用自己的数据、评测和权限把它们组合起来。</p><strong>一分钟速览</strong><ul><li>全能助手能串联不同业务的信息，但企业还需要按任务分配权限、检查质量。</li><li>Agent 分工不一定要训练小模型；边界稳定的任务，才适合比较更便宜的专用选择。</li><li>企业自己的任务评测决定模型组合是否值得：既看结果，也算整个任务的费用。</li></ul><div><p>a16z 邀请了两位技术创业者——<strong>OpenRouter 创始人 Alex Atallah</strong> 与 <strong>Replit 创始人兼 CEO Amjad Masad</strong>，进行了一场名为 <a href="https://www.youtube.com/watch?v=ekK8urKHPMQ">Why Specialized AI Could Beat The God Model</a> 的访谈。</p>
+<p>对话的核心观点是：<strong>未来的 AI 生态，未必由一个包办一切的“神级模型”（God Model）主导。两位嘉宾都重视不同模型的能力互补，也就是他们所说的“神经多样性”（Neurodiversity）；但怎样组织这些能力，仍有取舍：Amjad 强调统一上下文的价值，Alex 更看好专用 Agent 的垂直分工。</strong></p>
+<p>翻成大白话：一个 AI 再聪明，也未必适合同时管银行账户、写代码、处理客户关系。企业更关心的是，能不能让不同助手各做擅长的工作，分别限制权限、检查结果，再把它们协调起来。这场访谈讨论的，就是这种分工为什么值得做，以及怎样兼顾能力、成本和控制。</p>
+<figure>
+<figcaption>原访谈 · 中英双语字幕 · 约 48 分钟。中文采用 24 号加粗字幕。</figcaption>
+</figure>
+<h2>通用模型之外，产品还能提供什么价值？</h2>
+<p>这场对谈发生在 Stripe 收购 OpenRouter 之后。Alex 说，他看重的是品牌、产品与路线图的自主权，以及更有力的市场拓展。双方希望通过可靠、价格合理的基础设施，支持更多新公司出现，而不是让所有业务都归入一家巨头。他还设想，未来企业的支付与模型推理会更多地结合。（<a href="https://www.youtube.com/watch?v=ekK8urKHPMQ&amp;amp;t=47">00:47：收购背景</a>）</p>
+<p>这解释了 OpenRouter 为什么关心模型选择与成本：开发者能用不同模型做出有差异的产品，调用费用也足够低，更多生意才有机会成立。这既是 Alex 对产业的期待，也与 OpenRouter 作为模型接入平台的业务方向相连。</p>
+<p>做 AI 产品时，一个很直接的问题是：<em>“你做的这个东西，我直接去调 ChatGPT 或者 Claude 不也一样能做吗？为什么非得买你的产品？”</em></p>
+<p>Alex 认为，要打破这种同质化困局，答案不在于写出更长、更精巧的提示词，而在于<strong>神经多样性（Neurodiversity）</strong>。</p>
+<p>不同模型使用的训练数据和方法不同，擅长的任务也不同。在 Alex 看来，企业可以把不同训练方法训练出来的模型、开源与开放权重模型、自研的专有小模型以及企业自身的独特数据融合在一起。企业要用自己的任务评测，判断这种组合是否真的比直接调用通用模型更好。</p>
+<p>更现实的考量在于<strong>成本效益</strong>。如果整个市场只有 OpenAI 一家独大，在垄断或半垄断状态下，模型提供方可能缺少主动降价的动力；而只有建立起多模型并行、自由切换的交易市场，让企业不断选择效果与成本更合适的组合，大批对成本敏感的应用场景才有可能真正落地生根。</p>
+<hr />
+<h2>企业需要掌握自己的数据、评测和选择权</h2>
+<p>Alex 原本以为，许多企业会沿用熟悉的采购思路：<em>“我不懂怎么分辨这些模型，那就买名气最大、大家都在买的那家。”</em></p>
+<p>但他在 OpenRouter 看到，不少企业愿意探索开放权重模型，也就是可以取得模型权重并按许可部署或调整的模型。这不一定等同于完全开源；企业关注的是成本、自定义能力和供应商选择。</p>
+<h3>1. “拥有自己的智能”，不等于自己训练大模型</h3>
+<p>Amjad 用互联网和软件作类比：企业不必制造互联网，但需要掌握建设网站、使用软件的能力。AI 也是如此，企业应该积累内部能力，知道哪个模型适合哪个任务、怎样减少费用、怎样评测结果。</p>
+<p>这种能力不是买一个功能就结束。模型持续变化，企业需要自己的任务样本和评测，才能知道新的选择是否真的更好。掌握自己的数据、流程和评测，也能降低切换供应商的困难。</p>
+<p>Alex 提醒，模型的能力很难像普通软件那样，在网页上列一张功能清单就讲完；要看它被怎样使用，才能知道它擅长什么。对企业来说，通用榜单无法直接回答“它能不能做好我们的工作”。把真实任务、完成结果和费用持续记录下来，再比较不同模型，才会积累自己的“模型—任务匹配”经验。访谈以 Replit 的单任务成本研究为例，强调评测不只问答得好不好，还要问完成这件事花了多少。（<a href="https://www.youtube.com/watch?v=ekK8urKHPMQ&amp;amp;t=533">08:53：企业选型与评测</a>）</p>
+<p>Amjad 还担心，基础模型公司可能从供应商变成应用企业的竞争者。他在讨论中提到了 Figma、Harvey 等公司，但核心判断是供应商的业务边界可能扩大。因此，他希望 Replit 在企业与模型、云环境之间提供一层缓冲，让企业保留选择不同供应商和部署环境的能力。</p>
+<h3>2. 别把“基础设施”当成“产品壁垒”</h3>
+<p>访谈提到一种常见观察：许多 AI Agent 产品都在建设类似的功能——<strong>反复规划并调用工具的 Agent 流程、消息通知、上下文管理与长记忆、第三方连接器、代码沙盒、网络搜索、操作电脑界面的能力</strong>。</p>
+</div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Karpathy：让 AI 把复杂问题讲清楚的四种方法</title>
+<link>https://best.xiaohu.ai/article/karpathy-understanding-ai-outputs/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:karpathy-understanding-ai-outputs</guid>
+<pubDate>Sun, 04 Oct 2026 12:00:48 +0000</pubDate>
+<description>从简明文字到交互网页和定制视频，深入解释如何让 AI 的输出变成可理解、可判断的结果。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 4 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Karpathy：让 AI 把复杂问题讲清楚的四种方法</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/karpathy-understanding-ai-outputs/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Karpathy：让 AI 把复杂问题讲清楚的四种方法</h1><p>从简明文字到交互网页和定制视频，深入解释如何让 AI 的输出变成可理解、可判断的结果。</p><strong>一分钟速览</strong><ul><li>AI 能替你做更多工作，但看懂结果、判断它是否正确，仍需要人的注意力。</li><li>你可以让 AI 按理解难点重新组织输出：把关系画出来，把条件做成可操作演示，把变化过程做成视频。</li><li>软件可以只服务一次理解或决策；本篇用六个案例展示这种用法。</li></ul><div><h2>AI 干得更多，我们怎样看懂它的结果？</h2>
+<p>随着 AI 输出的内容越来越长、涉及的代码或技术论述越来越复杂，读者需要耗费大量时间去梳理文本脉络、辨析代词指代并核验逻辑。</p>
+<p>针对这一痛点，Andrej Karpathy 在<a href="https://x.com/karpathy/status/2105819303471976479">原帖</a>中提出了一个前瞻判断：随着 AI 自主承担越来越多的基础执行工作，人类的工作重心将转向监督与理解，我们将花多得多的时间去努力弄懂 AI 的输出。本文所引用的六段英文均为该原帖的关键摘录。</p>
+<figure><a><img /></a><figcaption>Karpathy 原推文截图。点击图片查看原尺寸，或<a href="https://x.com/karpathy/status/2105819303471976479">查看原帖</a>。</figcaption></figure>
+<p><strong>Karpathy 原帖要点译文（节选）</strong></p>
+<ol>
+<li><strong>写作</strong>：我试过一个有效的做法：让你的 AI 用 ASD-STE100 规范解释某件事。</li>
+<li><strong>图解／图像</strong>：与其写文字，不如让你的 AI 画一张图。图解可能更容易处理、解析和理解。</li>
+<li><strong>网页</strong>：要求“以 HTML 格式”输出，得到一个美观、可交互的网页。</li>
+<li><strong>讲解视频</strong>：我最看好的输出形式，是针对任意主题生成完全定制的讲解视频。</li>
+</ol>
+<p><strong>他在原帖最后总结道：</strong></p>
+<ul>
+<li>随着 AI 越来越强，它们会自主完成越来越多的基础执行工作，而我们的更多工作会转向更高的抽象层次——监督与理解。</li>
+<li>幸运的是，AI 在这方面也能帮忙。随着智能与代码越来越充裕，你可以要求它生成规模可观、按需定制、用完即可丢弃的软件产物，例如网页应用和讲解视频。这些东西在过去可能根本不值得专门制作。多试着突破现有用法，你会感到惊讶。</li>
+</ul>
+<p>下面从最容易直接使用的文字方法开始，逐一展开这六个理念背后的机制、用法与具体案例。</p>
+<hr />
+<h2>1. 用清楚的语言，减少读者猜意思</h2>
+<blockquote>
+<p><strong>原文摘录</strong>：Ask your LLM to explain something in ASD-STE100<br />
+<strong>中文译文</strong>：让你的 AI 用 ASD-STE100 规范解释某件事。</p>
+</blockquote>
+<h3>1. 深入解释：为什么只说“简单一点”还不够？</h3>
+<p>当我们觉得 AI 输出晦涩时，通常会习惯性追问“请再解释得通俗简单一点”。这句话没有说明你卡在哪里，也没有给出具体的改写规则。原因在于，“通俗”或“简单”是非常主观且缺乏操作边界的抽象要求。AI 可能把“简单”理解为删掉细节，也可能改用比喻。文字变短、听起来亲切，并不代表条件和因果已经讲清。</p>
+<p>相比之下，给 AI 一套具体的写作规则，能让它知道该怎样改。Karpathy 推荐的 ASD-STE100 最初是航空工业为维护文档制定的受控自然语言国际标准。Karpathy 说 AI 熟悉这种规范，他自己用它获得了更易读的解释。比起只要求“通俗”，指定规范给出了词汇和句子结构上的明确约束；输出后仍需检查事实与步骤有没有写错。</p>
+<figure><a><img /></a><figcaption>ASD-STE100《简化技术英语》标准第 9 版封面（2025 年 1 月）。</figcaption></figure>
+<p><a href="https://www.asd-ste100.org/assets/files/ASD-STE100_ISSUE9.pdf">下载 ASD-STE100 第 9 版规范（官方 PDF）</a></p>
+<blockquote>
+<p><strong>背景补充：ASD-STE100 的核心机制</strong><br />
+ASD-STE100（Simplified Technical English，简化技术英语）由受控词典与写作规则两部分组成：</p>
+<ol>
+<li><strong>同词同义与固定词性</strong>：通用词典中核准词通常仅保留单一含义与批准词性（例如 <code>close</code> 只能作动词“关闭”，不能作形容词“接近”），减少多义词带来的猜测。</li>
+<li><strong>限制句长与单句指令</strong>：程序性指令原则上不超过 20 词，描述性句子原则上不超过 25 词；一句话通常只表达一条指令，同时发生的动作可以合写。</li>
+<li><strong>主动语态</strong>：程序性文本直接写出动作，让读者知道要做什么。中文操作说明还可以把条件放在动作前，例如“网络恢复后，重试一次”，方便先判断条件。</li>
+<li><strong>保留技术事实</strong>：受控规范绝不是删去技术事实，而是在通用词汇之外，允许按规则使用专业技术名词与技术动词。</li>
+</ol>
+</blockquote>
+<p>短句的核心目的是减少读者在长句中对主谓宾嵌套与从句修饰的猜测，不能为了凑字数，删掉动作成立的条件和必要的技术事实。</p>
+<h3>2. 关键辨析：理解与应用的边界</h3>
+<ul>
+<li><strong>“80%”是口语化调优，不是标准版本</strong>：Karpathy 提到若觉得 STE 规范过于严苛生硬，可要求达到其八成水平。这是他尝试用来放宽限制、兼顾表达流畅度的提示方式，标准本身并没有 80% 的合规档位。</li>
+<li><strong>中文借鉴的是组织原则，而非套用英文词典</strong>：ASD-STE100 是针对美式英语建立的词汇与语法体系，中文语法机制完全不同。中文实践中应当吸纳其“短句、主动语态、一事一句、条件前置”的思维，而不是机械宣称中文符合该国际标准。</li>
+</ul>
+<h3>3. 具体展示案例：操作文档改写对比</h3>
+<p>以下为本篇制作的假设案例。</p>
+<ul>
+<li><strong>提示词参考</strong>：<br />
+借鉴 STE 原则，在中文环境中可以这样提示 AI：
+<blockquote>
+<p><code>“请用简明技术说明风格改写以下操作指引。要求：1. 一句话只表达一个事实或动作；2. 使用主动语态祈使句；3. 步骤的前提条件必须放在动作前面；4. 保持因果逻辑与事实完整，删除多余客套修饰。”</code></p>
+</blockquote>
+</li>
+</ul>
+<h4>场景：改写网页文件上传失败的处理流程</h4>
+<ul>
+<li><strong>【改写前：冗长版本】</strong>
+<blockquote>
+<p>“当用户在前端界面执行文件上传操作却遭遇系统报错提示上传失败的时候，第一步应当先对本地设备的网络连接通畅情况进行排查确认。为了避免向后台服务器发送多余请求并加重系统阻塞负担，用户切记不要在短时间内连续反复地点击提交按钮。一旦确认本地网络已经完全恢复正常，可以尝试重新点击提交按钮进行一次重试。如果在此之后文件依然无法顺利完成上传，请务必将界面弹出的具体错误代码完整截屏或复制保存下来，随后联系技术支持团队以获取进一步协助。”</p>
+</blockquote>
+</li>
+<li><strong>【改写后：清楚版本】</strong>
+<blockquote>
+<ol>
+<li>上传失败时，先检查本地网络连接。</li>
+<li>不要重复点击提交按钮。</li>
+<li>网络恢复后，重试提交一次。</li>
+<li>如果上传仍然失败，保存错误代码并联系技术支持。</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+</div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Claude 写代码，能做出什么视频和游戏？十个开源项目拆解</title>
 <link>https://best.xiaohu.ai/article/opus-5-5-code-creative-projects/</link>
