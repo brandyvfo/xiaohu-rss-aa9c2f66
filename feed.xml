@@ -6,7 +6,132 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Sun, 04 Oct 2026 12:00:48 +0000</lastBuildDate>
+<lastBuildDate>Mon, 05 Oct 2026 12:01:20 +0000</lastBuildDate>
+<item>
+<title>【日报】同一个 AI 模型，换个 Agent 框架，为什么表现差这么多？</title>
+<link>https://best.xiaohu.ai/article/multi-harness-rl/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:multi-harness-rl</guid>
+<pubDate>Mon, 05 Oct 2026 12:01:20 +0000</pubDate>
+<description>把小模型放进 Claude Code、Codex、OpenCode 等真实 Agent 工具里训练，既学习完成任务，也学习少走弯路。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 5 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">同一个 AI 模型，换个 Agent 框架，为什么表现差这么多？</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/multi-harness-rl/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>同一个 AI 模型，换个 Agent 框架，为什么表现差这么多？</h1><p>把小模型放进 Claude Code、Codex、OpenCode 等真实 Agent 工具里训练，既学习完成任务，也学习少走弯路。</p><strong>一分钟速览</strong><ul><li>同一个模型换到不同 Agent 工具里会判若两人，因为工具决定了它看到的上下文、能做的动作和怎样继续。</li><li>Multi-harness RL 让模型在多种真实工具里练习，通过同一套采集与训练系统改善不同接口下的表现。</li><li>实验中的小模型解决率从 42.2% 升到 54.2%，在双方都做对的任务上，工具调用减少约 31%。</li></ul><div><p>Hugging Face 与 Liquid AI 团队发表了一篇技术指南：<a href="https://huggingface.co/spaces/FineEnvs/multi-harness-rl#introduction">《The ultimate guide to multi-harness RL》</a>。</p>
+<p>它要解决做 AI Agent（智能体）时的一个现实问题：<strong>同一个大模型，放进不同的 Agent 框架（Harness）里，表现可能差很多；针对某个框架训练好之后，换到另一个框架，能力也未必能直接迁移。</strong></p>
+<p>指南不仅解释这种差异从何而来，还展示了怎样把 Claude Code、Codex、OpenCode 等现成工具接入强化学习，让模型在多种真实工具中练习完成任务、减少不必要的操作。下面先讲清问题，再拆解训练方法与实验结果。</p>
+<h2>同一个大模型，换个壳为什么判若两人？</h2>
+<p>在测试中，研究者 Joel Niklaus 拿同一个 GLM-5.2 模型在 SWE-bench Pro 代码基准上做横向评测：换了外层程序，同一模型的任务解决率就明显改变。 更令人惊讶的是，工具的优劣排名无法在不同模型间直接套用——在十种脚手架中，Codex 是 GLM-5.2 的第二强搭档，但换成 Gemma 4 26B-A4B 时，Codex 却排到了倒数第二（第九名）。</p>
+<figure><a><img /></a><figcaption>原始配对图，作者 <a href="https://x.com/joelniklaus/status/2085725862142623875">Joel Niklaus</a>。纵轴是首次尝试解决率，横轴是按 API 标价计算的每题美元成本，使用对数刻度。手机上可点图打开大图。</figcaption></figure>
+<p>读这张图要分别追踪蓝点与红点：GLM 的最佳搭档是 Mini-SWE-Agent，Gemma 的最佳搭档却是 Crush。向上代表做对更多，向左代表每题成本更低；高成本也不保证更高解决率。因此，所谓“工具最好用”要连同模型一起判断，横轴也不能当作这篇 RL 实验的训练费用。</p>
+<p>指南还引用了一项控制变量的评测：同样的 100 道 SWE-bench Verified 题，同样的容器、50 步操作预算与超时，只改变 Harness 配置。最简版没有压缩和重试；改进版精简工具、加入压缩和重试；完整版再加自检、漂移检查与回滚。</p>
+<div><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>最简版</th>
+<th>改进版</th>
+<th>完整版</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GLM-5.1</td>
+<td>52.5%</td>
+<td>56.5%</td>
+<td>65.5%</td>
+</tr>
+<tr>
+<td>GPT-5.4</td>
+<td>55.0%</td>
+<td>58.5%</td>
+<td>63.5%</td>
+</tr>
+<tr>
+<td>Kimi K2.6</td>
+<td>52.0%</td>
+<td>59.0%</td>
+<td>60.5%</td>
+</tr>
+</tbody>
+</table></div>
+<p>三个配置下的第一名分别是 GPT、Kimi、GLM。这个例子把“模型排名也受 Harness 影响”讲得更具体：榜单上更高的模型，放进你自己的执行循环里未必仍更高。数据来自指南引述的 <a href="https://huggingface.co/papers/2605.23950">Zhang 等人的 Table 2</a>。</p>
+<p>这种包裹在底层大模型外面的程序，在学术界和工业界被称为 Agent Harness（智能体脚手架）。</p>
+<h3>搞清几个容易混淆的角色</h3>
+<p>为了讲清楚背后的机制，我们先把几个常见的概念排个序：</p>
+<ul>
+<li>Policy（策略 / 底座模型）：纯粹的模型权重。它的输入是提示词，输出是生成的文本或 Token，没有跨调用记忆；模型选择工具与参数，外层程序负责执行。</li>
+<li>Harness（脚手架）：模型身外的程序外壳。它负责构建上下文提示词、给模型暴露哪些工具、拦截并执行工具调用、解析模型吐出的参数、处理报错并决定何时重试或结束。</li>
+<li>Agent（智能体）：Policy 穿上 Harness 外衣后的整体。用户实际打交道的就是这个跑在循环里的完整程序。</li>
+<li>Sandbox（沙箱）：工具真正跑代码的隔离环境，比如 Docker 容器、轻量虚拟机或远程 Linux 会话。</li>
+<li>Benchmark（基准测试）：一套固定的测试题库加上打分判定规则。</li>
+</ul>
+<p>模型提出工具调用或结束回答，Harness 实际执行操作、组织下一轮上下文，并按自身规则重试或停止。换了脚手架，模型读到的信息与可调用的工具就变了。</p>
+<p>还要区分 RL 环境与 Harness：环境保存任务状态，接收动作、改变状态、返回观察，并在满足条件时给出奖励；Harness 负责让模型持续与它交互。比如文件与计算结果属于环境中的状态，何时读文件、何时再问模型、何时停下来则由 Harness 的循环安排。</p>
+<h3>为什么只练一种工具容易偏科？</h3>
+<p>自己部署开源模型时，仅有权重并不保证它能适应所选工具的接口：</p>
+<p>快手 KwaiKAT 团队在 KAT-Coder 研究中指出，如果智能体强化学习只在一个固定的脚手架里训，模型学到的往往不是“怎么解决问题”，而是“如何迎合这个脚手架的特定规矩”。他们总结了三种过拟合：</p>
+<ol>
+<li>动作格式过拟合（Format）：工具调用的接口方言（API Dialect）千差万别。有的用标准 OpenAI 格式，有的用 Anthropic 结构，还有的像 Aider 直接要求模型在普通文本里输出特定的代码编辑块。更关键的是工具名：A 叫 <code>bash</code>，B 叫 <code>terminal</code>，C 叫 <code>execute_command</code>；一旦模型把 A 的参数名字背熟了，到 B 里就会因为参数不合规被系统直接拒绝。</li>
+<li>上下文结构过拟合（Context）：脚手架怎么压缩历史记录？是用 Markdown 拼装上下文，还是维护结构化消息列表？模型习惯了某种排版后，换一种格式就可能抓瞎。</li>
+<li>控制流过拟合（Control Flow）：有的脚手架提供较多自动容错，自动帮你做语法修复、提供重试保护；有的脚手架则很严苛，错一次直接退出。依赖这些容错机制的模型，一旦离开熟悉的环境可能难以继续。</li>
+</ol>
+<p>Orchard 论文曾记录过一次“明显退步”：把在 OpenHands 环境里精调出来的 OpenSWE-32B 拿去另一个极简工具 Mini-SWE-Agent 里跑，解决率掉了 7.5 个百分点；放到没见过的 Kimi-CLI 里跑，在 SWE-bench Verified 上的得分直接从 60% 级断崖式下跌到 3.6%，在 Terminal-Bench 2.0 上得分为零。同一论文还观察到另一个系统 Scale-SWE 离开原生工具后无法产生有效工具调用。解决率下降与格式失效是两种不同问题。</p>
+<p>指南梳理的 Poolside Laguna、Kimi K3、Qwen 与小米 MiMo 等工作，都在增加训练接触的 Harness 种类。但它们做法不同：Poolside 在监督训练中混入外部工具轨迹，后续 RL 只用生产工具 <code>pool</code>；Kimi 通过模块组合形成不同执行配置；Qwen3-Coder-Next 在六种工具里生成编码数据。所谓“多工具训练”，还需要看它发生在收集数据、监督微调还是强化学习阶段。但摆在所有开源开发者面前的难题是：市面上的成熟工具都是别人写好的独立程序，根本不是为了训练而设计的，我们怎么把强化学习接进去？</p>
+<hr />
+<h2>驯服“黑盒脚手架”的底层技术坎：为什么不能只看最终文本？</h2>
+<p>在传统强化学习里，环境通常是一个标准函数库（比如经典的 Gymnasium 接口）。微软 Agent Lightning 团队形象地将这种差别划分为白盒环境与黑盒环境：</p>
+<ul>
+<li>白盒环境（训练器主控循环）：训练引擎自己说了算。它每吐一个 Token、每调用一次环境的 <code>env.step()</code>，都在训练器的完全掌控下。TRL 这类训练框架原本也是这么预设的。</li>
+<li>黑盒环境（脚手架主控循环）：像 Claude Code 或 Codex 这种真实工具，一旦启动就在沙箱里跑自己的逻辑：自己压缩上下文、自己静默重试、自己修补格式残缺的 JSON。训练器在外面根本插不上手，只能眼睁睁看着它向模型接口发来一串串 HTTP 请求。</li>
+</ul>
+<p>这里的白盒、黑盒按“谁负责交互循环”区分。其他报告有时用它们区分是否压缩历史，含义不同；一个内部循环很简单的 Harness，也可以由它自己主控任务。</p>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】SpaceXAI工程师：如何摆脱当 AI 的“人形搬运工”，实现单月合并 2500 个高质量PR？</title>
+<link>https://best.xiaohu.ai/article/poteto-agent-engineering/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:poteto-agent-engineering</guid>
+<pubDate>Mon, 05 Oct 2026 12:01:20 +0000</pubDate>
+<description>Lauren Tan 的经验展示了一种职责变化：把反复需要人工介入的环节，建设成 Agent 能自行使用的能力。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 5 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">SpaceXAI工程师：如何摆脱当 AI 的“人形搬运工”，实现单月合并 2500 个高质量PR？</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/poteto-agent-engineering/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>SpaceXAI工程师：如何摆脱当 AI 的“人形搬运工”，实现单月合并 2500 个高质量PR？</h1><p>Lauren Tan 的经验展示了一种职责变化：把反复需要人工介入的环节，建设成 Agent 能自行使用的能力。</p><strong>一分钟速览</strong><ul><li>自主交付需要让 Agent 获取实际结果、遵循明确约束，并拿到持续更新的项目背景。</li><li>人的一次次纠错可以进入工具、规则与工作流，让后续任务继续受益。</li><li>减少亲自执行以后，人仍需判断验收是否有效、任务是否有价值，以及放权后的后果。</li></ul><div>
+<p>技术博主 Matt Pocock 与 <a>Lauren Tan</a>（网名 Poteto，开源项目 pstack 的作者、现任职于 SpaceX AI／Cursor）进行了一场深度对谈。</p>
+<p>Lauren 介绍，自己正在参与 Grok Bot 这款 Agent 应用的工程工作，上个月合入了 2,500 个 PR。（PR 是提交给代码库审查和合并的一组改动）两人核心探讨的是：如何摆脱当 AI 的“人形搬运工”，借助 Agent 与工具链，让代码工作从写出来走到自行验证、合并，并达到她所描述的交付规模？</p>
+<p>访谈里，Lauren 描述的工作方式，很少涉及怎样更快地输入提示词。她把大量时间花在另一件事上：找出 Agent 为什么还需要自己介入，再让系统接住这些工作。</p>
+<p><a href="https://cursor.com/marketplace/cursor/pstack">pstack</a> 是一套技能插件，把她的开发方法整理成 Agent 能使用的技能和工作流。她分享的 PR 数量包含许多代码维护变更，不能等同于数千个新功能。这个数字值得关注的地方，是持续交付不再要求她亲自启动、指导和检查每一项工作。</p>
+<p>这恰好戳中了很多 AI 开发者的困境。代码生成变快了，人的一天却仍被“帮它看看”“给它补点背景”“再提醒一次规范”填满。Agent 能替你执行，但整套工作依然围绕你的注意力运转。一旦多开几个任务，等待你回答的问题也跟着增加。</p>
+<p>要走出这个局面，需要改变工程经验的存放位置。原本只有你知道的检查方法、设计习惯和项目背景，必须逐渐进入工具、代码库与信息通道。Agent 才能在需要的时候获得它们，而不必每次停下来等你。</p>
+<figure>
+<figcaption>完整访谈 · 中英双语字幕 · 约 65 分钟</figcaption>
+</figure>
+<h2>从人工介入的地方，找出系统缺少的能力</h2>
+<p>Lauren 最早的尝试并非发生在大规模团队里。离开 Meta 后，她休息了一段时间，又开始做个人项目。用 AI 写代码时，她发现自己花了很多时间微观管理单个 Agent，便开始把自己的工作方法写成技能。她想让 Agent 更像自己那样处理问题，而不仅是生成一段能用的代码。</p>
+<p>这里有个容易被忽略的细节：她当时也很难衡量技能到底带来了多大改善。写出工作流文档，与证明 Agent 真能独立把工作做好，是两件事。</p>
+<p>后来加入 Cursor，她参与智能体窗口的性能优化。界面为什么卡顿，需要查看性能火焰图，了解时间主要耗在哪些操作上；还要检查内存快照，判断内存使用是否异常，再据此寻找代码问题。最初，这些观察主要由她完成：她看工具，把发现告诉 Agent，Agent 改代码，她再回去检查。</p>
+<p>在这条链上，真正稀缺的能力并非输入代码，而是获得结果并解释结果。只要这一步始终需要人，Agent 的下一次行动就始终依赖人。</p>
+<p>因此，“哪里又需要我帮忙”可以成为一个具体的工程问题。它可能意味着 Agent 没有观察运行结果的工具；也可能意味着它不知道最新需求，或代码库没有表达清楚哪些做法不可接受。弄清缺的是哪一种能力，才能决定该补什么。继续加一句提示词，有时只会把同一个问题推迟到下一轮。</p>
+</div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Anthropic 官方 Skill 实践指南：怎样写、怎样改、怎样验证它有用</title>
 <link>https://best.xiaohu.ai/article/claude-skill-authoring-best-practices/</link>
