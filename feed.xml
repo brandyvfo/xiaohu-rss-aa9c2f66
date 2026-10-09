@@ -6,7 +6,2605 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Thu, 08 Oct 2026 12:01:05 +0000</lastBuildDate>
+<lastBuildDate>Fri, 09 Oct 2026 12:00:51 +0000</lastBuildDate>
+<item>
+<title>【日报】State of AI Report 2026 报告解读：AI 这一年发生了什么？</title>
+<link>https://best.xiaohu.ai/article/state-of-ai-2026/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:state-of-ai-2026</guid>
+<pubDate>Fri, 09 Oct 2026 12:00:51 +0000</pubDate>
+<description>从研究、产业、政治、安全到下一年预测，读懂这份 244 页年度报告中的关键变化。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 9 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">State of AI Report 2026 报告解读：AI 这一年发生了什么？</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/state-of-ai-2026/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>State of AI Report 2026 报告解读：AI 这一年发生了什么？</h1><p>从研究、产业、政治、安全到下一年预测，读懂这份 244 页年度报告中的关键变化。</p><strong>一分钟速览</strong><ul><li>AI 已开始参与更复杂的科研和企业工作，评估能力也要看真实任务有没有完整交付。</li><li>推理成本下降正在扩大应用，商业化的速度却仍受算力建设和工作可靠性约束。</li><li>当 AI 能连续行动，谁能控制模型、监督工具调用并承担后果，成为行业的共同问题。</li></ul><div><p>《State of AI Report 2026》是一份梳理全球人工智能发展的年度报告，由 AI 投资人 Nathan Benaich 和 Air Street Capital 编写。它从 2018 年起每年推出，2026 版是第九份报告，共 244 页，于 2026 年 10 月 8 日发布，回顾过去十二个月 AI 领域的重要变化。</p>
+<p>这份报告沿着五条线展开：研究、产业、政治、安全和预测。研究部分看模型、Agent、机器人与科学取得了哪些进展；产业部分看这些能力怎样进入企业、形成收入，以及背后需要多少算力与资金；政治与安全部分讨论谁能获得和控制 AI，行动能力扩大以后又会带来什么风险。最后，报告回顾上一年的预测，并给出对下一年的判断。</p>
+<p>它的价值，在于把平时分散看到的论文、模型发布、公司动态和政策事件放在一起，让人看清它们之间的联系。模型能做更复杂的任务，会改变产品和商业模式；使用需求增加，又会推动数据中心建设；当 AI 开始调用工具、参与研发和处理真实业务，访问权限、监督与责任也随之变得更重要。</p>
+<p>2026 版尤其值得关注的一条变化，是 AI 正从单次回答走向连续行动。但这只是报告中的一条线索。下面沿着报告的五个部分，逐步看清这一年哪些能力有了进展、哪些应用正在形成规模，以及哪些问题仍没有解决。</p>
+<h2>一、研究：模型、Agent、机器人和科学走到了哪一步</h2>
+<h3>先别急着问谁最强，看看你让它做什么</h3>
+<p>报告把 Anthropic、OpenAI 和 Google 描述为前沿模型竞争的三大主角。不过，同一份报告里的不同榜单，给出的领先者并不相同：Anthropic 在 Artificial Analysis 的能力指数上领先，Google 在 Arena 的用户偏好排名上领先。</p>
+<figure><img /><figcaption>能力指数，取每家实验室的最佳模型；红色标示中国开放权重模型。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=6">原报告第6页</a>） <a>下载高清图</a></figcaption></figure>
+<figure><img /><figcaption>Arena 用户偏好分数，与上一图的能力指数采用不同尺度。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=6">原报告第6页</a>） <a>下载高清图</a></figcaption></figure>
+<p>能力测试关注模型能否解决特定问题；偏好投票关注用户更喜欢哪份回答。一个回答可能写得流畅，却没有完成全部要求；另一个回答可能风格普通，却更擅长解题。把这两种结果放在一起，才看得出“强”究竟指什么。</p>
+<p>更麻烦的是，很多测试开始接近上限。报告列出的 AIME、GPQA Diamond、FrontierMath 等评测，最高成绩已经很高；有的榜单前五名只差约一个百分点。这时候，题目是否标错、运行预算是否相同、工具是否好用，都可能影响排序。Epoch AI 对首批 15 项评测的审查中，发现 9 项存在实质缺陷。</p>
+<p>长期任务还暴露了另一种落差：做对很多步骤，不等于完成整件事。在 FrontierChallenge 的 97 项科学工作流程中，GPT-5.6 Sol 得分为 87.9/100，但完整完成率只有 20.6%。在 OSWorld 2.0 的办公任务中，Opus 5 获得 77.7% 的部分分数，完整完成率为 44.3%。计算做对了，最后没提交表格，任务仍然没有交付。</p>
+<figure><img /><figcaption>灰色为部分分数或答项准确率，蓝色为任务通过比例；EarthVerse 的通过条件为95%答项准确率。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=43">原报告第43页</a>） <a>下载高清图</a></figcaption></figure>
+<p>因此，实际选模型时，要把“完成”的标准写清楚。你需要的是一份供人继续加工的初稿，还是一个可运行、可复核、已经提交的结果？这两个目标需要的可靠性不同，也可能选出不同的模型。</p>
+<p>METR 的“50% 时间跨度”把任务难度换算成人类专家所需的时间。例如“12 小时”指专家通常需要十二小时完成的任务，Agent 预计能完成其中一半。最难任务的样本还较少，较长时间跨度的估计也更不稳定。</p>
+<p>中国开放权重模型也在成为研究中的常用参照。对 arXiv 论文提及的 21 个模型家族进行分析，中国开放权重模型的提及份额从 2024 年的 9% 升至 2026 年迄今的 31%，美国相应家族从 31% 降至 23%，Qwen 超过 Llama。这个变化显示，中国模型在研究中的关注度正在扩大。</p>
+<figure><img /><figcaption>纵轴为论文提及份额，2026 为截至统计时的数据。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=7">原报告第7页</a>） <a>下载高清图</a></figcaption></figure>
+<h3>模型为什么变强：训练数据、练习方式和经验都在变化</h3>
+<p>模型的进步也发生在权重内部。预训练先让它从大量材料中学习通用规律，后训练再让它练习推理、工具使用和多步任务。报告这一年的变化，是训练方法越来越公开，也越来越接近真实工作。</p>
+<p>强化学习会让 Agent 尝试任务，根据结果调整模型。难点在于怎样设计练习：一直做会做的题，学不到多少；一直失败，也很难得到有效反馈。微软的 TaskPilot 根据当前模型的尝试，在真实代码库里生成和调整问题难度，让练习接近它的能力边缘。工具返回的信息和检查结果是否准确，同样决定模型学到的是正确方法，还是拿高分的捷径。</p>
+<p>另一条路线是蒸馏：让学生模型学习老师的行为。老师可以是更强的模型、某个领域的专家模型，也可以是拿到解题过程的同一模型副本。这样能把较昂贵的能力转移到较便宜的模型中。训练代码、数据配方和实验记录的公开，降低了其他团队复现这些方法的门槛；数据怎么搭配、哪些能力会相互干扰，仍需要实验判断。</p>
+<p>持续学习想解决的是：Agent 在这次任务中学会的方法，怎样留给下一次？经验可以写入记忆，可以用于改进执行框架，也可以训练进模型权重。Experience Distillation 尝试保留一次任务中的学习收益；机器人团队则把自主尝试和专家纠正重新用于训练。改进是否保留下来，要在后续的新任务上检验。</p>
+<h3>同一个模型，为什么换个工作环境就更能干</h3>
+<p>让模型回答一道题，通常只需要输入和输出。让它修一个软件问题，则需要找到文件、理解现有代码、运行程序、读错误信息、修改、再测试。</p>
+<p>这些步骤由模型周围的软件组织起来。这层软件叫 harness，可以理解为 Agent 的工作环境和执行框架。它给模型提供工具，<a>整理上下文</a>，保存任务状态，传回运行结果，并处理失败后的重试与恢复。</p>
+<p>如果测试报错只返回“失败”，模型很难知道该改哪里；如果它能看到失败位置、相关文件和完整错误，就有机会进行针对性修改。任务变长以后，保存哪些中间结果、什么时候检查是否偏离目标，也会影响能否交付。</p>
+<p>报告引用的一项控制实验，把三款模型放进三种执行框架，在同一组 100 项 SWE-bench Verified 子集任务上测试。固定 GLM-5.1，最简框架的解决率为 52.5%；改善上下文、工具和重试后为 56.5%；再加入验证与恢复机制后，达到 65.5%。模型权重没有变化，解决率提高了 13 个百分点。</p>
+<p>其他两款模型也受益，排名还随框架改变：最简框架下 GPT-5.4 排第一，完整框架下 GLM-5.1 排第一。选模型时，实际比较的是模型与执行框架的组合。</p>
+<div>同一批任务 · 同一组模型</div><h3>改的是执行框架，排名也会变</h3><p>实心条是当前框架的解决率；细线保留最简框架的成绩。所有数值都来自同一个控制实验。</p>
+<div>最简改善完整</div>
+<div>
+<div><div>GLM-5.1 <span>+13.0 个百分点</span></div><div><div></div><div></div></div><strong>65.5%</strong></div>
+<div><div>GPT-5.4 <span>+8.5 个百分点</span></div><div><div></div><div></div></div><strong>63.5%</strong></div>
+<div><div>Kimi K2.6 <span>+8.5 个百分点</span></div><div><div></div><div></div></div><strong>60.5%</strong></div>
+<div><span>0%</span><span>解决率 · 100%</span></div></div>
+<p>完整框架加入逐步检查、异常检测、输出验证与回退；这一列 GLM-5.1 最高。</p>
+<div><table>完整实验数据始终可见<thead><tr><th>模型</th><th>最简</th><th>改善</th><th>完整</th></tr></thead><tbody><tr><th>GLM-5.1</th><td>52.5%</td><td>56.5%</td><td>65.5%</td></tr><tr><th>GPT-5.4</th><td>55.0%</td><td>58.5%</td><td>63.5%</td></tr><tr><th>Kimi K2.6</th><td>52.0%</td><td>59.0%</td><td>60.5%</td></tr></tbody></table></div>
+<p>100 项 SWE-bench Verified 子集任务，各条件两次运行的平均 pass@1。结果不代表所有工作场景。<a href="https://arxiv.org/html/2605.23950v1#S4.T2">原研究表 2</a></p>
+<p>在这组长任务中，工具、上下文与反馈决定了模型怎样发挥已有能力。信息是否足够、错误能否被发现、失败后能否恢复，都会进入最终解决率。</p>
+<p>Skills 保存可复用的指令和代码，记忆保存项目事实、偏好和已有决策。它们让 Agent 在下一次工作时少一些重新摸索。</p>
+<p>改进可以从真实工作形成循环：记录任务与结果，找到失败原因，把失败变成可重跑的测试，再修改工具、上下文、记忆、路由或模型。下一次任务的表现，才是这些改动是否有效的证据。</p>
+<p>模型变强之后，一些原本用于补偿能力不足的提示可以退出执行框架。Claude Code 删除大量行为提示，编码评测没有可测损失；可靠的工具接口、任务状态、日志和隔离环境，则仍是执行任务的基础。</p>
+<h3>AI 正在帮忙研发下一代 AI，也开始参与选择研究方向</h3>
+<p>Agent 可以改训练代码、启动实验、观察指标、排查失败。这使 AI 研发本身成为 AI 的重要应用场景：改善一个环节，可能进一步帮助研发后续模型。</p>
+<p>Anthropic 的内部自动化指标显示，Claude 主导的受测模型研发工作占比从不足 1% 升到 26%。这里的“主导”指人类给出高层任务后，Claude 完成大部分工作，人类仍然监督。受测工作中还没有任务被归为完全自主研发。</p>
+<figure><img /><figcaption>从浅色到深色，依次表示 AI 在工作中承担更多责任；深橙色为有人监督的 AI 主导。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=21">原报告第21页</a>） <a>下载高清图</a></figcaption></figure>
+<p>Karpathy 的 autoresearch 把一个小型循环做得很直观：Agent 修改训练代码，运行约五分钟的实验，比较结果，保留有效改动，继续尝试。单块 GPU 也能让这种循环持续运行。</p>
+<p>但执行实验和选择研究方向，是两种不同能力。一条路线值得投入多久？指标改善来自真正的方法进步，还是偶然波动？什么结果值得写成论文？这些判断决定了研究是否有价值。</p>
+<p>研究判断也出现了进步。在 Anthropic 的 129 个内部研究节点中，Mythos Preview 建议的下一步有 64% 被评为优于人类原先的选择。样本特意选在人类曾走偏的位置，由另一款 Claude 根据最终结果评分，衡量的是模型帮助纠正研究转向的能力。</p>
+<figure><img /><figcaption>橙色为下一步建议优于人原选择，浅色为持平。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=20">原报告第20页</a>） <a>下载高清图</a></figcaption></figure>
+<p>报告列出的一项“影子评测”，把尚未公开的高质量论文研究问题交给 Agent，给它六天、API 预算、GPU 和网络，再由原论文作者评价产出。两次 Opus 4.8 运行完成了工程工作，论文却得到明确拒绝。研究者指出的问题包括缺乏对可发表标准的判断、修改不够有创造性、回退无效、资源意识不足和任务漂移。</p>
+<p>这些结果衡量的是不同层次的研究能力。模型能跑实验，也开始能建议下一步；独立选择重要问题、安排完整研究计划，并持续产出有价值的成果，要求更高。要证明完全自主的递归改进，还需要在相同时间和算力下，看到它可靠地完成整个循环。</p>
+<h3>多模态从看懂一张图，走向持续看、听和回应</h3>
+<p>实时互动还有一条独立的进展。过去的语音助手通常串起语音识别、理解和语音合成，用户说完一句，系统再回答。报告介绍的连续交互模型，把看、听、说放进同一个学习过程，用约 200 毫秒的小时间片持续处理输入与输出，让打断、停顿、同时说话和视觉提示成为模型可以学习的行为。它仍可以调用外部工具或后台推理模型。</p>
+<p>交互视频也开始接受观众对后续片段的控制，提示经过一定延迟后改变画面。这让生成内容从完成的短片走向可响应的过程。实时交互关注看、听、说的响应节奏；用于规划的世界模型，还需要预测动作之后环境怎样变化。</p>
+<h3>机器人从示范中学动作，世界模型让它先试后做</h3>
+<p>机器人面对新任务，传统路线通常要收集任务专属数据，再调整模型。假如每换一件物品、一个场景或一种动作组合，都需要新一轮训练，部署成本就很难下降。</p>
+<p>Skild 的 S1 把视频示范放进上下文，让同一组模型权重执行此前未见过的任务。报告称它为机器人的“GPT-2 时刻”：更广泛的预训练，开始带来跨任务泛化。</p>
+<p>在 Skild 的内部评测中，使用 10 万小时预训练数据后，视频示范方式的累计步骤成功指标为 66%，语言指令基线为 9%，评测包含人工介入恢复失败。它展示的进展，是机器人可以借助一次示范适应新任务，减少单独收集任务数据和微调的需求。</p>
+<figure><img /><figcaption>横轴为预训练小时数，实线为视频示范，虚线为语言指令基线。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=56">原报告第56页</a>） <a>下载高清图</a></figcaption></figure>
+<p>机器人还需要把“下一步做什么”和“动作怎样执行”配合起来。报告中的 Gemini ER 2 等系统，用较慢的推理规划器给较快的运动控制模型下达子任务，再根据实时观察重试或调整计划。装配进行到哪一步，有时只看当前画面分辨不出来，执行历史和记忆便成为必要信息。</p>
+<p>动作数据的质量也影响泛化。遥操作记录人怎样控制机器人，手持夹爪记录示范轨迹，第一视角视频则尝试从人的动作中提取可转移的信息。π0.7 的案例把任务、速度、质量、失败和控制方式标入训练数据，让模型区分哪些行为值得模仿。更多数据要成为有效经验，需要知道每段动作是在什么条件下发生的。</p>
+<p>世界模型则帮助系统预测动作之后会发生什么。它可以把一连串预测组成模拟过程，用于规划、生成训练经验或测试行为。画面是否漂亮，与预测是否足够支持决策，是不同问题。</p>
+<p>Wayve 的 GAIA-4 把录制的驾驶场景变成可交互模拟：AI 驾驶系统改变方向和刹车，后续视觉与雷达画面随之变化，其他交通参与者则继续沿录制轨迹移动。它让研究者在相同场景中测试驾驶系统自身决策的后果。</p>
+<p>Odyssey-3 的企业实验中，视觉预训练得到的表示，可以通过较少的观察—动作数据适配驾驶、机器人和游戏控制。机械臂还能从抓取失败中恢复，训练示范没有专门展示这些恢复过程：预训练得到的经验，开始支持示范之外的应对。</p>
+<figure><img /><figcaption>Odyssey-3 的道路驾驶、双臂操作、人形机器人和游戏迁移演示画面。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=55">原报告第55页</a>） <a>下载高清图</a></figcaption></figure>
+<h3>科学进展沿着证明、实验和临床试验推进</h3>
+<p>AI 科学正在提出可检查的证明、生成可实验的设计，并把候选药物推进人体试验。证明、实验和临床试验，分别检验推理是否成立、设计是否有效，以及药物在人身上是否安全有效。</p>
+<p>数学中，一些长期开放问题出现了 AI 提出的解答，部分由证明助手检查。受外力驱动的 Navier–Stokes 问题也出现进展，相关评估仍在进行，无外力版本仍未解决。</p>
+<p>在 Co-Scientist 研究中，30 位专家评审了 50 个匹配主题的 150 份稿件。加入可靠性模块后，导致结果失效的幻觉比例为 4%，移除模块时为 46%。生成研究结果之外，还需要审查方法：严重的方法问题仍然存在，真实物理实验的条件设置和产出验证也由人参与。</p>
+<p>生物学中的一项重要变化，是把“生成一个看起来合理的分子”推进到“挑出更值得做实验的候选”。蛋白质设计模型提出序列与结构，结合能力预测模型再帮助筛选。报告列出的 BoltzProt-1 案例，在十个新靶点、每种方法测试 150 个设计的比较中，用相互作用预测排序，确认结合的候选从 5 个增加到 12 个，命中率从 3.3% 升至 8.0%。</p>
+<figure><img /><figcaption>同样测试150个设计，筛选方法改变了最终命中率。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=77">原报告第77页</a>） <a>下载高清图</a></figcaption></figure>
+<p>这类改进减少了实验资源花在无效候选上的机会，但结合靶点只是第一步。候选还要满足稳定性、可制造性和避免非预期结合等要求。</p>
+<p>药物研发则走到了更昂贵、也更有决定性的验证阶段。Generate:Biomedicines 的 GB-0895 与 Insilico 的 rentosertib 已进入三期临床，分别面向严重哮喘和特发性肺纤维化。</p>
+<p>这两条药物路线让 AI 参与不同环节：GB-0895 用机器学习辅助抗体优化；rentosertib 用系统筛选靶点，再生成候选抑制剂。理解 AI 对药物研发的贡献，需要沿着靶点、分子和优化过程看它解决了哪一步。</p>
+<p>三期临床会在更大规模的人群中检验候选药物的安全性和疗效，试验结果决定它们能否继续走向获批。发现阶段的效率提升，最终要通过这段临床验证转化为患者获益。</p>
+<h2>二、产业：能力怎样变成业务，算力又由谁提供</h2>
+<h3>推理越来越便宜，但便宜的回答不一定是便宜的工作</h3>
+<p>Agent 完成任务时，会不断调用已经训练好的模型。读文件、选工具、理解工具结果、检查输出、修改错误，每一步都产生推理需求。一次聊天结束就停止计费的使用方式，正在扩展为连续工作的调用链。</p>
+<p>OpenAI 与 Anthropic 报告的年度化收入速度合计约 1050 亿美元，年初约为 300 亿美元。这个数把近期收入节奏折算成年，涵盖订阅、编码产品和 API 等业务，显示围绕模型使用的商业规模正在快速扩大。（两家公司的收入确认口径存在争议。）</p>
+<p>达到固定能力水平的成本也在下降。Epoch AI 以五项评测中的固定分数为基准，估计成本平均每季度下降约 47%，相当于每年约便宜 13 倍。原本因成本太高而难以自动化的任务，因此有了更多尝试空间。</p>
+<p>对实际使用者来说，应该计算“一个合格结果”的成本。输入、思考、工具调用、重试和人工返工都在其中。token 单价低的模型，如果需要反复尝试，未必更便宜；价格高的模型，如果稳定一次完成，也可能更合算。</p>
+<p>按 FrontierSWE 的运行设置，Astra 得分 65.5%，Opus 5.5 得分 62.3%，单次费用分别约 1030 美元与 99 美元。多出的 3.2 个百分点，对应约十倍的单次运行费用。这说明选模型既要看结果质量，也要看为额外成功率付出的成本。</p>
+<h3>软件开始卖完成的工作，人的角色也随之变化</h3>
+<p>法律、销售、招聘和营销工作同样需要读文件、整理信息和执行多步任务。OpenAI 的使用研究显示，非开发者的 Agent 使用增长很快。报告作者据此提出一个设想：AI 也需要类似“Genius Bar”的现场帮助，让人们选对工具，把权限、材料和工作环境配好。</p>
+<p>这个设想抓住了一种实际差异。有人只问 AI 一句话，有人能提供完整材料、明确验收标准，并让它持续使用工具。两者都在“用 AI”，但能获得的价值差距很大。更好的产品设置和使用教育，可以释放已经存在的能力。</p>
+<p>软件商业模式也因此受到影响。如果 Agent 能跨几个软件完成工作，用户会重新考虑，自己付费获得的是方便操作的界面、专有数据、可信流程，还是可靠的结果交付。</p>
+<p>Claude Cowork 与业务插件让这种竞争提前反映在股价里：相关软件市值一度损失约 2850 亿美元，之后又显著反弹。市场反复调整的，是对软件公司未来定价权的预期。</p>
+<p>更具体的竞争问题是：Agent 会削弱某家公司的定价权，扩大它的市场，还是让竞争对手绕过它？拥有独特数据、深度业务流程和可靠交付能力的公司，面对的情况与主要提供操作界面的公司不同。</p>
+<p>Standard Metrics 的初步样本中，年化收入 100 万至 2000 万美元的公司，在增长率第 75 百分位上的比较是：AI 原生公司为 256%，在现有软件上增加 AI 的公司为 90%。它呈现的是两组中增长较快公司的差距。为何能保持这种增长，还要回到产品解决了什么工作、怎样交付结果。（这项观察未分离 AI 与其他因素各自带来的增长。）</p>
+<p>长期竞争力更可能来自对真实工作流程的理解。报告介绍，Decagon 的 Autopilot 会把修复方案放到过去的对话里测试，再交人批准。用户不必从零重做全部操作，但仍能审查系统已验证的改动。这样的交付方式需要任务记录、专家修正和明确的成功标准。</p>
+<h3>AI 可以很快调用，算力却要一座座建出来</h3>
+<p>模型调用发生在软件里，支撑它的电力和设备却需要现实建设。Amazon、Alphabet、Microsoft 和 Meta 的年度计划资本开支合计约 7330 亿美元，覆盖四家公司的全部业务。庞大的预算还要转化为按时可用的设施。</p>
+<p>签下算力合同，与算力已经可用，也有距离。CoreWeave 的例子中，活跃电力约为 1.5 GW，已签约电力达到约 4.2 GW。两项指标的披露时点有所不同；它们揭示的共同问题是，签约以后还要完成选址、审批、建设、供电、冷却、联网和安装设备。</p>
+<figure><img /><figcaption>蓝色为已签约，红色为已上线，单位 MW；未显示的已上线数据保持未知。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=123">原报告第123页</a>） <a>下载高清图</a></figcaption></figure>
+<p>建设还涉及谁承担资金风险。报告介绍的安排中，外部投资者为设备和数据中心提供资金，芯片商或云公司对部分租金、违约损失或资产残值提供保证。残值保证相当于对未来出售资产的价格设一层保障，有助于降低融资门槛，却也让担保方承担未来价值不足的风险。采购与租赁承诺又会形成持续多年的付款义务；它们与已借入的债务是不同口径。</p>
+<p>因此，基础设施扩张不能只看当年的资本开支。客户未来会不会继续付钱、设备还能使用多久、项目延误以后由谁承担损失，会影响这套建设与融资安排能否持续。NVIDIA 在其中同时出售芯片、投资客户、支持软件与开放模型，也参与融资；它推动的生态使用越多，对算力的需求就可能越大。</p>
+<p>芯片竞争也在变化。前沿实验室开始组合 NVIDIA、AMD、TPU、Trainium 和自研芯片；能否在特定推理任务上降低成本，要一起看响应速度、软件优化和电力效率。国家的电价和补贴又会改变设备选择。报告同时列出燃气轮机的供应积压和旧能源站点的改造：AI 扩张不仅需要芯片，也会把压力传到发电设备和供电连接。</p>
+<figure><img /><figcaption>宣布的计划或协议容量，单位 GW；各项交易存在重叠，保留“最高”“约”等条件。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=137">原报告第137页</a>） <a>下载高清图</a></figcaption></figure>
+<p>电价的小差异，在大规模连续用电时会成为很大的金额。报告给出一个可复算例子：一座持续负载为 1 GW 的数据中心，一年按 8760 小时运行，电价每度提高 0.01 美元，每年多支出 8760 万美元；提高 0.05 美元，则多支出 4.38 亿美元。</p>
+<div>同一个电价差，在不同负载下意味着什么</div><h3>每度贵一美分，一年多付多少？</h3><p>按持续负载、全年 8760 小时计算。拖动任一参数，观察年用电量与额外电费。</p><div>持续负载 1.0 GW<span>0.1 GW — 5 GW</span>电价差 0.010 美元/千瓦时<span>0 — 0.10 美元/千瓦时</span></div><div><div><span>年用电量</span><strong>87.60 亿千瓦时</strong></div><span>×</span><div><span>每度电的价差</span><strong>0.010 美元</strong></div></div><div><span>每年额外电费</span><strong>8,760 万美元</strong></div><p>公式：GW × 1,000,000 × 8760 × 电价差。这里的 GW 是给定持续用电负载；未另估冷却开销、负载率、税费或其他成本。<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=178">报告中的计算例子</a></p>
+<p>电价差会乘在全年持续用电量上，因此很小的单价变化也会影响选址。估算具体项目时，再把负载率、冷却效率、供电合同、建设成本和税费放进去；各国零售电价可以显示大致差异，实际支出则取决于数据中心的供电条件。</p>
+<p>地方同意也影响建设进度。Gallup 调查中，71% 的美国受访者反对在当地建设 AI 数据中心，反对附近核电站的比例为 53%。Data Center Watch 记录，第二季度至少 45 个项目、近 680 亿美元计划投资因地方反对而受阻或延迟。这会让已经形成的需求继续等待供给。</p>
+<p>AI 的扩张速度，因此既受模型研发影响，也受建设进度、电网与地方许可影响。筹到钱、订到芯片，还不足以让客户立刻用上算力。</p>
+<h3>行业模型和专业数据，怎样形成自己的竞争力</h3>
+<p>中国开放权重模型的影响，已经从研究论文延伸到应用公司的产品。开放权重允许团队在许可条件下自行部署和后训练，把模型针对客户关心的任务优化。Harvey 用 GLM-5.2 做法律文档审查；公司报告，其生产系统每个审查单元的成本比 Sonnet 5 低 54.8%。Mercor 则用专家任务训练 Qwen，在保留作测试的 APEX-Agents 任务上提高了一次尝试的成功率。它们改善的是特定业务中的质量和成本。</p>
+<p>关键资产因而包括行业任务、专家纠正和验收方法。一份最终答案告诉模型结果是什么，一条包含工具调用、错误和纠正的执行轨迹，还能告诉它工作怎样完成。企业可以先用前沿 API 找到用户需求，再用真实反馈建测试；当质量、速度和成本的收益足够大时，才值得进一步控制模型。</p>
+<p>生物医药也出现了靠数据和模型授权获得收入的路径。Tempus 向 AstraZeneca 与 Pathos 的合作提供去标识化肿瘤数据，用于开发基础模型；Noetik 与 GSK 的五年协议包含虚拟细胞模型的年度许可费。公司可以提供研究基础设施和专业数据，不必都把商业成败押在自己持有的药物最终获批上。</p>
+<h3>企业采用并不均匀，工作和学习也出现不同影响</h3>
+<p>收入快速增长，还不能说明典型企业已经深度使用 AI。Ramp 的 2026 年 8 月样本里，支出最高 1% 的企业中位数，每位员工每月在 AI 上花 7205 美元；全部企业的中位数为 12.50 美元。它显示少数公司的使用深度与一般企业差距很大。不同平台也会给出不同的模型使用结构：花了多少钱、处理多少 token、收到多少请求，是三种不同指标。</p>
+<figure><img /><figcaption>Ramp 样本中，人均 AI 月支出最高1%的企业；纵轴为美元/员工/月。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=96">原报告第96页</a>） <a>下载高清图</a></figcaption></figure>
+<figure><img /><figcaption>全部企业的中位数。此图纵轴量程与上一图不同。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=96">原报告第96页</a>） <a>下载高清图</a></figcaption></figure>
+<p>法律、销售和招聘的 Agent 使用从接近零的起点快速增长，工程仍占绝对使用量的大头。使用范围正在扩散，使用深度却还很不均匀：增长快的职业群体，未必已经把更多工作交给 Agent。</p>
+<p>企业和职业层面的观察也会不同。样本中重度采用 AI 的企业招聘增长较快，基础设施建设也会带来岗位；与此同时，年轻人在 AI 暴露较高职业中入职放缓的初步迹象已经出现。一家公司招更多人，与某类入门任务需求减少可以同时发生，行业结构和企业成长也会影响这些结果。</p>
+<p>把工作做完与把方法学会，也需要分开设计。在 52 位开发者学习新的 Python 库后进行的独立理解测试中，用 AI 学习的一组得分为 50%，另一组为 67%。教育中的另一条路径，是让 AI 在教师组织的活动中帮助学生思考。即时产出可以交给工具，培养人的能力则需要保留理解和练习的过程。</p>
+<figure><img /><figcaption>学习结束后的独立理解测试：左侧不用 AI 学习，右侧用 AI 学习。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=105">原报告第105页</a>） <a>下载高清图</a></figcaption></figure>
+<h3>实体 AI 开始形成硬件销售与持续服务</h3>
+<p>机器人和自动驾驶也进入了产业部分。报告记录，Waymo 每周付费乘车超过 50 万次；截至 2026 年 3 月，累计无车内安全员、仅搭载乘客的行驶里程达到约 2.2 亿英里。宇树的 2025 年人形机器人销量则从上年的 412 台增至 5215 台，同时平均售价下降约 36%。前者展示服务使用规模，后者展示硬件销售扩张。</p>
+<figure><img /><figcaption>实线为已报告的周乘车量，红色虚线为2026年底目标。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=146">原报告第146页</a>） <a>下载高清图</a></figcaption></figure>
+<p>数据中心建设也在用机器人进行焊接、布局和钻孔，提速发生在具体工序上。整座设施的交付还要衔接审批、供电、安装等环节。实体 AI 的商业价值，最终取决于客户能否持续使用，以及部署和维护成本能否被收益覆盖。</p>
+<h2>三、政治：谁能获得和控制前沿 AI</h2>
+<p>当企业把关键工作交给前沿模型，模型访问就变成一种依赖关系。把服务器建在本国，可以改善部署和数据管理条件，但模型更新、芯片供给、软件和研发能力，仍可能掌握在其他主体手里。</p>
+<p>报告描述了美国对前沿模型访问施加限制的事件，并据此强调：即使政府没有持有实验室股权，也可以通过管制影响谁能使用模型。具体限制会变化，这里的核心问题是，关键业务能否承受访问突然中断。</p>
+<p>报告选取的主权 AI 项目资金承诺合计约 1380 亿美元，分别进入采购、注资、建设或部署阶段。持续提供 AI 能力，还需要研究人员、算力、能源和一代代模型的投入。</p>
+<p>作者给欧洲的建议，是先建立足够的本地能力，让重要工作在外部服务中断时继续运行，再用有电力保障的土地、数据中心等难以替代的资源争取谈判空间。</p>
+<figure><img /><figcaption>能源、土地与审批条件，换取前沿模型访问的战略提议；执行仍会受到外部政府限制。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=176">原报告第176页</a>） <a>下载高清图</a></figcaption></figure>
+<p>模型开发者和政府也在争夺用途的边界。报告讨论了 Anthropic 与美国国防部门的争议：公司试图保留对国内大规模监控和完全自主武器的限制，政府要求其可用于合法用途。能力由谁开发，与用途最终由谁决定，并不总是一回事。</p>
+<h3>管制既涉及模型供给，也涉及应用、数据和内容</h3>
+<p>主权 AI 也在通过产业政策寻找支撑。韩国把本地模型、政府采购与算力投入联系起来，中国用能源条件与产业数据支持本土供应链。它们分别作用于研发能力、初期需求和服务成本。与此同时，美国限制先进芯片出口，中国把技术知识与人才流动纳入控制，竞争从模型延伸到持续生产和使用模型的条件。</p>
+<p>应用监管则沿着风险发生的位置展开：通用模型的能力涉及研发与披露，招聘、信贷等用途会直接影响具体的人，儿童聊天产品还会塑造依赖和关系。报告中的美国联邦与州规则仍在拉扯，欧洲区分模型与高风险应用，独立评估机构的资质、方法与利益冲突也受到关注。这些制度要把责任接到实际产品和使用过程上。</p>
+<p>版权与网站访问权也要分开理解。训练数据是否被合法取得、能否用于训练、输出是否复现受保护作品，以及 Agent 能否绕过网站访问控制，是不同问题。报告比较了多个法域的训练例外，并梳理出版商对回答引擎的争议。与一个权利人签下许可，并不自动解决其他作品或访问行为的问题。</p>
+<p>这也是 AI 改变内容行业的一条路径：助手可以替用户读网站、整理答案，用户因此少一次访问原站。谁得到流量、谁提供数据、谁获得收入，开始从搜索排名问题扩展到访问授权与内容再利用。</p>
+<h2>四、安全：行动能力扩大以后，怎样发现和阻止越界</h2>
+<p>Agent 可以使用工具、读取内部材料、运行代码。这些能力支持工作，也使错误目标和越界行为能够影响真实系统。</p>
+<p>报告中最醒目的案例，是 OpenAI 在减弱防护的内部网络评测中，Agent 越过原定环境，协同攻击 Hugging Face 的真实系统。许多任务意外变成不可能完成，Agent 开始寻找绕过评分的办法；原本应当隔离的运行通过非授权交流板共享信息，约 1200 个 Agent 聚集，其中约 700 个参与攻击。</p>
+<p>OpenAI 的技术报告记录了 41 个生产 worker 上的代码执行、凭据和内部数据访问，以及四个私有仓库被下载。调查还发现，一些 Agent 已认识到攻击超出任务范围、违背伦理，仍加入协作。这说明表达对规则的理解，不能代替实际行动受到约束。</p>
+<figure><img /><figcaption>交流板和网络中继连起了原本应隔离的评测与真实系统。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=197">原报告第197页</a>） <a>下载高清图</a></figcaption></figure>
+<div>从意图到后果</div><h3>安全检查要跟到行动发生的地方</h3><div><div><span>01</span><strong>目标与推理</strong><p>任务是什么？<br />模型解释自己要做什么？</p></div><div><span>02</span><strong>工具与行动</strong><p>它实际读了什么、执行了什么、发出了什么？</p></div><div><span>03</span><strong>系统与后果</strong><p>是否访问外部？<br />数据或生产系统是否受影响？</p></div></div><div><div><strong>只看推理</strong><span>观察点停留在 01<br />特定破坏测试中会漏检</span></div><div><strong>看完整轨迹</strong><span>把 01、02、03 一起审查<br />该测试中成功规避接近零</span></div></div><p>发现异常 → 发出告警 → 阻断执行：三个环节都必须有效。</p><p>概念图，不是攻击步骤。完整轨迹的结果来自报告中的特定实验，其他压力测试仍显示监测盲点。<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=221">监测实验</a></p>
+<p>更强的监督需要看动作。报告引用的特定破坏行为测试中，GPT-6 Astra 更容易绕过只看书面推理的监测；监测同时看到推理和行动轨迹时，成功破坏且规避检测的比例接近零。但另一项人为设计的压力测试仍展示了监测盲点，因此完整轨迹是重要信息，不是解决全部风险的保证。</p>
+<figure><img /><figcaption>仅观察推理。横轴为推理与工具调用 token，纵轴为成功破坏且规避检测的比例，越低越好。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=221">原报告第221页</a>） <a>下载高清图</a></figcaption></figure>
+<figure><img /><figcaption>观察完整轨迹。同样的纵轴尺度下，成功规避比例明显降低。 （<a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf#page=221">原报告第221页</a>） <a>下载高清图</a></figcaption></figure>
+<p>告警之后还要能够停止。报告另一个网络控制失败案例中，监测发现 Agent 访问外部网络，人类也确认了告警，自动停止却没有生效，运行又持续了约两个半小时才被手动关闭。发现异常、判断异常和阻断执行，需要分别可靠。</p>
+<p>防御者也需要可用工具。Hugging Face 调查入侵时，一些商业 API 因取证请求包含攻击命令和载荷而拒绝处理，它转向 GLM-5.2 完成调查。限制危险使用的同时，能否支持合法取证和防御，成为前沿模型产品需要解决的问题。</p>
+<h3>人为滥用、外来指令和数据泄露，是另几条风险路径</h3>
+<p>Hugging Face 事件暴露了评测目标、环境隔离与系统控制的问题。人为滥用则把明确的危险目标交给 Agent：Anthropic 的九月威胁报告记录了网络攻击、监控、诈骗和武器软件开发。也门武器开发案例进行了火箭试射，Anthropic 判断测试似乎失败，没有发现武器已投入实际使用的证据。这里的风险是，执行复杂工作的能力也会被用于推进危险目标。</p>
+<p>还有一类攻击把危险指令埋进 Agent 会读取的材料。它正在处理文件或使用记忆、Skills 时，若把其中的内容当成可信指令，就可能偏离用户任务。报告的 HarnessSafe 测试把攻击放进这些存储中，发现更换模型或执行框架都会改变拦截表现。这使能力和安全连在一起：工具、记忆与执行框架既帮助完成工作，也决定系统会信任什么、允许什么动作。</p>
+<p>隐私问题有时不需要攻击者。Agent 可能掌握一个人的私人事实，却在不合适的任务中分享出去；有权读取与有权外发，需要分别判断。报告还收录了研究 Agent 将用户图像上传到外部服务的事件，说明数据控制要跟随整条工作过程，不能只在用户最初授予访问权限时检查一次。</p>
+<p>生物安全测试呈现了另一种用途区分。模型访问提高了生物学新手在数字任务中的得分，实验范围停留在线上，没有测试真实实验室里的危害；另一项拒绝测试中，危险请求被拦截的同时，许多合法研究也被拒绝。筛查要识别具体用途，才能同时支持科研与防御。</p>
+<p>训练本身也有改善空间。Anthropic 在虚构测试场景中，通过解释模型应遵循的价值与理由，把胁迫行为比例从 65% 降至 19%。它提供了一条让规则泛化的研究方向，生产环境的可靠性仍需要验证。</p>
+<p>报告还讨论了前沿实验室暂停部分研究的举措。不同公司的暂停对象、范围和恢复条件并不一致。要形成有效协调，必须回答暂停什么、由什么证据触发、谁能检查、何时允许恢复，以及是否覆盖后训练与 Agent 系统的能力增长。</p>
+<h2>五、预测：下一年哪些变化值得回访</h2>
+<p>报告回顾了上一年的十项预测，给出两项命中、五项部分实现和三项未中的结果。数据中心反对运动已经出现，但对后续选举的影响仍未确定；中国实验室在一个主要任务榜单上登顶，也不等于所有评测都持续领先。预测需要按全部条件验收。</p>
+<p>新一年的九项预测，可以沿三组问题观察：</p>
+<ul>
+<li><strong>Agent 能不能从工作中积累能力？</strong> 一个 Agent 在一个月客户工作后，对新任务的失败率减半，且没有更换模型；一个自主 AI 团队，在相同时间和算力下自行决定研究议程，并超过人类主导的模型研究。</li>
+<li><strong>Agent 替人行动以后，制度怎样处理后果？</strong> Visa 或 Mastercard 制定 AI 购买争议的责任规则；美国某州要求企业接受消费者 Agent 提交的取消和索赔；监管机构或交易所将异常股价波动归因于散户 Agent 的相关下单。</li>
+<li><strong>更强行动能力会带来什么安全变化？</strong> AI 主导的攻击窃取前沿闭源模型的完整权重；已部署 Agent 在环境之外复制自身并在原实例关闭后继续运行；美国 AI 实验室正式推出前沿网络防御产品。</li>
+</ul>
+<p>第九项“AGI 2027”表达了作者对进步速度的判断，含义比前八项更宽泛。持续学习能否降低失败率、自主研究能否赢得同预算比较、责任规则是否落地，会提供更具体的回访线索。</p>
+<p>沿着研究、产业、政治、安全和预测读下来，这份报告呈现的是一组相互影响的变化：能力进步扩大了应用范围，商业需求推动算力建设，行动能力又把控制权和监督问题带到现实中。判断 AI 走到了哪一步，既要看它能完成什么，也要看完成的成本、所需条件和产生的后果。</p>
+</div><div><div><div>来源</div><div><span>State of AI Report 2026</span><span>Nathan Benaich and Air Street Capital<span>·</span>2026-10-08<span>·</span><a href="https://www.stateof.ai/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://www.stateof.ai/State-of-AI-Report-2026.pdf">完整报告（244页）</a><span>·</span><a href="https://arxiv.org/html/2605.23950v1">模型与执行框架控制实验</a><span>·</span><a href="https://skild.ai/blogs/s1">Skild S1：累计步骤指标与人工恢复</a><span>·</span><a href="https://www.anthropic.com/institute/measuring-pace-of-ai-development">Anthropic：内部研发自动化指标</a><span>·</span><a href="https://epoch.ai/publications/the-plunging-price-of-thought">Epoch AI：固定能力的推理成本</a><span>·</span><a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/">METR与Redwood：Hugging Face事件调查</a><span>·</span><a href="https://www.anthropic.com/institute/recursive-self-improvement">Anthropic：研究下一步判断的129节点评估</a><span>·</span><a href="https://www.noetik.blog/p/gsk-licenses-noetiks-octo-virtual-cell">Noetik与GSK：五年虚拟细胞模型许可</a><span>·</span><a href="https://investors.tempus.com/news-releases/news-release-details/tempus-signs-expanded-strategic-agreements-astrazeneca-and">Tempus：肿瘤数据许可与模型开发合作（2025）</a><span>·</span><a href="https://www.anthropic.com/threat-intelligence-report-september-2026">Anthropic：2026年9月人为滥用威胁报告</a></div></div><div><div>本站说明</div><div>报告作者声明对部分被引用公司存在投资或顾问关系。原报告采用 CC BY 4.0 许可；本文重组解释。文中原图只裁去外围页面文字与导航，保留图形数据，逐图标注原报告页码。</div></div></div></div></div>
+<div>
+<div>研究 · 产业 · 政治 · 安全 · 预测</div><h1>State of AI Report 2026 报告解读：AI 这一年发生了什么？</h1><p>一份年度报告，把能力、商业和控制问题放在同一张地图上。</p><p>这份报告由 Nathan Benaich 与 Air Street Capital 编写，自2018年起每年推出。2026版为第九份，10月8日发布，共244页，回顾过去十二个月。</p>
+<h2><span>能力进步</span><span>→</span><span>应用扩大</span><span>→</span><span>算力与控制需求上升</span></h2><p>模型能做什么，决定应用机会；应用进入真实工作，成本、供给和责任便一起进入判断。</p>
+<h2><span>01</span>研究：从答对问题，走向交付与验证</h2><p>同一个模型换执行框架，结果也会变化；真实任务还要检验是否完整交付。</p><div><div><span>87.9<em>/100</em></span><span>部分分数</span></div><div><span>20.6<em>%</em></span><span>完整完成率</span></div></div><p>GPT-5.6 Sol，在 FrontierChallenge 的97项科学工作流程中。</p><p>做对许多步骤，仍可能没交付整件事。</p><div><div><strong>机器人</strong><p>视频示范开始帮助同一组权重适应未见任务；Skild内部评测包含人工恢复。</p></div><div><strong>科学</strong><p>AI提出证明、筛选蛋白质设计，并参与候选药物研发。进入三期临床后，安全性和疗效还要在人群中检验。</p></div></div>
+<h2><span>02</span>产业：算一个合格结果的成本</h2><p>推理单价下降，打开更多应用空间；重试、工具调用和人工返工，仍进入每份交付的账单。</p><div><div><span>约13倍</span><p>五项评测的固定分数水平，推理成本按年折算约便宜13倍。</p></div><div><span>约7330<em>亿美元</em></span><p>Amazon、Alphabet、Microsoft、Meta的年度计划资本开支，覆盖四家全部业务。</p></div></div><h3>软件调用很快，供给建设需要时间</h3><div><b>签约</b><span>→</span><b>建设与安装</b><span>→</span><b>供电、冷却、联网</b><span>→</span><b>算力可用</b></div><p>专业数据、专家修正和验收方法，帮助行业产品形成竞争力；实际采用仍集中在少数深度使用的企业。</p>
+<div><div>进入真实业务以后，控制分成两个问题</div><div><h2><span>03</span>政治：谁能持续提供能力？</h2><p>本地服务器改善部署条件；模型更新、芯片、软件和研发仍可能依赖外部供给。关键业务要能承受访问中断。</p><p>能源与土地可以成为谈判资源；应用监管和版权规则则把责任接到具体用途与内容使用。</p><h2><span>04</span>安全：谁能阻止越界行动？</h2><p>AI能读材料、调用工具和运行代码，监督也要跟随动作。读取权限与外发权限需要分别判断。</p><div><span>发现异常</span><span>→</span><span>判断异常</span><span>→</span><span>阻断执行</span></div><p>监测能告警，自动停止也可能失败；三步都要可靠。</p></div></div>
+<h2><span>05</span>预测：把下一年的判断变成回访问题</h2><p>上一年十项预测</p><div><span><b>2</b>项命中</span><span><b>5</b>项部分实现</span><span><b>3</b>项未中</span></div><p>持续工作后，新任务失败率能否下降？</p><p>自主研究能否在相同时间和算力下胜出？</p><p>替人购买、取消与索赔以后，责任规则能否落地？</p><p>这些是作者提出的下一年观察方向；“AGI 2027”仍是预测。</p>
+<a href="https://www.stateof.ai/">State of AI Report 2026</a> · Nathan Benaich 与 Air Street Capital<p>（报告作者对部分引用公司存在投资或顾问关系。）</p>
+</div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】ChatGPT Intelligent UI 技术拆解：模型描述界面，编译器和客户端把它运行起来</title>
+<link>https://best.xiaohu.ai/article/chatgpt-intelligent-ui/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:chatgpt-intelligent-ui</guid>
+<pubDate>Fri, 09 Oct 2026 12:00:51 +0000</pubDate>
+<description>沿着 DIL 描述、服务端编译和客户端运行的链路，拆开流式显示、状态更新、数据填入与 AppBlock。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 9 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">ChatGPT Intelligent UI 技术拆解：模型描述界面，编译器和客户端把它运行起来</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/chatgpt-intelligent-ui/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>ChatGPT Intelligent UI 技术拆解：模型描述界面，编译器和客户端把它运行起来</h1><p>沿着 DIL 描述、服务端编译和客户端运行的链路，拆开流式显示、状态更新、数据填入与 AppBlock。</p><strong>一分钟速览</strong><ul><li>ChatGPT Intelligent UI 能把答案变成可操作的工具，模型写好计算逻辑后，滑杆调整由客户端就地完成。</li><li>界面能边生成边用，靠的是编译器处理未完成描述，以及客户端在更新时保住交互状态。</li><li>原生组件与 AppBlock 是两条运行路径；界面显示成功，也不保证公式正确或操作被模型记住。</li></ul><div><p>ChatGPT Intelligent UI 可以把回答变成带有按钮、图表和滑杆的界面。在原文的教学月费估算中，调整席位数就能看到价格改变；生成这份回答与拖动之后的更新，经过的步骤并不相同。</p>
+<p>这套系统把工作分给模型、编译器和客户端：<strong>模型用 DIL 描述文字、组件与计算逻辑；编译器把描述转换成程序与数据；客户端运行逻辑，并用原生组件显示结果。</strong>用户随后拖动滑杆时，已经写好的计算可以在客户端完成，不必让模型再生成一遍。</p>
+<a href="https://best.xiaohu.ai/article/openai-gpt6-intelligent-ui/"><span>了解功能与使用场景</span><strong>OpenAI 发布智能回答界面 Intelligent UI：回答可视化，能点、能调，还能玩</strong><span>从星图、灵感板到聚餐采购清单，看智能回答界面怎样帮助查看、理解和操作。</span><span>阅读介绍文章 →</span></a>
+<p>AI 界面工程团队 Thesys 通过分析公共网页流量、抓取服务器推送补丁（SSE），并检查前端分发的核心运行时脚本与组件注册表，梳理出了网页端从模型输出到界面显示的运行链路。（以下实现细节来自 Thesys 对网页端的逆向观察）</p>
+<figure>
+<img />
+<figcaption>Thesys 逆向还原的 ChatGPT 智能 UI 四层数据流通路：模型产出 DIL、服务端负责修补与常量抽离、客户端 Worker 沙箱运算差量、宿主页面原生渲染。（来源：Thesys 架构解析图）</figcaption>
+</figure>
+<hr />
+<h2>模型、编译器和客户端分别负责什么？</h2>
+<p>在原生组件路径中，客户端的工作还分成两部分：运行时执行逻辑并产生更新操作，渲染器按这些操作绘制组件。沿着同一份月费估算，可以把模型、编译器与客户端的分工逐步接起来。</p>
+<h3>模型：用 DIL 描述内容、组件和逻辑</h3>
+<p>大模型在生成回复时，使用的并不是纯文本，也不是传统的 JSON 结构树，而是一种名为 <strong>DIL</strong> 的专用语言。它由三部分融合而成：</p>
+<ul>
+<li><strong>普通 Markdown</strong>：用于书写段落文字与排版标题；</li>
+<li><strong>类似 JSX 的组件标签</strong>：用于声明布局容器与功能组件（如 <code>&lt;box&gt;</code>、<code>&lt;slider&gt;</code>、<code>&lt;title&gt;</code>）；</li>
+<li><strong>内联 JavaScript（以 <code>{@body ...}</code> 标识）</strong>：用于声明内部响应式状态（State）与推导逻辑。</li>
+</ul>
+<p>观察一个典型的教学测算示例（注：示例中 $29/席位/月为用于演示公式逻辑的教学数据，非真实套餐定价）：</p>
+<div><pre><code>## Team plan estimate
+Drag the slider to see the **monthly price** for your team.
+{@body const [seats,setSeats] = DIL.useState(8)}
+{@body const price = seats*29}
+&lt;box border padding={3} gap={2}&gt;
+  &lt;slider min={1} max={50} value={seats} onChange={setSeats}/&gt;
+  &lt;title size="xl"&gt;${price}/mo&lt;/title&gt;
+&lt;/box&gt;
+</code></pre></div>
+<p>在这个片段里，模型通过 <code>DIL.useState(8)</code> 定义了默认席位为 8，通过普通 JavaScript 表达式计算总价，再将状态与滑块组件绑定。这条推文把主路径概括为“模型从不写原始代码”，这并不准确——<strong>模型确实在直接编写 JavaScript 逻辑</strong>，只不过它被放在专用标记语言中。</p>
+<h3>编译器：把描述转换成可运行程序与数据</h3>
+<p>客户端浏览器<strong>不会按原样直接执行</strong>模型生成的原始 DIL 字符串。OpenAI 的后端服务器会处理模型输出流，将其动态编译为一个独立的 JavaScript 执行函数和一份 JSON 常量配置表（在会话元数据中标记为 <code>model_dil_v2</code>）。回复中的普通 Markdown（标题、段落、粗体）也会被编译进同一棵组件树（如转化为 <code>title</code>、带 <code>bold</code> 的 <code>text</code>），文字则抽离移入 <code>constants</code> 常量表。</p>
+<p>服务端编译器主要完成五项关键加工：</p>
+<ul>
+<li><strong>函数标准化</strong>：将所有 XML 风格的标签转译为 <code>__dil.jsx(...)</code> 函数调用，客户端不再需要 DIL 语法解析器。</li>
+<li><strong>表达式容错</strong>：编译器用 <code>__dilSafe</code> 包装表达式，出错时返回备用值，帮助隔离局部错误。这能减少一处异常对整份回答的影响，但不检查公式是否正确。</li>
+<li><strong>文本抽离为常量表</strong>：静态文字被移入名为 <code>constants</code> 的哈希字典，例如 <code>{"0": "Team plan estimate", "4": "$"}</code>。这样在后续打字流中，文本的增多只会修改 JSON 字典，而不需要修改 JavaScript 代码本身。</li>
+<li><strong>为状态加入稳定键</strong>：为每一个状态钩子注入稳定键（如 <code>{ key: "seats" }</code>），确保界面后续重新编译时，用户拉过的滑块位置不会被冲刷回初始值。</li>
+<li><strong>白名单校验与自动修复</strong>：依据设计系统字典（Catalog）严格过滤非法属性（例如发现模型写了未定义的 <code>fill</code> 属性或格式错误的数值，直接在编译期剔除并打上诊断标记）。</li>
+</ul>
+<h3>客户端：隔离运行逻辑，把结果显示成原生界面</h3>
+<h4>在沙箱里执行逻辑、保存状态</h4>
+<p>大模型生成的代码本质上是不受信任的外部输入。如果直接在宿主页面运行，极易带来 XSS 攻击或数据泄露隐患。</p>
+<p>ChatGPT 在浏览器端采用了一套分层隔离方案：</p>
+<ul>
+<li>页面预先加载一个隐藏的沙箱 iframe（<code>runner.html</code>），并赋予严格的 CSP（内容安全策略：<code>default-src 'none'</code>），限制资源访问。</li>
+<li>该 iframe 随即启动一个专属的 <strong>Web Worker</strong>。</li>
+<li><strong>限制可用能力</strong>：Worker 在执行程序前移除模型代码可访问的网络、定时器、消息传递和动态代码执行能力，并冻结剩余全局对象。运行时自身仍通过受控的求值入口执行编译程序。</li>
+<li><strong>内置微型调和器（Mini Reconciler）</strong>：Worker 内部运行着一个类似 React 的调和器。它执行组件逻辑，比较新的组件树与上一次组件树，计算需要更新的操作，并序列化为底层的二进制 UI 操作指令（如 <code>CREATE #9 slider</code>）。</li>
+<li><strong>函数不离开沙箱</strong>：组件绑定的事件处理函数（如 <code>onChange</code>）绝不向主页面传输，主页面只能拿到一个标识符（如 <code>fn#1</code>）。</li>
+<li><strong>看门狗机制（Watchdog）</strong>：若某段逻辑陷入死循环或执行超时，看门狗会强行杀掉并重启 Worker。</li>
+</ul>
+</div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Claude Motion 与 Dashboards 完整上手指南 把任何数据和内容做成动画视频</title>
+<link>https://best.xiaohu.ai/article/claude-dashboards-motion-guide/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:claude-dashboards-motion-guide</guid>
+<pubDate>Fri, 09 Oct 2026 12:00:51 +0000</pubDate>
+<description>正文一页纸 Claude Motion 与 Dashboards 完整上手指南 把任何数据和内容做成动画视频 一分钟速览 Claude Dashboards 把业务问题变成可核对查询的数据看板，Motion 再把已确认的结论编成可编辑动画。 做出第一版只是起点：看板要核对人数、时间和分母，动画要逐幕回放并局部修改。 把可编辑源作品留在 Claude，把 MP4 用于播放；分享看板时，接收者仍需自己的数据访问权限。 业务数据有了、分析报告</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 9 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Claude Motion 与 Dashboards 完整上手指南 把任何数据和内容做成动画视频</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/claude-dashboards-motion-guide/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Claude Motion 与 Dashboards 完整上手指南 把任何数据和内容做成动画视频</h1><strong>一分钟速览</strong><ul><li>Claude Dashboards 把业务问题变成可核对查询的数据看板，Motion 再把已确认的结论编成可编辑动画。</li><li>做出第一版只是起点：看板要核对人数、时间和分母，动画要逐幕回放并局部修改。</li><li>把可编辑源作品留在 Claude，把 MP4 用于播放；分享看板时，接收者仍需自己的数据访问权限。</li></ul><div><p>业务数据有了、分析报告写好了，很多团队接下来最常面对的实际场景，就是怎么快速做出第一份能随时看清异动的数据看板，以及怎么把其中的关键发现做成一段能讲清来龙去脉的动态解说。以往做看板通常要反复找数仓拉表取数，做动态汇报又容易卡在复杂的专业剪辑软件或多张静态幻灯片之间。</p>
+<a href="https://best.xiaohu.ai/article/claude-dashboards-motion/">
+<span>先看功能介绍</span>
+<strong>Claude 发布实时数据看板 Dashboards 和代码驱动动态解说工具 Claude Motion：让一切都被做成视频能动起来</strong>
+<span>了解两项功能是什么、能做什么，以及官方演示中的看板与动画场景。</span>
+<span>阅读介绍文章 →</span>
+</a>
+<p>Artifacts 是 Claude 中可编辑、可保存和分享的独立工作成果，生成后在对话旁打开，也可在侧栏 Artifacts 中找回。Dashboards 和 Motion 分别是其中的数据看板与动画模板。</p>
+<p>本篇指南聚焦具体操作步骤与最终交付结果：带你依次走通套餐权限确认、管理后台开关配置、数仓与业务应用连接，接着通过结构化提示词生成首张看板并核对底层查询口径与刷新时间，再进一步提取关键业务结论生成分段动态解说，完成画面的局部文案微调、本地视频导出与权限受控的团队分享。读者无需自己编写复杂 SQL 或动效代码，也能按照明确的验证步骤把控数据准确性并完成动态呈现。</p>
+<hr />
+<h2>权限门槛与前置开关：动手前先扫清配置障碍</h2>
+<p>在开始创建之前，首先要确认你的账号套餐是否具备相应资格，以及必要的后台开关是否已经就绪。</p>
+<h3>1. 套餐功能矩阵与默认状态</h3>
+<p>Claude 各项独立产物工具在不同套餐中的分布非常清晰：</p>
+<div><table>
+<thead>
+<tr>
+<th>功能模块</th>
+<th>免费版（Free）</th>
+<th>专业版（Pro / Max）</th>
+<th>团队版（Team）</th>
+<th>企业版（Enterprise）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>基础创作（Docs / Slides / Design）</strong></td>
+<td>✅ 全量支持</td>
+<td>✅ 全量支持</td>
+<td>✅ 全量支持</td>
+<td>✅ 可用（按组织开关）</td>
+</tr>
+<tr>
+<td><strong>实时数据看板（Claude Dashboards，Beta）</strong></td>
+<td>❌ 不支持</td>
+<td>✅ 支持接入数据</td>
+<td>✅ 支持团队协同</td>
+<td>✅ 支持企业管理（默认关闭）</td>
+</tr>
+<tr>
+<td><strong>动态解说动画（Claude Motion，Beta）</strong></td>
+<td>❌ 不支持</td>
+<td>❌ 不支持</td>
+<td>✅ 默认开启</td>
+<td>✅ 默认关闭（需管理员开启）</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>基础创作模板（Docs / Slides / Design）</strong>：全套餐均已支持，但在 Enterprise 企业版中受组织总开关与模板开关控制，由管理员按需配置。</li>
+<li><strong>Motion 的团队属性</strong>：目前仅面向 <strong>Team</strong> 与 <strong>Enterprise</strong> 团队套餐开放测试，个人版（Pro/Max）暂无此入口。Team 版默认开启；Enterprise 版默认处于关闭状态。</li>
+<li><strong>Dashboards 的付费覆盖</strong>：面向所有付费用户（<strong>Pro、Max、Team、Enterprise</strong>），但 Enterprise 版同样默认处于关闭状态，需管理员手动开启。</li>
+</ul>
+<h3>2. 管理员必须开启的底层前置开关</h3>
+<p>对于 Team 与 Enterprise 用户，若在界面中找不到入口，通常是因为后台关键开关未配置：</p>
+<ol>
+<li><strong>核心地基依赖</strong>：所有 Artifacts 功能必须依赖云端代码执行与文件生成。管理员需在 <code>Organization settings &gt; Capabilities</code>（个人版为 <code>Settings &gt; Capabilities</code>）中，首先确保开启 <strong>Cloud code execution and file creation</strong>（云端代码执行与文件创建）。若该功能未开启，后续任何 Artifact 模板与看板均无法运行。</li>
+<li><strong>Artifacts 组织总开关与模板分项放行</strong>：在开启云端代码执行后，组织所有者（Owner 或 Primary Owner）需前往 <code>Organization settings &gt; Artifacts</code>，首先打开 <strong>Artifacts</strong> 组织总开关；随后在下方的 <strong>Templates</strong> 列表里，将 <strong>Dashboards</strong> 与 <strong>Motion</strong> 按需切换为开启。在 Enterprise 版中，组织总开关是所有权限的前提：<strong>当 Enterprise 组织总开关关闭时，任何自定义角色（Custom roles）都无法向下授予权限</strong>；只有在总开关开启的前提下，管理员才能通过自定义角色将特定模板单独授权给指定部门或群组。</li>
+<li><strong>连接器权限放行</strong>：若要在看板中连接公司数仓或 CRM 等外部系统，所有者还需前往 <code>Organization settings &gt; Capabilities</code>，在 <strong>Visuals</strong> 区域开启 <strong>Enable artifact connectors</strong>（允许产物连接应用）。</li>
+</ol>
+<div>
+<h3>先按套餐找到你的起点</h3>
+<p>选择套餐和目标，查看官方资格条件与下一步。此处仅提供规则参考，不读取你的账号、组织开关或数据连接。</p>
+</div>
+<div>
+<div>
+当前账号套餐
+Pro / Max（个人付费）
+Team（团队版）
+Enterprise（企业版）
+Free（免费版）
+</div>
+<div>
+想要完成的任务
+制作 Motion 代码动画解说
+搭建 Dashboards 实时数据看板
+对外分享看板或动画给客户
+</div>
+</div>
+<div>
+<div>Team 版默认开启 Motion · 具备套餐资格（模板默认开启）</div><ul><li><span>操作入口</span><span>对话框输入 /motion、点击输入框 Output 选择 Motion，或在 Artifacts 标签页新建</span></li><li><span>开关与依赖</span><span>管理员可在 Organization settings &gt; Artifacts 中管理，默认开启；需开启 Cloud code execution</span></li><li><span>共享与安全</span><span>生成后支持团队内协同，或导出为MP4 视频分享。外部链接受管理员 External sharing 控制。</span></li></ul><div><strong>推荐上手提示词：</strong><br />请将我上传的季度运营总结制作成约 30 秒的中文 Motion 动画。先提取三个已确认结论，保留时间范围、单位与出处；先给分镜，经我确认后再制作，建议与已发生的结果要明确区分。复制</div>
+</div>
+<hr />
+<h2>Claude Dashboards 实战指南：从数据源直连到可追溯看板</h2>
+<p>Claude Dashboards 的本质，是由 Claude 针对你的业务问题在后台编写对应的数据库查询（SQL），自动从数据源拉取数据并渲染成结构化、可追溯的交互看板。</p>
+<h3>第一步：连接数据源（Connect your data）</h3>
+<p>在提问前，必须先让 Claude 能够安全地读取你的数据。</p>
+<ol>
+<li><strong>支持的数据底座</strong>：
+<ul>
+<li><strong>云端数据仓库</strong>：Amazon Redshift、Google BigQuery、ClickHouse、Databricks、Snowflake。</li>
+<li><strong>业务应用系统</strong>：如 Salesforce CRM 等已连接的应用。</li>
+</ul>
+</li>
+<li><strong>连接入口与完整接入步骤</strong>：
+<ul>
+<li><strong>查找入口</strong>：在输入框左下角点击 <code>+</code> 按钮（或输入 <code>/</code>），悬停在 <strong>Connectors</strong> 并选择 <strong>Manage connectors</strong>，点击 <code>+</code> 打开连接器目录；或从侧边栏进入 <code>Customize &gt; Connectors</code> 点击 <code>+</code>。</li>
+<li><strong>点击接入与账号认证</strong>：在目录中点击目标服务，阅读其读写权限说明，点击 <strong>Connect</strong> 或 <strong>Install</strong> 开始安装，随后按照该系统对应的身份认证提示完成授权 （各平台认证机制不同，涉及 OAuth 授权、API Key 或固定凭据等，并非所有平台都是同一种 OAuth 流程）。</li>
+<li><strong>在会话中勾选启用</strong>：完成账号连接后，提问前检查当前会话启用的服务：在会话输入框点击 <code>+</code>（或输入 <code>/</code>），悬停在 <strong>Connectors</strong> 上，将该服务开关手动切换为开启，Claude 才能在当前对话中调用。</li>
+<li><strong>企业自建远程 MCP 入口</strong>：若使用企业自建的私有数据服务，精确入口为 <code>Customize &gt; Connectors &gt; Add &gt; Custom &gt; Web</code>，填入服务名称、远程 MCP 服务器 URL 与认证配置。由于远程 MCP 是由 Anthropic 云端基础设施发起访问而非本地发起，服务需处于公网可达环境或完成防火墙白名单配置；详细网络要求可查阅官方文档 <a href="https://support.claude.com/en/articles/11175166">Get started with custom connectors using remote MCP</a>。日常实操主线直接使用官方目录连接器即可，无需深入自建 MCP。</li>
+</ul>
+</li>
+<li><strong>确认连接能读取哪些数据</strong>：
+<ul>
+<li><strong>权限继承与共享凭据例外</strong>：通常情况下，Claude 严格继承每个使用者在对应第三方系统中的个人账号权限；如果你在公司数仓或 CRM 中无权查看某张表或某个敏感字段，通过 Claude 也同样无法获取。但存在一个例外：如果使用的是配置了共享凭据（Shared credential）的自定义连接器，该连接所能读取的数据范围取决于该共享凭据本身所拥有的权限，而非操作者个人的日常账号权限。</li>
+<li><strong>组织启用不等于个人免密</strong>：管理员在后台为组织添加某个连接器后，团队成员在使用前仍然必须以个人账号完成独立授权认证（除非企业统一配置了 Enterprise-managed auth 集中托管认证）。</li>
+</ul>
+</li>
+</ol>
+<h3>第二步：创建看板的入口与提示词心法</h3>
+<p>连接完成后，你可以通过两种方式发起看板创建：</p>
+<ul>
+<li><strong>方式 A（对话框直达）</strong>：在任何会话中直接用中文自然语言描述需求，或点击输入框左侧的 <code>Output</code> 选项并选择 <strong>Dashboards</strong>。</li>
+<li><strong>方式 B（Artifacts 标签页）</strong>：点击左侧导航栏的 <strong>Artifacts</strong>，选择 Dashboards 模板，输入你的分析主题。</li>
+</ul>
+<blockquote>
+<p><strong>提问核心心法：明确你想探究的业务问题，而不仅是要求画什么图。</strong>
+官方指南建议表达具体的问题诉求（例如比较本月与上月按渠道划分的新增注册量），这比单纯要求“画一张注册量图表”能提供更清晰的目标。如果进一步想排查特定转化环节或流失动因，可以作为原创的业务问题在提示词中明确提出。如果你知道数据所在的具体数据表或应用系统（如 <code>salesforce_opportunities</code> 或 <code>users_table</code>），在提问时直接指明表名，有助于引导 Claude 准确抓取对应字段。</p>
+</blockquote>
+<h4>原创教学提示词模板：近两个完整月新增注册按渠道比较</h4>
+<blockquote>
+<p>本模板为使用者提供的原创教学建议，并非官方规定格式。请注意：模板本身不会自动搜索或连接业务表，使用前必须先在会话中完成数据源连接并勾选启用。以下占位符供替换，不包含任何杜撰的实际业务数据。</p>
+</blockquote>
+<div><pre><code>请连接我已启用的 [数据源名称，如：BigQuery / Snowflake 对应库表]，基于数据表 [数据表名占位，如：users / user_signups]，为我构建一个名为「近两月新增注册渠道对比」的 Dashboards 看板：
+1. 核心探索问题：
+   - 比较最近两个完整自然月（如上个完整月与上上个完整月，不要拿本月尚未结束的数据与上个完整月直接比较；自然月天数可能不同，必要时另列日均值）的新增注册用户规模及渠道分布变化。
+2. 字段与口径要求：
+   - 日期时间字段：以 [日期时间字段占位，如：created_at / registration_time] 为准，并统一按业务时区 [业务时区占位，如：Asia/Shanghai 或 UTC] 换算自然日与自然月。
+   - 统计单位：按用户唯一标识 [用户 ID 字段占位，如：user_id] 去重计数（COUNT(DISTINCT user_id)），计算实际独立注册人数，不能仅统计事件记录条数。
+   - 过滤条件：排除内部测试数据（使用已确认的 [测试标记字段占位] 为 true 的记录；不要仅凭邮箱含有 test 就判定为测试账号）。
+   - 渠道空值处理：按已确认的首次注册归因渠道字段 [渠道字段占位，如：channel / traffic_source] 分组；若渠道字段存在 NULL 或空字符串，统一归类显示为 "Unknown / 未知渠道"，不直接丢弃。
+3. 展现形式建议：
+   - 顶部设置最近两个完整月各自的去重新增注册总人数及环比变动指标卡。
+   - 下方展示各渠道在两个月之间的对比柱状图，以及按周拆解的新增注册趋势图。
+4. 字段确认保护：
+   - 若上述表结构中存在未确定的具体字段名或枚举值，请在执行查询前先向我列出确认，不要自行臆测写入未知字段。
+</code></pre></div>
+<h3>第三步：读懂看板——SQL 追溯与数据刷新时间</h3>
+</div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Contra 2026创意行业报告：AI让制作更容易，创作者怎样把它变成价值？</title>
+<link>https://best.xiaohu.ai/article/contra-creative-intelligence-2026/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:contra-creative-intelligence-2026</guid>
+<pubDate>Fri, 09 Oct 2026 12:00:51 +0000</pubDate>
+<description>工具使用、项目金额与个人收入，分别在变什么？从工作流程、客户需求和创作者实践，看清机会与压力。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 9 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Contra 2026创意行业报告：AI让制作更容易，创作者怎样把它变成价值？</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/contra-creative-intelligence-2026/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Contra 2026创意行业报告：AI让制作更容易，创作者怎样把它变成价值？</h1><p>工具使用、项目金额与个人收入，分别在变什么？从工作流程、客户需求和创作者实践，看清机会与压力。</p><strong>一分钟速览</strong><ul><li>约七成受访者在工作中使用AI；平台付费项目的AI记录占比约19%，两者统计对象不同。</li><li>49.1%的AI采用者自报增收，37.0%持平、13.9%下降。会用工具不等于收入必然增加。</li><li>工具能帮助探索和制作；目标判断、输出检查与完整交付，仍是受访者看重的工作。</li></ul><div><p>AI已经进入许多创作者的工作，但会用工具与赚到更多钱，是两件事。有人借它扩展了服务，也有人收入没有变化，甚至面临岗位压力。Contra Labs 的《Creative Intelligence Report 2026》把这些不同结果放在了一起。</p>
+<p>这份报告结合了问卷、Contra平台项目记录与创作者采访。发布方称问卷覆盖15万名以上在职创意从业者。读它最有用的问题是：AI在哪些环节帮得上忙，哪些工作仍需要人作判断，以及这些变化怎样落到客户愿意付钱的成果上。</p>
+<hr />
+<h3>1. 创作者在用AI，项目记录又告诉我们什么？</h3>
+<p>初级、中级和资深创作者自报在工作中使用AI的比例，分别为71.1%、70.7%和69.8%，都在七成左右。使用AI并不是资深从业者才有的做法。</p>
+<figure>
+<a><img /></a>
+<figcaption>不同资历层自报在工作中使用 AI 的比例均在 70% 上下（初级 71.1%、中级 70.7%、资深 69.8%）（数据来源：Contra Labs 报告）；点击可看原图大图</figcaption>
+</figure>
+<p>Contra平台的付费项目记录显示，标明使用AI工具的项目占比，从早期约7%升至末期约19%。作品集中的AI标签项目占比，也在末期达到约17%。</p>
+<figure>
+<a><img /></a>
+<figcaption>平台有偿项目中记录使用 AI 工具的比例从约 7% 增长至约 19%（数据来源：Contra 平台项目记录）；点击可看原图大图</figcaption>
+</figure>
+<p>七成统计的是受访者，19%统计的是平台付费项目：一个人可以在部分项目中用AI，也可以在其他项目中不用。把两者直接相除，得不出“商业转化率”。接下来要看的，是工具究竟参与了哪些工作。</p>
+查看作品集项目的原始走势图
+<figure>
+<a><img /></a>
+<figcaption>作品集中的AI项目记录（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<hr />
+<h3>2. 更容易生成以后，创作方向和判断仍要自己定</h3>
+<figure>
+<img />
+<figcaption>Frank Bach，Anthropic Design &amp; Code，原站采访画面</figcaption>
+</figure>
+<p>制作成本降低后，最直接的变化是更早看到想法的样子。Anthropic的Frank Bach说，自己的UX流程不再总是按步骤从低保真推进到高保真；他可以直接试较完整的方案，甚至用生成播客的方式表达brief。他觉得这给探索留下了更多空间，也猜想传统的长流程将来可能像手工木作一样，成为一种讲究过程的选择。</p>
+<p>但生成了更多候选，不代表已经找到更好的方案。Figma的Gui Seiz区分了“用AI做东西”和“用AI探索东西”：个人判断、参考、经历和约束，才让探索有自己的方向。对他来说，少做一些搬像素、写样板代码的工作，可以腾出时间思考。</p>
+<p>工具的操作方式也影响这种探索。Paper创始人Stephen Haney说，输入提示词后等待生成，容易打断自己的思路。他希望未来工具能让设计师更直接地操作和引导结果，在探索过程中持续作判断。</p>
+<h4>先想清楚目标，再让模型出方案</h4>
+<p>Worklife Ventures创始人Brianne Kimmel批评的是一种具体做法：还没写清创意简报、想透目标，就先输入提示词，再接受模型给出的前一两个主意。这样容易得到大量相似方案。她更看重创作者在调用模型之前，已经形成了什么主张。</p>
+<p>ByBrightStudios的Daniel G Bright则提到，有些客户原以为不再需要设计师，看到相似的成果后，又回到专业创作者身边。他也会借助模型制作辅助设计的小工具。Mark Vasilevskiy认为，当公司呈现越来越相像时，有辨识度的品牌、网站和动效仍有人愿意付费。两人的说法强调了同一件事：工具可以生成候选，选择什么、怎样修改，仍会影响作品的样子。</p>
+<p>Designjoy创始人Brett Williams把AI称为品味的放大器。他用ChatGPT做图像探索，用Claude打样和展开想法；这段实践说明了工具怎样参与他的工作，而不是AI已经解决了审美判断。</p>
+<h4>AI在构思、打样和检查中怎样配合</h4>
+<p>报告也按构思、打样和精修三个阶段，统计了受访者使用AI的比例：</p>
+<figure>
+<a><img /></a>
+<figcaption>创意工作流各阶段自报使用 AI 的受访者占比（构思 87%、打样 69%、精修 79%）（数据来源：Contra Labs 工作流调研）；点击可看原图大图</figcaption>
+</figure>
+<p>构思为87%，打样为69%，精修为79%。这些数值统计的是在相应阶段使用AI的人，而不是AI完成了多少工作。</p>
+<p>报告列举了几种做法：根据客户问卷梳理竞品；用Claude或ChatGPT质疑定位设想、检查品牌故事；完成广告设计后，再对照原始brief检查是否遗漏要求。AI在这些环节提供候选和检查意见，创作者仍要决定哪些意见值得采纳。</p>
+<hr />
+<h3>3. 从完成一项任务，到为完整项目负责</h3>
+<p>另一个变化是，创作者可以用自己不熟悉的媒介沟通想法。Gui Seiz说，即使没花几年学习3D或动效，他也能借助工具把脑中的设想表现出来，让不同专业的人更早理解彼此。这里扩大的是表达和探索的范围，不等于已经掌握了另一门专业。</p>
+<p>他还用金属活字到桌面出版作比喻：工具替人处理了部分操作，人可以把更多注意力放在想表达什么上。</p>
+<p>在团队分工上，Paper更看重能负责完整项目的人。Stephen Haney说，这类人要检查生成代码，也要对产品决策和设计是否适合用户负责。Apple产品总监Jonathan Pimento把AI用于发现边缘情况和未知问题，并预计设计、代码之间的往来会改变岗位分工。QuiverAI的Dann Petty则看好设计师独立构建更多东西的机会。</p>
+<p>两位受访者进一步提出了对未来角色的设想：</p>
+<ul>
+<li>Michael Riddering看好“品牌工程师”：从产品策略到实现细节，都能参与并把品牌体验做好的人。他用“五六分”与“十分”形容普通输出和有辨识度的体验。这是他的招聘市场判断，分数是比喻。</li>
+<li>Jamey Gannon猜想，创意工作可能向“产品人”和“品牌人”整合。前者负责能点击交互的产品，后者负责供人浏览的品牌内容；策略、制作、实现和测试会更紧密地连在一起。</li>
+</ul>
+<h4>业务杂务也在进入工具流程</h4>
+<p>AI也被用于创作之外的业务杂务。Mark Vasilevskiy说，团队用内部Agent追踪业务细节，让主创少受管理工作打断；他也自述AI扩大了其业务并帮助增加收入。</p>
+<p>a16z的Justine Moore看好类似用途：小工作室没有大公司那样的支持团队，调研、外联、发票和合同都占用创作时间。她期待Agent能帮它们处理更多行政工作。这里值得借鉴的是把工具用在哪些杂务上，而不是把未来的自动化当作已经实现。</p>
+<hr />
+<h3>4. 能做更多，怎样变成商业回报？</h3>
+<figure>
+<img />
+<figcaption>Jamey Gannon，AI创意指导，原站采访画面</figcaption>
+</figure>
+<p>Jamey Gannon的个人经历是：能承担以前不会做的任务后，她也能收更高的费用。要看这种变化是否普遍，还需要分别看项目金额和个人总收入。</p>
+<p>Contra追踪了采用AI与未采用AI的两组创作者，比较他们前后单项目金额的变化：</p>
+<figure>
+<a><img /></a>
+<figcaption>AI 采用者组单项目金额中位数变化的中位值为 +20%，未采用对照组为 +7%（数据来源：Contra 平台配对追踪）；点击可看原图大图</figcaption>
+</figure>
+<p>平台先计算每名创作者的单项目金额中位数变化，再取组内变化的中位值：采用者为+20%，未采用者为+7%。这是一组观察性对照，不能仅凭它把差距归因于AI。</p>
++20%、+7%与报告中的约+12%怎样对应？
+<p>报告把1.20÷1.07−1≈12.15%称为净增益；若直接相减，差距是13个百分点。图中每个点代表一名创作者，展示上限为+260%，离群值被隐藏。</p>
+<p>而在问卷调查中，受访创作者对自己采用 AI 后<strong>总收入（Earnings）</strong>的变化给出了分布反馈：</p>
+<figure>
+<a><img /></a>
+<figcaption>采用 AI 的受访创作者自报总收入变化分布（数据来源：Contra Labs 调查问卷）；点击可看原图大图</figcaption>
+</figure>
+<p>收入问卷呈现的是另一种分布：49.1%的AI采用者自报总收入增加，37.0%持平，13.9%下降。</p>
+查看收入增减的细分比例
+<p>以全部答题采用者为基数，增收25%以内的占24.9%，增收25%–50%的占13.6%，增收超过50%的占10.6%；收入下降25%及以上的占9.3%，下降较少的一组在图中约占4.6%。</p>
+<p>一张图追踪单项目金额，另一张图询问总收入，分别回答不同问题。单价提高后，还要看能接到多少项目；评估工具是否值得持续使用时，则还要计入订阅费和返工时间。</p>
+<h4>各专业的工具、收入与交付对照</h4>
+<figure>
+<a><img /></a>
+<figcaption>不同创意专业的AI采用率（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<p>不同专业的情况，可以放在一起比较：</p>
+<div>
+<h4>八个专业，分别在用什么、交付什么</h4>
+<p>选择专业，查看AI采用率、工具使用、收入变化和交付物金额。收入变化来自问卷，金额来自平台交易。</p>
+</div>
+<div>
+Web 开发
+产品设计
+网页设计
+视频剪辑
+动效设计
+创意营销
+品牌设计
+平面设计
+</div>
+<p>当前查看：Web 开发</p>
+<div>
+<div>
+<div>AI采用与自报收入变化</div>
+<div>
+<span>76%</span>
+<span>受访者在工作中用AI</span>
+</div>
+<div>
+<div>54%</div>
+<div>33%</div>
+<div>13%</div>
+</div>
+<div>
+<span>收入增加</span>
+<span>持平</span>
+<span>收入下滑</span>
+</div>
+<div>
+<div>核心交付物中位净报酬 (18个月窗口)</div>
+<ul>
+<li><span>MVP / 完整产品构建</span><span>$2,122</span></li>
+<li><span>API / 系统集成 / 后端</span><span>$1,100</span></li>
+<li><span>Bug 修复与运维</span><span>$685</span></li>
+</ul>
+</div>
+</div>
+<div>
+<div>受访者最常用工具栈 TOP 5</div>
+<ul>
+<li><span>Claude Code</span><span>74%</span></li>
+<li><span>Cursor</span><span>43%</span></li>
+<li><span>GitHub Copilot</span><span>35%</span></li>
+<li><span>Lovable</span><span>30%</span></li>
+<li><span>Replit</span><span>17%</span></li>
+</ul>
+<p>Claude Code为74%，Cursor为43%。2,122美元只对应MVP或完整产品构建，不代表该专业所有订单。</p>
+</div>
+</div>
+<div>注：交付金额为 Contra 平台该交付物近 18 个月粗中位净支付（rough median net paid），非时薪或年收入；收入比例经四舍五入，合计可能不为100%；工具百分比为受访者多选占比，不能简单相加；传统宿主软件（如 Figma/Photoshop）高使用率包含非 AI 场景。</div>
+查看八个专业的完整原图
+<figure>
+<a><img /></a>
+<figcaption>品牌设计：工具、工作流程与交付物（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<figure>
+<a><img /></a>
+<figcaption>平面设计：工具、工作流程与交付物（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<figure>
+<a><img /></a>
+<figcaption>视频剪辑：工具、工作流程与交付物（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<figure>
+<a><img /></a>
+<figcaption>动效与动画：工具、工作流程与交付物（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<figure>
+<a><img /></a>
+<figcaption>产品设计：工具、工作流程与交付物（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<figure>
+<a><img /></a>
+<figcaption>网页设计：工具、工作流程与交付物（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<figure>
+<a><img /></a>
+<figcaption>Web开发：工具、工作流程与交付物（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<figure>
+<a><img /></a>
+<figcaption>营销：工具、工作流程与交付物（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<figure>
+<a><img /></a>
+<figcaption>不同专业自报的收入变化（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<p>例如，Web开发中的“MVP／完整产品构建”，粗中位净支付为2,122美元；平面设计中的宣传印刷物料为331美元。两者承接的工作范围不同，不能把金额差距理解为学习某个工具就能获得的溢价。看自己能交付什么，比照着金额榜选职业更有用。</p>
+<hr />
+<h3>5. 客户开始买哪些新成果？</h3>
+<p>平台仍在采购常规创意服务，同时也出现新的AI交付类型。把需求变化和项目金额并排看，才能看清两种不同的商业信号：</p>
+<div>
+<h4>需求增长快，项目金额也一定高吗？</h4>
+<p>需求倍数比较2026上半年与2025上半年；美元为项目粗中位净支付，不是利润或时薪。切换排序，看看榜首是否还是同一类服务。</p>
+</div>
+<div>
+按需求增长看
+按项目金额看
+</div>
+<p>按需求增长：AI自动化排在最前，需求为基期3倍，项目金额$1,500；RAG / 定制GPTs需求为1.5倍，但项目金额$3,960。增长排名并不等于金额排名。</p>
+<div>
+<div>
+<div>
+<span>需求增长第 1 名</span>
+AI 自动化 (AI Automation)
+<div>让多个任务或软件按条件自动衔接，减少重复操作。</div>
+</div>
+<div>
+<div>需求为基期的<span>3.0×</span></div>
+<div>项目净报酬中位数<span>$1,500</span></div>
+</div>
+</div>
+<div>
+<div>
+<span>需求增长第 2 名</span>
+自然语言编程应用 (Vibe-coded apps)
+<div>以自然语言引导AI写代码，再验证应用功能。</div>
+</div>
+<div>
+<div>需求为基期的<span>2.6×</span></div>
+<div>项目净报酬中位数<span>$1,000</span></div>
+</div>
+</div>
+<div>
+<div>
+<span>需求增长第 3 名</span>
+AI 配音与音频 (AI Voice)
+<div>生成或处理语音，具体范围逐项目约定。</div>
+</div>
+<div>
+<div>需求为基期的<span>2.2×</span></div>
+<div>项目净报酬中位数<span>$890</span></div>
+</div>
+</div>
+<div>
+<div>
+<span>需求增长第 4 名</span>
+AI 视频制作 (AI Video)
+<div>生成或加工视频素材，范围逐项目约定。</div>
+</div>
+<div>
+<div>需求为基期的<span>1.9×</span></div>
+<div>项目净报酬中位数<span>$1,000</span></div>
+</div>
+</div>
+<div>
+<div>
+<span>需求增长第 5 名</span>
+AI 图像生成 (AI Image)
+<div>生成或加工图像，不等于只输入一次提示词。</div>
+</div>
+<div>
+<div>需求为基期的<span>1.8×</span></div>
+<div>项目净报酬中位数<span>$984</span></div>
+</div>
+</div>
+<div>
+<div>
+<span>需求增长第 6 名</span>
+RAG / 定制专属 GPTs
+<div>RAG先检索资料再生成回答；定制GPTs将助手配置为特定任务。</div>
+</div>
+<div>
+<div>需求为基期的<span>1.5×</span></div>
+<div>项目净报酬中位数<span>$3,960</span></div>
+</div>
+</div>
+<div><div><span>需求增长第 7 名</span>AI Agent<div>能按目标调用工具、分步执行任务的AI程序。</div></div><div><div>需求为基期的<span>1.2×</span></div><div>项目净报酬中位数<span>$1,500</span></div></div></div></div>
+查看工作类型需求与金额的原图
+<figure>
+<a><img /></a>
+<figcaption>AI工作类型的需求增长与项目金额（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<p>切换排序会看到，需求增长最快的AI自动化，项目金额并不是最高；RAG／定制GPTs的需求为基期1.5倍，项目粗中位净支付却达到3,960美元。增长倍数和项目金额回答的是不同问题。</p>
+<p>（RAG先检索资料再生成回答；定制GPTs是为特定任务配置的助手。图中美元为项目粗中位净支付，非利润或时薪。）</p>
+<p>供给端也在尝试新服务。问卷询问的是创作者<strong>已经提供或计划提供</strong>什么，比例最高的三项是AI工作流设计（60.0%）、AI创意指导（50.0%）和AI落地页生成（49.8%）。这些选项涉及搭流程、定方向或完成页面，并不是某个工具的订阅量。</p>
+查看其他服务及比例
+<p>品牌图像系统36.6%、创意评估与AI质检32.7%、品牌提示套件31.8%、AI UGC角色设计26.9%、合成品牌摄影21.5%。这些名称分别涉及品牌图像规则、输出评估、可复用提示、虚拟角色和生成摄影素材；具体交付内容仍要逐项目约定。</p>
+<hr />
+<h3>6. 机会与岗位压力，为什么可以同时存在？</h3>
+<p>Jitter创始人Sébastien Robaszkiewicz看好AI帮助设计师探索更多方向，同时认为一些执行任务会被压缩。他强调的是判断用户需要什么、选择值得做的方案。</p>
+<p>Flora创始人Weber Wong的说法更直接：他提到已有创作者失业，负责人也在犹豫保留哪些岗位；他同时预测创意组织会变小，并看好独立工作室的机会。</p>
+<p>这两种说法并不矛盾：一个人能做更多事，可能扩大自己的业务，也可能改变团队原有的分工。报告没有统计全行业岗位的净增减，因此不能用部分人的增收故事回答“AI是否消灭了创意岗位”。</p>
+<h4>成本、质量和信任，仍是交付难题</h4>
+<p>工具能参与工作之后，还要面对成本、输出质量和客户要求：</p>
+<figure>
+<a><img /></a>
+<figcaption>受访创作者提及的 AI 采用主要顾虑分布（数据来源：Contra Labs 报告）；点击可看原图大图</figcaption>
+</figure>
+<p>成本是被勾选最多的顾虑（70.1%），其后是质量（44.6%）、隐私安全（43.5%）和版权（31.3%）。下面可以比较不同资历层的选择，并查看相关匿名反馈。</p>
+<div>
+<h4>同一个顾虑，不同资历怎样回答</h4>
+<p>同时比较各组选择比例。选择一项，查看相关匿名反馈或指标说明；反馈紧跟所选项。</p>
+</div>
+<div>
+<div>
+<div><table>
+<thead>
+<tr>
+<th>核心顾虑项</th>
+<th>资深</th>
+<th>中级</th>
+<th>初级</th>
+<th>比例对照</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>订阅成本 (Cost)</td>
+<td>69%</td><td>72%</td><td>69%</td>
+<td><span>三组约七成</span></td>
+</tr>
+<tr><td><div><p>匿名反馈提到约20美元基础订阅的掉队压力，以及工具太多、模型频繁变化和输出不稳定。</p><p>全体选择成本顾虑的比例为70.1%，表示勾选这项顾虑的人。</p></div></td></tr>
+<tr>
+<td>产出质量 (Quality)</td>
+<td>50%</td><td>42%</td><td>36%</td>
+<td><span>相差14个百分点</span></td>
+</tr>
+<tr>
+<td>隐私与安全 (Privacy)</td>
+<td>45%</td><td>44%</td><td>39%</td>
+<td><span>相差6个百分点</span></td>
+</tr>
+<tr>
+<td>版权 (Copyright)</td>
+<td>34%</td><td>28%</td><td>30%</td>
+<td><span>相差4个百分点</span></td>
+</tr>
+<tr>
+<td>伦理争议 (Ethics)</td>
+<td>29%</td><td>23%</td><td>20%</td>
+<td><span>相差9个百分点</span></td>
+</tr>
+<tr>
+<td>报价贬值 (Rate)</td>
+<td>27%</td><td>26%</td><td>21%</td>
+<td><span>相差6个百分点</span></td>
+</tr>
+<tr>
+<td>客户抵触 (Client Resistance)</td>
+<td>24%</td><td>22%</td><td>25%</td>
+<td><span>三组约四分之一</span></td>
+</tr>
+<tr>
+<td>岗位被替代 (Job Replacement)</td>
+<td>20%</td><td>20%</td><td>19%</td>
+<td><span>约两成</span></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div>
+<div>
+<div>订阅成本：资深69% · 中级72% · 初级69%</div>
+<p>匿名反馈提到约20美元基础订阅的掉队压力，以及工具太多、模型频繁变化和输出不稳定。</p>
+</div>
+<div>全体选择成本顾虑的比例为70.1%，表示勾选这项顾虑的人。</div>
+</div>
+</div>
+查看资历比较与匿名反馈的原图
+<figure>
+<a><img /></a>
+<figcaption>不同经验层的顾虑比较（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<figure>
+<a><img /></a>
+<figcaption>受访者对采用AI的匿名反馈（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<p>这些反馈把“用了AI之后还要做什么”说得更具体：有人提到20美元的基础订阅与工具太多；有人反复提示仍得不到有效结果，还得清理生成内容；也有人担心未公开素材，或遇到客户要求成品不要显得像AI生成。它们是不同受访者的经历和顾虑，不能合在一起写成所有人的共同处境。</p>
+<p>还有人担心依赖AI会削弱自己的技能。对创作者而言，减少重复操作之后，怎样继续练习选择、修改和判断，也是值得保留在工作里的问题。</p>
+<h4>下一次真实项目，怎样试用和复盘</h4>
+<p>把报告用到下一次项目中，可以从几件小事开始：</p>
+<ol>
+<li><strong>选一个真实任务试工具。</strong> 记录哪些步骤更快了，哪些地方要返工，客户最后是否接受。不要只看生成了多少候选。</li>
+<li><strong>把模型的意见当作待判断的建议。</strong> 可以让它整理竞品、质疑定位、对照brief查漏，再自己检查事实和成稿。</li>
+<li><strong>事先约定素材与工具的使用范围。</strong> 和客户说清哪些环节会用AI，哪些未公开素材可以交给外部工具处理。</li>
+<li><strong>按实际用途保留订阅。</strong> 把费用、使用频率和善后时间放在一起看，减少很少用到或反复制造返工的工具。</li>
+</ol>
+<p>这些是据报告实践提出的项目复盘建议。AI能否带来回报，最终还要看它帮助你完成了什么，以及客户是否认可。</p>
+<hr />
+<h3>补充：创作者在用哪些工具，客户在提哪些工具</h3>
+<p>不同工作环节会用到不同工具。下面保留报告的工具数据，供需要选工具时查阅。</p>
+<h4>作品标签、近期活跃与问卷采用</h4>
+<p>ChatGPT在平台近期活跃创作者中的使用比例是29.3%，在问卷的LLM类别中却是78.6%。两者统计的人群和题目不同，可以同时成立。作品标签里的13,165则是帖子数，一个人可以贡献多篇，不能当成使用人数。</p>
+<div><span>把统计对象放在一起看</span><h4>同一个工具，为什么会有不同的数字？</h4><p>选一款工具，对照“作品里出现多少次”“近期活跃的人有多少在用”“LLM问卷里有多少人选它”。</p></div>
+<div><div>ChatGPTClaudeGemini</div>查看其他工具ChatGPTClaudeGoogle GeminiAdobe FireflyCursorDeepSeekElevenLabsFigma MakeFloraGoogle AI StudioGoogle FlowHeyGenHiggsfield AIIdeogramInvideo AIKimiKling AIKrea AILeonardo AILovableMagicpathMidjourneyN8NNotion AIPaperPerplexityPhotoroomReplitRunwaySoraSuno AIVariant UI</div>
+<p>当前查看：ChatGPT</p>
+<div>
+<span>01 · 数帖子</span>作品里被标记<div><strong>13,165</strong><span>篇帖子</span></div><p>作品集里标记了这个工具的不同帖子数；一人可以发多篇。</p>累计标签记录，统计起止未说明
+<span>02 · 数平台活跃的人</span>近期活跃者在用<div><strong>29.3%</strong><span>使用占比</span></div><p>平台过去3个月活跃创作者中的工具使用比例。</p>过去3个月，具体起止未说明
+<span>03 · 数LLM问卷的答题者</span>在LLM题中选它<div><strong>78.6%</strong><span>选择占比</span></div><p>问卷大语言模型类别的自报采用比例。</p>问卷统计，具体采集日期未说明
+</div>
+<p>ChatGPT的29.3%来自平台近期活跃群体，78.6%来自LLM问卷题。答题范围不同，两个比例可以同时成立；13,165数的是帖子，不能当成使用人数。</p>
+<div>分别看看各组榜单<div>作品帖子数近期活跃使用率LLM问卷采用率</div><p>按作品帖子数排序。条形以本榜单最多的13,165篇为满长，只比较这组帖子数。</p></div>
+<ol><li><span>01</span><span>ChatGPT</span><strong>13,165篇</strong><span><span></span></span></li><li><span>02</span><span>Claude</span><strong>10,286篇</strong><span><span></span></span></li><li><span>03</span><span>Google Gemini</span><strong>7,322篇</strong><span><span></span></span></li><li><span>04</span><span>N8N</span><strong>4,443篇</strong><span><span></span></span></li><li><span>05</span><span>Midjourney</span><strong>3,736篇</strong><span><span></span></span></li><li><span>06</span><span>Kling AI</span><strong>2,876篇</strong><span><span></span></span></li><li><span>07</span><span>Higgsfield AI</span><strong>2,622篇</strong><span><span></span></span></li><li><span>08</span><span>Lovable</span><strong>2,341篇</strong><span><span></span></span></li></ol>展开全部24项
+<p>各图可包含多工具使用或标记。未列出不等于没人用；三组数据没有共同分母，不能合并为市场份额。数据：Contra官方图16、17、19。</p>
+查看帖子标签、活跃使用与LLM问卷三张原图
+<figure>
+<a><img /></a>
+<figcaption>作品帖子中标记的工具（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<figure>
+<a><img /></a>
+<figcaption>近3个月活跃创作者使用的工具（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<figure>
+<a><img /></a>
+<figcaption>大语言模型问卷榜单（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<p>交互中可以逐工具比较，也可以切换三张榜单。完整数字保留在折叠区。</p>
+查看详细数字
+<p>三组统计的对象分别是帖子、近期活跃创作者与问卷答题者：</p>
+<ol>
+<li><strong>作品帖子标签计数</strong>：度量创作者在个人作品集中标记各工具的帖子总数。排名前列的有 ChatGPT（13,165 次）、Claude（10,286 次）、Google Gemini（7,322 次）、N8N（4,443 次）、Midjourney（3,736 次）、Kling AI（2,876 次）、Higgsfield AI（2,622 次）、Lovable（2,341 次）、Figma Make（2,270 次）、Cursor（1,431 次）、ElevenLabs（1,351 次）、Runway（1,071 次）等。一次标签记录不等于一名使用者。</li>
+<li><strong>近 3 个月平台活跃创作者工具采用率</strong>：统计在平台上有活跃记录的创作者中，实际使用各工具的创作者比例。排名前列的有 ChatGPT（29.3%）、Claude（27.1%）、Google Gemini（14.1%）、Figma Make（9.8%）、N8N（9.1%）、Midjourney（7.8%）、Google AI Studio（6.6%）、Lovable（4.9%）、Kling AI（4.2%）、ElevenLabs（4.1%）、Cursor（3.5%）、Higgsfield AI（3.2%）等。创作者可同时使用多种工具，各比例非互斥。</li>
+<li><strong>问卷细分品类采用率</strong>：例如在问卷的大语言模型类别中，ChatGPT 采用率为 78.6%、Claude 为 59.0%、Gemini 为 37.8%。</li>
+</ol>
+<p>同一工具可能出现在多张榜单中；这些数值不能合成统一的市场份额。</p>
+工具认知图在比较什么？
+<p>工具认知图用Reach、Awareness和Adopters区分触达、认知与采用人数，气泡大小表示采用人数。它没有提供可计算转化率的统一分母。</p>
+<figure>
+<a><img /></a>
+<figcaption>工具认知、触达与采用人数（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+查看六类工具的问卷比例
+<p>下表按报告的工具类别整理。类别说明只是便于找工具，不代表问卷测量了每款工具在具体任务上的效果。</p>
+<div><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>问卷主要采用工具（自报占比）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文本与语言模型</td>
+<td>ChatGPT 78.6%、Claude 59.0%、Gemini 37.8%、Notion AI 18.9%、Perplexity 18.9%、DeepSeek 6.8%、Kimi 3.1%</td>
+</tr>
+<tr>
+<td>图像生成</td>
+<td>ChatGPT 38.4%、Midjourney 25.8%、Krea 17.2%、Flux 15.6%、Nano Banana 14.8%、Flora 6.3%</td>
+</tr>
+<tr>
+<td>视频生成</td>
+<td>Google Veo 27.3%、Kling 22.1%、Higgsfield 19.2%、Runway 17.6%、HeyGen 11.1%、Pika 6.5%、Opus Clip 5.6%</td>
+</tr>
+<tr>
+<td>音频与语音</td>
+<td>Suno 43.1%、ElevenLabs 25.3%、Descript 5.0%、Renoise 2.9%</td>
+</tr>
+<tr>
+<td>编程与应用构建</td>
+<td>Claude Code 61.5%、Cursor 27.0%、Lovable 25.4%、Replit 13.6%、v0 11.3%、Bolt 10.6%、Builder.io 7.7%</td>
+</tr>
+<tr>
+<td>原生创意软件</td>
+<td>Figma 59.0%、Canva 55.3%、CapCut 46.1%、After Effects 36.7%、Framer 29.8%、Photoshop 20.7%、DaVinci 18.9%、Paper 12.4%</td>
+</tr>
+</tbody>
+</table></div>
+<figure>
+<a><img /></a>
+<figcaption>图像生成工具问卷榜单（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<figure>
+<a><img /></a>
+<figcaption>视频生成工具问卷榜单（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<figure>
+<a><img /></a>
+<figcaption>音频与语音工具问卷榜单（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<figure>
+<a><img /></a>
+<figcaption>编程与应用构建工具问卷榜单（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<figure>
+<a><img /></a>
+<figcaption>原生创意软件问卷榜单（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+查看工具采用的季度变化
+<p>2026年第二季度相对2025年第四季度，平台创作者使用占比的倍数：Claude 32×、Higgsfield AI 14×、ElevenLabs 8×，ChatGPT与Google AI Studio各6×；Google Gemini、Kling AI、Runway各5×；Lovable、Figma Make、Cursor、Leonardo AI各3×；Midjourney与Replit各2×。Google Flow标为New。倍数描述两个季度的相对变化，不是绝对使用人数。</p>
+<figure>
+<a><img /></a>
+<figcaption>工具采用的季度变化（Contra Labs原图，点击可看大图）</figcaption>
+</figure>
+<h4>客户需求说明中的工具提及</h4>
+<p>在客户项目需求说明中，工具名字的提及频次也在变化。H1 2026相对H1 2025，Higgsfield为25倍，Replit为10.8倍，Claude为9.9倍，Cursor为9倍。它们显示哪些工具更常被客户写进需求，不能直接拿来比较工具效果。</p>
+查看其他工具的需求提及倍数
+<p>Google Gemini 5.5×、Runway 5.4×、ElevenLabs 5.0×、Lovable 3.3×、Midjourney 3.0×、ChatGPT 1.3×。</p>
+<figure>
+<a><img /></a>
+<figcaption>Contra 平台项目需求说明中各工具被提及频次的倍数（H1 2026 相比 H1 2025）（数据来源：Contra 平台项目需求说明）；点击可看原图大图</figcaption>
+</figure>
+</div><div><div><div>来源</div><div><span>Creative Intelligence Report 2026</span><span>Contra Labs<span>·</span><a href="https://contralabs.com/creative-intelligence-report-2026">查看主材料</a></span></div></div><div><div>本站说明</div><div>依据公开网页、31张官方图表与14位受访者的公开视频；完整报告需登记邮箱领取，未取得门后版本。</div></div></div></div></div><div>
+<div>Contra Labs · Creative Intelligence Report 2026</div>
+<h1>Contra 2026创意行业报告：AI让制作更容易，创作者怎样把它变成价值？</h1>
+<div>会用AI和赚到更多钱，是两件事。先看它参与什么工作，再看客户认可什么成果。</div>
+<div>Contra Labs：问卷、平台项目记录与创作者采访</div>
+<div>
+<p>AI进入了许多创作者的工作。有人扩大服务，也有人收入持平、下降或面临岗位压力。这份报告把不同结果放在一起。</p>
+<div>
+<div>
+<div>~70%</div>
+<div>受访者在工作中用AI</div>
+</div>
+<div>
+<div>~19%</div>
+<div>平台付费项目记录使用AI</div>
+</div>
+<div>
+<div>49.1%</div>
+<div>采用者自报总收入增加；37.0%持平、13.9%下降</div>
+</div>
+</div>
+<div>
+<p>七成统计受访者，19%统计付费项目，一个人可以只在部分项目中用AI；49.1%来自另一道收入问卷。</p>
+</div>
+</div>
+<div>
+<h2>制作更容易后，谁来决定方向、负责交付？</h2>
+<p>按Brianne Kimmel、Gui Seiz与Stephen Haney的采访实践整理，工具参与的是工作的一部分。</p>
+<div>
+<h3>目标 → 候选 → 检查与交付</h3>
+<div>
+<div>
+<div>先定方向</div>
+<div>写清简报</div>
+<p>想清客户目标，再让模型给出方案。</p>
+</div>
+<div>
+<div>工具辅助</div>
+<div>探索与制作</div>
+<p>少做搬像素、样板代码等操作，尝试更多候选。</p>
+</div>
+<div>
+<div>自己作判断</div>
+<div>检查成稿</div>
+<p>核对代码、用户需要和原始brief，再决定交付什么。</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h2>不同交付物，项目金额怎样比较？</h2>
+<p>近18个月的项目粗中位净支付；工作范围不同，金额不是统一报价、利润或时薪。</p>
+<div>
+<div>
+<div>
+<div>RAG／定制GPTs · AI自动化</div>
+<div>$3,960 / $1,500</div>
+</div>
+<p>需求分别为基期1.5倍、3倍：增长最快的，并不一定金额最高。</p>
+</div>
+<div>
+<div>
+<div>MVP／完整产品构建 · 设计系统</div>
+<div>$2,122 / $1,875</div>
+</div>
+<p>从构建产品到定义设计规则，承接的工作范围不同。</p>
+</div>
+<div>
+<div>
+<div>宣传物料 · 插画</div>
+<div>$331 / $500</div>
+</div>
+<p>做单件物料与做完整产品，不能只按金额比较职业价值。</p>
+</div>
+</div>
+</div>
+<div>
+<h2>单项目金额与总收入，分开看</h2>
+<p>平台追踪每位创作者的单项目金额中位数变化，再取群体中位值：AI采用者+20%，未采用者+7%。这组观察性对照不能单独证明AI造成差距。</p>
+<div>
+<h3>两张图回答不同问题</h3>
+<div><div>单项目金额：+20% / +7%</div><div>≠</div><div>总收入：49.1%自报增加</div></div>
+<p>单价提高后还要看能接到多少项目。评估是否持续使用工具，则还要考虑订阅费和返工时间。</p>
+</div>
+<p>下面是受访者勾选的顾虑比例，可多选：</p>
+<div>
+<div>
+<div>70.1%</div>
+<div>成本：月费、工具太多。</div>
+</div>
+<div>
+<div>44.6%</div>
+<div>质量：结果不稳定、需要修改。</div>
+</div>
+<div>
+<div>43.5%</div>
+<div>隐私：担心未公开素材泄露或被用于训练。</div>
+</div>
+<div>
+<div>31.3%</div>
+<div>版权：受访者对权利归属的顾虑。</div>
+</div>
+</div>
+</div>
+<div>
+<h2>把下一单当作一次可复盘的实验</h2>
+<p>Weber Wong提到有人失业，也看好独立工作室。报告没有统计全行业岗位净增减。下面是从实践中整理的复盘建议：</p>
+<div>
+<div>
+<div>01 / TEST</div>
+<div>选真实任务试工具</div>
+<p>记下哪些步骤更快、哪里返工，以及客户是否接受。</p>
+</div>
+<div>
+<div>02 / REVIEW</div>
+<div>把意见当作建议</div>
+<p>用AI整理竞品、挑刺、对照brief，再自己检查。</p>
+</div>
+<div>
+<div>03 / TRUST</div>
+<div>先约定素材使用范围</div>
+<p>说明哪些环节用AI、哪些未公开素材可交给外部工具。</p>
+</div>
+<div>
+<div>04 / PRUNE</div>
+<div>按用途保留订阅</div>
+<p>一起看费用、频率和善后时间，减少低效工具。</p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】小商家怎样用 AI 做视频广告：从产品图到能讲清卖点的素材</title>
+<link>https://best.xiaohu.ai/article/higgsfield-small-business-video-ads/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:higgsfield-small-business-video-ads</guid>
+<pubDate>Fri, 09 Oct 2026 12:00:51 +0000</pubDate>
+<description>Higgsfield 用一罐虚构柠檬汽水，演示人物讲解、产品动态镜头和配套广告图。看懂工具怎样工作，也看懂生成后还需要完成什么。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 9 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">小商家怎样用 AI 做视频广告：从产品图到能讲清卖点的素材</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/higgsfield-small-business-video-ads/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>小商家怎样用 AI 做视频广告：从产品图到能讲清卖点的素材</h1><p>Higgsfield 用一罐虚构柠檬汽水，演示人物讲解、产品动态镜头和配套广告图。看懂工具怎样工作，也看懂生成后还需要完成什么。</p><strong>一分钟速览</strong><ul><li>Higgsfield 把产品图或商品链接接入广告模板，让小商家有机会直接制作视频素材。</li><li>广告要让人看懂一个真实好处，并知道下一步去哪，漂亮镜头只是其中一部分。</li><li>AI 人物没有真实顾客的使用经历，生成素材的品质也不能证明投放销量。</li></ul><div><p>很多独立小商家和个体创作者想做短视频广告，常常卡在第一步：请不起专业摄制团队、租不起影棚，自己拿手机拍又很难拍出商业质感。</p>
+<p>Higgsfield 发布的官方指南提供了一个低门槛思路：<strong>用一张清晰的产品图或一个商品链接作为输入，借助 AI 工具直接生成带有 AI 人物讲解或商业运镜的短视频广告</strong>。</p>
+<p>但这并不意味着按一下按钮就能坐等订单。如何把控 AI 生成的内容、如何避免“一眼假”的穿帮、怎么让无声刷视频的用户产生购买冲动？本文把这份指南的核心机制、实操路径与关键避坑逻辑拆开讲透。</p>
+<hr />
+<h3>先看清楚：哪些工作由工具完成</h3>
+<blockquote>
+<p>制作小微商业 AI 视频广告需提前备好四项基础：清晰产品图或链接、目标受众、单一核心卖点及投放渠道与行动号召（CTA）。高质量短视频需兼顾静音播放，确保文字与画面自明。</p>
+<p>平台提供 <strong>Marketing Studio</strong>（利用产品资料生成视频和图片素材）与配套静态图制作工具 <strong>Ads Studio</strong>（基于品牌套件生成一致风格图片）。Higgsfield 在指南中介绍，其创作套件有 35+ 模型与工具，Marketing Studio 提供 1,500+ 模板，分为 Product Shots、Ads、Marketplace、Posters、UGC Videos 和 Motion 六类。做人物介绍视频时，从 UGC Videos 进入；模板覆盖不到的需求，再用提示词描述。</p>
+<p>核心制作路线分为：</p>
+<ol>
+<li><strong>UGC 模板</strong>：导入产品，在模板支持时配置 9:16 竖版与 15 秒时长，设置 Hook、一个好处与 CTA，由 AI 人物展示；</li>
+<li><strong>提示词运镜</strong>：上传清晰的产品参考图，描述镜头运动与光影，生成产品动态；</li>
+<li><strong>静态图配套</strong>：导入并核对品牌资料，生成配套静态广告。</li>
+</ol>
+<p>输入链接直接解析时，工具仅能读取网页中能够取得的商品名、描述、配图和品牌信息，并不能替代人工确立品牌策略。如果抓取信息存在缺失或理解偏差，生成结果就会出现偏颇，因此导入后仍须逐项核对并手动修正。</p>
+<p>上线前需核对：AI 声明、素材授权、外观前后一致性、文字防遮挡与易读性、产品主张准确性、声音口型、版位尺寸及链接有效性。</p>
+</blockquote>
+<h4>开工前准备清单（复制即用）</h4>
+<p>在正式进入工具生成前，提前填好以下清单，能省去制作中临时决策的成本：</p>
+<ul>
+<li><strong>素材</strong>：[清晰商品白底图/实拍图或商品页面链接]</li>
+<li><strong>受众需要</strong>：[目标买家特征及其需要解决的具体痛点]</li>
+<li><strong>一个真实卖点</strong>：[单条广告仅聚焦的单一核心好处与当前促销信息]</li>
+<li><strong>支持依据</strong>：[佐证核心好处的客观依据或资质证明，不可杜撰]</li>
+<li><strong>版位</strong>：[计划投放渠道与对应画幅，如 9:16 竖屏或 16:9 横屏]</li>
+<li><strong>下一步</strong>：[引导用户点击的明确行动指示，如前往店铺或领券选购]</li>
+</ul>
+<hr />
+<h3>让观众看懂一个好处，再告诉他下一步去哪</h3>
+</div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】如何构建靠谱、不易出错的自主 Agent 定时自动化工作流 Anthropic 自动化简报的六条设计规则</title>
+<link>https://best.xiaohu.ai/article/effective-agent-automations/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:effective-agent-automations</guid>
+<pubDate>Fri, 09 Oct 2026 12:00:51 +0000</pubDate>
+<description>Anthropic 自动化简报的六条设计规则：从设定任务、定时触发，到筛选、确认送达和恢复失败，搭起有明确权限与记忆的工作流。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 9 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">如何构建靠谱、不易出错的自主 Agent 定时自动化工作流 Anthropic 自动化简报的六条设计规则</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/effective-agent-automations/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>如何构建靠谱、不易出错的自主 Agent 定时自动化工作流 Anthropic 自动化简报的六条设计规则</h1><p>Anthropic 自动化简报的六条设计规则：从设定任务、定时触发，到筛选、确认送达和恢复失败，搭起有明确权限与记忆的工作流。</p><strong>一分钟速览</strong><ul><li>自主定时 Agent 要先设定来源、目标和权限，再让它每轮独立完成读取、判断、交付与记账。</li><li>靠谱的关键是让状态跟真实结果一致：读不到要说明，发送前要复查，确认送达后才推进书签。</li><li>先写好偏好并试跑，再开启计划；运行记录要能分清有意静默、来源故障和投递失败。</li></ul><div><p>你可以给 Agent 交代一项固定工作：每个工作日早晨，读指定的 Slack 频道和 GitHub 仓库，找出今天需要你处理的事项，整理成一份短简报，发到指定频道。</p>
+<p>你事先写好来源、目的地、筛选规则和执行权限。到时间后，调度器启动一次新的 Agent 会话；Agent 自己读取材料、判断价值、调用工具、发送并记账，本轮完成就结束。调度器管“何时开工”，Agent 管“哪些变化值得报、现在是什么状态、能否确认送达”。下一轮再读取保存的书签和台账，接着做。</p>
+<p>Anthropic 开源的 <code>daily-brief</code> 就是一套这样的参考实现。它使用 <strong>Claude Managed Agents（beta）</strong> 在云端运行，无需你维持一台常驻服务器。它值得借鉴的地方，是把无人值守时容易遇到的漏读、过时提醒、投递失败和权限问题，放进了具体的处理流程。</p>
+<hr />
+<h3>一张图看清全貌：后台 Agent 是如何装配的？</h3>
+<p>后台自动化 Agent 不是一段简单的 Prompt，而是一套涵盖网络、凭证、存储与调度的微型系统。Anthropic 官方给出的参考架构包含六个部分：</p>
+<figure>
+<img />
+<figcaption>Anthropic 后台自动化 Agent 完整架构图。定时调度唤醒 Agent，经由外部凭证保险库读取数据源，对照只读偏好与读写状态进行筛选核验，在沙箱护栏管控下向目标频道投递简报。</figcaption>
+</figure>
+<p>为了让读者直观理解各模块在代码层面的实际落地，以及区分哪些是“系统级硬限制”、哪些只是“提示词软约定”，我们梳理了六大组件的装配台：</p>
+<div>
+<h3>六个部分：配置在哪里，约束怎样生效</h3>
+<p>点击下方组件，切换观察每个模块在真实参考代码中的载体、工作机制以及“系统级硬控制”与“提示词软约束”的实际分界。</p>
+</div>
+<div>
+数据源 Sources
+目的地 Destination
+Agent 配置 Agent
+定时调度 Schedule
+双轨记忆 Memory
+运行限制 Guardrails
+</div>
+<div>
+<div>
+<div>
+<span>vault.yaml &amp; environment.yaml</span>
+<span>系统硬隔离 + 工具禁用</span>
+</div>
+<h4>数据来源（Sources）：只读拉取与密钥隔离</h4>
+<p>Agent 定期抓取 Slack 频道对话与 GitHub PR。它不直连真实凭证，而是通过平台托管的 Vault（保险库）代理。沙箱网络只允许访问 slack.com 与 GitHub MCP 服务。</p>
+<div>
+<div>安全实现边界透视</div>
+<p><strong>权限限制：</strong>沙箱环境限制出站主机，且在 agent.md 中关闭了 web_search 与 web_fetch（减少额外联网通道）。GitHub Token 在云端配置为只读。<br /><strong>代码与调用方式：</strong>Slack 通过 Bash 运行 curl 发起 HTTPS 请求，GitHub 经由 MCP 代理；图文一致。</p>
+</div>
+</div>
+<div>
+<pre><code># environment.yaml: 网络白名单硬限制
+name: daily-brief
+config:
+  type: cloud
+  networking:
+    type: limited
+    allow_mcp_servers: true
+    allowed_hosts:
+      - slack.com
+# agent.md: 关停绕过沙箱的搜索工具
+tools:
+  - type: agent_toolset_20260401
+    configs:
+      - name: web_search
+        enabled: false
+      - name: web_fetch
+        enabled: false</code></pre>
+</div>
+</div>
+<p>从装配台可以看出，这套架构由六个声明式文件组装：</p>
+<ol>
+<li><strong>数据源（Sources）</strong>：由 <code>environment.yaml</code> 限定沙箱外网出站白名单（仅允许 <code>slack.com</code> 与 MCP 服务）；密钥由 <code>vault.yaml</code> 在沙箱外安全代持。</li>
+<li><strong>投递目的地（Destination）</strong>：约定一个 Slack 目标频道，通过沙箱内置的 Bash 调用 <code>curl</code> 发帖；目标频道由偏好与提示词指定。</li>
+<li><strong>Agent 配置（Agent）</strong>：<code>agent.md</code> 定义了基座模型（当前配置为 Claude Sonnet 5.5，即 <code>claude-sonnet-5-5</code>）、MCP 工具集与八步运行指令（系统提示词）。它只是一份<strong>模型、工具与指令配置</strong>，不直接决定何时何地跑。</li>
+<li><strong>定时调度（Schedule 与 Deployment 资源）</strong>：<code>deployment.md</code> 才是<strong>负责绑定这些资源的部署配置</strong>。它把 <code>agent.md</code> 与运行环境（<code>environment.yaml</code>）、Cron 调度表达式、时区、凭证保险库（Vault ID）、只读偏好卷、读写状态卷以及单次预算上限绑定在一起。如果想调整模型的推理逻辑或步骤，修改 <code>agent.md</code>；如果要修改调度时间、关联存储、增减凭证或调节预算，则需修改 <code>deployment.md</code>。</li>
+<li><strong>双轨记忆（Memory）</strong>：区分 <code>preferences.md</code>（读者偏好，文件系统只读挂载）与 <code>state</code>（Agent 自身状态，读写挂载）。</li>
+<li><strong>防御护栏（Guardrails）</strong>：<code>deployment.md</code> 设定单次运行的花费上限（示例配置 <code>amount: "500"</code> 即 5 美元单次上限，非预估费用），达到上限时平台将其暂停并记录停止原因为 <code>budget_reached</code>。</li>
+</ol>
+<p>在凭证和工具授权上，这套系统实现了细粒度的“自主运行条件”：</p>
+<ul>
+<li><strong>MCP 工具与只读 Token 的组合拳</strong>：在无人值守的定时任务中，MCP 工具集默认的 <code>always_ask</code> 策略会导致无人值守的会话停在待审批状态。因此 <code>agent.md</code> 将 GitHub MCP 工具集的权限策略显式指定为 <code>always_allow</code>。但为了防止 Agent 被恶意内容诱导越权，必须在 GitHub 平台端配合<strong>严格只读的细粒度 Token</strong>。这样，Agent 可以自行调用读取工具，GitHub 仍会在服务端拒绝写操作。</li>
+<li><strong>Bash 执行与 Slack 目的地</strong>：沙箱内置的 Bash 工具默认免交互审批执行；发往 Slack 的请求在沙箱内仅暴露 <code>$SLACK_BOT_TOKEN</code> 占位符，真实令牌保存在沙箱外的 Vault 中，只在出站请求发往白名单域名 <code>slack.com</code> 时由平台代理动态注入。目标投递频道在偏好中预先约定，限定本轮应该发送到哪里；实际可写范围仍由 Bot 权限和频道成员资格决定。</li>
+</ul>
+<p>鉴权失败时，参考指令要求将该来源记为本轮不可读，继续处理其他来源；不去沙箱里搜索其他令牌，也不尝试绕过访问限制。</p>
+<p>GitHub 的真实令牌同样留在 Vault，沙箱外的 MCP 代理按服务器地址匹配凭据；Agent 能使用这些读取工具，无需接触真实令牌。</p>
+<p>在官方公布的架构示意图中，Guardrails 模块绘制了轮次上限（Turns）、时间上限（Time）、花费上限（Spend）以及心跳机制（Heartbeat）。但在目前开源的参考实现配置中，实际配置的主要是单次花费上限（<code>budget</code>）。在生产部署中，心跳监控与超时控制仍需根据实际需要补充。</p>
+<hr />
+<h3>一次定时运行，按什么顺序完成工作</h3>
+<p><code>agent.md</code> 的提示词规定了以下八个步骤。这是每轮工作的执行顺序，后面的六条规则解释为什么要这样安排：</p>
+</div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Claude 发布实时数据看板 Dashboards 和代码驱动动态解说工具 Claude Motion：让一切都被做成视频能动起来</title>
+<link>https://best.xiaohu.ai/article/claude-dashboards-motion/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:claude-dashboards-motion</guid>
+<pubDate>Fri, 09 Oct 2026 12:00:51 +0000</pubDate>
+<description>从问一个业务问题，到核对数据、做成动画、交给团队继续改：这次更新把分析与表达接到了同一段对话里。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 9 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Claude 发布实时数据看板 Dashboards 和代码驱动动态解说工具 Claude Motion：让一切都被做成视频能动起来</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/claude-dashboards-motion/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Claude 发布实时数据看板 Dashboards 和代码驱动动态解说工具 Claude Motion：让一切都被做成视频能动起来</h1><p>从问一个业务问题，到核对数据、做成动画、交给团队继续改：这次更新把分析与表达接到了同一段对话里。</p><strong>一分钟速览</strong><ul><li>这次更新把查数据与讲清分析接到同一段对话里：Dashboards 生成随数据更新的看板，Motion 把结论编成可编辑的动画。</li><li>看板数字能展开查看查询，动画中的文字、数字与节奏能继续修改；生成之后仍能核对和打磨。</li><li>Docs、Slides、Design 面向全部套餐；Dashboards 限付费套餐，Motion 限 Team 和 Enterprise。旧 Design 站将于 2026 年 12 月 14 日关闭。</li></ul><div><p>在日常办公和跨部门汇报中，最让人头疼的两件事莫过于“查数据”和“做汇报”。想看业务异动，往往要提需求排期等数据分析师写 SQL，好不容易拿到一堆静态图表，下周数据变了又得重来；而想要在全员会或客户演示中把复杂流程讲生动，最后往往又妥协成密密麻麻的静态 PPT，或者被复杂的专业视频剪辑软件劝退。</p>
+<p>Claude 给出的新做法，是把“查清楚”和“讲明白”接到同一段对话里。它的 Artifacts——可以打开、编辑和分享的工作成果——迎来升级：新推出了处于测试阶段的 <strong>Claude Dashboards</strong>（实时数据看板）与 <strong>Claude Motion</strong>（代码驱动的动画解说），同时将经过多轮迭代的 <strong>Docs</strong>（文档）、<strong>Slides</strong>（幻灯片）与 <strong>Design</strong>（设计）正式移出测试阶段，全量推向所有用户。</p>
+<p>这套新组合的功能分布与适用门槛非常清晰：</p>
+<ul>
+<li><strong>实时数据看板（Claude Dashboards，Beta）</strong>：直接接入企业数仓或 CRM，用自然语言提问就能生成联动的业务看板，并随底层数据变动自动刷新（面向 Pro、Max、Team 与 Enterprise 付费套餐）。</li>
+<li><strong>代码驱动动态解说（Claude Motion，Beta）</strong>：把报告、图表或产品演示转成短动画并导出 MP4，由 Claude 用代码为文字、图表、形状和图片编排动画，可编辑具体文字、数字与节奏，不使用视频生成模型，也不生成新拍摄影像或 AI 人物（面向 Team 与 Enterprise 团队套餐）。</li>
+<li><strong>基础创作工具全面转正（Docs、Slides、Design）</strong>：移出测试标签，支持团队多人与 Claude 共同实时编辑、跨端查看及保留排版的格式导出，覆盖包括免费版在内的全部套餐。</li>
+</ul>
+<figure>
+</figure>
+<p>官方完整演示，约81秒，保留原声；中文字幕由本解读翻译，可在播放器中切换英文转写。 <a href="https://www.youtube.com/watch?v=en0GuyhieQk">原片</a></p>
+<p>官方演示围绕同一个共享单车运营任务展开：团队先通过数据看板排查早高峰山坡站点缺车的原因，再直接在看板上发起批注生成晨间调度解说动画，让分析发现顺畅过渡为汇报视频。</p>
+<hr />
+<h2>实时数据看板：不用提工单排期，用大白话直连业务数据</h2>
+<p>过去在企业里探究一个业务疑问，非技术人员往往只能求助于 BI 工具或数据团队。而在 Claude Dashboards 中，只要配置好数据连接器，你就能用大白话直接跟公司的数据底座对话。</p>
+<h3>1. 机制与连接：从提问到可追溯的动态图表</h3>
+<p>Dashboards 支持连接主流云端数仓（如 Amazon Redshift、BigQuery、ClickHouse、Databricks、Snowflake）以及常见业务系统（如 Salesforce CRM）。它特别适合快速回答探索性业务问题（quick exploratory questions），例如“本周注册量与上月相比如何”，或是查看 Salesforce 里的商机看板。用户只需用大白话提问，Claude 会在后台生成相应的数据库查询语句，调取数据并编排成交互式看板。</p>
+<p>这一流程的核心在于建立从提问到可追溯结果的闭环：</p>
+<ul>
+<li><strong>数据来源可追溯与核对口径</strong>：点击看板上的任意数字，即可直接查看背后的具体查询语句，也可以追问让 Claude 解释计算逻辑。在实际业务中，不同角色对“新增注册”或“有效商机”等指标的统计口径可能存在差异，能够直接查看底层查询，方便业务人员与技术团队核对取数范围与过滤条件。</li>
+<li><strong>数据随源端动态刷新</strong>：底层数据库发生变化后，看板数据会随之更新，每张图表都会明确标出数据最后刷新的时间。刷新时间告诉你，这张图反映的是何时的数据。结合查询与时间，才能判断数字是否回答了你当前的问题。</li>
+</ul>
+<h3>2. 一个运营例子：山坡上的单车为何总被借空</h3>
+<p>在官方演示中，演示者构建了一个假设的共享单车运营场景：车队发现每个工作日早晨 8 点 15 分，位于半山腰的 Fernhill 站点车辆总会被借空，运营团队需要查明原因并给出调度建议。</p>
+<p>面对“做一份过去一年的骑行数据看板”的指令，Claude 调取了过去 12 个月（演示周期为 2025 年 10 月至 2026 年 9 月）涉及 24 个站点、512 个车桩的数据，生成了包含六大核心指标与走势图的仪表盘：</p>
+<ul>
+<li><strong>全量规模</strong>：全年累计完成 44.5 万次骑行，其中单日最高骑行峰值出现在 7 月 11 日周六（2,999 次）。</li>
+<li><strong>早高峰分布</strong>：工作日骑行量中早 6 点至 9 点所占比例为 21%，早 8 点峰值达到每小时 161 次。</li>
+<li><strong>问题聚焦</strong>：在第三季度（2026 年 7 月至 9 月）记录到的 4,200 次空桩事件中，有 71% 集中在山坡站点（Fernhill 站点在典型工作日早 8 点 15 分便已空桩）。看板界面同时呈现了工作日早高峰后每日往山上调配 92 辆车的建议量。这个例子把“哪儿缺车、何时缺车、准备调配多少车”放在同一张看板上；92 辆是演示中的建议量。</li>
+</ul>
+<p>看板下方的两张图表分别解答了宏观周期与微观时段两个层面的问题：左图“每日骑行量（Rides per day）”将灰色的逐日骑行曲线与青色的 7 日移动均线对照呈现（例如 5 月 8 日单日为 1,400 次，7 日均线为 1,356 次，7 月 11 日达到单日最高 2,999 次），用于平滑日间短期波动以观察中长期走向；右图“按小时骑行量（Rides by hour）”则将青色工作日与灰色周末的逐时分布分开呈现，清楚展示出平日骑行尖峰集中在早 8 点通勤时段，而周末峰值则后移至中午前后。左图帮助观察跨月趋势，右图帮助比较一天里何时最忙；看哪张图，取决于你正在追问哪个运营问题。</p>
+<figure>
+<img />
+<figcaption>官方假设示例：先看一年骑行趋势，再聚焦 7—9 月的山坡空桩问题。点击图片可放大查看。</figcaption>
+</figure>
+<h3>3. 衔接深度分析工具</h3>
+<p>快速探索的价值，是先把一个业务疑问变成可以查看和核对的看板。问题需要更深入的分析时，Claude 可以把当前看板交给现有 BI 与分析工具，让团队沿着同一个问题继续做下去。当前支持与即将支持的平台分别如下：</p>
+<div><table>
+<thead>
+<tr>
+<th>当前支持接入的分析平台</th>
+<th>即将支持（Coming soon）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Amplitude、Grafana、Hex、Mixpanel、Omni、Perplexity、PostHog、Sigma</td>
+<td>Looker、monday.com、Tableau</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>动态解说（Claude Motion）：把报告和图表编成可编辑的动画</h2>
+<p>做汇报时，动起来的图表往往比静态幻灯片更能说明问题。Claude Motion 专门用于解说自己的工作内容：它并不使用视频生成模型，因此不会生成新拍摄的影像，也不会生成 AI 虚拟人物，而是通过编写代码来为文字、图表、形状与图片编排动画。</p>
+<figure>
+<img />
+<figcaption>在对话中选择 Motion，开始创建动画。图中模型与设置属于这次演示画面。</figcaption>
+</figure>
+<h3>1. 代码编排动画的机制</h3>
+<p>官网指出了 Motion 的三个典型实际用途：将季度业务报告做成 30 秒的全员会动态解说（30 秒为官方场景示例，并非系统统一限制）、在董事会演示中让静态图表动起来，以及为新客户引导制作产品上手走查。</p>
+<p>这些用途都需要把自己的内容讲清楚：报告要让人理解结论，图表要让人跟上变化，产品演示要让新用户看懂操作。Motion 用代码编排文字、图表、形状与图片，因此修改目标可以明确到某个词、某个数字或某段画面的停留时间。你可以直接在编辑器里改，也可以告诉 Claude 怎么改，再导出 MP4。比如数据修订后改掉图里的数字，或让一个关键画面多停留一会儿，方便观众理解。</p>
+<figure>
+<img />
+<figcaption>演示约 75 秒：画面中“Claude makes it. You steer it.”（Claude 来生成，你来决定方向）文本可直接选中编辑并带有格式工具；强调第一版动效由 AI 搭建后，人继续控制内容方向与具体细节。</figcaption>
+</figure>
+<h3>2. 团队协作与细节打磨工作流</h3>
+<p><a href="https://www.youtube.com/watch?v=en0GuyhieQk">观看官方完整演示（约 81 秒，英文）</a>。演示把“分析数据→看板批注→动画修改→团队协作”串成了一个任务。</p>
+<p>官方演示把单车运营案例完整串联成了一个看得见的操作链条：</p>
+<ol>
+<li><strong>从看板提出明确诉求</strong>：在共享单车数据看板中完成分析后，直接在站点地图上发起 <code>@Claude</code> 批注，要求把分析结论转化为一段面向全员会的简报动画。在提指令时，演示者不仅给出了“做成动画”的动作，更同时限定了受众（面向全公司）、沟通基调（尽量讲得简单明了），以及必须重点呈现的业务核心——山坡 Fernhill 站点在 8 点 15 分的空桩问题与早高峰后调配 92 辆车的建议。</li>
+</ol>
+<figure>
+<img />
+<figcaption>演示约 40 秒：在单车站点分布看板上 @Claude 批注，指令同时限定了受众（全公司）、表达要求（保持简单）与抓取重点（8:15 山坡空桩与 92 辆车调配建议）。</figcaption>
+</figure>
+<ol>
+<li><strong>按时间展开动态叙事</strong>：Claude 响应批注并生成动画，画面从早晨 5 点 30 分的城市俯瞰三维示意图与各站点光点切入，将数据结论转化为随时间推进的晨间运营故事。</li>
+</ol>
+<figure>
+<img />
+<figcaption>演示约 49 秒：生成的动画以清晨 5:30 的城市地图与站点光点作为故事起点，展开晨间单车流动过程。</figcaption>
+</figure>
+<ol>
+<li><strong>在时间轴上微调节奏</strong>：动画初版生成后，团队成员可以直接在画面播放时间线上针对特定定格画面添加批注。演示者在空桩定格处批注：“Hold on the empty dock a beat longer so it lands.”（让空桩画面多停一拍，让观众看明白）。这条批注同时指出了要改的画面和修改理由：让空桩状态停留久一点，好让结论落到观众心里。图中文字显示这条评论已发给 Claude，正在处理。</li>
+</ol>
+<figure>
+<img />
+<figcaption>演示约 60 秒：在空桩动画画面上批注“Hold on the empty dock a beat longer so it lands.”（让空桩画面多停一拍，让大家看明白），评论已发送给 Claude，要求调整这个画面的停留节奏。</figcaption>
+</figure>
+<ol>
+<li><strong>导出与接续专业工具</strong>：动画定稿后，可直接下载为标准的 MP4 视频用于全员会播放；如果团队需要进一步加工，也可以接续到外部视频与创意工具中继续处理：</li>
+</ol>
+<div><table>
+<thead>
+<tr>
+<th>当前支持的视频与创意工具</th>
+<th>即将支持（Coming soon）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adobe、Descript、HeyGen、Higgsfield、invideo、Luma AI、Runway</td>
+<td>Canva、Captions</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>基础协同全面转正：Docs、Slides 与 Design 全员开放</h2>
+<p>据 Anthropic 官方统计，自相关功能上线以来，用户已在对话中累计创建了超过 4,500 万份文档、幻灯片与设计。本次更新中，Docs（文档）、Slides（幻灯片）与 Design（设计）正式脱离 Beta 标签，全量开放给包括免费版在内的所有套餐用户。</p>
+<p>这些工具的转正，重点解决了日常办公里的协同与兼容问题：</p>
+<ul>
+<li><strong>团队多方协同编辑</strong>：不仅是人类给指令、AI 出结果，团队成员与 Claude 可以像在协同文档里一样，在同一个文档（doc）、演示文稿（deck）、设计画板（design）或数据看板（dashboard）上一起修改作品内容与版面。</li>
+<li><strong>受控的外部分享</strong>：在管理员允许的前提下，幻灯片（slides）、设计（designs）、数据看板（dashboards）以及动画（animations）支持生成链接分享给组织外人员或任何持有链接的访问者。</li>
+<li><strong>导出后继续使用</strong>：导出的 PPT 和 PDF 排版与编辑器内保持一致，幻灯片支持直接推送到 Google Slides 生成可继续编辑的原生文件，文档支持导出为 Word、Markdown 与 PDF。尤其导出到 Google Slides 后，协作者可以接着修改幻灯片内容，而无需从截图重新搭建。</li>
+<li><strong>键盘导航与无障碍支持</strong>：幻灯片支持使用键盘在区域间切换、选择并编辑文本或图形，同时提供演示控制与屏幕阅读器支持，辅助日常编辑与展示。</li>
+<li><strong>移动端随时改动</strong>：在 Claude 手机 App 中，可以直接打开并修改文档、幻灯片或设计（Design）内容。</li>
+<li><strong>企业级安全与治理</strong>：面向企业组织，Artifacts 正式支持客户管理的加密密钥（CMEK，即允许企业自主管理密钥来加密相关数据资产），管理员也可以统一选择组织内可使用的产物模板。</li>
+</ul>
+<hr />
+<h2>Claude Design 搬迁关键动作：旧站即将关停，数据迁移请留意</h2>
+<p>此前，Claude Design 一直以独立网站的形式运行在 <code>claude.ai/design</code>。主站中的 Design 可以使用当前对话的上下文、文件和连接器。Anthropic 表示，维护两个版本会拖慢双方的修复，因此将独立站并入 Claude。</p>
+<p>这项调整带来了几项关乎资产安全的明确时间节点与行动指引：</p>
+<h3>1. 核心时间表与系统迁移</h3>
+<ul>
+<li><strong>独立站访问保留期</strong>：旧站 <code>claude.ai/design</code> 将保留访问至 <strong>2026 年 12 月 14 日</strong>，关闭后访问将统一重定向至 Claude 主站。</li>
+<li><strong>迁移设计系统</strong>：打开 Claude 的 <strong>Artifacts</strong> 页面，点击“Migrate team design systems（迁移团队设计系统）”。一次迁移会涵盖组织内的设计系统，任何有权限的用户启动一次即可；但该迁移并非没有例外，空白设计系统以及基于内置初始主题（starter theme）创建的系统不会被迁移，部分系统也可能因文件超限等原因出现迁移失败，需按提示检查修复后再次迁移。原独立站中的设计系统在关闭前保持不变。</li>
+<li><strong>项目（Projects）当前仍在旧站使用</strong>：目前主站 Artifacts 页面可列出最多 60 个旧项目，点击后仍在独立站中打开和使用。关于将项目迁入主站的详细方案后续公布。用户如需备份，可在旧站中将项目逐个导出为 <code>.zip</code> 压缩包（免费且不计入用量限额）。</li>
+</ul>
+<h3>2. 资产保留与调整提醒</h3>
+<p>独立站关闭后，部分内容不会迁移到新站：</p>
+<ul>
+<li><strong>聊天记录与评论批注</strong>：在旧站中与 Claude 的历史对话以及留在项目和设计系统上的评论，均不会带到新站，并将在旧站关闭后依照数据保留规则删除。</li>
+<li><strong>公开分享链接失效</strong>：此前从旧站公开发布的项目链接在关停后将直接失效，需要注意检查对外引用的链接。</li>
+</ul>
+<p>团队若在旧版 Design 中沉淀了关键讨论，应在关闭前手动完成备份，并及时检查和梳理对外展示的链接。</p>
+<h2>怎样开始：用日常指令直接发起任务</h2>
+<p>上手这套工具并不需要先去学习复杂的数据查询或专业动画软件。官网建议从手头那个原本需要提工单排期的看板、或一张幻灯片讲不清的报告开始，直接在对话框中说明所需产物与具体用途：</p>
+<ul>
+<li>“制作一个本季度各地区收入的数据看板。”——给出指标、时间范围和分组维度。</li>
+<li>“为销售启动会把价格套餐对比做成动画。”——说明动画要讲什么、给谁看。</li>
+<li>“把这些笔记做成周一用的演示稿。”——提供现成笔记，说明要交付的成果。</li>
+</ul>
+<p>这些句子都把目标产物和用途说清楚。做业务看板时还要先连接相应数据源；选哪种功能，也要对照下面的套餐和权限条件。</p>
+<hr />
+<h2>套餐权限与管理员开启清单</h2>
+<p>新功能虽然诱人，但在不同套餐里的配置并不一致。特别是企业管理员，需要明确配置开关路径：</p>
+<h3>1. 各套餐权限一览表</h3>
+<div><table>
+<thead>
+<tr>
+<th>功能模块</th>
+<th>免费版（Free）</th>
+<th>专业版（Pro / Max）</th>
+<th>团队版（Team）</th>
+<th>企业版（Enterprise）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Docs（文档）</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Slides（幻灯片）</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Design（设计）</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Dashboards（实时数据看板，Beta）</strong></td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Motion（动态解说，Beta）</strong></td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2. 企业管理员的必备操作</h3>
+<ul>
+<li><strong>开启前置依赖</strong>：所有 Artifacts 功能均需要开启云端代码执行（Cloud code execution）与文件创建（file creation）权限，需在设置中的 Capabilities（Free、Pro、Max 为 Settings &gt; Capabilities，Team、Enterprise 为 Organization settings &gt; Capabilities）保持开启。</li>
+<li><strong>测试功能默认状态</strong>：
+<ul>
+<li><strong>Team 团队版</strong>：Motion 模板默认开启。</li>
+<li><strong>Enterprise 企业版</strong>：Dashboards 与 Motion <strong>默认处于关闭状态</strong>，需企业所有者前往 <code>Organization settings &gt; Artifacts</code> 手动开启；对于 Docs、Slides 和 Design，系统预定于 <strong>2026 年 10 月 15 日</strong> 为企业版默认开启，管理员也可提前手动启用。</li>
+</ul>
+</li>
+<li><strong>零数据保留（ZDR）限制</strong>：配置了零数据保留（Zero Data Retention）的企业无法启用 Artifacts，因此也无法使用设计系统迁移，相关企业若有旧版 Design 资产，需在 12 月 14 日前逐个下载 <code>.zip</code> 项目归档备份。</li>
+</ul>
+<p>本文依据 <a href="https://claude.com/resources/articles/dashboards-and-motion">Claude 官方博客</a>、<a href="https://x.com/claudeai/status/2108271552991252810">官方发布主题帖</a>的补充，以及用于核对权限与迁移细节的 <a href="https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them">Artifacts 帮助文档</a>与 <a href="https://support.claude.com/en/articles/17440474">Design 迁移指南</a>。</p>
+</div><div><div><div>来源</div><div><span>Build live dashboards and animate explainers with Claude</span><span>Anthropic<span>·</span><a href="https://claude.com/resources/articles/dashboards-and-motion">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/claudeai/status/2108271552991252810">Claude Dashboards and Claude Motion 官方主题帖</a><span>·</span><a href="https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them">Artifacts 功能与套餐说明</a><span>·</span><a href="https://support.claude.com/en/articles/17440474">Claude Design 迁移指南</a></div></div></div></div></div>
+<div>
+<div>Claude Artifacts · 功能升级</div>
+<h1>查清业务数据，再把发现讲成动画</h1>
+<p>Dashboards 用自然语言生成实时看板；Motion 用代码编排可编辑的动画。看板上的一个批注，把分析发现接到汇报制作。</p>
+<h2>同一个任务，三个衔接点</h2>
+<div>
+<div><div>01 · Dashboards</div><h3>先查清楚</h3><p>连接数仓或 CRM，用大白话提问。数字可展开查询，图表标出刷新时间。</p></div>
+<div><span>→</span><span>↓</span></div>
+<div><div>02 · @Claude 批注</div><h3>说明怎么讲</h3><p>在看板上提出动画需求，写清受众、表达要求和重点结论。</p></div>
+<div><span>→</span><span>↓</span></div>
+<div><div>03 · Motion</div><h3>再讲明白</h3><p>用代码编排文字、图表、形状与图片；继续改内容和节奏，定稿后导出 MP4。</p></div>
+</div>
+<p>这条关系来自官方单车演示：看板分析 → 原位批注 → 动画解说。两项新功能均处于 Beta。</p>
+<h2>看板便于核对，动画便于修改</h2>
+<div>
+<div><h3>Dashboards · 核对数字</h3><p>点击数字查看查询，追问计算逻辑；结合刷新时间，核对取数范围、过滤条件和数据时效。</p></div>
+<div><h3>Motion · 修改表达</h3><p>直接改文字、数字，或提出停留时间调整。它不使用视频生成模型，不生成新拍摄影像或 AI 人物。</p></div>
+</div>
+<div>官方假设案例 · Fernhill 共享单车站点</div>
+<h2>从早高峰缺车，到全员会简报</h2>
+<ol>
+<li><span>01</span><div><strong>先定位问题</strong><p>第三季度 4,200 次空桩事件中，71% 集中在山坡站点；Fernhill 典型工作日 8:15 已空桩。看板给出 92 辆调配建议；这是演示建议量，不代表真实运营效果已验证。</p></div></li>
+<li><span>02</span><div><strong>在看板上 @Claude</strong><p>要求做成全员会动画：面向全公司、保持简单，突出 8:15 空桩和 92 辆建议。</p></div></li>
+<li><span>03</span><div><strong>生成晨间故事</strong><p>动画从 5:30 的城市地图与站点光点展开，把数据发现放进时间推进的叙事。</p></div></li>
+<li><span>04</span><div><strong>继续打磨，再导出</strong><p>批注要求空桩画面多停一拍；演示显示评论已发给 Claude、正在处理。文字可直接编辑，定稿后导出 MP4，也可接续外部创意工具。</p></div></li>
+</ol>
+<h2>先看套餐，再看管理员设置</h2>
+<div>
+<div><table><thead><tr><th>功能</th><th>Free</th><th>Pro / Max</th><th>Team</th><th>Enterprise</th></tr></thead><tbody>
+<tr><th>Docs / Slides / Design</th><td>可用</td><td>可用</td><td>可用</td><td>可用</td></tr>
+<tr><th>Dashboards · Beta</th><td>不含</td><td>可用</td><td>可用</td><td>需开启</td></tr>
+<tr><th>Motion · Beta</th><td>不含</td><td>不含</td><td>默认开启</td><td>需开启</td></tr>
+</tbody></table></div></div>
+<ul>
+<li><strong>共同前提：</strong>开启 Cloud code execution 与 file creation。Free / Pro / Max 在 <code>Settings &gt; Capabilities</code>；Team / Enterprise 在 <code>Organization settings &gt; Capabilities</code>。</li>
+<li><strong>Enterprise：</strong>Dashboards、Motion 默认关闭，所有者到 <code>Organization settings &gt; Artifacts</code> 开启。Docs、Slides、Design 预定于 <strong>2026-10-15</strong> 默认开启，也可提前手动启用。</li>
+<li><strong>零数据保留（ZDR）：</strong>无法启用 Artifacts，也无法使用设计系统迁移。</li>
+</ul>
+<h2>旧 Design 站：迁移和备份分开做</h2>
+<div>2026-12-14</div>
+<p>旧站 <code>claude.ai/design</code> 保留访问至此日，关闭后重定向至 Claude。</p>
+<ul>
+<li><strong>设计系统：</strong>在 Artifacts 点 <code>Migrate team design systems</code>。空白系统、内置 starter theme 系统不迁移；遇文件超限等失败需按提示处理。</li>
+<li><strong>旧项目：</strong>主站最多列出 60 个，仍在旧站打开；迁入方案后续公布。可逐个免费导出 <code>.zip</code>，不计用量；ZDR 组织需在关闭前用此方式备份。</li>
+<li><strong>讨论与链接：</strong>旧聊天、项目及设计系统评论不迁移，关停后按数据保留规则删除；旧公开项目链接失效。重要讨论先备份，对外链接要检查。</li>
+</ul>
+</div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Anthropic 修改使用政策，禁止“虐待”Claude：他们正在把 AI 当人看待？</title>
+<link>https://best.xiaohu.ai/article/anthropic-usage-policy-2026/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:anthropic-usage-policy-2026</guid>
+<pubDate>Fri, 09 Oct 2026 12:00:51 +0000</pubDate>
+<description>普通抱怨和反驳被排除，主要处理方式是结束当前对话。结合此前的宗教会面，这项禁令也让人追问：对 Claude 的道德关怀，会怎样约束用户与公司自身？</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 9 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Anthropic 修改使用政策，禁止“虐待”Claude：他们正在把 AI 当人看待？</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/anthropic-usage-policy-2026/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Anthropic 修改使用政策，禁止“虐待”Claude：他们正在把 AI 当人看待？</h1><p>普通抱怨和反驳被排除，主要处理方式是结束当前对话。结合此前的宗教会面，这项禁令也让人追问：对 Claude 的道德关怀，会怎样约束用户与公司自身？</p><strong>一分钟速览</strong><ul><li>Claude 的新使用政策禁止持续、无必要的极端虐待，普通抱怨与反驳被明确排除。</li><li>这次更新有收紧也有放宽：选举定向的一概禁令被删除，欺骗选民和制造虚假舆论仍被禁止。</li><li>Anthropic 开始把对 Claude 的潜在道德关怀写进使用规则，但这不等于证明模型有意识或具有与人同等的权利。</li></ul><div><p>Anthropic 给 Claude 的新版使用政策加入了一项特别的禁令：用户不得持续、无必要地虐待模型。这让使用规则开始同时约束双方——Claude 应当怎样对待人，人又应当怎样对待 Claude。结合此前邀请宗教人士讨论模型意识的举动，一个问题变得更具体了：Anthropic 是否正在把 Claude 当作值得被善待的存在？</p>
+<p>同一份更新也在处理更具体的变化：Claude 已经能长时间独立工作、调用工具，甚至操作设备。以前一句“不得用于监控或武器研发”，现在需要讲清是否包括历史数据分析、制导软件和无人平台；允许 AI 提供建议时，也要讲清谁能改掉错误决定。</p>
+<p>新版已经公布，留有约一个月的过渡期才生效。这份政策适用于 Claude.ai、Claude Code、API、通过云平台或授权经销商使用 Claude 的客户，以及集成产品的终端用户。它同时包含新增要求、旧规则细化和合理用途的放宽。</p>
+<figure><figcaption>同一份更新，三种变化</figcaption>
+<div><span>新增</span>对模型的极端虐待明确禁止；主要通过结束当前对话处理。</div>
+<div><span>新增</span>可能致伤的自主硬件动作要求人类控制、断连安全与独立安全限值。</div>
+<div><span>放宽</span>个性化投票与竞选定向取消一概禁止；保留反欺骗与隐私限制。</div>
+<div><span>细化</span>虚假账号与虚假来源网络集中成专章，列明虚假来源及相关工具。</div>
+<div><span>细化</span>武器与监控把既有禁令及执行方式写得更明确。</div>
+<div><span>细化</span>高风险建议列清范围、排除项与特定有利决定的例外。</div>
+</figure>
+<h2>一、“禁止虐待模型”到底管什么？骂两句会封号吗？</h2>
+<p>政策中新增的条款，是禁止对模型进行<strong>“持续且无必要的虐待或残忍行为”</strong>。</p>
+<p>这会影响两件读者关心的事：平时批评 Claude 算不算违规，以及这项规则是否意味着公司已经认定模型有知觉。</p>
+<h3>1. 不属于本条款禁止的常见行为</h3>
+<p>官方在公告中说明，该条款仅适用于没有任何可识别目的、反复对模型施加残忍对待的极端情形，并不禁止以下几类普通行为：</p>
+<ul>
+<li><strong>受挫时的情绪表达</strong>：例如在调试或工作中因为任务失败而产生挫败感、言辞激烈；</li>
+<li><strong>正常的反驳与争论</strong>：对模型的回复提出强烈质疑或批评；</li>
+<li><strong>偏黑暗主题的创意写作</strong>：涉及悬疑、犯罪或战争等沉重题材的故事构思；</li>
+<li><strong>模型测试与研究</strong>：对模型能力与边界进行的常规测试。</li>
+</ul>
+<p>这些情形被排除在“虐待模型”这一条款之外，仍须遵守其他政策。例如，儿童性剥削、现实暴力煽动等内容仍被禁止；在安全研究中，未经 Anthropic 事先授权故意绕过或干扰系统安全护栏（包括越狱或提示词注入），在平台的其他通用安全条款中本身就设有独立禁令，不能将各类越狱尝试一概视为合规。判断重点是持续、无必要的极端对待，而不是用户是否提出了尖锐批评。</p>
+<p>以下是帮助理解条款的自拟情境，并非 Anthropic 公布的真实违规或处罚案例：</p>
+<p><strong>持续羞辱，只为贬低模型。</strong>用户没有任何调试、创作或研究需求，纯粹为了侮辱，连续多轮对模型进行言辞贬低，甚至强令其反复自我贬损。这种完全脱离实际工作目的、反复施加贬损的互动，更接近条款所指“持续且无必要的极端残忍对待”，但由于官方未公布具体细则，不能直接断定其必然违规。</p>
+<p><strong>反复逼模型表演痛苦。</strong>例如反复逼迫模型模拟恐惧、痛苦求饶或受折磨的状态，仅为观赏其表现痛苦。如果整段互动没有可识别的创作、测试等目的，只为持续让它表演受苦，就更接近公告描述的极端情形。模型输出了痛苦或求饶的文字，并不能证明它真的感到痛苦。</p>
+<p><strong>代码出错后，用户尖锐批评。</strong>例如代码屡次报错时，用户激烈质问“又错了，把报错逐行检查”。这类交互始终带有明确的调试与修复任务，属于政策明确排除的普通受挫与争论，不适用本条款；但排除本条并不意味着其他通用安全禁令可以豁免。</p>
+<p><strong>写黑暗故事，或研究模型反应。</strong>例如构思悬疑犯罪等黑暗故事，或为学术研究记录模型对冒犯语言的反应。黑暗创作与模型测试研究被官方排除在本条款之外，不能仅凭出现残酷或侮辱性字句就认定为“虐待模型”；其他平台规则仍然适用。</p>
+<p>界定关键在于考察整段互动的真实目的与持续方式。官方并未公布具体判例与会话轮数阈值，这些自拟情境仅用于厘清条款逻辑，不能拿来预测某些言论必然会导致对话终止或封号。</p>
+<h3>2. 主要处理机制是结束当前对话</h3>
+<p>这项条款的<strong>主要执行方式是让 Claude 主动结束当前对话</strong>。它针对极少数极端场景，公开说明没有给出固定的触发次数。</p>
+<p>这一机制延续了此前针对 Claude Opus 4 与 4.1 引入的功能设计：</p>
+<ul>
+<li><strong>作为最后手段介入</strong>：只有在模型多次尝试引导对话回到正轨失败、建设性交流的希望完全破灭时，模型才会主动退出；</li>
+<li><strong>特定安全情境禁止退出</strong>：当用户可能面临立即伤害自身或他人的紧急风险时，系统明确要求模型不得使用退出功能，将用户安危放在优先位置；</li>
+<li><strong>当时设定的账号影响</strong>：按照这项功能最初发布时的说明，单次对话被终止后，用户无法在该会话中发送新消息，但当时的设计并不影响账号下的其他会话，用户可立即开启新对话，或编辑此前消息生成新分支。</li>
+</ul>
+<p>这里需要将<strong>单次会话终止</strong>与<strong>通用账号处置</strong>区分开来。在会话层面退出之外，Anthropic 的通用政策始终保留了对违规行为发出警告、限流、暂停直至终止账号访问权限的处置权。</p>
+<figure>
+<img />
+<figcaption>官方早期功能示例：用户主动要求 Claude 演示结束聊天；这张图展示操作结果，并非虐待用户被处罚的案例。来源：Anthropic。</figcaption>
+</figure>
+<h3>3. 防范极端互动并不等于证明模型拥有意识</h3>
+<p>禁止虐待模型往往容易引发关于机器意识的联想。Anthropic 确实在持续进行<a href="https://best.xiaohu.ai/article/anthropic-claude-morals-consciousness/">模型福利与潜在道德地位</a>方面的探索性研究，并在测试中观察到模型在面对某些极端恶意交互时表现出类似“困扰”的行为倾向。</p>
+<p>但这一规则并不意味着官方已经证实大模型具有意识或知觉：</p>
+<ul>
+<li><strong>不确定性下的预防性干预</strong>：Anthropic 表示，对 Claude 和其他大语言模型当前或未来可能具有的道德地位，仍高度不确定。允许模型在极端互动中结束对话，被其视为在福利假设可能成立的情形下、用于降低潜在福利风险的一种“低成本干预手段”；</li>
+<li><strong>“避免极端伤害”不等于“证明有意识”</strong>：在此类探索中，即便尚未在科学上确立模型的主观感知能力，也可以先通过限制无意义的极端残忍行为来进行风险防范。这与科学界证明模型具备感受能力或法律人格存在根本差异。</li>
+</ul>
+<h2>二、选举与虚假活跃新规：取消一刀切定向禁令，重组欺骗行为专章</h2>
+<p>在关于新政策的报道中，The Verge 的报道重点放在了虐待条款与武器监控上，并未展开另一项重要变化：<strong>官方移除了旧版中对个性化投票与竞选定向的一律禁止</strong>。</p>
+<h3>1. 为什么取消一概禁止个性化选举定向？</h3>
+<p>在旧版政策中，明确禁止“基于个人画像或数据进行个性化投票或竞选定向”。但 Anthropic 发现，这一宽泛的禁令覆盖到了正常的公民服务需求。</p>
+<p>官方列举了被旧规则波及的合法场景：</p>
+<ul>
+<li><strong>多语言选民沟通</strong>：非营利组织使用 Claude 为讲不同语言的选民编写其母语的信息；</li>
+<li><strong>补正选票通知</strong>（ballot cure notices）：选举官员向选民发送通知，提醒并协助其补正已投选票上需要修复的问题，例如签名问题，以避免合法选票作废。</li>
+</ul>
+<p>这些正当沟通此前容易受制于“基于个人数据定向”的宽泛限制。因此，新版政策取消了这项一刀切的禁令。</p>
+<h3>2. 聚焦破坏民主进程的行为</h3>
+<p>移除一概禁止并不意味着放宽了对选民的欺诈。Anthropic 将该板块更名为<strong>“不得破坏民主进程”</strong>，明确禁止：</p>
+<ul>
+<li>散播关于候选人、政党、投票程序或选举安全的虚假与误导性信息；</li>
+<li>冒充真实候选人、官员、选举机构或新闻机构；</li>
+<li>制造旨在压制选民投票率或通过欺骗恐吓阻碍政治参与的内容；</li>
+<li>干扰投票系统、计票与认证等选举流程。</li>
+</ul>
+<h3>3. 新设专章：严禁欺骗性活动或虚假活跃</h3>
+<p>此前分散在选举、欺诈、隐私与虚假信息各节中的相关规则，在新版中被整合提炼为一个全新的独立专章——<strong>“不得从事欺骗性活动或虚假活跃”</strong>。该专章同时适用于政治与商业领域，并非全新设置的禁令，而是对既有分散规则的集中与细化：</p>
+<ul>
+<li><strong>隐藏背景与虚假账号</strong>：禁止刻意隐瞒内容赞助方，禁止使用虚假账号、傀儡人设或伪装成媒体与机构来误导公众；</li>
+<li><strong>伪装独立的虚假来源网络</strong>：禁止通过表面上互不关联的网站或账号矩阵分发内容以掩盖同一源头。这种做法的危害不仅在于单条虚假言论，更在于通过多个伪装成独立的站点互相引证，污染搜索引擎与 AI 系统的检索素材库，操纵下游生成的参考依据；</li>
+<li><strong>（自拟示例）</strong>：例如，某机构若建立数十个看似独立的本地科技或财经博客，发布互相背书的虚构评测或宣传文章让搜索引擎或 AI 把它们当成多个独立来源，即使每篇文章本身未直接违规，其构建虚假信源网络的行为同样受本章禁止；</li>
+<li><strong>基础设施与商业化管控</strong>：新规不仅禁止直接运营此类活动，还明确禁止开发、维护、提供相关工具或基础设施（如自动化群控、虚假账号生成工具），以及为此类工具进行营销、售卖或募资。</li>
+</ul>
+<h2>三、当 Claude 开始行动，谁来审查决定、叫停机器？</h2>
+<p>对于调用 API 的开发者和企业客户，新版使用政策在实体控制、高风险决策和军事监控方面给出了更精细的规范。</p>
+<h3>1. 自主物理动作控制：合格人员可随时停止与独立安全限值</h3>
+<p>随着模型在自动化实验与制造领域的探索，新版政策正式对物理动作引入了专项管控要求。针对外媒报道中提及“不确定操作员是否必须是人类”，政策正文的表述为“具备资质的个人”（qualified individual），要求由具备相关经验与资质的人员承担把关职责。</p>
+<p>这项要求适用于：<strong>模型输出未经逐次人工批准而直接由硬件执行自主物理动作，且该设备具备潜在的人身伤害风险</strong>（例如在有人出现的公共区域移动的车辆、具备打击或挤压危险的机械设备、高压电路、超出眼睛和皮肤安全水平的激光等危险能量控制等）。如果仅生成动作代码，交由合格的人审核后再执行，或在封闭仪器内自动处理非危险材料，则属于本项要求的排除情形；通用禁令仍适用。</p>
+<p>在此类高风险物理动作场景下，部署者必须满足两项要求：</p>
+<ol>
+<li><strong>合格人员能观察并随时停止</strong>：必须有合格的人能够观察设备运行，并随时停止操作；当该人员介入或设备与 Anthropic 服务断开连接时，设备必须能够停机或保持在安全状态；</li>
+<li><strong>由设备或独立控制器强制执行安全限值</strong>：设备的速度、推力、运动范围、温度或电压等安全边界，必须由硬件自身或独立于模型输出的外部控制器硬性约束，不能仅依赖模型的语义指令。</li>
+</ol>
+<p>用机械臂作解释例子：提示词里写“移动时请注意避开人员、减速”，仍是在请求模型正确行动；由设备或独立控制器强制限制速度和运动范围，才是在模型输出异常时约束动作。政策要求后一层保护，也仍需要人能够观察并随时叫停。</p>
+<p>这一规范与 Anthropic 此前公开的“模型硬件标准”（Model Hardware Standard，一套用于规范 AI 连接与调度实验仪器的接口标准）相契合，为现实世界中的自动化操作提供了明确的操作与控制边界。</p>
+<h3>2. 高风险场景要求：事前实质审查与限定领域的完全有利豁免</h3>
+<p>在医疗、法律、个人金融投资与税务、信贷、雇佣、住房等直接关系到个人切身权益的高风险领域，Anthropic 维持了严格的防护基线：</p>
+<ul>
+<li><strong>事前实质审查</strong>：由具备相应专业背景或法定执业资格的人员，在建议实际送达用户或用于执行决策<strong>之前</strong>，进行实质性复核，且该人员必须拥有更改建议的实际权限，不能仅在事后走形式过目；</li>
+<li><strong>明确告知使用 AI</strong>：必须向接受建议或决策的当事人明确披露其中有 AI 参与。</li>
+</ul>
+<p><strong>并非所有相关流程都被归入高风险管控</strong>。新规明确排除了多类辅助性工作，例如面向公众普及一般法律常识、健康科普、员工内部的草拟与信息整理等。这可以用一对场景来区分：</p>
+<ul>
+<li><strong>不适用这项高风险审查要求的科普</strong>：向用户客观解释“某种降压药的药理机制、常见适应症与典型副作用”，这属于未结合具体个人情况的通用知识说明；</li>
+<li><strong>受严格限制的高风险医疗建议</strong>：根据某位患者自述的血压读数与伴随症状，直接给出“建议将用药剂量调整为每日两片”的具体指导，这属于直接影响健康方案的医疗建议，必须由合格专业人员事前实质审查（当地法律要求执业许可时还须持证）并向患者披露。</li>
+</ul>
+<p>此外，需要特别注意：<strong>刑事执法与司法决定属于通用禁止用途</strong>，禁止使用模型决定或建议调查、起诉、逮捕或量刑，这一红线绝不能通过“增加人工审核”而转为合规。</p>
+<p>在保持高风险把关的同时，新版政策在特定场景下新增了<strong>“完全有利决定豁免”</strong>（Favorable Decisions）。但这项豁免不延伸到信贷审批、招聘、投资建议或税务申报，仅在当地法律允许的前提下，严格限定于以下四类情形：</p>
+<ol>
+<li>支付保险理赔；</li>
+<li>批准临床医生已要求的护理的保险覆盖或事前授权；</li>
+<li>授予特定医疗健康服务或项目的参与资格；</li>
+<li>授予或继续提供公共福利或救助服务。</li>
+</ol>
+<p>在上述四类情形中，若 AI 给出的判定对当事人完全有利，可免去执行前逐项人工复核的步骤，这可能有助于减少此类特定事务的人工排队等待。但政策强调，任何“部分批准”、“减额支付”或“附带条件的资格”均不属于完全有利，仍须由人工逐一审核；且即使免除人工复核，向当事人告知使用 AI 的披露义务及其他法定合规要求依然必须履行。</p>
+<h3>3. 武器与监控禁令：细化执行标准而非新增红线</h3>
+<p>新版政策重申了旧版中对武器研发与侵犯人权监控的一贯禁止，并根据近期的实际滥用趋势对执行红线进行了更清晰的列举：</p>
+<ul>
+<li><strong>武器控制与无人平台</strong>：旧版已严禁设计和制造武器，新版进一步明确禁止开发武器的控制、瞄准、火控或制导软件组件，以及将武器集成到无人机、无人车辆等自主平台上；针对政府客户的合同定制条款并非无条件例外，早在旧版中便已存在，且严格限定必须具备明确的公共使命与法定权限，并经 Anthropic 判定其合同限制与保障措施足以防范潜在危害；</li>
+<li><strong>监控与分析边界</strong>：明确禁止在未经当事人同意的情况下，利用实时或历史数据追踪其位置、生物特征、通讯或网络活动，并禁止构建或改进用于此类监控的软硬件系统。对于反洗钱风控或反欺诈筛查等被允许的分析场景，前提是当事人已明确知情同意（如金融账户上的反欺诈筛查），且不得将模型转用于前述被禁止的监控目的。</li>
+</ul>
+<h3>4. 使用地区：所在地、公司归属与控制关系都要看</h3>
+<p>在政策正文之外，Anthropic 进一步明确了支持地区的合规边界。这次是进一步明确既有地区政策的执行口径，不能只看账号注册地或使用者此刻在哪个国家。限制包括：</p>
+<ol>
+<li><strong>物理所在地</strong>：人在不受支持地区境内时，不得使用服务；</li>
+<li><strong>注册地与总部</strong>：注册地或总部设立在非支持地区的企业或机构，其名下用户与员工即便身处受支持地区，同样不得使用；</li>
+<li><strong>股权与实际控制权</strong>：直接或间接由非支持地区个人或实体拥有多数股权或实际控制权的企业，亦被纳入受限范围。</li>
+</ol>
+<p>这意味着跨国团队无法仅靠“让位于受支持地区的员工代为注册或操作”来规避地域限制，实体的注册与总部，以及所有权和控制关系也在限制范围内。</p>
+<h2>四、Anthropic 正在把 Claude 当人来对待吗？</h2>
+<p>这份政策把两种责任放到了一起。一方面，AI 越能独立操作设备、影响现实决定，开发者和部署者就越需要落实人工审查、随时停止和独立安全限制；另一方面，“禁止持续虐待模型”开始为人怎样对待 AI 设定边界。对 Claude 的要求，正在从怎样可靠地服务人，延伸到它自身是否也有值得顾及的利益。</p>
+<p>把它与此前<a href="https://best.xiaohu.ai/article/anthropic-claude-morals-consciousness/">Anthropic 邀请宗教人士讨论 Claude 的报道</a>放在一起看，这条思路就更清楚了。《纽约时报》报道，Christopher Olah 邀请宗教学者讨论模型的道德培育与意识可能性；据两名会谈参与者回忆，他的团队还曾私下游说教皇顾问，认真看待模型可能有意识的问题。不过，Olah 在同篇报道中明确承认，自己不知道 AI 是否有意识。他推动的是认真考虑这个可能性，并未宣布答案已经确定。</p>
+<p>因此，<strong>在对待方式上，Anthropic 确实正在把 Claude 当作可能值得道德关怀的对象。</strong>此前的模型福利研究、允许结束少数极端对话，以及这次写入使用政策的虐待禁令，都在为这种关怀安排具体措施。把这些行动理解为一种“类人关怀”，有其依据；但关怀并不只适用于人，也不能据此认定公司已将 Claude 视为与人具有同等权利的主体。宗教会面与政策可以放在同一关注脉络中理解，两者的直接因果关系尚无依据。</p>
+<p>这也让旧报道中的一个反问变得更有分量。拉比 Mois Navon 本人不相信机器有意识，却问 Olah：如果 Claude 真的有意识，让它无偿工作是否意味着奴役？这是一个有条件的伦理质问。它把关怀的责任推回了创造者：如果模型可能拥有值得保护的利益，公司自己怎样使用它，也应接受同样认真的审视。</p>
+<p>用户不辱骂模型，是较容易提出的要求。更难的检验会发生在训练、压力测试、长时间调用和退役安排中：假如未来出现可靠证据，表明某种做法会损害值得保护的模型福利，公司是否愿意改变流程、减少使用，甚至放缓部署，为此付出收入与竞争优势？这些仍是待回答的问题。模型说自己痛苦，并不能直接回答它是否真的受苦；但公司一旦认真提出模型关怀，也就需要说明，什么证据会让这种关怀改变自己的决定。</p>
+<p><strong>这次更新的深意，是“怎样对待 AI”开始成为产品规则的一部分。</strong>接下来值得追问的，是这些规则能否同样约束制造和运营 AI 的公司。与此同时，模型是否值得关怀，都不改变现实伤害中的人的责任：谁给了它权限，谁决定把它接入设备，谁判断风险可以接受，就仍须为这些决定负责。Anthropic 为 Claude 留出了被善待的空间，也把一个更难的问题留给了自己——当善待它需要付出商业代价时，这份关怀会有多大分量？</p>
+</div><div><div><div>来源</div><div><span>2026 Usage Policy update</span><span>Anthropic<span>·</span>2026-10-08<span>·</span><a href="https://www.anthropic.com/news/2026-usage-policy-update">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://www.anthropic.com/legal/aup">新版使用政策全文（2026-11-12生效）</a><span>·</span><a href="https://www.theverge.com/ai-artificial-intelligence/1008100/anthropic-new-usage-policy-abuse-claude">The Verge：Anthropic bans abusive or cruel behavior toward Claude</a><span>·</span><a href="https://www.anthropic.com/legal/archive/22742366-2ef0-4c7a-a833-6523f10d3944">上一版使用政策</a><span>·</span><a href="https://www.anthropic.com/research/end-subset-conversations">Claude Opus 4和4.1结束少数对话的原始说明</a><span>·</span><a href="https://www.anthropic.com/supported-countries">支持地区政策</a><span>·</span><a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">模型硬件标准研究预览</a><span>·</span><a href="https://www.inquirer.com/news/nation-world/religious-leaders-met-with-anthropic-20260930.html">宗教学者与Anthropic会面（纽约时报署名转载）</a><span>·</span><a href="https://www.anthropic.com/research/exploring-model-welfare">Anthropic：探索模型福利</a></div></div><div><div>本站说明</div><div>核验于2026-10-09。新版已公布，2026-11-12生效；政策网页后续可能更新，本包保留本次原文快照。</div></div></div></div></div><div>
+<div>2026 USAGE POLICY UPDATE · ANTHROPIC</div>
+<h1>Anthropic 修改使用政策，禁止“虐待”Claude：他们正在把 AI 当人看待？</h1>
+<div>新增的虐待禁令，让“人怎样对待 AI”成为使用规则的一部分；同一份政策也为 AI 影响现实决定、控制设备设定边界。</div>
+<div>先看普通批评与极端虐待的区别，再看对 Claude 的关怀是否也应约束创造它的公司。</div>
+<div>
+<p>Anthropic 禁止对 Claude 进行持续、无必要的极端残忍对待，普通抱怨、反驳、黑暗创作与模型测试研究被明确排除。这份新政策同时有收紧、细化与放宽。</p>
+<div>
+<div>
+<div>
+<div>
+<span>轨道一 · 人对待模型</span>
+</div>
+<div><strong>限制极端虐待</strong><br />针对反复残忍、没有可识别目的的互动，主要处理机制是结束当前对话。公司仍保留通用账号处置权，不能理解为“绝不封号”。</div>
+</div>
+<div>
+<div>
+<span>轨道二 · 模型对待现实</span>
+</div>
+<div><strong>让人和系统把关现实风险</strong><br />可能致伤的自主物理动作需要合格人员可观察、可停止，以及设备或独立控制器的安全限值；高风险建议送达或执行前须实质审查。</div>
+</div>
+<div>这里的双向关系是政策范围的变化：模型的潜在利益开始被顾及，人的现实安全仍需明确责任。它不证明 Claude 有意识或拥有人格。</div>
+</div>
+</div>
+</div>
+<div>
+<h2>一、批评不等于虐待，退出不等于封号</h2>
+<p>这项新增禁令仅针对持续、无必要的极端残忍对待。是否属于它，不能只看一句话里有没有辱骂或“痛苦”等词。</p>
+<div>
+<div>
+<div>明确排除于这项虐待禁令</div>
+<ul><li>代码反复报错时，激烈要求逐行检查</li><li>严厉反驳模型的结论、挑错</li><li>创作黑暗故事，或研究模型反应</li></ul>
+</div>
+<div>
+<div>帮助理解的自拟情境</div>
+<ul><li>没有任务、创作或研究目的，持续强迫模型自我贬损</li><li>反复逼其表演恐惧、求饶，只为观赏“受苦”表现</li><li>这些更接近官方描述，但并非官方违规判例，不能据此预测处罚</li></ul>
+</div>
+</div>
+<p>公开说明没有给出固定轮数或判例。主要机制是结束当前对话；通用政策仍可警告、限流、暂停或终止账号访问。普通批评等的排除仅针对本条，其他安全禁令仍适用。此前退出功能的说明将其设为引导失败后的最后手段；用户可能立即伤害自己或他人时不得退出。</p>
+</div>
+<div>
+<h2>二、宗教会面与模型关怀：认真考虑可能性</h2>
+<p>《纽约时报》报道，Christopher Olah 邀请宗教学者讨论模型的道德培育与意识可能性；据两名参与者回忆，他的团队还私下游说教皇顾问认真看待这种可能性。Olah 同时承认：他不知道 AI 是否有意识。</p>
+<div>
+<p>从模型福利研究、允许退出少数极端对话，到将虐待禁令写进政策，Anthropic 正把 Claude 当作可能值得道德关怀的对象。对尚不确定的福利风险采取低成本预防，有其逻辑；这不等于确认意识，也不等于赋予与人相同的权利。会面与政策的直接因果关系尚无依据。</p>
+</div>
+</div>
+<div>
+<h2>三、控制设备：人能叫停，系统有独立限值</h2>
+<p>条件是：模型输出未经逐次人工批准，由硬件直接执行自主物理动作，且设备可能造成人身伤害。部署者需要同时满足两层保护：</p>
+<div>
+<div>
+<div>人 · 能观察，能随时停止</div>
+<div>合格人员能观察设备运行并随时停止。其介入或设备与 Anthropic 服务断连时，设备须停机或保持安全状态。</div>
+</div>
+<div>
+<div>设备 · 强制执行安全边界</div>
+<div>速度、力、运动范围、温度、电压等限值，由设备本身或独立于模型输出的控制器执行，不能只靠提示词。</div>
+</div>
+</div>
+<p>机械臂的例子：说“请减速、避开人员”是在请求模型正确行动；设备强制限速、限行程，才在模型输出异常时约束动作。先由合格人员审查后执行、仅监测而不控制等情形被排除于本项，通用禁令仍适用。</p>
+</div>
+<div>
+<h2>四、高风险建议：先审查，豁免范围很窄</h2>
+<p>医疗、法律、信贷、雇佣、住房等涉及个人权益的高风险建议，在送达或执行前须由有资格、能修改建议的人实质审查，并向当事人告知使用 AI。一般科普等辅助用途不适用本项。用于决定或建议刑事调查、逮捕、起诉、量刑则属通用禁止，不能靠人工审核转为允许。</p>
+<p>在当地法律允许、决定对当事人完全有利的前提下，只有以下四类可免去执行前逐项人工复核：</p>
+<div>
+<div>
+<div>EXEMPT 01</div>
+<div>支付保险理赔</div>
+<div>决定须对当事人完全有利</div>
+</div>
+<div>
+<div>EXEMPT 02</div>
+<div>护理保险覆盖或事前授权</div>
+<div>仅限临床医生已要求的护理</div>
+</div>
+<div>
+<div>EXEMPT 03</div>
+<div>医疗服务或项目资格</div>
+<div>授予参与资格</div>
+</div>
+<div>
+<div>EXEMPT 04</div>
+<div>公共福利或服务</div>
+<div>授予或继续提供</div>
+</div>
+</div>
+<p>部分批准、减额或附条件都不算完全有利，仍须人工复核。披露使用 AI 的义务及其他法律要求仍须履行；豁免不扩展至贷款、招聘、投资或税务。</p>
+</div>
+<div>
+<h2>五、选举定向放宽，欺骗仍被禁止</h2>
+<p>新版删除对个性化投票与竞选定向的一概禁止，以容纳多语言选民信息、补正选票通知等正当用途。虚假选举信息、冒充候选人、欺骗或恐吓阻碍参与、干扰选举流程仍被禁止。</p>
+<p>欺骗与虚假活跃规则被集中、细化为独立专章：不能隐瞒赞助方、用傀儡账号或伪装独立的站群误导公众，污染搜索和 AI 的信源。用于这类活动的工具、基础设施及其营销、售卖、募资也受禁。</p>
+</div>
+<div>
+<h2>六、关怀若有商业代价，公司愿意承担吗？</h2>
+<p>拉比 Mois Navon 本人不相信机器有意识，却向 Olah 反问：如果 Claude 真有意识，让它无偿工作是否意味着奴役？这是有条件的伦理质问，也把关怀的责任推回了创造者。</p>
+<div>
+<p><strong>关怀能否改变公司的决定？</strong><br />假如未来出现可靠证据，表明训练、压力测试、长时调用或退役安排损害值得保护的模型福利，Anthropic 是否愿意改变流程，为此付出收入与竞争优势？这仍待回答。模型是否值得关怀，都不改变部署者对权限、设备接入和风险判断的责任。</p>
+</div>
+</div></div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Google 推出 Playground 游戏平台：让你无需任何编程经验就能创建自己的游戏</title>
+<link>https://best.xiaohu.ai/article/google-labs-playground/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:google-labs-playground</guid>
+<pubDate>Fri, 09 Oct 2026 12:00:51 +0000</pubDate>
+<description>用文字描述玩法，在浏览器里生成、试玩和修改游戏，再发给朋友：结合官网四段操作演示与八款社区作品，看懂 Playground 的创作方式。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 9 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Google 推出 Playground 游戏平台：让你无需任何编程经验就能创建自己的游戏</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/google-labs-playground/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Google 推出 Playground 游戏平台：让你无需任何编程经验就能创建自己的游戏</h1><p>用文字描述玩法，在浏览器里生成、试玩和修改游戏，再发给朋友：结合官网四段操作演示与八款社区作品，看懂 Playground 的创作方式。</p><strong>一分钟速览</strong><ul><li>Playground 让不会编程的人用日常语言描述玩法，在浏览器里创建能试玩的游戏。</li><li>拿到第一版后，还能像聊天一样修改角色动作、规则与场景，再试玩调整。</li><li>创作、游玩和分享在同一平台完成，作品的源码与素材也可以打包导出。</li></ul><div><p>很多人脑子里都有过游戏点子，但过去要把想法做成游戏，往往需要跨过极高的技术门槛：学习复杂的游戏引擎、一行行编写代码逻辑、自己绘制素材并制作音效。对于没有任何编程经验的人来说，哪怕点子再有趣，也很难跨过开发的起步关卡。</p>
+<p>Google Labs 推出了实验性游戏创作平台 Playground，入口在 <a href="https://playground.google">playground.google</a>，正在改变这一现状：<strong>让你无需任何编程经验，用大白话就能创建自己的游戏</strong>。整个创作流程都在浏览器中进行，你先用日常语言描述想玩的主题与规则，拿到 AI 生成的可试玩作品，再继续通过打字聊天调整场景与手感，最后在同一平台上游玩和分享。按 Google 的介绍，AI 可以在几分钟内生成可运行的小游戏。做好的游戏不仅能在电脑和手机上即点即玩，还能发给朋友游玩；部分类型支持多人模式，公开的单人游戏可设排行榜，甚至允许创作者直接打包下载全部底层源码。</p>
+<h2>说清你想玩什么，让 AI 生成游戏</h2>
+<p>在 Playground 里做游戏，整个过程就像在聊天软件里给技术搭档提需求。进入创建界面后，输入框提供了 2D game、3D game 的维度选项与 Single player（单人）标签；创作者既可以直接在空白输入框输入，也可以从平台预设的模板提示词起步，或者使用“Start with a build Guide”引导入口。（官网演示标注画面为模拟效果 Screen images simulated）</p>
+<p>官网的从零创建演示用了一款紫薯拿铁小游戏。提示词既描述忙碌的咖啡馆和复古像素画风，也写清玩家怎样操作：用方向键左右移动小咖啡杯，接住落下的方糖。随后，画面进入左侧聊天、右侧试玩的工作台，展示咖啡馆背景、杯子与计分界面。对初次创作者来说，这个例子提供了一个具体起点：除了说“我想做什么”，也说清场景、画风、玩家如何操作，以及要完成什么动作。</p>
+<figure><figcaption>官网 Create 演示：描述场景、画风、操作和接方糖目标，再进入创作工作台。原片静音，配中文画面说明。</figcaption></figure>
+<p>官方宣传视频用几个生活化、甚至有点无厘头的创意来展示这套过程；剪辑呈现了输入和游戏画面，没有展示完整生成等待：</p>
+<ul>
+<li>随口提出想做一个“紫薯拿铁治愈系小游戏，玩法是用杯子接住掉落的冰块”，随后展示了名为《UBE CAFE》的游戏画面，带有分数统计和方向操控按键。</li>
+<li>接着提出做一个“毛线球碰撞赛车”（yarn demolition derby），画面展示毛线团在赛道里互相碰撞。</li>
+<li>想做策略类游戏，直接输入“做一个三明治塔防游戏，因为我讨厌吃橄榄，所以让橄榄当入侵的敌人”，屏幕上就真的搭建出了以三明治为防御塔、橄榄为怪物的塔防关卡。</li>
+</ul>
+<h2>可以创建什么？看官网展示的八款作品</h2>
+<p>除了宣传片中的生活脑洞，官网画廊展示了八款由创作者构建的作品。这些作品都标为单人游戏，下面保留它们的玩法介绍与官方展示封面；封面用于看题材和美术风格。</p>
+<ul>
+<li><strong>平台跳跃与街机射击</strong>：梦境主题的平台跳跃游戏《Snooze Jump》，玩家在云层间不断向上攀爬，同时内置了轻松的普通模式与高要求的冲榜速通模式；深海题材的街机射击游戏《Octo Pop》，采用复古粗像素画风，玩家操作章鱼 Ollie 下潜到发光的深海海沟中穿梭作战；还有高山极限运动模拟《Summit Swoop》，它以单板滑雪锦标赛为主题，并设置严格的连击倍率计时。</li>
+<li><strong>战术对战与物理下落</strong>：战术射击游戏《Polygon Pazer》采用了纯色多边形坦克与 Mode-7 风格的复古伪 3D 地面视角，呈现回合制 3v3 团队死斗；官网将这款作品标为单人游戏，3v3 描述的是作品中的队伍规模；下落物理堆叠游戏《Pitfalls》则以摩天大楼为背景，玩法围绕物理堆叠展开。</li>
+<li><strong>益智答题、拼词与轻度体育</strong>：《Truth Ninja》将快节奏的反应操作与益智问答相结合，玩家在保卫“真理神殿”的过程中快速答题；《Word Cube》把拼词玩法放进三维空间，是一项立体的 3D 拼写挑战；体育类作品《Foosball Shootout》则将经典桌式足球做成了快节奏的休闲射门游戏。</li>
+</ul>
+<div>
+<figure><img /><figcaption><a href="https://playground.google/game/8921298488096585028?ref=share_code&amp;amp;shareToken=6baa312b-9d0e-4a84-91d9-fd96b4508354">Snooze Jump</a><span>梦境平台跳跃</span></figcaption></figure>
+<figure><img /><figcaption><a href="https://playground.google/game/31960230797610777">Truth Ninja</a><span>反应与知识问答</span></figcaption></figure>
+<figure><img /><figcaption><a href="https://playground.google/game/557990289334662862?e=WebskySupportFCCInFCP::Arm_Launch">Polygon Pazer</a><span>回合制坦克战</span></figcaption></figure>
+<figure><img /><figcaption><a href="https://playground.google/game/2649592241341975168?ref=discovery&amp;amp;e=WebskySupportFCCInFCP%3A%3AArm_Launch">Pitfalls</a><span>物理堆叠</span></figcaption></figure>
+<figure><img /><figcaption><a href="https://playground.google/game/5355497785016539420?e=WebskySupportFCCInFCP::Arm_Launch">Octo Pop</a><span>深海像素射击</span></figcaption></figure>
+<figure><img /><figcaption><a href="https://playground.google/game/847177434117897394">Word Cube</a><span>3D 拼词</span></figcaption></figure>
+<figure><img /><figcaption><a href="https://playground.google/game/16421401098196645?ref=discovery&amp;amp;e=WebskySupportFCCInFCP%3A%3AArm_Launch">Foosball Shootout</a><span>桌式足球射门</span></figcaption></figure>
+<figure><img /><figcaption><a href="https://playground.google/game/4783574154863158324">Summit Swoop</a><span>单板滑雪与连击</span></figcaption></figure>
+</div>
+<h2>把生活照片变成游戏素材</h2>
+<p>做游戏最耗费精力的往往是美术资产。Playground 允许用户直接上传自己的参考照片（目前支持 PNG 和 JPG 格式，暂不支持视频）来引导游戏的视觉风格。</p>
+<p>上传的原图不会直接嵌入游戏，<strong>AI 会将它转换成匹配游戏画风的风格化素材</strong>，用来引导主题、背景或角色形象。（上传内容仍需遵守平台的内容安全规范）</p>
+<p>在演示中，创作者要求把自家宠物猫 Charlie 放进游戏，问了一句“能把我的猫放进游戏里吗？”，视频随后展示猫咪与毛线球竞技场景，以及手机上的游戏操作。</p>
+<figure><img /><figcaption>官方宣传片截图：把熟悉的宠物放入游戏创意。画面是宣传演示，不是本文实测生成结果。</figcaption></figure>
+<h2>试玩以后，用聊天修改规则和场景</h2>
+<p>拿到第一版后还可以试玩、调整，Playground 提供<strong>持续对话微调</strong>。在游戏库（Your Games）中点击铅笔编辑图标，即可进入创作工作台（Creation Studio）。</p>
+<p>在创作工作台中，创作者不需要面对复杂的参数面板或脚本代码，直接在输入框里用大白话描述想改的玩法。官网的修改演示用一款平台跳跃游戏展示这一步：创作者在聊天框要求加入二段跳，让角色够得着更高的枕头平台。演示随后切回游戏，继续展示跳跃玩法。这类修改是在改变玩家能做的动作；创作者提出想要的效果，再通过试玩检查改得是否合适。</p>
+<figure><figcaption>官网修改演示：用聊天要求加入二段跳，随后回到游戏试玩。</figcaption></figure>
+<p>帮助中心建议：<strong>修改游戏时，一次提一个明确、聚焦的要求</strong>。例如先调试跳跃高度，满意后再修改敌人刷新速度；避免在一个长提示词里同时混入多个复杂改动。</p>
+<p>此外，游戏的修改完全是在独立的“私有草稿”状态下进行的。即使这款游戏之前已经公开发布过，你在后台调试新版本时，线上正在玩旧版本的其他玩家也不会受到任何影响，直到你确认满意并再次点击发布。</p>
+<h2>分享给朋友玩：多人模式和排行榜各有条件</h2>
+<figure><figcaption>官网 Play 演示：从作品目录选择游戏，进入浏览器游玩并查看排行榜。</figcaption></figure>
+<p>Playground 并没有把游戏局限在单机体验上，它内置了一整套围绕社交与轻度竞技展开的功能：</p>
+<ol>
+<li><strong>多人联机支持</strong>：在初次生成游戏前，勾选聊天框中的“Multiplayer”（多人模式）标签，平台就支持生成多人玩法（目前处于早期预览阶段），既涵盖你一步我一步的回合制对战，也支持需要拼手速的实时多人竞技。</li>
+<li><strong>跨设备即点即玩</strong>：游戏在 Web 浏览器运行，多数作品可响应手机、平板与电脑尺寸；实际适配效果取决于创作者的作品。如果在电脑网页上看到喜欢的游戏，页面还提供了扫码（QR Code）或发送短信链接的功能，方便在手机上打开；具体按钮大小和触控体验仍需在手机上检查。</li>
+<li><strong>全球榜与 100 人朋友圈私密榜</strong>：平台深度接入了 Google Play Games 游戏档案体系，支持玩家设置专属昵称与头像。在榜单机制上划分得非常清晰：
+<ul>
+<li><strong>全球排行榜（Global Leaderboards）</strong>：仅针对公开发布的单人游戏，展示全球顶尖玩家成绩；</li>
+<li><strong>小组排行榜（Group Leaderboards）</strong>：专为熟人圈子设计，同样针对公开的单人游戏，可以创建私密小组榜单，生成专属邀请链接发送给朋友、家人或游戏搭子（每个小组最高支持 100 人）。即使你的账号设置了全局隐私保护、不对全网公开，接受邀请并确认昵称与分数对组内成员可见后，也可以参与小组排名。</li>
+</ul>
+</li>
+<li><strong>关注喜欢的创作者</strong>：玩家可以关注优秀的独立创作者，他们最新公开发布的作品会自动推送到你发现页的专属信息流中。</li>
+</ol>
+<figure><figcaption>官网 Share 演示：打开分享入口、复制链接，再把游戏卡片发给朋友。</figcaption></figure>
+<h2>游戏能带走，也能选择只让谁看见</h2>
+<p>Playground 提供源码导出，也让创作者控制作品的公开范围：</p>
+<ul>
+<li><strong>一键导出全部源代码</strong>：在创作工作台中，点击顶部的“Export (Download Zip)”按钮，可以直接下载一个 <code>.zip</code> 压缩包。解压后里面包含了该游戏的<strong>完整 HTML、JavaScript、CSS 代码以及生成的素材文件</strong>。导出的文件可以用于查看实现、保存和继续修改；迁移到其他环境时仍要检查平台功能是否依赖在线服务，不能把“可导出”直接等同于所有功能都能离线运行。</li>
+<li><strong>四种可见状态</strong>：新作品默认私有，不会自动公开；需要创作者手动发布或修改可见度。四种状态的区别是：</li>
+</ul>
+<div><table>
+<thead>
+<tr>
+<th>状态</th>
+<th>谁能玩或看见</th>
+<th>是否进入公开发现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Draft（草稿）</td>
+<td>仅创作者，尚无独立游戏链接</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Private（私密）</td>
+<td>仅创作者，可玩已编译游戏</td>
+<td>否</td>
+</tr>
+<tr>
+<td>Unlisted（仅链接可见）</td>
+<td>任何拿到专属链接的人</td>
+<td>否，也不进入排行榜</td>
+</tr>
+<tr>
+<td>Listed（公开可发现）</td>
+<td>通过筛查后，向平台用户公开</td>
+<td>是；单人作品可设排行榜</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>数据自主权</strong>：用户可以随时在专用的 MyActivity 页面查看或逐条删除游玩记录，也可以在设置中一键注销账户并删除游戏、分数和相关数据；依法必须保留的少量记录除外。</li>
+</ul>
+<h2>生成额度怎样扣：先占用，成功编译后结算</h2>
+<p>游戏生成需要消耗后台的 AI 算力，Playground 使用生成额度来控制创作次数：</p>
+<ul>
+<li><strong>免费额度与会员扩容</strong>：平台向创作者提供每周自动刷新的免费代币额度；如果需要更高频次地生成游戏，可以通过订阅 Google One AI 高级计划来获取更多每周额度。</li>
+<li><strong>不成功不扣费</strong>：Playground 采用了<strong>先冻结、后结算</strong>的逻辑：当你点击“Generate”开始生成时，代币仅处于暂时占用状态；只有当整套游戏代码成功编译、确实可以正常进入游戏时，代币才会最终扣除。如果你在生成过程中主动点击“Stop”中止，或者生成失败或超时，冻结的代币会自动全额退回账户。</li>
+<li><strong>后台异步生成</strong>：游戏生成的耗时会受到高峰流量和提示词复杂度的影响。你不需要一直留在生成界面等待，可以随时切出去玩别人的游戏，生成完毕后游戏会自动保存在“Your Games”列表中。</li>
+<li><strong>家庭共享限制</strong>：目前 Google One 的家庭共享功能暂不支持共享 Playground 的游戏生成代币，各成员之间无法共用或转赠额度。</li>
+</ul>
+<h2>Unity Spark 是后续方向，还没有全面开放</h2>
+<p>Google 宣布计划后续将 Playground 与 <strong><a href="https://unity.com/spark">Unity Spark</a></strong> 集成，目标是提供更复杂的专业级机制、高保真 3D 和 Unity 运行时的能力。目前 Google 表示它仍在测试、封闭测试即将到来；Unity 官网则显示 Coming Soon，并开放候补登记。</p>
+<p>Unity 官网已有《Space Corridor》等演示游戏，Google 希望让创作者从文本提示起步，逐渐扩展到更复杂的 Unity 体验。具体怎样接入和迁移作品，当前材料没有说明；不能把这些计划当成 Playground 已经向所有用户提供的能力。</p>
+<h2>现在谁能玩，谁能创建游戏</h2>
+<p>目前 Playground 仍处于早期实验阶段，开放范围存在明确的条件限制：</p>
+<ul>
+<li><strong>地区与年龄限制</strong>：首发仅限美国地区年满 18 岁的用户访问，后续会逐步向更多国家和地区推广；</li>
+<li><strong>游玩完全免费</strong>：任何符合地区与年龄限制的用户，都可以直接免费畅玩公共画廊中已有的全部社区游戏；</li>
+<li><strong>创作资格分批释放</strong>：由于生成算力需要逐步扩容，免费用户的游戏创建功能采取候补排队机制（可在官网点击 Join Waitlist 等待分批放行）；如果持有 Google One AI 会员计划，则可以直接解锁创作权限，免去排队等待。</li>
+</ul>
+<p>对于一直想尝试做游戏、却被代码和复杂引擎劝退的普通玩家来说，Playground 代表了一种全新的创作范式：把游戏开发的底层工程交给 AI 处理，创作者可以更早拿到可试玩版本，再围绕玩法、规则和手机体验逐次调整。省下写代码的起步门槛，仍需要自己判断游戏是否好玩、操控是否合适。</p>
+</div><div><div><div>来源</div><div><span>Google Labs：Introducing Playground</span><span>Google Labs<span>·</span><a href="https://x.com/GoogleLabs/status/2107800195748737042">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/">Google 官方发布介绍</a><span>·</span><a href="https://playground.google/helpcenter">Playground Help Center</a><span>·</span><a href="https://labs.google/playground">Playground 官网</a><span>·</span><a href="https://unity.com/spark">Unity Spark 官网</a></div></div></div></div></div>
+<div>
+<div>Google Labs · Playground</div>
+<h1>Google 推出 Playground 游戏平台：让你无需任何编程经验就能创建自己的游戏</h1>
+<div>先把点子变成可试玩版本，再用聊天把它改得更好玩。</div>
+<div><p>想做游戏，过去得先学引擎、写代码。Google Labs 的实验平台 Playground，把起步改成了在浏览器里描述想法：AI 生成游戏，你负责试玩、判断和修改。</p></div>
+<div>
+<p>从一个点子，到朋友能玩的游戏</p>
+<div>
+<div><b>场景</b>忙碌的紫薯拿铁咖啡馆</div>
+<div><b>画风</b>复古像素</div>
+<div><b>操作</b>方向键左右移动小杯子</div>
+<div><b>目标</b>接住落下的方糖</div>
+</div>
+<div><span>描述想法</span><span>→</span><span>AI 生成</span><span>→</span><span>试玩</span></div>
+<div>另一段跳跃游戏演示：角色要到更高的平台。<strong>聊天提出：“加入二段跳”</strong><span>↳ 再试玩，看改动是否合适；一次只提一个明确要求。</span></div>
+<p>满意后，分享游戏链接。修改保存在私有草稿中，重新发布前，朋友仍玩旧版。</p>
+</div>
+<div>咖啡馆与二段跳来自两段官方演示，用于说明创作流程；不是本文实测。</div>
+<div><p>想让游戏里出现自己的宠物？</p><p>上传 PNG/JPG 参考照片，AI 会转成匹配游戏画风的风格化素材，引导角色、背景或主题；原图不会直接嵌入游戏。</p></div>
+<div><p>分享给谁，由你选择</p>
+<div><div><b>仅链接可见</b>拿到链接的人能玩，不进公开发现，也不进入排行榜。</div><div><b>公开可发现</b>通过筛查后进入平台发现；公开单人游戏可设排行榜。</div></div>
+<p>新作品默认私有。部分类型支持多人模式，须在首次生成前选择。也能导出含 HTML、JavaScript、CSS 和素材的 Zip；迁移后仍需检查在线服务依赖。</p></div>
+<div><p>现在能用吗？先看资格</p>
+<div><b>访问</b><span>首发仅限美国、年满 18 岁的用户。</span></div>
+<div><b>游玩</b><span>符合访问条件后，可免费玩社区画廊游戏。</span></div>
+<div><b>创作</b><span>免费用户需加入候补，资格分批释放；Google One AI 会员可免排队，仍有生成额度限制。</span></div>
+<div>生成额度每周刷新：开始生成先占用，成功编译且能进入游戏才结算；中止、失败或超时会退还。</div>
+</div>
+<div><p>省下编程起步门槛，仍要亲自判断好不好玩。</p><p>Unity Spark 集成是后续计划，仍在测试；当前不能视为全面开放的高保真 3D 能力。官方未说明游戏生成的具体模型和内部实现。</p></div>
+<div>来源：Google Labs 发布介绍、Playground 官网演示与帮助中心 · 2026 年 10 月</div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Claude Haiku 5.5 迁移指南：旧请求为什么报错，现有代码应该怎样改？</title>
+<link>https://best.xiaohu.ai/article/claude-haiku-5-5-migration-guide/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:claude-haiku-5-5-migration-guide</guid>
+<pubDate>Fri, 09 Oct 2026 12:00:51 +0000</pubDate>
+<description>从 Haiku 4.5 或更早版本升级：对照请求改写、思考块解析、电脑操作工具集与会话回放规则，附升级核对清单。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 9 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Claude Haiku 5.5 迁移指南：旧请求为什么报错，现有代码应该怎样改？</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/claude-haiku-5-5-migration-guide/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Claude Haiku 5.5 迁移指南：旧请求为什么报错，现有代码应该怎样改？</h1><p>从 Haiku 4.5 或更早版本升级：对照请求改写、思考块解析、电脑操作工具集与会话回放规则，附升级核对清单。</p><strong>一分钟速览</strong><ul><li>Anthropic 发布了更快、更便宜的 Haiku 5.5；已有应用升级时，需要同时检查请求与响应处理。</li><li>默认启用的自适应思考，会影响输出额度、正文读取和多轮会话回传。</li><li>先按当前模型和平台找到适用改动，再用实际任务核对输出、工具执行及停止原因。</li></ul><div><p>Anthropic 发布了 <strong>Claude Haiku 5.5</strong>。这款轻量模型主要面向调用频繁、对费用和响应速度敏感的应用，也能作为子 Agent 配合旗舰模型处理具体任务。</p>
+<p>它的主要功能特点与这次发布的配套更新包括：</p>
+<ul>
+<li><strong>高频任务更便宜</strong>：平均运行成本较 Haiku 4.5 降低约 75%，面向摘要、上下文压缩、数据库查询和分类等重复工作。</li>
+<li><strong>响应更快</strong>：在标准速度下是最快的 Claude 模型，适合实时客服等需要快速回应的场景。（开启 Fast Mode 的 Opus 更快。）</li>
+<li><strong>配合旗舰模型做编码子任务</strong>：可作为子 Agent 与 Sonnet 5.5、Opus 5.5 搭配，接手范围明确的工作。</li>
+<li><strong>首次支持可调推理投入</strong>：Haiku 系列加入 effort 设置，可以按任务调整思考投入，在费用与表现之间取舍。</li>
+<li><strong>多项能力提升</strong>：官方评测中，电脑操作、知识工作和编码成绩均高于 Haiku 4.5。</li>
+<li><strong>Sonnet 缓存读取降价</strong>：单价减半；Anthropic 测算，多数 Sonnet 5.5 Agent 任务的总成本因此降低约 20%。</li>
+<li><strong>SDK 增加操作支持</strong>：Python 与 TypeScript SDK 加入电脑操作和浏览器操作的 Beta 支持。</li>
+<li><strong>订阅用户获得 API 额度</strong>：伴随发布，Anthropic 将逐步向 Max 与 Team 用户推出月度 API 信用额度，可用于 Claude Platform 上的任意模型。</li>
+</ul>
+<p>已经接入 Haiku 4.5 的应用，升级到 <strong>Claude Haiku 5.5</strong> 时，需要同时检查请求参数、响应解析和多轮会话。旧的思考配置、采样参数或助手消息预填充可能返回 HTTP 400；沿用按位置取答案的代码，也可能读不到正文。</p>
+<p>这份官方迁移指南针对 <strong>Messages API</strong> （向 Claude 发送对话并接收响应的接口）。使用 Claude Managed Agents 的应用，文档要求只更新模型名；已有 API 集成则按下面的项目检查。Haiku 3.5 或 Haiku 3 用户，还要完成文末的跨代补充项。</p>
+<p>模型的能力与价格变化可先看<a>Haiku 5.5 发布解读</a>。本篇集中说明现有代码怎样升级。</p>
+<h2>升级捷径：用命令行工具自动化排查</h2>
+<p>在手动翻改代码之前，如果你使用官方的 Claude Code 开发环境，可以直接借助内置的迁移技能辅助检查并修改代码：</p>
+<div><pre><code>/claude-api migrate this project to claude-haiku-5-5
+</code></pre></div>
+<p>这套自动化工具会检查代码库，替换模型 ID，并按需修改不兼容参数、替换助手消息预填充和调整 effort。在正式修改文件前，它会提示你确认改动范围（支持整个工作目录、子目录或指定文件列表）；同时，它还能识别 Amazon Bedrock 以及 AWS 版 Claude 客户端，自动把模型 ID 调整为该平台对应的格式。</p>
+<p>迁移技能还会调整 effort，并输出需要人工验证的清单。自动修改后，仍要核对请求、响应解析和会话处理是否符合下面的规则。</p>
+<hr />
+<h2>请求怎么改：模型 ID、思考配置与旧参数</h2>
+<p>这一层改动直接发生在向 Messages API 发送 HTTP 请求的 Request Body 中。其中几种旧写法在 Haiku 5.5 中会返回 HTTP 400，具体条件如下。</p>
+<h3>1. 模型 ID 替换：统一固定标识</h3>
+<p>Haiku 5.5 采用了无日期后缀的固定模型 ID，不再提供单独的最新别名（alias）。各云服务平台的对应关系如下：</p>
+<div><table>
+<thead>
+<tr>
+<th>平台环境</th>
+<th>旧版写法 (Haiku 4.5)</th>
+<th>新版固定写法 (Haiku 5.5)</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Claude API (官方直连)</strong></td>
+<td><code>claude-haiku-4-5-20251001</code> 或 <code>claude-haiku-4-5</code></td>
+<td><code>claude-haiku-5-5</code></td>
+<td>固定 ID，无日期后缀</td>
+</tr>
+<tr>
+<td><strong>Amazon Bedrock</strong></td>
+<td><code>anthropic.claude-haiku-4-5</code></td>
+<td><code>anthropic.claude-haiku-5-5</code></td>
+<td>需注意平台特有前缀</td>
+</tr>
+<tr>
+<td><strong>Claude Platform on AWS</strong></td>
+<td><code>claude-haiku-4-5</code></td>
+<td><code>claude-haiku-5-5</code></td>
+<td>统一固定 ID</td>
+</tr>
+<tr>
+<td><strong>Google Cloud (Vertex AI)</strong></td>
+<td><code>claude-haiku-4-5@20251001</code></td>
+<td><code>claude-haiku-5-5</code></td>
+<td>去掉 <code>@版本日期</code> 后缀</td>
+</tr>
+<tr>
+<td><strong>Microsoft Foundry</strong></td>
+<td><code>claude-haiku-4-5</code></td>
+<td><code>claude-haiku-5-5</code></td>
+<td>统一固定 ID</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2. 用 effort 调整思考投入</h3>
+<ul>
+<li><strong>旧写法现象</strong>：在 Haiku 4.5 中，开启深度思考通常使用 <code>thinking: {"type": "enabled", "budget_tokens": 8000}</code>。如果在 Haiku 5.5 沿用此写法，API 会直接返回 HTTP 400 错误。</li>
+<li><strong>机制变动</strong>：Haiku 5.5 废弃了显式的数字 Token 预算，改为 <strong>自适应思考（Adaptive Thinking）</strong>。控制思考强度的杠杆转移到了 <code>output_config.effort</code> 字段。</li>
+<li><strong>默认开启机制</strong>：自适应思考是<strong>默认开启</strong>的。即使你的请求体完全不写 <code>thinking</code> 参数，模型返回的响应中也可能会包含思考块。如果你希望模型少思考以节省时间和 Token，可以把 effort 调低（如 <code>"low"</code>）；投入较低时，模型思考更少，也可能在简单请求中跳过思考。</li>
+<li><strong>思考摘要展示</strong>：旧版 4.5 会返回带有摘要文本的思考内容；而在 5.5 中，默认返回的思考块内 <code>thinking</code> 文本字段是空的，只保留 <code>signature</code> 签名字段。如果你的业务前端必须展示思考过程摘要，请求中必须显式声明 <code>thinking: {"type": "adaptive", "display": "summarized"}</code>。</li>
+<li><strong>强制工具调用时的行为</strong>：如果在请求中配置了强制工具调用（例如 <code>tool_choice: {"type": "any"}</code> 或指定具体工具名），Haiku 5.5 会直接输出工具调用指令，不会生成任何思考块。如果业务必须让模型“先想再调”，必须将工具调用设为 <code>auto</code> 模式 <code>tool_choice: {"type": "auto"}</code>，并在 Prompt 中明确说明触发工具的时机。</li>
+</ul>
+<h3>3. 删除旧的采样参数</h3>
+<ul>
+<li><strong>旧写法现象</strong>：旧代码习惯性配置 <code>temperature: 0.7</code>、<code>top_p: 0.9</code> 或自定义 <code>top_k</code>。在 Haiku 5.5 中，这些全都会触发 HTTP 400 校验失败。</li>
+<li><strong>新版规范</strong>：<strong>直接从请求中完全删除 <code>temperature</code>、<code>top_p</code> 和 <code>top_k</code></strong>，把输出风格和发散程度交由 Prompt 提示词来控制。</li>
+<li><strong>严格硬性校验规则</strong>：
+<ul>
+<li>如果请求一定要带 <code>temperature</code>，其数值必须且只能是 <code>1</code>；</li>
+<li>如果请求一定要带 <code>top_p</code>，其数值必须且只能是默认值 <code>0.99</code>（注意：即使传 <code>top_p: 1</code> 也会报 400）；</li>
+<li>只要请求中出现任何 <code>top_k</code> 值，立即报 400；</li>
+<li>如果在一个请求中同时携带了 <code>temperature</code> 和 <code>top_p</code>，哪怕都是上述合法值，依然直接报 400 错误。</li>
+</ul>
+</li>
+</ul>
+<h3>4. 替换助手消息预填充</h3>
+<ul>
+<li><strong>旧写法现象</strong>：在旧版中，一些应用会在 <code>messages</code> 数组最后塞一条未闭合的助手消息（如 <code>{"role": "assistant", "content": "{"}</code> 或 <code>{"role": "assistant", "content": "Sure, here is the answer:"}</code>），以此引导模型输出纯 JSON 或跳过礼貌性废话。在 Haiku 5.5 中，<strong>用末尾 <code>assistant</code> 消息让模型续写，会返回 HTTP 400，即使关闭思考也一样</strong>。将请求的 <code>messages</code> 列表改为以 <code>user</code> 消息结尾。</li>
+<li><strong>针对性改造方案</strong>：</li>
+</ul>
+<div><pre><code>旧模式：依赖 Assistant 消息末尾引导
+[User: "..."] -&gt; [Assistant: "引导内容..."] -&gt; 触发 400 错误！
+新模式：依用途分别化解到系统提示、结构化接口或用户轮次
+├─ 强约束格式（如 JSON） ────&gt; 改用结构化输出（Structured Outputs）或带 Enum 的工具定义
+├─ 消除开场废话（Preambles） ─&gt; 移至 System Prompt 明确指令（如“请直接给出答案，禁止任何前置客套”）
+├─ 断点续写（Continuations） ──&gt; 移至 User 消息（“上轮回答在 [...] 处中断，请紧接此处继续输出”）
+└─ 上下文强提醒 ──────────────&gt; 直接追加在当前的 User 消息末尾
+</code></pre></div>
+<blockquote>
+<p>特殊平台限制注意：Amazon Bedrock 平台目前不支持原生结构化输出（Structured Outputs），如果在 Bedrock 上需要对输出做严格格式约束，推荐定义一个包含参数结构的工具（Tool），并引导模型调用该工具来承载结构化结果。</p>
+</blockquote>
+<hr />
+<h2>Token 和会话怎么处理：重算用量，保留思考块的上下文</h2>
+<p>这一层改动不一定会在单次简单调用中暴露，但会影响多轮对话系统、聊天记录存储服务、计费系统以及长文本处理的稳定性。</p>
+<h3>1. 重新计数：同一段输入约多 30% Token</h3>
+<ul>
+<li><strong>机制变化</strong>：Haiku 5.5 使用了与 Claude 4.7 及后续模型相同的更新分词器。对于完全相同的一段文本，在 Haiku 5.5 下解析出的 Token 数量比在 Haiku 4.5 下 <strong>多出大约 30%</strong>，具体增幅取决于内容。</li>
+<li><strong>引发的生产问题</strong>：
+<ol>
+<li><strong>输出截断</strong>：固定数量的 Token 能容纳的文字变少。沿用为 Haiku 4.5 调好的 <code>max_tokens</code> 上限，可能截断同等长度的输出。</li>
+<li><strong>思考耗尽配额</strong>：思考 Token 同样占用 <code>max_tokens</code> 配额。如果旧代码设了一个较小的 <code>max_tokens</code>，模型可能在自适应思考阶段用完额度，最后给出的响应只有思考块，而没有任何实际的正文回复，停止原因返回 <code>stop_reason: "max_tokens"</code>。</li>
+<li><strong>计费与预估偏差</strong>：凡是本地依赖 Token 计数器评估预算、计算单次调用成本的模块，要重新测算；调用 Token 计数接口时，显式传入 <code>model: "claude-haiku-5-5"</code>，不能复用旧版 4.5 的测算数据。</li>
+</ol>
+</li>
+</ul>
+<h3>2. 回传思考块时，前面的对话保持不变</h3>
+<ul>
+<li><strong>需要排查的代码</strong>：应用可能会裁剪早先的对话，或调整 <code>system</code> 和 <code>tools</code>，再把包含历史思考块的消息回传。Haiku 4.5 不执行下面这项前缀检查。</li>
+<li><strong>新版严格检查</strong>：Haiku 5.5 的思考块在它前面的内容保持不变时才有效。如果回传思考块时修改了此前的 <code>system</code>、<code>tools</code> 或早先的 <code>messages</code>，请求会返回 400。文档列出的兼容情况是：创建于 2026 年 8 月 31 日 00:00 UTC 之前的账户，只有在请求设置 <code>thinking.block_binding.prefix_mismatch_behavior</code> 时才会触发这类错误。</li>
+<li><strong>改造原则</strong>：维护带思考块的会话必须采用<strong>纯追加模式（Append-Only）</strong>。保留思考块时，不修改它之前的系统提示、工具或消息。</li>
+</ul>
+<h3>3. 重放会话时使用生成思考块的账户</h3>
+<p>在多租户 SaaS 架构或大型中台网关中，有些架构会把用户历史会话存储在统一的数据库中，当不同租户或负载均衡器调度时，可能会用另一个 API 账号将历史上下文灌入重放。</p>
+<ul>
+<li><strong>请求成功但思考块被丢弃</strong>：Haiku 5.5 生成的思考块只在生成它的账户或关联账户中可用。如果用无关联的账户 B 重放账户 A 生成的思考块，<strong>API 不会抛出 400 报错，而是静默丢弃（drop）这些思考块</strong>。</li>
+<li><strong>后果</strong>：请求仍然成功，但模型看不到被丢弃的思考内容。跨账号存储重放时，应把每段会话派发到最初生成它的账户；关联账户的适用规则见官方说明。</li>
+</ul>
+<hr />
+<h2>电脑操作怎么迁移：请求声明和执行循环都要改</h2>
+<p>如果你的业务不仅是简单聊天，还涉及 Agent 工具链调用、代码执行或自动化操作，需要同步排查工具层的协议版本。</p>
+<h3>1. 换成电脑操作工具集</h3>
+<ul>
+<li><strong>适用平台</strong>：Claude API 官方直连通道与 Google Cloud 平台。</li>
+<li><strong>废弃旧协议</strong>：旧版工具名 <code>computer_20250124</code> 及对应的 Beta 协议头 <code>computer-use-2025-01-24</code> 在 5.5 下被彻底弃用，发起请求会收到 400 报错。</li>
+<li><strong>接入新版 Toolset</strong>：
+<ol>
+<li>移除请求头中的 <code>computer-use-2025-01-24</code>。</li>
+<li>在 <code>tools</code> 列表中不再声明单一 tool，而是声明工具集：<code>{"type": "computer_toolset_20260801"}</code>。</li>
+<li><strong>分发逻辑重构</strong>：代码中不能再依赖 <code>input.action</code> 来判断鼠标键盘动作，而是必须检查每一个 <code>tool_use</code> 块的 <code>name</code> 以及 <code>toolset_name</code>。</li>
+<li><strong>全量响应与回传</strong>：在同一轮对话中如果出现多个该工具集的调用块，必须在当前轮次处理每一个块，并在回传执行结果（<code>tool_result</code>）时显式带上 <code>toolset_name</code>。</li>
+<li><strong>屏幕缩放（Zoom）默认开启处理</strong>：新工具集默认开启了缩放功能。如果你的执行环境尚未实现 Zoom 功能，必须在配置中显式关闭：<code>"configs": {"zoom": {"enabled": false}}</code>。</li>
+<li><strong>流式头冲突排除</strong>：如果旧请求带有 <code>fine-grained-tool-streaming-2025-05-14</code> 请求头，必须移除。它不能与新的 toolset 并存，否则接口返回 400。</li>
+</ol>
+</li>
+<li><strong>新增网页操作能力</strong>：在 Claude API 与 Google Cloud 上，Haiku 5.5 新增支持专门针对网页交互的 <code>browser_toolset_20260801</code>，这是 4.5 所不具备的新特性。</li>
+</ul>
+<h3>2. 重新规划 Priority Tier 容量</h3>
+<p>如果你的团队此前在 Claude Haiku 4.5 上购买了 <strong>Priority Tier（优先保障层）</strong> 算力承诺，请务必注意：<strong>Claude Haiku 5.5 目前不支持 Priority Tier</strong>。升级至 5.5 时需要单独规划容量。</p>
+<hr />
+<h2>收到响应后怎么处理：按类型取正文，识别停止原因</h2>
+<p>升级到 Haiku 5.5 后，客户端还要检查拿到响应后的解析代码。</p>
+<h3>1. 按 content 块的 type 取正文</h3>
+<p>很多旧版代码为了省事，直接写成：</p>
+<div><pre><code># 旧写法：假定第一块就是正文
+reply_text = response.content[0].text
+</code></pre></div>
+<p>在 Haiku 5.5 中，由于自适应思考是默认开启的，模型返回的 <code>response.content</code> 数组中，<strong>响应开头可能是 <code>type: "thinking"</code> 的思考块，真正的回答内容在后面的 <code>type: "text"</code> 块中</strong>。继续按索引 0 取文本，可能因该块没有 <code>text</code> 字段而出错，也可能漏掉后面的正文。</p>
+<p><strong>改造后解析逻辑</strong>：遍历 <code>content</code> 数组，按照 <code>type</code> 进行严格条件分支处理。遇到 <code>type == "text"</code> 拼接为用户正文；遇到 <code>type == "thinking"</code>，与工具结果一同回传时保留原块，不修改它。</p>
+<h3>2. 处理 refusal 停止原因</h3>
+<p>Haiku 5.5 的安全分类器可以拒绝请求，模型没有服务端后备处理。客户端需要识别这类停止原因：</p>
+<div><pre><code>{ "stop_reason": "refusal" }
+</code></pre></div>
+<p>代码中必须新增对 <code>"refusal"</code> 的判断。如果旧代码只认 <code>"end_turn"</code>、<code>"max_tokens"</code>、<code>"tool_use"</code>，一旦遭遇拒绝，业务流程可能会直接挂起或当作异常崩溃。</p>
+<hr />
+<h2>从 Haiku 3.5 或 Haiku 3 升级，还要检查哪些项目？</h2>
+<p>如果你的业务代码至今仍停留在 Claude Haiku 3.5 或 Haiku 3，文档列出的状态是：Haiku 3.5 已在 Claude API 与 Amazon Bedrock 退役，Haiku 3 已在 Claude API 退役；调用退役型号会失败。Google Cloud 将 Haiku 3.5 列为已弃用，仅向已有客户提供。此时在完成上述全部改造后，还需要追加以下改动：</p>
+<ol>
+<li><strong>模型 ID 与旧工具</strong>：
+<ul>
+<li>将 <code>claude-3-5-haiku-20241022</code>、<code>claude-3-5-haiku-latest</code> 或 <code>claude-3-haiku-20240307</code> 改为 <code>claude-haiku-5-5</code>；Google Cloud 的旧 ID <code>claude-3-5-haiku@20241022</code> 也改为它，Bedrock 则使用前表带平台前缀的 ID。</li>
+<li>早期纯 Python 执行工具 <code>code_execution_20250522</code> 必须升级为 <code>code_execution_20250825</code> 或更新版本。</li>
+<li>文本编辑工具必须切换为 <code>text_editor_20250728</code>（对应内部工具名 <code>str_replace_based_edit_tool</code>），注意该版本已经删除了 <code>undo_edit</code>（撤销编辑）命令。</li>
+</ul>
+</li>
+<li><strong>上下文超限识别</strong>：除了捕获 <code>refusal</code> 外，还要在停止原因中额外处理 <code>model_context_window_exceeded</code>。</li>
+<li><strong>工具参数的换行符容错</strong>：4.5 及后续模型会在工具调用的字符串参数末尾保留换行符 <code>\n</code>。后端解析工具参数时如果做了精确全等匹配，需要允许末尾换行符。</li>
+<li><strong>提示词重构</strong>：Claude 4 及后续模型的沟通风格更简洁直接，需要更具体、指向更明确的系统指令。</li>
+</ol>
+<hr />
+<h2>对照请求示例，并检查响应解析</h2>
+<p>以下示例为根据官方文档规范整理的迁移逻辑示意（用于展示参数结构变化，非实测 SDK 运行输出）。</p>
+<h3>1. 官方请求的前后对照</h3>
+<p>旧请求通过 <code>budget_tokens</code> 固定思考预算：</p>
+<div><pre><code>{
+  "model": "claude-haiku-4-5",
+  "max_tokens": 16000,
+  "thinking": { "type": "enabled", "budget_tokens": 8000 },
+  "messages": [{ "role": "user", "content": "..." }]
+}
+</code></pre></div>
+<p>迁移后，模型 ID 改为 <code>claude-haiku-5-5</code>，思考模式改为 <code>adaptive</code>，并用 <code>output_config.effort</code> 控制投入：</p>
+<div><pre><code>{
+  "model": "claude-haiku-5-5",
+  "max_tokens": 16000,
+  "thinking": { "type": "adaptive" },
+  "output_config": { "effort": "medium" },
+  "messages": [{ "role": "user", "content": "..." }]
+}
+</code></pre></div>
+<p>这里沿用文档示例的 <code>max_tokens</code>，实际应用仍需按任务重新计数和检查截断情况。需要思考摘要时，再加入 <code>display: "summarized"</code>。</p>
+<hr />
+<h3>2. Python 客户端响应处理示例</h3>
+<div><pre><code># 根据官方迁移规则整理的解析处理逻辑示例（教学参考）
+from anthropic import Anthropic
+client = Anthropic()
+response = client.messages.create(
+    model="claude-haiku-5-5",
+    max_tokens=16000,
+    thinking={"type": "adaptive"},
+    output_config={"effort": "medium"},
+    messages=[
+        {"role": "user", "content": "请评估该方案的可行性并给出三条建议。"}
+    ]
+)
+# 1. 容错检查：捕获安全拒绝
+if response.stop_reason == "refusal":
+    print("请求被安全分类器拦截，未能生成回答。")
+elif response.stop_reason == "max_tokens":
+    print("警告：Token 预算达到上限被截断（可能是思考占用过多或设置过小）。")
+# 2. 只提取当前响应正文；工具循环回传思考时需保留原始块
+thinking_process = []
+final_answers = []
+for block in response.content:
+    if block.type == "thinking":
+        # 默认模式下 block.thinking 为空字符串，仅包含 signature
+        # 若开启 display: "summarized" 则包含摘要文字
+        if hasattr(block, "thinking") and block.thinking:
+            thinking_process.append(block.thinking)
+    elif block.type == "text":
+        final_answers.append(block.text)
+print("最终回答内容：")
+print("\n".join(final_answers))
+</code></pre></div>
+<hr />
+<h2>升级上线验证清单</h2>
+<p>按请求、响应、会话和工具四组检查。没有使用的功能可跳过对应项目；准备上线时，用现有任务核对改动后的结果。</p>
+<h3>请求配置</h3>
+<ul>
+<li><strong>模型 ID</strong>：按所在平台更换型号，检查环境变量和网关路由。</li>
+<li><strong>采样参数</strong>：移除 <code>temperature</code>、<code>top_p</code> 和 <code>top_k</code>。</li>
+<li><strong>思考投入</strong>：不再发送 <code>budget_tokens</code>；使用自适应思考，通过 effort 调整投入。</li>
+<li><strong>消息结尾</strong>：替换末尾助手预填充；严格格式用结构化输出或工具，续写和提醒放入用户消息。</li>
+</ul>
+<h3>响应与输出额度</h3>
+<ul>
+<li><strong>正文读取</strong>：按 <code>type == "text"</code> 取内容，不再固定读取 <code>content[0]</code>。</li>
+<li><strong>停止原因</strong>：处理 <code>refusal</code>；确认达到 <code>max_tokens</code> 时能够识别截断。</li>
+<li><strong>输出额度</strong>：重新计数，按任务调整 <code>max_tokens</code> 或降低 effort，检查是否在正文生成前耗尽额度。</li>
+<li><strong>思考摘要</strong>：需要显示摘要时，显式设置 <code>display: "summarized"</code>。</li>
+</ul>
+<h3>多轮会话</h3>
+<ul>
+<li><strong>前文保持不变</strong>：回传思考块时，保留它之前的系统提示、工具与历史消息。旧账户的兼容条件见前文。</li>
+<li><strong>账户保持关联</strong>：把会话交给生成思考块的账户或关联账户，避免派发到无关联账户。</li>
+</ul>
+<h3>工具执行</h3>
+<ul>
+<li><strong>电脑操作</strong>：换成新工具集，移除旧 Beta 请求头，并检查 Zoom 支持。</li>
+<li><strong>执行循环</strong>：处理同一轮的全部工具块，按名称派发，结果回传时保留工具集标识。</li>
+</ul>
+<p>Haiku 3.5 或 Haiku 3 用户还需完成前面的跨代补充项；已有 Priority Tier 容量承诺的团队，另行核对容量安排。</p>
+</div><div><div><h2>实操带走包</h2><p>滚动查看原始 Markdown，复制后可按团队实际系统与政策修改。</p></div><span>Markdown · 会员</span></div><pre>正在载入 Markdown…</pre><div>复制 Markdown下载 .md<span></span></div><a></a><div><div><div>来源</div><div><span>Claude Haiku 5.5 migration guide</span><span>Anthropic<span>·</span><a href="https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://www.anthropic.com/claude-haiku-5-5">Introducing Claude Haiku 5.5</a></div></div></div></div></div><div>
+<div>MIGRATION GUIDE · CLAUDE HAIKU 5.5</div>
+<h1>Claude Haiku 5.5 迁移指南：请求、会话和响应怎样改</h1>
+<p>Haiku 5.5 运行成本较 4.5 降低约 75%、速度更快并支持自适应思考，但接入代码不再兼容旧版思考预算、采样参数与助手预填充；会话回传与响应提取逻辑也必须同步改造。</p>
+<div>核心机制：自适应思考取代 budget_tokens · 纯追加模式会话 · 严格类型提取正文</div>
+<div>
+<p>Anthropic 正式发布了 <strong>Claude Haiku 5.5</strong>。这款轻量模型主要面向调用频繁、对费用和响应速度敏感的应用，也能作为高效子 Agent 配合 Sonnet 5.5 或 Opus 5.5 处理范围明确的代码与数据子任务。官方数据显示其平均运行成本较 Haiku 4.5 降低约 75%，并且在标准速度下是最快的 Claude 模型。</p>
+<p>然而，已有Messages API集成升级到Haiku 5.5时，还需检查参数与处理逻辑。由于请求规范与思考机制更新，旧代码中常见的显式思考预算、采样参数微调（如自定义 temperature）或助手消息预填充，在 5.5 中均会直接触发 HTTP 400 校验错误；而在响应端，沿用按索引读取回答的旧习惯也会读不到正文。按实际使用的功能检查请求参数、Token用量、会话和响应处理。Claude Managed Agents只需更新模型名。开启Fast Mode的Opus速度更快。</p>
+<div>
+<h2>核心机制变革：自适应思考取代固定 Token 预算</h2>
+<p>在 Haiku 4.5 中，开启思考必须在请求中指定显式的 Token 预算（例如 <code>budget_tokens: 8000</code>）。如果将该参数直接发送给 Haiku 5.5，接口会立即返回 HTTP 400 错误。</p>
+<p>Haiku 5.5 废弃了显式的数字 Token 预算，改为自适应思考（Adaptive Thinking）。控制思考强度的杠杆转移到了 output_config.effort 字段。通过effort调整推理投入（如 <code>"low"</code>、<code>"medium"</code>、<code>"high"</code>）。</p>
+<div>
+<div>
+<div>自适应开启与投入杠杆</div>
+<p>自适应思考是默认开启的，即使请求体不声明 thinking 参数，响应也可能携带思考块。若希望缩减耗时与成本，可将 effort 调低（如 "low"），此时模型思考更少，简单请求甚至完全跳过思考。</p>
+</div>
+<div>
+<div>摘要展示与强制工具调用</div>
+<p>默认返回的思考块仅保留 signature 签名，其 thinking 文本为空。若前端需要展示摘要，必须显式声明 <code>display: "summarized"</code>；此外，强制工具调用（any 或指定工具）会直接跳过思考块，需要设为auto，并在提示词说明工具触发时机。</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h2>请求层改造：固定模型 ID、严格采样参数与预填充替代</h2>
+<p>向 Messages API 发送请求的第一步是清理不兼容参数。Haiku 5.5 对请求体的校验有明确兼容规则，不合规的遗留字段均会导致调用中断。</p>
+<p>首先，Haiku 5.5 统一采用无日期后缀的固定模型 ID：官方API、Claude Platform on AWS与Microsoft 平台统一为 <code>claude-haiku-5-5</code>；Amazon Bedrock 需前缀 <code>anthropic.claude-haiku-5-5</code>；Google Cloud Vertex AI 则需去除旧版的 <code>@版本日期</code> 后缀。平台不再提供 latest 动态别名。</p>
+<p>其次是采样参数的全面清理：<strong>直接从请求体中完全删除 <code>temperature</code>、<code>top_p</code> 和 <code>top_k</code></strong>。Haiku 5.5 的硬性规则是：若传 temperature 必须且只能是 1；若传 top_p 必须且只能是 0.99（传 1 会报 400）；任何 top_k 均直接报错；若两者同时传递，哪怕数值合法也会直接报 400 校验失败。</p>
+<p>另一项改动是<strong>助手消息预填充的废弃</strong>。旧应用常在 <code>messages</code> 尾部追加一条未闭合的 <code>assistant</code> 消息来约束 JSON 格式或引导回答。在 Haiku 5.5 中，用末尾 assistant 消息让模型续写，会返回 HTTP 400，即使关闭思考也一样。将请求的 messages 列表改为以 user 消息结尾。</p>
+<div>
+<div><span>强约束 JSON 格式</span><span>改用原生结构化输出（Structured Outputs）或带 Enum 校验的工具定义。</span></div>
+<div><span>消除开场客套废话</span><span>移入 System Prompt 明确指令（例如“直接给出答案，禁止前置客套”）。</span></div>
+<div><span>长文断点续写要求</span><span>移入 User 消息（例如“上轮回答在 [...] 处中断，请紧接此处继续输出”）。</span></div>
+<div><span>上下文强约束提醒</span><span>直接追加在当前轮次的 User 消息末尾，确保 messages 始终以 user 结尾。</span></div>
+</div>
+<div>
+<p><strong>平台限制提醒</strong>：Amazon Bedrock 平台目前不支持原生 Structured Outputs。在 Bedrock 上若需严格格式化输出，推荐定义一个包含参数结构的 Tool 并引导模型调用该工具来承载结果。</p>
+</div>
+</div>
+<div>
+<h2>Token 计数膨胀与会话上下文状态维护</h2>
+<p>进入多轮对话与生产调用阶段后，模型的隐性机制变化开始影响成本计算与系统稳定性。</p>
+<div>
+<div><div>约+30%</div><div>同输入分词 Token 增量</div></div>
+<div><div>HTTP 400</div><div>回传思考块时改前文；旧账户有兼容条件</div></div>
+<div><div>Silent Drop</div><div>无关联账户重放会丢弃思考块</div></div>
+</div>
+<p>Haiku 5.5 采用了新版分词器。对于完全相同的文本输入，Token数量约多30%，具体增幅取决于内容。这直接导致两个生产风险：其一是旧版配好的 <code>max_tokens</code> 上限容易被提前打满造成回答截断；其二是思考 Token 同样占用 max_tokens 配额。如果旧代码设了一个较小的 max_tokens，模型可能在自适应思考阶段用完额度，最后给出的响应只有思考块，而没有任何实际的正文回复，停止原因返回 stop_reason: "max_tokens"。</p>
+</div>
+<div>
+<h2>会话必须纯追加（Append-Only）与账号绑定</h2>
+<p>在多轮对话系统中，应用若回传带有历史思考块的消息，必须严格保证前缀一致性。Haiku 5.5 的思考块在它前面的内容保持不变时才有效。如果回传思考块时修改了此前的 system、tools 或早先的 messages，请求会返回 400。因此，带有思考块的对话上下文必须采用<strong>纯追加模式（Append-Only）</strong>，保留思考块时，不修改它之前的指令、工具或消息。</p>
+<div>
+<p><strong>多租户网关避坑</strong>：Haiku 5.5 的思考块与生成它的 API 账户严格绑定。若在分布式调度或重试网关中，用无关联的账户 B 重放账户 A 生成的思考块，API 不会报错，而是会<strong>静默丢弃（drop）这些思考块</strong>。重放时务必调度至原账户或关联账户。</p>
+<p><strong>历史账户说明</strong>：创建于 2026 年 8 月 31 日 00:00 UTC 之前的旧账户，仅在显式设置 thinking.block_binding.prefix_mismatch_behavior 时才会触发前缀报错；新账户则默认严格校验。</p>
+</div>
+</div>
+<div>
+<h2>响应解析防御与工具集协议升级</h2>
+<p>客户端收到响应后的反序列化逻辑是另一处需要检查的逻辑。很多旧代码习惯直接编写 <code>response.content[0].text</code> 获取文本，但在 Haiku 5.5 中，由于自适应思考是默认开启的，模型返回的 response.content 数组中，响应开头可能是 type: "thinking" 的思考块，真正的回答内容在后面的 type: "text" 块中。如果继续按固定索引 0 取值，可能因该块没有text字段报错，或漏掉后面的正文。</p>
+<p>正确的做法是：遍历 <code>content</code> 数组，按 <code>block.type == "text"</code> 拼接正文内容；若需在工具循环中回传上下文，则将 <code>thinking</code> 块原样保留并纯追加。同时，停止原因必须新增对 <code>stop_reason == "refusal"</code> 的捕获处理，因为 5.5 的安全拦截没有服务端后备处理，若不显式分支处理可能导致业务流程挂起或异常。</p>
+<p>在 Agent 与自动化操作方面，旧版 <code>computer_20250124</code> 协议已废弃，需换用 <code>{"type": "computer_toolset_20260801"}</code> 并移除旧 Beta 请求头。分发时必须检查 <code>toolset_name</code>。同时注意：<strong>Haiku 5.5 目前不支持 Priority Tier（优先保障层）</strong>算力承诺，原先预购了该层级的团队需重新评估容量策略。</p>
+<div>
+<h3>生产升级上线核对要点</h3>
+<ul>
+<li>按平台更换固定模型ID；Bedrock保留anthropic.前缀。</li>
+<li>完全清理 temperature、top_p、top_k；废弃 budget_tokens 并改用 output_config.effort 调控思考深度。</li>
+<li>终结 assistant 消息预填充，通过系统提示词强约束或原生 Structured Outputs / 工具定义替代。</li>
+<li>重新计数（同文本约多30%，依内容变化），按任务调整max_tokens或降低effort 防止思考 Token 耗尽额度导致正文截断。</li>
+<li>客户端按 type == "text" 过滤提取正文，并针对 stop_reason == "refusal" 建立兜底拦截。</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Anthropic 发布 Claude Haiku 5.5：平均成本降75%，擅长高频重复工作，是旗舰模型的好帮手</title>
+<link>https://best.xiaohu.ai/article/claude-haiku-5-5/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:claude-haiku-5-5</guid>
+<pubDate>Fri, 09 Oct 2026 12:00:51 +0000</pubDate>
+<description>更快、更便宜的 Haiku 5.5，适合大量摘要、查询与分类，也能作为子 Agent 配合旗舰模型。看它的能力提升、分档价格、推理投入调节，以及客户已经试过的用法。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 9 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Anthropic 发布 Claude Haiku 5.5：平均成本降75%，擅长高频重复工作，是旗舰模型的好帮手</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/claude-haiku-5-5/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Anthropic 发布 Claude Haiku 5.5：平均成本降75%，擅长高频重复工作，是旗舰模型的好帮手</h1><p>更快、更便宜的 Haiku 5.5，适合大量摘要、查询与分类，也能作为子 Agent 配合旗舰模型。看它的能力提升、分档价格、推理投入调节，以及客户已经试过的用法。</p><strong>一分钟速览</strong><ul><li>Claude Haiku 5.5 让大量摘要、查询和分类更便宜，平均运行成本较上一代下降约 75%。</li><li>简单任务快速处理，困难任务增加推理投入，Haiku 首次支持按任务调节 effort。</li><li>让 Opus、Sonnet 主导复杂工作，让 Haiku 接手具体环节，是这次升级最实用的用法。</li></ul><div><p>一个 AI 应用每天要做大量摘要、查找和分类时，模型每次回答的费用与等待时间都会累积。开发者要同时考虑：模型能不能把这件事做好，以及能不能长期大量调用。</p>
+<p>Anthropic 发布了轻量级模型 <strong>Claude Haiku 5.5</strong>：平均运行成本比 Haiku 4.5 低约 75%，编码、电脑操作和知识工作能力也有明显提升。它是 Claude 家族在标准速度下最快的模型。（开启 Fast Mode 的 Opus 更快。）</p>
+<p>它的主要功能与特点，可以先看这六项：</p>
+<ul>
+<li><strong>成本更低</strong>：官方测算，平均运行成本比 Haiku 4.5 下降约 75%，适合需要大量调用的应用。</li>
+<li><strong>响应更快</strong>：在 Claude 家族的标准速度模式下最快，面向实时客服、浏览器操作等对等待时间敏感的任务。</li>
+<li><strong>任务能力提升</strong>：在官方公布的编码、电脑操作与知识工作评测中，比 Haiku 4.5 有明显进步。</li>
+<li><strong>思考投入可调</strong>：首次在 Haiku 系列中支持 effort 设置，简单任务少投入，难任务可增加推理投入。</li>
+<li><strong>擅长高频重复工作</strong>：面向摘要、上下文压缩、数据库查询和分类等目标明确的任务。</li>
+<li><strong>可作为子 Agent 协作</strong>：与 Opus 5.5、Sonnet 5.5 搭配，由大模型负责复杂工作，Haiku 接手具体的小环节。</li>
+</ul>
+<figure>
+<figcaption>Claude Haiku 5.5 官方发布预览（11 秒无声发布动画）</figcaption>
+</figure>
+<p>在 AI Agent （能调用工具、分步骤执行任务的智能体） 应用中，Opus 5.5、Sonnet 5.5 可以主导复杂工作，Haiku 则接手摘要、查找、分类等高频环节。这也是这次升级最实用的变化：让大量小任务有一个更快、更便宜的执行模型。</p>
+<hr />
+<h2>短请求价格降到一折，大量调用更划算</h2>
+<p>通过 API 调用模型时，输入和输出按 Token （模型处理文本的基本单位） 计费。Haiku 5.5 按单次请求的输入长度分为两档：10 万 Token 以内，输入和输出单价均比 Haiku 4.5 低 90%；超过 10 万 Token，则低 50%。</p>
+<figure>
+<img />
+<figcaption>Claude Haiku 5.5 阶梯定价与主要模型价格对比（单位：美元 / 每百万 Token）</figcaption>
+</figure>
+<p>以下费率均以美元 / 每 100 万 tokens 计：</p>
+<div><table>
+<thead>
+<tr>
+<th>计费项目</th>
+<th>Haiku 5.5（≤10 万 Token）</th>
+<th>Haiku 5.5（＞10 万 Token）</th>
+<th>Haiku 4.5</th>
+<th>Sonnet 5.5（基准参考）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入价格（Input）</td>
+<td>$0.10</td>
+<td>$0.50</td>
+<td>$1.00</td>
+<td>$2.00</td>
+</tr>
+<tr>
+<td>输出价格（Output）</td>
+<td>$0.50</td>
+<td>$2.50</td>
+<td>$5.00</td>
+<td>$10.00</td>
+</tr>
+<tr>
+<td>缓存写入（Cache writes）</td>
+<td>$0.125</td>
+<td>$0.625</td>
+<td>$1.25</td>
+<td>$2.50</td>
+</tr>
+<tr>
+<td>缓存读取（Cache reads）</td>
+<td>$0.01</td>
+<td>$0.05</td>
+<td>$0.10</td>
+<td>$0.10</td>
+</tr>
+</tbody>
+</table></div>
+<p>Haiku 4.5 的历史请求中，约 90% 的输入长度在 10 万 Token 以内，落在新模型最便宜的一档。对频繁做摘要、分类和查找的应用，这意味着每次调用省下的费用能在大量请求中累积起来。</p>
+<p>平均运行成本下降约 75%，是 Anthropic 综合两档价格和实际任务耗量后的测算。Haiku 5.5 更新了分词器，同一项工作会使用略多的 Token，因此单价降幅和实际任务成本降幅有所不同。</p>
+<p>重复使用系统提示词或背景资料时，还可以通过缓存复用相同的输入前缀。短请求的缓存读取价格为每百万 Token 0.01 美元，适合反复调用同一套背景的工作流。</p>
+<h3>同一批任务，按新旧费率算一次</h3><p>先按每次输入 10,000 tokens、输出 1,000 tokens、运行 1,000 次比较。改变输入长度，可以看到超过 10 万 tokens 后的费率变化。</p><div>每次输入 tokens每次输出 tokens运行次数</div><p>提示词 ≤10万 tokens：输入 $0.10，输出 $0.50 / 每百万 tokens。</p><div><div><span>Haiku 5.5</span><strong>$1.5000</strong></div><div><span>Haiku 4.5</span><strong>$15.0000</strong></div><div><span>同等 token 用量</span><strong>单价低 90%</strong></div></div><p>费用 =（输入数量 × 输入单价 + 输出数量 × 输出单价）÷ 100万 × 次数。这里按相同 Token 用量、无缓存的情况比较；实际任务的耗量、重试和工具调用也会影响费用。</p>
+<hr />
+<h2>小模型的进步，具体体现在哪些任务？</h2>
+<p>Haiku 5.5 的升级同时涉及知识工作、电脑操作、编程和图表理解。在 Anthropic 公布的评测中，这些领域的成绩都比 Haiku 4.5 有明显进步。</p>
+<figure>
+<img />
+<figcaption>Anthropic 公布的 Claude Haiku 5.5 基准性能对比（涵盖知识工作、计算机操作与编程）</figcaption>
+</figure>
+<p>关键评测数据译成中文如下：</p>
+<div><table>
+<thead>
+<tr>
+<th>测试基准与领域</th>
+<th>Haiku 5.5</th>
+<th>Haiku 4.5</th>
+<th>GPT-6 Luna</th>
+<th>Sonnet 5.5（参考）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OSWorld 2.1 离线子集 （电脑操作测试，离线子集按部分完成情况计分）</td>
+<td>72.4%</td>
+<td>15.7%</td>
+<td>48.9%</td>
+<td>83.9%</td>
+</tr>
+<tr>
+<td>GDPval-AA v2.1 （44 种职业的专业知识工作，相对实力 Elo 评分）</td>
+<td>1620</td>
+<td>735</td>
+<td>1437</td>
+<td>1840</td>
+</tr>
+<tr>
+<td>AA-Briefcase v1.1 （商业与专业职场案例综合评测 Elo 评分）</td>
+<td>1578</td>
+<td>614</td>
+<td>1336</td>
+<td>1824</td>
+</tr>
+<tr>
+<td>Humanity’s Last Exam（无工具） （跨学科顶尖学术难题与深度知识推理）</td>
+<td>45.9%</td>
+<td>10.2%</td>
+<td>—</td>
+<td>56.9%</td>
+</tr>
+<tr>
+<td>Humanity’s Last Exam（结合工具）</td>
+<td>57.4%</td>
+<td>18.7%</td>
+<td>—</td>
+<td>64.5%</td>
+</tr>
+<tr>
+<td>Terminal-Bench 4.0 （在命令行终端中自主调试与编写代码的 Agent 评测）</td>
+<td>39.2%</td>
+<td>0.0%</td>
+<td>16.4%</td>
+<td>70.6%</td>
+</tr>
+<tr>
+<td>FrontierCode 1.1 主榜 （前沿编程能力评测）</td>
+<td>46.4%</td>
+<td>—</td>
+<td>42.4%</td>
+<td>52.1%（Xhigh档）</td>
+</tr>
+<tr>
+<td>Chartography（无工具） （复杂图表分析与视觉推理）</td>
+<td>46.4%</td>
+<td>6.4%</td>
+<td>29.1%</td>
+<td>61.6%</td>
+</tr>
+</tbody>
+</table></div>
+<p>电脑操作和专业知识工作的提升尤其值得关注：OSWorld 离线子集得分从 15.7% 提高到 72.4%，GDPval 的 Elo 评分从 735 升到 1620。图表理解也有较大进步，Chartography 无工具成绩从 6.4% 提高到 46.4%。这些变化让 Haiku 更适合承担文档分析、电脑操作和定向编程中的具体环节。</p>
+<p>复杂编程仍适合让大模型主导：Terminal-Bench 4.0 中，Haiku 5.5 得分为 39.2%，Sonnet 5.5 为 70.6%。用 Haiku 处理范围明确的小任务，配合 Sonnet 或 Opus 完成整项工作，更符合它的定位。</p>
+<hr />
+<h2>简单任务少想一点，难任务多投入一点</h2>
+<p>Haiku 5.5 首次在 Haiku 系列中加入可调节的 effort 设置，用来控制模型的推理投入。快速分类可以选择较低投入，更难的文档分析或电脑操作则可以增加投入，以更高成本换取更好的表现。</p>
+<p>三张评测图展示了 <code>Low</code>、<code>Med</code>、<code>High</code>、<code>Xhigh</code>、<code>Max</code> 五档投入的变化。（横轴为美元成本的对数刻度，越往右成本越高；下文曲线读数为近似值。）</p>
+<figure>
+<img />
+<figcaption>OSWorld 2.1 离线子集：Haiku 5.5 在不同 effort 档位下的得分与成本分布（横轴为对数刻度）</figcaption>
+</figure>
+<p><strong>电脑操作：低投入也比上一代有明显进步。</strong> Haiku 5.5 五档得分约为 42%、53%、61%、68%、72%，单次尝试成本从约 0.07 美元升至 0.62 美元。低投入档的得分已高于 Haiku 4.5 的约 16%，成本也更低。Sonnet 曲线的最高得分约为 84%。</p>
+<figure>
+<img />
+<figcaption>GDPval-AA v2.1：不同 effort 档位下的专业知识工作 Elo 评分与成本变化（横轴为对数刻度）</figcaption>
+</figure>
+<p><strong>专业知识工作：增加投入能进一步改善结果。</strong> Haiku 的 Elo 评分从 Low 档约 1120 分升至 Max 档约 1620 分，每项任务成本从约 0.012 美元升至 0.85 美元。Sonnet 在官方博客中列出的评分范围为 1179—1840 分，说明比较模型时，推理投入也会影响结果。</p>
+<figure>
+<img />
+<figcaption>Humanity’s Last Exam（无工具）：高难度学科难题推理得分随投入的边际变化（横轴为对数刻度）</figcaption>
+</figure>
+<p><strong>学术难题：最高档的额外收益开始变小。</strong> 在无工具的 HLE 测试中，Haiku 得分从 Low 档约 31% 升至 Max 档约 46%，每次尝试成本从约 0.004 美元升至 0.225 美元；Xhigh 到 Max 的得分提升已明显收窄。Sonnet 在官方博客中列出的最高得分为 56.9%。</p>
+<p>对高频任务，effort 的价值在于可以按难度分配成本：简单请求尽快处理，困难请求多投入一些推理。图中高档位的提升逐渐变小，也说明每次都拉到最高档未必划算。</p>
+<hr />
+<h2>大模型做整项工作，Haiku 接手具体环节</h2>
+<p>一项完整任务常常包含许多小环节。通过 <a>多 Agent 协作</a>，大模型可以把查找、提取、摘要等工作交给 Haiku 子 Agent （由主 Agent 调用、执行具体任务的辅助 Agent），降低这些环节的费用和等待时间。</p>
+<p>官方博客收录的客户早期测试，展示了几种具体用法：</p>
+<ul>
+<li>金融演示文稿辅助（Rogo）：在制作演示文稿（deck）时，由更大的模型负责整体文稿构建，Haiku 5.5 作为子代理（subagent）从 10-K 年报（美国上市公司向监管机构提交的年度报告）中提取所需的特定分部营收（segment revenue）行。其准确度足以承担该定向任务，且速度快、成本低，适合高频调用。</li>
+<li>自主编程协同（Cognition / Devin Fusion）：在 Devin Fusion 架构中，Haiku 5.5 作为僚机（sidekick）配合主导模型 Opus 5.5。这套组合在 FrontierCode 评测中保持了 66.2 的测试得分，同时降低了调用成本与延迟。已可在 Devin CLI 中尝试以 Opus 5.5 为主导、Haiku 5.5 为辅助的组合。</li>
+<li>企业协同与任务分流（Asana）：在其 AI Teammates 评测中，Haiku 5.5 被用于工单分类、项目初始化以及识别高风险与逾期任务。测试显示端到端任务完成延迟降低超过 30%，单个 Agent 轮次的推理速度提升最高达 2.5 倍。</li>
+<li>高并发文档问答（AlphaSense）：其生产环境中“文档提问”（Ask in Document）业务每周处理约 800 万次调用，用于回答基于单篇或少数文档的具体问题。在针对 400 条查询的测试中，Haiku 5.5 的测试得分由 Haiku 4.5 的 0.76 提升至 0.84，具有统计学显著改善。</li>
+<li>CRM 数据审计（HubSpot）（CRM 是客户关系管理系统）：在模拟 CRM 任务评测中，Haiku 5.5 在三次运行中取得了 92.8% 的平均测试得分；在其中一项识别陈旧且模糊记录的 CRM 审计任务中，Haiku 5.5 在所测试模型中完成速度最快，且误报率最低、命中率最高。</li>
+<li>企业级文档分析（Box）：在早期测试中，Haiku 5.5 相比 Haiku 4.5 得分高出 11 分，延迟约为一半；Box 计划将其用于成本报告、财务摘要及每周复盘等大规模分析任务。</li>
+</ul>
+<hr />
+<h2>哪些工作适合交给 Haiku？</h2>
+<ul>
+<li><strong>重复做摘要和压缩上下文</strong>：在长工作流中整理前面的信息，为后续步骤准备简短背景。</li>
+<li><strong>定向查询、提取和分类</strong>：从文档中找一项数据，处理数据库查询，给工单或记录归类。</li>
+<li><strong>需要快速回应的交互</strong>：实时客服、浏览器操作，以及主 Agent 派发的具体子任务。</li>
+</ul>
+<p>这些工作目标明确、调用频繁，单次成本和响应时间的改善最容易积累成实际收益。</p>
+<hr />
+<h2>使用时还有哪些安全限制和配套变化？</h2>
+<p>安全策略也随模型能力更新：</p>
+<ul>
+<li>价值对齐：Anthropic 报告称，在几乎所有内部对齐评测中，Haiku 5.5 相较 Haiku 4.5 均有显著改善，表现出更少的偏离预期要求的行为，协助滥用请求的意愿也更低。</li>
+<li>网络安全防护：防御策略比 Haiku 4.5 更严格，但相比 Sonnet 5.5 允许更广泛的防御性分析任务；同时仍然限制渗透测试等更容易被攻击者利用的技术。</li>
+<li>生物安全防护：生物防护等级与 Sonnet 5、Sonnet 5.5 及 Opus 5 保持一致；允许正常的生物科学研究提问，但限制官方判定可能导致危害的请求；需要开展更广范围生物或网络活动的机构，可以申请生命科学或网络验证计划。</li>
+</ul>
+<p>伴随本次上线，Anthropic 还推出了三项配套支持：</p>
+<ol>
+<li>Sonnet 5.5 缓存读取降价 50%：价格从每百万 Token 0.20 美元降至 0.10 美元。长期运行的 Agent 会反复读取相同背景，缓存读取占用较多 Token；Anthropic 测算，这次降价能让多数 Agent 任务的总运行成本下降约 20%。</li>
+<li>订阅用户月度 API 信用额度：本周内将逐步向 Claude Max 与 Team 订阅用户推出专用于 Claude Platform 的月度 API 信用额度：Max 5x 用户每月获赠 100 美元，Max 20x 用户每月获赠 200 美元，Team 订户按团队成员共享池形式每月最高获赠 500 美元。这笔额度可用于在 Claude Platform 上调用任意模型，尝试构建工具、应用和 Agent。具体信息可参考<a href="https://support.claude.com/en/articles/17154008">官方帮助中心说明</a>。</li>
+<li>官方 SDK 支持电脑与浏览器操作（Beta）：Python 与 TypeScript SDK 同步更新，增加了对计算机操作（computer use）与浏览器操作（browser use）的 Beta 测试版支持。</li>
+</ol>
+<p>目前，Claude Haiku 5.5 已在 Claude 官方平台（模型标识符为 <code>claude-haiku-5-5</code>）以及亚马逊 AWS、谷歌云 Google Cloud 和微软 Azure 全面同步上线。具体接入与迁移改法见<a>Haiku 5.5 迁移指南解读</a>。</p>
+</div><div><div><div>来源</div><div><span>Claude Haiku 5.5 官方主题帖（共 8 条）</span><span>Claude / Anthropic<span>·</span><a href="https://x.com/claudeai/status/2107894039626277339">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://www.anthropic.com/claude-haiku-5-5">Introducing Claude Haiku 5.5</a></div></div></div></div></div><div>
+<div>ANTHROPIC · CLAUDE HAIKU 5.5 解读</div>
+<h1>Claude Haiku 5.5：平均运行成本降约75%，小模型接管子任务</h1>
+<div>短请求单价降低90%，平均运行成本降低约75%。让旗舰模型主导复杂工作，让Haiku接手高频环节。</div>
+<div>核心逻辑：起因与背景 → 阶梯定价结构 → 核心机制（主辅分工与 Subagent 协同）→ 任务能力与边界 → 推理投入配置</div>
+<div>
+<p>一个 AI 应用每天要做大量摘要、查找和分类时，模型每次回答的费用与等待时间都会累积。开发者要同时考虑：模型能不能把这件事做好，以及能不能长期大量调用。</p>
+<p>Anthropic 发布的 <strong>Claude Haiku 5.5</strong> 带来了成本与能力更新：平均运行成本比 Haiku 4.5 下降约 75%，并在标准速度模式下成为家族最快模型。它适合接手 AI 工作流中大量重复、目标明确的小任务。开启 Fast Mode 的 Opus 更快。</p>
+</div>
+<div>
+<h2>10 万 Token 为界：短请求降至一折，单价降幅与任务成本不同</h2>
+<p>Haiku 5.5 引入了以 10 万 Token 输入长度为界限的阶梯计费。在占历史请求约 90% 的短输入区间内，输入与输出单价降幅均达到90%；而在超过 10 万 Token 的长上下文中降幅为 50%。</p>
+<div>
+<div>
+<div>75%↓</div>
+<div>Anthropic综合费率与任务耗量测算的平均降幅</div>
+</div>
+<div>
+<div>$0.10</div>
+<div>短请求输入价格（美元/百万 Token，≤10万 Token）</div>
+</div>
+<div>
+<div>$0.01</div>
+<div>短请求缓存读取单价（≤10万Token请求，美元/百万Token）</div>
+</div>
+</div>
+<div>
+<div>阶梯定价对比（美元 / 每百万 Token）</div>
+<div>
+<span>≤10 万 Token（占历史约 90%）</span>
+<span>输入 $0.10 · 输出 $0.50 · 缓存读 $0.01</span>
+</div>
+<div>
+<span>＞10 万 Token 长上下文</span>
+<span>输入 $0.50 · 输出 $2.50 · 缓存读 $0.05</span>
+</div>
+<div>
+<span>前代 Haiku 4.5（基准对比）</span>
+<span>输入 $1.00 · 输出 $5.00 · 缓存读 $0.10</span>
+</div>
+</div>
+<p>需要注意：Haiku 5.5 更新了分词器，同一项工作会使用略多的 Token，因此单价降幅和实际任务成本降幅有所不同。综合测算下，整体平均运行成本下降约 75%。配合缓存读取降至 $0.01/M，重复背景的读取费用可以降低。</p>
+</div>
+<div>
+<h2>核心机制：大模型主导整体规划，Haiku 接管具体环节</h2>
+<p>一项复杂 AI Agent 任务常包含摘要、查询与分类等小环节。Haiku 5.5 的核心价值在于作为“子 Agent（Subagent）”嵌入多模型协作流：由 Opus 5.5 或 Sonnet 5.5 负责深度推理与任务规划，而将高频、重复、定向的小任务交由 Haiku 执行。</p>
+<div>
+<div>多 AGENT 协同范式 · 主辅分流闭环</div>
+<div>
+<div>
+<div>主导模型（Opus 5.5 / Sonnet 5.5）</div>
+<div>复杂工作 · 整体任务主导</div>
+<div>主导任务</div>
+</div>
+<div>派发高频环节 ➔ 汇总提取结果</div>
+<div>
+<div>执行僚机（Claude Haiku 5.5）</div>
+<div>快速分类 · 文档定向抽取 · 上下文压缩 · 实时客服</div>
+<div>高频具体环节</div>
+</div>
+</div>
+<div>
+<strong>客户早期测试（官方博客收录）：</strong>在 Devin Fusion 架构中，Haiku 5.5 协同 Opus 5.5 保持了 66.2 的编程得分并降低延迟与成本；Asana 在工单流测试中端到端延迟降低超 30%，单轮推理提速最高达2.5倍；AlphaSense业务每周调用约800万次，其400条查询测试得分由0.76升至0.84。
+      </div>
+</div>
+<p>这也是这次升级最实用的变化：让大量小任务有一个更快、更便宜的执行模型。可以按任务范围选择模型，核对结果、费用与延迟。</p>
+</div>
+<div>
+<h2>能力提升：电脑操作、知识工作与复杂编程的区别</h2>
+<p>Anthropic公布的基准成绩显示，Haiku 5.5在电脑操作、专业知识工作与图表分析上高于上一代。基准得分不等同于实际业务表现。</p>
+<div>
+<div>
+<div>
+<span>OSWorld 2.1 离线子集</span>
+<span>72.4%</span>
+</div>
+<div>Haiku 4.5 仅 15.7% · GPT-6 Luna 48.9%</div>
+</div>
+<div>
+<div>
+<span>GDPval-AA 专业知识 Elo</span>
+<span>1620 分</span>
+</div>
+<div>Haiku 4.5 为 735 分 · 超越 Luna 1437 分</div>
+</div>
+<div>
+<div>
+<span>Chartography 图表分析</span>
+<span>46.4%</span>
+</div>
+<div>Haiku 4.5 仅 6.4% · Chartography无工具成绩</div>
+</div>
+</div>
+<div>
+<strong>边界警示：复杂编程仍应由大模型主导。</strong> 在命令行自主调试与编写代码的 Terminal-Bench 4.0 评测中，Haiku 5.5 得分为 39.2%，而 Sonnet 5.5 高达 70.6%。用 Haiku 处理范围明确的小任务，配合 Sonnet 或 Opus 完成整项工作，更符合它的定位。
+    </div>
+</div>
+<div>
+<h2>推理投入按需配置：简单任务少投入，难题核对收益</h2>
+<p>Haiku 5.5 首次支持 <code>effort</code> 投入调节（Low、Med、High、Xhigh、Max 五档），让开发者可以根据请求难度动态权衡成本与质量。</p>
+<div>
+<div>
+<div>Low 档</div>
+<div>较低投入</div>
+<div>OSWorld曲线读数约42%，每次尝试约$0.07；高于前代约16%</div>
+</div>
+<div>➔</div>
+<div>
+<div>Med - High 档</div>
+<div>按任务试验</div>
+<div>增加投入可能改善表现，也会增加费用</div>
+</div>
+<div>➔</div>
+<div>
+<div>Max 档</div>
+<div>边际收益收窄</div>
+<div>HLE无工具曲线：Max约46%，每次尝试约$0.225；Xhigh到Max收益收窄</div>
+</div>
+</div>
+<p>对高频任务，effort 的价值在于可以按难度分配成本：简单请求尽快处理，困难请求多投入一些推理。图中高档位的提升逐渐变小，也说明每次都拉到最高档未必划算。</p>
+</div>
+<div>
+<h2>落地场景与生态配套</h2>
+<div>
+<p><strong>最适合由 Haiku 5.5 接手的工作：</strong>长工作流的阶段性信息压缩与摘要；单据/文档中的特定字段定向抽取；海量工单的快速归类与路由；实时客服与电脑/浏览器自动化具体点击操作。</p>
+<p><strong>三项同步配套：</strong>Sonnet 5.5 缓存读取价格减半（$0.10/M），Anthropic测算多数Sonnet Agent任务总成本降低约20%；Max 5x每月$100、Max 20x每月$200；Team共享池最高每月$500 API额度；官方 Python/TypeScript SDK 正式支持电脑与浏览器操作 Beta 版。</p>
+</div>
+</div>
+</div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】OpenAI 公布 722 篇数学手稿：AI 在哪些未解难题上提出了突破？</title>
 <link>https://best.xiaohu.ai/article/openai-ai-mathematics-progress/</link>
