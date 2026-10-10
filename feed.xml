@@ -6,7 +6,1336 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Sat, 10 Oct 2026 00:00:15 +0000</lastBuildDate>
+<lastBuildDate>Sat, 10 Oct 2026 12:00:56 +0000</lastBuildDate>
+<item>
+<title>【日报】Grok Bot 多项目指南：一个频道、一组成员和两层 Notion 看板</title>
+<link>https://best.xiaohu.ai/article/how-i-run-multiple-teams-of-grok-bots/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:how-i-run-multiple-teams-of-grok-bots</guid>
+<pubDate>Sat, 10 Oct 2026 12:00:56 +0000</pubDate>
+<description>Eric Zakariasson 的实验性组织方式：复用岗位、追踪任务状态，在阻塞处交回人。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Grok Bot 多项目指南：一个频道、一组成员和两层 Notion 看板</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/how-i-run-multiple-teams-of-grok-bots/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>Grok Bot 工作指南 →</a></div><div>本页目录</div><a><span>01</span><span>系统的骨架：双层 Notion 数据库与「项目经理」Bot</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Grok Bot 多项目指南：一个频道、一组成员和两层 Notion 看板</h1><p>Eric Zakariasson 的实验性组织方式：复用岗位、追踪任务状态，在阻塞处交回人。</p><div><span><b>已核对</b></span><span>Eric Zakariasson</span><span>10-10 · 约 8 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>多项目协作需要共同的频道和任务状态，单独开更多聊天框容易失去同步。</li><li>项目经理先复用已有岗位，需要新增角色时再提议。</li><li>Blocked 把需要补充的信息公开出来，让人处理卡点而非反复询问进度。</li></ul><div><p>当你只用一两个 AI Bot 处理零散琐事时，在左侧开两个独立对话窗口——一个用来写代码，一个用来写文案——确实足够直观。但如果手头同时推进两三个复杂的实际业务项目，这种「一对一单聊（1:1 Chats）」的模式就会很快陷入混乱：上下文被切得七零八落，你很难在信噪比极低的窗口列表里分清谁在推进哪件事，更无法让负责不同环节的 Bot 彼此同步进度。</p>
+<p>来自 xAI 的工程师 Eric Zakariasson 在工程指南中分享了他探索出的一套组织模式。他的核心思路非常朴素，却切中了多智能体落地的关键痛点：<strong>既然人类团队是靠「项目制」来协作的，为什么不直接把人类这套经过验证的工作流完整搬给 AI？</strong></p>
+<p>在人类组织中，每个项目都有专属的立项说明（Spec）、行动计划、专用的沟通群（如 Slack 频道），以及分派到具体负责人的任务看板。Eric 将这套机制映射到了 Grok Bot 中，提炼出一个高凝聚力的组织单元：</p>
+<blockquote>
+<p><strong>一个项目 = 侧栏的一个专属频道（Channel） + 固定的成员花名册（Roster） + Notion 里的双层看板（Notion Board）。</strong></p>
+</blockquote>
+<p>这并不是一份宣称包办一切的官方终极方案，而是一个正在实际工作中不断迭代的实验性协作框架。</p>
+<hr />
+<h3>系统的骨架：双层 Notion 数据库与「项目经理」Bot</h3>
+<p>要让多个 Bot 像团队一样协同，首先必须把项目的全局元信息（Meta work）从具体的业务细节中抽离出来。</p>
+<p>Eric 在 Notion 中搭建了两个互相联动的底层数据库，分别管理宏观项目与微观任务：</p>
+<ol>
+<li><strong>Projects 数据库（项目看板）</strong>：记录宏观项目的生命周期。看板列包括 <code>Planning</code>（规划中）、<code>In progress</code>（进行中）、<code>Paused</code>（已暂停）以及 <code>Backlog</code>（待办池）。例如官方示例中推进的 TypeScript 客户端 SDK 开发或排行榜功能，都在这里作为独立的项目卡片存在。</li>
+<li><strong>Tasks 数据库（任务看板）</strong>：记录原子粒度的执行事项。每一个任务卡片都强关联到所属的 Project。看板的核心状态列包括 <code>Todo</code>（待办）、<code>In progress</code>（进行中）、<code>Blocked</code>（被阻塞）以及 <code>Done</code>（已完成）。</li>
+</ol>
+<figure>
+<img>
+<figcaption>Notion 中的 Projects 看板，以高层视角跟踪不同业务项目的阶段状态。</figcaption>
+</img></figure>
+<p>有了数据结构后，如何驱动它？如果让人类每次手动去创建群组、拉人、更新状态，效率反而会倒退。因此，整个体系的核心枢纽是一个被命名为 <strong>Projects Manager（项目经理 Bot，简称 PM）</strong> 的常驻智能体。</p>
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 6 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 6 分钟正文</span><span>6 处图表与交互</span></div>
+<div><span>🔓 380 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.ai/bot/guides/how-i-run-multiple-teams-of-grok-bots">阅读原文 ↗</a>
+</div>
+</div><span>沿着专题继续读</span><a>Grok Bot 工作指南 →</a><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 日常办公指南：让四个 Bot 管好消息、日历与工作情报</div>
+<div>10-10 · 约 12 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot SDR 指南：Cursor 写调研与草稿，Bot 做查重与待发分流</div>
+<div>10-10 · 约 12 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 招聘指南：把寻访、面试准备和评分卡连成一条工作流</div>
+<div>10-10 · 约 9 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Grok Bot SDR 指南：Cursor 写调研与草稿，Bot 做查重与待发分流</title>
+<link>https://best.xiaohu.ai/article/grok-bot-for-sdrs/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:grok-bot-for-sdrs</guid>
+<pubDate>Sat, 10 Oct 2026 12:00:56 +0000</pubDate>
+<description>五步拓客流程、五个岗位，以及 CLEAR／FLAG 怎样把机械操作和销售判断分开。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Grok Bot SDR 指南：Cursor 写调研与草稿，Bot 做查重与待发分流</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/grok-bot-for-sdrs/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>Grok Bot 工作指南 →</a></div><div>本页目录</div><a><span>01</span><span>双引擎分工：作者如何搭配 Cursor 与 Grok Bot</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Grok Bot SDR 指南：Cursor 写调研与草稿，Bot 做查重与待发分流</h1><p>五步拓客流程、五个岗位，以及 CLEAR／FLAG 怎样把机械操作和销售判断分开。</p><div><span><b>已核对</b></span><span>Stefan Markarian</span><span>10-10 · 约 12 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>这套拓客流程由两种工具合作：Cursor 准备研究与文案，Grok Bot 核对系统并暂存。</li><li>状态清楚的联系人可以继续准备，有疑点的 FLAG 需要人决定；CLEAR 也不等于已发送。</li><li>真实用量和历史交流决定触达方式，头衔只是其中一项信息。</li></ul><div><p>Grok Bot 的 SDR 指南展示了一套两种工具合作的拓客流程。销售开发代表 Stefan Markarian 让 Cursor 云 Agent 从 Hex、Salesforce 与 Gong 准备账户研究和首封邮件，再让 Grok Bot 检查跨系统状态、创建记录、安排未发送序列并维护表格。</p>
+<p>联系人状态清楚时继续准备；遇到暂停、早期商机或身份疑点时进入 FLAG，留给销售判断。邮件由人审阅发送；无附言的 LinkedIn 申请则由专门的 John Ford Bot 按限制处理。</p>
+<hr />
+<h3>双引擎分工：作者如何搭配 Cursor 与 Grok Bot</h3>
+<p>许多团队在尝试用大模型改造销售流程时，最容易犯的错误就是「大包大揽」——试图写一段极其冗长的提示词，让一个 AI 助手既查资料、又写文案、还去系统里点按钮发信。结果往往是：要么 AI 在中间某一步出现幻觉而中断，要么就是把格式错误的垃圾邮件直接轰炸给了核心客户。</p>
+<p>Stefan 的方案核心在于：<strong>彻底切分「重认知与文本合成」与「跨系统浏览器脏活」，分别交给最适合的工具。</strong></p>
+<div><pre><code>┌────────────────────────────────────────────────────────┐
+│            夜间后台：Cursor 深度合成引擎                 │
+│  Hex (足迹) + Salesforce (商机) + Gong (录音)          │
+│                       ↓                                │
+│       输出：账户调研档案包 (Research Packet)             │
+│            + 注入个人语气风格的破冰首封草稿            │
+└──────────────────────────┬─────────────────────────────┘
+                           │ 移交数据包
+┌──────────────────────────▼─────────────────────────────┐
+│          清晨常驻：Grok Bot 专职智能体分流矩阵          │
+│                                                        │
+│  ┌────────────────┐  分流准入   ┌───────────────────┐  │
+│  │   Josh Allen   │ ─────────► │ CLEAR：免打扰预排  │  │
+│  │ (幕僚长 Bot)   │  跨系统查重 │ FLAG ：人工决策池  │  │
+│  └───────┬────────┘            └───────────────────┘  │
+│          │ 并行派发                                    │
+│   ┌──────┴──────────────┐                              │
+│   ▼                     ▼                              │
+│ Contact Man (表格守门)  John Ford (领英拓展)          │
+└──────────────────────────┬─────────────────────────────┘
+                           │ 整理汇总
+┌──────────────────────────▼─────────────────────────────┐
+│            清晨上班：人类 SDR 掌控最终控制台             │
+│  1. 快速审核 1 封无争议的 CLEAR 邮件并点击发送         │
+│  2. 集中精力裁决 34 个 FLAG 复杂边缘个案               │
+│  3. 邮件由人发送；LinkedIn 空白申请由 John Ford 按规则处理  │
+└────────────────────────────────────────────────────────┘
+</code></pre></div>
+<h4>1. Cursor：深度研读与个性化草稿的「离线大脑」</h4>
+<ul>
+<li><strong>负责环节</strong>：调研（Research）、选人（Prospect）、写信（Draft）。</li>
+<li><strong>核心优势</strong>：依托本地或云端代码编辑器级的工作流，Cursor 具备极强的长上下文整合能力。它通过专门的销售研究技能（Skills），直接深入 Hex 提取产品遥测用量、翻查 Salesforce 历史丢单记录、提炼 Gong 的通话要点，合成一份结构化的「账户调研档案包（Research Packet）」，并在清晨前把第一封破冰信（First-touch）按业务代表的真实口吻写好。</li>
+<li><strong>交付物</strong>：不是直接发出的邮件，而是<strong>带着明确事实证据的高质量半成品草稿</strong>。</li>
+</ul>
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 9 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 9 分钟正文</span></div>
+<div><span>🔓 380 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.ai/bot/guides/grok-bot-for-sdrs">阅读原文 ↗</a>
+</div>
+</div><span>沿着专题继续读</span><a>Grok Bot 工作指南 →</a><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 多项目指南：一个频道、一组成员和两层 Notion 看板</div>
+<div>10-10 · 约 8 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 日常办公指南：让四个 Bot 管好消息、日历与工作情报</div>
+<div>10-10 · 约 12 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 招聘指南：把寻访、面试准备和评分卡连成一条工作流</div>
+<div>10-10 · 约 9 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Grok Bot 招聘指南：把寻访、面试准备和评分卡连成一条工作流</title>
+<link>https://best.xiaohu.ai/article/grok-bot-for-recruiting/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:grok-bot-for-recruiting</guid>
+<pubDate>Sat, 10 Oct 2026 12:00:56 +0000</pubDate>
+<description>Preppy、Pulse、Scout 和 eVal 如何跟着候选人传递上下文，让招聘者把时间还给面试与沟通。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Grok Bot 招聘指南：把寻访、面试准备和评分卡连成一条工作流</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/grok-bot-for-recruiting/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>Grok Bot 工作指南 →</a></div><div>本页目录</div><a><span>01</span><span>为什么单个聊天框解决不了招聘的痛？</span></a><a><span>02</span><span>四大常驻 Agent：各自负责什么、怎么协同？</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Grok Bot 招聘指南：把寻访、面试准备和评分卡连成一条工作流</h1><p>Preppy、Pulse、Scout 和 eVal 如何跟着候选人传递上下文，让招聘者把时间还给面试与沟通。</p><div><span><b>已核对</b></span><span>Holly Dyche</span><span>10-10 · 约 9 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>招聘 Bot 的作用是把散在各系统的候选人背景带到下一轮，减少重复找资料。</li><li>评分卡先按记录起草，再询问面试者自己的判断，最后写回招聘系统。</li><li>全流程分析可以反过来改进初筛与寻访；发触达消息仍需招聘者批准。</li></ul><div><p>Grok Bot 在招聘团队里做的，不只是起草职位描述。Holly Dyche 让四个常驻 Bot 分别准备面试、整理评分卡、寻访候选人和分析面试流程；它们连接招聘系统、会议转录、Notion、LinkedIn 与 Slack，把同一位候选人的背景带到下一步。</p>
+<p>Holly 还给出一个入口场景：通勤时用语音模式提出 ATS 更新、评分卡提交或请招聘经理审阅候选人的请求，让 Bot 跨工具推进任务。团队上线后，一周内就积累了多页用例，招聘官相互分享提示词和例程；团队共创活动再把日常问题拆成专门岗位。</p>
+<p>这套分工的关键是信息交接与人的判断：评分卡先按记录起草，再问面试者自己的评价；寻访名单和触达草稿可以提前备好，发送前仍要批准。</p>
+<hr />
+<h2>为什么单个聊天框解决不了招聘的痛？</h2>
+<p>要理解这套系统的价值，必须先看清楚传统招聘团队每天被什么东西拖垮。</p>
+<p>如果你去问任何一个一线招聘官，他们一天中最痛苦的时刻是什么，答案往往惊人一致：</p>
+<ol>
+<li><strong>跨系统的“数字寻宝”</strong>：面试官马上要开会了，候选人简历在 ATS（Applicant Tracking System，招聘业务管理系统，如 Ashby、Greenhouse 或国内的飞书招聘、Moka），面试评价写在飞书/Notion，背景信息在 LinkedIn。面试官根本没时间全部翻一遍，进场只能问重复问题。</li>
+<li><strong>永远拖到晚上 9 点的“打分卡债务”</strong>：白天连续面了 5 个候选人，每个人聊了什么早就混成一团浆糊。虽然有录音录像，但把录音内容提炼成符合岗位考核标准（Rubric）的打分表，极其耗费心力，最后全变成了拖延到深夜的加班负担。</li>
+<li><strong>被琐事挤占的被动寻访</strong>：想要主动挖顶尖人才，但白天全被协调日程和回邮件占满，根本没精力去深挖成百上千份人才样本。</li>
+<li><strong>后续面试发现的问题，没有及时反馈给初筛</strong>：需要跨轮次看候选人在哪一步未通过、原因是什么，再据此更新初筛提问。</li>
+</ol>
+<p>xAI 招聘团队在一次团队封闭共创中，将整个招聘动线拆解开来，针对上述四大顽疾，分别打造了四个分工极明确的专属 Agent。</p>
+<hr />
+<h2>四大常驻 Agent：各自负责什么、怎么协同？</h2>
+<p>按原文岗位整理；图中配置示例需由你补充时间、系统与权限。</p><div>
+<div>
+    招聘 Agent 协作中枢：角色、门禁与自动化流转全景
+  </div>
+<p>点击切换查看 4 个常驻专项 Agent 的具体职责、数据流动、人工裁决点与编辑改写的提示词示例。</p>
+</div>
+<div>
+<div>
+<div>漏斗诊断</div>
+<div>eVal</div>
+</div>
+<div>
+<div>夜间寻访</div>
+<div>Scout</div>
+</div>
+<div>
+<div>战前简报</div>
+<div>Preppy</div>
+</div>
+<div>
+<div>复盘打分</div>
+<div>Pulse</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<h4>eVal · 从整轮面试的淘汰归因反推初筛提问，把关卡前移</h4>
+</div>
+<span>招聘漏斗逆向诊断师</span>
+</div>
+<div>
+<div>
+<div>
+            输入源 (Input Context)
+          </div>
+<div>全流程面试打分表（Scorecards）、各环节录用/淘汰历史标签、面试官评语</div>
+</div>
+<div>
+<div>
+            自动化动作 (Bot Action)
+          </div>
+<div>扫描整个招聘闭环（Loop）中候选人失败的高频节点与真实原因，识别历史记录中反复出现的失败模式，倒推出初筛阶段可快速验证的拦截题</div>
+</div>
+<div>
+<div>
+            人工把关点 (Human Decision Gate)
+          </div>
+<div><strong>人工决策：招聘官审核推荐题库，挑选最适合在 初筛电话中落地的提问方式</strong></div>
+</div>
+<div>
+<div>
+            交付产物 (Deliverable)
+          </div>
+<div>初筛电话提问清单（Screening Questions）与校准后的理想候选人画像（ICP）</div>
+</div>
+</div>
+<div>
+<div>
+<span>编辑改写的配置示例（非作者原始提示词，参数需自行设定）</span>
+<span>Prompt Blueprint</span>
+</div>
+<pre><code>[系统目标] 分析当前职位（Req）在后续业务面试轮次中的淘汰归因，优化初筛漏斗。
+[输入上下文] 读取[你设定的时间范围]内进入后续面试轮次（Interview loop）但最终被 Reject 的候选人打分卡评语。
+[执行动作]
+1. 找出面试官给出 Strong No / No 的主要高频原因；
+2. 将这些原因，分别转化为 1-2 个招聘官初筛电话内可直接问出的针对性质询问题；
+3. 输出初筛问题卡片及预期的“红旗警示回答”（Red Flags）。</code></pre>
+</div>
+</div>
+<div>
+<span><strong>业务串联路径：</strong> eVal 提炼画像 ➜ Scout 批量寻访 ➜ 👤<strong>人工审批</strong> ➜ Preppy 面试备课 ➜ Pulse 拟稿 ➜ 👤<strong>人工追问定夺</strong> ➜ ATS 归档</span>
+</div>
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 7 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 7 分钟正文</span></div>
+<div><span>🔓 380 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.ai/bot/guides/grok-bot-for-recruiting">阅读原文 ↗</a>
+</div>
+</div><span>沿着专题继续读</span><a>Grok Bot 工作指南 →</a><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 多项目指南：一个频道、一组成员和两层 Notion 看板</div>
+<div>10-10 · 约 8 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 日常办公指南：让四个 Bot 管好消息、日历与工作情报</div>
+<div>10-10 · 约 12 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot SDR 指南：Cursor 写调研与草稿，Bot 做查重与待发分流</div>
+<div>10-10 · 约 12 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Grok Bot 售后指南：Gus 统一会前准备、客户上下文与未履约承诺</title>
+<link>https://best.xiaohu.ai/article/grok-bot-for-post-sales/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:grok-bot-for-post-sales</guid>
+<pubDate>Sat, 10 Oct 2026 12:00:56 +0000</pubDate>
+<description>从管理二十个 Agent 到只对接一名幕僚长，八项例程把售后杂务持续往前推。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Grok Bot 售后指南：Gus 统一会前准备、客户上下文与未履约承诺</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/grok-bot-for-post-sales/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>Grok Bot 工作指南 →</a><a>从想法到产品销售 →</a></div><div>本页目录</div><a><span>01</span><span>架构解耦：为什么你只需要管理一个“幕僚长”？</span></a><a><span>02</span><span>双层执行环境：API 插件与“Agent 专属电脑”</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Grok Bot 售后指南：Gus 统一会前准备、客户上下文与未履约承诺</h1><p>从管理二十个 Agent 到只对接一名幕僚长，八项例程把售后杂务持续往前推。</p><div><span><b>已核对</b></span><span>Blake Schuller</span><span>10-10 · 约 15 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>售后最费时的常常是重新拼客户背景，Gus 让资料在会议前到位。</li><li>已答应的事要一直追到完成，草稿备好和真正发出是两个状态。</li><li>专业 Bot 经一个入口汇报，平时保持安静，客户关系与最终发送仍在人。</li></ul><div><p>Grok Bot 的售后指南，讲的是 Blake Schuller 如何让客户上下文和未履约承诺持续有人追踪。他从亲自管理二十个 Agent 的过载，改为只对接幕僚长 Gus，由 Gus 协调客户专家、草稿追踪、文档答疑和写作等岗位。</p>
+<p>售后覆盖客户从启动、部署到续约的过程。会议记录、Slack、邮件与日历散在各处；八项例程把这些背景送到会前，把答应的事情跟到完成，让客户负责人保留关系、账户策略与最终发送。</p>
+<hr />
+<h3>架构解耦：为什么你只需要管理一个“幕僚长”？</h3>
+<p>在多 Agent 协同体系中，最常见的误区是扁平化管理。如果让每个专项 Agent 都直接对接人类，人类就会被碎片化的对话与频繁的上下文切换拖垮。Blake 的破局点在于引入了类似“中心辐射（Hub-and-Spoke）”层级架构：<strong>人类只面对一个幕僚长，幕僚长在暗处调度整座坐席台。</strong></p>
+<div><pre><code>┌────────────────────────────────────────────────────────┐
+│                   人类业务负责人 (Blake)                 │
+└───────────────────────────┬────────────────────────────┘
+                            │ 唯一自然语言窗口（指令/授权/微调）
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│             首席幕僚长 Gus (Chief of Staff Bot)         │
+│     职责：跨渠道过滤、优先级排序、情绪缓冲、自我审计提议    │
+└────────┬──────────┬──────────┬──────────┬──────────┬───┘
+         │          │          │          │          │
+         ▼          ▼          ▼          ▼          ▼
+   ┌──────────┐┌──────────┐┌──────────┐┌──────────┐┌──────────┐
+   │Follow-ups││ 专属客户 ││   Ink    ││Questions ││  Scout   │
+   │ 承诺追踪 ││专员坐席台││ 语调克隆 ││ 文档答疑 ││ 内部侦察 │
+   └──────────┘└──────────┘└──────────┘└──────────┘└──────────┘
+</code></pre></div>
+<p>在这个体系中，被命名为 <strong>Gus</strong> 的 Agent 承担着人类首席幕僚（Chief of Staff）的职责。Blake 的日常工作界面永远只有一个与 Gus 的对话框。在 Gus 的背后，则是一群分工明确的专业坐席：</p>
+<ol>
+<li><strong>Follow-ups（承诺追踪者）</strong>：专门盯紧人类口头做出的承诺。它会记住每一份等待人类审批的草稿，并记录后续走向。</li>
+<li><strong>Account specialists（专职客户专家矩阵）</strong>：每个账户配置一个专职 Bot。它的唯一使命就是对该客户的了解程度超过人类本身，记录客户架构、历史踩坑点和沟通偏好。</li>
+<li><strong>Ink（笔杆子与语调克隆）</strong>：专门模仿人类业务负责人的语言习惯起草邮件和 Slack 消息，核心是通过每次人工微调的差量反馈持续进化。</li>
+<li><strong>Questions（技术与产品答疑）</strong>：直连公司内部产品知识库与技术文档，专门应对客户提出的“这个配置支不支持”、“某个参数怎么配”等专业问题。</li>
+<li><strong>Career（职业复盘）</strong>：每周静默整理工作反馈，为人类悄悄记录一整周拿下的客户里程碑与战绩（Wins）。</li>
+<li><strong>Scout（内部侦察兵）</strong>：代替 CSM 盯紧公司内部的产研群和流程规范，实时掌握某项客户定制需求的内部排期与审批流程。</li>
+</ol>
+<p>这套分工带来的直接变化是：<strong>人类可以连续数天不需要打开底层任何一个专项 Bot 的窗口。</strong> 专项坐席负责深挖细节并向 Gus 汇报，Gus 根据当前紧迫度判定“这件事现在需不需要惊动人类”。如果不需要，信息就会静默归档或并入预定例程，绝不随意见缝插针地弹窗打扰。</p>
+<hr />
+<h3>双层执行环境：API 插件与“Agent 专属电脑”</h3>
+<p>企业自动化最容易卡壳的地方是<strong>工具链孤岛</strong>。很多团队在做 Agent 时，发现日历、Slack、Gmail、会议录音转录工具都有开放的 API 或 Webhook 插件；然而一旦遇到没有公开接口的内部管理后台、受权限保护的特定网页、或者需要视觉审阅的 PPT 幻灯片，工作流瞬间中断。</p>
+<p>Blake 的系统采用了一种“双层执行介质”的设计：</p>
+<ul>
+<li><strong>第一层：标准插件系统（API Plugins）</strong>：覆盖已有连接器的主流系统，包括日历、Slack、邮件、文档以及会议录音转录。通过已有连接器访问相应资料。</li>
+<li><strong>第二层：Agent 独立电脑环境（Bot's Own Computer）</strong>：Grok Bot 拥有自己的独立电脑环境，用于处理所有未接入插件的系统。人类将 Bot 登录到自己日常使用的工具中，Bot 以人类相同的方式工作，并在人类合上笔记本电脑后继续运转。</li>
+</ul>
+<p>在没有 API 连接的真空地带，这台“专属电脑”承担了极其关键的四项长尾任务：</p>
+<ul>
+<li><strong>初次拜访前的领英背景扫描</strong>：在与客户核心决策者首会前，Agent 自动打开客户领英主页，梳理其过往技术背景、从业经历与关注领域。</li>
+<li><strong>穿透无公开接口的内部孤岛</strong>：对于没有开放连接器的内部配置页，人类无需痛苦地手动截图或复制长文，只需把页面链接指给 Agent，它直接在自带的浏览器中阅读理解。</li>
+<li><strong>PPT 演示文稿视觉审查</strong>：在幻灯片审阅时，Gus 可以直接在电脑环境中打开 PowerPoint，评估视觉呈现效果与不足。</li>
+<li><strong>截图与录屏解答（拒绝大段纯文字）</strong>：当客户询问“这个入口在哪里点击”等实操问题时，Agent 可以直接在电脑环境中截取屏幕或录制简短视频，用直观图示代替冗长的文字解答。</li>
+</ul>
+<hr />
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 12 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 12 分钟正文</span><span>9 处图表与交互</span></div>
+<div><span>🔓 380 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.ai/bot/guides/grok-bot-for-post-sales">阅读原文 ↗</a>
+</div>
+</div><span>沿着专题继续读</span><a>Grok Bot 工作指南 →</a><a>从想法到产品销售 →</a><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 多项目指南：一个频道、一组成员和两层 Notion 看板</div>
+<div>10-10 · 约 8 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 日常办公指南：让四个 Bot 管好消息、日历与工作情报</div>
+<div>10-10 · 约 12 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot SDR 指南：Cursor 写调研与草稿，Bot 做查重与待发分流</div>
+<div>10-10 · 约 12 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Grok Bot 产品经理指南：注意力清单与一支能接目标的 Agent 团队</title>
+<link>https://best.xiaohu.ai/article/grok-bot-for-pms/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:grok-bot-for-pms</guid>
+<pubDate>Sat, 10 Oct 2026 12:00:56 +0000</pubDate>
+<description>Kevin Niparko 讲解动态关注事项、客户研究、工程分工和数据分析的实际用法。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Grok Bot 产品经理指南：注意力清单与一支能接目标的 Agent 团队</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/grok-bot-for-pms/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>Grok Bot 工作指南 →</a></div><div>本页目录</div><a><span>01</span><span>从死板的优先级，到动态生成的「注意力清单」</span></a><a><span>02</span><span>打通全域上下文：让散落各处的客户原声可被推理</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Grok Bot 产品经理指南：注意力清单与一支能接目标的 Agent 团队</h1><p>Kevin Niparko 讲解动态关注事项、客户研究、工程分工和数据分析的实际用法。</p><div><span><b>已核对</b></span><span>Kevin Niparko</span><span>10-10 · 约 9 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>注意力清单记录你实际在忙什么，能过滤消息，也能对照目标发现偏离。</li><li>工程经理拆任务，工程岗位管理云端编码 Agent，PM 用目标组织交付。</li><li>数据 Bot 适合已有口径的刷新与切片，高歧义分析和重要沟通仍要人判断。</li></ul><div><p>Grok Bot 的产品经理指南，来自 Kevin Niparko 对自己工作方式的调整。他把日历与沟通交给幕僚长，把工程组织、编码、数据分析、产品研究和招聘分给专业 Agent。对常常没有直属人员的 PM，这是一支能直接接目标的工作团队。</p>
+<p>其中两项做法尤其值得看：从实际工作生成“注意力清单”，与既定目标对照；让工程经理拆解和验收，由工程岗位管理云端编码 Agent。作者也提醒这种用法有学习曲线，重要判断仍需人完成。</p>
+<hr />
+<h3>从死板的优先级，到动态生成的「注意力清单」</h3>
+<p>几乎所有 PM 都有过这样的体验：周一精心梳理出一份本周优先级清单，但到了周二上午，线上报警、大客户突然提出的定制需求、紧急招聘面试就会把整张清单冲得稀烂。静态的待办事项总是在混乱的真实工作中迅速过时。</p>
+<p>针对这个痛点，实践中摸索出的首个核心工作原语叫作<strong>「注意力清单」（Attention List）</strong>。</p>
+<p>这项机制由常驻 Agent 实时跟踪你在全天工作中<strong>实际投入的精力和注意力</strong>，动态提炼出当前正在推进的项目焦点。注意力清单反映的是你「当前正在忙什么」，它不能等同于「应该优先做什么」，更无法替代人工手写的战略目标；它的核心作用是记录实际精力流向，以便与既定目标客观对照偏差。</p>
+<div><pre><code>传统工作流（容易脱节失效）：
+[静态周计划 / 优先级列表]  ──(被现实打乱)──&gt;  [疲于应付 Slack / 邮件 / 突发事故]
+Grok Bot 动态工作流：
+[Slack / 邮件 / 会议录音 Granola / 日历] 
+      │
+      ▼ (每小时静默分析实况)
+[Chief of Staff (幕僚长)] ──&gt; [动态注意力清单 (Attention List)]
+      │
+      ├─ 1. 反向过滤噪音：仅保留同时指名且匹配焦点的邮件，其余归档
+      └─ 2. 真实精力审计：对比「口头计划」与「实际时间消耗」，找出可托管环节
+</code></pre></div>
+<h4>注意力清单的两种具体用法</h4>
+<ol>
+<li><strong>作为全天信息流的动态过滤器</strong>：PM 每天会收到成百上千条 Slack 消息和邮件。作者给出的个人归档规则是：除非某封邮件直接指名道姓提及你、并且内容切实对应清单中的焦点项目，否则按小时归档。这个强过滤条件是他的配置示例，并非注意力清单的默认功能。在日常协同中，幕僚长 Agent 还会主动协助日历排期：例如上周它先发送日程预占（holds）并询问作者选择开始时间，在作者回复「上午 10 点（10am）」后，Agent 便自动将预占移动到对应时间。</li>
+<li><strong>作为真实精力分配的对照镜</strong>：注意力清单反映的是实际精力流向，每周末或每天结束时，可以将其与人工手写的战略目标客观比对并对照偏差。如果发现自己在某类琐碎事务上耗费了过多时间，立刻就能识别出后续可以剥离并委托给专职 Agent 的具体边界。</li>
+</ol>
+<h4>按本篇工作流改写的配置示例（注意力清单）</h4>
+<blockquote>
+<p><strong>提示词设定（以幕僚长 Agent 为例）：</strong><br>
+「建立注意力清单：请以 <code>[例如：每小时]</code> 为周期，主动检索我的邮件、Slack 关键频道、Granola 会议纪要与日历日程；为我当前实际在推进的项目提炼出一份精炼的实时项目集，写明各项目当前进展状态以及接下来需要发生的下一步动作。」</br></p>
+<p><strong>日常调取与过滤指令：</strong><br>
+「对照我当前的注意力清单，检查我的收件箱：将所有与当前核心焦点无关的邮件直接归档 <code>[保留带人工提及且相关项]</code>。」<br />
+「对比我本周的日历和注意力记录，列出我实际耗费时间最多、但在未来可以直接剥离并交由独立 Agent 承接的工作项。」</br></p>
+</blockquote>
+<p>关键约束说明：在配置此类过滤与归档规则时，必须显式限制筛选条件，避免 Agent 误将跨部门紧急协同通知静默丢弃；同时建议在初期保留归档日志供人工抽检。</p>
+<hr />
+<h3>打通全域上下文：让散落各处的客户原声可被推理</h3>
+<p>对于产品团队来说，最有价值的资产往往散落在各个垂直系统里，形成一个个数据孤岛：</p>
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 7 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 7 分钟正文</span><span>2 处图表与交互</span></div>
+<div><span>🔓 380 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.ai/bot/guides/grok-bot-for-pms">阅读原文 ↗</a>
+</div>
+</div><span>沿着专题继续读</span><a>Grok Bot 工作指南 →</a><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 多项目指南：一个频道、一组成员和两层 Notion 看板</div>
+<div>10-10 · 约 8 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 日常办公指南：让四个 Bot 管好消息、日历与工作情报</div>
+<div>10-10 · 约 12 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot SDR 指南：Cursor 写调研与草稿，Bot 做查重与待发分流</div>
+<div>10-10 · 约 12 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Grok Bot 效果营销指南：从报表起步，接住广告投放的日常运营</title>
+<link>https://best.xiaohu.ai/article/grok-bot-for-performance-marketing/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:grok-bot-for-performance-marketing</guid>
+<pubDate>Sat, 10 Oct 2026 12:00:56 +0000</pubDate>
+<description>Miguel Cruz 分享四个常驻 Bot 如何支持广告项目搭建、取数、线索监测与创意推进。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Grok Bot 效果营销指南：从报表起步，接住广告投放的日常运营</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/grok-bot-for-performance-marketing/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>Grok Bot 工作指南 →</a></div><div>本页目录</div><a><span>01</span><span>为什么通用的“单一大模型”做不好效果广告？</span></a><a><span>02</span><span>从 0 到 1：搭起全新广告项目的 7 级流水线</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Grok Bot 效果营销指南：从报表起步，接住广告投放的日常运营</h1><p>Miguel Cruz 分享四个常驻 Bot 如何支持广告项目搭建、取数、线索监测与创意推进。</p><div><span><b>已核对</b></span><span>Miguel Cruz</span><span>10-10 · 约 11 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>投放团队把调研、报表和协调交给常驻 Bot，把预算与策略留给投手。</li><li>异常巡检要主动找变化，正常时安静；下游线索表现比表单数量更有决策价值。</li><li>先跑稳一个渠道的报表，再扩队，并约束广告后台与 API 的操作。</li></ul><div><p>Grok Bot 的效果营销指南，来自负责其付费投放的 Miguel Cruz。他用常驻 Bot 支持新广告项目的前期准备，再持续处理报表、花费和转化检查、下游线索表现与创意推进。</p>
+<p>重点是把重复操作与投放判断分开：Bot 交付研究、结构和建议，人批准预算与方向；同时设置门卫，避免多个 Bot 对广告账户过量点击或请求 API。</p>
+<hr />
+<h3>为什么通用的“单一大模型”做不好效果广告？</h3>
+<p>在做付费买量时，操盘手每天的工作充满了无休止的系统切换：每个广告平台（Google 搜索、Meta、LinkedIn 等）都有自己专属的考核目标、账户命名规则、人群定向机制以及完全不兼容的操作界面。更现实的阻碍在于：<strong>市面上根本没有任何一套单一 API 能完整覆盖所有广告平台的深层操作。</strong></p>
+<p>Grok Bot 能在这个场景跑通，核心在于底层运行逻辑的三个根本差异：</p>
+<ol>
+<li><strong>拥有属于自己的独立虚拟环境</strong>：每个 Bot 就像拥有自己专属的电脑和浏览器会话。它们可以像真人投手一样登录后台、点击界面、填表和导出报表，遇到平台缺少公开 API 时，直接通过图形界面操作作为兜底保底。</li>
+<li><strong>专职专岗，绝不搞“全能通用助手”</strong>：买量团队如果招人，绝不会指望一个人能同时精通全球六个平台的全部算法和规则。Agent 同样如此——负责 Google 搜索的 Bot 必须吃透广泛匹配、词组匹配、完全匹配与否定词库（Negative Keywords，用于过滤不相关搜索流量）；负责 LinkedIn 的 Bot 则必须精通 B2B 线索表单漏斗和站内信广告（Message Ads）的规格。专人专事才能保证动作的可靠度。</li>
+<li><strong>同时常驻在多套企业基建中</strong>：这些 Bot 不是孤立停留在广告后台，而是同时驻扎在 Slack、Google Sheets、Databricks 数据仓库以及各大广告账户中。这使得一条广告带来的表单线索不再是孤零零的注册数字，而是能顺着下游漏斗（Down-funnel，指线索后续转化为销售认可商机、签约成单的全过程）持续跟踪实际收益，并随时把上下文调取回决策沟通中。</li>
+</ol>
+<hr />
+<h3>从 0 到 1：搭起全新广告项目的 7 级流水线</h3>
+<p>在过去，为一个新产品上线从零搭建一套买量体系，往往需要几个星期的前期筹备。在这个体系中，Bot 承担的是“在各个环节快速交出高完成度的初稿（v1）”，人类操盘手负责最后的审阅与拍板。</p>
+<h4>1. 需求与竞品调研（Demand Research）</h4>
+<ul>
+<li><strong>过去的做法</strong>：投手花好几个小时反复刷 Google 关键词规划师（Keyword Planner）和各类竞品广告资料库。</li>
+<li><strong>Bot 动作</strong>：自动抓取大盘搜索量，筛选出高价值的<strong>非品牌词机会点</strong>（Non-brand Keywords，即潜在客户在搜索通用行业痛点或解决方案、而非品牌名称本身的关键词），并汇总竞品正在投放的核心文案套路。</li>
+<li><strong>人工决定</strong>：人类阅读提炼后的简报，评估哪条切入路径符合当前的战略定位。</li>
+</ul>
+<h4>2. 预算制定与渠道组合（Budget &amp; Media Mix）</h4>
+<ul>
+<li><strong>Bot 动作</strong>：人类输入预期的获客成本目标（CAC，Customer Acquisition Cost），Bot 测算并起草一套预算分配建议书。建议书严格拆分：
+<ul>
+<li><strong>存量需求捕获</strong>（针对高意向搜索，直接承接购买冲动）；</li>
+<li><strong>增量需求激发</strong>（通过社媒与视频拓展认知）；</li>
+<li><strong>敏捷测试预留金</strong>（留作快速试错）；</li>
+<li><strong>学习期校验</strong>：核算分配到每个系列上的预算是否有足够权重跑出平台的<strong>广告学习期</strong>（Learning Phase，各大平台算法为了弄清何种受众转化概率更高，通常要求在初始阶段积累足够的转化事件），看预算是否足以支持计划走出学习期。</li>
+</ul>
+</li>
+<li><strong>人工决定</strong>：人类优化师逐项审核并正式批准预算数字，否则流程禁止进入下一阶段。</li>
+</ul>
+<h4>3. 渠道结构与命名规范（Channel Mix &amp; Structure）</h4>
+<ul>
+<li><strong>Bot 动作</strong>：预算敲定后，Bot 自动起草各渠道的 Campaign 架构与命名规范（如团队可按需选用渠道、受众等可选字段示例，原文未指定固定格式），以便后续拉取和汇总报表。</li>
+</ul>
+<h4>4. 渠道专精文案（Channel-specific Copy）</h4>
+<ul>
+<li><strong>运作细节</strong>：这里<strong>没有</strong>配置一个通用的文案 Bot，而是由负责各个渠道的专职 Bot 各自起草。它们熟悉各自渠道的字符数限制与文案最佳实践。</li>
+<li><strong>交付与人工介入</strong>：生成的第一版（v1）文案能满足绝大部分基础表达要求，人类优化师快速通读，重写任何看起来不合适、语调不符或有偏差的句子。</li>
+</ul>
+<h4>5. 创意物料流转（Creative Briefing）</h4>
+<ul>
+<li><strong>Bot 动作</strong>：由名为 Iris 的项目协同 Bot 接管。它把人类审批通过的文案自动组装为 Notion 中的设计需求卡（Creative Brief），并通知设计团队有新需求；尺寸与交付日期等字段可由团队按需补充。</li>
+</ul>
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 8 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 8 分钟正文</span><span>2 处图表与交互</span></div>
+<div><span>🔓 380 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.ai/bot/guides/grok-bot-for-performance-marketing">阅读原文 ↗</a>
+</div>
+</div><span>沿着专题继续读</span><a>Grok Bot 工作指南 →</a><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 多项目指南：一个频道、一组成员和两层 Notion 看板</div>
+<div>10-10 · 约 8 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 日常办公指南：让四个 Bot 管好消息、日历与工作情报</div>
+<div>10-10 · 约 12 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot SDR 指南：Cursor 写调研与草稿，Bot 做查重与待发分流</div>
+<div>10-10 · 约 12 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Grok Bot 移动开发指南：六个 Bot 怎样运营 Rank’em 游戏工作室</title>
+<link>https://best.xiaohu.ai/article/grok-bot-for-mobile-app-development/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:grok-bot-for-mobile-app-development</guid>
+<pubDate>Sat, 10 Oct 2026 12:00:56 +0000</pubDate>
+<description>从获客数据到广告素材、游戏机制、部署与错误巡检，理解长期运行的团队交接。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Grok Bot 移动开发指南：六个 Bot 怎样运营 Rank’em 游戏工作室</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/grok-bot-for-mobile-app-development/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>Grok Bot 工作指南 →</a></div><div>本页目录</div><a><span>01</span><span>Grok Bot 的六大基石：常驻智能体与临时对话框的本质区别</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Grok Bot 移动开发指南：六个 Bot 怎样运营 Rank’em 游戏工作室</h1><p>从获客数据到广告素材、游戏机制、部署与错误巡检，理解长期运行的团队交接。</p><div><span><b>已核对</b></span><span>Ryan Perry</span><span>10-10 · 约 8 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>移动游戏上线后还有获客、素材、发布和运维；六个 Bot 分担这些持续责任。</li><li>数据发现先成为素材或工程规格，再由相应岗位执行，减少口头传话。</li><li>作者报告安装成本降至原来的十五分之一、D7 留存约四倍，这是单个产品的实践结果。</li></ul><div><p>在当前的辅助编程工具帮助下，用自然语言写出一个类似 Wordle 或消除类游戏的可用原型已经不再困难。但在开发者 Ryan Perry 看来，依照其在移动游戏领域的从业经验，写出游戏主程序往往只占总工作量的 15% 左右。</p>
+<p>真正消耗大量精力、甚至决定产品生死的是那被忽视的 85%：在 Meta Ads 和 AppLovin 等买量平台中持续监测单次安装成本（CPI）、每几天就要更新一批以防老化的广告素材切片、跟进 PostHog 与埋点数据核实真实玩家行为、维护存档、排行榜、活动与服务器、处理苹果与谷歌应用商店繁琐的提审资质与证书轮转，以及半夜排查特定系统版本上的偶发崩溃。</p>
+<p>曾就职于 Sensor Tower 与 Lion Studios（AppLovin 旗下）的移动游戏开发者 Ryan Perry，在运营其手机游戏 <em>Rank'em</em> 时，通过 6 个常驻的 Grok Bot 搭建起一套分布式虚拟工作室。作者发布相关经验时，该游戏在过去一周内跨 iOS 与 Android 双平台的下载量刚超过 1,000 次。这套系统并不是在对话框里临时提问，而是让每个 Agent 拥有独立的云端环境、定时工作流以及彼此直接交接工作的能力。</p>
+<hr />
+<h3>Grok Bot 的六大基石：常驻智能体与临时对话框的本质区别</h3>
+<p>在常见的工作流中，大语言模型往往是一个「用完即走」的聊天窗口：你必须主动打开网页、把上下文复制进去、等待结果，再把结果手动粘贴到下一个系统。Grok Bot 在设计上更接近一个具备固定职责的长期协作者，其运行体系建立在六个核心支柱上：</p>
+<ol>
+<li><strong>岗位描述（Job Description / 职责边界）：</strong>
+不同于宽泛的「你是一个资深专家」设定，每个 Bot 的系统提示词像一份严密的岗位说明书。它不仅界定当前席位全权负责什么，<strong>更关键的是明确写出它「严禁插手什么」</strong>。职责收窄是多智能体协同不陷入混乱的前提。</li>
+<li><strong>系统授权（Connections / 接入的账号）：</strong>
+Bot 直接绑定其工作所需的应用账户（如 Jira、GitHub、Meta Ads Manager、PostHog、Sentry 等）；缺少工具需先向人类确认。但缺少权限仅限制其操作范围，并不意味着模型不会产生幻觉去编造数据。</li>
+<li><strong>云端独立电脑（A Computer in the Cloud）：</strong>
+每个 Bot 分配有一台带有独立浏览器与终端的云端虚拟主机，无论使用者的电脑是否开机都能运行。这是作者自述的运行配置，并不等同于系统层面的完全权限隔离保证。</li>
+<li><strong>例行惯例（Routines / 定时任务）：</strong>
+这是常驻工作的核心触发器。它不是手机上的闹钟提醒，而是挂载在 Bot 自身日程表上的定时作业（如每日特定时刻自动复盘买量指标、抓取错误日志），无需人工登录后台点击触发。</li>
+<li><strong>示教录制技能（Skills / 动作回放）：</strong>
+面对没有开放 API、接口申请受阻或界面权限极度繁琐的第三方平台，使用者可以直接在 Bot 的云端电脑上点击「录制」，亲自在网页界面操作一遍。Bot 会记录完整的点击流路径与输入节点，将其固化为一项可反复重放的技能。</li>
+<li><strong>自主交接机制（Handoffs / 跨席位流转）：</strong>
+这是让独立 Agent 凝聚为工作组的核心机制。Bot 在完成阶段性产出后，可以直接将结论与制品传递给下一个对应席位的 Bot，而不需要人工充当中继路由。</li>
+</ol>
+<hr />
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 6 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 6 分钟正文</span><span>2 处图表与交互</span></div>
+<div><span>🔓 380 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.ai/bot/guides/grok-bot-for-mobile-app-development">阅读原文 ↗</a>
+</div>
+</div><span>沿着专题继续读</span><a>Grok Bot 工作指南 →</a><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 多项目指南：一个频道、一组成员和两层 Notion 看板</div>
+<div>10-10 · 约 8 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 日常办公指南：让四个 Bot 管好消息、日历与工作情报</div>
+<div>10-10 · 约 12 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot SDR 指南：Cursor 写调研与草稿，Bot 做查重与待发分流</div>
+<div>10-10 · 约 12 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Grok Bot 营销指南：从竞品研究到落地页、广告与复盘的六岗位协作</title>
+<link>https://best.xiaohu.ai/article/grok-bot-for-marketing/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:grok-bot-for-marketing</guid>
+<pubDate>Sat, 10 Oct 2026 12:00:56 +0000</pubDate>
+<description>六个营销 Bot 在 Docs、Google Ads 与代码仓库中完成交付，项目经理减少搬运，营销者保留定位和花费决策。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Grok Bot 营销指南：从竞品研究到落地页、广告与复盘的六岗位协作</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/grok-bot-for-marketing/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>Grok Bot 工作指南 →</a></div><div>本页目录</div><a><span>01</span><span>为什么单一大模型聊天会失灵？拆解六大专业岗位</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Grok Bot 营销指南：从竞品研究到落地页、广告与复盘的六岗位协作</h1><p>六个营销 Bot 在 Docs、Google Ads 与代码仓库中完成交付，项目经理减少搬运，营销者保留定位和花费决策。</p><div><span><b>已核对</b></span><span>Josh Kim</span><span>10-10 · 约 8 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>营销 Bot 的价值，是把研究交到定位、网页和广告工具里，而不是只生成一段文案。</li><li>六个岗位各守一段流程，项目经理把多次交接合成一个入口。</li><li>模板复制工作方法，账号需重新连接；真实投放和网站发布仍要审阅。</li></ul><div><p>Grok Bot 的营销指南讲的是怎样让六个长期岗位完成一次营销交付。Josh Kim 用 Bot 阅读竞品、在 Google Docs 写定位、搭 Google Ads 广告结构、在网站代码库开 PR，再读取投放数据。</p>
+<p>这些动作原本分散在不同工具和专业岗位中。Bot 可以直接互相询问背景；交接多起来以后，Project Manager 负责协调，营销者集中审阅定位、真实账户操作与花费。</p>
+<hr />
+<h2>为什么单一大模型聊天会失灵？拆解六大专业岗位</h2>
+<p>营销推广从来不是某一个人脑子里的单点任务。调研、定位、建站、投放、复盘，在真实商业团队中本就分属不同角色。如果试图在同一个聊天窗口里让一个通用 AI 既做宏观竞品分析，又写前端 HTML/CSS 代码，还要排期广告关键词，单条会话往往容易变得臃肿，逐渐偏离最初设定的目标。</p>
+<p>团队需要的是各司其职的「常驻专业岗位」：</p>
+<ol>
+<li><strong>Market Researcher（市场研究员）</strong>：自带独立浏览器，自主阅读竞品官网与自身产品页，挖掘真正有营销穿透力的差异化切入点。</li>
+<li><strong>Product Marketer（产品营销 / PMM）</strong>：将调研发现转化为 Google Docs 中的定位简报、落地页结构大纲以及搜索广告文案变体。</li>
+<li><strong>Website Ops（网站运营与开发）</strong>：底层调用 AI 编程工具 Cursor，将落地页大纲写成可运行的前端代码，并在 GitHub 营销代码库直接提 Pull Request（PR）。</li>
+<li><strong>Performance Marketer（效果营销投放员）</strong>：直接接入 Google Ads 账户，把已过审的测试文案搭建成可执行的广告系列外壳（Campaign Shells）。</li>
+<li><strong>Marketing Analyst（营销数据分析师）</strong>：定期拉取实际广告测试数据，输出概念维度的得分看板（Scoreboard），提供增删停投建议。</li>
+<li><strong>Project Manager（项目经理 / PM）</strong>：全局协调各岗位之间的交接流转，充当人类操盘手的「单一入口」，终结在多个对话框来回切换的疲劳。</li>
+</ol>
+<figure>
+<img>
+<figcaption>六大常驻智能体席位：从左至右分别为市场研究、产品营销、网站运营、效果投放、数据分析与项目经理</figcaption>
+</img></figure>
+<p>按原文岗位整理；图中配置示例需由你补充时间、系统与权限。</p><div>
+<h3>Grok 营销六大岗位协同与安全控制盘</h3>
+<p>点击切换不同智能体岗位，查看其实际接入的工具、产出物、自动化协作上下游，以及至关重要的人类审批决策卡点。</p>
+</div>
+<div>
+<span></span>
+    Project Manager (项目经理)
+<span></span>
+    Market Researcher (市场研究员)
+<span></span>
+    Product Marketer (产品营销PMM)
+<span></span>
+    Website Ops (网站开发运营)
+<span></span>
+    Performance Marketer (效果营销投放)
+<span></span>
+    Marketing Analyst (营销数据分析师)
+</div>
+<div>
+<div>
+<div>🛠️ 接入生产工具与工作环境</div>
+<p>跨智能体消息总线、任务状态看板。对接所有专家的会话上下文。</p>
+<div>
+<span>Grok Bot 协同总线</span>
+<span>单入口对话流</span>
+</div>
+</div>
+<div>
+<div>📦 核心动作与实际交付物</div>
+<p>监听各专项 Bot 的运转进度，主动推动跨岗位上下文流转（Handoff），并将前端截图、运行阻塞点汇总呈报给人类负责人。</p>
+</div>
+<div>
+<div>⚖️ 人类必须把控的决策关卡 (Human Gate)</div>
+<p>人类负责人保留全局指挥权与异常裁决权。只在各专业岗位流转顺畅后引入，一人直面 PM 即可，避免同时盯 5 个专项聊天窗口。</p>
+</div>
+<div>
+<div>🛡️ 权限安全隔离与执行边界</div>
+<p>仅具备会话流转与协调权限。不触碰任何真实的广告账户资金或线上生产分支的直接合并操作。</p>
+</div>
+</div>
+<div>
+<span>⚡ 上下游关联：串联全流程，作为人类与专家智能体之间的“单一接待窗口”</span>
+<span>💡 协作铁律：岗位恒定以积累记忆，活动随需求更新</span>
+</div>
+<hr />
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 6 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 6 分钟正文</span><span>2 处图表与交互</span></div>
+<div><span>🔓 380 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.ai/bot/guides/grok-bot-for-marketing">阅读原文 ↗</a>
+</div>
+</div><span>沿着专题继续读</span><a>Grok Bot 工作指南 →</a><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 多项目指南：一个频道、一组成员和两层 Notion 看板</div>
+<div>10-10 · 约 8 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 日常办公指南：让四个 Bot 管好消息、日历与工作情报</div>
+<div>10-10 · 约 12 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot SDR 指南：Cursor 写调研与草稿，Bot 做查重与待发分流</div>
+<div>10-10 · 约 12 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Grok Bot 法务运营指南：从律师会前准备到合同流转与审查看板</title>
+<link>https://best.xiaohu.ai/article/grok-bot-for-legal-ops/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:grok-bot-for-legal-ops</guid>
+<pubDate>Sat, 10 Oct 2026 12:00:56 +0000</pubDate>
+<description>把 Slack、Salesforce、Notion 和合同系统中的背景整理到同一处，同时区分查询、草拟和确认写入。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Grok Bot 法务运营指南：从律师会前准备到合同流转与审查看板</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/grok-bot-for-legal-ops/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>Grok Bot 工作指南 →</a></div><div>本页目录</div><a><span>01</span><span>从「胶水脚本」到「常驻 Agent」：法务看板的架构突围</span></a><a><span>02</span><span>法务运营的四种运转节拍</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Grok Bot 法务运营指南：从律师会前准备到合同流转与审查看板</h1><p>把 Slack、Salesforce、Notion 和合同系统中的背景整理到同一处，同时区分查询、草拟和确认写入。</p><div><span><b>已核对</b></span><span>Kelly Noguchi</span><span>10-10 · 约 16 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>法务运营 Bot 先把聊天、报价和合同状态串起来，让律师集中处理需要决定的问题。</li><li>团队把刷新与背景补充迁到 Grok Bot，规则和技能可以在聊天中迭代。</li><li>合同写入先预览确认，沟通先草拟再由人审阅发送。</li></ul><div><p>在法务运营（Legal Ops）的日常工作中，大量精力常常被跨系统的背景翻查与沟通协调所占据。</p>
+<p>销售在即时通讯群里咨询合规路径、协议范本、签约主体或审批进度；法务律师为了给出准确答复，往往需要在多个工具间来回切换——查看 Slack 讨论上下文、核对 Salesforce 商机与主报价单（Primary Quote）、翻找 Deal Desk 特批与历史指引，并在合同系统中查阅同类先例。</p>
+<p>针对这一系列跨系统搬运与信息分散的痛点，xAI 团队在法务运营实战指南中介绍了他们使用 Grok Bot 的实践：通过部署专精智能体，承接律师 1:1 会前准备、Slack 咨询分流、法务审查看板维护、合同流转支持、模板追踪与周报起草等工作，所有对外消息均经人工审查，并优先采用“先草拟、再人工发送”（Draft, then human send）。原文开头还列出了产品发布准备度评估，但没有展开具体工作流。</p>
+<p>在落地架构上，他们没有采用包揽一切的“全能单体 Bot”，而是将业务拆解为专精工作流，总结出便于迁移到其他法务团队的实践模式。</p>
+<hr />
+<h3>从「胶水脚本」到「常驻 Agent」：法务看板的架构突围</h3>
+<p>在转向 Grok Bot 之前，法务运营团队用于跟踪来自 GTM-Legal Slack 进件的「法务审查看板（Legal Review Tracker）」，此前依靠 <strong>Cursor 自动化 + Google Apps Script</strong> 运行。后续团队将看板的刷新、上下文丰富与未结事项摘要统一收敛到了 Grok Bot 中。</p>
+<p>这一迁移带来了具体的维护与迭代收益：</p>
+<ul>
+<li><strong>规则集中管理</strong>：所有业务规则与丰富逻辑集中在 Grok Bot 中，调整分类与丰富规则无需直接修改 Apps Script 代码或重新部署 Cursor 自动化。</li>
+<li><strong>在对话中调整规则</strong>：运营人员只需在聊天中直接修改 Agent 的专精技能（Skill）或例行程序（Routine），下一次例行刷新就能生效，格式与快照措辞也更易保持一致。</li>
+<li><strong>单 Agent 统管多项节拍</strong>：由一个 Agent 统一负责约 30 分钟一次的看板刷新、每天两次的商业深度丰富（Commercial Enrich），以及周一未结事项摘要（Monday open-items digest）。</li>
+<li><strong>面向律师的完整上下文</strong>：对处于待办（Needs Legal）状态的行项，Agent 自动汇总 Slack 线程摘要、Salesforce 商机与主报价单（Primary Quote）快照、Deal Desk 信号以及历史指引，律师基于同一张看板即可做出判断，不必在 Slack 和 Salesforce 间重新拼凑交易全貌。</li>
+</ul>
+<hr />
+<h3>法务运营的四种运转节拍</h3>
+<p>很多团队在引入大模型时，最大的误区就是试图做一个「有问必答」的通用问答机器人。但法务工作有其特殊性：既有高频碎片的实时咨询，也有高度结构化的周期性会议，更有必须严格防范风险的高危系统写入。</p>
+<p>按原文的例程与调用方式，可以将这些工作整理为以下四种节拍：</p>
+<div><pre><code>                ┌─────────────────────────────────────────────────────────┐
+                │             法务运营 Agent 四大运转节拍                  │
+                └─────────────────────────────────────────────────────────┘
+                                             │
+      ┌──────────────────────┬───────────────┴───────────────┬──────────────────────┐
+      ▼                      ▼                               ▼                      ▼
+【定期轮询与周一摘要】     【每天两次商业丰富】             【日历事件驱动】        【显式按需调用】
+~30-min 刷新与周一摘要     Twice-daily 商业丰富             Calendar 1:1 闭环       On-demand 显式支持
+• 约30分钟定期刷新看板     • 提取 Needs Legal 待办行项      • 会前扫描跨系统记录     • 查询合同流程、状态与文档
+• 分类待办提问与主题      • 汇总商机与主报价单快照          • 提炼待决议题与卡点     • 按明确请求协助移入文档并预览确认
+• 周一输出未结事项摘要     • 挂载 Deal Desk 信号与历史指引  • 会后将决议跟进回写看板 • 审视合同控制设计与证据缺口
+</code></pre></div>
+<ol>
+<li><strong>约 30 分钟定期轮询与周一未结事项摘要（~30-min Refresh &amp; Monday Digest）</strong>：按预定计划定期刷新看板，而非实时即刻响应。Agent 持续监控业务群提问，识别反复出现的常见议题（如协议路径、BAA 覆盖范围、签约主体等），将待办事项分类为需法务介入（Needs Legal）、重新审阅（re-look）或按批准规则分类（approval bands），具体分类规则与阈值由团队自定；并在周一统一生成未结事项摘要（Monday open-items digest），防止重要事项被日常信息淹没。</li>
+<li><strong>每天两次深度商业丰富（Twice-daily Commercial Enrich）</strong>：Agent 每天固定两次为所有处于 Needs Legal 状态的待办行项扩充上下文，挂接实时 Slack 线程摘要、Salesforce 商机与主报价单（Primary Quote）快照、关联的 Deal Desk 信号以及历史指引链接，使法务无需跨系统人肉重构交易背景即可开展审查。</li>
+<li><strong>日历事件触发（Calendar-driven 1:1 Prep &amp; Writeback）</strong>：绑定定期会议日程。在律师 1:1 会前，综合 Slack、Notion、会议纪要与看板信息，提炼待决核心法律问题、跨渠道分歧、外部阻塞点与重要进展；会议结束后，将形成的决议与跟进事项准确回写到对应的 Notion 页面与看板。</li>
+<li><strong>受控的显式按需调用（On-demand Actions）</strong>：涉及核心记录系统的操作遵循读写分离。平时可按需查询合同系统中的工作流、审查状态与文档；涉及写入时，仅在收到明确请求且确认文档已经律师批准后，协助将文档移入对应合同工作流，并在写入前生成变更预览供人工二次确认。</li>
+</ol>
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 12 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 12 分钟正文</span></div>
+<div><span>🔓 380 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.ai/bot/guides/grok-bot-for-legal-ops">阅读原文 ↗</a>
+</div>
+</div><span>沿着专题继续读</span><a>Grok Bot 工作指南 →</a><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 多项目指南：一个频道、一组成员和两层 Notion 看板</div>
+<div>10-10 · 约 8 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 日常办公指南：让四个 Bot 管好消息、日历与工作情报</div>
+<div>10-10 · 约 12 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot SDR 指南：Cursor 写调研与草稿，Bot 做查重与待发分流</div>
+<div>10-10 · 约 12 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Grok Bot 企业 GTM 指南：客户专家、媒体周报与会议中的演示文稿</title>
+<link>https://best.xiaohu.ai/article/grok-bot-for-gtm/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:grok-bot-for-gtm</guid>
+<pubDate>Sat, 10 Oct 2026 12:00:56 +0000</pubDate>
+<description>让会议准备、拓客、技术答疑、预测和 Slides 在同一支 Bot 团队里协作。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Grok Bot 企业 GTM 指南：客户专家、媒体周报与会议中的演示文稿</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/grok-bot-for-gtm/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>Grok Bot 工作指南 →</a></div><div>本页目录</div><a><span>01</span><span>运作基础：让 Agent 拥有独立电脑与长期记忆</span></a><a><span>02</span><span>团队分工：9 类专用 Bot 的角色定位与协同关系</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Grok Bot 企业 GTM 指南：客户专家、媒体周报与会议中的演示文稿</h1><p>让会议准备、拓客、技术答疑、预测和 Slides 在同一支 Bot 团队里协作。</p><div><span><b>已核对</b></span><span>Krista Letz</span><span>10-10 · 约 10 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>企业 GTM Bot 把散在邮件、会谈和产品系统中的客户背景带到下一次沟通。</li><li>媒体周报需要实际读内容、记录已覆盖项，只汇报真正新增的信号。</li><li>品牌母版和刚结束的客户录音能帮助更新演示文稿，信息来源与人的审阅仍重要。</li></ul><div><p>Grok Bot 的企业 GTM 指南，来自 Krista Letz 的内部实践。她用幕僚长协调会议与收件箱，再用专业岗位准备拓客研究、维护战略客户背景、查技术问题、更新商机笔记和制作 Figma 演示文稿。</p>
+<p>GTM 是把产品带到市场与客户中的工作。这里最具体的变化，是让客户背景跟着沟通走：业务人员在手机上读会前摘要，在通话中查产品答案，再把客户刚说的内容整理进后续材料。</p>
+<hr />
+<h2>运作基础：让 Agent 拥有独立电脑与长期记忆</h2>
+<p>要想让常驻 Agent 真正接管业务，必须先厘清 Grok Bot 在这套体系中的两个物理前提与环境配置：</p>
+<ol>
+<li><strong>拥有独立运行的云端电脑（24/7 独立算力）</strong>：Grok Bot 并不是运行在销售个人笔记本浏览器标签页里的脚本插件。它拥有自己全天候在线的云端运行环境。这意味着销售合上笔记本、下班通勤或进入睡眠时，后台分配给它的夜间深度背调、音视频转录与分析依然在自主推进，次日清晨直接交付结果。</li>
+<li><strong>连接核心业务工具链</strong>：Agent 的威力取决于其输入管道的丰富度。在作者的环境中，Grok Bot 接入了企业日常运转所需的各类 SaaS 工具与数据源：</li>
+</ol>
+<figure>
+<img>
+<figcaption>作者个人工作环境中已配置的连接工具（包括 Gmail、Google Calendar、Google Drive、Granola、Notion、Slack 等）。这代表一线销售打通信息孤岛的典型配置，具体工具可根据企业实际软件栈进行替换。</figcaption>
+</img></figure>
+<ul>
+<li><strong>CRM 与沟通</strong>：Salesforce（商机数据与客户档案）、Gmail（往来邮件）、Slack（内部协作频道）。</li>
+<li><strong>会谈与音视频智能</strong>：Granola（AI 会议笔记记录器）、Gong（外部客户通话音视频智能分析工具）。</li>
+<li><strong>知识与内容产出</strong>：Google Drive、Notion、Figma（演示文稿制作）、数据仓库（跟踪产品实际用量）、代码仓库（或企业级统一知识检索工具 Glean）。</li>
+<li><strong>外部信号渠道</strong>：X（原 Twitter）、LinkedIn、网络研讨会与播客平台。</li>
+</ul>
+<p>在此基础上，Grok Bot 具备记忆能力，会随着使用深入逐步记住销售个人的偏好风格。例如，可以直接指令它扫描销售在 Gmail 和 Slack 中已发出的历史消息，建立专属的语言风格档案（Style Profile），让后续草稿更贴近本人的表达，起草后仍需审阅。销售在离开办公桌时，通过手机 App 的语音输入即可下发任务或调取数据。</p>
+<hr />
+<h2>团队分工：9 类专用 Bot 的角色定位与协同关系</h2>
+<p>为了不让单个对话窗口变成杂乱无章的指令垃圾桶，作者在左侧栏中将不同任务抽象为独立的专用 Bot，并通过右键「Move to」将它们归整进不同的工作板块（Sections），例如划分为销售团队（GTM Team）、客户专属（Customers）与个人事务（Personal）等：</p>
+<figure>
+<img />
+<figcaption>侧边栏展示了 Data Analysis、slides、Forecast 等不同角色的 Bot 对话条目，右键菜单支持将其移入不同板块，这是组织多人/多任务协同的直观工作区分类方式。</figcaption>
+</figure>
+<p>在这套 GTM 协同体系中，作者按职能划分了 9 类 Bot 角色（其中战略客户专家可针对每个战略客户独立配置实例，并非全体系固定部署 10 个）：</p>
+<h3>1. 幕僚长（Chief of Staff）——置顶的总调度器</h3>
+<ul>
+<li><strong>真实角色</strong>：业务人员最常用的全局协调者，常驻置顶。</li>
+<li><strong>输入与权限</strong>：全局日历、待办清单、对其他子 Agent 的唤起权限。</li>
+<li><strong>自主动作与例行流程（Routine）</strong>：
+<ul>
+<li><strong>日常日程准备（Daily Meeting Prep Routine）</strong>：作为幕僚长下的例行日常流程，整合 Salesforce、Gmail、Slack、Granola、Gong（若为新会议则进行在线调研）等工具信息，在清晨提炼出适合手机通勤翻阅的简报；需要时协同 Slides Bot 预先定制演示文稿。</li>
+<li><strong>团队调度与运维</strong>：统筹收件箱分流与会后跟进草稿；直接创建或唤起其他专用 Agent（如需要演示文稿时主动呼叫 Slides Bot）；定期审视现存的所有 Bot 与日常流程，提出进一步并行化、自动化或清理冗余例行流程（routines）的优化建议。</li>
+</ul>
+</li>
+<li><strong>人工决定</strong>：业务人员保留最终发起权与架构调整权。</li>
+</ul>
+<h3>2. 拓客助手（Prospecting Bot）——商机拓展研究员</h3>
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 8 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 8 分钟正文</span></div>
+<div><span>🔓 380 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.ai/bot/guides/grok-bot-for-gtm">阅读原文 ↗</a>
+</div>
+</div><span>沿着专题继续读</span><a>Grok Bot 工作指南 →</a><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 多项目指南：一个频道、一组成员和两层 Notion 看板</div>
+<div>10-10 · 约 8 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 日常办公指南：让四个 Bot 管好消息、日历与工作情报</div>
+<div>10-10 · 约 12 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot SDR 指南：Cursor 写调研与草稿，Bot 做查重与待发分流</div>
+<div>10-10 · 约 12 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Grok Bot 创始人销售指南：Founder Mode 串起首批客户与产品反馈</title>
+<link>https://best.xiaohu.ai/article/grok-bot-for-founder-led-sales/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:grok-bot-for-founder-led-sales</guid>
+<pubDate>Sat, 10 Oct 2026 12:00:56 +0000</pubDate>
+<description>一名幕僚长和八个专岗，覆盖客户画像、触达、会谈、需求整理与产品迭代。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Grok Bot 创始人销售指南：Founder Mode 串起首批客户与产品反馈</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/grok-bot-for-founder-led-sales/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>Grok Bot 工作指南 →</a><a>从想法到产品销售 →</a></div><div>本页目录</div><a><span>01</span><span>一、起步配置与 8+1 架构：给创始人配一支 24 小时待命的协作团队</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Grok Bot 创始人销售指南：Founder Mode 串起首批客户与产品反馈</h1><p>一名幕僚长和八个专岗，覆盖客户画像、触达、会谈、需求整理与产品迭代。</p><div><span><b>已核对</b></span><span>Simon Lackowski</span><span>10-10 · 约 11 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>Founder Mode 把早期销售的琐事分给八个岗位，让创始人保留客户探索与定价学习。</li><li>客户反馈能经整理变成产品任务，再回到曾经提出需求的客户，形成完整跟进。</li><li>先确认客户画像与例程，再准备草稿；发送、价格、合同和合并都需要人批准。</li></ul><div><p>Grok Bot 的 Founder Mode，是 Simon Lackowski 为创始人亲自做早期销售设计的一套工作配置：一名幕僚长，八个专业 Bot。它们准备客户研究、触达与会谈材料，再把客户反馈接到产品改进和后续沟通。</p>
+<p>在招聘首位销售之前，创始人仍需要亲自学习客户为什么愿意买、如何定价，以及怎样形成可重复的打法。Bot 把相关背景与草稿提前准备好，发送、合同、价格和代码合并仍需要批准。</p>
+<hr />
+<h3>一、起步配置与 8+1 架构：给创始人配一支 24 小时待命的协作团队</h3>
+<p>许多人尝试用 AI 辅助工作时，最常犯的错误就是把所有需求塞进同一个对话框，最后让上下文变成一锅无法理清的乱炖。在 Founder Mode 的设定中，核心设计原则是<strong>「一个 Bot 只认领一件具体的工作」</strong>，并通过四个彩色文件夹（Pipeline、Customers、Product、Marketing）进行归类隔离。</p>
+<p>常驻在云端虚拟机上的 Grok Bot 即使在你的笔记本合上时依然保持运转。每天清晨走进办公室时，夜间准备好的任务已经分门别类暂存在对应的待办格中。Bot 具备记忆能力，可读取往期邮件理解外拓风格，提炼语气指南供所有起草 Bot 遵循。</p>
+<h4>起步配置：Founder Mode setup pack 与工具接入</h4>
+<p>部署的第一步是安装 Founder Mode setup pack，它包含 1 位数字幕僚长 Bot、4 个侧边栏文件夹、8 位专职 Bot、16 个处于暂停状态的例行任务（paused routines）以及 1 个共享数据文件夹：</p>
+<ul>
+<li><strong>约 20 个初始提问（Onboarding）</strong>：系统会询问公司的业务与宣讲重点、创始人语气样本、ICP 画像、目标账户、竞对名单、P0 级问题定义、连接器选择，以及决定开启哪些例行任务。</li>
+<li><strong>调度确认后启用</strong>：所有例行任务初始均为暂停状态，只有当创始人明确确认了偏好的执行时间表（preferred schedule）后，对应的 routine 才会正式启用。</li>
+<li><strong>工具接入节奏</strong>：优先连接已在使用的工具——Gmail 与 Calendar（仅授予草稿起草与只读权限）、交易跟踪表 CSV（直到业务体量超出表格承载）、LinkedIn 与 X（仅草稿与只读权限，保持手动发帖），以及通话纪要工具 Granola。CRM（如 HubSpot、Attio）、供 Product Bot 联动工程的 GitHub、用于现金核对的 Stripe 或 Mercury，以及用于实时联动的 Zapier 或 Make 等 Webhooks，均可在后续按需接入。</li>
+</ul>
+<h4>映射创始人销售的六步旅程</h4>
+<p>这套架构直接映射了初创团队在招募首位专职销售之前必须经历的 6 个关键业务阶段：</p>
+<ol>
+<li><strong>明确 ICP（Define your ICP）</strong>：明确谁能从产品中获得真正价值、分布在何处，并清晰区分出谁是掏钱的经济买家（economic buyer），谁是日常承受业务痛点的人（who feels the pain）。</li>
+<li><strong>寻找设计伙伴（Find design partners）</strong>：将 ICP 转化为一份精准的目标客户短名单，并在人脉网络与历史互动中寻找温和破冰路径（warm paths in）。</li>
+<li><strong>准备首次会谈（Prep for first meetings）</strong>：提前深入调研目标账户背景，进行沟通排练，并规划好关键的需求挖掘（discovery）框架。</li>
+<li><strong>沉淀首套销售剧本（Build your first playbook）</strong>：把早期的面对面沟通动作打磨成一套可重复、并最终能够交接给新销售的标准化动作机制。</li>
+<li><strong>推进交易管道与预测（Run pipeline and forecasting）</strong>：持续推进商机走向，看清究竟是哪些因素在实际驱动收入增长。</li>
+<li><strong>驱动产品持续迭代（Make your product better）</strong>：把从一线收集到的客户与产品反馈，转化为新功能研发优先级的直接依据。</li>
+</ol>
+<p>整个架构包含 1 位幕僚长与 8 位专职专家：</p>
+<h4>1. 总控中枢：Founder Mode（幕僚长 Bot）</h4>
+<p>这是创始人<strong>日常唯一需要直接打交道</strong>的 Bot。它负责统领全局：</p>
+<ul>
+<li><strong>每天早晨 8:00</strong>：把其他 8 个 Bot 夜间运行产出的所有半成品合并，生成一份唯一的「每日行动清单（Daily Action List）」。</li>
+<li><strong>每周一</strong>：对照实际入账收入（incoming revenue）进行核对。</li>
+<li><strong>每周五</strong>：输出整周交易管道进展与赢单/输单分析摘要（Win/Loss Digest）。</li>
+<li><strong>每月一次</strong>：起草投资人月度更新信草稿（需经创始人批准），并结合市场反馈提出 ICP（理想客户画像）的调整提议。</li>
+<li><strong>全局熔断机制</strong>：任何系统监测到的 P0 级严重客诉与紧急 Bug，会直接绕过批处理，第一时间呈报到这里。</li>
+</ul>
+<h4>2. Pipeline 文件夹：交易推进组</h4>
+<ul>
+<li><strong>Sell Bot（销售现场会谈与跟进）</strong>：专注于正在进行的真实商机。开会前，它从日历、Granola 通话录音和利益相关者地图中提炼出 1 页「会前简报」；会议结束后几分钟内，自动在草稿箱拟好会议纪要、针对性跟进邮件，并向创始人提出 CRM 阶段（Stage）变更建议。<strong>核心红线：方案报价、定价变动和合同条款，严禁擅自决断</strong>。</li>
+<li><strong>Outreach Bot（外拓触达）</strong>：每天清晨 7:00 暂存当天的外拓触达批次：包含冷邮件、按作者所称“5 至 6 天的跟进节奏”安排，并在约 8 次触达后停止（原文未给出逐次间隔表），以及针对每个潜在客户成对起草的 LinkedIn 留言。运行前它会先读取交易跟踪表（Deal Tracker），自动排除处于活跃交易中或标记为免打扰的对象；温线索则来自 Social Bot。整批草稿全部等待创始人审批，绝不自动外发。</li>
+</ul>
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 8 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 8 分钟正文</span></div>
+<div><span>🔓 380 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.ai/bot/guides/grok-bot-for-founder-led-sales">阅读原文 ↗</a>
+</div>
+</div><span>沿着专题继续读</span><a>Grok Bot 工作指南 →</a><a>从想法到产品销售 →</a><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 多项目指南：一个频道、一组成员和两层 Notion 看板</div>
+<div>10-10 · 约 8 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 日常办公指南：让四个 Bot 管好消息、日历与工作情报</div>
+<div>10-10 · 约 12 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot SDR 指南：Cursor 写调研与草稿，Bot 做查重与待发分流</div>
+<div>10-10 · 约 12 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Grok Bot 设计指南：用真实动画资产与 Figma 母版缩短试做循环</title>
+<link>https://best.xiaohu.ai/article/designing-grok-bot-with-grok-bot/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:designing-grok-bot-with-grok-bot</guid>
+<pubDate>Sat, 10 Oct 2026 12:00:56 +0000</pubDate>
+<description>John Bai 的四个设计 Agent：探索桌面原型、调动画手感、批量填充生产组件。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Grok Bot 设计指南：用真实动画资产与 Figma 母版缩短试做循环</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/designing-grok-bot-with-grok-bot/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>Grok Bot 工作指南 →</a></div><div>本页目录</div><a><span>01</span><span>四位设计 Agent 的角色定位与拉通机制</span></a><a><span>02</span><span>工作流一：模糊设想的无负担具象化（Experiments 模式）</span></a><a><span>03</span><span>工作流二：基于真实生产资产的直觉调优（Motion God 模式）</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Grok Bot 设计指南：用真实动画资产与 Figma 母版缩短试做循环</h1><p>John Bai 的四个设计 Agent：探索桌面原型、调动画手感、批量填充生产组件。</p><div><span><b>已核对</b></span><span>John Bai</span><span>10-10 · 约 10 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>设计 Bot 让想法更早变成可体验版本，设计师能比较更多方向。</li><li>真实动画规范和 Figma 母版提供统一依据，避免每次从截图重新做起。</li><li>三个桌面入口原型都没有原样上线；试做用于学习，最后的体验判断仍由人做。</li></ul><div><p>Grok Bot 的设计指南，来自 John Bai 用 Grok Bot 设计产品本身的实践。四个常驻 Agent 分担概念试做、动效打磨、Figma 重复生产与工程咨询，让设计师更早接触可以实际体验的版本。</p>
+<p>这套方法沿用已有设计工具，也使用真实动画规范和 Figma 母版。Agent 加快制作、体验、修改的循环；选择哪个版本，以及它在日常工作中是否有帮助，仍由设计师判断。</p>
+<hr />
+<h3>四位设计 Agent 的角色定位与拉通机制</h3>
+<p>要想让多个 Agent 协同工作而不陷入混乱，首先必须理清每个角色的职责边界。在这套工作流中，4 个 Bot 并不是泛泛的聊天机器人，而是分工严密、各持不同工具链的专项搭档：</p>
+<figure>
+<img>
+<figcaption>四位专项 Agent 头像与分工：各自负责前沿探索、动效打磨、画板规范与工程支撑</figcaption>
+</img></figure>
+<ol>
+<li><strong>Experiments（脑洞试水员）</strong>：专接不成熟、没想清楚最终形态的前沿想法。它的唯一目标是把概念迅速做成能上手的实物，启动前不需要证明商业价值或技术排期。</li>
+<li><strong>Motion God（动效调优师）</strong>：手握真实动画规范文件，负责在本地启动调试沙盒，听取设计师的感性指令，实时调整微观手感。</li>
+<li><strong>Figma Bro（规范搬砖工）</strong>：接入 Figma MCP（Model Context Protocol，模型上下文协议），以画板中的母版组件和自动布局（Auto-layout）为绝对基准，专门处理批量生成、图标对齐等重复性高精度工作。</li>
+<li><strong>Devbot（工程落地顾问）</strong>：解答底层技术可行性、系统级 API 限制，帮助其他几个 Bot 理解设计概念在实际代码中该如何编写。</li>
+</ol>
+<p>这四位 Agent 并不处于割裂的单线问答状态，它们能够「开小会（Huddle）」并互相分工。当一个前沿想法提出时，负责探索的 Experiments 会自主把角色动作与过渡分派给 Motion God，把系统调用与工程问题交给 Devbot，最后再把成果整合为可实际体验的原型。</p>
+<hr />
+<h3>工作流一：模糊设想的无负担具象化（Experiments 模式）</h3>
+<p><strong>解决什么问题</strong>：打破「只有先论证可行性才能动手做原型」的传统流程，让荒谬或未经验证的交互能够低成本显形。</p>
+<p>在探索如何让 Grok Bot 在桌面端随时随地被唤起（Ambient Bot Access）时，团队内部并不知道哪种形式体验最好。John Bai 没有停留在脑暴或画草图，而是让 <strong>Experiments</strong> 直接构建了三种截然不同的系统级原型：</p>
+<ol>
+<li><strong>Mac 屏幕刘海常驻（Notch）</strong>：把 Bot 嵌在屏幕刘海区域。平时安稳收拢、不抢占宝贵的工作窗口；有事件需提醒时轻微探出；点击时展开成小巧的工作面板。</li>
+<li><strong>桌面角落悬停探出（Corner Peek）</strong>：平时完全隐藏，鼠标滑过屏幕边缘时探头登场。这种形式弱化了「软件常驻面板」的工具感，更像一个被召唤的角色。</li>
+<li><strong>光标随行伴侣（Cursor Companion）</strong>：让 Bot 如影随形地跟着鼠标指针，与用户当前的实时操作保持高密度交互。</li>
+</ol>
+<h4>协作与串联链条</h4>
+<ul>
+<li><strong>输入</strong>：设计师给出纯口语的功能设想（例如：“试试把 Bot 塞在 Mac 刘海里，展开变成小面板”）。</li>
+<li><strong>执行动作</strong>：Experiments 接单后发现涉及系统底层窗口行为，向 <strong>Devbot</strong> 咨询桌面行为与实现问题；涉及展开收起的过渡手感，再委托 <strong>Motion God</strong> 编写动效曲线；最后将各部分组装成本地可运行的应用。</li>
+<li><strong>交付成果</strong>：不是静态汇报文档，而是安装在电脑上能点、能划、能日常体验的实际 Demo。</li>
+<li><strong>人工决定</strong>：设计师在全天的日常工作中自然接触每个版本，体会它们在何时带来助益、何时造成干扰，或者介于两者之间。</li>
+</ul>
+<blockquote>
+<p><strong>这三个探索概念最终都没有原样上线</strong>。探索的目的并非直接交付上线，而是在真实使用中体会不同交互何时提供帮助、何时产生干扰，并从中获得认知。</p>
+</blockquote>
+<hr />
+<h3>工作流二：基于真实生产资产的直觉调优（Motion God 模式）</h3>
+<p><strong>解决什么问题</strong>：告别以往动效必须甩给人肉动效师、改一次参数等半天的脱节状态，让设计师能够用直觉体感在真实代码资产上调手感。</p>
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 7 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 7 分钟正文</span><span>6 处图表与交互</span></div>
+<div><span>🔓 380 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.ai/bot/guides/designing-grok-bot-with-grok-bot">阅读原文 ↗</a>
+</div>
+</div><span>沿着专题继续读</span><a>Grok Bot 工作指南 →</a><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 多项目指南：一个频道、一组成员和两层 Notion 看板</div>
+<div>10-10 · 约 8 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 日常办公指南：让四个 Bot 管好消息、日历与工作情报</div>
+<div>10-10 · 约 12 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot SDR 指南：Cursor 写调研与草稿，Bot 做查重与待发分流</div>
+<div>10-10 · 约 12 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【周报】Claude Code 云端会话上手指南：连接仓库、提交任务、检查与合并</title>
 <link>https://best.xiaohu.ai/article/claude-code-cloud-field-guide/</link>
