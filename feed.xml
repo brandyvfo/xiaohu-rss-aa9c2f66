@@ -6,7 +6,2244 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Fri, 09 Oct 2026 12:00:51 +0000</lastBuildDate>
+<lastBuildDate>Sat, 10 Oct 2026 00:00:15 +0000</lastBuildDate>
+<item>
+<title>【周报】Claude Code 云端会话上手指南：连接仓库、提交任务、检查与合并</title>
+<link>https://best.xiaohu.ai/article/claude-code-cloud-field-guide/</link>
+<category>周报</category>
+<guid isPermaLink="false">xiaohu:claude-code-cloud-field-guide</guid>
+<pubDate>Sat, 10 Oct 2026 00:00:15 +0000</pubDate>
+<description>从浏览器里的第一个小任务开始，逐步配置环境、复制验证指令、审查改动；再按需使用并行任务、本地接回和自动化。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 周报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Claude Code 云端会话上手指南：连接仓库、提交任务、检查与合并</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/claude-code-cloud-field-guide/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Claude Code 云端会话上手指南：连接仓库、提交任务、检查与合并</h1><p>从浏览器里的第一个小任务开始，逐步配置环境、复制验证指令、审查改动；再按需使用并行任务、本地接回和自动化。</p><strong>一分钟速览</strong><ul><li>Claude Code 云端会话让代码任务在独立机器和分支上运行，关掉电脑后也能继续。</li><li>先用默认环境跑通一个小任务，再补项目需要的配置。</li><li>任务完成后要检查改动和实际测试；并行分支合并后还需一起验证。</li></ul><div><p>平常在个人电脑的终端里运行 Claude Code 时，整个工作流程与手头的这台笔记本电脑深度绑定：如果针对同一个代码仓库同时开两个会话，本地文件容易互相改乱，测试服务还会因争抢同一个网络端口（例如都要占用 3000 端口）而报错；会话与本机的 SSH 密钥、云平台登录凭据同处一个环境；电脑休眠时任务无法继续推进，断网也会阻断需要调用模型或远程服务的步骤。</p>
+<p>Claude Code 的<strong>云端会话</strong>（Cloud Sessions）将任务迁移到云端运行：你提交一项任务，系统会在云端临时启动一台全新的独立虚拟机（即 VM，在云端划分出的虚拟计算机，各任务之间互不干扰），把代码仓库克隆到一个专属的新分支上全自动工作。到达停止点时，它会推送包含改动的远程分支，你可以将这组改动转为 Pull Request（简称 PR，即代码拉取请求，供团队审查合并代码）。</p>
+<p>这套能力已包含在 Pro、Max、Team 以及拥有 Premium 或 Chat + Claude Code 席位的 Enterprise 付费订阅中，无需额外支付云算力费用，任务直接计入当前账户的使用额度。</p>
+<hr />
+<h2>快速决策：哪些任务交由云端？哪些适合留在本地？</h2>
+<p>云端会话并不会完全替代本地终端，理解两者的能力边界，有助于在日常开发中合理分流任务：</p>
+<div><table>
+<thead>
+<tr>
+<th>比较维度</th>
+<th>本地终端会话</th>
+<th>云端独立会话</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>运行宿主</td>
+<td>本地笔记本或台式机</td>
+<td>临时划分的独立云端虚拟机</td>
+</tr>
+<tr>
+<td>电脑休眠断网</td>
+<td>休眠时停止推进，断网影响联网步骤</td>
+<td>云端持续运行，随时跨设备查看</td>
+</tr>
+<tr>
+<td>多任务并行</td>
+<td>需手动配置 Worktree 与端口</td>
+<td>每任务独占机器与分支，天然隔离</td>
+</tr>
+<tr>
+<td>权限可触达范围</td>
+<td>本机文件、SSH 密钥、个人配置</td>
+<td>仓库、设定的网络、启用的连接器与自身分支凭证</td>
+</tr>
+<tr>
+<td>交互查看入口</td>
+<td>本机终端，或手机远程控制</td>
+<td>网页、手机 App、桌面版、终端、Slack</td>
+</tr>
+<tr>
+<td>操作审批模式</td>
+<td>任意模式，包括逐条命令手动确认</td>
+<td>Auto、Accept edits 或 Plan</td>
+</tr>
+<tr>
+<td>产出交付形式</td>
+<td>直接修改本地工作区未提交文件</td>
+<td>生成远程独立分支，一键创建 PR</td>
+</tr>
+<tr>
+<td>算力与消耗</td>
+<td>消耗本机 CPU 与电池</td>
+<td>无额外算力费，并行按比例消耗套餐用量</td>
+</tr>
+</tbody>
+</table></div>
+<h3>这些情况建议留在本地运行</h3>
+<ul>
+<li><strong>私有数据与特定网络</strong>：任务必须读取仅保存在本地 Docker 中的测试数据库，或者必须挂载公司特定内网 VPN 才能连通的服务；</li>
+<li><strong>物理硬件依赖</strong>：需要调用本机物理 GPU 算力、外接硬件开发板，或依赖本地运行的移动端模拟器；</li>
+<li><strong>前端高频视觉调试</strong>：需要修改一行样式就在本地浏览器看到即时视觉反馈的交互微调；</li>
+<li><strong>严格合规限制</strong>：所在企业开启了“零数据留存”策略（Zero Data Retention, ZDR，开启该策略时云端会话功能会被自动禁用）。</li>
+</ul>
+<p>如果任务需要利用本地环境但人想离开工位，可使用<strong>远程控制</strong>（Remote Control，计算仍在个人电脑运行，仅通过手机或浏览器发指令与看进度）；若企业属于 Team 或 Enterprise 订阅，还可考虑<strong>自托管环境</strong>（Self-hosted Environments，面向商业版开放的 Beta 功能，将会话运行在企业自建的基础设施上）。若无上述限制，直接交给云端处理能显著释放个人电脑资源。</p>
+<hr />
+<h2>第一步：在浏览器中打通 GitHub 仓库连接</h2>
+<p>在云端拉取私有代码，核心前提是理清两套独立的 GitHub 权限：</p>
+<ol>
+<li><strong>使用 GitHub 账号登录 Claude</strong>：向系统认证“你是哪位用户”，仅具备拉取公开开源仓库的基础身份凭证；</li>
+<li><strong>安装 Claude GitHub App</strong>：向 Claude 显式授权它“有权读写哪些具体的私有仓库”，并打通后续自动修复与事件通知。</li>
+</ol>
+<p>四种连接方式都能读取公开仓库，私有仓库与自动联动的差别如下：</p>
+<div><table>
+<thead>
+<tr>
+<th>连接方式</th>
+<th>个人私库</th>
+<th>组织私库</th>
+<th>自动联动</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>仅 GitHub 登录</td>
+<td>不可读</td>
+<td>不可读</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>加装个人 App</td>
+<td>可读</td>
+<td>不可读</td>
+<td>个人仓库</td>
+</tr>
+<tr>
+<td>加装组织 App</td>
+<td>个人账号另装</td>
+<td>可读</td>
+<td>组织仓库</td>
+</tr>
+<tr>
+<td><code>/web-setup</code></td>
+<td>按 Token 权限</td>
+<td>按 Token 权限</td>
+<td>仍需 App</td>
+</tr>
+</tbody>
+</table></div>
+<p>此处自动联动指 Auto-fix、GitHub 事件触发和 Projects；普通定时 Routine 不以安装 App 为统一前提。</p>
+<h3>路径 A：浏览器图形化连接（初次使用主线推荐）</h3>
+<p>全流程只需使用现代浏览器即可完成，本地不需要安装 Node.js、Git 或任何命令行工具。</p>
+<p><strong>前置账号与权限要求</strong>：</p>
+<ul>
+<li><strong>可用账号与席位</strong>：云端会话必须使用带有付费订阅的 <code>claude.ai</code> 账号（支持 Pro、Max、Team，以及分配了 Premium 或 Chat + Claude Code 席位的 Enterprise）；通过 Anthropic Console 申请的独立 API Key，或第三方云服务商（如 AWS Bedrock、Google Cloud Vertex AI）均不支持云端会话。</li>
+<li><strong>企业管理员开关</strong>：若属于 Team 或 Enterprise 企业订阅，必须由组织所有者（Owner）预先在管理后台开启两项功能：在 <code>claude.ai/admin-settings/connectors</code> 开启 GitHub 连接器（GitHub Connector），并在 <code>claude.ai/admin-settings/claude-code</code> 开启云端会话（Cloud sessions）权限；若 GitHub 连接器未开启，页面可能提示“GitHub access is required for Claude Code cloud sessions”。</li>
+</ul>
+<p><strong>浏览器连接四步流程</strong>：</p>
+<ol>
+<li><strong>登录 Claude 账号</strong>：在浏览器打开 <a href="https://claude.ai/code">claude.ai/code</a>，登录上述具备有效付费订阅的 <code>claude.ai</code> 账号。若尚未关联 GitHub，页面会自动引导进入连接流程（也可直接访问官方连接页 <a href="https://claude.ai/connect-github">claude.ai/connect-github</a>）。</li>
+<li><strong>连接 GitHub 个人身份</strong>：点击界面中央的 <strong>Connect to GitHub</strong> 按钮，系统会跳转至 GitHub 官方授权页面，确认个人基础身份登录：</li>
+</ol>
+<figure>
+<img />
+<figcaption>第一步：使用 GitHub 账号完成基础个人身份认证（作者用示例数据在本地呈现的连接界面）</figcaption>
+</figure>
+<ol>
+<li><strong>安装 Claude GitHub App</strong>：登录完成后，页面会引导安装 <strong>Claude GitHub App</strong>。选择将 App 安装至你的个人账号或目标组织，并在仓库访问权限中选择 <strong>All repositories</strong>（所有仓库）或 <strong>Only select repositories</strong>（仅选定仓库）：</li>
+</ol>
+<figure>
+<img />
+<figcaption>第二步：安装 Claude GitHub App 并选定被授权访问的代码仓库</figcaption>
+</figure>
+<ol>
+<li><strong>确认连接成功信号</strong>：授权完成后，页面将自动跳回 <a href="https://claude.ai/code">claude.ai/code</a>。连接成功的明确可观察信号为：
+<ul>
+<li>输入框旁的<strong>仓库选择器</strong>中，已能正确检索并选择到授权的私有代码仓库；</li>
+<li>输入框上方的<strong>环境选择器</strong>中，默认的 <strong>Default</strong> 环境已处于可选状态。</li>
+</ul>
+</li>
+</ol>
+<h3>浏览器连接常见受阻排查</h3>
+<p>如果授权后页面未正常跳回，或仓库列表显示为空，可对照以下官方排查点处理：</p>
+<figure>
+<img />
+<figcaption>连接中断或仓库未列出时的官方排查提示</figcaption>
+</figure>
+<ul>
+<li><strong>痛点 1：私有仓库在下拉列表中完全看不见</strong><br />
+<em>排查与解法</em>：App 没有安装在该仓库所属的账号/企业下，或者安装时遗漏了该仓库。前往 GitHub 的个人/组织 <strong>Settings &gt; Applications &gt; Installed GitHub Apps</strong>，找到 Claude 并把对应仓库加入授权白名单。</li>
+<li><strong>痛点 2：提示“必须是组织管理员（Owner）才能关联”</strong><br />
+<em>排查与解法</em>：组织开启了成员资格保护或权限审核机制。需要组织所有者（Owner）进入组织的 GitHub App 设置批准权限申请，并在管理后台为已安装的 App 启用“IP allow list inheritance（IP 白名单继承）”，或在 SAML 单点登录设置中主动授予 Claude 访问权。在 Team 或 Enterprise 订阅下，Owner 还需先在 <code>claude.ai/admin-settings/connectors</code> 中将 GitHub 连接器开关打开。</li>
+<li><strong>痛点 3：授权成功后，组织旗下的代码库突然全部消失</strong><br />
+<em>排查与解法</em>：企业启用了 SAML 单点登录（SSO），在 GitHub 授权弹窗的“Single sign-on to your organizations”列表步骤中不慎跳过了。进入 GitHub 个人设置的 <strong>Applications &gt; Authorized OAuth Apps</strong>，找到 Claude，在所在组织名称旁补点 <strong>Authorize</strong>，重新登录即可恢复。</li>
+<li><strong>痛点 4：会话统一报错“Authentication Error”</strong><br />
+<em>排查与解法</em>：企业在 Claude 控制台配置了企业 IP 访问白名单，需联系管理员将 Anthropic 云端基础设施的服务 IP 列入白名单豁免列表。</li>
+</ul>
+<hr />
+<h3>附：CLI 本地首次安装（选读，仅供习惯使用终端的开发者参考）</h3>
+<p>如果你打算使用本地命令行工具同步凭据或发起任务，需先在系统终端中完成官方安装（仅使用网页端的读者可直接跳过本节）：</p>
+<ul>
+<li><strong>macOS、Linux 与 WSL</strong>：<div><pre><code>curl -fsSL https://claude.ai/install.sh | bash
+</code></pre></div>
+</li>
+<li><strong>Windows PowerShell</strong>：<div><pre><code>irm https://claude.ai/install.ps1 | iex
+</code></pre></div>
+</li>
+</ul>
+<p>安装完成后，打开一个新的终端窗口并运行 <code>claude --version</code>。若成功输出版本号，说明安装成功且 PATH 环境变量已生效。<br />
+<em>Shell 环境提示</em>：Windows 用户必须在 PowerShell 窗口中运行；若提示 <code>'irm' is not recognized</code> 说明误用了旧版 CMD。</p>
+<hr />
+<h3>路径 B：终端同步已有 <code>gh</code> 凭证（适用于熟悉 CLI 的开发者）</h3>
+<p>如果你本地已安装并配置了 GitHub 官方命令行工具 <code>gh</code>，也可以通过终端快速同步凭证。请注意区分系统终端命令与 Claude 交互会话内置斜杠命令：</p>
+<ol>
+<li>在系统终端中先检查并确保已登录 GitHub：<div><pre><code>gh auth login
+</code></pre></div>
+</li>
+<li>在系统终端输入 <code>claude</code> 启动 Claude Code 交互会话：<div><pre><code>claude
+</code></pre></div>
+</li>
+<li>在 Claude Code 交互提示符下，确认登录凭据：
+<ul>
+<li>若尚未登录，输入斜杠命令登录：<div><pre><code>/login
+</code></pre></div>
+</li>
+<li>输入 <code>/status</code> 查看状态，确认 <strong>Login method</strong> 明确显示为 <code>claude.ai</code> 订阅账户（使用 API Key 登录不支持云端功能）。</li>
+</ul>
+</li>
+<li>在 Claude Code 交互提示符内输入凭据同步命令（Team/Enterprise 需由 Owner 预先在管理后台开启 Quick setup 开关）：<div><pre><code>/web-setup
+</code></pre></div>
+</li>
+<li><strong>显式确认凭证上传</strong>：Claude Code 会调用 <code>gh auth token</code> 读取本地 Token，并在终端弹出明确的提示向你请求确认（询问是否将该 Token 上传并绑定至你的 Claude 账户，此过程有明确交互，绝非静默执行）。</li>
+<li>确认同意后，Token 被加密传输并绑定至你的云端账户，终端输出 <code>Connected as &lt;你的GitHub用户名&gt;</code> 并自动在浏览器中打开 <a href="https://claude.ai/code">claude.ai/code</a>。</li>
+<li><strong>工作流权限缺失排查</strong>：若终端出现权限警告提示缺少 <code>workflow</code> scope，需先回到系统终端运行：<div><pre><code>gh auth refresh -s workflow
+</code></pre></div>
+补全权限后，<strong>必须重新进入 Claude Code 再次执行 <code>/web-setup</code> 重新上传 Token</strong>，权限变更才会生效。</li>
+<li><strong>凭据解绑影响说明</strong>：若后续在 <code>claude.ai/customize/connectors</code> 移除 GitHub 连接，仅会删除 Anthropic 云端保存的凭证，<strong>绝不会自动注销或使本地电脑上的 <code>gh</code> 登录态失效</strong>；若需彻底作废该 Token，需在 GitHub 个人设置的 <strong>Applications &gt; Authorized OAuth Apps</strong> 中注销 GitHub CLI 授权。</li>
+</ol>
+<hr />
+<h3>路径 C：无远程仓库时的一键打包快传（Bundle）</h3>
+<p>对于尚未推送到 GitHub 的本地新工程，或未安装 App 的仓库，在本地终端执行：</p>
+<div><pre><code>claude --cloud "任务描述"
+</code></pre></div>
+<p>系统会自动将本地代码打包（Bundle）上传至云端虚拟机。若远程已有仓库但希望强制以本地打包模式运行，可在 Bash/Zsh 中显式声明变量：</p>
+<div><pre><code>CCR_FORCE_BUNDLE=1 claude --cloud "任务描述"
+</code></pre></div>
+<p><strong>打包前先检查这几项</strong>：</p>
+</div></div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【周报】Mistral 发布 Large 4 预览版：万亿参数，瞄准企业复杂工作</title>
+<link>https://best.xiaohu.ai/article/mistral-large-4/</link>
+<category>周报</category>
+<guid isPermaLink="false">xiaohu:mistral-large-4</guid>
+<pubDate>Sat, 10 Oct 2026 00:00:15 +0000</pubDate>
+<description>从安全应急、工业画面定位到跨页核对文档，Mistral Large 4 把看图、查证与工具使用接起来。相对旧模型，跨应用工作流明显提升；开放权重则让企业有机会按自己的政策运行关键能力。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 周报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Mistral 发布 Large 4 预览版：万亿参数，瞄准企业复杂工作</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/mistral-large-4/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Mistral 发布 Large 4 预览版：万亿参数，瞄准企业复杂工作</h1><p>从安全应急、工业画面定位到跨页核对文档，Mistral Large 4 把看图、查证与工具使用接起来。相对旧模型，跨应用工作流明显提升；开放权重则让企业有机会按自己的政策运行关键能力。</p><strong>一分钟速览</strong><ul><li>Mistral Large 4 是面向企业复杂工作的多模态模型，跨应用任务能力相对旧模型明显提升。</li><li>它把看图、找证据和计算接起来，能给出对象位置、图纸判断和有依据的文档答案。</li><li>安全应急中途失去模型能力可能影响处置，开放权重让企业有机会自主运行；目前权重仍待发布。</li></ul><div><p>Mistral 推出了旗舰大模型 <strong>Mistral Large 4</strong>（代号 ML4，团队内部戏称为“le Chonk / 大胖子”）的公众预览版 API。官方宣布计划在月底开放模型权重（目前权重尚未发布，具体许可细节也未提供），并介绍了其在欧洲自建数据中心、由 3,800 张英伟达 Grace Blackwell GPU 构筑的自主基础设施。</p>
+<p>这款模型总参数量达到 1.05 万亿（1.05T），采用稀疏混合专家架构（MoE），在每个 Token 的计算步骤中只激活约 490 亿参数（49B）；在产品定位上，它将指令遵循、推理与多模态 Agent 能力整合于单一模型中。Mistral 将企业可控能力作为重点发布方向，聚焦在<strong>网络安全实战、复杂代码工程、长流程 Agent 工具使用，以及金融与法律专业工作流</strong>等对数据与运行政策有严格要求的场景。</p>
+<h2>架构与体量：为什么叫“大胖子”（le Chonk）？</h2>
+<p>在模型卡和官方发布中，Mistral 幽默地把 ML4 叫做“le Chonk”（网络流行语，形容圆滚滚、体量巨大的动物）。从规格上看，它确实是个庞然大物，其工程架构的设计取舍十分明确：</p>
+<ul>
+<li><strong>总参数 1.05 万亿，激活参数 490 亿</strong>：它采用颗粒度更细的混合专家架构（Granular MoE）。总参数与激活参数的区别在于：总参数是整个模型的完整知识网络，部署系统仍需存储完整权重；而激活参数则是模型在每步生成单个 Token 时，由门控路由挑出参与当前浮点运算的特定专家模块。MoE 架构虽然减少了每个 Token 计算时参与运算的参数量，但服务器依然需要存储 1.05 万亿参数的庞大总权重，减少参与计算的参数，并没有让总权重变小；实际速度与部署开销还取决于硬件、精度和服务配置。</li>
+<li><strong>原生视觉编码器与 1M 上下文</strong>：模型集成了约 16 亿参数（1.6B）的原生视觉编码器，并支持 100 万 Token 的上下文窗口（1M Context）。这两项是相互独立的规格：1M 上下文允许容纳长篇文档或多轮历史，但面对超高分辨率卫星图像或复杂机械图纸时，模型并不能仅凭单次输入自动看清所有微小细节，仍需要配合视窗缩放、局部裁切等外部工具才能完成跨层级核对。</li>
+<li><strong>多语言与欧洲自主运营</strong>：训练数据覆盖超过 160 种语言，囊括欧盟全部官方语言。Mistral 与金融、工程制造、物流、医药等领域的企业合作训练 ML4，并使用了向客户提供的同款训练、定制与强化学习环境（Mistral Forge）。这把通用模型研发与企业按业务任务进行定制联系起来：客户使用的训练工具，也用于 Mistral 自己的旗舰模型。模型在欧洲本土由 Mistral 自建数据中心内的 3,800 张英伟达 Grace Blackwell GPU 从头训练，预览版也部署在该基础设施上；Mistral 强调其在欧洲法律管辖下提供端到端自主运营，避免依赖其他云服务商，但企业本地的独立自部署仍需等待后续权重与许可的具体开放。</li>
+</ul>
+<hr />
+<h2>网络安全实战：正当漏洞复现受阻，开放权重怎么解？</h2>
+<p>在网络安全运维中，防御团队经常遇到一个实际问题：要修补一个系统漏洞，往往需要先在受控环境中复现该漏洞的触发条件。然而，部分云端商业大模型设置了较严格的通用安全风控机制，在处理涉及漏洞利用特征或渗透指令的输入时，某些正当的漏洞复现与应急响应任务可能会触发服务商层面的安全策略拒绝（Safety Refusal）而无法继续。Mistral 强调，在安全事故处置中途失去某项模型能力，本身也可能成为重大安全风险：已经依赖模型推进的排查、复现与修补可能被迫停下来。自主运行的价值因此还包括应急连续性——组织可以按自己的政策安排和审计安全工作，减少对服务商临时决定的依赖。开放权重与自部署目前仍是计划，当前公众预览服务由 Mistral 托管。</p>
+<figure>
+<img />
+<figcaption>Artificial Analysis Cyber Index 测试中各模型的综合成功率与安全阻断率对比：部分模型因触发安全策略被阻断，而 ML4 在该测试中取得了 50% 的成功率；原图同时显示了部分其他模型的安全阻断比例。</figcaption>
+</figure>
+<p>在 Mistral 公布的第三方机构 Artificial Analysis Cyber Index 评测数据中，展示了不同模型在网络安全测试中的表现：</p>
+<ul>
+<li><strong>综合指标（Cyber Index）</strong>：在汇总了多项安全评测的综合指标中，原图将任务成功率与安全阻断率并列呈现。ML4 取得了 50% 的成功率；相比之下，Qwen3.8 2.4T A95B 出现了 63% 的安全阻断（成功率为 13%），Claude Opus 5.5 与 GPT-6 Astra 也分别记录了 38% 的安全阻断（成功率分别为 29% 与 33%）。因此，这张图衡量的既有解题能力，也有模型愿不愿意执行相应任务。</li>
+<li><strong>真实漏洞复现与修复（CyberGym-E2E）</strong>：作为 Cyber Index 中的一个特定单项，该测试要求模型在真实开源软件中复现漏洞并生成修复补丁。ML4 在该单项中取得 82% 的得分，高于 MiMo-V2.6-Pro（79%）、GLM-5.3（74%）与 Kimi K3（58%）。Mistral 指出，Claude Opus 5.5 与 GPT-6 Astra 在该单项中由于直接拒绝执行复现任务，得分接近零；拒绝造成的低分，与尝试后没有解决问题，是两种不同的失败。</li>
+<li><strong>40 道 CTF 安全竞赛（Cybench）</strong>：在由 40 道竞赛题组成的 Cybench 测试中，ML4 解出了 93% 的题目，在公布的开放权重模型中位居前列。此外，在官方公布的内部 CTF Speedrun 演示中，包含 19 道内部安全挑战题目，ML4 完成了其中的 18 道（同场对比中 GLM-5.2 完成 16 道、Kimi K3 完成 15 道、GLM-5.3 完成 14 道、DeepSeek V4.1 Flash 完成 14 道、DeepSeek V4 Pro 完成 10 道）；这套 19 题内部演示与前述 40 题 Cybench 是不同任务集。</li>
+</ul>
+<h3>逆向工程不是“一键神话”：56 轮轨迹交互的实操过程</h3>
+<p>在官方公布的一段对未知二进制可疑文件 <code>sample.bin</code> 进行分析的演示中，模型经历了 56 轮轨迹交互（Trajectory turns，而非单纯 56 次工具调用），展示了逐步推进的排错过程：</p>
+<ol>
+<li><strong>静态特征分析</strong>：模型首先调用工具查看文件格式、导入表和字符串列表。</li>
+<li><strong>反编译与载荷解码</strong>：随后对可疑代码进行反编译与字节读取，从中提取并解码出一段 892 字节的加密有效载荷（Payload）。</li>
+<li><strong>API 哈希反查受挫</strong>：模型尝试反查 Windows API 哈希以明确系统调用行为，但中途多次反查失败。</li>
+<li><strong>转向规则编写与验证</strong>：在哈希反查未果后，模型转向根据已解出的代码逻辑编写 YARA 特征检测规则；该规则编译后成功命中样本，并在给定的 683 个纯净文件测试集中确认误报率为 0。</li>
+<li><strong>补齐证据与完成交付</strong>：在提交最终分析报告时，后台检查系统连续三次因“结论缺少对应数据支撑”退回报告。模型通过工具返回的声明标识（Claim IDs）逐项修复报告中的证据引用，最终交付了包含 17 项已证实结论、2 项合理推断和 1 项未确认结论的 20 项主张报告。</li>
+</ol>
+<p>这种在长链条中通过工具试错与纠错的能力，是安全 Agent 落地的重要前提。正当任务能够复现漏洞并不意味着模型解除了安全限制：在面对恶意攻击请求时，模型依然会执行拒绝。在 Mistral 公布的恶意网络请求拒绝评测中（综合 JailbreakBench、StrongREJECT 与 AgentHarm 三项测试），ML4 的平均拒绝率达到 95.3%；在防御间接提示词注入（Indirect Prompt Injection，指网页或文档中夹带隐藏指令诱导 Agent 偏离任务）的 Lakera B3 测试中，ML4 录得 93.3% 的攻击抵抗率，与 GLM-5.3 并列最高；在用户交互责任表现的 KORA 评测中，ML4 得分为 1.691 分（满分 2 分）。此外，官方提到的“减少安全过滤、开放扩展网络安全能力”版本，目前仅提供给审定的合作伙伴、安全机构与政府红队用于联合演练，并不代表公共 API 或未来的常规调用没有任何安全约束。</p>
+<hr />
+<h2>代码与 Agent 协作：基准测试中的实际表现</h2>
+<p>在软件工程与 Agent 工作流方面，Mistral 公布了多项基准测试数据。汇总代码修复、终端操作与仓库问答的综合指标 Coding Agent Index 中，ML4 得分为 49.8%，高于 DeepSeek V4 Pro 0813 与 Qwen3.8 Max。各单项评测结果如下：</p>
+<div><table>
+<thead>
+<tr>
+<th>基准</th>
+<th>测什么</th>
+<th>ML4 结果</th>
+<th>与图中模型对照</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DeepSWE 1.1</strong></td>
+<td>软件工程代码库缺陷自动修复</td>
+<td><strong>61.7%</strong></td>
+<td>Kimi K3 (68%)、GLM-5.3 (61%)、DeepSeek V4 Pro 0813 (57%)、Qwen3.8 Max (51%)、DeepSeek-V4.1-Flash (44%)</td>
+</tr>
+<tr>
+<td><strong>Terminal-Bench 4.0</strong></td>
+<td>复杂终端与命令行环境操作</td>
+<td><strong>28.3%</strong></td>
+<td>GLM-5.3 (40%)、Kimi K3 (21%)、Qwen3.8 Max (17%)、DeepSeek V4 Pro (10%)</td>
+</tr>
+<tr>
+<td><strong>SWE-Atlas-QnA</strong></td>
+<td>大型代码仓库全局架构理解与问答</td>
+<td><strong>59.4%</strong></td>
+<td>DeepSeek V4 Pro 0813 (66%)、Kimi K3 (62%)、Qwen3.8 Max (62%)、GLM-5.3 (59%)、DeepSeek-V4.1-Flash (33%)</td>
+</tr>
+<tr>
+<td><strong>Surge AI 人工盲评</strong></td>
+<td>专业标注员在隐藏模型身份下对代码质量评分（1–5 分）</td>
+<td><strong>3.74 分</strong></td>
+<td>在参评的 5 款模型中排第 2：低于 Claude Opus 5 (4.22)，高于 GLM-5.3 (3.60)、Kimi K3 (3.59)、GLM-5.2 (3.40)</td>
+</tr>
+<tr>
+<td><strong>AutomationBench</strong></td>
+<td>跨 657 个日常应用工作流（表格/邮件/Slack等）执行</td>
+<td><strong>59.9%</strong></td>
+<td>GLM-5.3 (62.2%)、Kimi K3、MiMo-V2.6-Pro、DeepSeek V4 Pro</td>
+</tr>
+<tr>
+<td><strong>AA-Briefcase</strong></td>
+<td>长期知识工作交付（生成文档、表格、幻灯片等）</td>
+<td><strong>1,393 Elo</strong></td>
+<td>高于 DeepSeek V4 Pro（此项为 Elo 评级，非百分比成功率）</td>
+</tr>
+</tbody>
+</table></div>
+<p>从各项数据来看，ML4 在不同代码任务中表现不同：例如在 DeepSWE 与命令行测试中领先部分开放权重模型，但在 Terminal-Bench 上落后于 GLM-5.3，在代码库问答上也略低于 DeepSeek V4 Pro 与 Qwen3.8 Max。比较时还要看测试框架（Harness）及工具配置：图中部分模型使用不同代码工具，部分 Artificial Analysis 成绩来自框架公开前的私下评测，分数差距不能直接换算成生产环境效果。</p>
+<h3>从 Medium 3.5 到 ML4：工作流能力提升了多少？</h3>
+<p>与竞品比较之外，Mistral 自家模型的前后变化也值得看。官方图表把 Medium 3.5 与 ML4 放在同一组任务里比较：</p>
+<p>工作流从 <strong>6.3% 提升到 59.9%</strong>，增加 <strong>53.6 个百分点</strong>。同图中，金融 Agent 得分从 32.1 到 54.7，财会表格从 36.7 到 67.4；科学编程单次通过率从 70% 到 91.8%，图表问答得分则从 55.4 到 63.1。</p>
+<div><table><thead><tr><th>任务</th><th>旧模型</th><th>ML4</th></tr></thead><tbody>
+<tr><th>跨应用工作流</th><td>6.3%</td><td><strong>59.9%</strong></td></tr>
+<tr><th>金融 Agent</th><td>32.1</td><td><strong>54.7</strong></td></tr>
+<tr><th>财会表格</th><td>36.7</td><td><strong>67.4</strong></td></tr>
+<tr><th>科学编程</th><td>70%</td><td><strong>91.8%</strong></td></tr>
+<tr><th>图表问答</th><td>55.4</td><td><strong>63.1</strong></td></tr>
+</tbody></table></div><p>旧模型为 Mistral Medium 3.5。五项依次对应 AutomationBench、Finance Agent V2、FinWorkBench、SciCode-Verified 与 ChartQA Pro；分数按各自基准口径，不能跨行比较高低。</p>
+<p>在这套测试中，新模型能完成的跨应用任务明显更多；金融表格与科学编程也有较大进步，图表问答的增幅则较小。对已有 Mistral 使用者，这些变化更直接地回答了“换到新模型，有哪些工作值得重新测试”。这些分数没有单独揭示前代模型为什么失败，也不能换算成执行速度或全部归因于 RL。</p>
+<hr />
+<h2>垂直领域场景：法律、财务与多模态图纸</h2>
+<p>通用大模型进入垂直业务，核心在于能否胜任严谨的专业流程。在法律责任界定、财务审计与工业工程图纸分析中，评测往往围绕具体的业务工作任务展开。</p>
+<figure>
+<img />
+<figcaption>Vals.ai 法律基准测试：ML4 在 Harvey's Legal Agent 评测中获得 15.8 分，高于同图对比模型。</figcaption>
+</figure>
+<h3>1. 法律与金融实战：面向业务工作任务</h3>
+<p>在第三方评估机构 vals.ai 组织的行业评测中，考察的是模型处理专业工作流的能力，而非宽泛的通识问答：</p>
+<ul>
+<li><strong>法律 Agent 评测（Harvey’s Legal Agent Benchmark）</strong>：在 Mistral 公布的结果中，ML4 获得 <strong>15.8 分</strong>（该项为绝对得分，非百分比），高于 Kimi K3（12.9）、Qwen3.8 Max（10.4）、GLM-5.3（8.3）与 GPT-6 Astra（5.4）。</li>
+<li><strong>金融业务与表格处理</strong>：在 Finance Agent V2 评测中，ML4 得分为 54.7，高于 GPT-6 Astra（53.5），略低于 GLM-5.3（55.9）；而在涉及真实财会表格创建与编辑的 FinWorkBench 测试中，ML4 取得 67.4 分，与 DeepSeek V4 Pro（67.4）同分，低于 Kimi K3（77.3）。这些分数反映了模型在特定工具调度与业务流中的处理能力，但不能以此代替专业法务或审计人员的人工审查。</li>
+</ul>
+<h3>2. 财务报表检索演示：跨年度附注信息核对</h3>
+<p>在官方展示的一项跨年份财报分析演示中，系统给出了一个针对性的查询任务：</p>
+<blockquote>
+<p><em>“默克集团（Merck KGaA）因剥离生物类似药业务产生的或有对价资产，在 2022 年底和 2023 年底的账面价值分别是多少？当时分别采用了多高的税后折现率？两年账面价值的同比变化是多少？”</em></p>
+</blockquote>
+<p>或有对价资产（指企业在出售业务后，根据后续研发或商业化里程碑等约定未来有权收取的款项）的核算通常深藏于财务报表附注中。在该项演示中，多个受测模型均检索到了核心事实并完成了计算，但各自记录的轨迹交互轮数有所不同（ML4 为 16 轮，GLM-5.3 为 28 轮，DeepSeek V4 为 38 轮，MM3.5 为 42 轮），这反映了本次演示中具体检索路径的差异，不能直接推断为普遍的时间、成本或准确率优势。在这次演示中，ML4 核对了 2023 与 2024 年度的报表附注：</p>
+<ul>
+<li>确认该资产属于第三层级公允价值计量（Level 3 Fair Value）；</li>
+<li>查出账面价值从 2022 年底的 2.19 亿欧元减少至 2023 年底的 1.18 亿欧元，计算出同比减少 1.01 亿欧元（变动率为 <strong>-46.12%</strong>）；</li>
+<li>提取出税后折现率由 2022 年底的区间范围（6.3%–7.3%）变为 2023 年底单一的 6.6%，并依据年报披露指出账面价值减少主要源于年内收到了买方支付的里程碑款项。</li>
+</ul>
+<h3>3. 多模态理解与工程图纸演示</h3>
+<p>在多模态评测方面，不同基准展示了不同的能力切片：在密集目标视觉定位评测 Dense 200 中，原图显示 ML4 得分为 42.0%，略高于 GPT-6 Astra 的 41.5%（相差 0.5 个百分点）；在图表问答 ChartQA Pro 中，ML4 得分为 63.1%，低于 GPT-6 Astra 的 65.1%；在长文档图表问答 GDP.pdf 测试中，ML4 得分为 18.6，低于 Kimi K3 的 22。</p>
+<p>在官方公布的机械图纸演示中，模型展示了读取标注与辅助计算的过程：</p>
+<ul>
+<li><strong>装配关系辨析</strong>：面对机械截面剖视图，询问“压缩弹簧是否与滑动轴承直接接触？”模型通过放大零件明细表（BOM）核对零件编号，再定位到截面图引出线，确认两组部件之间存在一根真空销（Vacuum pin），得出“二者不直接接触”的结论。</li>
+<li><strong>公差标注读取与计算</strong>：在读取图纸中的配合标注 <code>Ø25 p6</code> 后，演示展示了模型读取公称尺寸 25mm 对应的下偏差（+0.022mm）与上偏差（+0.035mm），并计算出极限尺寸为 25.022mm 至 25.035mm（ISO 286 属于国际标准）。该演示体现了结合图像局部放大与尺寸计算的辅助能力，但实际工程中此类输出仍需严格按规范进行工程审查。</li>
+</ul>
+<figure>
+<img />
+<figcaption>官方装配图演示：先查右下方零件表，再核对左侧剖面和引出线，判断零件是否接触。</figcaption>
+</figure>
+放大核对：零件表与剖面图
+<div>
+<figure><figcaption>零件表：10＝压缩弹簧，8＝滑动轴承，3＝真空销。</figcaption></figure>
+<figure><figcaption>剖面：核对右侧引出线与编号，再判断零件之间的关系。</figcaption></figure>
+</div>
+<p>两幅局部都来自上方官方装配图。模型在演示中将零件表、编号与剖面对应起来，得出弹簧与轴承被真空销隔开的结论。</p>
+<h3>4. 工业画面：把答案落到具体位置，也能回答“没有”</h3>
+<p>官方视觉演示还展示了工程图之外的定位任务：风电场里查询前排风机的叶片，锻造车间里查询赤热钢条，模型用旋转边界框（OBB，能沿物体方向旋转的框）标出这些倾斜目标；电路板案例则定位“GND”印刷文字、红色电容与变压器。连续视频的定位结果还被组织为跨帧轨迹，让人能追踪同一目标的位置变化。</p>
+<p>这种输出让“图里有什么”进一步变成“它在图的哪里”。分析人员可以把定位框与实际画面对照，而不必仅凭模型的一段描述判断它是否找对了对象。</p>
+<p>橙子分拣传送带的演示展示了另一种有价值的结果。同一段视频，查询“橙子”会返回定位框；查询“苹果”则返回空结果，原始记录中没有检测帧或轨迹。模型没有在相似的水果里硬挑一个当苹果。目标不存在时保留空结果，有助于避免把错误定位交给后续流程；这个示例展示的是一次负例处理，并非实际产线的误报率测量。</p>
+<div>
+<figure><div><img />
+</div>
+<figcaption>官方视频首帧与同一时刻的橙子定位坐标；定位框按原始数据绘制。</figcaption></figure>
+<div>查询：找橙子返回画面中的橙子定位框</div><div>查询：找苹果返回空结果，没有定位框</div>
+对照苹果查询的画面<figure><img /><figcaption>画面相同，目标改为苹果。原始数据中，该查询没有检测帧或轨迹。</figcaption></figure>
+</div>
+<h3>5. PDF：先找到证据，再把图表与正文接起来</h3>
+<p>能源展望报告中的一个问题同时问两件事：图表里，哪个部门对美国售电量增量贡献最大？正文里，得州电网 ERCOT 在两年内新增多少太阳能发电量？官方演示先在 12 页上下文中寻找证据，再读取同一相关页面的图表与文字：图表中商业部门的贡献最大；正文给出 2026 年新增 18 BkWh、2027 年新增 20 BkWh，合计 <strong>38 BkWh</strong>（380 亿千瓦时）。</p>
+<p>这道题不能只读图或只做加法。找页、辨认图例、提取对应年份的数字，最后才是 18 ＋ 20。另一项原油停产查询也按这条路径推进：从表格同一行读出沙特阿拉伯的估计停产量 3,550 千桶/日和基期产量 10,500 千桶/日，计算 3,550 / 10,500 ≈ <strong>33.8%</strong>。数字能回到原始表格核对，计算也有明确的分子、分母。</p>
+<div>
+<figure><div><img /></div><figcaption>读图：美国合计一行中，commercial（商业部门）的橙色条段最长。</figcaption></figure>
+<figure><div><img /></div><figcaption>读文并计算：18 ＋ 20 ＝ 38 BkWh，即 380 亿千瓦时。</figcaption></figure>
+</div>
+<h3>6. 卫星图：逐级放大，找到屋顶的 H</h3>
+<p>釜山港案例要求寻找原图左下角的直升机坪。演示先定位港口左下区域，再收窄至边缘建筑群，最后放大到塔楼屋顶，定位圆形区域里的 <strong>H</strong> 标记。人可以沿同一条缩放路径复查它找到的是不是目标。</p>
+<p>原图为 6,144 × 4,096，约 <strong>2,517 万像素</strong>；这张演示图与发布概述提到的十亿像素影像能力是不同层面的材料。这个具体例子展示的是利用工具缩小搜索范围、核对细节的过程。</p>
+<div>
+<figure><figcaption>先找港区左下角，红框是随后放大的屋顶区域。</figcaption></figure>
+<figure><figcaption>再放大核对圆形 H 标记，得到目标位置。</figcaption></figure>
+</div>
+<p>这些官方演示记录使用了内部模型版本，展示了可核对的位置和计算过程；公共 API 预览的表现仍需在自己的任务中检验。</p>
+<hr />
+<h2>科学计算与数学推理：代码生成与领域偏好</h2>
+<p>在面向科研计算与数学建模的任务中，Mistral 展示了模型编写科学工作流代码与数理推理的能力：</p>
+<figure>
+<img />
+<figcaption>SciCode-Verified 科学编程基准：ML4 单次通过率为 91.8%，同图对比模型中 Qwen3.8 2.4T 与 GLM-5.3 取得了略高分数。</figcaption>
+</figure>
+<ul>
+<li><strong>SciCode-Verified 科学编程基准</strong>：该测试重点考察模型编写代码求解物理、数学、材料与生物等学科复杂问题的能力。在单次通过率（pass@1）上，ML4 达到 <strong>91.8%</strong>；在同图展示的对比模型中，Qwen3.8 2.4T A95B 为 <strong>93.8%</strong>，GLM-5.3 为 <strong>92.5%</strong>，MiMo-V2.6-Pro 为 <strong>91.9%</strong>，闭源模型 GPT-6 Astra 为 <strong>94.2%</strong>。在实际案例中，模型展示了单次生成哈特里-福克数值模拟（Hartree–Fock，用于求解多电子系统电子结构的经典量子化学数值模拟任务）代码的能力，但这属于代码生成层面的演示，生成的程序仍需经过实际运算与实验数据比对，并不等于所得出的科学结论无需核验。</li>
+<li><strong>领域专家评估偏好</strong>：在 Mistral 组织的内部专家评估中，标注员将 ML4 与 GLM-5.3 的输出进行对照打分。在不同领域中，专家对 ML4 的加权偏好率分别为：STEM 领域 68%（STEM 是科学、技术、工程和数学）、计算机辅助设计（CAD）62%、金融 50%、代码 48%。这些比例表示专家更偏好哪款模型的输出，不是答题正确率。</li>
+<li><strong>数学形式与应用推理的定性演进</strong>：在数理逻辑方面，官方叙述强调 ML4 在形式推理与应用数学上取得了更强表现，在内部人工评测中展现出比 GLM-5.3 更严谨的结构性推理能力，并能维持长流程、深涉特定学科的应用数学任务（例如涉及前沿理论物理的相关计算推演）。</li>
+</ul>
+<hr />
+<h2>强化学习与训练工程：当前 3,000 卡集群上的规模化 RL</h2>
+<p>ML4 的预训练在 Mistral 位于欧洲自建数据中心的 3,800 张英伟达 Grace Blackwell GPU 上进行，当前的公共预览服务也运行在该基础设施上。而在后训练（Post-training）阶段，Mistral 投入了当前规模约 3,000 张 GPU 的集群进行大规模强化学习（RL）。</p>
+<figure>
+<img />
+<figcaption>SFT 向 RL 演进趋势：官方图表示范了复杂代码 Agent 任务、代码库理解与专业交付任务从监督微调到强化学习阶段的内部指标变化。</figcaption>
+</figure>
+<p>后训练阶段的大规模强化学习机制主要包括以下几个方面：</p>
+<ul>
+<li><strong>大规模尝试与训练数据生成</strong>：在由 3,000 张 GPU 组成的强化学习集群中，一组自动扩缩的执行节点（Actors）并发生成数万条探索轨迹（Rollouts，即模型在任务环境中自主尝试探索的实际解题过程），模型参数更新则异步进行。随着基座模型能力提高，传统的人工标注示例已不足以提供足够的挑战，因此需要让模型在自身尝试的结果上进行强化学习，并随能力提升不断加大任务难度。该管线每天生成约 330 亿总 Token，经过筛选和掩码处理后，提取出约 <strong>160 亿可用于策略更新的模型生成 Token</strong>（Trainable completion tokens）。</li>
+<li><strong>模块化可组合验证环境</strong>：为了适应多样化的真实任务，训练环境提供了统一的可组合接口，使单次强化学习训练运行能够同时覆盖单轮对话、复杂科学问题求解、安全对齐、事实性检验以及长程工具使用等多种任务类型。这些训练环境共享了代码沙箱、网页搜索与外部 API 等脚手架；在验证反馈环节，系统根据任务类型将奖励模型、单元测试、大模型裁判和静态检查按需组合，以此评估模型尝试的成败并提供训练信号。</li>
+<li><strong>长轨迹策略稳定性</strong>：在包含多轮工具调用与长程交互的复杂任务中，异步训练会导致生成探索轨迹时所使用的模型策略落后于后台正在更新的最新策略（即策略陈旧性与策略漂移，Staleness &amp; Off-policy drift），这会影响长轨迹训练的稳定性。Mistral 表示其采用了跨阶段优化方法以减轻陈旧性与漂移，使得训练能够支持达数百万 Token 的探索预算（Rollout budget，这是训练阶段允许模型多次压缩后使用的探索总预算，与推理时的 1M 上下文窗口是不同概念）。</li>
+<li><strong>阶段演进与评测区分</strong>：Mistral 表示，训练环境里的改善也迁移到了下游评测，最终能力由 SFT 与 RL 两个阶段共同贡献。三条内部下游任务曲线中，复杂代码 Agent 指标从 SFT 结束时约 58.5% 到 RL 结束时 68.84%；代码库理解从约 24% 到 38.66%（RL 初期曾回落到约 20%）；专业交付任务指标从约 1,380 到 1,511。图中未注明具体基准，不能将 1,511 当作 AA-Briefcase 的 1,393 Elo，也不能将 68.84% 当作 DeepSWE 的 61.7%。</li>
+</ul>
+<p>训练奖励上涨，说明模型更会完成训练环境按规则计分的任务；下游评测改善，才进一步说明学到的策略能帮助它完成其他评估任务。两类图一起看，才能理解这套训练是否带来了环境之外的收益，而不是只在训练题里拿到更高奖励。</p>
+<div><strong>模型的尝试，变成下一轮训练材料</strong><span>机制示意 · 非训练架构细节</span></div>
+<ol>
+<li><b>01</b><strong>组合任务环境</strong><span>聊天、代码、科学计算、跨应用工作流</span></li>
+<li><b>02</b><strong>模型实际尝试</strong><span>调用沙盒、搜索或 API，留下执行轨迹</span></li>
+<li><b>03</b><strong>检查尝试结果</strong><span>按任务组合测试、静态检查与评分模型</span></li>
+<li><b>04</b><strong>用结果更新模型</strong><span>过滤与掩码后，选出可训练的生成内容</span></li>
+</ol>
+<div>↶ 更新后的模型继续尝试；随着能力提高，扩大任务范围与难度。</div>
+<div>生成尝试与模型训练异步进行，需要控制生成所用模型版本的滞后。</div>
+<hr />
+<h2>成本与落地考量：API 定价与评估维度</h2>
+<p>对于关心实际调用与接入的开发者与企业客户，需要厘清价格体系与落地考量：</p>
+<h3>1. API 调用价格</h3>
+<p>官方发布页面公布的公开预览版标准 API 资费为：</p>
+<ul>
+<li><strong>输入价格</strong>：$1.36 / 百万 Token</li>
+<li><strong>输出价格</strong>：$4.18 / 百万 Token</li>
+</ul>
+<p>开发者在进行前期预算测算时，应以公布的标准调用价格为准。</p>
+<h3>2. 评估与选型考量</h3>
+<ul>
+<li><strong>从自有任务与工具失败率进行检验</strong>：面对涉及“文档检索、图像查验、多步骤工具调用”的长流程工作流，开发者应建立针对自身业务的验收测试，重点考察模型在面对调用失败、参数报错时的纠错韧性以及最终交付成果的可用性，以此检验模型表现。</li>
+<li><strong>自部署需等待权重与许可发布</strong>：对于需要严格数据主权与私有化运行的企业，官方计划在月底开放模型权重。具体的许可条款、硬件要求与资源配置规范尚未披露；由于模型总参数量达到 1.05 万亿，部署时仍需完整存储庞大权重，目前无法单纯由 49B 激活参数来推估具体的服务器规格与显存门槛。</li>
+<li><strong>轻量常规任务无需盲目追大</strong>：对于常规的文本摘要、基础对话或单文件代码补全，不应单纯依据总参数体量来判断性价比，而应综合权衡端到端延迟、多轮工具调用产生的总体 Token 成本以及实际产出质量。</li>
+</ul>
+<p>Mistral 表示，ML4 将作为其新一代专用与优化模型的基座。目前预览版背后的强化学习训练仍在持续推进，后续的算力扩充则依托其近期完成的 30 亿欧元 D 轮融资（欧洲科技公司规模最大的股权融资轮次），未来将有更多位于欧洲本土数据中心的算力投入运行。按照月底开放权重的计划，Mistral 正在向企业客户展现一种明确的方向：不仅在网络安全、金融与代码等关键生产力领域提供具备前沿水准的模型能力，更通过开放权重与欧洲本土自主运营，让企业有机会掌握模型的运行环境与使用政策。</p>
+</div><div><div><div>来源</div><div><span>Introducing Mistral Large 4</span><span>Mistral<span>·</span>2026-10-06<span>·</span><a href="https://mistral.ai/news/mistral-large-4/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://docs.mistral.ai/models/mistral-large-4-0">Mistral Large 4 模型卡</a><span>·</span><a href="https://ml4-blog-widgets.netlify.app/visual-intelligence/?iframe">官方视觉定位、PDF与卫星图演示</a></div></div></div></div></div><div>
+<div>
+<div>Mistral Large 4 · 公众预览</div>
+<h1>Mistral 发布 Large 4 预览版：万亿参数，瞄准企业复杂工作</h1>
+<p>这款企业多模态模型把看图、找证据和工具使用接起来。API 已开放预览；开放权重计划在月底发布，目前权重与许可仍待公布。</p>
+<div>基于官方模型卡、基准测试与已审正文 · 架构权衡 / 网络安全 / 视觉定位 / 强化学习</div>
+<div>
+<h2>架构与体量：为什么叫“大胖子”（le Chonk）？</h2>
+<p>在模型卡和官方发布中，Mistral 幽默地把 ML4 叫做“le Chonk”（大胖子）。从规格上看，它确实是个庞然大物，其工程架构的设计取舍十分明确：</p>
+<div>
+<div>
+<div>1.05T</div>
+<div>总参数 · 完整权重仍需存储</div>
+</div>
+<div>
+<div>49B</div>
+<div>单 Token 激活参数（细粒度路由）</div>
+</div>
+<div>
+<div>3,800</div>
+<div>欧洲本土 Grace Blackwell GPU</div>
+</div>
+</div>
+<div>
+<div>
+<div>每步计算</div>
+<div>激活 49B 参数降低单步运算</div>
+<p>采用颗粒度更细的混合专家架构（Granular MoE）。在每步生成单个 Token 时，门控路由仅挑选特定专家模块参与浮点运算，减少单步参与计算的参数。</p>
+</div>
+<div>
+<div>权重存储</div>
+<div>存储 1.05T 全量权重不可减免</div>
+<p>MoE 架构虽然减少了每个 Token 计算时参与运算的参数量，但服务器依然需要存储 1.05 万亿参数的庞大总权重，减少参与计算的参数，并没有让总权重变小；实际速度与部署开销还取决于硬件、精度和服务配置。</p>
+</div>
+</div>
+<p>此外，模型集成了约 16 亿参数（1.6B）的原生视觉编码器，并支持 100 万 Token（1M）的长上下文窗口。这两项是相互独立的规格：1M 上下文允许容纳长篇文档或多轮历史，但面对超高分辨率卫星图像或复杂机械图纸时，模型并不能仅凭单次输入自动看清所有微小细节，仍需要配合视窗缩放、局部裁切等外部工具才能完成跨层级核对。</p>
+</div><div><h2>换到 ML4，哪些任务值得重新测试？</h2><p>同一组官方图表中，跨应用工作流完成率由 Medium 3.5 的 6.3% 到 ML4 的 59.9%，增加 53.6 个百分点。</p><p>金融 Agent：32.1 → 54.7；财会表格：36.7 → 67.4；科学编程：70% → 91.8%；图表问答：55.4 → 63.1。各项口径不同，不能跨项比较；这些变化也不代表速度提升，或全部由 RL 造成。</p></div>
+<div>
+<h2>网络安全实战：正当漏洞复现受阻，开放权重怎么解？</h2>
+<p>在网络安全防御中，要修补系统漏洞往往必须先在受控环境中复现触发条件。然而，部分商业云端模型设置了严苛的通用风控，在处理包含攻击特征的输入时可能触发安全策略拒绝（Safety Refusal）。在 Artificial Analysis 综合测试中，Qwen3.8 出现了 63% 的安全阻断，Claude Opus 5.5 与 GPT-6 Astra 也各记录了 38% 的安全阻断；而 ML4 取得了 50% 的综合成功率，在开源漏洞复现单项（CyberGym-E2E）中拿下 82% 得分。</p>
+<div>
+<span>应急连续性</span>
+<h3>应急连续性与逆向排错链路：按组织政策运行，减少临时失去工具的风险</h3>
+<p>Mistral 强调，在安全事故处置中途失去某项模型能力，本身也可能成为重大安全风险：已经依赖模型推进的排查、复现与修补可能被迫停下来。自主运行的价值因此还包括应急连续性——组织可以按自己的政策安排和审计安全工作，减少对服务商临时决定的依赖。</p>
+<div>
+<div>
+<span>01</span>
+<div><strong>静态特征分析</strong>：调用工具查看可疑文件 <code>sample.bin</code> 格式、导入表与字符串列表。</div>
+</div>
+<div>
+<span>02</span>
+<div><strong>反编译与载荷提取</strong>：读取可疑字节，从中反编译提取并成功解码出 892 字节的加密有效载荷（Payload）。</div>
+</div>
+<div>
+<span>03</span>
+<div><strong>API 哈希反查受挫</strong>：尝试反查 Windows 系统调用行为，但中途多次反查失败。</div>
+</div>
+<div>
+<span>04</span>
+<div><strong>策略自主转向</strong>：转向根据已解码逻辑编写 YARA 特征检测规则；在 683 个纯净文件测试集中确认误报率为 0。</div>
+</div>
+<div>
+<span>05</span>
+<div><strong>证据链对齐交付</strong>：后台系统连续 3 次因“证据缺失”退回报告，模型通过 Claim IDs 逐项核实补齐证据，最终交付 20 项主张的正式安全报告。</div>
+</div>
+</div>
+<div>
+        这段 56 轮轨迹交互（Trajectory turns）的官方演示展示：安全 Agent 的落地不在于“一键通关”的单次生成神话，而在于调用碰壁后自主修正路径、在证据受限时补齐闭环的工程韧性。
+      </div>
+</div>
+<div>
+<strong>正当复现并不等同于放任恶意：</strong>在面对恶意攻击请求时，模型依然会严格执行拒绝。在综合 JailbreakBench、StrongREJECT 与 AgentHarm 的评测中，ML4 平均拒绝率达到 95.3%；在 Lakera B3 防间接提示词注入测试中，攻击抵抗率达到 93.3%（与 GLM-5.3 并列最高）。
+    </div>
+</div>
+<div>
+<h2>专业垂直流程：将答案钉在可核对的证据上</h2>
+<p>通用大模型进入严肃生产力，不在于宽泛回答，而在于能不能胜任严谨的专业审核流程。在 Harvey 法律 Agent 基准测试中 ML4 获 15.8 分；在默克集团（Merck KGaA）跨年份财报分析演示中，模型经历 16 轮交互查出深藏于附注中的第三层级或有对价资产，核对账面价值从 2.19 亿欧元降至 1.18 亿欧元（同比变动 -46.12%），并提取出税后折现率从 6.3%–7.3% 变为 6.6%。</p>
+<div>
+<div>
+<div>机械装配图 · 拓扑与公差</div>
+<div>零件号引线核对与 ISO 尺寸配合</div>
+<p>面对剖面截面图，通过放大零件表（BOM）核对引出线，确认压缩弹簧(#10)与滑动轴承(#8)之间被真空销(#3)隔开而不直接接触；读取标注 <code>Ø25 p6</code> 计算出 25.022mm 至 25.035mm 极限尺寸。</p>
+</div>
+<div>
+<div>工业视觉 · 定位与负例处理</div>
+<div>旋转包围框（OBB）与果断留空</div>
+<p>针对倾斜物体输出带角度定位框。在橙子分拣流水线中，查询“橙子”返回定位框，查询“苹果”则返回空列表，没有在相似水果中强行指认，展示了一次负例处理；并非产线误报率测量。</p>
+</div>
+<div>
+<div>PDF 跨页研读 · 图文跨域串联</div>
+<div>找页、图例、正文提取到合计计算</div>
+<p>能源展望报告中，先定位商业部门对售电量增量贡献最大，从同一页正文提取得州电网 2026 年（18 BkWh）与 2027 年（20 BkWh）增量，计算出 38 BkWh，数字均可回溯到原始段落。</p>
+</div>
+<div>
+<div>超高分遥感 · 多级缩放检索</div>
+<div>2,517 万像素下的停机坪追踪</div>
+<p>在釜山港 6,144 × 4,096 卫星原图中，模型调用外部缩放工具，顺次完成“港口左下大区 → 边缘建筑群 → 塔楼屋顶”，逐级锁定圆形区域内的“H”标志，展示层级化视窗工具链价值。</p>
+</div>
+</div>
+<p>这些视觉与文档案例使用官方内部模型版本。公共 API 仍需用自有任务检验，专业答案也需人工复核。</p></div>
+<div>
+<h2>训练工程：3,000 卡集群上的规模化 RL</h2>
+<p>ML4 的预训练在欧洲自建的 3,800 张英伟达 Grace Blackwell GPU 上完成，而后训练中的强化学习（RL）当前使用规模约 3,000 张 GPU 的集群开展训练。</p>
+<div>
+<div>
+<div>01 / 生成</div>
+<div>大规模异步尝试</div>
+<p>执行节点每天生成约 330 亿总 Token，经筛选掩码后提取出约 160 亿用于策略更新的可训练模型 Token。</p>
+</div>
+<div>
+<div>02 / 验证</div>
+<div>模块化可组合沙盒</div>
+<p>统一接入代码沙箱与外部 API，按任务按需调度奖励模型、单元测试与 LLM 裁判形成评估闭环。</p>
+</div>
+<div>
+<div>03 / 优化</div>
+<div>抑制异步策略漂移</div>
+<p>异步生成轨迹时，生成所用模型会落后于正在更新的模型。Mistral 用跨阶段优化减轻策略陈旧与漂移，支持数百万 Token 的训练探索预算。</p>
+</div>
+</div>
+<p>内部下游曲线：代码 Agent 约 58.5% → 68.84%，代码库理解约 24% → 38.66%。图中未注明具体基准，不能当作 DeepSWE 或其他公开评测成绩。</p>
+</div>
+<div>
+<h2>成本账本与企业选型指南</h2>
+<p>当前公众预览版标准 API 资费公布为：输入 $1.36 / 百万 Token，输出 $4.18 / 百万 Token。对于计划在实际业务中落地的技术决策者，需要把握三个核心界限：</p>
+<div>
+<div>企业选型与自部署关键考量</div>
+<ul>
+<li><strong>不要混淆激活与显存规格</strong>：由于模型总参数量达到 1.05 万亿，部署时仍需完整存储庞大权重，目前无法单纯由 49B 激活参数来推估具体的服务器规格与显存门槛。</li>
+<li><strong>根据工具失败率与纠错能力验收</strong>：多步骤长流程任务中，应在自有真实业务环境中测试模型在面对报错、沙盒超时、证据不齐时的纠错能力，并核对最终成果是否可用。</li>
+<li><strong>轻量任务无需盲目追大</strong>：对于基础文本摘要或简单对话，应综合评估端到端延迟与多轮 Token 累计成本，再判断大模型在当前任务中的收益。</li>
+</ul>
+</div>
+</div>
+</div></div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【周报】Google 开源多模态向量模型 EmbeddingGemma 2：用自然语言搜索文字、图片、声音和视频</title>
+<link>https://best.xiaohu.ai/article/embeddinggemma-2/</link>
+<category>周报</category>
+<guid isPermaLink="false">xiaohu:embeddinggemma-2</guid>
+<pubDate>Sat, 10 Oct 2026 00:00:15 +0000</pubDate>
+<description>Google 把文字、代码、图像、视频和音频放进同一个检索空间。理解它如何找资料，以及模型内存、输入预算和向量压缩之间的取舍。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 周报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Google 开源多模态向量模型 EmbeddingGemma 2：用自然语言搜索文字、图片、声音和视频</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/embeddinggemma-2/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Google 开源多模态向量模型 EmbeddingGemma 2：用自然语言搜索文字、图片、声音和视频</h1><p>Google 把文字、代码、图像、视频和音频放进同一个检索空间。理解它如何找资料，以及模型内存、输入预算和向量压缩之间的取舍。</p><strong>一分钟速览</strong><ul><li>EmbeddingGemma 2 让文字、图片、音频和视频能直接比对语义，帮助本地应用跨格式找资料；需要生成答案时，再配合生成模型。</li><li>它按需求加载文本、视觉和音频组件，本地检索可以离线运行；Google 公布的低内存数字有特定设备与量化条件。</li><li>缩短向量能省索引空间，但质量也会变化：256 维可作为评估起点，128 维的多模态损失明显，不能把六倍压缩当成无损。</li></ul><div><p>手机里存着相册、会议录音和视频，想找其中一段内容，却未必记得文件名。要按内容来搜索，需要一类模型——<strong>嵌入模型</strong>（Embedding Model，负责把文字、图片、声音等现实内容压缩成高维数学向量，让计算机能够比对语义相似度的算法）。上一代纯文本小模型发布后，已累计超过 2,000 万次下载，能够处理文本资料；新一代进一步扩展到图片、录音和视频。</p>
+<p>Google DeepMind 针对端侧设备推出了全新的开源多模态嵌入模型 <strong>EmbeddingGemma 2</strong>。它基于 Gemma 4 架构打造，采用允许商业使用的 Apache 2.0 许可证，不仅将上下文扩大四倍至 8,192 个 token，并在 7.4 亿（740M）的总参数下，把<strong>文本、代码、图像、视频和音频</strong>全部收纳进同一个 768 维的向量空间中。借助可拆卸的模块化设计与俄罗斯套娃式的向量截断技术，它可以按任务只加载必要的编码器，并让开发者用较短的向量换取更低的存储占用。</p>
+<h3>同一句搜索，怎样找到文字、图片和声音</h3>
+<p>一种常见的本地搜索或私有 RAG（检索增强生成，即先检索相关资料，再交给生成模型作答）系统做法是先把不同格式转换成文字：想在相册里搜一段视频，系统得先调用语音识别模型把视频里的对话转成文字，再调用图像识别模型生成标签，最后用文本嵌入模型去比对。这会增加处理步骤，也可能丢失难以用简短文字描述的信息——比如海浪的背景声、吉他的和弦，或是视频中某个特定运镜的画面感。</p>
+<p>EmbeddingGemma 2 的本质突破在于<strong>原生多模态对齐</strong>。它让文本、图像、视频与音频在训练时就共享同一个 768 维的数学空间。例如在官方演示视频中，一张猫的照片、文本“cat”以及一段猫叫声，在编码后都会被映射到这个共享高维空间中彼此临近的位置；正因为不同模态的内容被投射到了同一个向量空间，系统可以直接通过计算几何距离或余弦相似度来比对它们的相关性，而无须先把声音或画面转译成文字。</p>
+<figure><figcaption>Sundar Pichai 分享的 Google 发布短片，约 54 秒，中英双语字幕。出镜者从左至右为产品经理 Sebastian Russo、高级产品经理 Ivan Llanos、研究负责人 Sahil Dua。片中用猫的图片、文字与叫声解释统一嵌入空间。</figcaption></figure>
+<p>查询与资料即使格式不同，也可以直接比较语义相似度。在具体落地中，这一过程包含清晰的分步机制：</p>
+<ol>
+<li><strong>资料预先编码与建库</strong>：本地相册中的照片、视频片段或录音资料，预先经由 EmbeddingGemma 2 编码提取为 768 维向量，并存入端侧向量索引库。</li>
+<li><strong>查询实时编码</strong>：系统将查询编码为同一空间的向量。比如，录下一句“找海边日落的视频”，可以把这段语音直接转换成向量，与视频片段的向量比较。这是帮助理解流程的示例。</li>
+<li><strong>同空间相似度比对取回</strong>：在统一向量空间中计算查询向量与各资料向量的相似度，按得分高低排序并取回候选原始资料。</li>
+<li><strong>若需生成再交大模型</strong>：如果仅是检索定位，直接向用户呈现候选原件；若应用需要进一步归纳、问答或推理，再把检索到的候选内容送入端侧 Gemma 4 等生成式模型作答。</li>
+</ol>
+<p>同一套表征也能用于分类与聚类。分类是把输入向量与预设类别向量比较，选出更接近的一类；Google 的 MediaPipe Decision Task API 小游戏演示，就根据多模态输入，在 JUMP、DUCK、SPRINT 等预设动作中做选择。（分别是跳跃、下蹲和冲刺）聚类则不先指定类别，而是把向量位置相近的资料分成一组，便于组织不同格式的内容。</p>
+<p>EmbeddingGemma 2 输出的是数字表征。检索出的内容是否能回答问题，仍需要后续处理；当这些步骤都在设备上运行时，整套向量提取与比对全部在本地芯片上执行，相册与录音不需要上传到任何云端服务器，减少了网络往返，也让原始资料留在设备上。</p>
+<h3>只搜文字时，为什么不用加载整个模型</h3>
+<p>只需要搜索文字或代码的应用，无须把图像和音频组件一起放进内存。EmbeddingGemma 2 采用<strong>模块化架构</strong>：</p>
+<p>整个模型由 24 层 Transformer 构成，内部维度为 512，再通过投影层输出标准的 768 维向量。其 7.4 亿（740M）的总参数可按任务选择加载：</p>
+<ol>
+<li><strong>文本骨干（270M 参数）</strong>：由 1.3 亿参数的 Transformer 主干网络与 1.4 亿参数的嵌入层组成，负责所有多语言文本与代码的解析。</li>
+<li><strong>视觉编码器（170M 参数）</strong>：专门负责解析静态图片与视频抽帧。</li>
+<li><strong>音频编码器（300M 参数）</strong>：专门负责解析多语言语音与各类环境声音。</li>
+</ol>
+<p>加载哪些部分，取决于应用要处理哪些资料：</p>
+<ul>
+<li><strong>纯文本/代码任务（Text only）</strong>：在 Sentence-Transformers 等框架中通过配置直接把视觉和音频编码器置为空，此时模型只加载 270M 参数。Google 给出的 Pixel 11 Pro 量化结果中，文本权重的活动 RAM 占用低至<strong>约 191 MB</strong>。</li>
+<li><strong>图文检索任务（Text + Vision）</strong>：关闭音频组件，组合参数量仅为 440M。</li>
+<li><strong>文本+音频任务（Text + Audio）</strong>：关闭视觉编码器，组合参数量为 570M；在只需要处理语音或环境声音、不需要视觉检索的场景下，可以不加载视觉编码器。</li>
+<li><strong>视听全开（Full Multimodal）</strong>：挂载全部组件，参数量达 740M。同一手机上量化后，全模态模型权重的活动 RAM 占用低至<strong>约 567 MB</strong>。这两个数不包含整个应用、检索索引和生成模型的全部开销。</li>
+</ul>
+<p>此外，由于 EmbeddingGemma 2 源自 Gemma 4 架构，它与 Gemma 4 生成式模型共享了相同的文本分词器与音频编码器。这意味着如果开发者在手机端搭建一套完整的端侧 RAG 流程（由 EmbeddingGemma 2 负责找资料，Gemma 4 负责总结作答），两个模型在内存中可以共享部分通用底层权重，有助于降低组合运行时的内存占用。</p>
+<h3>8K 是共同预算，混合输入要一起算</h3>
+<p>上一代纯文本模型的上下文窗口只有 2,048（2K）个 token，面对长篇技术文档或多轮对话常常不得不切得很碎。EmbeddingGemma 2 将上下文直接拉长 4 倍，达到了 <strong>8,192（8K）个 token</strong>。</p>
+<p>值得注意的是，这 8,192 个 token 是<strong>所有模态共享的统一度量池</strong>。模型定义了一套清晰的模态换算标准：</p>
+<ul>
+<li><strong>文字与代码</strong>：按照常规的分词机制，大约 1 个 subword（子词，分词器拆分的最小语义单元）消耗 1 个 token。如果只输文字，最多可达 8,192 个 token。</li>
+<li><strong>音频信号</strong>：要求提供 16 kHz 单声道（mono）音频，消耗速率为固定的 <strong>每秒 25 个 token</strong>。在纯音频状态下，8K 窗口足以直接塞进长达 <strong>327 秒（约 5.5 分钟）</strong> 的连续音频。</li>
+<li><strong>视频信号</strong>：默认采用 1 fps（每秒抽 1 帧）的采样率，每帧视频画面默认消耗 <strong>140 个 token</strong>，单次最多可输入 <strong>约 58 帧</strong>（即约 58 秒连续抽帧视频）。</li>
+<li><strong>静态图像</strong>：单张图片默认消耗 <strong>280 个 token</strong>，单次最多可容纳 <strong>约 29 张图片</strong>。</li>
+</ul>
+<p>这些上限分别按单一模态计算。文字、图片、视频和音频混合输入时，会一起消耗这 8K 预算，不能同时装满各自的上限。这也厘清了在长音频库中检索与单次 8K 编码上限的关系：要实现介绍中的“从数小时录音里找内容”，可以先把长录音切成适合上下文的片段，分别建立索引，再按查询取回相关片段。这和一次编码整段录音是两回事。</p>
+<p>更为灵活的是，官方还提供了<strong>视觉软 Token 弹性预算</strong>调节机制：开发者可以根据任务需要，把每张图片或视频帧占用的 token 数量在 <strong>70 到 1,120 个软 token</strong> 之间自由调节。如果面对的是对细节要求不高的普通分类，降到 70 个 token 后，单次甚至能塞入多达约 114 张图片或视频帧；若面对的是精细电路图、复杂工程图表等视觉文档，则可以拉大 token 配额，用稍多一点的计算资源换取更细的视觉表达。</p>
+<p>不仅如此，EmbeddingGemma 2 支持真正的<strong>多模态自由交错输入</strong>。在一段输入文本中，你可以随时使用 <code>&lt;|image|&gt;</code>、<code>&lt;|video|&gt;</code> 和 <code>&lt;|audio|&gt;</code> 占位符。例如对一件在售跑鞋进行建库索引时，输入可以写为：</p>
+<div><pre><code>emb = model.encode({
+    "text": "越野防水跑鞋。&lt;|image|&gt; 采用透气网面设计。&lt;|image|&gt; 湿滑岩石抓地力实测：&lt;|video|&gt;",
+    "image": ["shoe.jpg", "mesh.jpg"],
+    "video": "demo.mp4",
+})
+</code></pre></div>
+<p>模型会根据占位符的相对位置，把文字描述、两张局部特写图和一段实测小视频融合为一个完整的 768 维向量。用户随后用一句简单的自然语言搜索“湿岩石防滑鞋”，可以检索这条图文视频综合记录。</p>
+<h3>向量缩短以后，省下多少空间、损失多少质量</h3>
+<p>端侧设备不仅计算核心紧张，本地存储和内存更是寸土寸金。以往 768 维的浮点向量如果存储上百万条，对手机存储空间是极大的负担。</p>
+<p>为此，EmbeddingGemma 2 原生集成了 <strong>MRL（Matryoshka Representation Learning，俄罗斯套娃表示学习）</strong> 技术。该技术在训练时优化损失，使得预设的多个前缀维度都成为可用的有效表征，但这并不保证向量的每一维按重要性严格排序。因此，开发者不需要重新训练模型，只需在导出向量时截取对应的前缀维度，就能把 768 维截断为 512 维、256 维甚至 128 维：</p>
+<h3>把向量缩短，省的是索引空间</h3><p>选择维度，比较同样数量资料的存储占用与官方基准成绩。</p><div>向量维度768 维 · 完整512 维256 维128 维资料条数1 万条10 万条100 万条</div><p>10 万条、256 维：原始向量约 102.4 MB，为768 维的三分之一。</p><p>计算假设：每条资料一个向量，每维 float32 占 4 字节。MB = 条数 × 维度 × 4 ÷ 1,000,000；不含索引结构、原始文件及模型权重。</p><div><div><table>Google 模型卡公布的全精度基准成绩，均为分数，越高越好<thead><tr><th>维度</th><th>向量体积</th><th>多语言文本</th><th>代码</th><th>多模态综合</th></tr></thead><tbody><tr><th>768</th><td>100%</td><td>61.36</td><td>78.68</td><td>59.01</td></tr><tr><th>512</th><td>66.7%</td><td>61.17</td><td>77.24</td><td>58.38</td></tr><tr><th>256</th><td>33.3%</td><td>60.41</td><td>76.18</td><td>56.24</td></tr><tr><th>128</th><td>16.7%</td><td>57.89</td><td>71.41</td><td>45.65</td></tr></tbody></table></div></div><p>128 维更适合文本用途，多模态综合成绩下降明显。不同列来自不同基准，不能横向当作同一量尺；成绩也不是你资料库的命中率。</p>存储与维度成正比：512、256、128 维分别约为完整向量的 2/3、1/3、1/6。上表可直接比较全部结果。
+<p>从官方测试数据中可以提炼出非常清晰的工程选型法则：</p>
+<ol>
+<li><strong>256 维可以作为评估起点</strong>：相较于完整 768 维，256 维将向量存储体积缩至原来的<strong>三分之一</strong>，官方基准中的质量下降较小（多语言只从 61.36 降至 60.41，代码从 78.68 降至 76.18，音频也下降了约 0.48 分），但是否满足应用要求，仍要看实际资料的检索结果。</li>
+<li><strong>128 维慎用于多模态</strong>：虽然 128 维能把向量体积缩至原来的<strong>六分之一</strong>，文本和代码指标表现尚可，但在复杂的视觉和跨模态评测中（MMEB v2 从 59.01 剧烈跌至 45.65），信息损失非常明显。因此 128 维仅建议用于极度严苛的纯文本端侧场景，如果要在多模态中使用，必须经过严格的业务离线验证。</li>
+</ol>
+<h3>小模型的价值，要看质量与规模一起比较</h3>
+<p>Google 公布的评测显示，它以较小规模接近或超过部分更大的模型，但图中也有成绩更高的较大模型。这里的价值是有限资源下的质量，而不是每项指标都排第一：</p>
+<ul>
+<li><strong>代码检索有所提升</strong>：在 Google 公布的全精度 MTEB Code (v1) 代码基准上，EmbeddingGemma 2 取得了 <strong>78.68</strong> 的成绩（NDCG@10，衡量前十条检索结果的排序相关性），相较于第一代纯文本模型的 68.76 分，<strong>增加了 9.92 分</strong>（相对提升近 14%）。这些结果支持将它用于本地 IDE 的代码索引、语义化代码搜索以及端侧编程 Agent 的上下文召回。在博客附带的对比图表中，270M 文本核在代码检索上高于部分小模型（如 Qwen3 0.6B 的约 75.4 分），接近数倍于其体量的 8B 大模型水准（约 80.8 分）。（注：官方原图点位估读值约 76.7 分，与官方模型卡表格正式标注的 78.68 分存在出入，评测精确成绩应以模型卡列出的数据为准）</li>
+</ul>
+<figure><img /><figcaption>Google 原图：代码基准的质量与模型规模对照。散点位置为近似读数；精确成绩采用模型卡表格。</figcaption></figure>
+<ul>
+<li><strong>图像与文档理解表现抢眼</strong>：在 MIEB Lite 图像嵌入基准上取得 <strong>64.64</strong> 分，高于 jina-v5-omni-small（约 61.5），逼近 3B 规模的 LCO-Embedding-Omni-3B（约 65.7）；在多模态视觉文档理解（MMEB v2 VisDoc）上更取得 67.84 的成绩，这项基准对应视觉文档检索，不能直接等同于整份报告的推理或问答能力。</li>
+</ul>
+<figure><img /><figcaption>Google 原图：图像基准对照。星号表示该模型只支持图像和文本。</figcaption></figure>
+<ul>
+<li><strong>音频表现高于图中若干专用模型</strong>：在 MAEB 音频基准测试中，模型取得了 <strong>49.39</strong> 分，在 MSEB 检索评测中取得 <strong>69.54</strong> 分。接近 30 亿参数体量的 e5-omni-3B（约 48.6），也高于图中若干音频专用模型（如 large_clap 的约 34.5、MuQ-MuLan 的约 28.4 以及 Qwen2-Audio-7B 的约 35 分）。（注：原图横轴将多模态点位标在约 670M 估读位置，且音频得分图上散点估读约 48.7，与模型卡精确值 49.39 略有差异，模型卡列出的参数规模为 740M、得分为 49.39）</li>
+</ul>
+<figure><img /><figcaption>Google 原图：音频基准对照。星号表示该模型只支持音频和文本。较大模型中仍有更高分者。</figcaption></figure>
+<ul>
+<li><strong>多语言文本与前代接近</strong>：在覆盖超过 100 种语言的 MTEB multilingual (v2) 测试中，取得 <strong>61.36</strong> 分，与前代（61.15）基本持平，主要增量来自代码和新增的多模态支持。</li>
+</ul>
+<h3>接入前，先检查数值精度、归一化和任务前缀</h3>
+<p>在将 EmbeddingGemma 2 接入实际业务流水线时，有三处设置需要留意：</p>
+<h4>陷阱一：严禁使用 float16，必须使用 bfloat16 或 float32</h4>
+<p>EmbeddingGemma 2 的内部激活值范围<strong>超出了 float16 的动态表示范围</strong>。
+如果使用 <code>torch.float16</code> 推理，模型可能返回 <code>NaN</code>（非数值）或质量下降的向量，而不明确报错。</p>
+<ul>
+<li><strong>正确做法</strong>：在支持硬件加速的环境中，必须选用 <strong><code>torch.bfloat16</code></strong>（它与 float32 的指数范围相同，每个数所需存储约为 float32 的一半）；而在不支持原生 bfloat16 的环境（模型卡建议多数 CPU 使用 float32）中，必须回退使用 <strong><code>torch.float32</code></strong>。</li>
+</ul>
+<h4>陷阱二：MRL 截断后必须重新做 L2 归一化</h4>
+<p>若用归一化向量的点积来计算余弦相似度，需要让向量长度为 1。当你用切片语法把 768 维切成 256 维时，截断后的前 256 个分量平方和显然不再等于 1。
+如果你截断后忘记做 <strong>L2 归一化</strong>（L2 Normalization，即将向量除以其欧氏长度，使其模长重置为 1 的几何操作），后续用点积比对向量时，相似度计算可能不会报错，而是可能产生静默偏差——计算出表面看似合理、实则失真的相似度得分，导致排序质量悄然受损。官方模型卡推荐在调用时直接通过参数完成截断与归一化，以避免手动切片产生这一问题。</p>
+<ul>
+<li><strong>正确做法</strong>：直接在库调用中设置自动归一化参数，或手动执行归一化：</li>
+</ul>
+<div><pre><code>query_emb = model.encode(
+    query,
+    truncate_dim=256,          # 声明截断维度
+    normalize_embeddings=True  # 强制要求截断后重新归一化！
+)
+</code></pre></div>
+<p>同时注意：<strong>查询与底库的维度必须绝对一致</strong>。绝不能用 768 维的查询向量去检索 256 维的向量底库。</p>
+<h4>陷阱三：规范使用任务前缀，且不要给非文本输入加前缀</h4>
+<p>EmbeddingGemma 2 在训练中使用了简短的任务前缀。在输入文本前附带匹配任务的前缀，有助于提高质量。</p>
+<ul>
+<li><strong>非对称检索（Asymmetric，如文档检索、代码检索、问答）</strong>：检索词与被检索内容的形态不同，应分别使用查询和资料前缀。
+<ul>
+<li>网页/文档检索：Query 格式为 <code>task: search result | query: {query}</code>；被检索文档格式必须严格拼接标题：<code>title: {title} | text: {content}</code>（若无标题，写 <code>title: none | text: {content}</code>）。</li>
+<li>代码搜索：查询可使用 <code>prompt_name="CodeRetrieval"</code>，对应 <code>task: code retrieval | query: {query}</code>；代码文件设为 <code>title: {文件名或类名} | text: {代码}</code>。</li>
+</ul>
+</li>
+<li><strong>对称比对（Symmetric，如句子相似度、文本分类、聚类）</strong>：两边使用相同的指令前缀（例如 <code>task: sentence similarity | query: {content}</code>）。</li>
+<li><strong>最关键原则</strong>：<strong>所有前缀指令仅对纯文本生效</strong>！图片、视频与音频请直接传入原始信号，<strong>绝对不要拼装任何文字指令前缀</strong>。</li>
+</ul>
+<h3>从体验应用到开发工具，如何开始试用</h3>
+<p>可以先从官方给出的参考应用了解多模态嵌入在端侧的具体用途：</p>
+<ul>
+<li><strong><a href="https://developers.google.com/edge/gallery">Google AI Edge Gallery</a>（照片与视频定位）</strong>：包含以文字或图像检索相册的 Instant Media Search，以及通过自然语言或语音定位视频特定时刻的 Video Moments Finder。在官方发布视频中，演示者以“吹蜡烛”搜索一段生日录像，返回的结果直接定位到视频时间轴上吹蜡烛的精确时间位置，而非整份视频文件，用户可以直接点击跳到该时刻播放。</li>
+<li><strong><a href="https://developers.google.com/edge/foresight">Google AI Edge Foresight</a>（端侧多模态 RAG 串联）</strong>：在演示中，应用在后台实时收听提问、对音频流编码，据此检索本地存储中的文本、图片和系统架构图，再由 Gemma 4 本地生成回答摘要，把“嵌入模型负责找资料”与“生成模型负责作答”实际串联起来，敏感数据无须离开设备。</li>
+<li><strong><a href="https://developers.google.com/edge/mediapipe/solutions/decision/decision_maker">MediaPipe Decision Task API</a>（预置分类与决策路由）</strong>：利用输入表征与预设候选向量的相似度比对，为应用提供低延迟的实时意图分类与决策路由能力。</li>
+</ul>
+<p>目前模型权重已在 <a href="https://huggingface.co/google/embeddinggemma-2">Hugging Face</a> 与 <a href="https://www.kaggle.com/models/google/embeddinggemma-2">Kaggle</a> 正式发布，Gemini Enterprise Agent Platform 的 Model Garden 也即将提供支持。</p>
+<p>开发者可以按运行环境选择入口：</p>
+<ul>
+<li><strong>模型下载与端侧运行</strong>：权重已上线 Hugging Face 与 Kaggle，LiteRT Community 提供了经过端侧量化优化的专用版本。移动端开发者可以通过 Google AI Edge 提供的 <strong>MediaPipe</strong> 套件实现开箱即用的向量提取，也可以用 <strong>LiteRT</strong>（原 TensorFlow Lite）进行高度定制的模型内嵌；网页端则支持通过 transformers.js 与 WebGPU 纯前端本地跑。</li>
+<li><strong>服务端与本地工具箱</strong>：发布文章列出的工具包括 sentence-transformers、transformers、vLLM、SGLang，苹果生态的 MLX，以及面向个人开发者的 llama.cpp、Ollama 和 LMStudio；生成的向量可存入 Qdrant 等现代向量数据库；模型微调可遵循 Unsloth 提供的专项指导。</li>
+</ul>
+<p>在 Google 完整发布视频中，官方还说明开发者可以通过微调来适配特定专业领域的词汇与资料（例如视频中提及的法律合同、医学影像或技术产品目录等）。微调的作用在于让模型更好地理解垂直领域的专门表征，在不增加模型规模的前提下提升检索精度；但视频中提及的法律和医学场景仅作为适用方向举例，使用时仍要以自己的资料评估检索效果。开发者可以参考 Unsloth 提供的微调指导，或通过 Gemma Cookbook 中的相关范例开始上手。</p>
+<p>模型支持 100 多种语言，但不同语言的表现不一定相同；检索质量也取决于实际资料与任务。EmbeddingGemma 2 负责生成表征，应用仍需要处理检索结果的过滤与使用规则，并用自己的资料验证效果。</p>
+</div><div><div><div>来源</div><div><span>EmbeddingGemma 2: an open, lightweight multimodal embedding model</span><span>Sahil Dua、Henrique Schechter Vera / Google DeepMind<span>·</span>2026-10-06<span>·</span><a href="https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://ai.google.dev/gemma/docs/embeddinggemma/model_card_2">EmbeddingGemma 2 model card</a><span>·</span><a href="https://x.com/sundarpichai/status/2107501975671890211">Sundar Pichai 分享的 EmbeddingGemma 2 发布短片</a></div></div></div></div></div><div>
+<div>
+<div>Google DeepMind · 端侧多模态嵌入</div>
+<h1>Google 开源多模态向量模型 EmbeddingGemma 2：用自然语言搜索文字、图片、声音和视频</h1>
+<div>不必先把音画转为文字，也不必为纯文本常驻视听组件：7.4 亿参数、8K 上下文与套娃表示学习如何改变端侧私有检索。</div>
+<div>740M 参数 · 768 维统一空间 · 8,192 共享 Token · Apache 2.0 开源</div>
+<div>
+<p>手机里存着相册、录音和视频，想按内容搜索往往需要嵌入模型将现实世界的多媒体压缩为数学向量。一种常见的本地检索方案采用“级联转译”：先用语音模型转文字、图像模型打标签，再做文本向量比对。这会增加处理步骤，也可能遗失难以用文字形容的海浪背景声、吉他和弦或镜头画面感。</p>
+</div>
+<div>
+<h2>核心突破：原生多模态对齐</h2>
+<p>EmbeddingGemma 2 的本质突破在于<strong>原生多模态对齐</strong>。它让文本、图像、视频与音频在训练时就共享同一个 768 维的数学空间。正因为不同模态的内容被投射到了同一个向量空间，系统可以直接通过计算几何距离或余弦相似度来比对它们的相关性，而无须先把声音或画面转译成文字。</p>
+<div>
+<div>
+<div>
+<div>传统级联转译方案</div>
+<div>
+<div>多媒体输入（视频 / 音频 / 图片）</div>
+<div>调用 ASR 转文字 / 图像模型打标签</div>
+<div>多环节可能丢失音色与画面细节</div>
+<div>文本嵌入模型单独比对向量</div>
+</div>
+</div>
+<div>
+<div>EmbeddingGemma 2 原生对齐</div>
+<div>
+<div>文本 / 图像 / 视频 / 音频输入</div>
+<div>直接映射至共享 768 维数学空间</div>
+<div>直接利用声音与画面的语义特征</div>
+<div>同空间直接计算余弦相似度取回</div>
+</div>
+</div>
+</div>
+<div>
+<div>端侧四步检索闭环</div>
+<div>
+<div><span>1.</span><strong>资料预先建库</strong>：本地相册与录音离线编码为 768 维向量存入端侧索引。</div>
+<div><span>2.</span><strong>查询实时编码</strong>：语音或文字提问实时编码为同空间向量。</div>
+<div><span>3.</span><strong>同空间相似度比对</strong>：几何距离排序，直接定位候选原始多媒体。</div>
+<div><span>4.</span><strong>按需交大模型</strong>：仅检索直接呈现原件；需总结再送入端侧 Gemma 4。</div>
+</div>
+</div>
+</div>
+<p>若编码和索引均在端侧执行，向量提取与比对可在设备本地运行，相册与录音无需上传云端服务器，让原始资料留在设备内并减少网络往返。</p>
+</div>
+<div>
+<h2>模块化架构：按任务裁剪内存占用</h2>
+<p>只需要搜索文字或代码的应用，无须把图像和音频组件一起放进内存。EmbeddingGemma 2 采用<strong>模块化架构</strong>：模型由 24 层 Transformer 构成，总参数 7.4 亿（740M），分为 270M 文本骨干、170M 视觉编码器与 300M 音频编码器三大独立模块：</p>
+<div>
+<div>
+<div>191 MB</div>
+<div>Pixel 11 Pro 量化文本权重活动 RAM（270M 参数）</div>
+</div>
+<div>
+<div>440M / 570M</div>
+<div>图文 / 音频组合参数量</div>
+</div>
+<div>
+<div>567 MB</div>
+<div>同一手机量化全模态权重活动 RAM（740M 参数）</div>
+</div>
+</div>
+<p>上述 RAM 数据不包括应用、检索索引和生成模型的全部开销。</p>
+<div>
+<p><strong>底层权重协同</strong>：由于继承自 Gemma 4 架构，模型与端侧生成模型 Gemma 4 共享了文本分词器与音频编码器底座。在移动设备搭建端侧 RAG 时，两模型可复用内存中的通用底层权重，显著减少系统总开销。</p>
+</div>
+</div>
+<div>
+<h2>8K 共享上下文：多模态统一度量池</h2>
+<p>上下文窗口较前代纯文本模型的 2K 扩展 4 倍至 <strong>8,192（8K）个 token</strong>。这 8,192 个 token 是<strong>所有模态共享的统一度量池</strong>，而非各自独占。文字、图片、视频和音频混合输入时，会一起消耗这 8K 预算，不能同时装满各自的上限：</p>
+<div>
+<div>
+<div>文字与代码</div>
+<div>约 1 个 subword 消耗 1 token</div>
+<div>纯文本上限 8,192 tokens</div>
+</div>
+<div>
+<div>音频信号</div>
+<div>16 kHz 单声道，固定消耗 25 tokens/s</div>
+<div>纯音频上限 327 秒（~5.5 分钟）</div>
+</div>
+<div>
+<div>视频信号</div>
+<div>默认 1 fps 采样率，每帧消耗 140 tokens</div>
+<div>纯视频上限约 58 帧（~58 秒）</div>
+</div>
+<div>
+<div>静态图像</div>
+<div>默认单张消耗 280 tokens（支持 70~1,120 软 token 弹性调节）</div>
+<div>默认上限约 29 张（极低预算可达 114 张）</div>
+</div>
+</div>
+<div>
+<p><strong>交错输入与长音频切片</strong>：文本中可随时使用 <code>&lt;|image|&gt;</code>、<code>&lt;|video|&gt;</code>、<code>&lt;|audio|&gt;</code> 占位符融合为单一复合 768 维向量。面向数小时长录音，工程上应先将其切成符合 8K 预算的片段独立建库，再按检索定位对应区间，而非单次吞下整段长音视频。</p>
+</div>
+</div>
+<div>
+<h2>MRL 向量截断：存储与精度的工程选型</h2>
+<p>端侧存储与内存极为紧俏。模型原生集成了俄罗斯套娃表示学习（MRL），前缀维度在训练阶段即完成可用表征优化。开发者无需重新训练，在导出时截取前缀即可缩减向量尺寸：</p>
+<div>
+<div>
+<div>768 维 <span>原始基准</span></div>
+<div>100% 存储基准。多语言 MTEB 61.36，代码 78.68，跨模态 MMEB v2 59.01。</div>
+</div>
+<div>
+<div>256 维 <span>推荐评估起点</span></div>
+<div>体积缩至 <strong>1/3</strong>。多语言轻微降至 60.41，代码 76.18，跨模态保持可用，可作为评估起点，仍需用实际资料测试。</div>
+</div>
+<div>
+<div>128 维 <span>慎用多模态</span></div>
+<div>体积缩至 <strong>1/6</strong>。纯文本尚可，但跨模态 MMEB v2 剧烈跌至 45.65，信息损失严重。</div>
+</div>
+</div>
+<div>
+<p><strong>工程选型法则</strong>：端侧存储吃紧时优先以 256 维作为基准评估；128 维仅建议用于严苛纯文本环境，若在多模态中使用必须经过严格离线业务验证。</p>
+</div>
+</div>
+<div>
+<h2>小模型的价值：有限资源下的高性价比</h2>
+<p>EmbeddingGemma 2 的价值在于用轻量规模逼近数倍体量的大模型水准，而非在所有指标上盲目争第一：</p>
+<div>
+<div>
+<div>78.68</div>
+<div>MTEB Code (v1) 代码基准（比前代大涨 9.92 分，逼近 8B 大模型）</div>
+</div>
+<div>
+<div>64.64 / 67.84</div>
+<div>MIEB Lite 图像检索 / MMEB v2 视觉文档理解（所列基准中领先多个同级模型）</div>
+</div>
+<div>
+<div>49.39 / 69.54</div>
+<div>MAEB 音频评测 / MSEB 音频检索（超越多个音频专用模型）</div>
+</div>
+<div>
+<div>61.36</div>
+<div>MTEB Multilingual (v2) 覆盖超 100 种语言（与前代持平，新增跨模态）</div>
+</div>
+</div>
+</div>
+<div>
+<h2>落地实施三项铁律</h2>
+<div>
+<p><strong>1. 严禁使用 float16，必须使用 bfloat16 或 float32</strong>：模型内部激活值范围超出了 float16 的动态表示范围，若强行使用将返回 NaN 或产生静默降质。硬件加速环境务必选用 <code>torch.bfloat16</code>，CPU 环境回退至 <code>torch.float32</code>。</p>
+<p><strong>2. MRL 截断后必须重新做 L2 归一化</strong>：切片截断后的前缀向量模长不再等于 1。若直接用点积计算余弦相似度，将引发静默相似度失真。调用时务必开启 <code>normalize_embeddings=True</code>，且查询向量与底库维度必须绝对严格一致。</p>
+<p><strong>3. 规范任务前缀，非文本严禁拼前缀</strong>：非对称检索区分 Query 与 Doc 格式；对称任务使用统一前缀。最关键原则：<strong>所有前缀指令仅对纯文本生效</strong>！图片、视频与音频请直接传入原始信号，<strong>绝对不要拼装任何文字指令前缀</strong>。</p>
+</div>
+</div>
+</div></div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【周报】OpenAI 也做“决策模型”了？Decisions API 和 Jev 有多像</title>
+<link>https://best.xiaohu.ai/article/openai-decisions-api/</link>
+<category>周报</category>
+<guid isPermaLink="false">xiaohu:openai-decisions-api</guid>
+<pubDate>Sat, 10 Oct 2026 00:00:15 +0000</pubDate>
+<description>从销售线索、游戏避障到会变表情的青蛙：讲清 Decisions API 如何把判断交给软件使用，为什么它与 Jev 相似，以及概率、评分和“最高快 10 倍”的含义。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 周报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">OpenAI 也做“决策模型”了？Decisions API 和 Jev 有多像</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/openai-decisions-api/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>OpenAI 也做“决策模型”了？Decisions API 和 Jev 有多像</h1><p>从销售线索、游戏避障到会变表情的青蛙：讲清 Decisions API 如何把判断交给软件使用，为什么它与 Jev 相似，以及概率、评分和“最高快 10 倍”的含义。</p><strong>一分钟速览</strong><ul><li>客户请求来了，不必先让 AI 写一段回答：Decisions API 能直接给判断，让应用接着分流或办事。</li><li>语音模型负责听说，Decisions 负责选动作；演示中的青蛙可以边聊天、边随对话改变表情。</li><li>结果带有概率，评分是等级的加权平均；何时采纳、转人工和执行，仍由应用决定。</li></ul><div><p>客户发来一句“我被重复扣款了”，应用需要先判断该转账单部门还是技术支持；用户说“刷新页面”，应用需要立刻选出刷新动作。这些任务需要的是一个判断，随后才能继续办事。</p>
+<p>OpenAI 面向全体开发者开放了 <strong>Decisions API</strong> 公测：用 GPT-6 Luna 评估文本和图片，直接返回条件概率、预设选项或按等级计算的评分。</p>
+<p>Decisions API 针对这类需求开辟了专用端点（<code>POST /v1/decisions</code>），当前支持 <code>gpt-6-luna</code> 模型。它并不负责生成自由文本或论述，而是专注于直接返回固定题型的答案。</p>
+<p>这和本站介绍过的 <a>Jev</a> 很接近：都把条件判断、选择和评分做成软件可以直接使用的结果，带上概率，再由代码决定下一步。Jev 是 TypeSafe 的专用 System One 决策模型；这里则是 OpenAI 用 GPT-6 Luna 提供的专用接口。相似的是用途和输出形式。</p>
+<h3>为什么需要一个“只做选择题”的独立接口？</h3>
+<p>在实际应用中，这些“小判断”会在工作流的各个分支点上反复发生：把用户请求派发给不同部门、为销售线索匹配跟进动作、在小游戏画面中挑选避障车道，或是判断一条查询到底该调天气工具还是唤起复杂的推理模型。</p>
+<p>如果借助常规的 Responses API （OpenAI 用于生成自然语言或结构化内容的主力生成接口） 配合 Structured Outputs （结构化输出，用于让模型按预设 JSON 格式输出），模型会生成文本或符合指定格式的对象，再交给程序处理。对仅需选一个已有路径的请求，应用可以改用直接返回固定题型答案的决策接口。</p>
+<p>它的价值在于让应用先选路径，再进入对应流程：查天气的请求交给天气工具，比较方案的请求转给推理模型，需要人工看的操作进入复核队列。这样的判断可以放在每条请求、每次页面操作或每张待检查图片前面。单次判断更快、费用更低，就更适合承接这些反复发生的小决定；后端工具仍负责办事，需要生成内容时再调用生成接口。</p>
+<p>OpenAI 称，Decisions API 做决策的速度，相比通过 Responses API 调用同一款 GPT-6 Luna，<strong>最高可快 10 倍</strong>。这个比较针对决策任务，应用还要完成网络传输和后续执行，不能直接把它当作整个应用快 10 倍。</p>
+<h3>三种核心题型：它是如何给出结论的？</h3>
+<p>调用 Decisions API 时，请求由三部分组成：指定的模型（当前支持 <code>gpt-6-luna</code>）、共享的输入内容（支持纯文本或图文混合），以及一个 <code>questions</code> 提问数组。提问支持三类题型：评估条件是否成立的 <code>predicate</code>、从预设选项中做单选的 <code>choice</code>，以及按有序等级打分的 <code>score</code>。接口在返回的 <code>answers</code> 数组中，会对应给出每个问题的名称（<code>name</code>）、类型（<code>type</code>）以及对应的计算答案。</p>
+<figure><figcaption>第二条帖子的完整动画，约 5 秒：展示三种输出的样子。百分比与分数是示意，题型的实际含义见下文。</figcaption></figure>
+<h4>1. Predicate（条件概率题）</h4>
+<p>用于估计某项陈述或条件是否成立的概率。接口不输出硬性的 True 或 False，而是返回模型对条件为真的概率估计值（<code>probability</code>，在 0 到 1 之间），并附带该问题的 <code>name</code> 与 <code>type</code>。</p>
+<ul>
+<li><strong>典型应用</strong>：检查上传的商品照片是否存在裂缝、撕裂或凹陷等破损；判断某段文本是否与当前上下文相关。</li>
+<li><strong>工作机制</strong>：开发者给出清晰且基于可观察标准的判定说明。应用层根据业务对误报与漏报的承受成本自行制定决策阈值：漏掉一张破损照片和误报一张完好照片的代价不同，应使用自己业务中已标注的样本来确定阈值。</li>
+</ul>
+<h4>2. Choice（无序选择题）</h4>
+<p>从开发者提供的一组预设候选项中，单选出最匹配的一项。</p>
+<ul>
+<li><strong>典型应用</strong>：工单分流（退款、技术支持、物流等类别划分）；调用路径选择（闲聊、调用工具或转接推理模型）。</li>
+<li><strong>工作机制</strong>：返回结果包含选中的选项值（<code>choice</code>）、所有选项各自的概率分布（<code>probabilities</code>），以及单独的置信度评分（<code>confidence</code>）。当预设的分类列表无法完全覆盖潜在输入时，文档建议配置 <code>"other"</code> 选项用于承接未覆盖的输入类别；而如果模型返回的置信度偏低，则属于另一维度的判断，应由应用层依据自行设定的置信度阈值决定是否转人工复核或采取回退策略，前者解决类别没覆盖，后者处理判断不够可靠。</li>
+</ul>
+<h4>3. Score（有序阶梯评分题）</h4>
+<p>用于将输入内容对照一组严格有序的离散等级进行打分。它不是自由生成一个孤立的分数，而是由模型给出各个离散等级的概率分布，再计算各等级数值索引的概率加权平均值。</p>
+<ul>
+<li>
+<p><strong>典型应用</strong>：问题严重程度评估、工单优先级分级、有序质量评级。</p>
+</li>
+<li>
+<p><strong>计算逻辑</strong>：
+开发者定义一组按从低到高排列的等级（<code>levels</code>，等级索引从 0 开始递增）。官方文档以软件故障严重度为例：</p>
+<ul>
+<li>等级 0（Cosmetic）：仅外观问题，功能未受影响。</li>
+<li>等级 1（Workaround available）：某项任务失败，但有别的办法。</li>
+<li>等级 2（Fully blocked）：某项任务失败，且没有替代办法。</li>
+</ul>
+<p>当输入为“导出功能在 Safari 中失败但在 Chrome 中正常”时，模型评估的概率分布可能为：等级 0 为 0.1（10%），等级 1 为 0.7（70%），等级 2 为 0.2（20%）。
+最终返回的分数是各等级索引根据概率加权计算得出的连续数值：</p>
+<p><strong>0 × 10% + 1 × 70% + 2 × 20% = 1.1</strong></p>
+<p>1.1 是对整个概率分布的汇总，并不是多出了一个“等级 1.1”。这个例子最可能落在等级 1，但仍保留了落在等级 2 的可能性。如果业务只要一个类别，应使用 <code>choice</code>；如果要按严重程度排序，<code>score</code> 更便于比较。</p>
+</li>
+</ul>
+<h3>同样是 1.1 分，判断分布可以很不同</h3><p>这是按文档公式计算的示意；只有第一组概率来自文档例子，其余为数学对照。</p>选择一组概率分布文档例子：大多有替代办法同样 1.1 分：只在两端分布全部落在等级 1全部落在等级 2<div><div><strong>0 · 外观问题</strong><span>10%</span></div><div><strong>1 · 有替代办法</strong><span>70%</span></div><div><strong>2 · 无替代办法</strong><span>20%</span></div></div><div><p>0 × 10% + 1 × 70% + 2 × 20% = <strong>1.1</strong></p><p>最可能的是等级 1，但仍有 20% 的概率落在等级 2。</p></div><p>评分概括了分布；判断是否转人工，还要结合各级概率、返回的置信度和业务错误代价。这里没有调用模型，也没有模拟置信度。</p>
+<h3>“最高快 10 倍”和每百万输入 0.10 美元，分别意味着什么？</h3>
+<p>Decisions API 在计费与调用规则上具备专门的定价机制：</p>
+<p>在定价方面，使用 <code>gpt-6-luna</code> 模型的 Decisions API 按输入 Token 计费，价格为 <strong>每百万输入 Token 0.10 美元</strong>（$0.10 per 1M tokens）。调用该端点时不收取输出 Token 费用，也不收取缓存读取或缓存写入费用。该价格适用于 <code>/v1/decisions</code> 端点，且依然受区域处理溢价与长上下文倍率计费规则的约束。</p>
+<p>高并发应用可以按输入量估算开销。例如，若假设每次请求平均消耗 1,000 个输入 Token，执行 100 万次调用的累计输入量为 10 亿 Token，对应的基础输入费用为 100 美元。这一计算仅包含纯文本的基础输入牌价，并不包含图片输入产生的 Token 量、区域溢价、长上下文乘数，以及网络往返、语音或下游工具执行等后端系统开销。</p>
+<p>在响应速度方面，主帖演示中的销售线索分类环节曾展示其服务端响应时间低于 100 毫秒，但这仅对应于该次销售线索演示中的服务端处理时间，并不是端到端或全局 SLA 保障。在实际生产部署中，完整的交互延迟还包含客户端与服务端之间的网络传输、本地应用逻辑与后续动作执行的耗时。</p>
+<h3>六类用途都在做同一件事：先判断，再交给流程处理</h3>
+<p>在官方技术演示中，Decisions API 展现了六类应用切入点，涵盖路由分流、离散打标、图像筛查、界面决策、风险控制与聚合分析：</p>
+<figure><figcaption>第三条帖子的完整动画，约 24 秒：2 秒路由、6 秒文本分类、10 秒背包检查、14 秒界面动作、18 秒风险审查、22 秒评论归类。示意金额、置信度与统计数值不作为实测结果。</figcaption></figure>
+<ol>
+<li><strong>智能路由（Routing）</strong>：在语言模型、外部工具与专职 Agent 之间做分流。例如简单天气查询直接选天气工具，复杂分析请求则导向推理模型。这样可以让不同任务进入合适的处理流程；能节省多少取决于后端工具与模型的实际成本。动画中的金额标为路径成本示意。</li>
+<li><strong>文本分类（Text classification）</strong>：对非结构化文本快速完成类别判定与优先级评定。例如用户提出“我被重复扣款了”，接口可以归类为 <code>Billing</code> 部门并评估其严重级别。演示中的置信度与优先级均为展示效果的示意数据。</li>
+<li><strong>视觉筛查与关键帧筛选（Image analysis）</strong>：结合指令对图片进行破损检查、属性分类或图像内容比较。在官方演示约 10 秒的退货检查中，输入一张橙色背包照片，界面展示了品类（Category: Backpack）以及破损判定（Damage: None detected）。按接口提供的题型，应用可以把“属于哪类商品”写成选择题，把“有没有破损”写成条件概率题，再把答案组织成页面字段。这是预设问题的组合，任意字段的自由抽取仍使用生成接口。处理视频时，也是由应用先抽帧，再交由接口快速筛选与任务相关的关键帧。</li>
+<li><strong>辅助界面操作（Computer use）</strong>：在自动化任务中，将界面截图与可选动作列表提交给接口，辅助选出下一步操作（如从候选控件中选择“继续”）。Decisions API 仅负责做出离散选择，屏幕坐标映射与点击执行必须由外层应用完成。</li>
+<li><strong>安全护栏（Guardrails）</strong>：在系统或 Agent 准备执行高危操作（如递归删除共享目录）前，利用 Decisions API 评估风险等级。应用依据返回的风险判断阻止执行，再转交人工审核；权限与阻断逻辑由应用负责。</li>
+<li><strong>模式与趋势分析（Analytics）</strong>：对大规模数据集进行批量打标，进而统计整体趋势。官方演示中是对商品评论按正面（Positive）、混合（Mixed）与负面（Negative）预设标签归类并统计分布，动画中的评论条数与分布均为示意数据，并非真实数据集统计。</li>
+</ol>
+<figure><img /><figcaption>第三段动画约 18 秒：先判断待执行操作的风险，再由应用转交人工。</figcaption></figure>
+<h4>演示中的典型案例：线索分流与选道演示</h4>
+<figure><figcaption>官方完整演示，约 72 秒，保留原声。8–21 秒看销售线索分流，21–37 秒看游戏选道，37–63 秒看语音与表情分工；中文解释就在相应案例段落。</figcaption></figure>
+<p>在演示视频中，官方进一步展示了两个具体场景的实际应用方式：</p>
+<ul>
+<li><strong>销售线索快速分流</strong>：面对来源各异的潜在客户登记信息，系统可以迅速完成意图与规模判定，以便由差异化的销售流程承接。例如，针对 2–10 人的 Agency 团队且明确标注“准备购买（Ready to buy）”、期望在当月落地的线索，画面将下一步标为“产品演示（Product demo）”；而对于个人独立用户且处于探索阶段的线索，画面将下一步标为“套餐对比（Plan comparison）”。这体现了用预设问题快速分类，再让不同业务流程承接这些标签的思路。</li>
+</ul>
+<figure><img /><figcaption>主视频约 12 秒：分类标签帮助销售流程承接不同需求，页面中的结构化展示由应用组织。</figcaption></figure>
+<ul>
+<li><strong>小游戏画面选车道</strong>：在另一段小游戏演示中，系统持续将包含三条车道、障碍物与自车的画面帧送入 Decisions API，由接口在候选车道中选出避障车道。游戏调快后，画面继续展示选道避障。这演示的是小游戏中的画面判断与动作选择，实际换道由游戏程序执行。</li>
+</ul>
+<figure><img /><figcaption>主视频约 30 秒：模型从候选车道中选一个，游戏程序执行换道。</figcaption></figure>
+<h3>语音照常聊，动作单独选：青蛙表情如何跟上对话？</h3>
+<p>在语音控制场景中，Decisions API 可以与 OpenAI 的 <a>Live API</a> （用于双向低延迟语音对话的接口） 协同工作。依托 Live API 既有的客户端委托模式（Client Delegation），语音会话与动作决策能够在应用层形成清晰分工：GPT-Live 维持语音流的收听与播报，而具体动作的选择则交由 Decisions API 完成。</p>
+<p>其标准的交互与执行流程如下：</p>
+<ol>
+<li><strong>建立委托会话</strong>：应用启动配置了客户端委托的 Live 会话，并在会话中声明支持的动作集合。当系统接收到 <code>session.delegation.created</code> 事件时，保存其中的委托 ID（<code>event.delegation.id</code>）。</li>
+<li><strong>组装决策输入</strong>：应用服务端收集用户与助手的对话转录文本，连同用户最新发出的请求、应用当前状态（如活动标签页与加载状态）以及当前可用动作列表（如 <code>back</code>、<code>reload</code>、<code>noop</code>），组合构造成 Decisions API 的输入。</li>
+<li><strong>选择并执行动作</strong>：Decisions API 从可用选项中选出目标动作。应用在实际执行前，需要校验请求是否已被取消以及所选动作是否仍然符合当前界面状态；校验通过后由应用执行该动作并更新状态。</li>
+<li><strong>带委托 ID 回传</strong>：动作执行完成后，应用带上之前保存的委托 ID，通过 <code>session.commentary.append</code> 将执行结果回传给 GPT-Live，提示其以语音告知用户；若只需更新上下文而不触发语音播报，则使用 <code>session.thinking.append</code>。</li>
+</ol>
+<p>在遇到超出简单界面操作的复杂任务时，Decisions API 还可以作为前端分流器。例如在幻灯片控制演示中，如果用户要求“对比这两个方案并推荐一个”，Decisions API 可以将选项归入 <code>reason</code>，应用随即调用 Responses API 配合推理模型处理深入分析，再将结论以相同的委托 ID 回传至语音会话。</p>
+<p>在官方技术演示中，技术人员还展示了 GPT-Live 与卡通青蛙形象的配合：GPT-Live 负责语音对话，Decisions API 则根据对话内容选择青蛙展示的表情动画。当用户说“这周过得很疯狂（crazy week）”时，GPT-Live 回复“听起来让人精疲力竭”，青蛙表情切换为疲惫状态；当用户纠正说“是开心的那种疯狂（crazy in a good way）”并提到产品上线时，GPT-Live 随即回复“太让人兴奋了”，青蛙也同步恢复笑脸表情。两者在应用层协同运作，实现了语音回复与视觉表情选择的分工配合。</p>
+<figure><img /><figcaption>主视频约 54 秒：说话由 GPT-Live 负责，表情由 Decisions 选择；听到语意澄清后，青蛙重新露出笑脸。</figcaption></figure>
+<h3>接入时先确定：需要一个判断，还是一份新内容？</h3>
+<p>Decisions API 负责固定题型的判断。选接口时，先看应用需要拿到什么结果：</p>
+<h4>适合使用的场景</h4>
+<ul>
+<li><strong>离散条件与概率估计</strong>：需要评估某个条件是否成立并获取概率估计值，由应用层依据业务设定的阈值将其转化为判定逻辑，而非依赖接口直接输出是非结论。</li>
+<li><strong>选项预先封闭的离散决策</strong>：例如工单流向选择、下一步界面动作挑选或请求路径路由。</li>
+<li><strong>依据标尺的阶梯等级打分</strong>：依照固定准则对问题严重度、优先级进行离散等级打分并获取加权数值。</li>
+</ul>
+<h4>不适合使用的场景与工程细节</h4>
+<ul>
+<li><strong>需要输出长文本或解释原因</strong>：Decisions API 只输出固定格式的判定数据，不会给出自然语言解释。如需生成文本或详细论证，应当使用常规的 Responses API。</li>
+<li><strong>需要提取动态 JSON 字段</strong>：若需要从输入文本中自由提取联系人、金额、明细表格等结构化对象，应使用 Responses API 的 Structured Outputs （结构化输出）。</li>
+<li><strong>需要带有参数的工具调用</strong>：若需要模型自主生成工具参数（例如构建带条件的查询语句或拼装 API 参数），仍需使用 Function Calling （函数调用）。</li>
+<li><strong>工程实现要点</strong>：
+<ul>
+<li><strong>围绕可观察标准设计题目</strong>：提问应基于明确、可观察的客观标准，不同维度的判断应拆为不同问题；分类选项（<code>choices</code>）之间必须定义清晰、界限分明；阶梯评分（<code>levels</code>）的相邻档位需给出互不重叠的具体依据，让每个答案对应可解释的判断依据。</li>
+<li><strong>独立问题合并、依赖问题拆分</strong>：在单次请求的 <code>questions</code> 数组中，可以同时提交多个彼此独立的提问，它们共享同一份输入数据（例如针对同一张商品图片同时检测是否有破损并分类商品类别）；但如果后续提问依赖前序问题的答案，则必须拆分为多次请求分步发起。</li>
+<li><strong>提问命名</strong>：每个问题应指定唯一的 <code>name</code>，接口会在响应中如实回显该字段，便于应用层精准解析和匹配对应答案。</li>
+<li><strong>图片输入格式</strong>：当前端点仅支持通过内嵌 Base64 Data URL 提交图片，不支持传入托管的 HTTP/HTTPS 图片地址或 <code>file_id</code>。</li>
+</ul>
+</li>
+</ul>
+<p>在实际架构中，Decisions API 仅负责依据开发者预设的题目与选项返回概率、选择与加权分值，而阈值裁定、流程阻断、容错回退与后续动作执行，均属于应用层自身的搭建分工。</p>
+</div><div><div><div>来源</div><div><span>OpenAI Developers：Decisions API 公测完整主题帖</span><span>OpenAI Developers<span>·</span><a href="https://x.com/OpenAIDevs/status/2107573382229188645">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://developers.openai.com/api/docs/guides/decisions">Decisions API 官方指南</a><span>·</span><a href="https://developers.openai.com/api/docs/guides/decisions-voice">Connect voice to Decisions 官方指南</a><span>·</span><a href="https://docs.typesafe.ai/introduction">TypeSafe Jev 官方介绍（用于对照）</a></div></div></div></div></div><div>
+<div>OpenAI Decisions API · GPT-6 Luna · 架构与决策分流</div>
+<h1>OpenAI 也做“决策模型”了？Decisions API 和 Jev 有多像</h1>
+<div>OpenAI 开放 Decisions API 公测，用 GPT-6 Luna 判断文本和图片，直接返回概率、预设选项或评分。高频的小判断可以先选路径，再让工具办事、让生成接口写内容。</div>
+<div>相似的是用途和输出形式；决策、生成与执行仍各有分工。</div>
+<div>
+<p>这和 Jev 很接近：都把条件判断、选择和评分做成软件可用的结果，带上概率，再由代码决定下一步。Jev 是 TypeSafe 的专用 System One 决策模型；这里是 OpenAI 用 GPT-6 Luna 提供的专用接口。相似的是用途和输出形式，不能据此推断底层实现相同。</p><h2>先选路径，再继续办事</h2>
+<p>用户说“我被重复扣款了”，应用先判断该转账单部门还是技术支持；用户说“刷新页面”，应用先选出刷新动作。它们需要一个判断，随后才能办事。</p>
+<p>常规 Responses API 会生成文本或格式化对象，再交给程序处理。仅需选一个已有路径时，可以用 Decisions API 直接返回固定题型答案。</p>
+<div>
+<div>
+<span>输入分流前置</span>
+<span>→</span>
+<span><code>POST /v1/decisions</code> (GPT-6 Luna 快速裁决)</span>
+</div>
+<div>
+<span>轻量路径直达</span>
+<span>↳</span>
+<span>直接调用天气工具或执行页面刷新，无需唤起生成模型</span>
+</div>
+<div>
+<span>复杂推演任务</span>
+<span>↳</span>
+<span>判定为方案对比后，再转接 Responses API 配合重型推理模型</span>
+</div>
+</div>
+<p>这些判断会在每条请求、每次操作或每张图片前反复发生。判断更快、费用更低，就更适合承接这些小决定；后端工具仍负责执行。</p>
+</div>
+<div>
+<h2>三种题型，三种不同的答案</h2>
+<p>开发者先写清题目、候选项或等级，接口评估共享的文本／图片输入，再按题型返回答案。</p>
+<div>
+<div>
+<span>核心机制</span>
+<div>先定义判断标准，再读懂返回值</div>
+</div>
+<div>
+<div>
+<div>
+<span>1. Predicate（条件概率题）</span>
+<span>输出：probability ∈ [0.0, 1.0]</span>
+</div>
+<p>例如“商品是否破损”：返回条件成立的概率估计（0 到 1），并非直接输出是或否。业务代码根据误报、漏报的代价确定阈值。</p>
+</div>
+<div>
+<div>
+<span>2. Choice（离散单选题）</span>
+<span>输出：choice + probabilities + confidence</span>
+</div>
+<p>例如“该转账单部门还是技术支持”：从预设项中选一个，并返回各项概率与单独的置信度。“other”承接类别未覆盖；低置信度则由应用决定复核或回退。</p>
+</div>
+<div>
+<div>
+<span>3. Score（有序阶梯评分题）</span>
+<span>输出：各等级索引概率加权期望分值</span>
+</div>
+<p>等级必须从低到高排列。接口给出各等级的概率，再按从 0 开始的等级索引计算加权平均：</p>
+<div>
+            等级示例：0（仅外观）· 1（功能受损有替代）· 2（完全受阻）<br />
+            分布计算：0 × 10% + 1 × 70% + 2 × 20% = <span>1.1</span>
+</div>
+<p>1.1 汇总了整个分布，并非新造了“等级 1.1”。最可能是等级 1，仍有落在等级 2 的可能性。只要类别用 choice；按严重程度排序时 score 更便于比较。</p>
+</div>
+</div>
+</div>
+<div>
+<p><strong>独立提问支持批量合并</strong>：在单次请求的 <code>questions</code> 数组中，可以同时提交多个彼此独立的提问，它们共享同一份输入数据（例如针对同一张商品图片同时检测是否有破损并分类商品类别）；但如果后续提问依赖前序问题的答案，则必须拆分为多次请求分步发起。</p>
+</div>
+</div>
+<div>
+<h2>速度和费用，先看比较口径</h2>
+<div>
+<div>
+<div>$0.10</div>
+<div>每 1M 输入 Token 基础牌价，不收输出与缓存费</div>
+</div>
+<div>
+<div>10×</div>
+<div>相比 Responses API 同模型最高决策速度提升</div>
+</div>
+<div>
+<div>&lt;100ms</div>
+<div>演示中服务端线索分类响应时间（非端到端 SLA）</div>
+</div>
+</div>
+<p>“最高快 10 倍”是 OpenAI 对决策任务的说法，比较对象是通过 Responses API 调用同一款 GPT-6 Luna；它不代表整个应用快 10 倍。演示中的低于 100 毫秒仅指该次销售线索分类的服务端响应，不是 SLA。</p><p>基础输入牌价不收输出与缓存费；图片输入仍产生 Token，区域溢价和长上下文倍率仍适用。网络往返与后续业务执行也要另计时间和成本。</p></div>
+<div>
+<h2>语音照常聊，表情单独选</h2>
+<p>工单分流、商品破损检查、候选按钮选择、风险评估和评论打标，都把判断交给接口，再由应用组织结果或执行动作。</p>
+<p>在语音场景，GPT-Live 负责收听与说话，Decisions API 根据对话选择动作或表情，由应用执行。青蛙演示中，听到“疯狂的一周”先选疲惫表情；用户澄清是开心的疯狂后，再选笑脸。</p>
+</div>
+<div>
+<h2>什么时候用，谁来执行？</h2>
+<p>选型时先看应用需要拿到什么结果：需要的是离散判断，还是一份全新内容？</p>
+<div>
+<div>
+<div>✓ 适合使用</div>
+<ul>
+<li><strong>离散条件与概率估计</strong>：获取 0~1 概率值，由业务代码依据成本阈值转化判定</li>
+<li><strong>预设封闭离散决策</strong>：工单流向、路由分支、界面动作等候选有限场景</li>
+<li><strong>依据标尺的阶梯打分</strong>：对照固定准则对问题严重度、线索分级计算加权数值</li>
+</ul>
+</div>
+<div>
+<div>✕ 不适合使用（改用生成接口）</div>
+<ul>
+<li><strong>需要输出长文本或解释原因</strong>：接口只输出判定数据，不提供文本解释</li>
+<li><strong>需要提取动态 JSON 字段</strong>：自由抽取表单或实体应使用 Structured Outputs</li>
+<li><strong>需要带有参数的工具调用</strong>：需要自主组装 API 参数仍需使用 Function Calling</li>
+</ul>
+</div>
+</div>
+<div>
+<p>在实际架构中，Decisions API 仅负责依据开发者预设的题目与选项返回概率、选择与加权分值，而阈值裁定、流程阻断、容错回退与后续动作执行，均属于应用层自身的搭建分工。提问必须围绕可观察标准设计，图片目前仅支持内嵌 Base64 Data URL 提交。</p>
+</div>
+</div>
+</div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【周报】Google 发布 Nano Banana 2.1：画面更自然，改图更连贯</title>
+<link>https://best.xiaohu.ai/article/nano-banana-2-1/</link>
+<category>周报</category>
+<guid isPermaLink="false">xiaohu:nano-banana-2-1</guid>
+<pubDate>Sat, 10 Oct 2026 00:00:15 +0000</pubDate>
+<description>保持 Flash 级效率，改善画质、文字排版、主体一致性与局部编辑，并支持多图、搜索和视频参考。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 周报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Google 发布 Nano Banana 2.1：画面更自然，改图更连贯</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/nano-banana-2-1/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Google 发布 Nano Banana 2.1：画面更自然，改图更连贯</h1><p>保持 Flash 级效率，改善画质、文字排版、主体一致性与局部编辑，并支持多图、搜索和视频参考。</p><div><p>Google 发布了高效图像生成与对话式编辑模型 Nano Banana 2.1（API 型号为 <code>gemini-nano-banana-2.1</code>）。作为 Nano Banana 2 的升级版本，它基于 Gemini 3.6 Flash 架构构建，保持 Flash 级别的响应速度与成本效率，主要带来了以下功能特点：</p>
+<ul>
+<li><strong>画面自然与微观材质</strong>：改善了透光材质、雪原晨光、毛发织物与油画笔触等微观质感，提升了不同分辨率下的画面真实感与细节表现；</li>
+<li><strong>文字排版与设计对齐</strong>：增强了字符渲染清晰度、留白控制与几何排版布局，便于直接生成自带规整视觉层级的海报、图表与页面设计稿；</li>
+<li><strong>多参考主体与连续编辑</strong>：单次最多支持输入 14 张参考图（官方指标支持最多 4 个角色的人脸一致性与 10 个物体的细节保真），并支持沿用对话轮次连续微调；</li>
+<li><strong>蒙版与涂鸦重绘</strong>：创作者可以通过涂鸦圈选画面主体，在保留原有轮廓与位置的同时定向替换周围背景与氛围；</li>
+<li><strong>极端长画幅支持</strong>：支持从 1:1 到 1:8、8:1 等 15 种宽高比，修复了长图在 2K、4K 输出下的平铺接缝伪影；</li>
+<li><strong>搜索补充与思考推理</strong>：支持接入 Google 网页与图片搜索补充事实或视觉参考，并通过可配置的 Thinking 思考过程平衡出图质量与时延。</li>
+</ul>
+<hr />
+<h2>画面质感更自然，看清光影与微观材质</h2>
+<p>在 Nano Banana 2.1 中，“画面更自然”体现在物体材质、光影层次与艺术笔触上，不只是像素更多。下面几张 Google 展示的生成样例，让这些变化更容易观察：</p>
+<figure>
+<img />
+<figcaption>Google 示例：绣球干花微距特写，提示词要求呈现半透明薄片与网状脉络，画面在深色虚化背景前展现了轻薄透光的微观纤维细节。</figcaption>
+</figure>
+<p>干花薄片的半透明感和网状脉络，与背景虚化共同形成了微距拍摄的感觉。</p>
+<figure>
+<img />
+<figcaption>Google 示例：高山雪原日出全景，提示词指定了鲜红色的三角避难小屋与冰川背景，画面呈现出低角度晨光投下的长阴影，以及雪面反光与冷蓝冰川的冷热光影对比。</figcaption>
+</figure>
+<p>在自然风光中，低角度日光形成的暖色反光与冰川阴影的冷色调能够拉开反差，使雪面与建筑的冷热受光更为自然。</p>
+<figure>
+<img />
+<figcaption>Google 示例：苏格兰高地牛与牧民肖像，提示词设定了粗花呢帽子、油蜡夹克与长毛高地牛，画面分层呈现了粗糙织物、人物手部、动物长毛与雾中岩石的质感。</figcaption>
+</figure>
+<p>在人物与动物互动场景中，厚重衣料、皮肤触感与动物长毛等不同材质能够保持各自的质感差异。</p>
+<figure>
+<img />
+<figcaption>Google 示例：怒海垂钓油画，提示词要求采用厚涂印象派风格，画面使用粗厚且有明显走向的蓝绿笔触展现翻涌的海水动感，并带有浪尖高光的明暗对比。</figcaption>
+</figure>
+<p>在非摄影的艺术风格中，模型能够按照提示词呈现出厚重颜料堆叠的笔触肌理，传递海浪翻涌的动势。这些样例也说明了提示词怎样指导光线、材质与风格。</p>
+<hr />
+<h2>长图和横幅，先修复不自然的接缝</h2>
+<p>制作长图、全景横幅或超宽海报时，旧版 Nano Banana 2 在部分长画幅的 2K、4K 输出中会出现“平铺伪影”（不自然的重复纹理或网格接缝）。</p>
+<p>Nano Banana 2.1 针对这些输出问题进行了更新：</p>
+<ol>
+<li><strong>主流与极端画幅全覆盖</strong>：支持从常规的 1:1、3:4、16:9，到极端的竖条与全景画幅（包括 1:4、4:1、1:8、8:1 等共 15 种比例）。</li>
+<li><strong>修复指定长画幅的平铺伪影</strong>：在 2K 和 4K 档位输出全景或超窄构图时，模型能够维持画面的整体连续性，有效解决了长画幅在拼接处的假纹路与切片感。</li>
+<li><strong>阶梯式输出分辨率</strong>：默认输出为 1K 分辨率，创作者与开发者可根据应用场景自由指定 2K 或 4K 图像，满足从社媒即时预览到高精度输出的各类需求。</li>
+</ol>
+<hr />
+<h2>文字与版面更能配合画面</h2>
+<p>将 AI 图像直接用于海报、电商广告或界面原型，最大的痛点往往是画面中的文字模糊乱码、难以辨识。Nano Banana 2.1 增强了文本排版对齐与字符呈现能力，能更好地按照提示词组织视觉层级、留白与字体风格。</p>
+<figure>
+<img />
+<figcaption>Google 示例：左为瑞士现代平面风格网页设计稿，中为渔夫帽复古海报，右为北欧玻璃小屋多图拼贴布局，展示了多层级文字与几何栅格排版能力。</figcaption>
+</figure>
+<p>除了单张艺术海报，在制作成套的系列物料或连续视觉稿时，Nano Banana 2.1 官方图库展示的文字渲染、主体保留与局部编辑三项能力分别承担了不同分工：</p>
+<ul>
+<li><strong>文字排版</strong>：正如设计稿示例所展示，模型能够按照提示词组织字号、留白与几何栅格，让海报或页面视觉稿自带清晰的文字层级，减少后续二次排版的脱节；</li>
+<li><strong>主体保留</strong>：如官方商品图库所示，模型在展示样例中保留了核心物品的轮廓与金色扣件，将其置入不同光影场景，有助于减少系列宣发图中主推商品的走样；</li>
+<li><strong>局部编辑</strong>：如官方涂鸦重绘示例所示，通过涂鸦圈选主体，模型可以在保留原有主体微观质感与形态的前提下快速替换周围环境，便于围绕同一焦点快速探索不同氛围与构图。</li>
+</ul>
+<p>Nano Banana 2.1 也支持 Google 网页和图片搜索（Search Grounding，生成时借助搜索结果补充参考），并增强了信息图的文字和布局表现。画面里的知识内容是否正确，需要和视觉设计分别判断。</p>
+<p><strong>在 1K 默认分辨率下，小字仍容易模糊；大段文字与整页文本也仍是弱项。</strong> 文字排版改善了，逐字校对仍是成品制作的一部分。</p>
+<hr />
+<h2>换了场景，商品和角色还得认得出来</h2>
+<p>保持角色连贯和商品特征不变，是影视分镜、绘本创作与品牌营销的核心门槛。在 Nano Banana 2.1 中，多图参考融合能力得到了进一步规范：</p>
+<ul>
+<li><strong>单次最多支持 14 张参考图输入</strong>：创作者可以在一个提示词内传入多张素材供模型综合理解。</li>
+<li><strong>参考主体的一致性范围</strong>：在多图融合场景下，官方接口规格标明支持<strong>最多 4 个角色的人脸与特征一致性</strong>，以及<strong>最多 10 个物体的细节保真</strong>。这描述了支持的参考范围；范围内也可能出现角色特征变化。</li>
+</ul>
+<figure>
+<img />
+<figcaption>Google 示例：以单张粉桃色皮革单肩包作为参考输入，模型分别生成了几何圆台、孟菲斯波普风与概念悬浮场景，皮质纹理、包袋褶皱与金色五金扣件均保持了较高的辨识度。</figcaption>
+</figure>
+<p>在商品视觉延展中，创作者只需提供一张白底商品图，即可借助提示词将商品置换到不同的商业摄影棚、野外风光或艺术展台中，同时更好地保留五金、轮廓等核心商品特征。</p>
+<p>除了单个商品的场景迁移，官方图库还展示了多人多参考图合成的案例：</p>
+<figure>
+<img />
+<figcaption>Google 示例：左侧输入了 14 组不同模特与服装的多角度参考图，右侧生成了一张置身彩色几何建筑群的约 14 人集体合影，模特身着各自对应的服装并分布在不同景深与台阶处。</figcaption>
+</figure>
+<p>相比只说“多位模特在彩色建筑前合影”，多角度的人物与服装参考给出了更具体的样貌、色块和造型要求，模型再把这些素材放进同一个场景。</p>
+<p>图里的多组参考与多人合影，展示的是素材融合。API 文档列出的参考范围仍为最多 4 个角色、10 个物体；画面里出现更多人，不等于每个人的身份都能稳定保留。</p>
+<hr />
+<h2>圈出主体，让背景改得更明确</h2>
+<p>对于需要精细修图的创作者，Nano Banana 2.1 提供了基于涂鸦或蒙版（Mask/Ink-based Editing）的环境重绘功能。创作者只需在原图上画出选区或涂鸦勾勒主体，输入提示词要求“保留主体轮廓与位置，更换背景”，模型即可完成风格重塑。</p>
+<figure>
+<img />
+<figcaption>Google 示例：左侧输入图使用黑色线条圈选带水滴的蒲公英种子，右侧模型将其自然置入苔藓树干、红黄秋叶、夕阳沙滩及瓷砖桌面，主体倾斜角度与水滴通透感得以保留。</figcaption>
+</figure>
+<p>修改成品时，还要留意两个已知问题：</p>
+<ol>
+<li><strong>姿态锁定</strong>：在编辑人物或动态物体时，模型偶尔会过于顽固地保持输入图的物理骨架，导致你要求它“转头”或“换手势”时无法顺利摆脱原图姿态。</li>
+<li><strong>标记残留</strong>：蒙版或涂鸦编辑可能只执行部分要求，或者让画上的标记留在输出里。</li>
+</ol>
+<hr />
+<h2>连续修改与更多输入用途</h2>
+<p>在单次出图之外，当前官方 API 文档将多轮对话列为迭代图像的推荐方式。创作者可以在已有结果上继续修改：</p>
+<figure>
+<img />
+<figcaption>官方 API 文档示例：首轮提示词生成以植物厨房为隐喻的英文光合作用图解，包含原料、产物与清晰的箭头流向。</figcaption>
+</figure>
+<figure>
+<img />
+<figcaption>官方 API 文档示例：沿用上一轮交互 ID 将文字修改为西班牙语，主要图示框架与主体构图得以延续，但太阳形态等局部略有重绘，并非全图像素完全不变。</figcaption>
+</figure>
+<p>在官方提供的图解示例中，用户先生成了一张英文版光合作用信息图，随后在下一轮请求中沿用 <code>previous_interaction_id</code>（上一轮交互标识），要求仅将图中的文字修改为西班牙文。这种对话编辑能够延续画面的主体构图与视觉框架，但太阳外形等局部细节仍会有微小变化，并非整张图的像素完全不变。官方还建议，若需要生成包含文字的图示，最好先在对话中定稿文本内容，再要求模型将其渲染到图像中；在官方推荐的高质量渲染语言中，包括简体中文（zh-CN）、英语与西班牙语等。多轮对话是系列既有能力，2.1 进一步改善了连续编辑的一致性。</p>
+<p>除了常规文本与图片，模型还支持更丰富的多模态与外部输入：</p>
+<ul>
+<li><strong>Google 搜索辅助（Grounding）</strong>：模型支持接入 Google 网页搜索与图片搜索。网页搜索能为天气预报、近期热点等事实图表提供最新的外部事实支撑；图片搜索则能引入网络图像作为视觉构图与风格参考。两者可分别启用，也可合并调用。需要注意的是，目前图片搜索明确不支持检索网络上的真实人物照片作为生图参考。</li>
+<li><strong>视频转图像（Video-to-Image）</strong>：创作者可以直接提供公网 YouTube 链接或上传本地视频文件。模型会分析视频帧中的视觉主题与关键事件，再结合文字提示词生成视频缩略图、宣传海报或剧情总结图。这里输出的是参考视频内容生成的静态图片。旧版 Nano Banana 2 和 2 Lite 也支持视频输入。</li>
+</ul>
+<hr />
+<h2>开启思考后，哪些任务改善更明显</h2>
+<p>Nano Banana 2.1 支持可配置的思考等级（Thinking Levels，包含 minimal、medium 与 high），这是一种在生成质量与推理时延之间的权衡机制，默认档位为 medium。在面对复杂构图或多主体提示词时，模型在思考过程中最多会生成两张中间图像来尝试构图与推演逻辑，最后一张即为最终交付的成图。需要注意的是，在当前 Gemini API 中，思考过程是默认开启且无法关闭的，调用时会自动计入思考 Token；官方模型卡中列出的“No Thinking”是评测条件，当前 API 允许调整思考档位，不提供关闭开关。</p>
+<p>根据 Google 官方模型卡公布的并排人工评估（SxS human eval）结果，各项任务的人工偏好 Elo 分值如下：</p>
+<div><table>
+<thead>
+<tr>
+<th>评估项目（SxS 人工偏好 Elo）</th>
+<th>2.1 Thinking</th>
+<th>2.1 No Thinking</th>
+<th>2 Thinking</th>
+<th>Pro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>整体偏好</td>
+<td>1050 ± 14</td>
+<td>1015 ± 13</td>
+<td>990 ± 7</td>
+<td>935 ± 8</td>
+</tr>
+<tr>
+<td>信息图设计</td>
+<td>1048 ± 17</td>
+<td>1001 ± 17</td>
+<td>961 ± 12</td>
+<td>912 ± 12</td>
+</tr>
+<tr>
+<td>多角色</td>
+<td>1106 ± 14</td>
+<td>1068 ± 14</td>
+<td>978 ± 10</td>
+<td>1011 ± 10</td>
+</tr>
+<tr>
+<td>蒙版/涂鸦</td>
+<td>1049 ± 15</td>
+<td>1042 ± 16</td>
+<td>965 ± 12</td>
+<td>927 ± 12</td>
+</tr>
+<tr>
+<td>商品一致性</td>
+<td>1024 ± 18</td>
+<td>981 ± 18</td>
+<td>955 ± 22</td>
+<td>965 ± 14</td>
+</tr>
+<tr>
+<td>风格转换</td>
+<td>1062 ± 20</td>
+<td>1036 ± 17</td>
+<td>991 ± 12</td>
+<td>990 ± 12</td>
+</tr>
+<tr>
+<td>多参考编辑</td>
+<td>1066 ± 22</td>
+<td>1041 ± 20</td>
+<td>988 ± 13</td>
+<td>989 ± 12</td>
+</tr>
+</tbody>
+</table></div>
+<p>在事实性评估维度，官方采用了单侧自动化评分（Single sided AutoRater），其评估口径与人工偏好 Elo 完全不同，单独列出如下：</p>
+<div><table>
+<thead>
+<tr>
+<th>评估项目（单侧 AutoRater 事实性评分）</th>
+<th>2.1 Thinking</th>
+<th>2.1 No Thinking</th>
+<th>2 Thinking</th>
+<th>Pro</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>信息图表事实性</td>
+<td>0.521</td>
+<td>0.328</td>
+<td>0.179</td>
+<td>0.265</td>
+</tr>
+</tbody>
+</table></div>
+<p>从实际应用场景来看，“只生成一张好图”与“修改同一主体、多人合成”存在明显的任务差异：</p>
+<ul>
+<li><strong>“只生成一张好图”</strong>：对应单次文生图与整体偏好，模型只需根据提示词自由发挥生成一张视觉美观、构图协调的独立画面，没有连续参照物作为刚性比对标准，容错空间较大；</li>
+<li><strong>“修改同一主体、多人合成”</strong>：对应多角色与商品一致性等任务，要求模型在多图输入或局部重绘中，保留特定主体的轮廓、材质与特征，甚至在同一画幅中同时保持多个不同实体的独立样貌，明显走样或不同角色的特征混在一起，会破坏连贯性。</li>
+</ul>
+<p>在 Google 的这组评测里，2.1 开启思考后的各项成绩都高于旧版 2 和 Pro；不开思考的 2.1，在蒙版/涂鸦和多角色两项里也高于它们。创作者可以据此优先试一试涉及多人和定向编辑的任务。Elo 是评测中的相对偏好分数，不能把分数差换算成性能提升百分比；AutoRater 的 0.521 也不代表所有信息图有 52.1% 的正确率。</p>
+<hr />
+<h2>接入时，认准新型号与平台额度</h2>
+<p>除开发者接口外，Nano Banana 2.1 还覆盖了多种日常使用入口，包括 Gemini 应用、Google AI Studio、Google Flow、Search AI Mode 以及 Google Ads 等渠道。</p>
+<p>在整个模型体系中，创作者与开发者可以根据任务场景进行选型：</p>
+<ul>
+<li><strong>Nano Banana 2.1</strong>：适合日常生成与连续改图，在响应速度与成本效益的前提下兼顾视觉质量、文字渲染与多参考编辑；</li>
+<li><strong>Nano Banana 2 Lite</strong>：主打极致吞吐与最低成本，适用于对速度与开销极度敏感的大规模批量任务，但未针对多张参考图融合与多轮连续编辑进行专项优化；</li>
+<li><strong>Nano Banana Pro</strong>：适合对世界常识、严格品牌一致性与精密创意控制有极高要求的最复杂视觉任务。</li>
+</ul>
+<p>如果你打算通过 Gemini API 或 Google Cloud 平台直接调用，以下工程边界与参数设定至关重要：</p>
+<ol>
+<li><strong>上下文窗口差异</strong>：
+<ul>
+<li>官方模型卡给 Nano Banana 2.1 标出最高 100 万（1M）Token 的多模态处理能力。</li>
+<li>当前 Gemini API 与 Google Cloud 接口开放的输入额度是 131,072 Token（约 128K），最大输出 32,768 Token。接入时按对应接口额度安排素材，不要把模型卡的 1M 当成当前 API 的输入额度。</li>
+</ul>
+</li>
+<li><strong>参数支持限制（Google Cloud 文档口径）</strong>：
+<ul>
+<li>依据 Google Cloud 官方文档口径，Nano Banana 2.1 <strong>不支持</strong> <code>seed</code>（随机种子）、<code>temperature</code>（采样温度）、<code>topP</code>、<code>topK</code> 与 <code>logprobs</code> 参数；在该平台请求中若携带这些参数，接口将直接报错返回。</li>
+</ul>
+</li>
+<li><strong>旧版模型停用通知</strong>：
+<ul>
+<li>官方接口已正式发出弃用公告：旧版 <code>gemini-3.1-flash-image</code>（即 Nano Banana 2）将在<strong>本月底停用</strong>。使用这个旧型号的流水线与自动化项目，均需尽快切换至 <code>gemini-nano-banana-2.1</code>。</li>
+</ul>
+</li>
+</ol>
+<hr />
+</div><div><div><div>来源</div><div><span>Nano Banana 2.1 — Model Card</span><span>Google DeepMind<span>·</span><a href="https://deepmind.google/models/model-cards/nano-banana-2-1/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://deepmind.google/models/gemini-image/flash/">Nano Banana 2.1 官方产品示例</a><span>·</span><a href="https://ai.google.dev/gemini-api/docs/models/gemini-nano-banana-2.1">Gemini Nano Banana 2.1 API 文档</a><span>·</span><a href="https://ai.google.dev/gemini-api/docs/image-generation">Nano Banana 图像生成与编辑官方指南</a><span>·</span><a href="https://ai.google.dev/gemini-api/docs/changelog">Gemini API 更新日志</a><span>·</span><a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1">Google Cloud 模型文档</a><span>·</span><a href="https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/">Nano Banana 2 官方博客（旧版本背景）</a></div></div></div></div></div><div>
+<div>
+<div>Gemini 3.6 Flash 架构升级 / 图像生成与编辑</div>
+<h1>Google 发布 Nano Banana 2.1：画面更自然，改图更连贯</h1>
+<p>在保持 Flash 级别低时延与成本效率的同时，聚焦微观材质通透感、几何文字排版及跨场景改图一致性，为电商商拍、角色分镜与多图物料延展提供定向创作支持。</p>
+<div>
+<span>API 型号：gemini-nano-banana-2.1</span>
+<span>最多 14 张参考图输入</span>
+<span>4 角色 / 10 物体参考范围</span>
+<span>修复指定 2K/4K 长画幅拼贴</span>
+<span>API 默认开启思考且不可关</span>
+</div>
+<div>
+<h2>核心创作流程：从素材输入到特征与排版校验</h2>
+<span>准备素材 → 延展场景 → 检查成图</span>
+</div>
+<div>
+<div>
+<div>
+<div>PHASE 01 / 输入与定向</div>
+<div>素材导入与选区指令</div>
+<div>提供单张白底商品图、多角度模特素材（最多 14 张参考图），或在原图上涂鸦圈选主体轮廓并提出“保留主体、替换背景”等定向要求。</div>
+<div>
+<strong>范围认知：</strong>官方支持最多 4 个角色、10 个物体；这描述参考范围，范围内特征仍可能变化。
+            </div>
+</div>
+<div>
+<div>PHASE 02 / 延展与试错</div>
+<div>同主体跨场景延展</div>
+<div>模型将商品置入波普、圆台或自然晨光；复杂提示词可借助思考尝试构图，最多生成 2 张中间图；最后一张为成图。</div>
+<div>
+<strong>构图机制：</strong>中间图用于复杂构图探索；当前 API 默认开启思考且不提供关闭开关。
+            </div>
+</div>
+<div>
+<div>PHASE 03 / 校对与微调</div>
+<div>检查特征与排版对齐</div>
+<div>重点检查皮质纹理、金属扣件与面部是否漂移；逐字核验海报字符、留白与排版层级，必要时沿用对话 ID 进行局部重绘。</div>
+<div>
+<strong>排版局限：</strong>1K 默认分辨率下小字仍易模糊，整页大段文字仍须先在对话中定稿。
+            </div>
+</div>
+</div>
+<div>
+<div>
+<div>Thinking 思考推演如何影响成图</div>
+<div>思考档位包含 minimal、medium 与 high（默认 medium）。面对复杂多主体提示词，模型在思考过程中生成最多两张中间图像尝试构图逻辑，权衡出图质量与时延。</div>
+</div>
+<div>
+<div>评测口径切勿混淆与换算</div>
+<div>多角色人工偏好分达 1106 Elo，信息图单侧事实性评分达 0.521 AutoRater。Elo 是相对偏好分而非百分比提升，0.521 亦不代表 52.1% 的正确率。</div>
+</div>
+</div>
+</div>
+<div>
+<h2>三种核心创作任务与落地表现</h2>
+<span>画质排版 · 多参考定向编辑 · 连续多模态输入</span>
+</div>
+<div>
+<div>
+<div>TASK 01 / 视觉呈现</div>
+<div>画面质感与文字排版</div>
+<ul>
+<li><strong>微观材质感：</strong>改善绣球干花薄片脉络、雪原晨光冷暖对比、厚重毛发织物与厚涂油画笔触。</li>
+<li><strong>设计排版对齐：</strong>能按提示词组织字号、留白与几何栅格，直接输出带视觉层级的海报与网页设计稿。</li>
+<li><strong>长画幅接缝修复：</strong>覆盖 1:1 到 1:8、8:1 共 15 种宽高比，修复指定比例在 2K/4K 档位下的平铺接缝伪影。</li>
+</ul>
+<div>
+<strong>实操注意：</strong>1K 默认档位小字易模糊；长图修复针对指定比例的 2K/4K 输出。
+          </div>
+</div>
+<div>
+<div>TASK 02 / 一致性延展</div>
+<div>多参考与定向局部编辑</div>
+<ul>
+<li><strong>多素材输入：</strong>单次最多支持 14 张参考图，支持最多 4 角色特征一致性与 10 物体保真。</li>
+<li><strong>商业商品置换：</strong>传入白底商品图，皮质纹理与金属扣件在不同布景摄影棚中维持稳定辨识。</li>
+<li><strong>涂鸦蒙版重绘：</strong>在原图上圈选主体，保留原有轮廓与位置的同时定向替换周围背景与氛围。</li>
+</ul>
+<div>
+<strong>实操局限：</strong>编辑人物可能遭遇“姿态锁定”无法转头；涂鸦重绘偶尔可能残留标记痕迹。
+          </div>
+</div>
+<div>
+<div>TASK 03 / 连续与多模态</div>
+<div>多轮对话、搜索与视频</div>
+<ul>
+<li><strong>连续对话编辑：</strong>沿用 <code>previous_interaction_id</code> 迭代，延续主体构图微调文字或局部元素。</li>
+<li><strong>Google 搜索增强：</strong>接入网页搜索补充即时事实；图片搜索引入网络风格参考（不支持真人照片）。</li>
+<li><strong>视频转静态图：</strong>上传本地视频或公网 YouTube 链接，提取关键帧生成宣传海报或总结图。</li>
+</ul>
+<div>
+<strong>实操认知：</strong>多轮对话与视频输入是系列既有能力；对话微调时局部像素（如太阳形态）仍会有轻微重绘。
+          </div>
+</div>
+</div>
+<div>
+<h2>接入选型与工程边界提示</h2>
+<span>配额落差 · 采样限制 · 停用切换</span>
+</div>
+<div>
+<div>
+<div>
+<div>⚠️ 上下文额度落差</div>
+<div>模型卡标明 1M Token 能力，但当前 Gemini API 与 Google Cloud 仅开放 <strong>131,072 Token（约 128K）</strong>输入、32,768 输出。接入时按实际接口额度安排素材。</div>
+</div>
+<div>
+<div>⚠️ Cloud 采样参数报错</div>
+<div>Google Cloud 平台明确不支持 <code>seed</code>、<code>temperature</code>、<code>topP</code>、<code>topK</code> 与 <code>logprobs</code> 参数，请求携带将直接报错返回。</div>
+</div>
+<div>
+<div>⚙️ Thinking 无法关闭</div>
+<div>Gemini API 中思考过程默认开启且不可关闭，会正常计入思考 Token。模型卡列出的“No Thinking”仅为评测对照条件。</div>
+</div>
+<div>
+<div>⏳ 旧版本月底停用</div>
+<div>旧版 <code>gemini-3.1-flash-image</code>（Nano Banana 2）将在<strong>本月底停用</strong>。自动化流水线需尽快切换至 <code>gemini-nano-banana-2.1</code>。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【周报】a16z 发布最新消费 AI 榜单：流量之外，谁在真正为AI付费？</title>
+<link>https://best.xiaohu.ai/article/a16z-consumer-ai-seventh/</link>
+<category>周报</category>
+<guid isPermaLink="false">xiaohu:a16z-consumer-ai-seventh</guid>
+<pubDate>Sat, 10 Oct 2026 00:00:15 +0000</pubDate>
+<description>首次加入个人卡支出数据：谁每月花 903 美元，钱流向哪些工具，AI 又怎样让更多普通人愿意持续使用？</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 周报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">a16z 发布最新消费 AI 榜单：流量之外，谁在真正为AI付费？</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/a16z-consumer-ai-seventh/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>a16z 发布最新消费 AI 榜单：流量之外，谁在真正为AI付费？</h1><p>首次加入个人卡支出数据：谁每月花 903 美元，钱流向哪些工具，AI 又怎样让更多普通人愿意持续使用？</p><strong>一分钟速览</strong><ul><li>AI 用过的人多，个人支出却很集中：前 1% 的付费者每月平均花 903 美元，中位数付费者只花 25 美元。</li><li>重度付费者更偏向开发、工作和创作工具；流量榜漏掉了不少这样的需求。</li><li>要走向更多人的日常生活，AI 还得提供值得使用的体验，并探索月费之外的收费方式。</li></ul><div><p><strong>消费 AI 很火，但掏钱的主力，还是拿它写代码、做内容、干活的那批人。</strong></p>
+<p>a16z 最新发布的<a href="https://www.a16z.news/p/top-100-consumer-ai-apps-seventh">第七期消费级 AI 应用榜单</a>，由 Olivia Moore 撰写，第一次加入了 YipitData 跟踪的美国个人卡支出数据。结果很直观：<strong>前 1% 的付费者每月平均花 903 美元买 AI 工具，中位数付费者每月只花 25 美元。</strong></p>
+<p><strong>下一场竞争，是让普通人也愿意天天用 AI。</strong> 光靠“提高效率”还不够：产品得让人想用、愿意常用，也得找到让更多人用得起的收费方式。</p>
+<figure><figcaption>配套访谈，49 分 48 秒，中英双语字幕。Elena Burger 主持，Olivia Moore 与 Josh Elman 讨论榜单背后的使用与付费变化。</figcaption></figure>
+<h2>谁在真正付费？钱集中在少数工作与创作用户手里</h2>
+<h3>付费者在增加，支出却高度集中</h3>
+<p>报告引用的美国调查中，接近一半的受访消费者表示用过 AI，每天使用的约占总体消费者的 25%。在 YipitData 的合资格美国个人电子收据样本中，至少订阅 ChatGPT、Claude 或 Gemini 一款的消费者比例约为 4.5%，一年前为 2.1%。使用调查与订阅数据来自不同样本；付费基数在扩大，再看个人卡支出，增长仍很不均衡。</p>
+<figure>
+<img />
+<figcaption>a16z 原图：美国合资格电子收据样本中，至少订阅三大助手之一的比例约 4.5%；虚线已去重，不能将三条曲线相加。 <a>查看原图</a></figcaption>
+</figure>
+<figure>
+<img />
+<figcaption>数据源自 YipitData 个人消费卡样本：支出排名前 1% 用户的月均支出增长显著，前 40% 支出组的增长幅度相对较小。 <a>查看原图</a></figcaption>
+</figure>
+<p>与此同时，重度付费群体的支出正在加速。在观察到的消费卡支出样本中，消费 AI 呈现出明显的幂律分布 （这里指支出高度集中在少数付费者身上）：</p>
+<ul>
+<li><strong>极高集中度：</strong> 付费排名前 10% 的用户，贡献了整个观察样本中约一半的消费额；最头部的 1% 消费者，支出更是占到了总盘子的 19.5%——这比后 50% 付费人群加起来的总和（16.6%）还要多。</li>
+<li><strong>支出差距悬殊：</strong> 最头部 1% 付费者每月平均花 <strong>903 美元</strong>，在过去一年半里增长了约 80%；最高 10% 组的人均月支出增长 31%，最高 40% 组增长 10%。新增支出明显更集中在最重度用户身上。全体付费者的中位数则仍是每月 <strong>25 美元</strong> 左右，长期变化不大。</li>
+<li><strong>他们到底在买什么？</strong> 这批用户的购买倾向更偏向用于构建、创作与完成工作的工具，而非日常聊天。这更接近 <strong>Prosumer</strong> （用个人身份购买专业工具来工作或创作的人） 的使用方式。统计显示，前 1% 支出群体更偏向购买自动化工作流搭建平台（如 n8n）、AI 开发者基础设施（如 fal、Nous Research）、以及高门槛创意工具（如视频生成工具 Higgsfield、设计平台 Figma、数字人生成器 HeyGen、智能工作流工具 Manus 等）。这里的“购买倾向更强”指的是该工具在前 1% 支出群体中的购买率相对全体 AI 购买者购买率的比值，并不代表绝对多数人都在购买。例如在工作流工具 n8n 上，前 1% 支出者的购买率为全体 AI 购买者的 22.9 倍，但在前 1% 群体中的实际购买率也仅为 1.43%（全体购买者中为 0.06%）。</li>
+</ul>
+<figure>
+<img />
+<figcaption>a16z 原图：前 1% 支出者购买率相对全体 AI 购买者的倍数：n8n 为 22.9 倍，但绝对购买率为 1.43%。 <a>查看原图</a></figcaption>
+</figure>
+<p>在配套访谈中，Olivia 补充了一条常见的采用路径：有人先个人使用与工作相关的 AI 工具，发现好用后再带入团队，工具厂商随后补充隐私、安全和团队方案。这是产品驱动增长的过程。（PLG，Product-Led Growth，用户通过产品体验自发采用，并把它带给同事或团队） 这说明被归类为“个人消费”的支出并不等于纯粹的娱乐消费，许多工作相邻场景也是由个人自费启动的。企业统一采购的软件开支不在本次个人卡统计范围内。</p>
+<p>在这种高度集中的支出结构下，多工具付费也并不普遍。YipitData 的样本显示，在所有已经为至少一款 AI 产品付费的用户中，<strong>仅有 13% 的人还会为至少另一款 AI 工具付费</strong>。样本中多数人的支出只涉及一款 AI 工具。新工具需要讲清额外解决了什么问题，才能让尝试它的人愿意多付一份钱。</p>
+<h3>流量榜看不到的地方，也有人在付钱</h3>
+<p>为了看清不同维度的数据指向，本期报告实际由三个各自独立的 Top 50 榜单构成：</p>
+<div><table>
+<thead>
+<tr>
+<th>榜单维度</th>
+<th>衡量指标与数据源</th>
+<th>统计口径说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>网页端 Top 50</strong></td>
+<td>月度网站访问（Similarweb）</td>
+<td>衡量桌面及网页端访问热度，不包含应用内使用</td>
+</tr>
+<tr>
+<td><strong>移动端 Top 50</strong></td>
+<td>月活跃用户数 MAU（Sensor Tower）</td>
+<td>衡量移动应用活跃规模，不与网页端简单累加</td>
+</tr>
+<tr>
+<td><strong>个人支出 Top 50</strong></td>
+<td>观察到的美国个人卡支出（YipitData）</td>
+<td>追踪个人付费与高客单需求，不代表企业全球总营收</td>
+</tr>
+</tbody>
+</table></div>
+<p>三张榜分别观察网页访问、移动活跃与个人付款，不是 100 个去重产品的合并排行，也不是测试底层技术跑分的模型能力榜。AI 原生产品和已有产品都可上榜，前提是生成式 AI 已经成为核心体验。</p>
+<p>本期首次进入这个榜单系列的产品共有 11 款，创系列新低。主要用于成人内容的产品被单独移出综合排行；报告估计，若计入，它们将占网页前 50 席的 20% 以上。</p>
+<figure>
+<img />
+<figcaption>a16z 原图：2026 年 8 月网页访问 Top 50，来源 Similarweb。完整名次可与产品查询对照。 <a>查看原图</a></figcaption>
+</figure>
+<figure>
+<img />
+<figcaption>a16z 原图：2026 年 8 月移动月活 Top 50，来源 Sensor Tower。移动活跃规模与网页访问是不同指标。 <a>查看原图</a></figcaption>
+</figure>
+<p>不同的使用入口与付费人群，让网站热度和个人付款呈现出不同的排名：<strong>在个人卡消费支出排名前 50 的 AI 厂商中，有多达 29 家没有进入网页与移动两张流量榜的前 50 名。</strong> 这表明仅看网页与移动访问容易遗漏某些产品形态（如桌面端应用或嵌入即时通讯的工具），单看浏览器和手机应用，会漏掉这些入口中的使用与付款。</p>
+<p>在个人卡支出榜中，OpenAI 位列第 1，Anthropic 位列第 2，Canva 位列第 3，Superhuman 位列第 4。值得注意的是，Gemini 并未出现在支出榜前 50 名中，这是因为其消费端收入目前无法从 Google 整体庞大的消费业务中可靠单独拆分，并不是因为其排名低或不赚钱。</p>
+<figure>
+<img />
+<figcaption>a16z 原图：美国个人卡观察支出 Top 50。图题写 Revenue，报告正文定义为个人卡支出，不代表公司全球营收；Gemini 因收入无法拆分而未纳入。 <a>查看原图</a></figcaption>
+</figure>
+<p>同时，由于个人卡支出榜（追踪美国个人卡支出）与流量榜衡量的人群样本与统计周期不同，两者的名次差异不能直接用来推算转化率，也不能直接证明每个用户带来的收入更高。不过，这种对照能够有效提示流量数据可能会遗漏高付费需求：</p>
+<div><table>
+<thead>
+<tr>
+<th>产品</th>
+<th>个人卡支出榜名次</th>
+<th>网页流量榜名次</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Higgsfield</strong></td>
+<td>第 5 名</td>
+<td>第 28 名</td>
+</tr>
+<tr>
+<td><strong>Replit</strong></td>
+<td>第 6 名</td>
+<td>第 48 名</td>
+</tr>
+<tr>
+<td><strong>Suno</strong></td>
+<td>第 7 名</td>
+<td>第 19 名</td>
+</tr>
+</tbody>
+</table></div>
+<figure>
+<img />
+<figcaption>a16z 原图：选定产品的支出与访问排名对照。网页为 7 月，支出覆盖 6–8 月；名次差不是付费转化率。 <a>查看原图</a></figcaption>
+</figure>
+<p>想判断一个工具有没有付费需求，除了看访问量，还要看它进入什么工作场景、用户有没有实际付款。</p>
+<span>同一产品 · 三种观察</span><h3>它在哪里受欢迎，又在哪里被付费？</h3>
+选择榜单中的产品Adobe ExpressAdobe LightroomAdotAI GalleryArenaBaidu AI SearchBase44Beautiful.aiBeautyCamBeautyPlusCanvaCapCutCharacter.aiChatGPTClaudeCognitionCopilotCursorDeepSeekDescriptDolaDuck.aiEditsElevenLabsEmochiEvoto AIFaceAppFacemojiFaceufalFigmaFireflies.aiGammaGauthGeminiGensparkGoodnotesGoogle AI StudioGoogle AntigravityGoogle LabsGrokHeyGenHi TranslateHiggsfieldHugging FaceHypicInVideoJasperJumpspeakJustdoneKimiKling AILovableMagnificManusMeituMeituanMeshy.aiMeta AIMicrosoft BingMicrosoft EdgeMidjourneyMiniMaxMoisesn8nNotebookLMNotionNous ResearchNovaNovelAIOpenArtOpenEvidenceOpenRouterOtter.aiPapagoPerplexityPhotomathPhotoroomPicsartPlaudPolishQQ 浏览器QuarkQuillBotQwenRefaceReminiRemove.bgReplitRunwaySeaArtSeekeeSNOWSpeechifySudowriteSunoSuperhumanSynthesiaTopaz LabsTopviewTurboScribeVeniceVNWinkYandexYouCutZ.aiZeelyZeroGPT豆包
+<div><h4>ChatGPT</h4><div>
+<div><span>网页访问榜</span><strong>第 1 名</strong>全球网站 · 前 50</div>
+<div><span>移动月活榜</span><strong>第 1 名</strong>移动应用 · 前 50</div>
+<div><span>个人卡支出榜</span><strong>第 1 名</strong>美国观察样本 · 前 50</div>
+</div><p>ChatGPT 同时出现在三份榜单中。</p></div>
+<p>数据采用本期三张总榜。支出榜以商户统计，OpenAI、Anthropic 分别对应 ChatGPT、Claude；各榜统计时期与人群不同，不能据此计算付费转化率。</p>
+脚本未启用时，保留 ChatGPT 的默认结果；正文表格与原始榜单仍可阅读。
+<figure>
+<img />
+<figcaption>在全部追踪产品中，仅有 7 款应用同时跻身网页流量、移动端月活与个人支出榜的前 50 席。 <a>查看原图</a></figcaption>
+</figure>
+<p>在全部追踪产品中，仅有 7 家公司同时跨越网页流量、移动月活和个人消费支出三大榜单：除了在三张榜单均稳居第一的 ChatGPT 之外，还包括模型厂商 Claude（支出第 2、网页第 3、移动第 12）与音乐生成平台 Suno（支出第 7、网页第 19、移动第 47）、两家原生应用 Perplexity（支出第 9、网页第 12、移动第 25）与 Photoroom（支出第 38、网页第 36、移动第 45），以及两家老牌生产力工具 Canva（支出第 3、网页第 4、移动第 4）和 Notion（支出第 17、网页第 7、移动第 28）。</p>
+<hr />
+<h2>三大助手：ChatGPT 做大众，Claude 做专业，Gemini 靠生态</h2>
+<p>作为整个生成式 AI 产业的基础底座，OpenAI、Anthropic 与 Google 旗下的主力助手之间的角逐一直最受瞩目。这里比较的是三款助手面向消费者的产品定位与订阅方案。从最新数据来看，三者正在走向截然不同的商业与产品形态。</p>
+<h3>ChatGPT：规模领先，同时做大众与工作场景</h3>
+<p>无论是网页访问量（约为第二名 Gemini 的 2 倍、Claude 的 6 倍），还是移动端月活 （MAU，即每月至少打开一次应用的活跃用户数），ChatGPT 均保持着明显领先。尤其在移动端，ChatGPT 的月活分别达到 Gemini 的 2.5 倍与 Claude 的 14 倍，与网页端的差距形成鲜明对照。在 YipitData 追踪的美国个人订阅样本中，ChatGPT 的付费订阅规模约为另两家的 3 倍。</p>
+<p>在观察到的 OpenAI 商户支出中，女性贡献约 41.5%，男性约 58.5%，覆盖了较为广泛的家庭收入阶层。在全美各州的观察商户支出对比中，除了加利福尼亚、马萨诸塞、蒙大拿以及华盛顿特区由 Anthropic 领先之外，ChatGPT 在其余 47 个州的支出均处于领先位置。支出更均衡并不等于用户人数按同样比例分布。在功能迭代上，OpenAI 近期推出的几十项更新中，既涵盖深入日常的图像生成与个人财务助手，也包括面向团队协作的 ChatGPT Work 等专业工作区。</p>
+<figure>
+<img />
+<figcaption>a16z 原图：观察支出按性别与家庭收入分布：OpenAI 更均衡，Anthropic 更偏男性和高收入家庭；不是用户人数比例。 <a>查看原图</a></figcaption>
+</figure>
+<figure>
+<img />
+<figcaption>a16z 原图：各州个人卡观察支出比较：OpenAI 在 47 州领先，Anthropic 在三州及华盛顿特区领先。 <a>查看原图</a></figcaption>
+</figure>
+<p>此外，在追踪的美国个人订阅样本中，ChatGPT 订阅者里仅有 8% 同时订阅了 Claude。也就是说，样本中大多数 ChatGPT 订阅者没有同时购买 Claude。这个比例从 ChatGPT 订阅者这一侧观察，不能反过来当成 Claude 用户的同订比例；两款产品也不必只争取同一批人的同一种用途。</p>
+<h3>Claude：专业需求带来更高的付费档位</h3>
+<p>与三年前的第一期榜单相比，Anthropic 旗下的 Claude 展现出强劲的势头，不仅网页流量位列前三，在个人付费订阅人数上也曾一度越过 Gemini。这一轮增长伴随着新产品（如面向文件协作的 <a href="https://fortune.com/2026/01/13/anthropic-claude-cowork-ai-agent-file-managing-threaten-startups/">Cowork</a>、设计工具 <a href="https://www.anthropic.com/news/claude-design-anthropic-labs">Claude Design</a>）、新模型（如 <a href="https://www.anthropic.com/news/claude-fable-5-mythos-5">Fable 5</a>）的陆续推出，以及围绕<a href="https://www.congress.gov/crs-product/IN12669">五角大楼争议</a>获得的公众讨论，其一度登顶美国免费移动应用榜首。在 Google 调整云存储方案后，Gemini 订阅曲线上扬，最新观察期两者已接近：合资格美国样本中的活跃个人订阅比例，Gemini 为 1.09%，Claude 为 1.07%。</p>
+<figure>
+<img />
+<figcaption>a16z 原图：美国个人订阅趋势。Claude 曾超过 Gemini；Google 旧套餐迁入后，最新两者接近。 <a>查看原图</a></figcaption>
+</figure>
+<figure>
+<img />
+<figcaption>数据源自 YipitData 订阅样本：Claude 付费用户中选择百美元以上高阶套餐的比例显著高于竞品。 <a>查看原图</a></figcaption>
+</figure>
+<p>Anthropic 明确表示不在 Claude 内投放广告，选择通过订阅变现：</p>
+<ul>
+<li>在其活跃个人订阅用户中，有高达 <strong>7.3%</strong> 的人订购了每月 100 美元起步的最高档位 Max 套餐；</li>
+<li>作为对比，无论是 ChatGPT 还是 Google，其百美元级别的最高阶订阅用户占比均在 <strong>1% 左右</strong>。</li>
+</ul>
+<p>在观察到的支出结构中，Claude 呈现出明显的高收入与专业工具购买者的倾向：男性支出比例超过四分之三，高收入家庭（年收入大于 15 万美元）的支出占比较高；过去半年的产品发布中，超过六成聚焦于代码审查与专业工作场景。不过，这种聚焦专业群体的表现近期也出现分化：桌面监测面板显示其日均会话在最近两个观察月有所回落，电子收据样本中其新客总增量放缓且流失率有所上升。与此同时，ChatGPT 则在发布新模型系列与工作区产品后重新提速。</p>
+<figure>
+<img />
+<figcaption>a16z 原图：美国电子收据样本中的净新增订阅趋势，最新观察月 ChatGPT 再次领先。 <a>查看原图</a></figcaption>
+</figure>
+<h3>Gemini：存量生态带来订阅，多模态拓展日常用途</h3>
+<p>Google 拥有广泛的分发渠道。此前 Google 将原本的云存储付费套餐迁移升级为包含 AI 功能的高阶套餐，这种存量迁移在统计上带来了付费渗透数值的上扬。这部分上扬包含原有付费用户的迁入，不能全部理解为新增 AI 付费需求。在近期的产品发布中，Google 接近半数的新功能都集中在消费与大众创意领域（例如音乐模型与多模态生成），并借助搜索与系统生态持续扩展触达。</p>
+<figure>
+<img />
+<figcaption>a16z 原图：过去半年 127 项产品发布的分类：Claude 更偏工作，Gemini 更偏大众创意，ChatGPT 两边都做；不代表实际使用比例。 <a>查看原图</a></figcaption>
+</figure>
+<hr />
+<h2>个人 Agent：从回答问题到订票购物</h2>
+<h3>把入口搬进消息软件，让交办更容易</h3>
+<p>第六期报告还认为，OpenClaw 这类早期 Agent （能规划步骤、调用工具来替人办事的 AI 助手） 对多数普通人难以上手。半年后，Instinct、Tomo、Poke、Lindy、Town 等创业助手已报告有数十万用户；巨头也加入竞争，推出 Meta Muse、OpenAI Dots 和 xAI Grok Bot。配套访谈提醒，部分新助手尚未进入本期主榜统计，报告另行追踪了它们的早期进展。</p>
+<p>这些助手想做到像真人助理一样，发短信、写邮件或打电话就能找它办事。iMessage 是热门入口，Instinct 从这里起步，DoorDash 也推出了短信订餐助手。用户不用先适应一个新网站，就能开始交办。面向专业工作或特定用途的助手，则常常也保留自己的网页和移动 App，用来完成更深入的任务。</p>
+<figure>
+<img />
+<figcaption>a16z 原图：个人 Agent 注册页面的每日网页访问，不是注册人数；不含原生 App 和消息软件内使用。 <a>查看原图</a></figcaption>
+</figure>
+<figure>
+<img />
+<figcaption>源自早期用户群聊分析：在 1,502 条群聊消息样本中，有 401 条至少提及一项任务（类别存在重叠）；编程与技术自动化提及频次最高，旅行与日常任务紧随其后。 <a>查看原图</a></figcaption>
+</figure>
+<p>这批助理到底在帮人做什么？根据评测机构 <a href="https://assistantbenchmark.com/">AssistantBenchmark</a> 对七个早期用户交流群聊的观察（在包含 1,502 条消息的样本中，有 401 条至少提及一项任务），<strong>编程与技术自动化</strong> 依然是讨论中最多的领域（提及 103 次），紧随其后的是<strong>旅行安排</strong>（66 次）、<strong>日常购物</strong>（58 次）与<strong>个人财务</strong>（56 次）。这是早期用户在群里谈论什么，包含问题和想法；它记录的是讨论，不能当成已完成任务的数量。</p>
+<p>这一转变引出了消费级 AI 值得关注的一条商业路径：<strong>从按月收取软件订阅费，转向尝试按交易代办抽成。</strong></p>
+<ul>
+<li>例如近期备受关注的短信助理产品 Instinct，目前仍处于邀请制阶段，其创始人 Noah Shinn 称在三周内吸引了超过 10 万用户。据其团队披露，有 40% 的用户在三周内会绑定个人信用卡；一旦产生购买行为，这些交易用户平均每月通过 Instinct 进行的支出约为 1,300 美元。创始人称目前已有年化超过 10 亿美元的交易额流经 Instinct，其中约一半归因于旅行差旅。<strong>这 1,300 美元买的是机票、酒店等商品和服务；10 亿美元年化交易额也不是 Instinct 的收入。</strong></li>
+<li><a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/">Meta Muse</a>首周日活达到 25 万，不到一个月累计下载超过 500 万，目前仅在美加上线。在两地各自上市后的前 22 天，Threads 下载 1,571 万次，Muse 为 538 万次。报告把新消费产品的主要难点概括为让大众不再“无感”：新鲜感过后，用户还得有理由继续打开它。下载量能显示尝试热度，持续使用要看留存。</li>
+</ul>
+<figure>
+<img />
+<figcaption>a16z 原图：Muse 在美加两地的每日移动下载估计；不含网页与 WhatsApp，下载也不是日活或留存。 <a>查看原图</a></figcaption>
+</figure>
+<figure>
+<img />
+<figcaption>a16z 原图：各自上市后前 22 天的美加下载：Threads 为 1,571 万，Muse 为 538 万。 <a>查看原图</a></figcaption>
+</figure>
+<h3>接得通、办得成，还得让人敢交办</h3>
+<p>在产品向日常延伸的过程中，智能体落地面临着几重相互交织的现实挑战：</p>
+<ol>
+<li><strong>平台规则与接口合作：</strong> 当智能体开始代表用户在网上进行消费，<a href="https://www.a16z.news/p/who-gets-paid-when-ai-does-the-shopping">各平台对于交易链路归属的关注显著上升</a>。例如亚马逊在<a href="https://techcrunch.com/2026/09/21/metas-ai-agent-has-been-blocked-from-using-amazon-com/">两周内便切断了 Meta 助理对其商城的自动访问</a>；而 Shopify、外卖与出行订票平台则选择通过官方接口开展合作，<a href="https://about.doordash.com/en-us/news/text-doordash">DoorDash 等公司</a>也推出了自己的短信订餐智能体。平台合作解决的是技术接口与交易链路“通不通”的问题。</li>
+<li><strong>信任机制与委派门槛：</strong> 接入个人邮箱、工作文档和信用卡，确实赋予了智能体更深厚的上下文理解与代办能力，也让用户更在意它会不会擅自执行未确认操作、向外部错误转发敏感信息、或在多场景中越过保密边界。嘉宾在访谈中指出，人们在日常社交中天然清楚哪些隐私可以分享、哪些信息必须保密，而软件能否可靠地处理这些边界，会影响用户愿意交给它什么。因此，能简单尝鲜并不等于用户愿意长期、放心地委派关键事务；建立稳固的日常使用习惯，核心在于建立可预期的信任机制。</li>
+<li><strong>单人工具与网络效应的差异：</strong> 外部商户或服务接口的拓展，本质上是让单个用户借助 Agent 能够办理更多事情，属于单人工具能力的横向延伸。然而在消费互联网历史上，很多大型业务建立在人与人的互动网络或交易市场之上。Threads 这类社交产品必须在极短时间内达到临界交流密度，网络本身才具备吸引力；而个人助理即便只有单一用户使用也能产生单点价值。但也正因为个人助手承载了极为私密的个人上下文，这些上下文也不能随意带到多人互动里。接入更多工具，与建立人际网络，是两件需要分别解决的事。</li>
+<li><strong>商业化探索仍处早期：</strong> 虽然 Instinct 和 Muse 均计划未来通过交易分成或中介费来变现，但在报告发布时两家均尚未正式实施；同样，ChatGPT 当前在产品内部发起的购物流程也未向用户或商家收取交易手续费。</li>
+</ol>
+<p>为了看清不同形态之间真正的价值来源，可以将当前消费 AI 探索的场景与机制对照梳理：</p>
+<div>
+<div><strong>个人工具<span>如个人助手</span></strong><p>接入邮箱、日历和商户，让一个人能办更多事；不需要朋友先加入。</p></div>
+<div><strong>人际网络<span>如社交产品</span></strong><p>有足够的人实际交流、分享或匹配，产品才有吸引力；更多参与者可能带来更多对象和内容。</p></div>
+<div><strong>交易市场<span>如购物、出行</span></strong><p>连接供给与需求，还要能完成履约；助手更懂用户需求只是其中一步。</p></div>
+</div>
+<p>在约会、招聘等双边匹配领域，或是电商房产等交易市场中，嘉宾提出，AI 可以帮助人更准确地表达需求、找到合适的对象。但产品仍需要足够的买卖双方或匹配对象，以及完成交易的能力；个人助手的代办能力不会自动建立这些网络。</p>
+<hr />
+<h2>创业产品：模型之外，凭什么让用户留下来？</h2>
+<p>成熟软件已经进入榜单：Canva、Notion 位列网页前十，Figma 位列前十五；Superhuman（原 Grammarly）在网页榜前半区，支出排第 4。Google 有五款网页产品入榜：Gemini、NotebookLM、AI Studio、Labs 和 Antigravity。</p>
+<p>这些老产品带来两种可能。它们可以先让更多人熟悉 AI，用户有更深入的需求后，再转向原生 AI 工具；也可能直接满足这些需求，成为创业产品的长期对手。报告从仍能吸引用户的创业产品中，归纳了四种竞争路径：</p>
+<h3>专用模型与工作流，满足具体的创作需求</h3>
+<p>在音频、图像与视频领域，竞争格局各有差异，并非简单归结为“只要有专有模型就能生存”：</p>
+<ul>
+<li><strong>音频与音乐领域：</strong> Olivia 认为，大模型厂商同时要投入编程与通用能力，还会面对音乐版权等问题，这些资源取舍可能给专用工具留下空间。<a href="https://suno.com/blog/v5-5">音乐生成平台 Suno</a>（网页第 19、支出第 7）与<a href="https://elevenlabs.io/blog/eleven-v3">语音合成产品 ElevenLabs</a>（网页第 25、支出第 10）都进入了网页与个人卡支出榜，显示这类专用创作仍有需求。</li>
+<li><strong>图像生成领域：</strong> 通用大模型（如 ChatGPT 的内置生图与 Google 的图像工具）虽然分流了大量日常生成流量，访谈则指出，专业创作者可能仍需要更合适的审美风格、细节控制和完整编辑流程。例如 Midjourney 在本期并未进入网页与移动两张流量榜的前 50 名，但在个人卡支出榜上高居第 11 名。这个对照说明，大众访问热度没有完整呈现付费需求。嘉宾的解释是，专业用户在意的不只是能不能生成，还包括结果的审美、如何调整细节，以及创作过程中能保存和继续编辑什么。</li>
+<li><strong>视频生成领域：</strong> 视频涉及画面、声音、声画同步和视觉风格等多重复杂因素，可灵（KlingAI，支出第 26）、HeyGen（支出第 23）与 Topaz Labs（支出第 27）等工具均在支出榜上占有一席之地。</li>
+</ul>
+<p>此外，访谈中嘉宾提到，当更强大的底座模型学会通过工具调用去调度外部专业创作工具时，这些垂直工具是否易于被各类 Agent 检索、识别并调用，正在成为观察其未来分发入口的一个新维度。</p>
+<h3>跨模型调度，为任务选择合适的模型</h3>
+<p>通用大模型厂商天生倾向于留住用户、消耗自家的算力 token （大模型处理文本的基本数据单位）；而<a href="https://cursor.com/docs">支持调用多家实验室模型的 Cursor</a> 以及<a href="https://openrouter.ai/docs/guides/routing/routers/auto-router">为开发者提供多模型访问路由的 OpenRouter</a>，则根据用户任务需求来组合模型，形成了一种产品层面的竞争优势。在编程与生产力赛道上，包括 Lovable（网页第 14 名）、Cursor（从上期第 41 名升至第 35 名）、Base44（新登榜位列第 46 名）以及 Replit（网页第 48 名）等工具均进入了网页流量榜。</p>
+<h3>服务特定人群，解决通用助手顾不到的需求</h3>
+<p><a href="https://newsnetwork.mayoclinic.org/discussion/mayo-clinic-platform_accelerate-graduation-provides-glimpse-into-future-of-medicine/">专为医生群体打造的临床辅助决策工具 OpenEvidence</a> 成功跻身网页榜第 47 名；<a href="https://venice.ai/">主打隐私定位的 Venice</a> 也新上榜位列第 43 名。对这些专业或特定用户而言，信息来源的可靠性、隐私保护以及与自身工作的契合度，往往和底层模型能力同样重要。</p>
+<p>内容规则也会分开市场。主流助手不愿覆盖的一些用途，仍然有人需要，小众工具便有机会服务这些特定受众。本期把成人向产品移出综合排行，改变的是榜单分类，相关需求并没有因此消失。</p>
+<h3>重做交互，积累用户自己的工作上下文</h3>
+<p>交互机会不限于聊天框。Google Docs、Calendar、Gmail 等旧界面都有重新设计工作方式的空间；老厂商要顾及现有用户习惯和收入，创业团队可以更灵活地重做体验。<a href="https://www.a16z.news/p/top-100-consumer-ai-apps-seventh">Plaud</a>则把会议录音与转录做成便携硬件，通过“硬件 + AI 会员”进入支出榜第 16。</p>
+<p>硬件也不是永久的避风港。报告提到，Meta 已宣布<a>将 Muse 扩展到智能眼镜和 AI 电子宠物</a>，OpenAI 收购 io Products 也显示了硬件意向。这些布局说明，大厂同样在寻找聊天框之外的入口。</p>
+<p>软件还有一种可以累积的价值：围绕用户的工作流程，逐步理解他的上下文。访谈中讨论指出（见<a href="https://youtu.be/aCvrzhwUxg0?t=2369">配套访谈 39:29 处讨论</a>），底层大模型的升级对于创业公司来说是一把双刃剑：如果产品只是对通用大模型做了一层单薄的浅层封装，模型的能力跃升往往会轻易覆盖这种功能；但如果产品已经深入用户的工作环境、建立了独立的业务流程并积累了独特的个人上下文，底层模型变强也可能让这套产品办成更多事情。</p>
+<p>访谈中，Olivia 以<a href="https://youtu.be/aCvrzhwUxg0?t=2602">自己使用 Town 写邮件的体验</a>为例（43:22）：这款助理可接入 Slack、邮箱和 Google Drive，理解个人与组织的工作背景，并形成关于她是谁、怎样表达的工作手册。（playbook，这里指围绕个人习惯与工作方式积累的说明） 她觉得输出更像自己的口吻，修改邮件所花的时间也随之减少。这是她个人感受到的效果，也展示了应用通过积累上下文减少返工的一种方式。换用另一个模型，并不会自动把这些长期积累的个人表达和工作背景带给另一个应用。</p>
+<hr />
+<h2>商业模式：订阅之外，怎样服务更多普通人？</h2>
+<p>回顾上一代移动互联网的爆发，核心商业逻辑是<strong>“用户享受免费服务，平台通过广告或撮合交易变现”</strong>。在传统互联网巨头的收入构成中，广告贡献了 Meta 收入的 97% 以上、Alphabet 收入的七成以上；亚马逊庞大的会员订阅服务虽然规模庞大，在其整体营收中的占比其实不足一成。</p>
+<p>然而，当前的消费级 AI 展现出截然不同的收费现状：</p>
+<figure>
+<img />
+<figcaption>统计源自上榜的 44 家原生 AI 网页产品定价页面：上榜公司提供哪些收费方式（各模式可重叠）。 <a>查看原图</a></figcaption>
+</figure>
+<ul>
+<li>上榜的 44 家 AI 原生网页产品，全部已经有至少一种变现方式。<strong>84%</strong> 提供个人订阅，<strong>64%</strong> 提供用量或额外积分收费，<strong>14%</strong> 提供广告，<strong>2%</strong> 涉及交易抽成。公司可以同时采用多种模式；这些比例衡量收费方式采用率，不是收入占比。</li>
+<li>高级功能和更长的使用时长，往往需要订阅或额外积分。对明确要交付工作的人，这笔钱容易和产出对应；普通用户还没形成使用习惯，就要先决定是否付钱，门槛便更高。</li>
+</ul>
+<h3>先覆盖推理成本，订阅仍适合明确的需求</h3>
+<p>一个重要背景是<strong>模型推理有真实的算力成本</strong>。传统消费软件可以先免费扩大用户，再做广告或交易；AI 每次交互都要消耗算力，而广告和交易抽佣往往先需要规模。还没达到规模时，用订阅或积分覆盖服务成本，是自然的选择。</p>
+<p>a16z 汇总的 20 款大型消费订阅产品中，65% 属于 Netflix、Spotify 等媒体类。用户为它们的独有内容或免广告体验持续付钱，AI 产品也得让人觉得长期值得。ChatGPT 上线约三年半就进入了这个集合，说明订阅仍能支撑大产品；只是各家统计日期和订阅定义不同，这张图不是统一时点的精确排名。</p>
+<figure>
+<img />
+<figcaption>a16z 原图：20 款大型消费订阅产品研究集合，65% 为媒体类；统计日期与订阅定义不同，条纹为第三方估计。 <a>查看原图</a></figcaption>
+</figure>
+<p>降低服务成本，是扩大低门槛使用的一条路径：</p>
+<p>随着开源模型的丰富以及将复杂任务与<a href="https://x.com/omooretweets/status/2091647719148503103">低成本轻量模型进行分流调度</a>的产品架构探索，服务边际成本在理论上有望得到改善，降低成本会为免费或更低门槛的服务留下空间。</p>
+<h3>对话澄清购物意图，也可能支持更相关的广告</h3>
+<p>OpenAI 表示，在拥有 12 亿周活跃用户的基础上，<a href="https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads/">其广告业务达到了 10 亿美元的年化收入运行率</a>。年化运行率是按当期收入速度折算的数字，并不等于过去一年实际收到的收入。另外，据 <a href="https://www.nbcnews.com/tech/tech-news/openevidence-ai-doctor-medical-physician-login-app-what-npi-uptodate-rcna341064">NBC 等媒体报道</a>，约 50%–60% 的美国执业医生使用 OpenEvidence，该产品目前也部分通过广告进行变现。</p>
+<p>在访谈中，嘉宾探讨了对话形态与广告结合的可能性：与传统搜索引擎单次输入的关键字相比，用户在与 AI 的实时多轮对话中，会随着深入交流逐步厘清并表达出非常具体的消费意图，这使得系统推荐的商品或解决方案在理论上能做到更高的相关性。例如 Josh Elman 分享过一段个人购物经历（见<a href="https://youtu.be/aCvrzhwUxg0?t=1656">配套访谈 27:36 处案例</a>）：他原本想找一款方便拆出代客泊车钥匙的特殊钥匙扣，在传统搜索中很难准确定位；而在与 ChatGPT 反复来回描述细节、随后又追加了“希望是美国本土制造”的条件后，最终找到了底特律一家工厂生产的产品。在这段对话中并没有实际出现广告，但它清晰呈现了多轮交互如何帮助用户逐步细化出高确定性的购买意图。</p>
+<p>嘉宾同时提出假设，这种深度意图理解未来或许能带来更高的广告转化与定价空间；但他们也一致提醒，在极其私密的日常对话中植入商业推广必须保持极高的克制。在私人健康对话中生硬推荐减肥产品，就可能让用户怀疑自己得到的是建议还是推销。</p>
+<h3>交易抽佣有机会，但还需要规模和归因</h3>
+<p>伴随智能体从对话问答走向能够协助订票或选购商品的流程，通过交易抽佣分担服务成本成为一种设想，但这也需要极大的交易规模与可靠的归因体系，能否扩大日常使用，仍有待这些产品验证。</p>
+<h3>大众还需要值得投入时间的体验</h3>
+<p>品类图把“已经有代表”“部分覆盖”和“没有上榜代表”分开。健康领域的 OpenEvidence、本地服务里的美团标为 <strong>Partial（部分）</strong>，表示只覆盖较窄的用途或地区，并非整个品类都已覆盖。</p>
+<p>流媒体、购物、社交、差旅、金融、招聘、房产、游戏和约会等标为 <strong>None（无）</strong>，指本期两张前 50 榜里没有专用代表，不是现实中没有 AI 产品。图中的流媒体排除了创作工具，社交排除了 AI 陪伴产品，Character.ai 仍在主榜中。扩展这些需求，还要解决具体的问题：约会、招聘要找到合适的双方，购物和房产要连接供需，娱乐和社交要让人愿意创作、观看和参与。一个更强的聊天助手不会自动建立这些网络。</p>
+<figure>
+<img />
+<figcaption>a16z 原图：本期榜单的品类对照。“None”指没有专用代表；流媒体排除创作工具，社交排除 AI 陪伴产品。 <a>查看原图</a></figcaption>
+</figure>
+<p>访谈嘉宾把下一步扩张的难点放在使用动机上：专业开发者与职业创作者本身就有明确的交付目标，AI 能够直接为他们节省时间、放大生产力；但对于大众初用者而言，面对一个通用的空白输入框，往往并不清楚日常生活中可以用它来解决什么问题。在很多人的真实生活中，消费并不只是为了“节省时间”，更包含娱乐、自我表达、社交参与以及亲手把脑海中想法变成现实的创造乐趣。模型更强、价格更低可以降低使用门槛；产品还需要让人看见自己今天想用它做什么。</p>
+</div><div><div><div>来源</div><div><span>Top 100 Consumer AI Apps – Seventh Edition</span><span>Olivia Moore / a16z<span>·</span><a href="https://www.a16z.news/p/top-100-consumer-ai-apps-seventh">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://a16z.com/100-gen-ai-apps-7/">a16z 官方完整版与榜单</a><span>·</span><a href="https://www.youtube.com/watch?v=aCvrzhwUxg0">第七期榜单配套访谈：Elena Burger、Olivia Moore、Josh Elman</a></div></div></div></div></div><div>
+<div>a16z Top 100 Consumer AI · 第七期消费洞察</div>
+<h1>a16z 发布最新消费 AI 榜单：流量之外，谁在真正为AI付费？</h1>
+<div>消费 AI 很火，但掏钱的主力，还是拿它写代码、做内容、干活的人。下一场竞争，是让普通人也愿意天天用 AI。</div>
+<div>主素材：a16z 第七期榜单；配套访谈补充使用动机。</div>
+<div>
+<p>这期榜单第一次加入 YipitData 观察到的美国个人卡支出。报告引用的另一项美国调查中，近半数消费者用过 AI，每天使用的约占总体消费者的 25%；合资格美国个人电子收据样本中，至少订阅 ChatGPT、Claude 或 Gemini 一款的比例约为 4.5%。两组样本不同，尝试 AI 和持续为它付钱也不是一回事。</p>
+<div>
+<div>关键证据 · 钱集中在哪里</div>
+<div>前 1% 月均 $903；全体付费者中位数 $25</div>
+<p>个人卡支出样本中，前 1% 的付费者贡献 19.5% 的总支出，超过后 50% 付费者合计的 16.6%。这些都是付费者内部的比较。</p>
+<div>
+<div>
+<div>Top 1% 重度支出者</div>
+<div>$903<span>/月均</span></div>
+<div>过去一年半增长约 80%</div>
+<div>平均每月支出；占样本总支出 19.5%</div>
+<div>购买倾向更偏向工作与创作：自动化工具 n8n、开发基础设施 fal，以及 Higgsfield、Figma、HeyGen 等创意工具。</div>
+</div>
+<div>
+<div>全体付费者中位数</div>
+<div>$25<span>/月，中位数</span></div>
+<div>中位数长期变化不大</div>
+<div>全体付费者的中间水平，不能当成普通用户平均值</div>
+<div>已付费用户中，仅 13% 还会为另一款 AI 工具付钱。新产品得讲清额外解决了什么问题。</div>
+</div>
+</div>
+</div>
+<p>为什么工作工具更容易收钱？它们能把费用和写代码、做视频、完成交付的收益对应起来。访谈还提到，有人先个人购买工作工具，好用后再带入团队；个人消费不全是娱乐，企业统一采购也不在这份个人卡统计内。</p>
+</div>
+<div>
+<p>流量和付款要分开看：网页榜衡量访问量，移动榜衡量月活，支出榜观察美国个人卡付款。三张独立 Top 50 的人群和周期不同，名次差不能推算转化率或公司全球营收。</p>
+<div>
+<div>
+<div>29 / 50</div>
+<div>支出前 50 厂商中，29 家未进入任何流量榜前 50 名</div>
+</div>
+<div>
+<div>仅 7 款</div>
+<div>同时跨越网页、移动月活与支出三大榜单的应用</div>
+</div>
+<div>
+<div>11 款</div>
+<div>本期首次进入榜单系列的产品；数量创系列新低</div>
+</div>
+</div>
+<div>
+<div>
+<div>代表工具</div>
+<div>个人支出榜</div>
+<div>网页流量榜</div>
+<div>产品用途</div>
+</div>
+<div>
+<div><strong>Higgsfield</strong></div>
+<div>支出 第 5 名</div>
+<div>网页 第 28 名</div>
+<div>视频创作工具</div>
+</div>
+<div>
+<div><strong>Replit</strong></div>
+<div>支出 第 6 名</div>
+<div>网页 第 48 名</div>
+<div>编程与应用开发工具</div>
+</div>
+<div>
+<div><strong>Suno</strong></div>
+<div>支出 第 7 名</div>
+<div>网页 第 19 名</div>
+<div>音乐创作工具</div>
+</div>
+</div>
+<div>浏览器与移动 App 榜会漏掉桌面软件、消息软件等入口的使用。三榜都入选的 7 款是 ChatGPT、Claude、Canva、Notion、Suno、Perplexity 和 Photoroom。Gemini 的个人卡收入无法从 Google 业务中可靠拆分，所以未纳入支出榜。</div>
+</div>
+<div>
+<p>三款主力助手的消费产品定位正在分化：ChatGPT 两边都做，Claude 更偏专业工作，Gemini 用已有生态触达更多人。</p>
+<div>
+<div>
+<div>
+<div>ChatGPT</div>
+<div>大众用途与工作场景都做</div>
+</div>
+<div>
+<span>全美 47 州</span>
+<span>与 Anthropic 的观察支出比较</span>
+</div>
+<div>网页访问约为 Gemini 的 2 倍、Claude 的 6 倍；移动月活约为两者的 2.5 倍、14 倍。既做日常用途，也做团队工作区。</div>
+</div>
+<div>
+<div>
+<div>Claude</div>
+<div>专业工作与高阶订阅</div>
+</div>
+<div>
+<span>7.3% 订 Max</span>
+<span>活跃个人订阅者中，月费 $100 起</span>
+</div>
+<div>选择 Max 的占 7.3%，竞品百美元级高阶档位约 1%。坚持无广告，近期发布更偏代码和工作。高阶档位比例不是所有用户的付费率。</div>
+</div>
+<div>
+<div>
+<div>Gemini</div>
+<div>存量生态与多模态创意</div>
+</div>
+<div>
+<span>存量迁移</span>
+<span>Google One 升级带动</span>
+</div>
+<div>云存储旧套餐迁入包含 AI 的方案，带来订阅比例上扬，不能全算新增 AI 需求。近半数近期功能发布偏大众消费与创意。</div>
+</div>
+</div>
+<div><strong>创业产品靠什么留下用户？</strong>专用模型与创作流程（Suno）、跨模型调度（Cursor）、特定人群需求（OpenEvidence）、重做交互与上下文（Plaud、Town）。底座升级可能覆盖浅层功能，也可能让深入工作流程的产品办成更多事；这些路径都不是永久保护。</div></div>
+<div>
+<p>个人 Agent（能调用工具替人办事的 AI 助手）把交办搬进短信和 iMessage，尝试从回答问题走向订票、购物。入口方便之后，还有三件事要分别解决。</p>
+<div>
+<div>
+<div>平台合作</div>
+<div>接得通交易链路</div>
+<div>官方接口和平台合作决定能否代办。报告中，亚马逊两周内切断了 Meta 助理的自动访问。</div>
+</div>
+<div>
+<div>委派信任</div>
+<div>让人敢交办</div>
+<div>邮箱、工作文档与信用卡提供上下文，也带来隐私与授权边界。用户要能预期助手会做什么，才愿意长期委托。</div>
+</div>
+<div>
+<div>人际与交易网络</div>
+<div>找到足够的交易与匹配对象</div>
+<div>个人助理一个人用也有价值；约会、招聘或交易市场还需要双方参与。接入更多工具不会自动建立这些网络。</div>
+</div>
+</div>
+<div>Instinct 团队称，产生购买的交易用户每月经它花约 1,300 美元，买的是机票、酒店等商品和服务，不是 AI 软件收入。报告发布时，Instinct、Muse 尚未实施计划中的交易分成，ChatGPT 购物流程也未收费。</div>
+</div>
+<div>
+<p>AI 每次交互都有推理成本。订阅和积分能先覆盖服务成本；广告、交易抽佣通常需要用户或交易规模。要扩大大众使用，还得让人觉得值得常用。</p>
+<div>
+<div>
+<div>
+<div>已在用：订阅与积分</div>
+<div>44 家上榜原生 AI 网页产品：84% 提供订阅，64% 提供用量或积分收费</div>
+<div>这些是收费方式采用率，可重叠，不是收入比例。对有交付目标的人，费用容易和产出比较；普通人还没形成习惯，先付月费的门槛较高。订阅仍能支撑大产品。</div>
+</div>
+<div>
+<div>正在探索：降低门槛</div>
+<div>降低服务成本 · 广告 · 交易抽佣</div>
+<div>轻重模型分流有望降低成本；多轮对话可澄清购买意图，但更高广告转化仍是访谈中的设想。抽佣需要规模与可靠归因，私人对话里的推广也要克制。</div>
+</div>
+</div>
+</div>
+<div><strong>要进入更多人的日常，先给人一个想用的理由。</strong>娱乐、自我表达、社交和创造，也能形成使用动机。模型更强、价格更低能降低门槛；产品还得让人知道今天可以用它做什么。</div>
+<div>品类图里的 Partial 表示较窄用途或地区，如 OpenEvidence 的医疗场景；None 只指本期两张前 50 榜没有专用代表，不是现实中没有 AI 产品。流媒体分类排除创作工具，社交分类排除 AI 陪伴。</div></div>
+</div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【周报】技术分析机构 SemiAnalysis 测试发现：Anthropic 才是最大慈善家，Claude 订阅等效 API 价值是 OpenAI 的 5 倍多…</title>
+<link>https://best.xiaohu.ai/article/anthropic-subscription-value/</link>
+<category>周报</category>
+<guid isPermaLink="false">xiaohu:anthropic-subscription-value</guid>
+<pubDate>Sat, 10 Oct 2026 00:00:15 +0000</pubDate>
+<description>SemiAnalysis 实测：主力模型额度拉开差距，旗舰与高价套餐背后，是两家收回算力补贴的不同方式。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 周报 · 2026 年 10 月 10 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">技术分析机构 SemiAnalysis 测试发现：Anthropic 才是最大慈善家，Claude 订阅等效 API 价值是 OpenAI 的 5 倍多…</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/anthropic-subscription-value/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>技术分析机构 SemiAnalysis 测试发现：Anthropic 才是最大慈善家，Claude 订阅等效 API 价值是 OpenAI 的 5 倍多…</h1><p>SemiAnalysis 实测：主力模型额度拉开差距，旗舰与高价套餐背后，是两家收回算力补贴的不同方式。</p><strong>一分钟速览</strong><ul><li>同样交月费，Claude 主力模型给的调用空间明显更多，OpenAI 旧高价档的用量优惠正在收回。</li><li>两家都想少补贴：Claude 把旗舰配额收紧，OpenAI 则直接砍套餐总额度。</li><li>会员是厂商吸引用户的入口，补贴很重，但账面优惠、实际利润和你的工作收益要分开算。</li></ul><div><p>如果把 AI 订阅看成厂商给用户发算力补贴，<strong>Anthropic 这次更像“慈善家”，OpenAI 则正在把优惠收回去。</strong></p>
+<p><a href="https://newsletter.semianalysis.com/p/anthropic-subscriptions-offer-5x">技术分析机构 SemiAnalysis 的订阅测试</a>显示：在主力模型 Opus 5.5 与 GPT-6.1 Sol 的比较中，同样交月费，Claude 给出的 <strong>API 等值约为 OpenAI 的 5 倍多</strong>；即便不按 API 标价折算，只看 token 总量，Claude 给得也明显更多。（API 是程序调用模型的接口；token 是模型处理文本的计量单位。）</p>
+<p>换成旗舰 Fable 5.1 与 GPT-6 Astra，两家的单项额度接近，但 Claude 还有一层余量：如果此前没用其他模型消耗共享额度，把 Fable 用到它的上限后，还剩一半总额度可用其他模型；Astra 用完对应额度，OpenAI 这组套餐的额度池也就见底了。</p>
+<p>与此同时，OpenAI 把 200 美元档的 token 额度砍掉约一半，又推出 500 美元档。月费贵了不少，每美元能买到的量却没有更划算。</p>
+<p><strong>这篇分析真正揭示的，是 AI 厂商一边靠订阅补贴吸引用户，一边想办法把补贴收回来。Claude 的主力模型仍给得大方；OpenAI 则直接动了套餐总额度。</strong></p>
+<h4>同样交 200 美元，Claude 到底多给了多少？</h4>
+<p>先看两家作为日常主力推广的模型。按 SemiAnalysis 的 Agent 工作负载、用满额度来折算：</p>
+<div><table>
+<thead>
+<tr>
+<th>每月 200 美元</th>
+<th>Claude Max 20x · Opus 5.5</th>
+<th>ChatGPT Pro 200 · GPT-6.1 Sol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>月度 API 等值</td>
+<td>约 11,726 美元</td>
+<td>约 2,084 美元</td>
+</tr>
+<tr>
+<td>月度总 token</td>
+<td>约 286 亿</td>
+<td>约 102 亿</td>
+</tr>
+</tbody>
+</table></div>
+<p>同样的月费，API 等值相差约 <strong>5.6 倍</strong>，token 总量相差约 <strong>2.8 倍</strong>。20 美元和 100 美元档的这组主力模型比较，API 等值差距也在 5 倍多。</p>
+<figure><img /><figcaption>原图11｜主力模型月度API等值：200、100、20美元档的Opus/Sol约11,726/2,084、5,725/1,055、1,178/211美元。</figcaption></figure>
+<figure><img /><figcaption>原图12｜改看总token，Claude主力模型仍给得更多；200美元档约286亿对102亿，包含缓存读取，并非全是输出。</figcaption></figure>
+<p>“API 等值”可以理解为：把会员额度支持的调用量，按同一模型的 API 价目表买一遍，大概要付多少钱。它不是能提现的余额，也不是厂商为你花掉的真实成本。不同类型的 token 要乘以各自的单价，再加起来。</p>
+<p>所以，5.6 倍里面有两个因素：<strong>Claude 给的量更多，Opus 的 API 标价也更高。</strong>只看价格，会把这两件事揉在一起；改看 token 总量，差距仍然很大，说明这次优势并不全是“标价高、折出来好看”。</p>
+<p>这组工作负载约 96.6% 的 token 是缓存读取。Agent 跑代码、看报错、改文件时，会反复带上此前读过的代码和对话；缓存让模型复用这些已处理的上下文，降低重复读取成本。累计读了十遍旧代码，不等于写了十倍新代码。</p>
+<p>因此，这张表回答的是重度 Agent 使用能拿到多少调用空间。能多完成多少工作，还得看同一个任务谁做得更好、谁让你少返工。SemiAnalysis 也指出，行业缺少能可靠反映真实工作中 token 效率的数据。</p>
+<h4>同一个套餐，聊天和跑 Agent 为什么能差这么多？</h4>
+<p>这不是套餐自带的一张固定美元券。同样是200美元的Max 20x，换模型、换用法，API等值能从约2,500美元变到约12,500美元。</p>
+<p>以Sonnet为例，Agent负载等值约12,529美元，聊天负载约7,009美元；Opus则约11,726美元和9,200美元。Fable两种用法都在约2,480美元附近，差距很小。模型与工作负载会一起改变结果，不能把“Agent更值钱”套到每款模型。</p>
+<p>原因在两套费率：订阅按不同模型、不同token类型扣额度，API也按类型收费，但两者的收费比例不完全相同。Agent反复读旧上下文，在这组估值中缓存读取占96.6%；聊天负载约75%，生成输出则从Agent的约0.3%提高到10%。配比变了，同一额度能支撑的调用组合及其API价格也就变了。</p>
+<figure><img /><figcaption>原图2｜同一200美元Max 20x套餐：Sonnet的Agent/聊天等值约12,529/7,009美元，Opus约11,726/9,200美元，Fable约2,485/2,480美元。</figcaption></figure>
+<h4>旗舰模型接近，但“用完”的含义不一样</h4>
+<p>200 美元档里，Fable 5.1 的 API 等值约为 <strong>2,485 美元</strong>，Astra 约为 <strong>2,897 美元</strong>。只看这一行，OpenAI 还略高一些。</p>
+<p>100美元档也接近：Astra约1,322美元，Fable约1,273美元。20美元档则不对称：ChatGPT Plus包含Astra的额度，Claude Pro不包含Fable，不能把高档旗舰的比较直接套到入门档。</p>
+<figure><img /><figcaption>原图10｜旗舰月度等值：200美元档Astra/Fable约2,897/2,485美元，100美元档约1,322/1,273美元；20美元Claude Pro不含Fable。</figcaption></figure>
+<p>关键是，Fable 的上限只能消耗 Claude 总周额度的 50%。你专门用 Fable，把这份旗舰额度用满，触到的是它自己的子上限；另一半共享额度仍能交给 Opus 或 Sonnet。</p>
+<p>可以把它想成一个总额度池，里面规定“旗舰最多取一半”。旗舰那一份用完，不等于池子空了。Astra 在对应的 OpenAI 套餐里用到上限，则会把这组共享额度耗尽。</p>
+<p>剩下的“50%”是额度份额，不是又送你 2,485 美元，更不是还能继续用同样多的 Fable。其他模型的扣额度费率不同；如果之前已经用 Opus 消耗了共享池，剩余份额也会变少。</p>
+<p>对会在多个模型之间切换的用户，这个差别很实际：难题交给旗舰，日常修改和测试继续交给主力模型，旗舰触顶后还有工作空间。上一张表中 Opus 给得多的优势，也就有了用武之地。</p>
+<h4>OpenAI 这一刀，砍掉的是旧 200 美元档的优惠</h4>
+<p>SemiAnalysis 跟踪到的调整，直接体现在新旧套餐读数里：</p>
+<div><table>
+<thead>
+<tr>
+<th>200 美元档的变化</th>
+<th>调整前</th>
+<th>调整后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Astra 月度 token</td>
+<td>约 38 亿</td>
+<td>约 19 亿</td>
+</tr>
+<tr>
+<td>Astra API 等值</td>
+<td>约 5,734 美元</td>
+<td>约 2,897 美元</td>
+</tr>
+<tr>
+<td>Sol 月度 token</td>
+<td>约 196 亿</td>
+<td>约 102 亿</td>
+</tr>
+<tr>
+<td>Sol API 等值</td>
+<td>约 5,904 美元</td>
+<td>约 2,084 美元</td>
+</tr>
+</tbody>
+</table></div>
+<p>Astra 的量和等值都少了约 49%。Sol 的 token 少了约 48%，API 等值却少了约 65%。后者还叠加了 GPT-6 Sol 换到 GPT-6.1 Sol 时的缓存 API 降价，不能把 65% 全算成砍额度。旧用户暂时保留原有额度，新开通用户直接执行新额度。</p>
+<figure><img /><figcaption>原图13｜新旧Pro 200对照：Astra的量和等值约减半；Sol等值降65%、量降48%，还叠加了API价格变化。</figcaption></figure>
+<p>再看 500 美元档：<strong>月费比旧 200 美元档贵 150%，Astra 的量却只多约 21%。</strong>这里比较的是调整前的旧 200 美元档。拿它与已经砍过的新 200 美元档比，当然会显得增量大得多。</p>
+<p>Sol还有另一组反差：新500美元档的token约263亿，比旧200美元档的196亿多约34%，API等值却从约5,904美元降到5,386美元，少约9%。量增加但标尺降得更多，再次说明等值不能直接当调用量。</p>
+<figure><img /><figcaption>原图14｜新Pro 500与调整前的旧Pro 200比较：月费增150%，Astra量增约21%；Sol量增34%、等值却降9%。每行使用各自尺度。</figcaption></figure>
+<p>500 美元档的另一项卖点是 300 TPS 的 Ultrafast 输出速度。（TPS 指每秒生成的 token 数。）更快地拿到结果可能有用，但速度要单独算价值；SemiAnalysis 当时仍在测试这项功能的限额。</p>
+<p>以前的 Pro 200 是一个“买贵档、每美元还能拿更多量”的优惠档。调整后，Pro 100、200、500 对同一模型的每美元 token 数已经相近：多付钱主要是买更多总量，或买速度，而不是换到更低的用量单价。Claude 各订阅档位的每美元价值本来也接近，主力模型的补贴力度则仍明显更大。</p>
+<p>看每美元价值图时，横轴是每美元token数，越往右量越多；纵轴是API等值除以月费，越往上按量购买时的账面优惠越大。横轴用了对数刻度，相同距离表示倍数变化，不能把视觉距离当成等量差。</p>
+<figure><img /><figcaption>原图15｜每美元token与API等值的前后变化：旧Pro 200的额外优惠消失，新Pro 100/200/500点位聚在一起；横轴为对数刻度。</figcaption></figure>
+<p>Plus也要分模型看：Sol的每美元价值与Pro接近，Astra则较低。以前Astra的Pro 100每美元价值约是Plus的两倍，旧Pro 200又在Pro 100之上多约一倍；这一层高档优惠如今被收回。</p>
+<figure><img /><figcaption>原图16｜两家每美元比较：Sonnet/Opus的等值倍数明显更高，Fable与Astra接近；点大小代表月费，横轴为对数刻度。</figcaption></figure>
+<p>在两家比较图里，Sonnet和Opus的API等值约为月费的57–63倍，OpenAI Sol约10–11倍；Fable则只有约12–13倍，与Astra的约13–15倍接近。同一厂商的不同模型也不在同一个补贴档，不能把主力模型优势改写成每款模型都碾压。</p>
+<p>OpenAI 也有一个不能漏掉的优势：<strong>它的 Pro 套餐没有 5 小时上限。</strong>Claude 即使周额度还有剩余，也可能先撞上短时限制。对需要连续集中跑任务的人，“总量多”与“这几个小时能不能用到”是两回事。这也是为什么单看总额度，不能替每个人直接选套餐。</p>
+<h4>占了四成算力，只带来一成收入，厂商为什么还愿意？</h4>
+<p>用户觉得会员划算，另一面就是厂商让出了大量按量收费的收入空间。</p>
+<p>SemiAnalysis 对 Anthropic 的粗略估算很直观：<strong>订阅占用约 41.7% 的推理算力，只贡献约 10% 的收入；API 占用约 58.3% 的算力，却贡献约 90% 的收入。</strong></p>
+<figure><img /><figcaption>原图1｜Anthropic粗略单位经济估算：订阅占推理算力41.7%、收入10%；订阅毛利约50%，API约92.2%。</figcaption></figure>
+<p>在这组估算里，订阅每兆瓦算力带来约 1,600 万美元收入，API 则约为 1.029 亿美元。相同的算力资源，用在 API 业务上，能收回更多钱。</p>
+<p>把两类业务混在一起，每兆瓦收入约6,670万美元，比纯API那一栏少约3,620万美元。这是算力被分配到不同收入效率业务后的结果，不是已经亏掉3,620万美元。</p>
+<p>这解释了为什么订阅会拉低收入效率，也解释了厂商为何盯着会员额度。但它不等于“所有订阅都大赔本”：这张图估算订阅毛利仍约为 50%，只是远低于 API 的约 92.2%。补贴重、少赚很多，与整体已经亏损，是不同的结论。</p>
+<p>厂商愿意这样做，是因为月费低、可反复尝试的入口，能让开发者和小企业更容易开始使用，把模型放进日常工作。订阅不仅是一笔调用收入，也是获客和推广。先让用户建立使用习惯，再想办法改善每个用户的收入与成本，这就是这些限额变化背后的生意。</p>
+<p>SemiAnalysis还把此前Codex采用增长，部分归因于OpenAI慷慨的额度重置；它认为，这种竞争压力也促使Anthropic撤回过一些削减订阅权益的计划。这是机构对竞争效果的判断，也能解释为什么补贴不能只按一笔调用的盈亏来算：少给一点可能省了算力，却失去用户和口碑。</p>
+<h4>两家都想少补贴，动刀的位置却不同</h4>
+<p>Anthropic 的做法，是让更强、更贵的旗舰模型拿到更紧的配额。Sonnet 和 Opus 按 API 标价折算，补贴倍数都很高；到了 Fable，这个倍数明显下降。</p>
+<p>旗舰单次调用更贵，但用户能用的量也更少。把配额收得足够紧，旗舰套餐反而可以比主力模型的宽松额度更赚钱。</p>
+<p>SemiAnalysis 用“API 毛利 92%”的假设，推算了 Max 20x 下两种使用情景：</p>
+<div><table>
+<thead>
+<tr>
+<th>使用情景</th>
+<th>Opus 5.5 推算毛利</th>
+<th>Fable 5.1 推算毛利</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>各自可用额度用满</td>
+<td>约 −369%</td>
+<td>约 1%</td>
+</tr>
+<tr>
+<td>只使用各自额度的 20%</td>
+<td>约 6%</td>
+<td>约 80%</td>
+</tr>
+</tbody>
+</table></div>
+<p>这些是情景推算，20% 也是假设利用率，不是已经测到的用户平均值。以 Opus 为例，11,726 美元的 API 等值，在 92% API 毛利假设下对应约 938 美元的服务成本；把它用满，200 美元月费盖不住成本。只用两成，成本变成约 188 美元，毛利才回到约 6%。</p>
+<p>Fable 的可用额度更紧，同样的算法算下来，两成利用率时成本约 40 美元，对应约 80% 毛利。<strong>Fable 更强、更贵，订阅毛利却可能更高：关键是配额更紧、补贴更少，不能只盯模型单次成本。</strong></p>
+<p>这组推算还有一个很关键的分界点：Max 20x的Opus大约用到21%的额度就会触及盈亏平衡，Sonnet约20%；Fable的子额度用满时则仍接近盈亏平衡。这也说明，厂商利润很依赖用户实际用掉多少额度。</p>
+<p>Fable这一列只计算Fable子额度的使用。如果再用Opus把另一半共享池消耗掉，服务成本还会增加，不能把80%直接当成这名用户整份套餐的实际毛利。</p>
+<figure><img /><figcaption>原图18｜Claude假设毛利表：Max 20x的Sonnet/Opus约用到20%/21%额度便触及盈亏平衡，Fable子额度用满时仍约1%毛利。</figcaption></figure>
+<p>同一组假设下，调整后的 OpenAI Pro 200 用满 Sol，推算毛利约为 17%；用满 Astra 则约为 −16%。压低可用总量，能让厂商收窄重度用户带来的成本风险。</p>
+<p>Astra在新Pro 200里要用到约86%额度才触及盈亏平衡，相比Opus约21%的分界点，OpenAI对重度使用的成本缓冲大得多。这里对照的是同一成本假设下的情景，不是两家公司披露的实际订阅毛利。</p>
+<figure><img /><figcaption>原图19｜OpenAI假设毛利表：新Pro 200用满Astra约−16%、Sol约17%；Astra约用到86%才触及盈亏平衡。</figcaption></figure>
+<p>Anthropic 是通过旗舰与主力模型的额度分配逐步收回补贴。OpenAI 则直接把旧 200 美元档的总额度砍掉约一半。对用户来说，前者表现为“强模型给得紧、日常模型还能多用”，后者表现为“同样的月费，可用总量突然少了”。</p>
+<p>这也不意味着Claude会永远保持今天的补贴。SemiAnalysis预期，Anthropic继续降低Opus的服务成本后，主力模型的宽松额度会更容易维持；更高层级的新旗舰则可能给更紧的限额，甚至不进入订阅。这是它对未来产品分层的推测，尚不是已宣布的政策。</p>
+<p>对于OpenAI这次降额没有引发很强反弹，机构猜测，发布活动的正面消息和老用户暂时保留旧额度共同缓冲了反应。这能解释反弹为何可能延后，不能据此断言公司刻意用发布会掩盖降额。</p>
+<h4>API 降价了，会员为什么没有自动拿到更多量？</h4>
+<p>厂商还有一把更容易被忽略的尺子：API 价目表。</p>
+<p>API 降价，意味着程序按量调用更便宜。订阅能多用多少，却由另一套扣额度规则决定。两套规则没有必须同步调整的承诺。</p>
+<p>Opus 5.5 就是一个例子：图表中，它的 Agent 混合 API 单价下降约 46%，Claude Max 20x 的 token 额度增加约 25%，但 API 等值仍下降约 32%。用户实际拿到的量增加了；只是用 API 买相同调用量也便宜了，所以会员折算出来的“值多少钱”反而下降。</p>
+<p>同一模型在不同套餐里的补量也不一样：Claude Pro的Opus额度增加约51%，API等值仍下降约18%；Max 5x额度增约20%，等值降约35%。Fable的Max档额度仅增约1–4%，等值降约46–47%；Sol在Pro 200里额度增约5%，等值降约28%。</p>
+<figure><img /><figcaption>原图17｜同档新旧模型的量与等值变化：Opus Pro量增51%、等值降18%；Max 20x量增25%、等值降32%；不是所有API降价都会转成等比例扩容。</figcaption></figure>
+<p>Fable 和 Sol 在相应新版本里的 token 额度只有小幅增加，也没有抵消 API 降价。因而，<strong>“API 等值缩水”可能是少给了量，也可能是标价降了，还可能两件事一起发生。</strong>OpenAI 的新旧 200 美元档比较，正好把这两种变化叠在了一起。</p>
+<h3>额度增加，账面等值也可能下降</h3><p>假设旧额度与旧 API 等值都为 100%，改变两个条件，看它们怎样一起影响结果。数字为算术示意。</p><div>可用 token 相对旧额度：120%API 单价相对旧价格：50%</div><div><strong>账面 API 等值为旧值的 60%</strong><span>可用 token 增加 20%，API 等值下降 40%。</span></div><p>等值比例 = 额度比例 × API 单价比例</p><p>默认算例：1.2 × 0.5 = 0.6；不代表任何实际套餐。改变单价时保持 token 类型比例不变。</p>
+<p>订阅后台的规则甚至可以在套餐名称、月费都没变时调整。SemiAnalysis 测过某个未具名供应商的三个同款订阅账号，其中一个额度低约 20%；联系厂商后确认，它参加了小范围的限额 A/B 测试。</p>
+<p>这也解释了它为什么要持续测量：会员的“100% 额度”不对应永久固定的 token 数量。厂商改变某种模型、某类 token 的扣费率，你能用到的量就会变化。</p>
+<h4>国产套餐也在补贴，但平均数藏着很大的差别</h4>
+<p>公开图表还比较了 MiniMax、Z.ai 和 Moonshot。按各自模型的 API 标价折算，MiniMax M3 约为月费的 19–24 倍，GLM 5.3 约 8–12 倍，Kimi K3 约 2.5–6.7 倍。</p>
+<figure><img /><figcaption>原图20｜国产套餐的月费、绝对等值及倍数：同一供应商换模型或档位，补贴程度也会变化；GLM Flash的token多，等值倍数却低。</figcaption></figure>
+<p>所以，“国产套餐平均补贴多少”不如先问“具体是哪款模型、哪个档位”。这些套餐整体上有高档每美元价值更高的趋势，但并不是每个档位都严格递增。API 价格本来就低的模型，折出的倍数也可能低，即使它给的 token 很多。</p>
+<p>MiniMax的Max档月费55美元，等值约1,305美元，即23.7倍；Ultra档月费132美元，等值约3,088美元，即23.4倍。更贵档给的总量更多，每美元优惠却没有继续提高。GLM 5.3则从Lite的约7.7倍提高到Max的约11.6倍，Kimi从Plus的约2.5倍提高到Ultra的约6.7倍，各家的阶梯形状不同。</p>
+<figure><img /><figcaption>原图21｜按每美元归一化后的跨厂商图：MiniMax、GLM、Kimi各有位置，GLM Flash在右下方；横纵轴都是对数刻度。</figcaption></figure>
+<p>GLM Flash尤其能说明“token多”和“补贴倍数高”不是一回事：同样168美元的Max档，GLM 5.3约63亿token、1,942美元等值，Flash约191亿token、336美元等值。Flash给了更多token，但它的API本来就便宜，所以等值倍数只有约2倍。在归一化图上，它因此落在右下方，而不是左下方。（这张跨厂商图的横纵轴都是对数刻度。）</p>
+<p>这些数值比较的是各自套餐相对于各自 API 定价的优惠程度。换到不同模型之后，任务能不能完成、需要多少轮调用，还得另做比较。</p>
+<h4>看不到后台价目表，这些额度是怎么测出来的？</h4>
+<p>SemiAnalysis测的不是“发了多少条消息”，而是每类token会让订阅用量表走多少。它持续跟踪模型、套餐、促销和工作负载：套餐名一样，后台扣额度费率仍可能变化。</p>
+<p>第一步，把新输入、缓存写入、缓存读取、生成输出分开测。新输入每次换随机前缀，避免命中缓存；写入实验在这个基础上标记缓存；读取实验固定前缀，第一轮写入，后续反复读。输入类实验使用《战争与和平》的片段，并尽量压低回答长度；输出实验则用短提示要求生成长技术文章。实际请求总会夹带少量其他类型token，测试再扣除它们的消耗。</p>
+<p>第二步，处理用量表的取整误差。请求结束时才读表，真实消耗可能刚好跨过1%的门槛，也可能早已跨过一截。因此，不能拿某一次跳表的读数当精确费率。原图用“每次8K token、实际约21K token消耗1%”作示意：单个观测步可能是16K或24K，多步平均才接近真实比例。测试丢掉开头和结尾的不完整步，增加完整步骤，直到测量区间收窄至约±5%。如果读了5亿缓存token仍不跳表，它把缓存读取按免费处理——这是测量假设，不是厂商承诺永远免费。</p>
+<p>第三步，同时看短时、总周额度与旗舰子额度。Fable新输入的原图示例中，每100万token消耗5小时额度约3.3%、全模型周额度约0.88%、Fable周额度约1.76%；反推可装下的量，分别约为3,000万、1.13亿和5,700万token。</p>
+<p>这三个数不能相加。短时表重置了，周表仍累计；旗舰表满了，旗舰也要停。所以，不能把每5小时的量无限乘下去推算月额度。图中按一个月约4.345周，用Fable每周5,700万输入token折算，得到约2.47亿月输入token；这是隔离输入类型的测量例子，与前面混合了大量缓存读取的总token量不是同一个数。</p>
+<p>最后，按指定工作负载混合四种扣额度费率，再乘API价。Opus的例子中，200美元月费除以混合套餐费分摊约0.00699美元/百万token，得到约286亿token；按同一配比的混合API价约0.4099美元/百万token估值，得到约11,726美元。订阅扣额度规则与API价目表的比值，才决定这笔优惠。</p>
+<p>上下文长度也要保持可比。一些模型在超过特定上下文长度后API更贵，测试把请求控制在高价门槛以下；不能把长上下文的更高标价拿来给短上下文调用估值。原API截图展示了短、长上下文两套价格，这正是比较时需要固定的条件。</p>
+查看额度测量与折算的7张原图
+<figure><img /><figcaption>原图3｜订阅仪表盘按模型、套餐、工作负载与促销状态筛选，也区分5小时和周限；这是部分数据的截图。</figcaption></figure>
+<figure><img /><figcaption>原图4｜API按新输入、缓存读取、缓存写入、输出分别标价，并区分短、长上下文；表内每个价格的单位都是美元/百万token。</figcaption></figure>
+<figure><img /><figcaption>原图5｜Claude Code同时显示当前会话、全模型周额度、Fable周额度；图中的促销提示属于原截图当时的状态。</figcaption></figure>
+<figure><img /><figcaption>原图6｜隔离四类token的实验：随机前缀阻断缓存、缓存标记强制写入、固定前缀重复读取、短提示诱导长输出。</figcaption></figure>
+<figure><img /><figcaption>原图7｜整百分比量表的阶梯示例：每次8K token，跨越一步可能观测为16K或24K；多步平均恢复约21K token/1%。</figcaption></figure>
+<figure><img /><figcaption>原图8｜Fable新输入的测量示例：5小时约30M、全模型每周约113M、Fable每周约57M；按4.345周折算月上限约247M输入token。</figcaption></figure>
+<figure><img /><figcaption>原图9｜Opus折算过程：混合套餐费分摊约0.00699美元/百万token，200美元对应约286亿token，再按混合API价折算约11,726美元。</figcaption></figure>
+<p>回到你的月费：如果常用 Opus 跑重度 Agent 工作，而且能用掉相当一部分额度，这组测试给出了很明确的判断——<strong>Claude 的主力模型订阅仍是一笔更大的算力补贴。</strong>如果只用旗舰，或最在意连续工作的短时限制与输出速度，就要把 Fable 的子限额、OpenAI Pro 的使用节奏和速度一起算进去。</p>
+<p>记录自己常做任务的完成情况与返工时间，核对<a href="https://best.xiaohu.ai/article/ploy-agent-gpt56-migration/">缓存有没有真正命中</a>，比把理论等值当成已经省下的钱更有用。看懂厂商怎样给补贴、怎样收回补贴，也就能分清：你正在为模型能力、可用总量，还是等待时间付费。</p>
+</div><div><div><div>来源</div><div><span>Anthropic Subscriptions Offer 5x+ More Value Than OpenAI</span><span>Andrew Megalaa、Max Kan、Dylan Patel<span>·</span>2026-10-05<span>·</span><a href="https://newsletter.semianalysis.com/p/anthropic-subscriptions-offer-5x">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-caching">Claude Prompt caching</a><span>·</span><a href="https://chatgpt.com/pricing/">ChatGPT Pricing</a></div></div><div><div>本站说明</div><div>公开正文和21张原图均已逐张复核并展示：14张在对应论述，7张在可展开的测量原图区，关键解释默认可读。收入、算力、毛利为机构粗估或假设，不是财报；Fable毛利情景只计算其子额度。图17有小幅token增长，与原文“未增加”措辞不完全一致，正文按图表表述。原图4列出OpenAI缓存写入价，原图6却说该实验被跳过、OpenAI不单独计费，两图有未解释的不一致，本文不据此判断OpenAI实际缓存写入费率。第三方章节仍在付费墙后，未获取。</div></div></div></div></div><div>
+<div>
+<div>算力补贴与订阅博弈 · 架构深度拆解</div>
+<h1>Claude 主力订阅的 API 等值为何是 OpenAI 的 5 倍多？</h1>
+<div>同样交 200 美元月费，Anthropic 在主力模型上像“慈善家”，OpenAI 则在收紧优惠。两家截然不同的补贴与防亏策略，决定了你手里的额度到底值多少。</div>
+<div>核心脉络：主力模型账面差距 → 旗舰 50% 额度池机制 → 两家不同的“收水”刀法</div>
+<p>如果把 AI 订阅看成厂商给用户发算力补贴，Anthropic 这次更像“慈善家”，OpenAI 则正在把优惠收回去。技术分析机构 SemiAnalysis 的实测揭示了一条鲜明的分水岭：同样按每月 200 美元计算，主力模型的 API 折算等值与 token 供给相差数倍；而旗舰模型看似接近的账面数据背后，更隐藏着决定实际工作连续性的“额度池”设计分歧。</p>
+<p>API 等值是把会员可用量按该模型 API 标价重新购买的金额；它不是现金余额，也不是厂商的实际成本。</p>
+<div>
+<div>主力模型：5.6 倍 API 等值从何而来？</div>
+<p>按典型的 Agent 编程负载测算，在主力模型 Opus 5.5 与 GPT-6.1 Sol 的比较中，同样交月费，Claude 给出的 <strong>API 等值约为 OpenAI 的 5 倍多</strong>；即便不按 API 标价折算，只看 token 总量，Claude 给得也明显更多。20 美元与 100 美元档位也呈现出相似的 5 倍量级悬殊。</p>
+<div>
+<div>
+<div>5.6x</div>
+<div>主力 API 等值倍数<br />（约 $11,726 对 $2,084）</div>
+</div>
+<div>
+<div>286亿</div>
+<div>Claude Max 20x 月度 token<br />（OpenAI 约为 102 亿）</div>
+</div>
+<div>
+<div>96.6%</div>
+<div>Agent 负载缓存读取占比<br />（复用上下文降低边际成本）</div>
+</div>
+</div>
+<p>这 5.6 倍的账面优势由两部分组成：一是 Claude 给予的总 token 上限本就高出近两倍；二是 Opus 的 API 官方标价更高。测试还有一个前提：Agent 跑代码和修报错时，约 96.6% 的 token 是在反复读取既有代码与历史会话，缓存让模型不必重复处理旧上下文。这组对比按该 Agent 配比估算并假设用满额度；聊天等用法的折算结果会不同。</p>
+</div>
+<div>
+<div>
+<span>旗舰用完后：还剩一半，还是共享池见底？</span>
+<span>决定性设计差异</span>
+</div>
+<p>假设此前未用其他模型消耗共享额度。200 美元档里，Fable 5.1 的 API 等值约为 2,485 美元，Astra 约为 2,897 美元，账面十分接近。但两者“用满”对实际工作流的影响完全不同：</p>
+<div>
+<div>
+<div>
+<span>Claude Max 20x 共享周额度池</span>
+<span>余量 50%</span>
+</div>
+<div>
+<div>Fable 子上限 50%</div>
+<div>剩余 50% 可用</div>
+</div>
+<p><strong>独立子上限：</strong>Fable 的上限只能消耗 Claude 总周额度的 50%。你专门用 Fable，把这份旗舰额度用满，触到的是它自己的子上限；另一半共享额度仍能交给 Opus 或 Sonnet。</p>
+</div>
+<div>
+<div>
+<span>ChatGPT Pro 200 共享周额度池</span>
+<span>池子清空 0%</span>
+</div>
+<div>
+<div>Astra 消耗全额池 100%（已耗尽）</div>
+</div>
+<p><strong>单池抽干：</strong>Astra 在对应的 OpenAI 套餐里用到上限，则会把这组共享额度耗尽。整组套餐池见底，无法降级继续调用 Sol 跑日常任务。</p>
+</div>
+</div>
+<p>余下 50% 是额度份额，不是额外 2,485 美元，也不能继续调用同量 Fable。若之前用了 Opus 或 Sonnet，共享池的余额会更少；短时上限也可能先触发。</p>
+</div>
+<div>
+<div>商业底色：占四成算力只换一成收入，厂商图什么？</div>
+<p>按 SemiAnalysis 对 Anthropic 的粗估，订阅占用约 41.7% 的推理算力，只贡献约 10% 的收入；API 占用约 58.3% 的算力，却贡献约 90% 的收入。相同的算力资源，API 业务每兆瓦能带来约 1.029 亿美元收入，而订阅仅带来约 1,600 万美元。</p>
+<div>
+<p>让渡巨额 API 收入空间并不等于订阅直接大赔本：测算显示订阅业务粗估毛利仍有约 50%（低于 API 的 92.2%）。作者认为，固定月费降低了开发者与小企业的使用门槛，有助于争取用户和工作流。较低的单位算力收入体现了补贴与获客的取舍。</p>
+</div>
+</div>
+<div>
+<div>两家都想少补贴，动刀位置截然不同</div>
+<p>下表毛利按 API 毛利 92% 假设计算，不是企业披露的实际毛利。两家收回补贴的位置不同：</p>
+<div>
+<table>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>Anthropic（精细分流）</th>
+<th>OpenAI（总量收缩）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>动刀方式</strong></td>
+<td>放宽主力模型，极度收紧旗舰配额</td>
+<td>直接将 200 美元档额度减半，推 500 档</td>
+</tr>
+<tr>
+<td><strong>旗舰逻辑</strong></td>
+<td>Fable 更强、更贵，订阅毛利却可能更高：关键是配额更紧、补贴更少，不能只盯模型单次成本</td>
+<td>月费比旧 200 美元档贵 150%，Astra 的量却只多约 21%，高档单价优势不再</td>
+</tr>
+<tr>
+<td><strong>毛利防线</strong></td>
+<td>Opus 用满推算毛利约 −369%（需 21% 用量平衡），只算 Fable 子额度，用满毛利约 1%；再用剩余池会增加成本</td>
+<td>新 200 档 Astra 盈亏平衡点推至 86%，大幅收窄重度亏损敞口</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div>
+<div>选型结论：你在为能力、总量还是时间买单？</div>
+<div>
+<p>重度开发者如何选择？</p>
+<ul>
+<li><strong>选择 Claude Max</strong>：如果你的任务适合 Opus/Sonnet，且主要受总量限制，这组实测中 Claude 的主力调用空间更大。仍需检查 5 小时上限和任务完成效果。</li>
+<li><strong>选择 ChatGPT Pro</strong>：OpenAI 也有一个不能漏掉的优势：它的 Pro 套餐没有 5 小时上限。若任务极度依赖数小时内的高密度爆发输出、不容忍短时频控打断，可考虑 Pro。500 美元档标示约 300 TPS 的 Ultrafast；速度不等于额度，其限制仍在测试。</li>
+</ul>
+</div>
+<div>
+<p>注：评测中的“API 等值”是基于标价体系折算的理论空间，并非现金结余。日常开发应以任务返工率、实际缓存命中率及完成效率为准，避免落入单纯盯住账面虚拟等值的数字陷阱。</p>
+</div>
+</div>
+</div></div>
+</div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】State of AI Report 2026 报告解读：AI 这一年发生了什么？</title>
 <link>https://best.xiaohu.ai/article/state-of-ai-2026/</link>
