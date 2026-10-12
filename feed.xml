@@ -6,7 +6,1107 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Sun, 11 Oct 2026 12:02:14 +0000</lastBuildDate>
+<lastBuildDate>Mon, 12 Oct 2026 12:02:41 +0000</lastBuildDate>
+<item>
+<title>【日报】Harness Learning：让模型自己修改 Harness 的源代码适应新任务，打造自我进化的 Harness</title>
+<link>https://best.xiaohu.ai/article/harness-learning-test-time-adaptation/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:harness-learning-test-time-adaptation</guid>
+<pubDate>Mon, 12 Oct 2026 12:02:41 +0000</pubDate>
+<description>一个模型负责解题，另一个模型根据任务反馈修改运行代码：该读哪些资料、何时继续搜索、怎样调用工具，都可以在测试时调整。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 12 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Harness Learning：让模型自己修改 Harness 的源代码适应新任务，打造自我进化的 Harness</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/harness-learning-test-time-adaptation/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>一轮修改是怎么进行的？</span></a><a><span>02</span><span>它具体会改哪些代码？</span></a><a><span>03</span><span>怎么教会 Proposer 改代码？</span></a><a><span>04</span><span>换个没练过的任务，还能改好吗？</span></a><a><span>05</span><span>算法写对了，为什么还是答错？</span></a><a><span>06</span><span>距离持续学习，还缺什么？</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Harness Learning：让模型自己修改 Harness 的源代码适应新任务，打造自我进化的 Harness</h1><p>一个模型负责解题，另一个模型根据任务反馈修改运行代码：该读哪些资料、何时继续搜索、怎样调用工具，都可以在测试时调整。</p><div><span><b>已核对</b></span><span>JHU · CMU / Alvin Zhang et al.</span><span>10-12 · 12 分钟</span></div><div><div>正文一页纸</div>收起播客 ⌃☆ 收藏</div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>AI Agent 由模型和运行代码共同组成；这项研究让另一个模型学会根据运行结果改代码。</li><li>遇到新任务时，两个模型的参数保持固定，修改的是搜索、计算和回答的工作流程。</li><li>学到的修改方法可以用于没练过的任务，但目前还需要有标准答案的题目来提供反馈。</li></ul><div><p>平时我们说“大模型智能体”（Agent），其实是由两部分拼起来的：</p>
+<ol>
+<li><strong>模型脑子（Solver / 求解器）</strong>：LLM 本身，负责理解问题、做推理和生成回答。</li>
+<li><strong>外部脚手架（Harness / 运行框架）</strong>：控制这个脑子怎么干活的 Python 代码，比如先调什么工具、怎么给提示词、拿到报错怎么重试，以及检索回来的文档怎么汇总。</li>
+</ol>
+<p><strong>痛点在哪？</strong> 传统微调模型需要更新权重，训练成本往往不低，遇到新任务时也很难实时调整。很多人会手动写一套 Prompt 链或工作流，但一旦换个任务，这套写好的流程就未必还适用，往往得重新调试。</p>
+<p>来自约翰斯·霍普金斯大学（JHU）与卡耐基梅隆大学（CMU）的研究人员提出了 <strong>Harness Learning（脚手架学习 / 框架学习）</strong>：让 AI Agent 在测试时不更新模型参数，通过修改自身的运行代码来适应新任务。</p>
+<p>他们在论文 <a href="https://arxiv.org/pdf/2609.35738">Harness Learning Enables Generalizable Test-Time Adaptation</a> 中详细介绍了这套方法。</p>
+<p><strong>他们的解决方案：让大模型不改脑子，改“外衣代码”！</strong> 论文训练了一个叫 <strong>Proposer（提议者 / 代码修改器）</strong> 的模型。当 Agent 去跑一个新任务时，Proposer 会看运行日志——哪一步报错了、哪些用例答错了——然后修改 Harness 的 Python 源代码，比如加一层代码解释器循环、改写检索链路，或者加上答案校验。</p>
+<p>改好的程序再运行，结果再变成下一轮修改的反馈。到了测试阶段，Solver 和 Proposer 的模型参数都保持固定，更新的是运行代码。</p>
+<h2>一轮修改是怎么进行的？</h2>
+<p>可以把这个过程理解成：<strong>先试跑，找到问题，再改流程，重新检验。</strong> 这里调整的是一类任务的运行程序，例如适合数独题的解题流程，而不只是为眼前一道题换一个答案。</p>
+<ol>
+<li><strong>跑一小批题。</strong> 用当前代码做一批有标准答案的题，记录调用过哪些工具、读到了什么资料、哪些答案错了，以及哪里报错。最开始使用的那版代码，论文称为“种子 Harness”，也就是起始程序。</li>
+<li><strong>把代码和报告交给修改模型。</strong> Proposer 同时看到任务要求、当前 Python 代码和运行报告，再提出修改。推理实验用 SEARCH/REPLACE 补丁（找到一段旧代码，给出替换文本）；问答实验则返回改好的 Python 程序。</li>
+<li><strong>重新跑题并打分。</strong> 系统应用修改，再运行评分题，检查新程序能否正常执行、答得怎么样。</li>
+<li><strong>挑选继续使用的版本。</strong> 不同实验的挑选规则见下文。</li>
+<li><strong>带着新报告继续改。</strong> 保留下来的程序再运行，新的结果成为下一轮反馈。</li>
+</ol>
+<ul>
+<li><strong>推理任务（Reasoning Gym）：</strong> 每轮尝试 1 种改法，最多 5 轮。新版得分严格提高才换，否则继续用原版。</li>
+<li><strong>多跳问答（Multi-hop QA）：</strong> 每轮尝试 8 种改法，最多 10 轮。选本轮能运行的最高分版本，即使比原版低；8 种全部失败才保留原版。</li>
+</ul>
+<p><strong>“学会改代码”和“正在改代码”发生在不同阶段。</strong> 训练时，研究人员更新 Proposer 的参数，让它学会怎样修改流程；遇到新任务时，它用已经学会的方法继续改代码，此时 Proposer 和 Solver 的参数都保持固定。</p>
+<p>这种先学习“如何适应”，再把适应方法用到新任务上的做法，属于<strong>元学习（Meta-Learning）</strong>。这篇论文把适应过程中改变的对象放在可执行程序上，因此称为“可执行程序上的元学习”。</p>
+<a href="https://best.xiaohu.ai/article/harness-engineering-rsi/"><span>延伸阅读 · 从提示词到可执行程序</span><strong>AI 自我进化，先改模型外面的外壳：Lilian Weng 讲透 harness 工程</strong><p>梳理不同层级的 Harness 优化方法，补充本文所处的研究背景。</p><b>阅读介绍文章 →</b></a>
+<h2>它具体会改哪些代码？</h2>
+<p>主要有三类改动：<strong>让回答模型读到更完整的资料、决定是否继续搜索、把计算交给 Python。</strong> 下面的图可以切换查看修改前后的流程。</p>
+<h3>同一个解题模型，换一种工作流程</h3>
+<p>选择一种修改，对照修改前后的工作流程。</p>
+<div>回答直接读原文答案没出现就补搜让 Python 做计算</div>
+<div><div><h4>修改前</h4><div><div>第一次搜索原文</div><div>摘要 → 写下一条搜索词</div><div>第二次搜索原文 → 摘要</div><div>最终回答只看两份摘要</div></div></div><div><h4>修改后</h4><div><div>第一次搜索原文</div><div>摘要 → 写下一条搜索词</div><div>第二次搜索原文</div><div>两次搜索的原文都交给回答模型</div></div></div></div>
+<p>摘要继续帮助“下一步搜什么”，原文负责“根据什么回答”。改的是信息去向；并不保证检索和答案一定正确。</p>
+查看这次修改的示意代码<pre><code># 逻辑示意，非论文原始代码或可直接运行的实现
+- answer = answer_from_summaries(s1, s2)
++ answer = answer_from_passages(passages1 + passages2)</code></pre>
+<p>依据论文图 7、图 12 和第 6.2 节；计算循环是常见修订结构的概括，具体实现与调用次数各有差异。</p>
+<h3>回答时直接读原文，摘要只用来指导搜索</h3>
+<p>多跳问答，指的是要沿着线索查几次资料，才能拼出答案。<strong>“跳”可以理解为顺着上一步找到的线索，再搜一次。</strong></p>
+<p>举个示意例子：问“某位作家的出生城市属于哪个国家？”先查作家，找到出生城市，再查这个城市，找到所属国家。这就需要两次相互衔接的搜索。</p>
+<p>起始程序的流程是：</p>
+<p><strong>第一次搜索 → 摘要和下一条搜索词 → 第二次搜索 → 摘要 → 根据两份摘要回答。</strong></p>
+<p>问题在于，摘要可能省掉答题需要的细节。比如第二次搜索的原文写了城市所属国家，摘要却只留下人口和地理位置，那么最终模型只看摘要，就拿不到国家这条信息。</p>
+<p>Proposer 改出的办法是：<strong>摘要继续帮助确定“下一步搜什么”，但最终回答直接读取两次搜索得到的全部原文段落。</strong> 这样能减少最终回答时因摘要丢掉细节而产生的错误；前面的检索和关键词生成仍然要做好。</p>
+<p>在三个问答基准中，经过单步强化学习训练的修改模型（Single-step RL），保留下来的程序有 <strong>84%</strong> 采用了这种直接读原文的结构；多步训练的模型为 69%，未经过本研究专门训练的基座模型为 47%。（每种方法统计 3 个基准 × 4 次运行 × 10 轮，共 120 个保留版本；84% 是程序结构的比例，不是答题准确率。两种训练方式后文会展开）</p>
+<h3>两次搜索不够时，再增加一次检索</h3>
+<p>论文还展示了两种增加搜索的改法：</p>
+<ul>
+<li><strong>固定多搜一次。</strong> 第二次搜索并整理资料之后，再生成第三条搜索词，搜第三次，最后结合收集的材料回答。这是其中一种修改结果，不是所有程序都固定搜索三次。</li>
+<li><strong>先写草稿，必要时再搜。</strong> 模型先给出一个草稿答案，Python 代码检查原文里有没有这段答案文字。如果出现，就输出；如果没有，就拿草稿答案作为关键词补搜，再根据新资料回答。</li>
+</ul>
+<p>第二种改法增加了一条“要不要继续找资料”的判断规则。原文里出现答案文字，并不等于这个答案符合问题；这个检查只是决定是否补搜的条件。</p>
+<h3>让模型写解题代码，把运算交给 Python</h3>
+<p>在算术、数独、迷宫等推理任务中，起始程序只调用一次模型，让它直接给答案。修改后的程序则常常让模型写解题代码，再实际运行。</p>
+<p>以“计算 1 到 10000 的平方和”这个示意任务为例：模型可以写出 <code>sum(i*i for i in range(1, 10001))</code>，由 Python 执行计算。这里有三方分工：</p>
+<ul>
+<li><strong>Proposer 改运行流程：</strong> 给 Agent 加上“生成代码 → 运行 → 读取结果或报错 → 继续处理”的循环。</li>
+<li><strong>Solver 写解题步骤：</strong> 面对具体题目，生成那道题需要的 Python 代码。</li>
+<li><strong>运行环境执行计算：</strong> 返回结果；如果报错，Harness 把错误信息交回 Solver，让它修改解题代码再试。</li>
+</ul>
+<p>这就是<strong>解释器循环（Interpreter Loop）</strong>。改出来的是一套能处理题目的流程，而不是把某道题的答案写死。</p>
+<p>在没有明确要求使用辅助工具的未见任务中，看过成功示范的模型（SFT）生成的程序，有 <strong>77%</strong> 采用解释器循环；强化学习后的模型为 <strong>78%</strong>。（这是生成程序结构的比例，不是答题正确率） 输入解析和解题代码仍须正确，执行代码所需的安全限制也要由系统提供。</p>
+<h2>怎么教会 Proposer 改代码？</h2>
+<p>可以把训练方式理解成两种学习方法：<strong>看别人怎么改，以及自己试改、根据成绩调整。</strong></p>
+<ul>
+<li><strong>推理任务：先看示范，再自己试。</strong> 用 35B 教师模型生成的 432 个成功修改样例，教 Proposer 学习修改格式和做法。这一步叫监督微调（SFT）。随后让它自己提出修改、实际运行，根据成绩做强化学习（RL）。Proposer 和 Solver 分别使用 Qwen3.5-4B，教师为 Qwen3.6-35B-A3B。</li>
+<li><strong>多跳问答：直接自己试。</strong> 跳过教师示范阶段，直接在 HotpotQA 问答数据集上做强化学习。Proposer 使用 Qwen3-4B，Solver 使用 Qwen3-8B。</li>
+</ul>
+<p>4B 表示约 40 亿参数，35B 表示约 350 亿参数。两类实验分别训练各自的修改模型；<strong>训练时也只更新 Proposer，负责解题的 Solver 始终固定。</strong></p>
+<h3>给它看哪些题，又用哪些题检验修改？</h3>
+<p>可以类比学生做题：练习题帮助发现哪里不会，测验题检查练习后的水平，最后再用独立考试判断是否学会。论文中的题目也有三种用途：</p>
+<ol>
+<li><strong>练习题：诊断问题。</strong> 跑当前程序，生成报告，让 Proposer 看哪里报错、哪里答错。</li>
+<li><strong>测验题：挑选方案。</strong> 跑修改后的候选程序，打分，用于训练奖励或挑选版本。</li>
+<li><strong>独立考试题：检验效果。</strong> 不参与修改和筛选，最终测量程序在其他题上的成绩。</li>
+</ol>
+<p>为什么要这样安排？只修好已经看到的错题，可能是针对几个用例做了特殊处理，也可能改坏了其他题。还需要用其他题检查，才能知道修改能否推广。</p>
+<p><strong>三种用途不一定对应三批不同的题。</strong> 训练时，两套实验把诊断题与评分题分开；遇到新任务、测试修改能力时，具体设置是：</p>
+<ul>
+<li><strong>推理任务：</strong> 每类任务用同一批 25 道题提供反馈，也用于挑选版本，另外 75 道题独立检验最终效果。</li>
+<li><strong>多跳问答：</strong> 从 500 道开发题中，每轮抽 6 道提供反馈，报告包含标准答案和支持答案的文档；同轮另抽 64 道不同题目给候选打分。约 300 道题独立检验最终效果。</li>
+</ul>
+<p>因此，这里的“适应新任务”仍需要<strong>有标准答案、能打分的题目</strong>提供反馈，不能直接套用于完全没有答案和验证信号的任务。</p>
+<h3>怎样奖励一个有效的修改？</h3>
+<p>面对同一份任务要求、当前代码和运行报告，Proposer 一次生成 <strong>8 种改法</strong>。系统分别运行修改后的程序，全部用同一套评分题测验。</p>
+<p>训练算法比较这 8 种改法的成绩：高于本组平均水平的修改，今后更容易被生成；低于平均水平的修改则受到抑制。这样反复训练，让 Proposer 更倾向于提出有效的修改。这种组内比较方法叫 <strong>GRPO</strong>。（组相对策略优化）</p>
+<p>每种修改的奖励由两部分组成：</p>
+<p><strong>奖励 = 修改后程序的答题得分 + 程序能正常运行的奖励。</strong></p>
+<p>答题得分在 0 到 1 之间；推理题还可以获得评分器给出的部分分。程序能否正常运行，另有以下奖励：</p>
+<ul>
+<li><strong>推理任务：</strong> 修改格式能解析，奖励 0.05；修改能成功应用，再奖励 0.10；按测试运行完成的比例，最多再奖励 0.15。合计最多 0.30。</li>
+<li><strong>多跳问答：</strong> 代码能解析、定义了 <code>run</code> 函数、不超过 200 行，并且完成评分运行，统一奖励 0.10；否则该候选奖励为 0。</li>
+</ul>
+<p><strong>“能跑通”和“答对了”是两回事。</strong> 一份程序即使拿满 0.30 的运行奖励，答案仍可能全错。推理实验中，失败的修改可能保留此前拿到的少量有效性奖励；两套实验的奖励都不会倒扣成负数。</p>
+<h2>换个没练过的任务，还能改好吗？</h2>
+<p>关键要看：它是否只学会了修训练题，还是能把修改方法用到新的任务类别上？研究分别检查了推理题和多跳问答，也比较了只改一次与连续修改的效果。</p>
+<div><h3>把 5 类更难的任务算进去，成绩会怎样？</h3><p>让不同的修改模型改代码，再比较改好后程序的解题成绩。点击按钮，可以查看是否计入 5 类困难任务的差别。</p></div>
+<div>主图：21 类未见任务全部：26 类未见任务</div>
+<div>
+<div><span>未训练修改模型</span><div><i></i></div><strong>0.32</strong></div>
+<div><span>看成功示范后</span><div><i></i></div><strong>约 0.49</strong></div>
+<div><span>强化学习后 · 4B</span><div><i></i></div><strong>0.62</strong></div>
+<div><span>教师修改模型 · 35B</span><div><i></i></div><strong>0.56</strong></div>
+</div>
+<div><span>0</span><span>平均得分，满分 1</span><span>1</span></div>
+<p>4B 训练后修改模型领先教师 0.06；纳入全部任务后仍领先，但差距缩小。</p>
+<p>主图剔除 knight_swap、letter_jumble、modulo_grid、sokoban、ab 五类困难任务。这里比较的是修改后的求解表现；两个修改模型使用同一冻结的 Solver。来源：论文图 3 / 9、表 9、附录 B.1。21 类 SFT 值为图上估读。</p>
+<div><strong>还有一个更强的参照</strong><p>在主图的 21 类任务上，固定的 Python 工具循环得分为 <b>0.69</b>，高于学习修订的平均 <b>0.62</b>。起始程序只调用一次解题模型，工具循环最多允许五轮；这组结果没有证明学习修改胜过所有手工设计，或在相同成本下更强。</p></div>
+<h3>小修改模型，能超过大教师吗？</h3>
+<p>在 Reasoning Gym 推理评测中，修改模型训练时看过的任务类别与测试类别分开：示范训练用了 21 类，强化学习用了 5 类，两组有重叠；主要测试另外 <strong>21 类训练没用过的任务</strong>。（论文称为 OOD；指整类任务没用于修改模型的训练，不代表底层模型预训练时从没接触过相关知识）</p>
+<p>上图比较的是<strong>不同模型改好代码后，程序的平均解题得分</strong>。分数在 0 到 1 之间，越高越好。</p>
+<p>不改代码的起始程序（Seed）得分约 <strong>0.49</strong>；没有专门训练的修改模型（Base）改过后为 <strong>0.32</strong>；看过成功示范的模型（SFT）改过后约 <strong>0.49</strong>；做过强化学习的 4B 模型改过后为 <strong>0.62</strong>，35B 教师改过后为 <strong>0.56</strong>。（起始程序与 SFT 的约 0.49 为图表估读值）</p>
+<p>这说明，<strong>改代码本身并不保证进步</strong>：没有专门训练的模型修改后，成绩反而从约 0.49 降到 0.32；经过强化学习，修改后的程序平均达到 0.62，超过教师修改后的 0.56。</p>
+<p>这里比的是“谁平均改得更有效”，不是两款模型自身解题能力的全面比较。如果事后查看测试成绩，从每组 8 个候选中挑最好的一个，教师达到 <strong>0.85</strong>，4B 模型为 <strong>0.83</strong>，教师仍高一些。（这种知道测试成绩再挑最优的统计，称为 oracle；实际挑选版本用的是开发题成绩）</p>
+<p>强化学习还减少了无法执行或得零分的修改。零分也可能来自“程序跑通、答案全错”，并不都代表代码崩溃。</p>
+<p>还有一个值得注意的对照：<strong>人工写好的固定 Python 工具循环，平均得分为 0.69，高于学习后单次修改的 0.62。</strong> 它最多允许 Solver 进行 5 轮交互，而起始程序只有一次模型调用。这项研究说明修改能力可以学出来、可以迁移；这组成绩没有超过固定工具循环，也没有证明相同计算成本下更强。</p>
+<p>主图排除了 5 类难任务。把它们加回来，全部 26 类任务上的平均分分别为：Base <strong>0.282</strong>、SFT <strong>0.415</strong>、4B RL <strong>0.528</strong>、教师 <strong>0.501</strong>。4B 模型仍有平均优势，但差距缩小了。上面的图可以切换查看这两种统计范围。（排除的任务为 knight_swap、letter_jumble、modulo_grid、sokoban、ab）</p>
+<h3>只改一次效果平平，连续改十轮呢？</h3>
+<p>在多跳问答中，Proposer 只在 <strong>HotpotQA</strong> 上训练，然后用于没拿来训练的两个问答数据集：<strong>MuSiQue</strong> 和 <strong>2WikiMultihopQA</strong>。</p>
+<p>先分清两种做法：</p>
+<ul>
+<li><strong>独立尝试 80 次：</strong> 每次都从同一份起始代码改，得到 80 个单步修改方案。</li>
+<li><strong>连续接力 10 轮：</strong> 每轮提出 8 种改法，用开发题选一版，下一轮接着这版代码和新的报告继续改。</li>
+</ul>
+<p>结果如下。问答的得分是答案匹配率（EM）：将答案文字规范化后，与标准答案比较；MuSiQue 和 2Wiki 也接受列出的答案别名。（与前面的推理任务评分规则不同，不宜直接比较两类任务的分数高低）</p>
+<div><table>
+<thead>
+<tr>
+<th>怎样修改？</th>
+<th>MuSiQue</th>
+<th>2WikiMultihopQA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不修改，使用起始程序</td>
+<td>0.1438</td>
+<td>0.2500</td>
+</tr>
+<tr>
+<td>80 个独立修改的平均分</td>
+<td>0.1467</td>
+<td>0.3090</td>
+</tr>
+<tr>
+<td>事后从这 80 个里挑出的最好成绩</td>
+<td>0.2408</td>
+<td>0.5200</td>
+</tr>
+<tr>
+<td>10 轮接力后的平均分</td>
+<td><strong>约 0.27</strong></td>
+<td><strong>约 0.55</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>（单步数据来自表 23；十轮结果为 4 次运行的最终均值，其中 2Wiki 的约 0.55 为曲线估读值）</p>
+<p>MuSiQue 上，起始程序为 0.1438，只改一步的平均成绩为 0.1467，几乎不变；连续改十轮却提高到约 <strong>0.27</strong>。2Wiki 上，起始程序为 0.2500，单步修改的平均分为 0.3090，其中 67.5% 的方案超过起始程序；十轮后的均值进一步达到约 <strong>0.55</strong>。</p>
+<p>表中的“事后最好成绩”是看过最终测试成绩后，回头挑出最高分程序；它表示这批方案中出现过多好的结果。实际使用时没有最终测试答案可看，选版本只能依靠开发题反馈。</p>
+<p><strong>沿着反馈接力修改有价值，但比较还要看用掉了什么。</strong> 每次十轮运行提出 8 × 10 = 80 个方案，做 4 次共 320 个；独立尝试的方案池有 80 个。每次运行的方案数相同，得到的反馈和执行过程却不同，实验没有把总体计算开销匹配起来。</p>
+<p>此外，搜索都发生在给定的资料库里：HotpotQA 使用 523 万条维基百科摘要，MuSiQue 使用 21,100 个段落，2Wiki 使用 54,957 个段落。这里检验的是在这些资料库中搜索和回答的能力。</p>
+<h3>测试时改很多轮，训练也必须练很多轮吗？</h3>
+<p><strong>单步训练</strong>，是让模型学习“看当前代码和报告，怎样完成一次有效修改”；测试时，这个办法可以反复应用。好比学会修眼前的一处问题后，再读新的报错，接着修下一处。（单步不等于训练输入只有起始代码：推理实验也用了更强的已有程序版本）</p>
+<p><strong>多步训练</strong>，则把连续修改中产生的新版本也用作训练输入，让模型练习处理自己之前改过的代码。</p>
+<p>实验中，多步训练没有稳定胜过单步训练：</p>
+<ul>
+<li>多跳问答的十轮最终成绩很接近：HotpotQA 约 0.62、MuSiQue 约 0.27、2Wiki 约 0.55。</li>
+<li>推理任务中，多步训练在标准格式题目上略高，在换了题目表达格式的测试中略低。</li>
+</ul>
+<p>因此，<strong>只训练一次修改的能力，也能在测试时连续修改多轮。</strong> 两种训练都按当前这次修改的成绩给奖励，还没有把整条修改链最终的收益分配给前面的改动；学习长期收益是否会改变结果，还需要检验。</p>
+<h2>算法写对了，为什么还是答错？</h2>
+<p>改好解题算法只是其中一环，运行代码还要把题目、工具和答案接起来。</p>
+<h3>把题目读对、工具叫起来、结果交回去</h3>
+<p>研究人员还尝试通过“组合指令”，要求修改模型编写迷宫找路、解数独、找质数等专用程序，再把它们接入 Agent 的工具流程。</p>
+<p>检查 32 个候选程序后发现：12 个把辅助算法接进了工具流程，但<strong>只有 3 个让辅助算法实际参与了最终答案的生成</strong>。（这里统计工具是否贡献了答案，不代表这 3 个程序的得分一定提高）</p>
+<p>为什么代码里有算法，却帮不上忙？论文记录了三种实际故障：</p>
+<ul>
+<li><strong>把题读给算法时出错：</strong> 解析代码漏掉题目的目标标记，无法把任务正确交给算法，退回普通模型调用。</li>
+<li><strong>把工具叫起来时出错：</strong> 工具调用消息格式错误，工具无法执行。</li>
+<li><strong>把结果交回去时出错：</strong> 最终提交的仍是尚未解出的数独网格，答案不完整。</li>
+</ul>
+<p>所以，“写出一个解题程序”和“让 Agent 真正用它答对题”，中间还有输入解析、工具调用、结果提取三道关。</p>
+<h3>为什么有些任务改一轮就进步，后面却停住了？</h3>
+<p>推理任务的成绩较早停止增长；在换了表达格式的题目上，单步训练模型的大部分进步发生在第一轮。多跳问答则在十轮中继续进步，第一轮只贡献了总提升的三分之一到三分之二。</p>
+<p>起始流程可能是部分原因：推理题从“一次调用直接答题”开始，第一轮加上计算工具，已经完成一项较大的改变；问答从两次搜索开始，后续还可以继续调整原文怎么传、是否多搜一次、什么情况下重试。</p>
+<p>不过，两类实验的训练和版本挑选规则也不同。这个解释还不能单独证明，为什么一种任务较快停住，另一种能继续提高。</p>
+<h2>距离持续学习，还缺什么？</h2>
+<p>教模型构建和修改运行框架，已经有 Harness-R1、JIT-Agent、Ornith 等相关探索。这篇论文进一步展示：<strong>训练出来的代码修改方法，可以用于没拿来训练的任务类别，并通过多轮反馈继续调整。</strong></p>
+<p>要让它成为能长期积累经验的 Agent，还有几件事要解决：</p>
+<ul>
+<li><strong>自己决定怎么调试。</strong> 当前实验由外部系统整理代码和运行报告交给 Proposer；下一步可以让它自己检查代码、选择测试、比较修改方案。</li>
+<li><strong>找到没有标准答案时的验证办法。</strong> 目前判断答错与否、选择代码版本，都依赖有标准答案的开发题。实际业务中很多任务没有现成答案，需要其他可靠的检验信号。</li>
+<li><strong>检验经验能否长期保留。</strong> 目前展示的是一类任务中几轮到十轮的调整，还没有检验连续面对很多不同任务时，修改经验能否积累、旧能力会不会退化。</li>
+<li><strong>探索两个模型一起训练。</strong> 当前 Solver 固定，研究只训练 Proposer；联合训练能否让解题能力与流程设计相互促进，仍是下一步的问题。</li>
+</ul>
+<p>对 Agent 开发者来说，这项研究提供了一条可尝试的路：除了训练模型答题，还可以训练它根据运行结果修改工具使用和信息传递的流程。这里已经展示了跨任务适应的效果；自主调试和长期经验积累，还需要进一步验证。</p>
+</div><div><div><div>来源</div><div><span>Harness Learning Enables Generalizable Test-Time Adaptation</span><span>Alvin Zhang、Xuecheng Liu、Zixuan Wang 等<span>·</span>2026-09-28<span>·</span><a href="https://arxiv.org/abs/2609.35738">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://alvinzh04.github.io/Harness-Learning-Website/">Harness Learning 作者项目页</a></div></div></div></div></div><div>
+<div>
+<div>RESEARCH ONEPAGER · TEST-TIME ADAPTATION</div>
+<h1>Harness Learning：不改大模型脑子，靠改运行代码让 Agent 自适应新任务</h1>
+<div>当大模型在测试期遭遇全新任务类型，不更新模型参数，而是由专门训练的 Proposer 自动读日志、改写 Python 运行脚手架，通过修改运行代码适应任务。</div>
+<div>JHU &amp; CMU / arXiv:2609.35738 / 核心机制 · 适应模式 · 迁移实证 · 现实边界</div>
+<div>
+<p>日常我们所说的“大模型智能体”（Agent），本质上是由两个截然不同的组件拼合而成的：负责理解问题与推理生成的<strong>模型脑子（Solver）</strong>，以及包裹在脑子外层、用 Python 编写的<strong>外部脚手架（Harness）</strong>——后者负责工具调用顺序、提示词编排、错误捕获与多轮检索聚合。</p>
+<p>面对未见过的全新任务时，传统方案常陷入两难：直接微调模型权重成本高昂且难以实时调整；若改用人工手写工作流，换了任务可能需要重新调试。来自 JHU 与 CMU 的研究团队提出了 <strong>Harness Learning（脚手架学习）</strong>：在测试阶段完全冻结模型权重，只对外部脚手架源代码做元学习迭代。</p>
+<p>训练时，研究人员更新 Proposer 的参数，让它学会怎样修改流程；遇到新任务时，它用已经学会的方法继续改代码，此时 Proposer 和 Solver 的参数都保持固定。</p>
+</div>
+<div>
+<div>
+<div>
+<span>Core Architecture</span>
+<div>代码级测试期自适应闭环（Test-Time Adaptation）</div>
+<div>改好的程序再运行，结果再变成下一轮修改的反馈。到了测试阶段，Solver 和 Proposer 的模型参数都保持固定，更新的是运行代码。</div>
+</div>
+<div>
+<div>
+<div>STEP 01</div>
+<div>种子试跑与错误捕获</div>
+<div>用初始代码（种子 Harness）在少量开发题上试跑，记录执行轨迹、调用了哪些工具、错题与具体报错。</div>
+</div>
+<div>
+<div>STEP 02</div>
+<div>交付 Proposer 诊断分析</div>
+<div>Proposer 同时读取任务说明、当前 Python 源代码与运行报错报告，分析报错和错题，提出修改。</div>
+</div>
+<div>
+<div>STEP 03</div>
+<div>生成可执行代码补丁</div>
+<div>提出修改方案：推理任务生成 SEARCH/REPLACE 局部补丁，问答任务则直接重构完整 Python 程序。</div>
+</div>
+<div>
+<div>STEP 04</div>
+<div>打分选拔与接力迭代</div>
+<div>应用修改重新跑题，按实验规则挑选下一版本；保留的新代码成为下一轮迭代基线，继续带报告演化。</div>
+</div>
+</div>
+<p>↻ 本轮选出的程序再试跑 → 新报告回到 STEP 02，继续修改。</p>
+<div>
+<div>
+<div>🧠 求解器 Solver（解题脑子）</div>
+<div>测试期参数完全冻结。仅在当前 Harness 编排的调用规则下专心生成解答或解题代码。</div>
+</div>
+<div>
+<div>🛠️ 提议者 Proposer（代码改写器）</div>
+<div>测试期参数同样冻结。运用离线学到的改代码能力，动态重构 Agent 的外部执行流。</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<p>Proposer 改出的程序中，常见以下三类流程调整：</p>
+<div>
+<span>PATTERN 01 · 问答链路</span>
+<div>直读检索原文，摘要仅用于指导搜索</div>
+<div>起始程序习惯在多跳检索间生成摘要并由摘要生成答案，可能省掉答题所需的细节。Proposer 改出的方案是：摘要只负责指导生成下一步搜索词，最终回答阶段直接读取各次检索得到的完整原文段落。</div>
+<div>在三个问答基准中，经过单步强化学习训练的修改模型（Single-step RL），保留下来的程序有 <strong>84%</strong> 采用了这种直接读原文的结构；多步训练的模型为 69%，未经过本研究专门训练的基座模型为 47%。</div>
+</div>
+<div>
+<span>PATTERN 02 · 检索分支</span>
+<div>自适应补搜与草稿校验逻辑</div>
+<div>一类改动固定增加第三次搜索；另一类先写草稿答案，原文中没有这段答案文字时，拿它作为关键词补搜。</div>
+<div>答案文字是否出现，只决定要不要补搜，并不能证明答案符合问题。</div>
+</div>
+<div>
+<span>PATTERN 03 · 推理任务</span>
+<div>解释器循环：把精确运算交给 Python</div>
+<div>面对数独、迷宫或高位算术，起始程序往往调用一次模型直接回答；改写后的代码为 Agent 注入“生成解题代码 → Python 执行 → 读取报错 → 重试”的循环机制。在强化学习模型生成的推理程序中，有 <strong>78%</strong> 采用了这一解释器循环。</div>
+<div>改出的是生成代码、运行、读结果再试的流程；输入解析和解题代码仍须正确。</div>
+</div>
+</div>
+<div>
+<p>学到的修改方法可以用于未拿来训练的任务；问答任务中，连续改十轮的结果更好：</p>
+<div>
+<div>
+<div>0.62</div>
+<div>4B 模型在 21 类未见推理任务上的均分，超越 35B 教师（0.56）与初始种子（约 0.49）</div>
+</div>
+<div>
+<div>约 0.55</div>
+<div>2Wiki 问答十轮最终平均分；起始程序为 0.2500，单步修改平均为 0.3090。末值为曲线估读。</div>
+</div>
+<div>
+<div>约 0.27</div>
+<div>MuSiQue 问答十轮最终平均分；起始程序为 0.1438，单步修改平均为 0.1467。</div>
+</div>
+</div>
+<p>两组问答结果：MuSiQue 上，起始程序为 0.1438，只改一步的平均成绩为 0.1467，几乎不变；连续改十轮却提高到约 <strong>0.27</strong>。2Wiki 上，起始程序为 0.2500，单步修改的平均分为 0.3090，其中 67.5% 的方案超过起始程序；十轮后的均值进一步达到约 <strong>0.55</strong>。</p>
+<p>对照也要保留：固定的手工 Python 工具循环在这 21 类任务上得分为 <strong>0.69</strong>，高于单步修改均值 0.62；它最多允许 5 轮模型交互。问答接力每次 80 个候选，4 次共 320 个，独立方案池为 80 个，反馈和总体计算开销没有匹配。84% 与 78% 是程序结构比例，不是答题准确率。</p>
+<p>更关键的发现是：<strong>单步训练的模型，也能在测试时连续改多轮</strong>。只需教会模型“读懂当前报错、做出一次有效改动”，该能力就能在测试期被反复循环复用，本实验中，多步训练没有稳定胜过单步训练。</p>
+</div>
+<div>
+<div>
+<p><strong>工程断点警示：代码里有算法，不等于 Agent 能答对题。</strong></p>
+<p>检查 32 个候选程序后发现：12 个把辅助算法接进了工具流程，但<strong>只有 3 个让辅助算法实际参与了最终答案的生成</strong>。</p>
+<div>
+<div>
+<span>01</span>
+<span><strong>题目解析断裂</strong>：输入解析代码漏掉关键题意标记，无法把任务交付算法，退回普通模型调用；</span>
+</div>
+<div>
+<span>02</span>
+<span><strong>工具调用格式错误</strong>：生成的工具调用消息格式不合规范，工具无法执行；</span>
+</div>
+<div>
+<span>03</span>
+<span><strong>结果回传失效</strong>：最终提交的依然是尚未解出的数独网格，提交的答案不完整。</span>
+</div>
+</div>
+</div>
+<div>
+<p><strong>走向长期持续学习，这套方案还面临哪些未解约束？</strong></p>
+<p>1. <strong>高度依赖带标准答案的开发题</strong>：目前诊断答错与否、挑选程序版本，都依赖有标准答案的开发题，无法直接落地于缺乏验证信号的完全开放式任务；</p>
+<p>2. <strong>外部编排介入</strong>：当前实验由外部系统整理代码和运行报告交给 Proposer；下一步可以让它自己检查代码、选择测试、比较修改方案。</p>
+<p>3. <strong>跨任务长期经验积累仍待检验</strong>：目前展示的是单一任务类别的数轮修补，当智能体连续面对许多不同任务时，已有修改经验能否长效保持、已有能力是否会退化，仍是待解难题。</p>
+</div>
+</div>
+</div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://arxiv.org/pdf/2609.35738">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>研究解读</div>
+<div>同一个 AI 模型，换个 Agent 框架，为什么表现差这么多？</div>
+<div>10-04 · 25 分钟</div></a><a>
+<div><span></span>深度</div>
+<div>SpaceXAI 团队分享构建 Grok Bot 的工程经验：涉及分布式系统设计、操作安全策略与上下文工程取舍</div>
+<div>10-12 · </div></a><a>
+<div><span></span>洞察</div>
+<div>用 OpenClaw 开发 OpenClaw：让 Agent 成为团队协作者</div>
+<div>10-11 · </div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】AI 开始逆向一切，软件开发还值钱吗？</title>
+<link>https://best.xiaohu.ai/article/rea-agent-reverse-engineering/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:rea-agent-reverse-engineering</guid>
+<pubDate>Mon, 12 Oct 2026 12:02:41 +0000</pubDate>
+<description>原作者不交源码，竞争者也可能做出够用的替代品。AI 逆向正在挑战实现保密的价值，软件的定价、用户控制权和开发者的护城河会怎样变化？</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 12 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">AI 开始逆向一切，软件开发还值钱吗？</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/rea-agent-reverse-engineering/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>以前也能逆向，为什么现在更值得担心？</span></a><a><span>02</span><span>用户得到什么，哪些软件更容易承压？</span></a><a><span>03</span><span>拿到安装包之后，还缺什么？</span></a><a><span>04</span><span>功能能复制，用户为什么还会付钱？</span></a><a><span>05</span><span>演示能跑，离可靠替代品还有多远？</span></a><a><span>06</span><span>“被迫开源”，到底交出了什么？</span></a><a><span>07</span><span>原作者不开源，还能守住什么？</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>AI 开始逆向一切，软件开发还值钱吗？</h1><p>原作者不交源码，竞争者也可能做出够用的替代品。AI 逆向正在挑战实现保密的价值，软件的定价、用户控制权和开发者的护城河会怎样变化？</p><div><span><b>已核对</b></span><span>REA / ESR / 开发者讨论</span><span>10-12 · </span></div><div><div>正文一页纸</div>收起播客 ⌃☆ 收藏</div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>竞争者不必恢复完整源码，只要复现用户愿意付费的常用功能，就可能削弱原软件的独占优势。</li><li>用户可能更容易迁移、修复和替换软件；厂商若将功能搬到云端，也可能增加账号与联网依赖。</li><li>读懂实现不会自动交出开源授权、可靠性或长期服务，维护、真实数据和工作流仍需要持续投入。</li></ul><div>
+<p>“软件完了。”Matthew Berman 分享开源项目 <a href="https://github.com/morluto/rea">REA</a> 时，写下了这句话。这条<a href="https://x.com/MatthewBerman/status/2108245653843509415">帖子</a>在 X 上获得了超过 300 万次阅读。截至 10 月 12 日，REA 在 GitHub 上的标星也已超过 10 万。</p>
+<p>REA 的全名是 Reverse Engineer Anything——逆向一切。它把分析工具与 AI Agent 接在一起，让模型研究已经写好的软件，理解内部逻辑，再尝试重建其中的功能。人们开始讨论：安装在电脑里的程序，能否成为 AI 重写它的线索？</p>
+<p>在此前的<a href="https://x.com/esrtweet/status/2106983467141509385">公开讨论</a>中，开源软件倡导者 Eric S. Raymond（ESR）已经预测，软件依赖代码保密维持的壁垒正在松动。商业竞争也未必需要逐行恢复原厂源码：覆盖用户最常用的功能，就可能做出一个够用的替代品。</p>
+<p><strong>如果竞争者不用拿到原厂源码，就能以可接受的成本重做你常用的功能，你电脑里那些付费软件，究竟还能靠什么让你继续掏钱？</strong></p>
+<h2>以前也能逆向，为什么现在更值得担心？</h2>
+<p>逆向工程本身并非新兴技术。长期以来，安全研究员与工程师一直使用 IDA Pro、Ghidra、Hopper 等工具，将编译后的机器指令转换为汇编或伪代码。在传统流程中，分析工作高度依赖人工经验：</p>
+<ul>
+<li>面对剥离了符号名的二进制文件，需要人工逐一排查函数跳转与数据结构；</li>
+<li>编译器优化与控制流变换常导致反编译出的伪代码丢失类型和传参；</li>
+<li>理解算法后，仍需工程师手动编写高层语言代码，并逐一设计用例比对输入输出。</li>
+</ul>
+<p>目前的变化不在于逆向原理本身被颠覆，而在于大语言模型开始与分析工具协同，使原本需要人工在反编译器、编辑器与测试环境之间反复跳转的调查流程实现了部分自动化。既有逆向工具负责提取底层指令、符号与数据，Agent 则在此基础上提出后续查询、尝试推断代码意图、生成重写实现并协助验证。这种衔接使部分调查与重写工作可以交给 Agent，但这些案例还不足以量化整个行业的成本降幅。</p>
+<p>开源工具 <a href="https://github.com/morluto/rea">REA (Reverse Engineer Anything)</a> 展示的就是这种工具连接方式：它通过模型上下文协议（MCP），把底层分析引擎（如 Hopper、Ghidra 或 JavaScript 解析器）与 Agent 直连。REA 负责根据指令检索函数、调用关系与内存数据并返回证据，由 Agent 负责理解上下文并推进实现与测试。</p>
+<p>在 <a href="https://rea.tools/showcase/dx-ball/">DX-Ball 游戏重构案例</a> 中，反编译器最初给出的声像计算函数伪代码丢失了输入参数，仅显示调用了类型转换。借助 REA 检查底层指令和调用方传参，并读取对应地址的常量数据，Agent 推导出了完整的声像计算逻辑并重写为 C 语言函数。该函数通过了原版 x86 的 3,205 组行为用例对比，并重现了全部 63 个编译字节。验证覆盖的是这一个声像计算函数；完整游戏仍在重建中。</p>
+<p>面对现代打包应用时，这种流程同样能梳理本地逻辑。在针对 <a href="https://rea.tools/showcase/notion/">Notion 桌面客户端的分析</a> 中，Agent 利用 REA 定位到页面预加载脚本暴露的剪贴板接口，顺着进程间通信（IPC）通道追踪到主进程处理函数，理清了将文本与 HTML 写入系统剪贴板的完整路径。这一案例表明，桌面客户端中打包的本地脚本即使经过压缩，其调用关系与本地实现也更容易被梳理；但这仅限于客户端本地逻辑，并不等同于能够直接获取后端的云端服务。</p>
+<p>在社区独立探索方面，开发者 <a href="https://x.com/p_e_cooper/status/2104980433972703483">P.E. Cooper 发帖称</a>，他借助模型将经典游戏《使命召唤：战争世界》（WaW）的初代僵尸地图移植到了网页端，随后又展示了<a href="https://x.com/p_e_cooper/status/2105524743902208317">融入建造机制的玩法演示</a>。这些演示展示了社区借助 AI 尝试跨平台移植与定制改造的空间。</p>
+<figure>
+可在<a href="https://x.com/p_e_cooper/status/2104980433972703483">原帖</a>观看演示。
+<figcaption>网页里运行的僵尸地图。视频：P.E. Cooper · <a href="https://x.com/p_e_cooper/status/2104980433972703483">X 原帖</a></figcaption>
+</figure>
+<figure>
+可在<a href="https://x.com/p_e_cooper/status/2105524743902208317">原帖</a>观看演示。
+<figcaption>在僵尸玩法中加入建造机制。视频：P.E. Cooper · <a href="https://x.com/p_e_cooper/status/2105524743902208317">X 原帖</a></figcaption>
+</figure>
+<p>在更长期的系统重构中，《任天堂明星大乱斗 DX》的<a href="https://github.com/doldecomp/melee">开源匹配反编译项目</a>提供了一个典型样本。开发者 <a href="https://x.com/banteg/status/2097087490490323440">banteg 指出</a>，这一历时六年的工程在后期借助大模型显著加速了反编译推进。重建成可增删修改的高层代码工程之后，社区便有了继续维护、研究机制与开发模组的基础。</p>
+<figure>
+<img>
+<figcaption>《大乱斗 DX》代码反编译进度，banteg 原帖发布时的截图。<a href="https://x.com/banteg/status/2097087490490323440">查看原帖</a></figcaption>
+</img></figure>
+<p>这种本地逻辑的可分析性，体现了 <a href="https://cheatsheetseries.owasp.org/cheatsheets/Web_Frontend_Security_Cheat_Sheet.html">OWASP 客户端安全指南</a> 中的基本原则：不要把核心业务秘密与安全凭据托付给客户端逻辑；只要程序被分发并运行在用户的本地设备上，其包含的本地代码和运行过程在技术上就是可以被观测和分析的。</p>
+<h2>用户得到什么，哪些软件更容易承压？</h2>
+<p>技术门槛的变化对不同角色的影响并不相同：</p>
+<h3>用户：停更、迁移和修复多了一种选择</h3>
+<p>对终端用户而言，逆向与分析门槛的降低带来了一些切实的用途：</p>
+<ul>
+<li>
+<p><strong>数据互操作与格式解析</strong>：当专有软件的本地存储格式能被更清晰地解析时，如果外部工具能读取到足够的格式规范并完成兼容性验证，用户跨软件导出和迁移数据的阻力会相对减轻。</p>
+</li>
+<li>
+<p><strong>老旧与停更软件维护</strong>：在原开发商停止维护或停业后，若有社区维护者或商业支持团队愿意投入工程力量，借助逆向分析补充缺失的接口与逻辑，老软件更有可能通过打补丁或重新适配在现代操作系统上继续运行。</p>
+</li>
+<li>
+<p><strong>跨平台适配与针对性修复</strong>：当软件缺乏特定平台版本或存在未修复问题时，具备技术能力或愿意购买第三方支持的团队能够更直接地定位底层行为，协助完成移植或错误修复。</p>
+</li>
+</ul>
+<p>但这些用途能否成立，取决于是否有维护者愿意持续承担兼容测试与更新维护的工作。即便转向开源或独立替代方案，用户也需要评估后续的技术支持途径——是依赖自建维护，还是采购包含服务承诺与 SLA 的商业化支持。</p>
+<h3>本地软件：常用功能可能先遭到替代</h3>
+<p>如果一款软件的核心功能完全运行在本地、业务范围明确且容易建立测试用例，那么当外部开发者更容易理清其算法与实现细节时，它就更直接地面对功能被重写或替代的竞争风险。这类产品面临的商品化压力更为直接。</p>
+<p>开源创意套件 <a href="https://getartcraft.com/apps">ArtCraft</a> 提供了一个更具体的现实参照。据 <a href="https://futurism.com/future-society/adobe-creative-suite-software-open-source-artcraft">Futurism 采访</a>，其联合创始人 Michael Caffrey 称团队借助 Claude 5.5 逆向重构了七款 Adobe 核心工具：由图像编辑 <a href="https://github.com/storytold/photocraft">PhotoCraft</a> 对应 Photoshop，矢量绘图 <a href="https://github.com/storytold/vectorcraft">VectorCraft</a> 对应 Illustrator，视频剪辑 <a href="https://github.com/storytold/filmcraft">FilmCraft</a> 对应 Premiere Pro，照片调色 <a href="https://github.com/storytold/lightcraft">LightCraft</a> 对应 Lightroom；另外还有处理 PDF 的 PdfCraft、制作动态特效的 EffectCraft，以及排版工具 DesignCraft。</p>
+<p>项目官方在文档中将其定义为依据公开规范与可观察行为重新编写的“净室重实现”（Clean-room），并非获取或交出 Adobe 的原版源码；目前各工具均处于早期开发阶段，尚未证明能够在专业日常工作中完全替代原版。</p>
+<div>
+<figure><img /><figcaption>PhotoCraft · 图层与曲线编辑 · <a href="https://github.com/storytold/photocraft">项目原图</a></figcaption></figure>
+<figure><img /><figcaption>VectorCraft · 矢量海报与文字效果 · <a href="https://github.com/storytold/vectorcraft">项目原图</a></figcaption></figure>
+<figure><img /><figcaption>FilmCraft · 音视频时间线与调色 · <a href="https://github.com/storytold/filmcraft">项目原图</a></figcaption></figure>
+<figure><img /><figcaption>LightCraft · 照片明暗与曝光调整 · <a href="https://github.com/storytold/lightcraft">项目原图</a></figcaption></figure>
+</div>
+<p>熟悉的图层、时间线、工具菜单与快捷键，可能减少创作者更换软件时重新学习的负担。<strong>即使没有还原原厂源码，只要替代品能以更低成本覆盖用户的日常需求，就可能对原软件的订阅价值形成挑战。</strong> ArtCraft 把这种竞争呈现成了具体的界面和工作流程。</p>
+<p>面对这种压力，将关键逻辑迁移至云端是部分厂商可能会考虑的防御路径。但转向云端并非毫无代价：</p>
+<ul>
+<li>一旦将计算转入云端，原本由用户本地承担的算力与存储成本将转嫁给厂商自己；</li>
+<li>用户需要常时联网，并可能面临数据上传带来的隐私顾虑，失去对纯本地运行的掌控；</li>
+<li>如果软件本身定价较低或依赖离线使用，强行云端化在成本和用户体验上都可能难以维持。</li>
+</ul>
+<h3>云服务：看不到源码，也能做出竞争者</h3>
+<p>云端服务同样不能高枕无忧。虽然安装包通常不包含完整的后端逻辑，但这并不意味着云端功能无法被复制。竞争对手可以通过观察客户端与服务端的输入输出交互、调用流程和前端形态，用自己的技术栈重新实现一套类似业务流程。对于业务逻辑相对简单的 SaaS，常用功能同样面临被仿制的压力。</p>
+<p>但云端产品真正的防线在于无法直接带走的运行支撑：</p>
+<ul>
+<li>
+<p><strong>未公开的后端实现与专有数据</strong>：复杂系统内部的调度机制、风控策略、数据管道以及长期积累的私有数据，无法直接从客户端安装包中提取；</p>
+</li>
+<li>
+<p><strong>真实的基础设施与运营成本</strong>：替代者即便模仿了前端与接口，依然需要建设与目标服务规模相适应的运行环境，承担服务器与运维账单；</p>
+</li>
+<li>
+<p><strong>用户信任与工作流惯性</strong>：企业和团队日常运转所依赖的历史数据积累、操作习惯与协同网络，无法通过单纯复制代码直接迁移。</p>
+</li>
+</ul>
+<h2>拿到安装包之后，还缺什么？</h2>
+<p>软件本身的交付形态与架构差异，决定了它面对逆向与功能重构时的暴露程度。以下定性条件比较梳理了在不同软件形态下，外部能够获取的实现内容、需要补足的工程环节，以及无法直接从客户端带走的服务支撑：</p>
+<div><span>同一个功能，藏在哪里？</span><h3>拿到安装包之后，还缺什么</h3><p>切换功能的位置，观察哪些实现进入用户电脑；再改变替代目标，比较新增的工作。这里是条件示意，没有风险分数或耗时预测。</p></div>
+<div>核心功能的位置主要在本地运行本地与云端共同完成主要在云端运行替代者的目标复现部分常用功能让用户长期可靠地使用</div>
+<div><div><h4>原软件交付了什么</h4><div><div>用户电脑里的文件与运行过程<span>可以作为分析材料</span></div><div><span>界面与交互</span><span>核心计算</span><span>本地文件处理</span></div></div><div><div>厂商服务器上的实现<span>不会随安装包一起交出</span></div><div><span>这个示例的核心功能无需云服务</span></div></div></div>
+<div><span>分析材料</span><b>→</b><span>重写与验证</span></div>
+<div><h4>替代者还要完成什么</h4><div><div>自己做出可用实现<span>从目标功能开始</span></div><div><span>理解目标行为</span><span>重写相关功能</span><span>核对输入与输出</span></div><p>本地指令和运行行为提供线索；数据结构、边界行为和兼容性仍需要推断与测试。</p></div><div><div>安装包不能自动赠送的价值<span>有代码也要继续做</span></div><div><span>真实用户与历史记录</span><span>外部系统集成</span><span>维护者的持续投入</span></div></div></div></div>
+<div><h4>使用目标所要求的工作</h4><div><span>选定目标功能</span><span>做出实现</span><span>测试目标场景</span><span>跨版本与格式兼容</span><span>异常、恢复与回归测试</span><span>更新、支持与责任</span></div><p>复制常用功能，可以缩小要实现的范围；是否足够让用户转用，还取决于他需要的兼容性、稳定性和维护。</p></div>
+<p>看不到后端源码，不妨碍竞争者用自己的方法实现相近功能；看到本地实现，也不等于已得到正确、可维护或可自由传播的替代品。</p>
+<h2>功能能复制，用户为什么还会付钱？</h2>
+<p>在 Reddit 的讨论中，针对功能可能被 AI 快速复刻的担忧，数位开发者指出价值的重心其实不在于代码本身：</p>
+<p>一位为实体小店开发软件的从业者<a href="https://www.reddit.com/r/SaaS/comments/1x1ai6v/we_spent_years_building_features_that_an_agent/">评论道</a>：客户买的不是界面和逻辑，而是“省心”。一个免费的克隆版本如果在周二出了故障，依然需要有人排查修复；克隆版可以复制功能，却不会自动完成多年历史记录的迁移、员工的重新培训，也不会自动接手工资导出失败后的求助电话。</p>
+<p>另一位开发者也补充道：如果一个 Agent 在短时间内就能仿制出界面，说明界面本身从来不是核心壁垒。买方真正付费的是出故障时有人承担责任的确定性结果；克隆可以复制交互，但无法直接接管全天候的值班与故障响应（On-call）。</p>
+<p>事实上，持续维护、品牌信任、业务集成与服务支持一直都是商业软件价值的关键组成部分。随着 AI 降低了编写与理解代码的成本，这些原本就存在的工程与运营要素的相对重要性变得更加明显：</p>
+<ol>
+<li><strong>真实工作流与系统集成</strong>：许多企业软件的开发难点在于深入复杂的业务场景，例如与各类旧系统、异构数据库及多方接口进行联调对接。即使外部重写了核心算法，这部分具体的集成工作依然需要逐一落地。</li>
+<li><strong>数据沉淀与迁移成本</strong>：用户的长期业务记录、配置习惯和协作网络通常沉淀在既有系统中。替换一套软件意味着承受重新清洗数据、验证业务流程与重新培训员工的实际成本与中断风险。</li>
+<li><strong>持续交付与责任归属</strong>：任何线上系统都需要持续应对运行环境变更、安全更新与故障恢复。即使代码能够在短时间内被仿写，后续的持续迭代、可用性保障以及当系统出现异常时的排查责任，依然需要确定的组织或团队来承担。这些工作同样需要成本，替代品若想长期立足，也必须解决这些问题。</li>
+</ol>
+<hr />
+<h2>演示能跑，离可靠替代品还有多远？</h2>
+<p>快速逆向演示容易让人产生“商业软件很快都会出现免费平替”的印象。但未经长期验证的演示，与在真实生产环境中稳定运行的替代品之间，仍存在显著的工程差距。</p>
+<p>要理解从“初步复现”到“精确可靠”的验证成本，开发者 Maurice Heumann 对一款经典第一人称射击游戏的<a href="https://momo5502.com/posts/2026-10-09-game-decompilation/">反编译实验</a>提供了一个参考样本。该项目独立于 REA，展现了多 Agent 协同反编译大型程序时的实际过程：</p>
+<ul>
+<li>
+<p><strong>能运行不等于逻辑正确</strong>：在项目最初的一个月里，Agent 虽反编译了约 80% 的代码且游戏能启动并加载地图，但深入检查发现存在大量类型错误与虚构逻辑，看似连贯的代码并不符合原版语义；</p>
+</li>
+<li>
+<p><strong>给 AI 一个可靠的判卷老师</strong>：团队切换到原版编译器编写脚本逐函数比对字节，并通过 CI 校验验证脚本的哈希防范绕过。这套机制就像一个可靠的判卷老师：AI 每重写一个函数，检查程序就拿原版作为参照比对，不通过就继续改，通过了再接收。有了明确的通过与失败信号，较便宜的模型也能在反复修正中修到合格。据作者自述，后期多数时间采用 14 个 Luna 与 2 个 Opus 5.5 并行，表明复制门槛不只取决于最强模型，能否建立自动验收同样关键；</p>
+</li>
+<li>
+<p><strong>规模化推进与成果边界</strong>：引入机器码比对后经两个月排查，重构代码已覆盖原游戏 99% 的函数；以全部原函数为分母，83% 实现了编译字节匹配。这个 83% 统计的是编译结果精确匹配的函数，不能理解成“只有 83% 的功能能用”；其余函数可能指令排列等不同，但结果相同。据作者评价，这些函数语义均已正确，重构游戏具备原版全部功能且无明显故障。字节一致也会保留原版缺陷，修复与跨平台适配仍属独立工作。因部分日志丢失，作者估计消耗了约 6000 亿至 7000 亿 Tokens。团队认为工程已达到完成状态，但代码出于版权考量保持私有，并未公开源码。</p>
+</li>
+</ul>
+<figure>
+<img />
+<figcaption>作者的自动验收流程：左侧编译重建代码，右侧提取原版函数，两者交给检查程序比对；匹配结果纳入持续检查，不匹配就继续修改。<a href="https://momo5502.com/posts/2026-10-09-game-decompilation/">图源：Maurice Heumann</a></figcaption>
+</figure>
+<p>这个项目提示，可靠的自动验收能帮助调用成本较低的模型承担更多重构工作。不过，该案例耗费的数月时间与巨量算力，对应的是严苛的字节级还原，普通商业替代品若仅复现核心常用功能，并不必然需要付出同等成本。因此，从特定游戏的重建推导出“软件保密壁垒正在瓦解”仍属推测，具体软件是否容易被替代，既取决于能否构建自动验收，也取决于替代者是否愿意承担长期的维护与适配成本。</p>
+<h2>“被迫开源”，到底交出了什么？</h2>
+<p>“被迫开源”是一个很有冲击力的说法，但在版权与商业逻辑上不能等同。</p>
+<p>根据<a href="https://opensource.org/osd">开放源代码促进会（OSI）的开源定义（OSD）</a>，“开源”并不是指外部能够看懂或重构某段代码，而是指软件的分发条款必须符合一系列明确条件，包括允许自由再分发、必须提供源码、允许修改与衍生作品，且不对任何人或应用领域施加歧视。</p>
+<p>商业软件被逆向或功能被重写后：</p>
+<ol>
+<li><strong>原软件并未自动获得开源许可</strong>：逆向本身没有带来原作者的新授权，也没有使原版二进制、专有代码和美术素材自动变成可自由传播的内容。</li>
+<li><strong>功能相近不等于有权复制专有资产</strong>：实现类似的功能，与直接提取和复制受保护的原版代码或素材并非同一回事；即便重构出的程序能够顺利运行，也并不自动说明它享有公开发布和传播的合法权利。</li>
+<li><strong>技术保密性的削弱改变的是竞争难度</strong>：软件并没有变成开源项目，但过去依靠机器码难以阅读所维持的实现壁垒有所松动。在商业竞争中，替代者并不需要完整恢复原软件 100% 的全部源码，只要能以可接受的成本复现用户最常用、最愿意付费的核心功能，原产品依靠单一功能实现的独占优势就会受到直接挑战。</li>
+</ol>
+<h2>原作者不开源，还能守住什么？</h2>
+<p>电脑里的商业软件不会因为 AI 逆向技术的进展而在一夜之间变成开源软件，原作者也不会自动交出代码的法律授权。</p>
+<p>但在实际技术层面上，单纯依靠编译后二进制的不可读性来维持长期的实现独占，正变得越来越困难。这一变化带来的影响是多维度的：</p>
+<ul>
+<li>
+<p><strong>对于用户</strong>：在面对老旧软件维护和私有数据导出时拥有了更多的潜在选择，但如果厂商为了保护逻辑而加速向云端收拢，用户也可能面临更多的网络依赖与本地控制权让渡；</p>
+</li>
+<li>
+<p><strong>对于开发者</strong>：与其焦虑代码本身是否能被推导，不如回到两个更具体的问题——<strong>用户当初究竟是因为什么选择了你的产品？而一个潜在的替代者如果要达到同等可用性，除了复现逻辑之外，还必须承担哪些无法省去的维护、集成与运营成本？</strong></p>
+</li>
+</ul>
+</div><div><div><div>来源</div><div><span>REA: Reverse Engineer Anything</span><span>morluto / REA contributors<span>·</span><a href="https://github.com/morluto/rea">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/esrtweet/status/2106983467141509385">Eric S. Raymond：软件保密时代的预测</a><span>·</span><a href="https://www.reddit.com/r/SaaS/comments/1x1ai6v/we_spent_years_building_features_that_an_agent/">SaaS 社区：功能被复制之后，价值在哪里？</a><span>·</span><a href="https://momo5502.com/posts/2026-10-09-game-decompilation/">Maurice Heumann：AI 游戏反编译复盘</a><span>·</span><a href="https://rea.tools/showcase/dx-ball/">REA：DX-Ball 声像函数重建</a><span>·</span><a href="https://rea.tools/showcase/notion/">REA：Notion 本地剪贴板调查</a><span>·</span><a href="https://cheatsheetseries.owasp.org/cheatsheets/Web_Frontend_Security_Cheat_Sheet.html">OWASP：客户端安全原则</a><span>·</span><a href="https://opensource.org/osd">OSI：开源定义</a><span>·</span><a href="https://x.com/MatthewBerman/status/2108245653843509415">REA 在 X 上的传播：Matthew Berman</a><span>·</span><a href="https://x.com/p_e_cooper/status/2104980433972703483">P.E. Cooper：僵尸地图浏览器演示</a><span>·</span><a href="https://github.com/doldecomp/melee">Melee 公开重建工程</a><span>·</span><a href="https://github.com/storytold/photocraft">PhotoCraft 官方说明</a><span>·</span><a href="https://getartcraft.com/apps">ArtCraft · 开源创作套件</a></div></div><div><div>本站说明</div><div>资料核对截至 2026-10-12；原始案例、作者自述和产业影响推断在文中区分。</div></div></div></div></div><div><div>
+<div>Reverse Engineering &amp; AI Paradigm</div>
+<h1>AI 开始逆向一切，软件开发还值钱吗？</h1>
+<div>当大模型直连反编译器并接入自动验收，商业软件靠“代码保密”构筑的壁垒受到挑战；但决定用户是否继续掏钱的，从来不仅是代码本身。</div>
+<div>核心逻辑拆解 · 解读站精炼版</div>
+<div>
+<p>“软件完了。”Matthew Berman 分享 REA（Reverse Engineer Anything）的帖子获得超过 300 万次阅读。截至 10 月 12 日，项目的 GitHub 标星超过 10 万。它把底层反编译器与大语言模型直连，让 Agent 能自主推断未开源软件的意图并重写出高层代码。</p>
+<p>开源倡导者 Eric S. Raymond（ESR）预测：软件依赖代码保密维持的壁垒正在松动。竞争者未必需要逐行恢复原厂源码；若能以可接受的成本覆盖核心常用功能，就可能做出够用的替代品。</p>
+<div>
+<div>
+<div>3,205 组</div>
+<div>DX-Ball 声像用例验证全通过</div>
+</div>
+<div>
+<div>63 字节</div>
+<div>同一个声像函数的编译字节</div>
+</div>
+<div>
+<div>7 款</div>
+<div>团队自述重建 Adobe 工具</div>
+</div>
+</div>
+<div>以前也能逆向，为什么现在更值得警惕？</div>
+<p>逆向工程技术早已存在，以往严重受制于人工经验：工程师需在反编译器、汇编指令、调试器与编辑器之间反复跳转，排查丢失符号的函数与优化变形的控制流。</p>
+<div>
+<div>
+<span>01 引擎提取</span>
+<p>Ghidra / Hopper 提取机器指令、调用拓扑与内存地址常量。</p>
+</div>
+<div>
+<span>02 MCP 协议直连</span>
+<p>REA 通过 MCP 把分析引擎的结果返回给 AI Agent。</p>
+</div>
+<div>
+<span>03 意图重构</span>
+<p>Agent 推断算法目的，用 C/高层语言重写并自动跑测试比对。</p>
+</div>
+</div>
+</div>
+<div>
+<div>交付形态分化：谁的防线更容易被穿透？</div>
+<p>OWASP 客户端安全原则指出了软件的物理暴露现实：只要程序被分发并运行在用户的本地设备上，其包含的代码与运行状态在技术上就必然可被观测与分析。不同架构提供的分析材料有所不同：</p>
+<div>
+<div>
+<div>纯本地软件 · 高暴露风险</div>
+<p>核心算法与逻辑全在客户端。ArtCraft 团队称用 Claude 重建 Adobe 工具，官方定义为净室重实现；目前仍在早期开发。覆盖常用需求的替代品可能给订阅价值带来压力。</p>
+</div>
+<div>
+<div>云端 SaaS · 混合防线</div>
+<p>客户端与交互易被仿制，但核心调度算法、风控规则、专有数据与支撑大规模并发的基础设施运维开销，无法从安装包中直接提取。</p>
+</div>
+</div>
+<div>
+<p>对用户而言，逆向门槛降低带来了私有格式导出、停更老软件维护与跨平台适配的更多可能；但若厂商为保护逻辑而强行将一切上云，厂商需要承担服务器成本，用户也可能增加联网依赖并失去本地控制权。</p>
+</div>
+</div>
+<div>
+<div>从粗糙演示到可验证的重构</div>
+<p>快速演示容易让人误以为平替触手可及。但开发者 Maurice Heumann 的游戏反编译实验表明：项目最初一个月反编译了 80% 代码且能启动游戏，但实际充斥着大量虚构逻辑与类型错误。“能跑”绝不等于“逻辑正确”。</p>
+<div>
+<div>核心机制：判卷老师（自动验收闭环）</div>
+<p>解决幻觉与语义错误的关键，在于将重构工程转化为一个可严苛量化反馈的闭环系统：</p>
+<div>
+<div>
+<span>A</span>
+<p><strong>AI 生成重构代码</strong>：Agent 针对未解析函数提出高层 C/C++ 实现假说。</p>
+</div>
+<div>
+<span>B</span>
+<p><strong>原版编译器重编译</strong>：使用原厂环境与编译选项编译候选代码生成二进制目标。</p>
+</div>
+<div>
+<span>C</span>
+<p><strong>逐字节比对与 CI 校验</strong>：比对机器码字节一致性，通过哈希防范验证脚本绕过。</p>
+</div>
+</div>
+<div>
+<strong>反馈闭环收敛</strong>：比对不通过时，检查程序返回精确指令差异，AI 针对性修改；比对通过后合并入库。有了明确的客观判卷信号，即使调用成本较低的模型（如 Luna），也能根据通过／失败反馈反复修改。作者报告 99% 原函数已有重写实现，83% 的全部原函数实现字节匹配；这不是功能完成率。
+      </div>
+</div>
+</div>
+<div>
+<div>代码能被推导，用户为什么还要继续掏钱？</div>
+<p>“被迫开源”在法律和商业上均不成立：逆向不等于取得原厂著作权或美术资产，商业竞争本质上也无需 100% 复刻。SaaS 社区的从业者一针见血地指出，代码从来不是客户掏钱的全部理由：</p>
+<div>
+<div>
+<span>01</span>
+<div>
+<div>持续可用性与责任归属（On-call 兜底）</div>
+<p>客户买的本质是“省心”。克隆版能重现交互，但当系统在周二崩溃、工资单导出失败时，克隆体不会自动接手全天候值班响应与排查责任。</p>
+</div>
+</div>
+<div>
+<span>02</span>
+<div>
+<div>真实业务集成与联调成本</div>
+<p>商业软件的核心难点往往在于深入企业现场：与异构老旧数据库、内部审批流及复杂软硬件环境的深度对接，代码克隆无法代替工程落地。</p>
+</div>
+</div>
+<div>
+<span>03</span>
+<div>
+<div>数据沉淀与工作流迁移惯性</div>
+<p>更换软件意味着高昂的历史数据清洗、配置复核与团队重新培训成本。用户黏性根植于业务网络，而非孤立的前端菜单。</p>
+</div>
+</div>
+</div>
+<div>
+<strong>终局判断</strong>：靠编译后二进制不可读来维持长期的实现独占，正变得越来越难。但软件的价值还包括代码之外的持续工作——用户当初为何选你，以及潜在替代者若要达到同等可用性，除了复现逻辑之外，还必须承担哪些无法省去的维护、集成与运营成本？
+    </div>
+</div>
+</div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://github.com/morluto/rea">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>从经验到销售：用 AI 做知识付费产品的 7 步方法</div>
+<div>10-10 · 约 15 分钟</div></a><a>
+<div><span></span>深度</div>
+<div>OpenAI 年化收入增长近八成，市场为何失望？AI 改变麦肯锡招聘，更关注艺术、历史、音乐人才</div>
+<div>10-10 · 约 18 分钟</div></a><a>
+<div><span></span>深度</div>
+<div>a16z 图表解读：预测市场有偏见吗？AI 的钱和岗位正在流向哪里</div>
+<div>10-10 · 约 18 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】SpaceXAI 团队分享构建 Grok Bot 的工程经验：涉及分布式系统设计、操作安全策略与上下文工程取舍</title>
+<link>https://best.xiaohu.ai/article/stanford-always-on-agents/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:stanford-always-on-agents</guid>
+<pubDate>Mon, 12 Oct 2026 12:02:41 +0000</pubDate>
+<description>从消息唤醒、云端电脑到断点恢复与长期记忆：Lee Robinson 在 Stanford CS146S 分享 Grok Bot 的构建经验，解释让 Agent 在后台接着干活需要怎样的系统。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 12 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">SpaceXAI 团队分享构建 Grok Bot 的工程经验：涉及分布式系统设计、操作安全策略与上下文工程取舍</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/stanford-always-on-agents/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>把任务交出去后，你仍然能随时改主意</span></a><a><span>02</span><span>常驻不等于一直开机：任务和电脑分开运行</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>SpaceXAI 团队分享构建 Grok Bot 的工程经验：涉及分布式系统设计、操作安全策略与上下文工程取舍</h1><p>从消息唤醒、云端电脑到断点恢复与长期记忆：Lee Robinson 在 Stanford CS146S 分享 Grok Bot 的构建经验，解释让 Agent 在后台接着干活需要怎样的系统。</p><div><span><b>已核对</b></span><span>Lee Robinson</span><span>10-12 · </span></div><div><div>正文一页纸</div>收起播客 ⌃☆ 收藏</div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>你合上电脑后，Grok Bot 仍能推进云端任务，不必每一步都等你发提示词。</li><li>“常驻”靠保存状态和按需唤醒，空闲时电脑可以休眠，故障后工作能继续。</li><li>稳定工作数周或数月仍是发展目标，正确记忆、安全和长任务评测还需完善。</li></ul><div><p>在斯坦福大学 CS146S 课程的一堂讲座中，曾在 Cursor 任职、目前在 SpaceX 的 Lee Robinson 分享了团队构建 Grok Bot 的工程经验。Grok Bot 是一种常驻 Agent：用户交代目标后，它能在云端推进工作，也能被消息或定时任务唤醒，不必每一步都等着用户发提示词。</p>
+<p>学生上一周搭建的简单 Agent，则是让模型在一个本地运行框架（Harness）里循环调用工具、读取文件和执行命令。如果本机进入休眠，或者终端里的进程被关闭，工作就无法继续；需要人批准的操作，也会停下来等待。对话变长后，工具输出还会不断占用模型能同时处理的信息空间。</p>
+<p>常驻 Agent（Always-on Agent）试图解决的正是这类使用断层。它希望让 Agent 像一位能够长期协作的数字化同事一样，在云端拥有一台属于自己的电脑与独立环境，能够根据外部事件在后台自主推进任务，并在必要时才向用户汇报。</p>
+<p>这是一次系统构建经验分享，部分能力仍在开发；稳定工作数周甚至数月，是 Lee 对后续发展的期待。要将原型脚本演进为稳定可靠的常驻服务，核心在于一系列具体的分布式系统设计、操作安全策略与上下文工程取舍。</p>
+<figure>
+<figcaption>完整讲座 · 中英双语字幕 · 约 45 分钟。中文在上，英文小字在下；字幕直接显示在原视频画面上。</figcaption>
+</figure>
+<hr />
+<h2>把任务交出去后，你仍然能随时改主意</h2>
+<p>Lee 用四种开发方式说明这种变化：</p>
+<ol>
+<li><strong>复制粘贴阶段：</strong> 在网页中向模型提问，手动复制代码到本地编辑器，遇到报错再贴回浏览器。</li>
+<li><strong>终端 Agent 阶段：</strong> 模型进入本地循环，能够自主读写文件与运行终端命令。但这一阶段人类需要逐条确认模型生成的 shell 命令是否允许执行。</li>
+<li><strong>专用并行应用阶段：</strong> 出现专门针对 Agent 任务的界面，可以在后台或云端并行启动多个任务，开发者在完成时审查代码差异（Diff）。</li>
+<li><strong>常驻 Agent 阶段：</strong> 用户通过即时通讯或轻量消息向 Agent 交代高层目标。Agent 在云端拥有自己的环境、长期记忆与工具接口，能在用户离线后继续推进，并由外部事件（如日程、Webhook、协作消息）按需触发。</li>
+</ol>
+<p>Lee 将这类产品的发展与模型能力的提升联系起来：模型更善于在较长时间内遵循复杂指令，还能将子任务委派给独立的助手；除了调用结构化 API 与终端命令，也逐渐掌握了直接查看屏幕和点击的电脑操作；同时，模型能够将用户画像与规程以文件形式自主读写，并从人类的操作示范中学习技能。这些底层能力的成熟，让长周期后台执行具备了实际可行性。</p>
+<p>协作方式改变的关键，在于交互频次与控制权的分工。在传统终端模式下，模型每执行一条命令都需要等待人类授权；而在常驻模式下，Agent 在后台持续执行指令，人类主要负责在关键节点校准方向。例如在 Agent 执行过程中，用户可以随时发送补充消息：“顺便看一下那个讨论串”、“把时间改成周四”、“草稿整理好后直接发日程邀请”。</p>
+<p>伴随这种交互方式的，是一项关键的安全机制——<strong>自动化审查（Auto Review）</strong>。当 Agent 需要在后台执行大量命令时，逐条让人眼审查容易引发审批疲劳。工程上引入了一个独立的安全审查模型，在具有潜在风险的命令执行前对其进行实时校验。如果安全模型判定某项操作存在风险并拦截，系统会向用户弹出明确的审批请求；在讲座介绍的原型设计中，如果用户在 15 秒内未作答复，该操作默认继续保持阻止状态。</p>
+<hr />
+<h2>常驻不等于一直开机：任务和电脑分开运行</h2>
+<p>许多刚接触这一架构的开发者容易产生一种直觉：既然 Agent 需要运行命令和浏览器，直接在云端开一台虚拟机，把模型对话循环和桌面环境全放在里面不就行了吗？</p>
+<p>在真实的工程运维中，这种紧耦合会导致明显的系统脆弱性。如果虚拟机因为底层操作系统补丁需要重启，或者浏览器在测试过程中占满内存崩溃，运行在其中的 Agent 进程也会被中断。此外，让一台配置完整的图形虚拟机为了等待定时器或仅仅处理纯文本而 24 小时通电开机，会产生大量不必要的闲置计算成本。</p>
+<p>因此，Grok Bot 采用了<strong>三层解耦</strong>的系统结构：</p>
+<h3>手机和网页负责收消息、显示结果</h3>
+<p>支持手机 App、桌面客户端、网页、Slack、邮件和语音通话等不同接入方式。客户端主要负责呈现交互界面与收集用户输入，不做重型业务计算。业务逻辑交由服务器托管后，新特性的部署无需苦等移动应用商店的审核周期。</p>
+<h3>服务器负责推进任务、保存状态</h3>
+<p>常驻服务器是系统的核心调度中枢：</p>
+<ul>
+<li><strong>路由（Router）与会话队列：</strong> 负责接收来自客户端、定时调度或外部 Webhook 的唤醒事件，完成消息去重，并维持<strong>单一会话同一时间只运行一个推理轮次（Turn）</strong>。</li>
+<li><strong>Agent 核心循环（Agent Loop）：</strong> 负责组装提示词上下文、请求模型推理并分发工具调用。</li>
+<li><strong>持久化数据库与存储：</strong> 记录完整的会话历史、长期记忆、技能文件与待办状态。关键数据均持久化在服务器端，即便云端执行环境损坏或重建，任务与记忆也不会丢失。</li>
+</ul>
+<h3>云端电脑负责实际操作文件和浏览器</h3>
+<p>每个用户对应一台基于轻量级虚拟机（如运行 Debian Linux 的 Firecracker microVM）的隔离沙箱：</p>
+<ul>
+<li><strong>按需分配虚拟屏幕：</strong> 虚拟机内置虚拟显示服务与 Chrome。当主 Agent 唤醒多个助手并行处理不同网页时，系统可以为每个活跃助手分配独立的虚拟显示屏幕，互不干扰。</li>
+<li><strong>空闲快照与按需唤醒（Snapshot &amp; Sleep）：</strong> 云端电脑按需工作。在工具调用结束几分钟且无新操作后，系统会将必要文件同步至云存储，并为虚拟机的内存和磁盘生成快照，随后停止虚拟机以降低闲置开销。当后续工具需要运行本地脚本或操作浏览器时，系统再从快照加载恢复，已安装的工具与浏览器登录状态依然得以保留。</li>
+</ul>
+<div>
+<div>同一项任务，哪些部件需要运行？</div>
+<p>点击下方不同业务事件，观察三层组件如何按需分工。触发了 Agent 并不等于必须唤醒云端电脑。（教学原理示意，依据 Stanford CS146S 架构机制）</p>
+</div>
+<div>
+    定时任务
+    浏览器任务
+    修改指令
+    故障恢复
+</div>
+<div>
+<div>
+<div>
+<span>交互入口</span>
+<span>监听中</span>
+</div>
+<div>
+<strong>全渠道入口</strong>
+      手机、桌面端、Slack、邮件、定时任务与 Webhook
+    </div>
+<div>
+<strong>对人出口：SendToUser</strong>
+      向用户呈现富交互卡片（审批、表单、确认），私有推导不外显
+    </div>
+</div>
+<div>
+<div>
+<span>任务调度</span>
+<span>执行中</span>
+</div>
+<div>
+<strong>路由与会话队列</strong>
+      去重排序；用户一对一修正拥有打断特权
+    </div>
+<div>
+<strong>持久工作流引擎 (如 Temporal)</strong>
+      按步骤持久化状态，失败后安全从断点续跑
+    </div>
+<div>
+<strong>持久化存储 (DB &amp; Storage)</strong>
+      记忆、技能文件、配置与会话全量落盘
+    </div>
+</div>
+<div>
+<div>
+<span>操作电脑</span>
+<span>休眠中</span>
+</div>
+<div>
+<strong>按需虚拟机沙箱</strong>
+      Debian Linux 环境，支持独立 Chrome 与虚拟显示
+    </div>
+<div>
+<strong>快照与按需唤醒</strong>
+      空闲时保存内存与磁盘快照断电；工具调用时按需加载恢复
+    </div>
+</div>
+</div>
+<div>
+<div>定时简报：无需界面操作时，云端电脑保持休眠</div>
+<p>
+    定时任务在服务器端被触发，路由器将任务置入会话队列并启动一轮工作流。Agent 从服务器加载记忆文件与配置好的数据接口汇总信息。因为整个过程不需要打开浏览器或运行图形程序，<strong>云端虚拟机全程无需唤醒，降低闲置机器的开销</strong>。如果 Agent 判定汇总结果没有实质变化，可自主保持安静，不向用户发消息。
+  </p>
+<ol>
+<li>08:00 定时器触发唤醒服务器端工作流。</li>
+<li>Agent 读取记忆与数据源，判定当前任务不需要调用桌面或浏览器。</li>
+<li>云端电脑保持磁盘/内存快照状态，不占用虚拟机闲置资源。</li>
+<li>任务执行完毕，服务器工作流保存状态后结束该轮次。</li>
+</ol>
+</div>
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 6 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 6 分钟正文</span><span>6 处图表与交互</span></div>
+<div><span>🔓 383 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://www.youtube.com/watch?v=L1OBRtfPS34">阅读原文 ↗</a>
+</div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 多项目指南：一个频道、一组成员和两层 Notion 看板</div>
+<div>10-10 · 约 8 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot 日常办公指南：让四个 Bot 管好消息、日历与工作情报</div>
+<div>10-10 · 约 12 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>Grok Bot SDR 指南：Cursor 写调研与草稿，Bot 做查重与待发分流</div>
+<div>10-10 · 约 12 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Higgsfield 运镜指南：让 AI 视频按你的镜头要求移动</title>
+<link>https://best.xiaohu.ai/article/higgsfield-ai-video-camera-control/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:higgsfield-ai-video-camera-control</guid>
+<pubDate>Mon, 12 Oct 2026 12:02:41 +0000</pubDate>
+<description>分清机位、视角与景深，用原始双语提示词和五段视频写清镜头要求，再按实际画面逐项修正。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 12 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Higgsfield 运镜指南：让 AI 视频按你的镜头要求移动</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/higgsfield-ai-video-camera-control/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>先分清：相机在哪里、怎样移动，画面是什么质感</span></a><a><span>02</span><span>主体都在变大：推镜头与变焦差在哪里？</span></a><a><span>03</span><span>先生成一个短镜头，再按画面偏差修改</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Higgsfield 运镜指南：让 AI 视频按你的镜头要求移动</h1><p>分清机位、视角与景深，用原始双语提示词和五段视频写清镜头要求，再按实际画面逐项修正。</p><div><span><b>已核对</b></span><span>Higgsfield</span><span>10-12 · 约 18 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>Higgsfield 的 Cinema Studio 把风格预设与运动指令分开，让镜头要求更明确。</li><li>推镜头会改变主体与远处背景的大小关系，原地变焦保持这一比例。</li><li>先做一个连续短镜头，再按实际偏差一次修改一个条件，比堆叠禁止项更容易排查。</li></ul><div><p>AI 视频生成里，人物面部特征对齐了，镜头往往还是容易走偏：在提示词里写下“镜头缓缓推向主角”，画面要么忽快忽慢，要么机位原地不动只做变焦放大；中途背景景深可能由虚变实，侧方的光线也可能突然跳到脑后。</p>
+<p>只写“缓缓推进”，行进速度、停止构图、景深与光向就留给了模型解释，结果容易变化。写清这些要求可以减少歧义，但结果也受模型的运动理解与生成随机性影响。Higgsfield 的 Cinema Studio 将视频控制拆为两部分：在生成前通过面板参数预先选定体裁（Genre）、布光（Lighting）、镜头质感（Lens）、景深倾向（Aperture）与剪辑节奏（Tempo），同时用提示词专门描述机位轨迹、速度阶段与落幅构图。预设能减少模型的随意猜测，但它并不保证逐帧精确，生成结果仍可能偏离要求。想要做出稳定可控的镜头，第一步是理清各个控件与提示词的分工。</p>
+<h2>先分清：相机在哪里、怎样移动，画面是什么质感</h2>
+<p>许多人在面对生成面板与输入框时，容易把运镜速度、视角大小与镜头质感混为一谈。给 AI 提镜头要求时，需要将空间位移、光学成像与剪辑节奏拆解到对应的控制位置上：</p>
+<div><table>
+<thead>
+<tr>
+<th>控制维度</th>
+<th>由谁负责</th>
+<th>实际管什么</th>
+<th>提要求时的关键区别与注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>机位位置与高度</strong></td>
+<td>提示词（Prompt）</td>
+<td>摄影机在三维空间中的安放坐标与离地高度</td>
+<td>摄影机抬高降低属于位置与高度变化（如设定镜头高度 1.5 米），不等于仰头或低头。</td>
+</tr>
+<tr>
+<td><strong>镜头朝向与看向</strong></td>
+<td>提示词（Prompt）</td>
+<td>镜头在机位上朝向哪个角度对准主体</td>
+<td>俯仰是朝向变化，与机位升降不等同；横摇（Pan）机位固定但水平旋转；本文的横向跟移模板要求严格 90 度正侧面观察主体。</td>
+</tr>
+<tr>
+<td><strong>运动路径与速度</strong></td>
+<td>提示词（Prompt）</td>
+<td>机位的行进轨迹与运动快慢阶段</td>
+<td>具体速度要求写在提示词中，Tempo 控件负责剪辑节奏；建议分清行进阶段（如匀速前进）与结尾减速缓冲（如最后半秒柔和停稳定格）。</td>
+</tr>
+<tr>
+<td><strong>焦距与视角</strong></td>
+<td>提示词（Prompt）</td>
+<td>取景范围开阔度（视野角度大小）</td>
+<td>决定画幅能拍下多宽的场景；变焦拉远或放大的具体过程用文字说明，官方模板采用视角开合度数（如 18 度到 84 度视角），而非毫米数（mm）。</td>
+</tr>
+<tr>
+<td><strong>镜头质感（Lens）</strong></td>
+<td>面板设置（Lens）</td>
+<td>画面光学风格与玻璃成像质感</td>
+<td><strong>Lens 预设不等于焦距或取景视角！</strong> 选 Clean Sharp 是清透数码质感，选 Anamorphic 是椭圆散景与横向耀斑，不能据此确定精确焦距或视角大小。</td>
+</tr>
+<tr>
+<td><strong>光圈景深（Aperture）</strong></td>
+<td>面板设置（Aperture）</td>
+<td>背景虚化与焦点清晰范围的风格倾向</td>
+<td>控制焦外虚化强弱：f/1.4 强虚化突显主体，f/4 温和过渡，f/11 倾向于较大景深；选定后仍要检查主体与背景的清晰范围，不能保证任何距离都清晰。</td>
+</tr>
+<tr>
+<td><strong>剪辑节奏（Tempo）</strong></td>
+<td>面板设置（Tempo）</td>
+<td>片段的剪辑切镜频率与蒙太奇节奏</td>
+<td><strong>控制的是切镜频率，绝非摄影机运镜速度！</strong> 做连续镜头练习选择 <code>Single Shot</code>（单镜头）；Calm 虽为长镜但仍能触发分镜剪辑。</td>
+</tr>
+</tbody>
+</table></div>
+<p>以拍摄一段“窗边书桌前静坐阅读的女子”为例，这套分工对应的具体要求如下：</p>
+<ol>
+<li><strong>机位、高度与朝向（提示词）：</strong> 摄影机架设在离地 1.4 米的平直地面轨道上，镜头保持水平视线正对女子侧前方，无横摇与俯仰。</li>
+<li><strong>路径与速度（提示词）：</strong> 摄影机沿直轨平缓推向女子，前段保持平稳匀速，在接近面部特写时平滑减速缓冲，最终停稳定格。</li>
+<li><strong>视角（提示词）：</strong> 焦距与视角全程锁定，禁止镜头光学或数码变焦，完全靠机位向前靠近产生真实的前后景视差。</li>
+<li><strong>质感 Lens（面板）：</strong> 选择 <code>Anamorphic</code> 预设，选择椭圆散景与水平耀光的镜头质感；焦距是否变化仍需另行说明。</li>
+<li><strong>景深 Aperture（面板）：</strong> 选择 <code>f/1.4 Wide Open</code> 预设，要求突出女子面部、柔化远处书架与窗框；若需要指定焦点，提示词同时写清对焦对象。</li>
+<li><strong>剪辑 Tempo（面板）：</strong> 选择 <code>Single Shot</code> 预设，要求这几秒保持连续镜头，生成后检查有没有中途切镜。</li>
+</ol>
+<p>明确了面板参数与提示词的分工后，在实际写运镜提示词时，最容易产生混淆的是机位物理前推与镜头变焦放大。</p>
+<h2>主体都在变大：推镜头与变焦差在哪里？</h2>
+<p>在视频生成中，最容易被混淆的两个指令是<strong>推镜头（Dolly In）</strong>与<strong>变焦放大（Zoom In）</strong>。两者在单张静态截图中可能都表现为“主体变大了”，但在动态连续运动中，画面的透视空间有着本质区别：</p>
+<ul>
+<li><strong>原地变焦（Zoom In）：</strong> 机位固定在原地完全不动，仅依靠改变镜头焦距来收窄视野（视角变小）。<strong>前景人物与远处的背景以完全相同的比例被放大</strong>，画面整体的透视关系（近景与远景的大小相对比例）始终不变，没有相对运动视差。</li>
+<li><strong>推移机位（Dolly In）：</strong> 摄影机在物理空间中真正向前滑行，镜头与各物体的距离随之改变。根据几何透视，离镜头更近的主体，其距离缩小比例远大于更远的背景，因此<strong>前景物体会迅速放大并掠出画面，而远处背景的尺寸变化相对微弱</strong>。这种前后景变化速率不一致的视觉现象，即为<strong>视差（Parallax）</strong>。</li>
+</ul>
+<p>可以通过下方的交互实验器，对比固定机位变焦与机位物理前推对前后景构图带来的不同改变：</p>
+<div>
+<div>
+<h3>
+<span>主体一样大，背景为什么不同？</span>
+</h3>
+<p>
+      拖动下方进度条，连续观察物理推移机位与原地拧动变焦环在“前景人物”与“背景远山”相对大小比例上的根本差异。
+    </p>
+</div>
+<div>
+<div>
+<div>
+<span>镜头进度：两边主体按同一倍率放大</span>
+<span>0%</span>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>机位真实前移 (Dolly In) · 透视改变</div>
+<div>
+</div>
+<div>
+<div>
+<span>机位距离</span>
+<span>4.0 米</span>
+</div>
+<div>
+<span>相对初始的前/后景比例</span>
+<span>1.00×</span>
+</div>
+<div>
+<span>空间透视状态</span>
+<span>机位前移，透视改变</span>
+</div>
+</div>
+</div>
+<div>
+<div>原地镜头变焦 (Zoom In) · 透视锁定</div>
+<div>
+</div>
+<div>
+<div>
+<span>机位距离</span>
+<span>4.0 米（固定）</span>
+</div>
+<div>
+<span>相对初始的前/后景比例</span>
+<span>1.00×（不变）</span>
+</div>
+<div>
+<span>空间透视状态</span>
+<span>视野收窄，透视不变</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<strong>核心摄影结论：</strong>
+<span>两幅图从同一机位、同一画面开始。左边将前移机位，右边将原地变焦；拖动后两边人物保持相同放大倍率，可以直接对照背景变化。</span>
+</div>
+<div>理想针孔教学示意：人物初距4米，远景初距20米，机位最多前移2.4米。尺寸比例按1/距离计算，示意图省略对焦、畸变等光学细节，不代表Higgsfield输出。</div>
+</div>
+<p>（注：图解采用理想针孔模型的几何投影原理，用于摄影光学规律教学，不代表 Higgsfield 的具体生成帧输出。）</p>
+<p>在检查 AI 生成视频时，判断是 Dolly 还是 Zoom 的核心依据就是观察<strong>主体与远处背景的相对比例是否发生变化</strong>，而无需引入“空间被物理压缩”等容易产生歧义的抽象概念。</p>
+<hr />
+<h2>先生成一个短镜头，再按画面偏差修改</h2>
+<p>为了快速建立对提示词与控件配合的手感，这里提供两套可直接复制的原创练习。</p>
+<h3>完整操作走通路线</h3>
+<ol>
+<li><strong>进入环境：</strong> 登录 <code>higgsfield.ai/cinema-studio</code>（该地址会自动跳转至工作台生成页面），确认已切换至 Cinema Studio 模式与对应可用权限。</li>
+<li><strong>面板配置：</strong> 优先配置 Genre、Lens、Aperture、Lighting，并将 <strong>Tempo 设为 Single Shot</strong>，时长设为 5 秒。</li>
+<li><strong>输入提示词：</strong> 将下方对应的中文或英文提示词粘贴至文本框。</li>
+<li><strong>生成与初检：</strong> 点击生成后，使用播放器回放，重点观察画面的可观察物理特征是否偏离。</li>
+<li><strong>单变量微调与重试：</strong> 若未达到预期，<strong>一次只修改一个变量</strong>（例如仅修改提示词中的轨道排他描述，面板参数保持不变），整段替换提示词后重新生成。</li>
+<li><strong>保存导出：</strong> 达到满意效果后，点击界面的保存或下载按钮导出成片。</li>
+</ol>
+<hr />
+<h3>练习一：产品质感环绕镜头（Orbit）</h3>
+<blockquote>
+<p><strong>教学建议：</strong> 初学 Orbit 建议以 5 秒时长、约 90 度的短弧为起点；待短弧运镜稳定、熟悉机位与主体关系后，再挑战 360 度整周环绕。</p>
+</blockquote>
+<ul>
+<li><strong>初学建议面板参数：</strong>
+<ul>
+<li><code>Genre</code>: General</li>
+<li><code>Camera movement</code>: 若下拉列表中有 Orbit 则选，未包含则靠提示词驱动</li>
+<li><code>Lens</code>: Clean Sharp</li>
+<li><code>Aperture</code>: f/4 Moderate</li>
+<li><code>Lighting</code>: Practicals (现场光源)</li>
+<li><code>Tempo</code>: Single Shot (单镜头无切镜)</li>
+<li><code>Duration</code>: 5 秒</li>
+</ul>
+</li>
+</ul>
+<h4>【自拟初始练习模板（产品环绕）】</h4>
+<p>中文初始提示词（自拟）：</p>
+<div><pre><code>5 秒单镜头连续圆周环绕。摄影机在距中心固定半径平稳做约 90 度短弧环绕拍摄，保持恒定高度。画面中央是一瓶立于黑色哑光石台上的威士忌酒瓶，目标让瓶身保持在画面中心。机位平稳移动，背景中的暖色酒吧吧台与酒架平稳滑过。主体自身不旋转，画面平稳无跳切，结尾平滑停稳。
+</code></pre></div>
+<p>英文初始提示词（自拟）：</p>
+<div><pre><code>One continuous 5-second orbital arc shot, the camera travels smoothly on a locked radius around the subject across about 90 degrees at a locked height. The subject is a whiskey bottle on a matte black stone pedestal at frame center. The camera circles while the bottle remains stationary; warm bar shelves and background glassware slide past. No turntable spinning of the subject, seamless single shot, smooth settle at the end.
+</code></pre></div>
+<ul>
+<li>
+<p><strong>成片观察标准：</strong></p>
+<ol>
+<li>酒瓶是否相对稳定在画幅中心，瓶身文字与反光是否发生诡异形变；</li>
+<li>背景吧台酒架是否平稳反向滑动；</li>
+<li>确认酒瓶没有像微波炉转盘一样在原地自转。</li>
+</ol>
+</li>
+<li>
+<p><strong>常见偏离与修正对策：</strong></p>
+<ul>
+<li><em>偏离现象：</em> 机位并未沿外部圆弧走位，而是酒瓶在石台上原地自转。</li>
+<li><em>修正对策：</em> 保持面板设置不变，整段替换提示词，强化“机位外部滑轨位移”与“主体物理朝向绝对固定”。</li>
+</ul>
+</li>
+</ul>
+<p>中文修正版提示词（自拟）：</p>
+<div><pre><code>5 秒单镜头连续圆周环绕，修改后整段重新生成。摄影机沿平整圆弧轨道围绕中心主体做约 90 度环绕平移滑行，保持恒定镜头高度。黑色哑光石台上的威士忌酒瓶及台座在空间中保持静止朝向，严禁瓶身原地自转。运动完全由外部机位位移产生，背景酒吧环境反向滑动。目标使酒瓶处于画面中心，无跳切，无前后半径漂移，结尾轻缓停稳在侧前方构图。
+</code></pre></div>
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 13 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 13 分钟正文</span><span>10 处图表与交互</span></div>
+<div><span>🔓 382 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://higgsfield.ai/blog/ai-video-camera-control">阅读原文 ↗</a>
+</div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>Higgsfield 使用真人演员形象 用 AI 拍摄了一部 110 分钟的完整故事影片 并公开了整本制作说明书和提示词方法</div>
+<div>08-13 · 16 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>3 天做完 18 个镜头：Higgsfield 动画团队怎样把 AI 放进传统动画流程</div>
+<div>09-28 · 约 15 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>小商家怎样用 AI 做视频广告：从产品图到能讲清卖点的素材</div>
+<div>10-09 · 约 12 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Claude 动效实战指南：完整提示词、修改方法和导出步骤</title>
 <link>https://best.xiaohu.ai/article/claude-motion-lab/</link>
