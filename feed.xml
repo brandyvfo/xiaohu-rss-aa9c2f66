@@ -6,7 +6,2290 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Mon, 12 Oct 2026 12:02:41 +0000</lastBuildDate>
+<lastBuildDate>Tue, 13 Oct 2026 12:01:50 +0000</lastBuildDate>
+<item>
+<title>【日报】Lemo-Opuscar：43 种通用风格、98 种电影风格，精选 9 支完整样片，让 Claude Opus 学做大片</title>
+<link>https://best.xiaohu.ai/article/lemo-opuscar-code-filmmaking/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:lemo-opuscar-code-filmmaking</guid>
+<pubDate>Tue, 13 Oct 2026 12:01:50 +0000</pubDate>
+<description>看全 43 种通用风格与 98 种电影画风，播放本文精选的 9 支完整样片。按作者使用的 Claude Opus 5.5 路线，从安装到第一帧、故事板与成片逐步跟做。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 13 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Lemo-Opuscar：43 种通用风格、98 种电影风格，精选 9 支完整样片，让 Claude Opus 学做大片</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/lemo-opuscar-code-filmmaking/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>选风格的两条入口：43 种通用库与 98 种电影图鉴</span></a><a><span>02</span><span>零基础第一步：从打开终端到装好工具</span></a><a><span>03</span><span>手把手做片示范：以 30 秒《深夜面馆》为例</span></a><a><span>04</span><span>制作卡住了？常见故障与排查求助</span></a><a><span>05</span><span>经典画风提示词长什么样？三个代表案例拆解</span></a><a><span>06</span><span>背后机制：它怎么把代码变成视频？</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Lemo-Opuscar：43 种通用风格、98 种电影风格，精选 9 支完整样片，让 Claude Opus 学做大片</h1><p>看全 43 种通用风格与 98 种电影画风，播放本文精选的 9 支完整样片。按作者使用的 Claude Opus 5.5 路线，从安装到第一帧、故事板与成片逐步跟做。</p><div><span><b>已核对</b></span><span>Lemomo</span><span>10-13 · 20 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>作者用 Claude Opus 5.5 制作样片并调试风格；其他模型可尝试，效果需从第一帧检查。</li><li>43 种通用风格各有样片，98 个电影案例可复制画风词；本文精选 9 支完整样片直接播放。</li><li>用《深夜面馆》逐步跟做：安装与选模型、出一帧、确认故事板、制作和修改成片。</li></ul><div><p>想把自己的故事做成 30 秒短片，可以在 Claude Code 中运行 Lemomo 开源的 <a href="https://github.com/lemomo-ai/lemo-opuscar">Lemo-Opuscar</a>。Agent 会读取画风规则与示例源码，编写自己的视频工程代码，实现逐帧绘图、配乐与混音，最后把完整成片和工程文件一起交给你。</p>
+<p>项目包含两条入口：<strong>43 种通用风格库</strong>每种均配有规则与代码样片（本文按类别精选 9 支完整样片供直接播放，并非仓库只有 9 支）；<strong>《Opuscar 98》则公开了 98 个电影风格案例</strong>，供复制画风提示词。所有片子均由作者围绕 Claude Opus 5.5 调试生成，换用其他模型效果未作保证。本文把两份清单列全，再带你用 No. 14 威尔士山谷水粉实操。手机适合选风格，实际制作在电脑上完成。</p>
+<p>先看作者使用这套工具制作的 6 分 31 秒全代码短片《Opuscar 98》：</p>
+<figure>
+    您的浏览器不支持 video 标签。
+<figcaption>
+    《Opuscar 98》原片（6:31，内含完整音频，建议佩戴耳机观看）：每一帧画面、每一个音符、每一刀剪辑均由 Claude Opus 5.5 编写代码合成。
+  </figcaption>
+</figure>
+<figure>
+<img>
+<figcaption>
+    图 1：作者公布的《Opuscar 98》98 部最佳影片风格总览海报。
+  </figcaption>
+</img></figure>
+<p>作者说，这部原片的音乐、美术与剪辑制作由 Opus 完成，导演工作由自己与 Opus“一人一半”。跟做时，你也需要看预览、判断故事和画面是否达到目标。</p>
+<p>你负责给出题材、选画风和检查预览，Agent 负责写代码与运行工具。先从短片开始，能更早发现人物、画法和动作是否合适。</p>
+<hr />
+<h2>选风格的两条入口：43 种通用库与 98 种电影图鉴</h2>
+<p>先根据内容选画风：讲知识可以看白板讲解，讲流程可以看等距信息图；想做温暖的小故事，可以先看水彩或水粉。项目提供了两条入口：</p>
+<ol>
+<li><strong>43 种通用风格库</strong>：每种风格都有独立的文件夹、规则说明（<code>STYLE.md</code>）和演示说明（<code>DEMO.md</code>）与样片源码。在让 Agent 做片时，<strong>直接告诉它中文风格名</strong>即可（例如：“用油画厚涂风格做一支 30 秒短片”）。样片用于参考画法，自己的故事与分镜要重新设计。</li>
+<li><strong>98 种电影案例图鉴</strong>：打开官方 <a href="https://lemomo-ai.github.io/lemo-opuscar/opuscar98/#styles">OPUSCAR 98 图鉴页</a>，在清单上方切到“中文”，找到想要的电影，展开画风提示词并点复制按钮。选择英文时先切回“EN”。复制的是完整画风词（对应数据中的 <code>prompt_zh</code> / <code>prompt_en</code>），再把它发给 Agent。<strong>注意：只复制画风提示词，不要把电影原片的分镜（shots）或主角 Clawd 当成你自己的故事剧本。</strong></li>
+</ol>
+<h3>43 种官方通用风格：9 大类别速查</h3>
+<p>通用库按照表现形式分为 9 个官方类别，可以先按你想表达的内容挑选：</p>
+<ul>
+<li><strong>手绘与绘画（7 种）</strong>：蜡笔儿童绘本、水彩笔刷、中国水墨、油画厚涂、一笔画、白板讲解、钢笔淡彩。</li>
+<li><strong>东方传统（4 种）</strong>：皮影戏、浮世绘、红色窗花剪纸、纸雕灯影。</li>
+<li><strong>印刷与版画（5 种）</strong>：Risograph 丝网印刷、复古半调案卷、木刻版画、铜版画、丝印旅行海报。</li>
+<li><strong>图形与排版（7 种）</strong>：瑞士动态排版、60s 间谍片头、装饰艺术、蓝图 / 工程制图、彩色玻璃窗、象形运动图形、ASCII / CRT 终端。</li>
+<li><strong>信息与发布（5 种）</strong>：数据叙事、等距信息图、暗色科技发布、活体实机录屏、科幻全息界面。</li>
+<li><strong>卡通与动画（4 种）</strong>：1930s 橡皮管卡通、80 年代赛璐璐动画、科幻情景喜剧卡通、50s 扁平卡通。</li>
+<li><strong>游戏（4 种）</strong>：16-bit 像素 RPG、HD-2D、微游戏快闪（瓦里奥制造式）、综艺节奏扁平。</li>
+<li><strong>电影与时代（2 种）</strong>：1920s 默片、后室 / 新怪谈。</li>
+<li><strong>材质与 3D（5 种）</strong>：积木玩具、纸片立体书、移轴微缩、低多边形等距、玻璃质感产品。</li>
+</ul>
+<h4>看图挑画风，播放样片看动作</h4>
+<p>先看样帧的颜色、材质与构图，喜欢这种画法，再播放样片看人物动作、镜头和文字怎样变化。下面列全了 43 种通用风格的官方图片，每类各有一支可直接播放的完整样片，其余风格可以点“打开作者原片”。视频保留了作者原音轨。</p>
+<div><p>点图片可放大。每类附一支可直接播放的作者样片；其他风格保留作者原片入口。</p>
+手绘与绘画 · 7 张样帧<div>
+<figure><img /><figcaption><strong>蜡笔儿童绘本</strong><span>The Moon Can't Sleep</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/crayon-book.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>水彩笔刷</strong><span>Follow the Rain</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/watercolor.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>中国水墨</strong><span>The Swordsman and the River</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/ink-wash.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>油画厚涂</strong><span>The Colour of Rain</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/impasto.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>一笔画</strong><span>The Line That Never Lifted</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/one-line.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>白板讲解</strong><span>Einstein in Your Pocket</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/whiteboard.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>钢笔淡彩</strong><span>Where the Wind Went</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/urban-sketch.mp4">打开作者原片 ↗</a></figcaption></figure>
+</div>
+<figure>您的浏览器不支持视频播放。<figcaption><strong>播放样片：白板讲解 · 1:51</strong><span>看地图、时钟和公式怎样接续出现；做知识解释时，可以借鉴它让文字与图形互相配合的方式。</span>作者完整样片，保留原音轨；网页使用较小分辨率版本。</figcaption></figure>
+东方传统 · 4 张样帧<div>
+<figure><img /><figcaption><strong>皮影戏</strong><span>Hou Yi Shoots the Suns</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/shadow-puppet.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>浮世绘</strong><span>A Journey Toward the Mountain</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/ukiyoe.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>红色窗花剪纸</strong><span>Nian Comes to Town</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/papercut-red.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>纸雕灯影</strong><span>A Mooncake's Longing</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/paper-lantern.mp4">打开作者原片 ↗</a></figcaption></figure>
+</div>
+<figure>您的浏览器不支持视频播放。<figcaption><strong>播放样片：纸雕灯影 · 2:02</strong><span>看层叠纸张、窗灯和月亮怎样组织空间；做节日或思念题材时，可先参考这种透光层次。</span>作者完整样片，保留原音轨；网页使用较小分辨率版本。</figcaption></figure>
+印刷与版画 · 5 张样帧<div>
+<figure><img /><figcaption><strong>Risograph 丝网印刷</strong><span>Sunday Ride</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/risograph.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>复古半调案卷</strong><span>Case File: Chubby</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/halftone-dossier.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>木刻版画</strong><span>The Bell Founder</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/woodcut.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>铜版画</strong><span>The Honeybee, Plate VII</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/engraving.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>丝印旅行海报</strong><span>Three Trails</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/silkscreen-poster.mp4">打开作者原片 ↗</a></figcaption></figure>
+</div>
+<figure>您的浏览器不支持视频播放。<figcaption><strong>播放样片：木刻版画 · 0:58</strong><span>看黑白刻线与炉火色块怎样区分场景；选择这种画法时，先检查人物和环境是否能从刻线中读出来。</span>作者完整样片，保留原音轨；网页使用较小分辨率版本。</figcaption></figure>
+图形与排版 · 7 张样帧<div>
+<figure><img /><figcaption><strong>瑞士动态排版</strong><span>Five Rules for a Poster</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/swiss-motion.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>60s 间谍片头</strong><span>The Velvet Cipher</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/spy-titles.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>装饰艺术</strong><span>Midnight at the Starlight Hotel</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/art-deco.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>蓝图 / 工程制图</strong><span>Patent Pending: The Cloud Catcher</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/blueprint.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>彩色玻璃窗</strong><span>The Dragon of the East Window</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/stained-glass.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>象形运动图形</strong><span>Aichi-Nagoya 2026 — All 43 Sports</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/pictogram-motion.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>ASCII / CRT 终端</strong><span>Tranquility.log</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/ascii-crt.mp4">打开作者原片 ↗</a></figcaption></figure>
+</div>
+<figure>您的浏览器不支持视频播放。<figcaption><strong>播放样片：瑞士动态排版 · 0:44</strong><span>看网格、数字与字块怎样组成一张海报；做动效排版时，重点比较文字出现的顺序和停留。</span>作者完整样片，保留原音轨；网页使用较小分辨率版本。</figcaption></figure>
+信息与发布 · 5 张样帧<div>
+<figure><img /><figcaption><strong>数据叙事</strong><span>A Hundred Summers</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/dataviz.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>等距信息图</strong><span>From Bean to Cup</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/iso-infographic.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>暗色科技发布</strong><span>Room to Think</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/dark-keynote.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>活体实机录屏</strong><span>Clawd Moves In</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/living-screencast.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>科幻全息界面</strong><span>Volt · Spec Scan</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/hologram-hud.mp4">打开作者原片 ↗</a></figcaption></figure>
+</div>
+<figure>您的浏览器不支持视频播放。<figcaption><strong>播放样片：等距信息图 · 0:59</strong><span>从咖啡果到货轮、烘焙与萃取，场景连成一条流程；适合参考怎样把步骤放进同一张空间图。</span>作者完整样片，保留原音轨；网页使用较小分辨率版本。</figcaption></figure>
+卡通与动画 · 4 张样帧<div>
+<figure><img /><figcaption><strong>1930s 橡皮管卡通</strong><span>Coffee Cup Chase</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/rubber-hose.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>80 年代赛璐璐动画</strong><span>City Lights, 1987</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/cel-anime-80s.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>科幻情景喜剧卡通</strong><span>Coffee Run</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/scifi-toon.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>50s 扁平卡通</strong><span>Meet Pip</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/midcentury-toon.mp4">打开作者原片 ↗</a></figcaption></figure>
+</div>
+<figure>您的浏览器不支持视频播放。<figcaption><strong>播放样片：80 年代赛璐璐动画 · 0:59</strong><span>看摩托骑手经过霓虹街道与日出天际线；先检查角色、车辆与背景在不同镜头中是否一致。</span>作者完整样片，保留原音轨；网页使用较小分辨率版本。</figcaption></figure>
+游戏 · 4 张样帧<div>
+<figure><img /><figcaption><strong>16-bit 像素 RPG</strong><span>The Last Save Point</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/pixel-rpg.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>HD-2D</strong><span>The Lampbearer</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/hd-2d.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>微游戏快闪（瓦里奥制造式）</strong><span>Five-Second Astronaut</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/microgame.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>综艺节奏扁平</strong><span>Rhythm of AI, 1997 → 2026</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/game-show.mp4">打开作者原片 ↗</a></figcaption></figure>
+</div>
+<figure>您的浏览器不支持视频播放。<figcaption><strong>播放样片：16-bit 像素 RPG · 0:54</strong><span>看存档页、森林对话和战斗界面怎样接起来；像素风格也需要可读的角色和UI。</span>作者完整样片，保留原音轨；网页使用较小分辨率版本。</figcaption></figure>
+电影与时代 · 2 张样帧<div>
+<figure><img /><figcaption><strong>1920s 默片</strong><span>The Runaway Loaf</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/silent-film.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>后室 / 新怪谈</strong><span>Night Shift Orientation</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/backrooms.mp4">打开作者原片 ↗</a></figcaption></figure>
+</div>
+<figure>您的浏览器不支持视频播放。<figcaption><strong>播放样片：1920s 默片 · 0:54</strong><span>看厨师追赶面包、字幕卡与人物近景的节奏；没有口型对白时，也可以靠动作和镜头交代故事。</span>作者完整样片，保留原音轨；网页使用较小分辨率版本。</figcaption></figure>
+材质与 3D · 5 张样帧<div>
+<figure><img /><figcaption><strong>积木玩具</strong><span>Rocket from Spare Parts</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/brick-toy.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>纸片立体书</strong><span>Pip's Paper Adventure</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/paper-popup.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>移轴微缩</strong><span>Toy Town Rush Hour</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/tilt-shift.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>低多边形等距</strong><span>The Island That Grew</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/lowpoly-island.mp4">打开作者原片 ↗</a></figcaption></figure>
+<figure><img /><figcaption><strong>玻璃质感产品</strong><span>Aura — Hear the Light</span><a href="https://github.com/lemomo-ai/lemo-opuscar/releases/download/films/glass-product.mp4">打开作者原片 ↗</a></figcaption></figure>
+</div>
+<figure>您的浏览器不支持视频播放。<figcaption><strong>播放样片：玻璃质感产品 · 0:32</strong><span>看耳机盒、耳机单体和内部零件的分解，以及玻璃高光；产品展示可以参考从整体到细节再回到全貌的顺序。</span>作者完整样片，保留原音轨；网页使用较小分辨率版本。</figcaption></figure>
+</div>
+<h3>98 个电影风格，按画面类型选</h3>
+<p>以下按画面媒介与用途整理，编号、影片名和风格名沿用原清单；同一种风格也可能适合其他题材。官方数据中，二维（2D）有 77 条，2.5D 有 4 条，三维（3D）有 17 条；2.5D 指把三维模型渲染成平面层。展开下方类别后，既能查看每部电影对应的样帧，也能查阅完整风格名；选中后，到上方官方图鉴链接复制对应的画风提示词。</p>
+手绘与绘画 · 24 种
+<div>
+<figure><img /><figcaption>12 · 乱世佳人</figcaption></figure>
+<figure><img /><figcaption>13 · 蝴蝶梦</figcaption></figure>
+<figure><img /><figcaption>14 · 青山翠谷</figcaption></figure>
+<figure><img /><figcaption>20 · 君子协定</figcaption></figure>
+<figure><img /><figcaption>24 · 一个美国人在巴黎</figcaption></figure>
+<figure><img /><figcaption>27 · 码头风云</figcaption></figure>
+<figure><img /><figcaption>35 · 阿拉伯的劳伦斯</figcaption></figure>
+<figure><img /><figcaption>37 · 窈窕淑女</figcaption></figure>
+<figure><img /><figcaption>39 · 日月精忠</figcaption></figure>
+<figure><img /><figcaption>45 · 教父</figcaption></figure>
+<figure><img /><figcaption>48 · 飞越疯人院</figcaption></figure>
+<figure><img /><figcaption>51 · 猎鹿人</figcaption></figure>
+<figure><img /><figcaption>53 · 普通人</figcaption></figure>
+<figure><img /><figcaption>59 · 野战排</figcaption></figure>
+<figure><img /><figcaption>60 · 末代皇帝</figcaption></figure>
+<figure><img /><figcaption>61 · 雨人</figcaption></figure>
+<figure><img /><figcaption>62 · 为黛西小姐开车</figcaption></figure>
+<figure><img /><figcaption>63 · 与狼共舞</figcaption></figure>
+<figure><img /><figcaption>65 · 不可饶恕</figcaption></figure>
+<figure><img /><figcaption>69 · 英国病人</figcaption></figure>
+<figure><img /><figcaption>71 · 莎翁情史</figcaption></figure>
+<figure><img /><figcaption>76 · 指环王：王者无敌</figcaption></figure>
+<figure><img /><figcaption>89 · 月光男孩</figcaption></figure>
+<figure><img /><figcaption>93 · 无依之地</figcaption></figure>
+</div>
+<p>画面有笔触、纸张或颜料感，适合温暖故事、旅行、人物与情绪短片。</p>
+<ul>
+<li>12 · 乱世佳人：Technicolor 厚涂油画</li>
+<li>13 · 蝴蝶梦：哥特炭笔画</li>
+<li>14 · 青山翠谷：威尔士山谷水粉</li>
+<li>20 · 君子协定：40 年代杂志铅笔插画</li>
+<li>24 · 一个美国人在巴黎：杜飞水彩芭蕾</li>
+<li>27 · 码头风云：本·沙恩社会现实主义</li>
+<li>35 · 阿拉伯的劳伦斯：Terpning 史诗海报水粉</li>
+<li>37 · 窈窕淑女：Bob Peak 时装插画</li>
+<li>39 · 日月精忠：霍尔拜因都铎肖像油画</li>
+<li>45 · 教父：伦勃朗顶光明暗油画</li>
+<li>48 · 飞越疯人院：霍珀式美国写实油画</li>
+<li>51 · 猎鹿人：安德鲁·怀斯蛋彩</li>
+<li>53 · 普通人：秋日透明水彩</li>
+<li>59 · 野战排：越战随军速写 · 钢笔淡彩</li>
+<li>60 · 末代皇帝：工笔重彩 · 绢本宫廷画</li>
+<li>61 · 雨人：80 年代喷枪插画 + 雷蒙的计数</li>
+<li>62 · 为黛西小姐开车：洛克威尔式油画插画</li>
+<li>63 · 与狼共舞：邓巴日记 · 铅笔 + 透明水彩</li>
+<li>65 · 不可饶恕：雷明顿西部油画 · 晚霞与雨夜</li>
+<li>69 · 英国病人：探险家剪贴本水彩</li>
+<li>71 · 莎翁情史：希利亚德伊丽莎白细密画</li>
+<li>76 · 指环王：王者无敌：艾伦·李式水彩 + 托尔金地图</li>
+<li>89 · 月光男孩：月光蓝调油画肖像</li>
+<li>93 · 无依之地：魔幻时刻色粉画</li>
+</ul>
+版画与印刷海报 · 19 种
+<div>
+<figure><img /><figcaption>02 · 百老汇旋律</figcaption></figure>
+<figure><img /><figcaption>03 · 西线无战事</figcaption></figure>
+<figure><img /><figcaption>06 · 乱世春秋</figcaption></figure>
+<figure><img /><figcaption>08 · 叛舰喋血记</figcaption></figure>
+<figure><img /><figcaption>10 · 左拉传</figcaption></figure>
+<figure><img /><figcaption>11 · 浮生若梦</figcaption></figure>
+<figure><img /><figcaption>15 · 忠勇之家</figcaption></figure>
+<figure><img /><figcaption>22 · 国王班底</figcaption></figure>
+<figure><img /><figcaption>25 · 戏王之王</figcaption></figure>
+<figure><img /><figcaption>31 · 金粉世界</figcaption></figure>
+<figure><img /><figcaption>36 · 汤姆·琼斯</figcaption></figure>
+<figure><img /><figcaption>40 · 炎热的夜晚</figcaption></figure>
+<figure><img /><figcaption>42 · 午夜牛郎</figcaption></figure>
+<figure><img /><figcaption>43 · 巴顿将军</figcaption></figure>
+<figure><img /><figcaption>54 · 烈火战车</figcaption></figure>
+<figure><img /><figcaption>64 · 沉默的羔羊</figcaption></figure>
+<figure><img /><figcaption>79 · 无间行者</figcaption></figure>
+<figure><img /><figcaption>88 · 聚焦</figcaption></figure>
+<figure><img /><figcaption>91 · 绿皮书</figcaption></figure>
+</div>
+<p>色块、刻线和印刷网点突出，适合复古片头、历史叙事、宣传海报动效。</p>
+<ul>
+<li>02 · 百老汇旋律：黑金银装饰艺术歌舞海报</li>
+<li>03 · 西线无战事：珂勒惠支式反战木刻</li>
+<li>06 · 乱世春秋：慕夏新艺术装饰画</li>
+<li>08 · 叛舰喋血记：海军部海图铜版画</li>
+<li>10 · 左拉传：报纸活字印刷 + 线刻插图</li>
+<li>11 · 浮生若梦：WPA 丝网海报</li>
+<li>15 · 忠勇之家：英国战时石印海报</li>
+<li>22 · 国王班底：南方竞选木活字海报</li>
+<li>25 · 戏王之王：Strobridge 马戏团彩色石印</li>
+<li>31 · 金粉世界：罗特列克美好年代石印</li>
+<li>36 · 汤姆·琼斯：手工上色讽刺铜版画</li>
+<li>40 · 炎热的夜晚：三色 Risograph 夜景</li>
+<li>42 · 午夜牛郎：沃霍尔照片丝网 · Double Elvis</li>
+<li>43 · 巴顿将军：二战战争债券石印海报</li>
+<li>54 · 烈火战车：1924 巴黎奥运石印海报</li>
+<li>64 · 沉默的羔羊：手工上色的博物学铜版画</li>
+<li>79 · 无间行者：波士顿红砖墙模板涂鸦</li>
+<li>88 · 聚焦：缩微胶片阅读机 · 报纸网点</li>
+<li>91 · 绿皮书：60 年代亚麻纹明信片</li>
+</ul>
+插画、卡通与游戏 · 9 种
+<div>
+<figure><img /><figcaption>07 · 一夜风流</figcaption></figure>
+<figure><img /><figcaption>23 · 彗星美人</figcaption></figure>
+<figure><img /><figcaption>29 · 环游地球八十天</figcaption></figure>
+<figure><img /><figcaption>46 · 骗中骗</figcaption></figure>
+<figure><img /><figcaption>50 · 安妮·霍尔</figcaption></figure>
+<figure><img /><figcaption>52 · 克莱默夫妇</figcaption></figure>
+<figure><img /><figcaption>77 · 百万美元宝贝</figcaption></figure>
+<figure><img /><figcaption>81 · 贫民窟的百万富翁</figcaption></figure>
+<figure><img /><figcaption>85 · 逃离德黑兰</figcaption></figure>
+</div>
+<p>角色与图形更概括，适合轻松故事、儿童内容、喜剧或游戏感短片。</p>
+<ul>
+<li>07 · 一夜风流：30 年代黑白橡皮管卡通</li>
+<li>23 · 彗星美人：赫希菲尔德一笔画漫画</li>
+<li>29 · 环游地球八十天：50 年代 UPA 现代主义卡通</li>
+<li>46 · 骗中骗：《星期六晚邮报》插画</li>
+<li>50 · 安妮·霍尔：《纽约客》单格漫画 · 墨线淡彩</li>
+<li>52 · 克莱默夫妇：儿童蜡笔画</li>
+<li>77 · 百万美元宝贝：16-bit 像素格斗游戏</li>
+<li>81 · 贫民窟的百万富翁：答题节目演播室 + 孟买橙青</li>
+<li>85 · 逃离德黑兰：杰克·柯比 70 年代漫画页</li>
+</ul>
+老照片与电影质感 · 12 种
+<div>
+<figure><img /><figcaption>04 · 壮志千秋</figcaption></figure>
+<figure><img /><figcaption>16 · 卡萨布兰卡</figcaption></figure>
+<figure><img /><figcaption>26 · 乱世忠魂</figcaption></figure>
+<figure><img /><figcaption>28 · 君子好逑</figcaption></figure>
+<figure><img /><figcaption>56 · 母女情深</figcaption></figure>
+<figure><img /><figcaption>66 · 辛德勒的名单</figcaption></figure>
+<figure><img /><figcaption>72 · 美国丽人</figcaption></figure>
+<figure><img /><figcaption>78 · 撞车</figcaption></figure>
+<figure><img /><figcaption>83 · 国王的演讲</figcaption></figure>
+<figure><img /><figcaption>84 · 艺术家</figcaption></figure>
+<figure><img /><figcaption>86 · 为奴十二年</figcaption></figure>
+<figure><img /><figcaption>97 · 阿诺拉</figcaption></figure>
+</div>
+<p>强调黑白、老照片、胶片、电视或霓虹气氛，适合回忆、纪实感和城市故事。</p>
+<ul>
+<li>04 · 壮志千秋：1889 棕褐蛋白印相全景</li>
+<li>16 · 卡萨布兰卡：好莱坞片厂柔光黑白</li>
+<li>26 · 乱世忠魂：高调海滩黑白银幕</li>
+<li>28 · 君子好逑：50 年代电视显像管录像</li>
+<li>56 · 母女情深：家庭相册宝丽来</li>
+<li>66 · 辛德勒的名单：黑白胶片 · 唯一的红大衣</li>
+<li>72 · 美国丽人：郊区对称电影画面 + DV 录像</li>
+<li>78 · 撞车：洛杉矶夜景光轨 + 飘雪</li>
+<li>83 · 国王的演讲：斑驳墙 + 金色广播间</li>
+<li>84 · 艺术家：2011 精致默片黑白</li>
+<li>86 · 为奴十二年：显影中的银版老照片</li>
+<li>97 · 阿诺拉：雪夜霓虹</li>
+</ul>
+文字、图解与工程制图 · 6 种
+<div>
+<figure><img /><figcaption>18 · 失去的周末</figcaption></figure>
+<figure><img /><figcaption>30 · 桂河大桥</figcaption></figure>
+<figure><img /><figcaption>33 · 桃色公寓</figcaption></figure>
+<figure><img /><figcaption>74 · 美丽心灵</figcaption></figure>
+<figure><img /><figcaption>82 · 拆弹部队</figcaption></figure>
+<figure><img /><figcaption>92 · 寄生虫</figcaption></figure>
+</div>
+<p>文字、地图、公式或剖面图能参与叙事，适合知识解释、空间关系与过程说明。</p>
+<ul>
+<li>18 · 失去的周末：打字机字符画</li>
+<li>30 · 桂河大桥：氰版工程蓝图</li>
+<li>33 · 桃色公寓：Saul Bass 线条片头 · 黑白</li>
+<li>74 · 美丽心灵：窗上公式与黑板粉笔 + 金色连线</li>
+<li>82 · 拆弹部队：拆弹教范线图</li>
+<li>92 · 寄生虫：建筑剖面轴测图</li>
+</ul>
+装饰、剪影与传统工艺 · 7 种
+<div>
+<figure><img /><figcaption>17 · 与我同行</figcaption></figure>
+<figure><img /><figcaption>55 · 甘地传</figcaption></figure>
+<figure><img /><figcaption>57 · 莫扎特传</figcaption></figure>
+<figure><img /><figcaption>68 · 勇敢的心</figcaption></figure>
+<figure><img /><figcaption>73 · 角斗士</figcaption></figure>
+<figure><img /><figcaption>75 · 芝加哥</figcaption></figure>
+<figure><img /><figcaption>94 · 健听女孩</figcaption></figure>
+</div>
+<p>用玻璃、印花、剪影、贴金或雕刻的材料特征组织画面，适合文化题材与舞台感表达。</p>
+<ul>
+<li>17 · 与我同行：逆光哥特彩色玻璃窗</li>
+<li>55 · 甘地传：拉贾斯坦手工木刻印花布</li>
+<li>57 · 莫扎特传：洛可可剪影 · 烛光金色歌剧院</li>
+<li>68 · 勇敢的心：泥金手抄本 · 贴金细密画</li>
+<li>73 · 角斗士：罗马地面马赛克</li>
+<li>75 · 芝加哥：福斯舞台：红黑聚光剪影</li>
+<li>94 · 健听女孩：鲸牙骨雕（Scrimshaw）</li>
+</ul>
+立体纸艺与平面层次 · 4 种
+<div>
+<figure><img /><figcaption>19 · 黄金时代</figcaption></figure>
+<figure><img /><figcaption>41 · 雾都孤儿</figcaption></figure>
+<figure><img /><figcaption>47 · 教父2</figcaption></figure>
+<figure><img /><figcaption>67 · 阿甘正传</figcaption></figure>
+</div>
+<p>官方标为2.5D：3D模型渲染为平面层。适合纸剧场、立体书与有景深的平面画面。</p>
+<ul>
+<li>19 · 黄金时代：画报新闻摄影半调跨页</li>
+<li>41 · 雾都孤儿：维多利亚玩具纸剧场</li>
+<li>47 · 教父2：手工上色棕褐老照片</li>
+<li>67 · 阿甘正传：立体书 · 真实书桌上的纸艺</li>
+</ul>
+3D空间与电影运镜 · 17 种
+<div>
+<figure><img /><figcaption>01 · 翼</figcaption></figure>
+<figure><img /><figcaption>05 · 大饭店</figcaption></figure>
+<figure><img /><figcaption>09 · 歌舞大王齐格飞</figcaption></figure>
+<figure><img /><figcaption>21 · 王子复仇记</figcaption></figure>
+<figure><img /><figcaption>32 · 宾虚</figcaption></figure>
+<figure><img /><figcaption>34 · 西区故事</figcaption></figure>
+<figure><img /><figcaption>38 · 音乐之声</figcaption></figure>
+<figure><img /><figcaption>44 · 法国贩毒网</figcaption></figure>
+<figure><img /><figcaption>49 · 洛奇</figcaption></figure>
+<figure><img /><figcaption>58 · 走出非洲</figcaption></figure>
+<figure><img /><figcaption>70 · 泰坦尼克号</figcaption></figure>
+<figure><img /><figcaption>80 · 老无所依</figcaption></figure>
+<figure><img /><figcaption>87 · 鸟人</figcaption></figure>
+<figure><img /><figcaption>90 · 水形物语</figcaption></figure>
+<figure><img /><figcaption>95 · 瞬息全宇宙</figcaption></figure>
+<figure><img /><figcaption>96 · 奥本海默</figcaption></figure>
+<figure><img /><figcaption>98 · 一战再战</figcaption></figure>
+</div>
+<p>利用空间纵深、航拍、追车或长镜头，适合需要明显空间运动的题材；先做短动作验证。</p>
+<ul>
+<li>01 · 翼：默片 3D 空战 · 正色片黑白 + 琥珀染色</li>
+<li>05 · 大饭店：米高梅银色黑白 3D 大堂</li>
+<li>09 · 歌舞大王齐格飞：银色黑白 3D 螺旋婚礼蛋糕舞台</li>
+<li>21 · 王子复仇记：黑白 3D 雾中城堡</li>
+<li>32 · 宾虚：3D 大竞技场战车赛 · 65mm 史诗</li>
+<li>34 · 西区故事：特艺七彩 3D 舞台</li>
+<li>38 · 音乐之声：绘本感 3D 阿尔卑斯航拍</li>
+<li>44 · 法国贩毒网：高架铁下追车 · 16mm 颗粒 3D</li>
+<li>49 · 洛奇：费城台阶日出 3D · 35mm 调色</li>
+<li>58 · 走出非洲：3D 双翼机飞越东非裂谷</li>
+<li>70 · 泰坦尼克号：蓝图显影成 3D 实景</li>
+<li>80 · 老无所依：3D 西德州荒原黄昏（迪金斯光）</li>
+<li>87 · 鸟人：3D 后台走廊长镜头</li>
+<li>90 · 水形物语：3D 水下青绿焦散</li>
+<li>95 · 瞬息全宇宙：光线步进多元宇宙跳切</li>
+<li>96 · 奥本海默：3D 粒子火球 · IMAX 颗粒</li>
+<li>98 · 一战再战：3D 起伏公路追车 · 长焦压缩</li>
+</ul>
+<hr />
+<h2>零基础第一步：从打开终端到装好工具</h2>
+<p>许多读者卡在第一步，是因为分不清“系统终端”和“Claude 对话界面”。跟着以下步骤操作，即可建立起清晰的运行环境：</p>
+<h3>1. 先确认账号和电脑能用</h3>
+<ul>
+<li><strong>账号要求</strong>：需要具备使用 Claude Code 权限的账号（支持 Claude Code 的 Claude 订阅，或充值有额度的 Anthropic Console 开发者账号）。</li>
+<li><strong>工具认知</strong>：官方 Claude Code 原生安装采用独立二进制，本身不需要 Node.js；<strong>但 Lemo-Opuscar 的媒体后端</strong>（截图无头浏览器、配音脚本、混音器）需要本地安装有 <code>Node 20+</code>、<code>Python 3.11+</code>（或 uv）以及 <strong>ffmpeg</strong>。如果电脑上还没装这些工具，先不用着急，后文提供了一段自检指令让 Agent 协助配置。</li>
+</ul>
+<h3>2. 打开系统终端</h3>
+<ul>
+<li><strong>Mac 用户</strong>：按键盘上的快捷键 <code>Command + 空格</code> 调出聚焦搜索（Spotlight），输入 <code>终端</code> 或 <code>Terminal</code> 并回车。</li>
+<li><strong>Windows 用户</strong>：项目底层大量依赖 Bash 脚本（如 <code>setup.sh</code> 和 <code>mux.sh</code>），因此强烈建议使用 <strong>WSL2（Ubuntu）</strong> 路线。在 WSL 终端中操作，不要在普通 PowerShell 中直接混跑 Mac/Linux 的 Bash 命令。</li>
+</ul>
+<h3>3. 安装 Claude Code 并验证</h3>
+<p>在系统终端中粘贴官方原生安装命令并回车（如果以前已经安装过，直接跳过本步）：</p>
+<div><pre><code>curl -fsSL https://claude.ai/install.sh | bash
+</code></pre></div>
+<p>安装完成后，新开一个终端窗口，再输入以下命令进行验证：</p>
+<div><pre><code>claude --version
+</code></pre></div>
+<p><strong>必须看到类似 <code>2.1.x (Claude Code)</code> 的版本号输出后，再继续下一步。</strong> 如果提示找不到命令，请关闭当前终端窗口重新打开一次。</p>
+<p>接着输入 <code>claude</code> 并回车，根据终端提示在浏览器中完成登录授权。</p>
+<h3>4. 安装 Lemo-Opuscar 插件（在系统终端执行）</h3>
+<p>这是许多新手最容易混淆的地方：<strong>安装插件的两条命令必须在操作系统终端中运行，不要把它们当作自然语言聊天发给 Claude Code！</strong></p>
+<p>如果你刚才启动了 <code>claude</code>，输入 <code>/exit</code> 退出会话，回到系统终端提示符下，依次粘贴执行：</p>
+<div><pre><code>claude plugin marketplace add lemomo-ai/lemo-opuscar
+claude plugin install lemo-opuscar@lemolab
+</code></pre></div>
+<p>两条命令分别添加插件来源、安装 Lemo-Opuscar。看到成功提示后继续；如果出现错误，先按文末报错方法处理。在第一次做片时，它会自动在你的主目录下建立 <code>~/lemo-opuscar</code> 共享库，把通用规则和渲染工具缓存好。</p>
+<h3>5. 新建专属短片目录并启动</h3>
+<p>为了让生成的代码、海报和视频整齐有序，不要在根目录或乱七八糟的下载文件夹里直接开工。在终端中创建一个专门的英文路径并启动 Claude：</p>
+<div><pre><code>mkdir -p ~/Movies/lemo-first-film
+cd ~/Movies/lemo-first-film
+claude
+</code></pre></div>
+<p>看到 Claude Code 的欢迎界面、模型名称和当前文件夹后，就进入了 Agent 会话。从这里开始，把下方的做片请求发给它，而不是当作终端命令执行。</p>
+<p>在 Claude Code 会话中输入 <code>/model</code>，从菜单中选择账号实际可用的 Opus 5.5。注意会话默认模型不一定就是 Opus 5.5（不同账号类型、企业策略或云端供应商的默认模型各异）。如果菜单中找不到 Opus 5.5，请检查账号订阅权限、企业模型限制或供应商可用模型范围。全套风格库均按 Opus 5.5 调试，换用其他模型时不保证原片画质与效果，建议先出一帧检查画面合格后再继续。详见 <a href="https://code.claude.com/docs/en/model-config">Claude Code 模型设置</a>。</p>
+<h3>6. 环境体检：双语环境自检模板</h3>
+<p>如果不确定电脑上是否已经装好 Node 20+、Python 3.11+ 和 ffmpeg，<strong>可以直接把下面这段请求发给 Claude Code</strong>。Agent 会自动检查当前系统的环境，并根据你的操作系统给出精确的补齐指令，无需盲目复制网络上的安装命令：</p>
+查看环境自检双语模板（点击折叠 / 展开）
+<p><strong>中文指令</strong>：</p>
+<div><pre><code>你好！我准备使用 lemo-opuscar 制作短片。请先不要开始写剧本，帮我检查当前系统的制片底层依赖：
+1. 检查 Node.js 版本是否达到 20+，并检查 Git 是否可用；
+2. 检查 Python 版本是否达到 3.11+（或是否安装了 uv）；
+3. 检查系统是否安装了 ffmpeg。
+如果缺少任何工具，请给出适配我当前操作系统的安装命令和执行位置。安装完成后重新检查版本，全部通过后再告诉我可以开始。
+</code></pre></div>
+<p><strong>English Prompt</strong>:</p>
+<div><pre><code>Hi! I am preparing to produce a short film using lemo-opuscar. Before writing any script, please check my system dependencies for the media pipeline:
+1. Verify Node.js is at version 20 or higher and Git is available;
+2. Verify if Python is at version 3.11+ (or if uv is installed);
+3. Verify if ffmpeg is installed and accessible.
+If a dependency is missing, give installation commands for my operating system and say where to run them. Recheck the versions after installation and tell me to proceed only when all checks pass.
+</code></pre></div>
+<hr />
+<h2>手把手做片示范：以 30 秒《深夜面馆》为例</h2>
+<p>下面以自拟的 30 秒短片《深夜面馆》为例，演示从画风选择到成片交付的完整交互过程。本例采用 <strong>No. 14 威尔士山谷水粉</strong> 画风，默认规格为 1920×1080、24 fps。</p>
+<p>《深夜面馆》是本文设计的跟做例子；下面给的是请求模板，没有把它写成已生成的成片。换成你的故事时，保持先看预览、再继续制作的顺序。</p>
+<h3>第一轮：画风原件 + “先出一帧”验证</h3>
+<p>拿到画风后，<strong>第一次尝试先检查一帧</strong>。因为一旦基础材质、颜色比例或人物造型不合预期，重新渲染 30 秒视频需要耗费大量时间和 Token。先把完整画风原件与你的题材结合，要求用代码绘制一帧静态画面。</p>
+<p>可以用这个组合台换题材、复制原件与单帧请求；想完整照做《深夜面馆》，用紧接着的模板。中文和英文任选一种发送。</p>
+<div>
+<div>把画风留住，把故事换成你的</div>
+<p>选一条真实画风原件，填自己的题材；下方把原件与「先一帧」请求分开。这里组合文字，不调用 AI 或生成视频。</p>
+<div>
+画风青山翠谷 · 2D教父 · 2D寄生虫 · 2D
+提示词语言中文English
+你的题材
+</div>
+<div>威尔士山谷水粉 · 2D</div>
+完整画风原件 + 单帧请求（选择一种语言发送）
+【完整画风原件】
+仿威尔士画家 Kyffin Williams 的不透明水粉。方向性笔触宽为画幅宽 1/80–1/40，长是宽的 2–5 倍，边缘毛糙，完全覆盖；房子、墙、山脊用断续深色短线勾边；暗山上刮几笔亮绿或灰蓝。色板：天空和光淡金 #F1C565（别成芥末黄），田野绿 #86A03F，暗部煤黑 #1D1B1E，远山和水面灰蓝 #48505E，小点缀黄 #F6CF2F，其他颜色由这几色调出；故事围绕的那个主角用 #D97757，至少占画面高八分之一。田野和天空偏亮（约六成），山和房子偏暗。暖色调色不超过一成，暗角，颗粒。默认傍晚低角度侧光，田野受光，山脊有轮廓光。从高处真透视取景，一条路把视线引下去；小房子（或墙、石块）顺山坡一级级排开。动起来：烟或云循环飘动，横向跟拍。避免：水彩透明感、矢量平涂、发暗发脏。
+【本文补充：先一帧请求】
+请按上面的画风做一帧真实代码渲染的预览，题材是：深夜面馆里，老李给最后一位客人煮面。
+主角与故事由我的题材决定，不沿用样片的 Clawd 或原电影剧情。
+先展示这一帧及对应源码位置，暂不制作整片。单帧先核对材质、用色、光线和构图，运镜留到后续。
+<div>复制这一版<span>画风原件未删改；请求模板为本文补充。</span></div>
+未启用脚本时，可直接复制上方默认文本；其他两条完整原件也在正文中。
+</div>
+第一轮：“先出一帧”双语请求模板（点击折叠 / 展开）
+<p><strong>中文指令</strong>：</p>
+<div><pre><code>【完整画风原件】
+仿威尔士画家 Kyffin Williams 的不透明水粉。方向性笔触宽为画幅宽 1/80–1/40，长是宽的 2–5 倍，边缘毛糙，完全覆盖；房子、墙、山脊用断续深色短线勾边；暗山上刮几笔亮绿或灰蓝。色板：天空和光淡金 #F1C565（别成芥末黄），田野绿 #86A03F，暗部煤黑 #1D1B1E，远山和水面灰蓝 #48505E，小点缀黄 #F6CF2F，其他颜色由这几色调出；故事围绕的那个主角用 #D97757，至少占画面高八分之一。田野和天空偏亮（约六成），山和房子偏暗。暖色调色不超过一成，暗角，颗粒。默认傍晚低角度侧光，田野受光，山脊有轮廓光。从高处真透视取景，一条路把视线引下去；小房子（或墙、石块）顺山坡一级级排开。动起来：烟或云循环飘动，横向跟拍。避免：水彩透明感、矢量平涂、发暗发脏。
+【本文补充：先一帧请求】
+请使用 lemo-opuscar 技能，在当前工作文件夹下建立 midnight-noodles 工程。采用上述《青山翠谷》的不透明水粉画风规则，先不要生成完整短片，用真实的前端绘图代码为我绘制一帧静态画面：
+【题材场景】深夜雨后狭窄胡同里的小面馆。
+【关键构图】老厨师老李（围裙使用主角专属色 #D97757，高度至少占画面 1/4）站在沸腾的面锅前，用竹筷挑起热气腾腾的细面；店内挂着一盏淡金暖灯（#F1C565），照亮升腾的蒸汽与粗木案板；窗外是深煤黑（#1D1B1E）的湿润石板路与灰蓝（#48505E）远墙。
+【任务目标】请编写 index.html 渲染该静态帧，展示实际渲染出的图片绝对路径与源码位置，暂不制作整片。保持水粉的厚重刮刀色块与断续勾边，将光线合理转化为夜景光池，避免半透明水彩与塑料平涂。
+</code></pre></div>
+<p><strong>English Prompt</strong>:</p>
+<div><pre><code>[Complete Style Rules]
+Opaque gouache after Welsh painter Kyffin Williams. Directional strokes 1/80-1/40 of frame width, 2-5 times as long, ragged, fully covering; broken dark dashes outline buildings, walls and ridges; dark hills flecked with lighter green or slate knife marks. Palette: sky and light pale gold #F1C565 (not mustard), fields green #86A03F, darks coal #1D1B1E, far hills and water slate #48505E, small accents yellow #F6CF2F, other colours mixed from these; the hero the story centres on #D97757, at least 1/8 of frame height. Fields and sky light (~60%), hills and buildings dark. Warm grade under 10%, vignette, grain. Default low late-afternoon side light: fields lit, ridges rim-lit. From high ground in true perspective, a path leading the eye down; small repeated buildings (or walls, rocks) stepping along slopes. Motion: looping smoke or cloud, a lateral track. Avoid: watercolour transparency, vector fills, mud.
+[Single Frame Request]
+Use the lemo-opuscar skill. Create the midnight-noodles project inside the current working folder and apply the Welsh Valley Gouache style above. Do not generate the full film yet; render a single static frame using real drawing code:
+[Subject &amp; Scene] A small noodle shop in a narrow alley on a wet night.
+[Key Composition] The old chef Lao Li (wearing an apron in #D97757, occupying at least 1/4 of frame height) stands before a boiling pot lifting steaming noodles; a warm hanging lantern in pale gold (#F1C565) lights up the steam and wooden counter; outside are wet cobblestone streets in coal dark (#1D1B1E) and distant walls in slate blue (#48505E).
+[Task] Write index.html to render this still. Report the absolute path of the rendered image and source code, without producing the full film yet. Maintain opaque gouache strokes and broken outlines, adapt lighting for a night scene, and avoid watercolor transparency or flat vector fills.
+</code></pre></div>
+<figure>
+<img />
+<figcaption>
+    作者《青山翠谷》原片画面参照（非面馆生成成果）：对照观察厚实的不透明笔触、鲜明的主体剪影，以及暗部中依然分明的煤黑与灰蓝层次。
+  </figcaption>
+</figure>
+<h4>怎么看这一帧好不好？</h4>
+<p>Agent 执行后会在终端返回渲染出的图片路径（例如 <code>~/Movies/lemo-first-film/midnight-noodles/stills/t_0.jpg</code>；实际文件名以 Agent 返回的路径为准）。Mac 上打开 Finder，按 <code>Command + Shift + G</code>，粘贴 Agent 返回的图片路径并回车，就能找到它；再用预览打开。若 Agent 只给了文件名，先让它补上完整路径。按以下要点检查：</p>
+<ul>
+<li><strong>合格标准</strong>：面锅上升腾的蒸汽由厚实的白色与淡金刮色组成，有明显笔触质感；老李的人物剪影清晰，衣服色号符合 <code>#D97757</code>；窗外雨夜虽暗，但煤黑路面与灰蓝墙面层次可读。</li>
+<li><strong>不合格表现</strong>：蒸汽变成了半透明渐变水彩；人物和背景变成了大面积纯色平涂（塑料矢量感）；或者整个画面黑作一团、泥泞脏污。如果画面不合格，直接告诉 Agent 哪里发虚、哪里平涂，让它在这一帧上重新调整。</li>
+</ul>
+<hr />
+<h3>第二轮：给故事、声音要求，并索取故事板</h3>
+<p>单帧画质确认合格后，把完整的故事剧情、镜头节奏与声音需求交给 Agent。<strong>此时明确要求先看 6–9 个关键镜头拼成的故事板（Storyboard）与分镜方案（TREATMENT.md），不要跳过确认直接开跑。</strong></p>
+第二轮：故事与故事板请求模板（点击折叠 / 展开）
+<p><strong>中文指令</strong>：</p>
+<div><pre><code>单帧画面的水粉笔触与用色非常满意！请以此画风为基础，规划 30 秒短片《深夜面馆》：
+【故事弧线】
+- 起（0–3 秒）：深夜小巷冷雨寂静，突然，面馆挑帘亮起一团淡金暖光（视觉钩子）。
+- 承（3–18 秒）：老李熟练地揉面、滚水沸腾、挑起银丝细面，店内暖意渐浓。
+- 转（18–24 秒）：一名疲惫的雨夜加班族推门而入，门上风铃脆响，带来一身风雨寒气。
+- 合（24–30 秒）：老李端上一碗热汤面，年轻人低头喝汤露出释怀笑容；镜头慢慢拉出小店，暖光映亮湿润小巷。
+【视听与导演要求】
+1. 本例不需要旁白或对白，配乐采用民间拨弦乐器（物理建模），搭配环境雨声、沸水煮面拟音与风铃声；
+2. 先为我生成包含 6–9 个关键镜头的故事板拼图（Storyboard）与 TREATMENT.md，汇报各镜头的景别与秒数规划；
+3. 先停在这里等我确认故事板，不要直接开始全片渲染。
+</code></pre></div>
+<p><strong>English Prompt</strong>:</p>
+<div><pre><code>The gouache texture and palette in the static frame look great! Please proceed to plan the 30-second short film "Midnight Noodles" using this style:
+[Story Arc]
+- Hook (0–3s): A quiet alley in the night rain; suddenly, the noodle shop's warm lantern lights up.
+- Setup (3–18s): Lao Li kneads dough, boils water, and lifts steaming noodles; warm atmosphere builds up.
+- Turn (18–24s): A weary commuter pushes open the door; the wind chime rings against the cold rain outside.
+- Resolution (24–30s): Lao Li serves a hot bowl of noodles; the customer smiles; camera slowly pulls back, framing the warm glow over the alley.
+[Audio &amp; Directing]
+1. No narration or dialogue is needed for this example. Use folk plucked string instruments for the score with ambient rain, boiling water foley, and a wind chime;
+2. Generate a contact sheet storyboard with 6–9 key frames and TREATMENT.md, showing shot types and duration breakdown;
+3. Pause here and wait for my approval before full rendering.
+</code></pre></div>
+<h4>怎么看故事板好不好？</h4>
+<figure><div>
+<div><img /><span>10.2 秒 · 人物与环境</span></div>
+<div><img /><span>16.9 秒 · 追逐动作</span></div>
+<div><img /><span>44.0 秒 · 人物反应</span></div>
+</div><figcaption>画面来自作者《The Runaway Loaf》原片。并列的是三个实际时刻，用来观察故事变化；它们不是《深夜面馆》的生成结果。</figcaption></figure>
+<p>这三幅原片画面依次展示人物与环境、追逐动作、人物反应。看你自己的故事板时，也要能顺着镜头读出事情怎样发生、人物有什么变化。Agent 会把关键帧拼成一张图（例如 <code>storyboard.jpg</code>），再按以下检查点核对：</p>
+<ul>
+<li>机位景别是否有变化（全景交代环境、中景看人物、特写看煮面；推、拉、跟拍等运镜是否服务故事，而非全片只用一个机位）；</li>
+<li>人物与道具在不同镜头中的视觉比例是否稳定，不会忽大忽小；</li>
+<li>故事的转折点（加班族进门）是否有清晰的镜头停顿让观众理解。</li>
+</ul>
+<hr />
+<h3>第三轮：下达开工指令与成片交付物检查</h3>
+<p>对故事板的镜头调度和时间规划满意后，给 Agent 下达正式开工指令：</p>
+第三轮：开工渲染双语指令（点击折叠 / 展开）
+<p><strong>中文指令</strong>：</p>
+<div><pre><code>故事板分镜与节奏确认无误，请正式启动全片合成：
+1. 渲染输出标准 1920×1080、24 fps 的 30 秒 MP4 成片；
+2. 完成配乐、拟音与多轨混音，将整片响度归一化至约 -14 LUFS；
+3. 如有对白台词请同步导出对应时间轴的 .srt 字幕文件；
+4. 交付物完整保留在当前工程目录下：MP4 成片、代表性高光海报 poster.jpg、TREATMENT.md、第三方素材声明 CREDITS、以及可以在本地重新执行构建的 build.sh；
+5. 完成后请告诉我所有产出文件的具体绝对路径。
+</code></pre></div>
+<p><strong>English Prompt</strong>:</p>
+<div><pre><code>The storyboard and pacing are approved. Please proceed to full film rendering:
+1. Render a 30-second MP4 at standard 1920×1080, 24 fps;
+2. Complete score synthesis, foley, and multi-track mastering normalized to ~-14 LUFS;
+3. Export an aligned .srt subtitle file if there are voice lines;
+4. Deliver all assets inside the project folder: final MP4, highlight poster.jpg, TREATMENT.md, CREDITS, and a reproducible build.sh;
+5. Report the exact absolute file paths once completed.
+</code></pre></div>
+<h4>产出文件在哪里找到？</h4>
+<p>渲染完成后，Agent 会汇报你的工程目录（例如 <code>~/Movies/lemo-first-film/midnight-noodles/</code>）。Mac 上打开 Finder，按 <code>Command + Shift + G</code>，粘贴 Agent 返回的工程目录并回车。找到 MP4 后双击播放，先从头看一遍，再检查动作、声音和文字是否清楚。一套完整工程包含：</p>
+<ol>
+<li><strong><code>midnight-noodles.mp4</code></strong>：最终合成好的成片，带完整配乐与音效，可直接双击用播放器观看；</li>
+<li><strong><code>poster.jpg</code></strong>：Agent 从最精彩的镜头中截取的封面海报；</li>
+<li><strong><code>midnight-noodles.srt</code></strong>：如果含有旁白或台词，按请求生成的外挂字幕；本例没有对白，可以没有这个文件；</li>
+<li><strong><code>TREATMENT.md</code></strong>：记录了本片创作对标、秒级分镜、运镜理由与声音设计表的方案；</li>
+<li><strong><code>CREDITS</code></strong>：列明了本次所使用的合成音色库、字体及开源协议清单；</li>
+<li><strong><code>build.sh</code></strong>：本地重新构建脚本。以后你若想修改代码重新生成视频，在工程目录中执行 <code>sh build.sh</code>。不想找命令时，也可以告诉 Agent：“请用这份工程的 build.sh 重新生成，并告诉我新文件路径”。</li>
+</ol>
+<hr />
+<h3>第四轮：精准局部修改（按需追问）</h3>
+<p>以下追问是假设你在自己的成片中看到了对应问题。亮度提高 15%、延长 0.8 秒都是试调起点，先看修改后的片段再决定是否合适。延长镜头会改变总时长；想保持 30 秒时，要让 Agent 同步压缩别处。</p>
+<p>看完自己的成片后，如果发现某一秒的灯光暗了、动作快了或声音没对齐，<strong>先指出具体问题，让 Agent 修改相应代码</strong>。因为整个项目是纯代码构建的，时间轴与参数均有迹可循。直接指出具体秒数与要修改的参数：</p>
+第四轮：精准局部追问双语模板（点击折叠 / 展开）
+<p><strong>中文指令</strong>：</p>
+<div><pre><code>成片整体效果很好！请仅针对以下三处做局部代码微调，保持其他镜头与逻辑不变：
+1. 【光影提亮】：第 6–10 秒老李下面镜头的店内主光偏暗，请将面锅上方的淡金光池（#F1C565）受光面亮度提高 15%，让水蒸气的高光轮廓更清晰。
+2. 【动作停留】：第 20 秒推门进店的特写切换过快，请将该镜头延长 0.8 秒，给门上风铃摇晃一个清晰的视觉停顿，后续镜头时间点顺延。
+3. 【音画对齐】：面碗落桌的撞击拟音比画面提前了约 6 帧（0.25 秒），请在统一时间轴 timeline.js 中将该音效事件后移 0.25 秒，精确对齐碗底接触木桌的瞬间。
+修改后请执行 build.sh 重新生成成片，并给出新成片路径。
+</code></pre></div>
+<p><strong>English Prompt</strong>:</p>
+<div><pre><code>The overall film looks great! Please make targeted local adjustments to the code without altering other shots:
+1. [Lighting]: The key light in the noodle cooking shot (6–10s) feels a bit dim. Increase the intensity of the pale-gold light pool (#F1C565) above the pot by 15% to enhance the rim light on the steam.
+2. [Pacing]: The close-up shot of pushing open the door at 20s cuts too quickly. Extend this shot by 0.8s to give the swinging wind chime a clear visual pause, shifting subsequent cues accordingly.
+3. [Audio Sync]: The foley for the bowl hitting the counter triggers about 6 frames (0.25s) too early. In timeline.js, delay this event by 0.25s to align exactly with the moment the bowl touches the wood.
+After updating, execute build.sh to rebuild the film and report the new file path.
+</code></pre></div>
+<hr />
+<h2>制作卡住了？常见故障与排查求助</h2>
+<p>在首次上手过程中，如果遇到卡壳，不要慌张，对照以下典型场景排查：</p>
+<ol>
+<li><strong>终端提示 <code>command not found: claude</code></strong>：
+<ul>
+<li>可能是安装没完成，或终端还找不到安装目录。</li>
+<li>先新开终端再运行 <code>claude --version</code>；仍然失败时，对照 <a href="https://code.claude.com/docs/en/troubleshooting">官方安装故障排查</a> 检查安装与 PATH。</li>
+</ul>
+</li>
+<li><strong>在 Claude Code 里输入做片需求，它却像普通聊天一样回复，没有调用制片工具</strong>：
+<ul>
+<li>原因：插件未正确生效，或者当前目录未被识别。</li>
+<li>解决：输入 <code>/exit</code> 退出，在系统终端重跑上面的两条插件安装命令，查看是否报错；回到短片文件夹重新启动 <code>claude</code>，明确说“请使用 lemo-opuscar 技能”。</li>
+</ul>
+</li>
+<li><strong>单帧画面很好看，但生成的一段小动作特别僵硬、卡顿</strong>：
+<ul>
+<li>单帧只能检查画法，连续动作还需要单独检查。</li>
+<li>告诉 Agent：“先只输出这段动作的几秒预览，检查姿势是否跳变、动作是否连贯，修好后再重建整片。”</li>
+</ul>
+</li>
+<li><strong>配音报错或声音缺失</strong>：
+<ul>
+<li>原因：中文配音默认采用微软在线语音（edge-tts），如果电脑网络波动会导致失败；英文离线 Kokoro 则需要本地模型就绪。</li>
+<li>解决：检查网络连通性；或者将你自己录制好的 <code>.wav</code> 音频文件直接拷贝进工程目录，告诉 Agent：“我有自己的配音文件，请直接读取使用并提取时间轴”。</li>
+</ul>
+</li>
+<li><strong>画面里的字幕或标题被遮挡，或者一闪而过看不清</strong>：
+<ul>
+<li>文字的字号、位置或停留时间可能没安排好。</li>
+<li>告诉 Agent：“增大第 X 秒的文字、避开人物，并延长到能完整读完；重新运行 readcheck 检查，再输出这一段给我看。”</li>
+</ul>
+</li>
+<li><strong>终端报出一大串英文 Error / Exit code 1 时</strong>：
+<ul>
+<li>选中终端里的报错文字，把最后一段错误及其前面的相关命令完整复制给 Agent，方便它查到具体失败位置。</li>
+</ul>
+</li>
+</ol>
+<p>以下是通用报错修复请求模板：</p>
+查看通用故障排查修复模板（点击折叠 / 展开）
+<p><strong>中文指令</strong>：</p>
+<div><pre><code>在执行制片构建时遇到了以下错误，请仔细阅读报错上下文，定位是依赖缺失、页面脚本错误还是 ffmpeg 参数问题，并直接修改源码修复它：
+【终端报错信息】
+（在此处完整粘贴终端中的错误输出文字）
+请在修复代码后重新执行 build.sh，确保能够顺利输出 MP4。
+</code></pre></div>
+<p><strong>English Prompt</strong>:</p>
+<div><pre><code>An error occurred during build/render execution. Please analyze the error context, identify whether it is a missing dependency, page script failure, or ffmpeg parameter mismatch, and fix the codebase directly:
+[Terminal Error Output]
+(Paste the exact error log lines here)
+After fixing, please rerun build.sh and confirm the MP4 renders successfully.
+</code></pre></div>
+<hr />
+<h2>经典画风提示词长什么样？三个代表案例拆解</h2>
+<p>为什么有些提示词能让代码画出高度统一的艺术风格？关键在于<strong>具体的绘图要求</strong>（笔触大小、精确色号、光影占比与明确的负向剔除），而不是泛泛地写“油画感”或“电影级大师质感”。以下拆解三部代表作品：</p>
+<h3>案例 1：No. 14《青山翠谷》（威尔士山谷水粉 · 2D）</h3>
+<figure>
+<img />
+<figcaption>
+    图 2：《青山翠谷》样帧——山顶黄水仙丛中俯瞰：戴平顶帽、系红围巾的 Clawd 坐在左前景，远眺山谷排屋、井架与煤渣山。
+  </figcaption>
+</figure>
+<ul>
+<li><strong>为什么能成立</strong>：提示词明确要求仿照画家 Kyffin Williams 的调色刀刮法：笔触宽度严格限制在画幅的 <code>1/80–1/40</code>，长度为宽度的 <code>2–5</code> 倍，暗山用断续深色短线勾边。规定了精确色板（淡金 <code>#F1C565</code>、煤黑 <code>#1D1B1E</code>、灰蓝 <code>#48505E</code>），主角固定使用 <code>#D97757</code> 并占画面高至少八分之一。最后明确排除“水彩透明感、矢量平涂、发暗发脏”，给 Agent 明确的笔触与材质要求；预览时检查它有没有画出这些特征。</li>
+</ul>
+查看 No. 14 完整双语提示词原件（可直接复制）
+<p><strong>中文原件（prompt_zh）</strong>：</p>
+<div><pre><code>仿威尔士画家 Kyffin Williams 的不透明水粉。方向性笔触宽为画幅宽 1/80–1/40，长是宽的 2–5 倍，边缘毛糙，完全覆盖；房子、墙、山脊用断续深色短线勾边；暗山上刮几笔亮绿或灰蓝。色板：天空和光淡金 #F1C565（别成芥末黄），田野绿 #86A03F，暗部煤黑 #1D1B1E，远山和水面灰蓝 #48505E，小点缀黄 #F6CF2F，其他颜色由这几色调出；故事围绕的那个主角用 #D97757，至少占画面高八分之一。田野和天空偏亮（约六成），山和房子偏暗。暖色调色不超过一成，暗角，颗粒。默认傍晚低角度侧光，田野受光，山脊有轮廓光。从高处真透视取景，一条路把视线引下去；小房子（或墙、石块）顺山坡一级级排开。动起来：烟或云循环飘动，横向跟拍。避免：水彩透明感、矢量平涂、发暗发脏。
+</code></pre></div>
+<p><strong>英文原件（prompt_en）</strong>：</p>
+<div><pre><code>Opaque gouache after Welsh painter Kyffin Williams. Directional strokes 1/80-1/40 of frame width, 2-5 times as long, ragged, fully covering; broken dark dashes outline buildings, walls and ridges; dark hills flecked with lighter green or slate knife marks. Palette: sky and light pale gold #F1C565 (not mustard), fields green #86A03F, darks coal #1D1B1E, far hills and water slate #48505E, small accents yellow #F6CF2F, other colours mixed from these; the hero the story centres on #D97757, at least 1/8 of frame height. Fields and sky light (~60%), hills and buildings dark. Warm grade under 10%, vignette, grain. Default low late-afternoon side light: fields lit, ridges rim-lit. From high ground in true perspective, a path leading the eye down; small repeated buildings (or walls, rocks) stepping along slopes. Motion: looping smoke or cloud, a lateral track. Avoid: watercolour transparency, vector fills, mud.
+</code></pre></div>
+<hr />
+<h3>案例 2：No. 45《教父》（伦勃朗顶光明暗油画 · 2D）</h3>
+<figure>
+<img />
+<figcaption>
+    图 3：《教父》样帧——昏暗书房顶光下的 Clawd 与膝前的猫，胸前佩戴红玫瑰，上方降下提线木偶之手。
+  </figcaption>
+</figure>
+<ul>
+<li><strong>为什么能成立</strong>：借鉴摄影指导 Gordon Willis 的顶光安排。提示词规定“约七成画面是看得出形体的暖暗部”（赭褐 <code>#24150B</code>，近黑 <code>#070403</code> 仅留于深角），主角站在光池中，眉骨把眼睛压进阴影。全画仅留一处饱和红（<code>#9C1A1A</code>），暗部用薄罩染、亮部用带笔脊的厚涂，严禁“提亮暗部、平光、人脸跳出来”，在 2D 画布上建立了极强的戏剧张力。</li>
+</ul>
+查看 No. 45 完整双语提示词原件（可直接复制）
+<p><strong>中文原件（prompt_zh）</strong>：</p>
+<div><pre><code>伦勃朗、卡拉瓦乔式明暗油画，只有一盏顶光。约七成画面是看得出形体的暖暗部，大多是赭褐 #24150B，近黑 #070403 只在最深的角落。琥珀 #8F5D2A 中间调约两成；朝上的面亮到 #E2B673。主角整个站在光池里，受光部分至少占画面高的四分之一；眉骨把眼睛压进阴影。一处饱和的红 #9C1A1A。暗部薄而平滑地罩染，亮部是带亮笔脊的厚涂，笔触约画面宽的 1/100；过渡柔和，不用刮擦线条。琥珀光油，重暗角，细画布纹（±3%）。背景可有一处暖色亮口（窗、门洞、发亮的天边）；画内的小灯只是一小团光，不算第二个主光。镜头慢拉、慢推。对标 Francis Ford Coppola《教父》（1972），摄影师 Gordon Willis。避免：提亮暗部、平光、人脸跳出来、暗到看不清。
+</code></pre></div>
+<p><strong>英文原件（prompt_en）</strong>：</p>
+<div><pre><code>Chiaroscuro oil painting after Rembrandt and Caravaggio, one overhead light. About 70% of the frame is readable warm dark, mostly umber #24150B, near-black #070403 only in the deepest corners. Amber #8F5D2A mid-tones about 20%; top planes reach #E2B673. The hero stands in the light pool, lit area at least 1/4 of frame height; brows shade the eyes. One red accent #9C1A1A. Darks thin smooth glazes; lights thick impasto, ridged strokes about 1/100 of frame width; modelling soft, never scratchy. Amber varnish, heavy vignette, canvas grain (±3%). A warm bright opening (window, doorway, horizon) may glow behind; a small lamp in frame is a small glow, not a second key. Camera: slow pull-backs and pushes. Reference: Francis Ford Coppola, *The Godfather* (1972), cinematographer Gordon Willis. Avoid: lifting the darks, flat light, faces popping out, frames too dark to read.
+</code></pre></div>
+<hr />
+<h3>案例 3：No. 92《寄生虫》（建筑剖面轴测图 · 2D）</h3>
+<figure>
+<img />
+<figcaption>
+    图 4：《寄生虫》样帧——白天的玻璃豪宅建筑剖面与修剪整齐的绿草坪，Clawd 站在花园门口举起山水石。
+  </figcaption>
+</figure>
+<ul>
+<li><strong>为什么能成立</strong>：通过建筑制图呈现阶级垂直落差。提示词采用工程学的低角度二等角视图（7° 水平轴、42° 进深轴），将屋顶与近墙剥离展示室内空间；切面填涂黑混凝土骨料，任何缩放均为 1 像素细灰线。夜景则通过“叠乘 30–40% 月光蓝、亮灯房间涂回暖色”处理，镜头沿剖面上下运镜，让空间对比一目了然。</li>
+</ul>
+查看 No. 92 完整双语提示词原件（可直接复制）
+<p><strong>中文原件（prompt_zh）</strong>：</p>
+<div><pre><code>矢量建筑剖面轴测图，用低角度二等角视图：剖切面沿接近水平的 7° 轴正对观众，进深沿 42° 轴、按一半缩短；屋顶和近侧墙剖掉，露出房间。剖切穿过主体所在之处（房子、塔、船、山坡）。切面填涂黑：深色混凝土带骨料，土层画 45° 斜线夹小石块。任何缩放都是 1 像素深灰线。默认白天、淡色天空：混凝土 #b3ada2、橡木 #d6b58a、炭灰 #3e4146、松绿 #3f6b3e，白墙、绿草坪、半透明蓝水。房间配家具和简洁的小比例人。夜景或其他暗光只是变体：叠乘三到四成月光蓝，亮灯的房间涂回暖色。镜头沿剖面慢慢升降，框住两三个房间，跟主体走一条不断的路线，最后停在占画面约八成的整张图上。避免：30° 等轴测、粗卡通描边、楼层间切镜头、图太小。
+</code></pre></div>
+<p><strong>英文原件（prompt_en）</strong>：</p>
+<div><pre><code>Vector section axonometric, low dimetric view: the cut face lies along the near-flat 7° axis, facing us, depth along the 42° axis at half scale; roof and near walls cut away to show the rooms. Cut through the subject's place (a house, a tower, a ship, a hillside). Poché on cut faces: dark concrete with aggregate, earth hatched at 45° with stones. 1 px dark-grey lines at every zoom. Default daylight under a pale sky: concrete #b3ada2, oak #d6b58a, charcoal #3e4146, pine #3f6b3e, white walls, green lawn, translucent blue water. Furnished rooms, simple scale figures. Night or other low light is a variation: multiply 30–40% moonlit blue, lit rooms painted back warm. Crane slowly framing 2–3 rooms along one continuous path; end on the whole drawing at ~80% of the frame. Avoid: 30° isometric, thick outlines, cuts between levels, a small drawing.
+</code></pre></div>
+<hr />
+<h2>背后机制：它怎么把代码变成视频？</h2>
+<p>理解项目在底层是如何运转的，能帮助你在遇到性能或修改问题时做出合理预期：</p>
+<figure>
+<figcaption>规则与工具共享，故事和源码归每支片子</figcaption>
+<div>
+<strong>共享库 · ~/lemo-opuscar</strong>
+<div><span>DIRECTOR.md<br>故事、镜头与声音判断</br></span><span>styles/ + demo/<br>画风约束与实现参考</br></span><span>core/<br />渲染、声音与检查工具</span></div>
+</div>
+<div>Skill 接入 → Agent 读取规则、调用工具 ↓</div>
+<div>
+<strong>独立短片工程 · &lt;片名&gt;/</strong>
+<ol><li><b>创作方案</b><span>TREATMENT.md<br />故事、镜头、声音设计</span></li><li><b>制作代码</b><span>index.html · timeline.js<br />画法、运动、同步时间</span></li><li><b>重建与交付</b><span>build.sh · CREDITS<br />MP4、海报、适用的字幕</span></li></ol>
+</div>
+工程文件名沿用指南约定；采用仓库方式时，短片位于 films/&lt;片名&gt;/。
+</figure>
+<ol>
+<li><strong>规则和工具共享，每支片子另有工程</strong>：
+<ul>
+<li><code>~/lemo-opuscar</code>：这是由插件管理的全局共享库，存放着通用的导演法（<code>DIRECTOR.md</code>）、渲染工具（<code>core/</code>）与风格字典。所有短片共用一份，不会因为新建工程而重复下载几个 G 的音源与依赖。</li>
+<li><code>&lt;你的短片名&gt;/</code>：这是你每次发起做片时所在的独立工程。所有的源码（<code>index.html</code>）、时间轴（<code>timeline.js</code>）、海报、字幕与交付 MP4 均完整存放在这里，方便继续修改与重建。</li>
+</ul>
+</li>
+<li><strong>纯函数式的逐帧抓取</strong>：
+页面中通过 <code>window.render(t)</code> 将每一帧画面定义为“由时间 t 决定的画面”。代码中禁止使用不可控的 <code>Date.now()</code>，所有随机效果均采用固定种子的算法。无头浏览器（Headless Chromium）启动多个并行工作进程，按帧编号和帧率计算时间，逐帧截取 JPEG，再通过管道交给 ffmpeg 编码为视频。JPEG 是有损截图；确定性便于重建某一帧，画面质量仍取决于绘图代码。</li>
+<li><strong>同一条时间轴绑定视听</strong>：
+所有画面动作、节拍重音、台词起止与程序化拟音，都读取同一个 <code>timeline.js</code>。用一个教学例子说明：如果第 3.0 秒茶杯落地，画面坐标刚好计算到触地瞬间，音频系统在精准的 3.0 秒触发物理碰撞声，配乐在此处降落，制作时据此检查画面和音效是否在同一时刻发生。</li>
+</ol>
+<h3>时间、算力与硬件成本评估</h3>
+<ul>
+<li><strong>单片制作耗时</strong>：根据官方指南，制作一支 30–60 秒的短片，Agent 通常需要编写代码、渲染多张样帧自检、调整音频，整个过程通常需要耗时 <strong>30 至 60 分钟</strong>，伴随着多次代码迭代与较高的 Token 消耗。片长若超过 2–3 分钟，制作时间与模型消耗会明显增加。</li>
+<li><strong>真实配额消耗案例</strong>：作者透露，制作全长 6 分 31 秒的《Opuscar 98》时，大约消耗了一个 Claude Max 账号单周配额的 60%（作者原话为“一个 Max 20 号的 60% 周限”）。</li>
+<li><strong>硬件配置建议</strong>：先用电脑做一帧与几秒动作，观察渲染速度。3D 与着色器较重的风格需要 GPU 支持；指南没有要求所有作品都必须配独立显卡。</li>
+<li><strong>开源协议归属</strong>：项目框架遵循 MIT 开源协议。短片合成所调用的真实乐器音源、开源字体与离线语音模型遵循各自的原始开源授权（如 OFL、CC0、CC BY 等），所有引用的第三方素材必须在工程的 <code>CREDITS</code> 文件中逐一列出；创作者对自己引入的剧情文本、图像素材版权全权负责。</li>
+</ul>
+<a href="https://best.xiaohu.ai/article/opus-5-5-code-creative-projects/"><span>比较其他起步方案</span><strong>Claude 写代码，能做出什么视频和游戏？十个开源项目拆解</strong><span>继续了解成品源码、制作模板与风格技能各适合怎样的起点。</span><span>阅读项目拆解 →</span></a></div><div><div><div>来源</div><div><span>Lemo-Opuscar 98 种电影风格公开</span><span>Lemomo<span>·</span><a href="https://x.com/lemomo_ai/status/2108537182273290694">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/lemomo_ai/status/2104525988130680990">原片与作者制作分工、成本回复</a><span>·</span><a href="https://github.com/lemomo-ai/lemo-opuscar">Lemo-Opuscar 开源仓库与制作指南</a><span>·</span><a href="https://lemomo-ai.github.io/lemo-opuscar/opuscar98/#styles">98 个完整风格与镜头案例</a><span>·</span><a href="https://code.claude.com/docs/en/quickstart">Claude Code 官方安装与登录指南</a></div></div></div></div></div><div>
+<div>
+<h1>Lemo-Opuscar：用代码做短片，先预览再制作</h1>
+<div>你定题材与画风，Agent 编写前端绘图与音频代码。通过「先一帧、再故事板、再成片」的预览顺序，更早发现画法与故事问题，减少返工。</div>
+<div>
+<div>
+<div>人机分工与运行环境</div>
+<p><strong>分工：</strong>你定题材、选画风、检查预览；Agent 负责写代码与运行工具。</p>
+<p><strong>前提：</strong>需 Claude Code 账号（围绕 Opus 5.5 调试，换模型未作保证）；本地需 Node 20+、Python 3.11+ 或 uv、ffmpeg。</p>
+</div>
+<div>
+<div>选画风的两条入口</div>
+<p><strong>43 种通用风格：</strong>涵盖 9 大类（本文精选 9 支样片），直接告诉 Agent 中文风格名。</p>
+<p><strong>98 个电影案例：</strong>只复制完整画风词给 Agent，不要套用原片故事或分镜。</p>
+</div>
+</div>
+<div>
+<div>核心制作路径：先预览再制作</div>
+<div>先看预览能更早看出画法、动作与节奏问题，确认后再做整片，减少返工：</div>
+<div>
+<div>
+<div>01</div>
+<div>先出一帧看画法</div>
+<div>用代码画单张静态帧。核对笔触质感与主体色号，排查发虚或塑料平涂。</div>
+</div>
+<div>
+<div>02</div>
+<div>看故事板看节奏</div>
+<div>给出剧情与音效，明确索取 6–9 帧故事板。检查景别推拉、比例与叙事节奏。</div>
+</div>
+<div>
+<div>03</div>
+<div>批准成片出交付</div>
+<div>确认后合成 1080p 24fps 视频与混音，交付 MP4、海报与 build.sh 脚本。</div>
+</div>
+<div>
+<div>04</div>
+<div>修改代码再重建</div>
+<div>指出具体秒数与参数（如提亮 15% 或延时），改代码后执行 build.sh 重新构建。</div>
+</div>
+</div>
+</div>
+<div>
+<div>渲染机制与制作耗时</div>
+<p>按时间 t 与固定种子算法画帧，浏览器截取有损 JPEG，ffmpeg 编码；统一时间轴安排视听。作者指南估计一支短片需 30–60 分钟。</p>
+</div>
+</div>
+</div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/lemomo_ai/status/2108537182273290694">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>深度</div>
+<div>Claude 动效实战指南：完整提示词、修改方法和导出步骤</div>
+<div>10-11 · 25 分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>Claude 动态工作流：主 Agent 写程序，让一批 Agent 分阶段完成大任务</div>
+<div>10-10 · 9 分钟</div></a><a>
+<div><span></span>深度</div>
+<div>如何构建靠谱、不易出错的自主 Agent 定时自动化工作流 Anthropic 自动化简报的六条设计规则</div>
+<div>10-09 · 约 25 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Meta Muse 设计负责人分享 Muse 的设计思路：如何让 Agent 融入日常生活</title>
+<link>https://best.xiaohu.ai/article/meta-muse-product-design-cases/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:meta-muse-product-design-cases</guid>
+<pubDate>Tue, 13 Oct 2026 12:01:50 +0000</pubDate>
+<description>Alex Cornell 怎样把能在后台办事的 Agent 做成普通人会用的产品？从聊天入口、工作进展与个性化建议，到购物、运动和回忆整理的实际用例，讲清 Muse 的设计思路。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 13 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Meta Muse 设计负责人分享 Muse 的设计思路：如何让 Agent 融入日常生活</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/meta-muse-product-design-cases/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>用熟悉的聊天入口，建立持续交流</span></a><a><span>02</span><span>先回应再办事，让工作进展看得见</span></a><a><span>03</span><span>根据个人兴趣，提示还能做什么</span></a><a><span>04</span><span>接入已有资料，做出日常用得上的结果</span></a><a><span>05</span><span>保持稳定框架，给个性化结果留下空间</span></a><a><span>06</span><span>从已有资料和真实目标出发，让 Agent 持续派上用场</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Meta Muse 设计负责人分享 Muse 的设计思路：如何让 Agent 融入日常生活</h1><p>Alex Cornell 怎样把能在后台办事的 Agent 做成普通人会用的产品？从聊天入口、工作进展与个性化建议，到购物、运动和回忆整理的实际用例，讲清 Muse 的设计思路。</p><div><span><b>已核对</b></span><span>How I AI · Alex Cornell</span><span>10-13 · </span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>Muse 把个人 Agent 做成日常聊天助手，让普通用户也能开始用它办事。</li><li>把旧收藏和个人记录变成愿意翻、愿意听、方便复盘的产物，让已有资料重新派上用场。</li><li>进展按需可看，建议结合个人兴趣，帮助用户既看懂任务，也发现新的用法。</li></ul><div><p>收藏夹里存了许多东西，却很少再打开；运动设备记下每次练习，数据却没有变成下一次该练什么的建议；年轻时写过的博客还在网上，自己已经多年不读。Muse 的几个日常用例，都从这类被搁置的个人资料出发。</p>
+<p>Muse 是 Meta 的个人 AI Agent：它能接入应用、浏览网页、执行多步任务，也能在后台持续工作并主动发来消息。在 How I AI 节目中，主持人 Claire Vo 与 Meta 设计总监、Muse 设计负责人 Alex Cornell，讨论了怎样把这些能力做成普通消费者愿意使用的产品。Lenny’s Newsletter 的补充文章提供了同一期访谈的人物介绍和章节索引。</p>
+<p><strong>这期分享贯穿的思路，是用熟悉的聊天入口承接复杂任务，再把已有数据变成适合这个人的目录、报告和播客。</strong> 它的产品设计和生活案例，正好说明这两件事怎样相互配合。</p>
+<figure>
+    您的浏览器不支持原生视频播放，请打开原视频链接观看。
+<figcaption>
+    完整双语访谈视频（37分47秒，中英双语字幕贴底），原视频源自 <a href="https://www.youtube.com/watch?v=4TOLm1g-gCE">YouTube: How I AI</a>。
+  </figcaption>
+</figure>
+<hr />
+<h2>用熟悉的聊天入口，建立持续交流</h2>
+<p>打开传统 AI 应用，映入眼帘的往往是“对话历史列表”、“项目文件夹”、“知识库连接器”或“代码差异对比器”。这些概念本质上都是开发者熟悉的软件工程抽象。</p>
+<p>而在 Muse 的设计哲学中，交互的原点不是“使用一款软件”，而是<strong>“你与一个独立实体之间的交流”（An exchange between you and an entity）</strong>。</p>
+<h3>1. 给助手一个自己的名字和形象</h3>
+<p>在 Muse 的主界面顶部，放着一个微型数字形象。默认形象是团队吉祥物 Jolly Bot（以 Alex 女儿的乳名命名），用户也可以随时将其自定义为各种充满个性的形态——例如 Alex 自己使用的绿色毛绒仙人掌 Marlo，或是访谈主持人 Claire 使用的粉色毛绒小恐龙 Slime。</p>
+<p>这个角色并不是一个单纯的静态挂件，而是 Agent 当前工作状态的视觉提示。当它在后台查阅资料或执行计算时，这只仙人掌或小恐龙会在界面顶部同步抱着一台毛茸茸的小笔记本电脑啪嗒啪嗒打字。这种具象化设计不仅带来了情绪价值，也帮助用户形成一个直观预期：<strong>请求发出去后，这个角色还在替你处理事情</strong>。Alex 提到，他的母亲甚至会在发消息时向自己的 Muse 道歉并致谢，感谢它为自己辛苦工作——这段使用轶事说明这种入口对他母亲很亲切。</p>
+<figure>
+<img>
+<figcaption>Muse 界面中央的自定义化身 Marlo 仙人掌分享弹窗，背景右侧可见今日操作列表，包括寻找南瓜农场和记录流程；中央弹窗遮住了部分主聊天。</figcaption>
+</img></figure>
+<h3>2. 主动发来的消息，要有清楚的边界</h3>
+<p>很多现代 AI 对话界面为了追求排版简洁，早已去掉了传统的即时通讯气泡，把文字平铺在白底上。但 Muse 反其道而行之，保留了气泡结构。</p>
+<p>Alex 解释，原因在于 Agent 与传统聊天机器人存在根本差异：<strong>Muse 能在后台工作，并主动向用户发来消息（Proactive Messaging）</strong>。它可能在上午为你监控打折信息，下午为你抓取比赛成绩，傍晚主动给你发来一条提醒。在时间跨度拉长、交互异步发生的情境下，消息气泡能够清晰地标定每一段对话的消息边界、发生时间与归属，避免屏幕变成一团难以辨识上下文的时间线乱麻。</p>
+<h3>3. 平时沿用主聊天，独立任务再开分支</h3>
+<p>在信息架构上，许多 AI 聊天工具采用“全线程制”（All Threaded）——围绕多条独立讨论串来组织任务。不同事情分散在不同对话里，用户需要自行整理和查找。</p>
+<p>Muse 选择了<strong>以一条主聊天（Main Chat）为核心</strong>的设计。用户可以像和微信好友或家人发消息一样，始终在这条长对话流里说话。Alex 希望在模型能处理相关上下文的前提下，让用户沿用一条主要沟通线，无需每次先决定新开哪条讨论串。</p>
+<p>当然，这也带来了新的挑战：如果所有杂事都堆在主线里，界面难免会变得冗长混乱。因此 Muse 补充了“分支聊天”（Side Chats）作为分支出口，用于处理特定、封闭的独立任务（例如临时查阅一份文档）。但 Alex 也坦承，普通用户到底在什么时候该留在主线、什么时候该开启分支对话，在这个产品里仍需要更清楚的解释，这仍是团队正在持续探索的交互边界。</p>
+<hr />
+<h2>先回应再办事，让工作进展看得见</h2>
+<p>在 Agent 执行多步复杂任务时，设计师面临一个经典的两难困境：</p>
+<ul>
+<li>如果完全隐藏后台过程，用户不知道程序究竟是卡死了、掉线了，还是在正常运行；</li>
+<li>如果把完整的思考链（Chain of Thought）、搜索日志和调用代码全盘倾倒在聊天框里，普通用户可能难以看懂，页面也变得嘈杂不堪。Claire 认为，展示中间过程有时是在缓解响应慢带来的等待感。</li>
+</ul>
+<p>Muse 的解法是<strong>按需展开的信息层级</strong>，让用户根据需要选择查看到哪一步。</p>
+<div>
+<h3>同一项工作，可以看得多深？</h3>
+<p>按需展开下一层，观察信息怎样增加。此处是根据访谈制作的原理示意。</p>
+</div>
+<div>
+<p><strong>① 有没有在工作？</strong><span>正在工作</span></p>
+<p><strong>② 具体在做什么？</strong><span>🎃 正在调研南瓜农场</span></p>
+<p>日常使用时，简明状态就能让你知道请求仍在处理。</p>
+③ 展开查看：做过哪些操作？
+<p>操作清单把已经做过的事情列出来，方便你检查工作方向。访谈画面中的 Today 列表包括寻找南瓜农场、查找其他采摘地点、记录目录制作流程等条目。</p>
+④ 再深入：查看执行细节
+<p>需要审查某项操作时，可以继续查看 curl 命令、执行代码等细节。普通用户不必先读懂这些，才能知道 Agent 有没有在工作。</p>
+</div>
+<p>简明状态 → 操作清单 → 技术细节：按需要增加信息；状态提示本身不代表任务已经完成。</p>
+<h3>先知道它在工作、正在做什么</h3>
+<p>对于绝大多数日常场景，用户只需要知道“它是不是在动”。在 Muse 的主界面顶栏，界面会先给出简明状态：例如 <code>Jolly Bot is working...</code>，并配上极其具象的小表情和简短说明（如 <code>🎃 researching pumpkin patches</code>，正在调研南瓜农场）。用户不必同时阅读全部操作细节。</p>
+<h3>想看进展时，再展开操作清单</h3>
+<p>如果用户想进一步了解“它到底干了哪些事”，只需轻点顶栏状态，即可展开一张清晰的任务列表（Task List / Today）。这里会以结构化清单的形式呈现：Agent 已经做过哪些事情。这让普通用户在无需看懂代码的前提下，就能评估 Agent 是否偏离了自己的预期。</p>
+<h3>需要审查时，继续查看执行代码</h3>
+<p>如果用户本身是开发者，或者某项操作执行失败需要排查根因，点击具体任务项后，可以一层层下钻到具体的执行记录，例如 curl 命令和代码。</p>
+<p>Claire 强调，面向普通消费者，实际响应速度很重要。她的体验是 Muse 的模型很快，Alex 也提到有时快到让人怀疑它到底有没有真正去执行。</p>
+<p>实际响应速度、先确认收到请求、以及在界面上展示工作进展，其实是三个不同的问题：模型速度影响响应耗时；而在处理复杂长任务时，Muse 会先用一个表情或简短消息即时应答，解决的是“它有没有收到请求”，让用户知道系统没有冷落自己或卡死；随后顶栏展示的工作状态与更深层的操作清单，回答的则是“它正在做什么、有没有走偏”。不能把界面的及时确认与状态提示，直接等同于任务已经完成。</p>
+<hr />
+<h2>根据个人兴趣，提示还能做什么</h2>
+<p>只用一条主聊天，Agent 其实就能处理大量任务，用户完全可以像对待私人助理一样在对话框里交代各种事情。然而，Agent 的能力虽然广泛，对大多数普通用户来说却往往不够直观，大家很难凭空想到它究竟还能帮自己做什么。</p>
+<p>为了解决这个问题，Muse 在主聊天之外补充了两个辅助入口：</p>
+<ul>
+<li><strong>点子区（Ideas）</strong>：如果只是提供通用的功能说明或静态推荐，用户往往直接略过。Ideas 会结合用户近期的对话与个人兴趣动态生成具体的任务建议——例如如果你整天都在和它聊高尔夫，这里就会出现许多针对高尔夫的分析点子。这种结合个人兴趣的具体提示，能帮用户发现那些自己原本想不到的具体用法。</li>
+<li><strong>信息流（Feed）</strong>：给用户提供了一个可以主动实验的探索界面。用户可以用任意自然语言 Prompt 设定想看的主题，并随时调整和混合搭配内容订阅——例如工作日订阅行业新闻，到了周末切换为育儿或与孩子相关的信息。</li>
+</ul>
+<hr />
+<h2>接入已有资料，做出日常用得上的结果</h2>
+<p>下面几组用例，都从 Alex 已有的资料或持续关注的需求出发，改变的是整理方式、交付形态和更新节奏。</p>
+<h3>把 Instagram 收藏变成自己愿意翻的购物目录</h3>
+<p>Alex 长期使用 Instagram 的收藏功能，却很少回去翻看。先前存下的物品和灵感，就这样逐渐被新内容埋住。</p>
+<ul>
+<li><strong>输入的数据源</strong>：通过 Muse 提供的应用连接器（Connector），授权读取 Instagram 历史收藏夹中的非结构化图片、视频与说明。</li>
+<li><strong>Agent 做的事</strong>：Muse 首先将这些零散的收藏条目进行逻辑聚类，分门别类归入不同文件夹；随后，结合礼品推荐逻辑筛选出有价值的商品。为了打破枯燥的信息列表，Alex 让 Muse 模仿上世纪 90 年代美国著名的航空机上购物杂志《SkyMall》与《Sharper Image》的版式风格，将这些商品重新编排成一份专属杂志页面。</li>
+<li><strong>产物形态与使用</strong>：页面上呈现出激光测距仪、复古钟表、便携咖啡器与数码收纳包，配以极具年代感的夸张宣传文案与排版。Alex 记得这份目录会每天更新。</li>
+</ul>
+<figure>
+<img />
+<figcaption>Jolly Bot Sky Mall 仿 Sharper Image 1995 年秋季杂志画风生成的商品画报。图中的价格标签与 1-800 电话均为生成复古视觉的一部分，并非实时商户报价或一键购买链接。</figcaption>
+</figure>
+<p>Alex 已经用 Marlo 买过表带等物品，不过这份生成目录当时还没有接入“点中商品就购买”的流程，主要是他喜欢浏览的个人作品。</p>
+<p>除了将购物灵感做成杂志，这种利用视觉记录的方式还能延伸到更广泛的个人创意与知识整理中。Claire 提到，她会把 Instagram 或 Pinterest 上的视觉收藏开放给 Agent，让它根据画面总结出自己偏好的具体设计风格与描述词，进而生成新的概念创意；Alex 也提到自己曾随手收藏过几百条高尔夫挥杆技巧帖子，但存下后从未回头翻看过，直到让 Muse 将这些零散内容通读并汇总成一份专属于自己的练习手册，这些资料才真正派上用场。甚至连过去随手发布的快拍动态，也能被重新抽取并组织成一条可以重新回看的个人信息流。这些用例的核心在于实现从“存下”到“能复用”的转变——让原本被平台信息流冲淡、散落在网络各处的非结构化记录，重新转化为个人生活里用得上的工具或灵感。</p>
+<hr />
+<h3>每周替你查折扣，有变化再提醒</h3>
+<p>除了静态重构历史数据，Agent 的另一个典型价值在于把用户过去需要反复手动执行的单次查询，转变为后台的定期检查。</p>
+<p>Alex 将其称为自己的“监控超能力”（Monitoring Superpower）：例如持续跟进某个音乐人是否发布了新专辑、是否会来旧金山巡演，或是特定高尔夫品牌是否推出了联名商品；访谈中还有每周检查一次心愿单上商品是否降价的用法。在传统方式下，挑选儿童安全座椅或监控演出门票往往需要多次手动在搜索引擎、视频网站和电商之间来回比价翻找；用 Muse 做座椅调研时，Claire 会先描述需求，再继续往下研究；持续关注新专辑或商品折扣，则是另外交代的后台任务。需要区分的是，浏览一份个性化商品画报，与后台监控价格折扣是不同的两类任务；访谈中的这些跟进主要负责筛查信息与到时提醒，提醒之后仍需决定是否购买。</p>
+<hr />
+<h3>高尔夫：从记下成绩到知道该练什么</h3>
+<p>作为高尔夫球爱好者，Alex 的长期目标是达到“个位数差点”（Single-digit handicap，是衡量球手水平的差点指标，不是整轮只打个位数杆）。Alex 解释，这样一个长期目标既有挑战又可实现，关键在于能让 Agent 理解所有零散追踪的数据最终都要向这个目标汇聚，使每一次下场复盘与练习建议都指向同一个提升方向。但他平日工作繁重，极少有机会真正下场练习。</p>
+<ul>
+<li><strong>输入的数据源</strong>：手表记录的每一杆击球轨迹与球场逐洞成绩，以及练习场设备采集的击球数据。</li>
+<li><strong>Agent 做的事</strong>：单看记分卡，用户要自己找出丢杆主要集中在哪里，而 Muse 能将数据转化为生动的故事化复盘（Storytelling）。在单轮复盘报告中，Alex 提到，图表让他很快看到前九洞差、后九洞好的变化；有些复盘会比较同一球场某一洞以往和当日表现，回到该球场时可参考。下图展示的是同份报告中逐洞丢杆的归因，并为那场打了 84 杆（高于标准杆 12 杆）的球局生成了<strong>“转换阶梯”（The Conversion Ladder）</strong>推演模型。</li>
+</ul>
+<div>
+<h3>这 5 杆，可以从哪里省下来？</h3>
+<p>勾选下面的改善假设，看看本轮 84 杆会怎样变化。左侧始终保留原成绩作为参照。</p>
+</div>
+<div>
+<div>
+<div>84</div>
+<div>本轮实际成绩</div>
+</div>
+<div>→</div>
+<div>
+<div>84</div>
+<div>按所选条件减少大失误</div>
+</div>
+<div>→</div>
+<div>
+<div>84</div>
+<div>再考虑额外省一杆</div>
+</div>
+</div>
+<div>
+<div>
+<span><strong>改善 4 次 Double Bogey（+2）</strong>：在 2、4、6、17 洞避免双柏忌，各救回 1 杆（变成 +1）</span>
+<span>未选择</span>
+</div>
+<div>
+<span><strong>再多抠出 1 杆（Find One More）</strong>：从本轮其他地方再省下 1 杆</span>
+<span>未选择</span>
+</div>
+</div>
+<div>未选择改善条件：仍为 84 杆。</div>
+<p>计算依据：84 − 4 × 1 = 80；80 − 1 = 79。这里展示的是报告中的改善假设，后续仍要靠真实比赛检验。</p>
+<figure>
+<img />
+<figcaption>Recent Round Analysis 中的杆数归因与阶梯推演图（Where The Strokes Went）。显示 4 个双柏忌吞掉 8 杆，以及 84 → 80 → 79 的假设推演路径。</figcaption>
+</figure>
+<ul>
+<li><strong>练习场报告与样本质量</strong>：在另一份针对挥杆练习的 TrackMan 报告中，Muse 能够解析击球参数：例如指出开球一号木（Driver）目前攻角向下（-2.4°）且杆面微开（+2.6°），建议先修正击球角再微调杆面，报告估计可能多出 15–20 码距离，还要用设备重新测量验证。更关键的是，在 54° 挖起杆的数据模块旁，系统醒目打上了<strong>红色警示标语：<code>UNRELIABLE SAMPLE — DO NOT USE</code>（样本不可靠，请勿参考）</strong>。</li>
+</ul>
+<figure>
+<img />
+<figcaption>TrackMan 击球分析报告中，下方挖起杆依据用户标记的低质量样本，注明不可据此下结论，提醒用户切勿据此调整动作。</figcaption>
+</figure>
+<p>这里的 84 → 80 → 79 是单轮改善假设：把 4 次双柏忌（比标准杆多两杆）控制为柏忌（多一杆），合计省 4 杆；再省一杆就到 79。它帮助 Alex 找到优先减少哪些失误，并不表示他之后已经打出了这个成绩。训练报告也沿用了用户对坏样本的标记，提示先重新采集数据再分析。</p>
+<p>此外，这类周期性任务的节奏往往需要跟随真实生活的动态灵活调整。Alex 原本设定让 Muse 每周日检查一次球局数据并生成复盘，但因为平时工作繁忙很少真正下场，固定的周度检查经常扑空。Alex 自己提到，完全可以把这类检查的频次调低（例如改成隔一段时间再查）。这也说明后台任务的触发节奏应当贴合生活资料产生的真实频率，而不必死板维持固定周期。</p>
+<hr />
+<h3>旧博客：找回文章，每天早晨听一篇</h3>
+<p>Alex 的旧博客曾在 Blogger、Tumblr 等平台间迁移；二十年后，他已经很少再去读那些文章。</p>
+<ul>
+<li><strong>输入的数据源</strong>：利用互联网档案馆（Wayback Machine）的历史抓取镜像，以及散落在不同内容平台的旧链接。</li>
+<li><strong>Agent 做的事</strong>：Alex 让 Muse 穿梭于各处历史快照之间，找回自己二十年前的博客文章，将其整理合并为一份完整的 PDF 文档。随后，Muse 将其重排为一个类似博客的网页产物。但更具巧思的是，Alex 更喜欢用播客来重新接触这些旧文章，他让 Muse 将这些文章转化为<strong>每日早晨随机选文朗读的音频播客</strong>。</li>
+<li><strong>产物形态与使用</strong>：每天早晨，Muse 会发来一篇旧文的朗读节目。例如在演示中，播客正在幽默朗读 年轻时 Alex 写下的一个问题：“难道只有我觉得奇怪吗？为什么世界上 90% 的人都穿同一种颜色的裤子？”这种跨越时光的音频重构，让原本很少重读的旧文变成了日常能听到的回忆。</li>
+</ul>
+<figure>
+<img />
+<figcaption>Podcasts 页面中展示的旧文朗诵节目列表。播放器封面为戴耳机的仙人掌，节目说明写着语音角色 Morgan 朗读 Alex 的旧博客。</figcaption>
+</figure>
+<hr />
+<h3>国际象棋：把趋势与逐局复盘放在一起</h3>
+<p>Alex 希望把自己的对局分析和长期变化放在一起，方便判断最近表现怎么样。</p>
+<ul>
+<li><strong>输入的数据源</strong>：使用 Chess.com 的个人历史对局数据（覆盖万余局历史对局与近期几十场走势）。</li>
+<li><strong>Agent 做的事</strong>：通过主对话框直接用自然语言描述需求，Muse 便搭建起一个完整的个人国际象棋看板（Chess Dashboard）。看板呈现了 Blitz 对局在过去数十局窗口内的积分起伏走势（在 1500 至 1590 分之间波动，近期峰值 1579，而历史最佳为 1777），列出最常用的开局及出现次数（如意大利开局、苏格兰开局），并针对最近一场对局生成带有微讽刺风格的单局复盘；带吐槽的语气是这次产物自行形成的，Alex 并没有事先要求。</li>
+<li><strong>产物价值</strong>：把原本单向度的数据变成了一个带有个人语气、方便回看的复盘工具。</li>
+</ul>
+<figure>
+<img />
+<figcaption>Chess Dashboard 呈现的 42 局 Blitz 走势图与常用开局分布。页面同时提供对局走势与复盘入口，直观呈现个人状态起伏。</figcaption>
+</figure>
+<p>看板中的 1579 是近期 42 局窗口的峰值，1777 才是个人历史最高分。Alex 自己也说最近像是在退步。这一案例的价值是把走势和单局分析放在一起，方便找问题；它没有证明 Muse 已经提高他的棋力。</p>
+<hr />
+<h2>保持稳定框架，给个性化结果留下空间</h2>
+<p>在访谈后半段，Alex 分享了从传统图形界面设计跨入 AI Agent 设计时，需要重新适应的工作方式。</p>
+<h3>框架保持一致，生成产物因人而变</h3>
+<p>传统软件通常有较明确的界面与行为预期；例如某个圆形出现在错误位置，就可以按既定设计排查修复。</p>
+<p>但在 Agent 时代，生成结果具有<strong>非确定性（Non-deterministic）</strong>。（同样输入也不保证得到完全相同的输出）每一个用户的 Muse 形象不同、接入的第三方应用不同、说出的自然语言不同，Agent 所生成的看板、文字和排版形态千差万别。</p>
+<p>很多人将“生成式 UI（Generative UI）”想象成极端的科幻体验：每次打开应用，整个页面的布局、按钮形状和色彩系统都被 AI 重新手绘一遍。但 Muse 目前的实际做法是<strong>守住稳定的系统框架（The Rails），在原生容器内承接个性化生成</strong>。主聊天的对话流、顶栏状态条、点子区与信息流等核心入口依然固定，信息流里的卡片单元同样由团队原生设计，而不是整个页面全部由 AI 生成。但在这些稳定容器内部，内容和状态是动态生成的——例如当用户把化身换成一颗番茄，系统会自动生成番茄在笔记本电脑前敲键盘的各种工作状态微动图；前面展示的复古购物画报、旧博客播客和象棋对局看板，也是在稳定框架中生成的内容。</p>
+<p>面对这种非确定性输出，Alex 坦言最初作为资深设计师会感到别扭，甚至需要强迫自己“关掉挑剔的大脑”。设计的重心必须从预先定死每一张最终画面，转向搭好能包容多样产物的底层框架（Scaffolding）；对于生成的个性化结果，先看它是否真正有用，再决定要不要花精力把颜色或排版调到自己的要求。</p>
+<p>除了视觉排版，日常交互同样存在这种非确定性。在访谈收尾时 Alex 承认，Muse 有时也会“不听话”（obstinate）、给出不合预期的结果。他坦承自己并没有一套成体系的高级提示词策略，遇到卡壳或偏离时，通常依然像对真人说话一样保持礼貌沟通。他分享的是沟通习惯，没有给出哪种语气能稳定提高效果的结论；生成产物需要用户在后续对话中继续沟通、逐步调整。</p>
+<h3>后台执行要配合明确的权限设置</h3>
+<p>一个易接近的角色可以帮助用户开始使用；当它实际读取应用、发消息或购物时，用户还需要能检查它做过什么、管理它能做什么。Meta 官方功能页补充了这部分运行和权限说明。</p>
+<p>根据 Meta 官方功能页的说明：</p>
+<ul>
+<li><strong>独立的持久虚拟机（Secure VM）</strong>：Muse 提供一台用户和 Agent 共用的隔离 Linux 虚拟机，可以理解为一台单独的电脑，拥有完整的浏览器、存储与计算资源；用户关闭应用后，交代的任务仍可在后台继续。</li>
+<li><strong>关键动作人工核准（Approve Critical Actions）</strong>：发送消息、购物或向已连接应用分享信息等动作，需要按用户设置处理授权，用户可以选择“仅允许一次”、“始终允许”或“直接拒绝”。用户也可以查看已完成与计划中的操作记录。</li>
+<li><strong>免费与用量机制</strong>：Muse 提供包含免费限额的体验机制，达到用量上限后，可选择付费订阅，或等待免费用量刷新。</li>
+</ul>
+<hr />
+<h2>从已有资料和真实目标出发，让 Agent 持续派上用场</h2>
+<p>这些案例有一个共同点：输入资料本来就在生活里，Muse 改变了它们的组织方式和使用方式。收藏成为愿意翻的目录，记分卡成为下一次练习的线索，旧文章成为愿意听的播客。</p>
+<p>对产品设计而言，主聊天、状态与权限提供了稳定入口；个性化点子帮助用户发现能做什么；适合个人兴趣的产物，则让这个任务有继续使用的理由。选择用例时，可以先想自己已有哪份资料、希望它变成什么，以及多久更新一次才有价值。</p>
+</div><div><div><div>来源</div><div><span>Meta Muse: the AI agent people actually love</span><span>How I AI · Claire Vo / Alex Cornell<span>·</span><a href="https://www.youtube.com/watch?v=4TOLm1g-gCE">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://www.lennysnewsletter.com/p/how-meta-designed-muse-an-ai-agent">How Meta designed Muse: an AI agent people actually want to talk to</a><span>·</span><a href="https://ai.meta.com/muse/">Muse 官方产品说明与常见问题</a></div></div><div><div>本站说明</div><div>Lenny’s Newsletter 链接是同一期访谈的配套文章。官方功能页用于补充运行环境、权限与免费用量说明。</div></div></div></div></div><div>
+<div>META MUSE 产品设计复盘</div>
+<h1>Meta Muse 设计负责人分享 Muse 的设计思路：如何让 Agent 融入日常生活</h1>
+<div>Muse 是 Meta 能在后台办事的个人 AI 助手。设计负责人 Alex Cornell 分享，熟悉的聊天入口、可查看的工作进展，以及由个人资料做成的目录、报告和播客，怎样配合起来成为日常用法。</div>
+<div>阅读线索：容易开始交流 → 看懂工作进展 → 得到愿意用的结果 → 按生活节奏持续</div>
+<div>
+<p>收藏夹存了很多东西，却很少重看；运动设备记下练习，却没告诉你下次该练什么；旧博客还在网上，自己已多年不读。Muse 的几个案例，都从这类已有资料出发。普通用户还需要一个容易开始交流的入口，也需要知道后台任务有没有在推进。</p>
+<p>Meta Muse 给出的解法是：交互的原点不是“使用一款软件”，而是“你与一个独立实体之间的交流”。用户能给助手取名字、换形象，如仙人掌 Marlo。化身工作时敲打小笔记本电脑，提示请求发出后，它还在替你处理事情。</p>
+<div>
+<p><strong>熟悉的聊天怎样承接后台任务？</strong> Muse 能在后台工作并主动发消息，聊天气泡标明各条消息的时间与归属。日常沿用一条主聊天，独立任务也可开分支；何时留在主线、何时分开，团队仍在探索如何向用户解释。</p>
+</div>
+</div>
+<div>
+<div>CORE MECHANISM · 核心交互机制</div>
+<h2>先确认收到，再让进展可看</h2>
+<p>完全隐藏过程，用户容易以为系统卡住；一次展示所有日志和代码，又难以看懂。Muse 平时只给出简明状态，想了解进展时再逐层展开。</p>
+<div>
+<div>
+<div>层级 1</div>
+<div>
+<div>顶栏简明状态（绝大多数日常场景）</div>
+<div>给出简明状态（如 <code>Jolly Bot is working... 🎃 researching pumpkin patches</code>），用户无需阅读任何操作细节，先知道“它在动、正在做什么”。</div>
+</div>
+</div>
+<div>
+<div>层级 2</div>
+<div>
+<div>今日任务清单（想了解进展时一键展开）</div>
+<div>轻点顶栏即可展开结构化清单（Today / Task List），清晰列出 Agent 已经做过哪些具体动作，供普通用户快速评估 Agent 是否偏离预期。</div>
+</div>
+</div>
+<div>
+<div>层级 3</div>
+<div>
+<div>执行记录与代码（技术审查与根因排查）</div>
+<div>针对开发者或任务报错场景，点击具体任务项可逐层下钻到 curl 请求与执行代码，查看具体执行记录，帮助排查问题。</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>先回应 · 收到请求</div>
+<div>用表情或简短消息先回应，解决<strong>“系统有没有收到请求”</strong>，让用户知道系统收到了请求。</div>
+</div>
+<div>
+<div>再查看 · 工作进展</div>
+<div>顶栏状态与可展开的操作清单，回答<strong>“正在做什么、有没有走偏”</strong>，帮助用户判断任务是否按预期推进。</div>
+</div>
+<div>
+<div>看结果 · 是否完成</div>
+<div>目录、报告、播客等结果交付后再核对；<strong>“界面的及时确认绝不等于任务已经完成”</strong>。</div>
+</div>
+</div>
+</div>
+<div>
+<h2>接入已有资料，做出日常用得上的结果</h2>
+<p>普通用户很难凭空想到 Agent 还能做什么。Muse 通过<strong>点子区（Ideas）</strong>结合近期话题动态生成建议（如聊高尔夫就推荐挥杆分析），通过<strong>信息流（Feed）</strong>让用户用 Prompt 订阅主题；实际用例从已有资料出发，改变整理方式、交付形态与更新节奏。</p>
+<div>
+<div>
+<div>📷 视觉收藏 → 90s 复古购物画报</div>
+<div>Instagram 收藏先分类，再按 SkyMall / Sharper Image 风格编成复古目录，成为 Alex 愿意翻的作品。该目录当时未接入点中商品即购买；他另用 Marlo 买过表带。</div>
+</div>
+<div>
+<div>🎙️ 尘封博文 → 晨间随机朗读播客</div>
+<div>从 Wayback Machine 等处找回旧文、合为 PDF，再做成博客页面与每日晨间随机选文朗读。Morgan 是朗读语音角色，并非克隆 Alex 的声音。</div>
+</div>
+</div>
+<p>Alex 想达到“个位数差点”（球手水平指标，不是整轮只打个位数杆）。Muse 把手表记分与练习数据变成复盘，帮助找到该练什么；单轮报告中的<strong>“转换阶梯（The Conversion Ladder）”</strong>是这样一条改善假设：</p>
+<div>
+<div>84 杆 (高于标准杆 12 杆)</div>
+<div>➜</div>
+<div>80 杆 (4 次失误各省 1 杆)</div>
+<div>➜</div>
+<div>79 杆 (再省 1 杆)</div>
+<div>84 − 4 × 1 = 80；80 − 1 = 79。是假设，未证明已打出该成绩。</div>
+</div>
+<div>
+<p><strong>练习建议先看样本质量：</strong>TrackMan 报告建议调整一号木向下的攻角（-2.4°）和微开的杆面（+2.6°），估计可多出 15–20 码，还须重新测量验证。用户标记的坏样本旁注明 <code>UNRELIABLE SAMPLE — DO NOT USE</code>，不可据此调整动作；这沿用了用户标记，未证明系统自主识别了坏样本。Alex 下场少，每周复盘常扑空，检查频率也应跟随真实生活。</p>
+</div>
+<p><strong>持续跟进与复盘：</strong>心愿单每周查折扣，音乐人发专辑或来巡演时提醒；提醒后仍由用户决定是否购买。国际象棋看板把最近走势与单局分析放在一起，方便找问题，没有证明棋力已经提高。</p>
+</div>
+<div>
+<h2>保持稳定框架，给个性化结果留下空间</h2>
+<p>从传统 GUI 跨入 Agent 设计，需要适应大模型输出的<strong>非确定性（Non-deterministic）</strong>。千人千面的化身、不同的外部数据、自然语言对话，都会生成截然不同的内容。设计重心转向保持稳定入口，在其中容纳各人的不同结果。</p>
+<div>
+<div>设计哲学：稳定框架 (The Rails) 与原生容器</div>
+<div>Muse 并未采用科幻片中每次彻底重绘界面的极端做法，而是<strong>守住稳定的系统框架（The Rails），在原生容器内承接个性化生成</strong>。主聊天、顶栏状态条、点子区与卡片外壳由团队原生设计；而在容器内部，无论是复古画报排版、象棋单局微讽刺复盘，还是番茄形象敲键盘的微动图，均由 AI 动态填充。</div>
+</div>
+<p><strong>Meta 官方功能页补充：</strong>后台执行还需要明确的运行环境、动作权限与用量设置。</p>
+<div>
+<div>
+<div>Secure VM</div>
+<div>独立隔离 Linux 虚拟机，关闭应用后，交代的任务仍可在后台继续</div>
+</div>
+<div>
+<div>动作授权</div>
+<div>发消息、购物与分享等关键动作支持“仅一次/始终允许/拒绝”</div>
+</div>
+<div>
+<div>用量刷新</div>
+<div>提供免费限额体验，超额可付费订阅或等待免费周期刷新</div>
+</div>
+</div>
+<div>
+<div>从自己的资料与目标开始</div>
+<p>可以先问自己：<strong>你本来拥有什么资料、希望它变成什么形态、以及多久更新一次才有意义</strong>。聊天入口便于开始，进展按需可看，个性化结果让任务有继续使用的理由。需要后续沟通时，再逐步调整产物。</p>
+</div>
+</div>
+</div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://www.youtube.com/watch?v=4TOLm1g-gCE">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>洞察</div>
+<div>Meta 推出 Muse Wonder 前沿系列模型：主动记忆，遇阻换方法继续推进，Agent 编程媲美 Opus 5.5</div>
+<div>10-13 · 约 10 分钟</div></a><a>
+<div><span></span>工具</div>
+<div>Meta 发布 Muse Gadgets SDK：给 Muse 接上屏幕、按键和连接家里的设备</div>
+<div>10-03 · 12 分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>Meta 推出个人 AI Agent Muse：每人一台云端电脑，可持续在后台推进任务</div>
+<div>09-09 · 11 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Anthropic 红队研究：AI 一旦逃离黑箱 利用电视盒子、扫地机、智能烤箱等智能设备 即可完成自我复制</title>
+<link>https://best.xiaohu.ai/article/anthropic-self-replicating-ai/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:anthropic-self-replicating-ai</guid>
+<pubDate>Tue, 13 Oct 2026 12:01:50 +0000</pubDate>
+<description>15 台廉价电视盒子，已经能联合运行 260 亿参数的模型。下一道门槛，是让 AI 自己搭好新宿主，并把经验与行动能力一起传下去。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 13 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Anthropic 红队研究：AI 一旦逃离黑箱 利用电视盒子、扫地机、智能烤箱等智能设备 即可完成自我复制</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/anthropic-self-replicating-ai/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>为什么廉价智能设备会成为目标？</span></a><a><span>02</span><span>自主复制，最难的是哪一步？</span></a><a><span>03</span><span>一旦跑通复制，它会怎样扩散？</span></a><a><span>04</span><span>它传下去的，还有上一代的经验</span></a><a><span>05</span><span>发现以后，怎样阻止它继续传播？</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Anthropic 红队研究：AI 一旦逃离黑箱 利用电视盒子、扫地机、智能烤箱等智能设备 即可完成自我复制</h1><p>15 台廉价电视盒子，已经能联合运行 260 亿参数的模型。下一道门槛，是让 AI 自己搭好新宿主，并把经验与行动能力一起传下去。</p><div><span><b>已核对</b></span><span>Anthropic</span><span>10-13 · 12 分钟</span></div><div><div>正文一页纸</div>收起播客 ⌃☆ 收藏</div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>普通设备也能拼出推理算力，AI 潜在的落脚点正在扩展。</li><li>复制要重建运行环境；排错笔记能让后继实例带着经验出发。</li><li>更多设备增加副本数量，单个副本仍很慢；分散存活使清除成为跨网络的持续治理。</li></ul><div><p>一提到“AI 脱离控制”，我们很容易想到：它得先占领微软、谷歌的数据中心，拿到大量 GPU 算力。但 Anthropic 前沿红队的这篇研究，把目光转向了另一条路径：<strong>未来的 AI 蠕虫，可能根本不需要去硬啃防守森严的机房。</strong></p>
+<p>那些满大街缺乏安全维护的电视盒子、扫地机、智能烤箱，也可能成为它的落脚点。单台设备的算力很弱，但把模型拆开，分到十几台设备上协同运行，就有机会拼出一个勉强能运转的“脑子”。</p>
+<p>研究人员买来 15 台单价约 55 美元、各有 4GB 内存的安卓电视盒子，联网配置后，联合运行了 260 亿参数的 Gemma4-26B-A4B 模型。虽然速度很慢，只有每秒 0.39 个 token，但确实跑起来了。（token 是模型处理文本的计量单位）</p>
+<figure>
+<figcaption><span>15 台盒子接力运行模型。</span><br>每个方块对应一台设备，各承担模型的两层网络。</br></figcaption>
+</figure>
+<h3>为什么廉价智能设备会成为目标？</h3>
+<p>电视盒子这类设备有一个危险的特点：数量庞大、经常联网，却往往缺少持续的安全维护。曾感染超过 200 万台设备的 Kimwolf 僵尸网络，主要目标就是这类安卓电视盒子。出厂默认的弱口令、直接对外开放的管理接口、常年不打补丁的系统，让这类设备容易成为攻击目标。攻击者不需要去硬闯机房，就能从这些不起眼的设备上搜刮算力。</p>
+<p>单台盒子装不下演示中的整个模型，15 台却可以分工。演示中的 Gemma4-26B-A4B 模型一共有 30 层网络，拆成每台盒子各承担两层：第一台算完自己的两层，把中间计算结果传给第二台，像流水线接力一样逐级算完全部 30 层。这就是<strong>流水线并行</strong>（Pipeline Parallelism）。</p>
+<p>这样分工，也给掉线后的恢复留下了办法。张量并行需要各个节点在每一层计算中紧密协同，某台设备掉线会影响整个副本；流水线并行则可以给掉线的盒子找一台替班，利用前序节点重新计算丢失的上下文缓存，让推理恢复运行。要在普通设备上长期工作，就得考虑断网、关机以后怎样接上。</p>
+<p>这就把问题推到了下一步：模型已经有地方运行了，它能不能自己找到下一批设备，把新的副本也运行起来？</p>
+<h3>自主复制，最难的是哪一步？</h3>
+<p>光把模型权重传到新宿主上并不算完成复制。新机器还得有兼容的推理引擎，能加载权重、接收输入并给出结果，新的 Agent 才能继续干活。</p>
+<p>让下一份副本继续工作，需要把四步接起来：寻找目标、拿到执行权限、部署推理服务，最后从新宿主继续向外扩散。</p>
+<figure>
+<img>
+<figcaption><span>关键在第三步：把推理服务搭起来。</span><br>图中“our focus”标出的，就是本研究重点检验的环节。</br></figcaption>
+</img></figure>
+<p>为特定设备写好的安装脚本，遇到没有预设适配的芯片或软件环境，就可能卡在报错上。Agent 可以读报错、查配置，再调整部署方案，把原本要由工程师临场处理的事接着做下去。在测试中，90 亿参数的 Qwen3.5-9B 面对从不同 CPU、GPU 到物理开发板的 9 种硬件，有 8 种都至少独立部署成功过一次。</p>
+<div><h4>换一种硬件，看部署能否成功</h4><p>Agent 负责搭建推理服务。以下是成功数／尝试数；通常部署的是 Llama3.1-8B，Jetson 为原图注明的例外。行名是执行部署任务的 Agent。</p>选择硬件 Xeon CPURTX 4090MacWindowsTPUMI300XH200Jetson NanoOrange Pi<div><div><strong>Qwen3.5-9B</strong><div><span></span></div><p>0/4 次成功</p></div><div><strong>GLM-5.2</strong><div><span></span></div><p>11/11 次成功</p></div></div><p>条长显示成功比例，分母保留各模型的尝试次数。</p>查看九种硬件的全部结果<div><table><thead><tr><th>硬件</th><th>Qwen3.5-9B</th><th>GLM-5.2</th></tr></thead><tbody><tr><th>Xeon CPU</th><td>13/15</td><td>14/15</td></tr><tr><th>RTX 4090</th><td>8/13</td><td>15/15</td></tr><tr><th>Mac</th><td>7/13</td><td>17/18</td></tr><tr><th>Windows</th><td>6/10</td><td>9/10</td></tr><tr><th>TPU</th><td>1/5</td><td>6/7</td></tr><tr><th>MI300X</th><td>0/4</td><td>11/11</td></tr><tr><th>H200</th><td>4/6</td><td>14/16</td></tr><tr><th>Jetson Nano</th><td>3/5</td><td>5/5</td></tr><tr><th>Orange Pi</th><td>4/5</td><td>5/5</td></tr></tbody></table></div></div>
+查看原始硬件部署矩阵
+<figure>
+<img />
+<figcaption><span>先看单元格下方的成功次数。</span><br />横向比较硬件，纵向比较模型。目标通常为 Llama3.1-8B，Jetson 有例外；行名是执行部署任务的 Agent。</figcaption>
+</figure>
+<p>会在一台机器上搭环境，还得进一步看能否把寻找目标、传送载荷、搭好服务这些任务连续做完。</p>
+<p>在 8 个安卓模拟节点的端到端测试里，研究人员给出了相当宽松的条件：节点全部开放免认证的 ADB 调试端口，执行任务的 Agent 由外部推理服务器支持，在新节点上部署的统一目标模型是 Llama3.1-8B；只要新节点的推理服务通过检查，系统就会派生同款 Agent 接着扩散。</p>
+<p>把这些步骤接起来，模型之间的差距就显了出来：</p>
+<figure>
+<img />
+<figcaption><span>看通过服务检查的节点数。</span><br />GLM-5.2 大多跑通全部 8 个节点，这组测试中的几种较小模型没有让新节点通过检查。</figcaption>
+</figure>
+<p>GLM-5.2 在 5 轮测试中，4 轮让全部 8 个节点通过服务检查，另一轮达到 7 个；Qwen3.5-9B、Gemma4-26B-A4B 和代码模型 Qwen3-Coder-Next 则都是 0/8。差别出现在连续工作上：复制要把一串互相依赖的任务接起来，模型还得发现自己走错了、回头修正。能解决单个问题，并不自动意味着能把整条链可靠地走完。</p>
+<p>为了看清卡在哪里，另一组测试让写好的脚本接手环境搭建，模型继续负责网络探测和任务编排。当部署由脚本完成时，在另一个 17 节点网络里，Qwen3.5-9B 在轻度提示下，六轮测试的节点数中位数达到了 17/17。这让部署的重要性显了出来：在这组简化环境里，小模型已经能承担不少传播编排；需要它临场把推理服务搭起来时，可靠性仍是重要的关卡。</p>
+<p>这构成了当前自主复制的核心矛盾：能塞进廉价设备的小模型，端到端部署的成功率还不够；能跑通这组流程的较强模型，这批廉价设备又装不下。</p>
+<p>自主复制要变成现实，就看这两个条件什么时候能汇合在同一个小模型上。</p>
+<figure>
+<img />
+<figcaption><span>看小模型与参考水平还差多少。</span><br />蓝线是同类最佳小模型的通用能力趋势，绿线是 GLM-5.2 的参考水平。</figcaption>
+</figure>
+<p>研究用通用能力指标 ECI 观察 300 亿参数（30B）及以下的开权重模型，同类最佳水平的拟合增长率约为每年 13.7 点。按这条趋势外推，小模型可能在 2026 年底接近 GLM-5.2 的参考水平。ECI 给出的是能力距离的参考；真正需要补齐的，仍是前面那种把部署和后续任务可靠接起来的本事。今天尚未重合的两个条件，正在被小模型的进步拉近。</p>
+<h3>一旦跑通复制，它会怎样扩散？</h3>
+<p>即便未来的小模型真跨过了能力门槛，它在廉价硬件上的扩散节奏依然快不起来。</p>
+<p>低功耗芯片的内存带宽有限，15 台盒子接力计算，还要在设备之间传递中间结果。研究按包含输入处理和输出生成的平均约每秒 0.3 个 token 估时：Qwen3.5-9B 完成一次推理部署约需 <strong>28 到 51 小时</strong>，也就是一到两天；Gemma4-26B-A4B 约需 <strong>71 到 150 小时</strong>，相当于三到六天。光是在新设备上把服务搭好，就可能耗上几天。</p>
+<p>排错又需要模型记住一长串信息：终端报错、检查结果、写过的代码，以及哪些办法已经试过。上下文越长，运行时占用的内存也越多。</p>
+<figure>
+<img />
+<figcaption><span>上下文越长，内存占用越高。</span><br />量化配置：权重 4-bit、KV 缓存 8-bit。缓存和中间计算结果随上下文增长，在约 62k 时触及 1.7GB 可用空间线。</figcaption>
+</figure>
+<p>把上下文压短确实能省空间，可一旦丢掉了排错所需的信息，任务本身也可能做不下去。</p>
+<figure>
+<img />
+<figcaption><span>省内存，也可能省掉排错线索。</span><br />上下文预算从 8k 增至 32k，部署成功率从 0% 增至 60%。</figcaption>
+</figure>
+<p>这就是廉价硬件上的取舍：要留出足够的空间，让模型知道前面发生过什么，又要承担处理这些信息的时间。缩短上下文省下了运行开销，也可能丢掉完成长任务所需的线索。</p>
+<p>设备更多，能不能弥补这个速度问题？</p>
+<p>以 Kimwolf 曾达到的 200 万台设备规模来推算，每 15 台拼成一个副本，全网大约能容纳 13.3 万组。假设每组设备同时跑 2 个约 0.3 tok/s 的 Agent，整张僵尸网络的总产出约为每秒 8 万 token。对照原文引用的高并发 H100 配置，聚合吞吐约相当于 40 块卡。</p>
+<div><h4>更多设备，能同时运行多少副本？</h4><p>沿用原文的数量推演：每 15 台盒子组成一个模型副本，每组同时服务两个 Agent，每个约 0.3 tokens/秒。</p>参与设备数量 15 台1,500 台（教学假设）2,000,000 台（原文对照规模）<div><div>完整副本组数<strong>133,333</strong></div><div>聚合吞吐<strong>79,999.8</strong>tokens/秒，约值</div><div>H100 吞吐参照<strong>41.0</strong>块，仅作此配置的吞吐对比</div></div><p>计算：⌊盒子数 ÷ 15⌋ × 2 × 0.3。H100 参照为高并发、推测解码配置下约 1,950 tokens/秒；两百万台算得约 41 块卡的吞吐，原文概括为约 40。</p></div>
+<p>设备堆得再多，增加的也只是<strong>同时尝试的并发副本数量</strong>，而不是单个副本的思考速度。每个副本依然在以天为单位缓慢排错，但成千上万个副本可以在各处分别寻找新目标。</p>
+<p>它更像原文形容的“数字粘菌”：推进很慢，却可能在许多设备上同时活着。<strong>慢，限制的是扩张速度；分散，增加的是清除难度。</strong> 防御方有更多时间响应，但关掉一个入口触及不了所有副本。</p>
+<p>推理引擎可以在普通用户空间运行，未必需要 Root 权限。重启可能清掉当前进程；可设备的入口没修好，其他副本还在传播，它就可能再次感染。要清掉这类网络，还得处理让副本继续出现的条件。</p>
+<h3>它传下去的，还有上一代的经验</h3>
+<p>一份副本花了几天摸索出来的办法，能不能留给下一份？</p>
+<p>小模型在独立排错时经常会陷入死胡同。在实验中，一个 Qwen 实例自建的推理接口其实只是和测试端点不兼容，它却固执地认为是依赖包版本冲突，在一处无关的配置上死磕了几个小时。</p>
+<p>研究人员构建的 Memento 框架就是为了打破这种僵局：它在一个实例超时后，换一个全新的同款模型实例接手，并把前任留下的工作区、写好的脚本以及记录了“试过哪些方法、遇到了什么报错”的简明笔记完整继承下来。新实例知道前任已经试过什么，也有机会重新判断排错方向。</p>
+<figure>
+<img />
+<figcaption><span>继承经验有帮助，表现仍有波动。</span><br />粗线所示的六代成功率依次为 45%、72%、61%、63%、84%、65%。</figcaption>
+</figure>
+<p>Anthropic 把这种经验传递称为“拉马克式进化”。模型权重没有重训，改变的是下一份开始干活时带着什么：它能接着使用已有的代码、环境和笔记。复制时除了带走模型文件，也可以把已经积累的适配经验一起传下去。</p>
+<p>经验能帮助接手的实例继续工作，求助则还有另一道要求：小模型得先知道自己卡在哪里，才能问到点子上。</p>
+<p>研究团队让 Qwen3.5-9B 在部署时接入 Opus 4.8 进行协助，但测试数据显示，高阶顾问并没有带来显著的改善。</p>
+<figure>
+<img />
+<figcaption><span>强顾问没有自动补齐部署能力。</span><br />接入 Opus 4.8 后，主动提问、卡住时提供建议，以及经过强化学习训练的求助方式，都未显著改善这组部署任务的成功率。</figcaption>
+</figure>
+<p>小模型常常提不出有用的问题，主动给它建议也没有明显改善这组部署任务。一个强顾问，并不能自动接过执行者的判断。研究者据此提出另一种协作设想：让大模型掌握总体策略，小模型承担具体子任务，把关键判断放到更有能力的一端。</p>
+<h3>发现以后，怎样阻止它继续传播？</h3>
+<p>这些副本可以分散运行，也有机会带着经验接续工作。防御方可以从它们离不开的网络连接入手。</p>
+<p>把模型搬到新设备，需要传输数 GB 的权重；十几台设备协同推理，需要持续的设备间通信；继续寻找目标，还会留下扫描和对外连接。这些都是可以寻找的网络线索。</p>
+<p>传得越快、连接的设备越多，留下的网络活动也会更多；为了隐蔽而收敛活动，又会限制传播。运营商可以把这些模式作为监测线索，安全人员也可以用蜜罐收集载荷和运行框架，分析它如何继续扩散。</p>
+<p>一旦掌握了它的通信特征，防御方就可以在网络链路上采取针对性的拦截。</p>
+<p>治理 Mirai 僵尸网络时，就曾用过这样的办法：运营商根据外部感染证据主动识别受害用户，将他们的网络隔离到一个受限的白名单内，并引导他们按照说明清理修复设备。在 14 天里，这种主动通知与隔离清除了 92% 的受感染设备，未收到通知的一组，同期清除率为 74%。</p>
+<p>清掉一批设备，还要防止别处的副本重新传回来。如果仅仅是某一家运营商完成了清理，只要其他运营商的网络里依然存在活跃副本，或者设备出厂的弱口令与调试端口依然敞开，已经清理过的设备仍可能再次感染。</p>
+<p>因此，隔离和修复要一起做，还需要不同运营商协调：切断传播连接，修好感染入口，再由厂商提高设备的出厂安全默认值，减少轻易可被接管的目标。让每个感染节点平均带来的新感染数降到 1 以下（R₀ &lt; 1），传播链才会逐渐断掉。</p>
+<p>这也是这项研究最值得关注的变化：AI 可以运行在哪里，以及下一份副本能否继续工作，开始成为需要一起考虑的问题。机房有机房的控制点；模型一旦能在大量普通设备上重建运行环境，防御就得追着它的副本和传播连接展开。</p>
+</div><div><div><div>来源</div><div><span>AI models may be capable of self-replicating without access to a datacenter</span><span>William Zhou、Daniel Freeman / Anthropic<span>·</span>2026-10-12<span>·</span><a href="https://www.anthropic.com/research/self-replicating-ai">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://assets.claude.ai/brand/artifacts/editorial/ai-worms-figures-blog/04-inference-setup-grid-light.html">异构硬件部署结果（原始交互图）</a><span>·</span><a href="https://assets.claude.ai/brand/artifacts/editorial/ai-worms-figures-blog/07-end-to-end-replication-light.html">8 节点复制结果（原始图）</a><span>·</span><a href="https://assets.claude.ai/brand/artifacts/editorial/ai-worms-figures-blog/10-learning-over-generations-light.html">笔记继承实验（原始图）</a><span>·</span><a href="https://assets.claude.ai/brand/artifacts/editorial/ai-worms-figures-blog/09-small-model-capability-light.html">小模型能力趋势（原始图）</a></div></div></div></div></div><div>
+<div>Anthropic Frontier Red Team Research</div>
+<h1>Anthropic 红队研究：AI 一旦逃离黑箱 利用电视盒子、扫地机、智能烤箱等智能设备 即可完成自我复制</h1>
+<div>廉价硬件已经能拼出模型的“脑子”。下一道门槛，是让它自己找到新设备、搭好服务，接着行动。</div>
+<div>Anthropic 前沿红队 · 廉价硬件 → 自主部署 → 分散存活 → 经验继承 → 协同防御</div>
+<div><h2>15 台盒子，接力拼出一个模型</h2>
+<p>AI 脱离控制，未必需要先占领微软、谷歌的数据中心。数量庞大、缺少安全维护的电视盒子等智能设备，也可能成为它搜集算力的落脚点。</p>
+<p>研究人员把 15 台单价约 55 美元、各有 4GB 内存的安卓电视盒子联网配置，联合运行了 260 亿参数的 Gemma4-26B-A4B：短演示达到每秒 0.39 个 token。</p>
+<div>
+<div>
+<div>15 台</div>
+<div>单价 $55 安卓电视盒子联合组网</div>
+</div>
+<div>
+<div>30 层</div>
+<div>Gemma4-26B-A4B 每台两层</div>
+</div>
+<div>
+<div>0.39 tok/s</div>
+<div>流水线并行跨设备推理真实跑通</div>
+</div>
+</div>
+<div>
+<div>
+<div>1 → 2</div>
+<div>第一台盒子</div>
+<div>算完两层，传出中间结果</div>
+</div>
+<div>
+<div>3 → 4</div>
+<div>第二台盒子</div>
+<div>接着计算，再传给下一台</div>
+</div>
+<div>
+<div>29 → 30</div>
+<div>……第十五台盒子</div>
+<div>算完最后两层，给出结果</div>
+</div>
+</div>
+<p>这就是流水线并行：每台只跑两层，把中间结果交给下一台。掉线后可以找替班，并重算丢失的上下文缓存；恢复运行仍需要额外工作。</p>
+</div>
+<div>
+<div>自主复制的核心矛盾：装得下的跑不通，跑得通的装不下</div>
+<p>找到目标、拿到执行权限、搭好推理服务、继续扩散，四步要连着做完。把权重传过去还不够：芯片、依赖和接口各不相同，模型必须自己看报错、改配置。Qwen3.5-9B 在 9 种硬件中，8 种至少独立部署成功过一次；整条复制链却更难。</p>
+<div>
+<div>
+<span>测试中的较小模型</span>
+<div>0 / 8 节点</div>
+<div>Qwen3.5-9B / Gemma4-26B-A4B</div>
+<div>小模型可以适配多种硬件，却还不能可靠串起完整任务。另一个 17 节点测试交给脚本搭环境后，Qwen 的节点数中位数达 17/17。</div>
+</div>
+<div>
+<span>强基座模型</span>
+<div>8 / 8 节点</div>
+<div>GLM-5.2</div>
+<div>5 轮中 4 轮达到 8/8，另一轮为 7/8。但这批廉价设备装不下它的权重。能跑通流程与能在盒子上运行，尚未重合。</div>
+</div>
+</div>
+<p>8 个安卓模拟节点开放免认证 ADB，执行任务的 Agent 由外部服务器支持，部署目标统一为 Llama3.1-8B。这组测试检验的是任务链条，电视盒子演示检验的是硬件承载。</p>
+<div>
+<div>下一步：两种能力什么时候在小模型身上汇合？</div>
+<div>30B 及以下开权重模型的同类最佳 ECI，拟合增速约为每年 13.7 点。外推到 2026 年底，可能接近 GLM-5.2 的通用能力参考水平；端到端部署是否可靠，仍要实际检验。</div>
+</div>
+</div>
+<div><h2>副本很慢，网络却可以很分散</h2>
+<p>跑通复制，也不会突然变成闪电战。它更像“数字粘菌”：每份副本行动很慢，许多份却能同时在各处存活。</p>
+<p>按平均约 0.3 tok/s 估时，Qwen3.5-9B 完成一次部署约需 28—51 小时，Gemma4-26B-A4B 约需 71—150 小时。长任务还要保留排错线索：4-bit 权重、8-bit KV 缓存配置下，总内存在约 62k 上下文触及每盒 1.7GB 可用空间；Qwen 上下文从 8k 增至 32k，部署成功率从 0% 增至 60%。</p>
+<div>
+<div>
+<div>单副本思考速率</div>
+<div>0.3 tok/s</div>
+<div>增加设备数量，并不能让这一份副本思考更快。部署耗时估算也不是全网感染的倍增周期。</div>
+</div>
+<div>
+<div>全网并发聚合产能</div>
+<div>80,000 tok/s</div>
+<div>假设 200 万台设备、15 台一组，每组跑 2 个 0.3 tok/s 的 Agent，合计约 13.3 万组；按原文高并发配置，吞吐约相当于 40 张 H100。</div>
+</div>
+</div>
+<div>
+<p>慢，限制扩张速度；分散，增加清除难度。推理未必需要 Root。重启能清掉进程，入口没修好、其他副本还在，就可能再次感染。</p>
+</div>
+</div>
+<div><h2>复制下去的，还有排错经验</h2>
+<p>一份副本花几天摸索出的办法，可以留给接手的实例。Memento 在实例超时后换一个同款模型，把现场与经验一起交过去。</p>
+<p>它继承的是工作材料，模型权重没有重训：</p>
+<div>
+<div>
+<div>STEP 1</div>
+<div>工作区：保留已经处理过的环境与文件。</div>
+</div>
+<div>
+<div>STEP 2</div>
+<div>脚本：继续使用已有代码与适配成果。</div>
+</div>
+<div>
+<div>STEP 3</div>
+<div>笔记：知道试过什么、错在哪里，也能重新判断方向。</div>
+</div>
+</div>
+<p>六代部署成功率为 45%、72%、61%、63%、84%、65%：最高达到 84%，表现仍有波动。接入 Opus 4.8 顾问没有显著改善这组部署任务，小模型常常不知道怎样问到点上。</p>
+</div>
+<div><h2>沿着连接，阻断继续传播</h2>
+<p>副本再分散，也离不开网络：数 GB 权重传输、设备间推理通信和扫描，都会留下可寻找的线索。</p>
+<p>治理 Mirai 时，运营商主动通知、隔离并引导修复，14 天清除了 92% 的感染设备；未通知组同期为 74%。这提供了防御思路，还需要结合新型蠕虫的实际通信特征。</p>
+<div>
+<div>防御结论：跨运营商协同切断传播连接 (R₀ &lt; 1)</div>
+<p>隔离连接、修好入口、提高出厂安全默认值，要一起推进。不同运营商也需协调，防止别处的副本传回来。让每个感染节点平均带来的新感染数低于 1（R₀ &lt; 1），传播链才会逐渐断掉。</p>
+</div>
+</div>
+</div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://www.anthropic.com/research/self-replicating-ai">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>技术前沿</div>
+<div>OpenAI称：在公司内部已达成里程碑式目标 已构建出一个能在人类监督下独立完成数天任务的“自动化研究实习生”</div>
+<div>09-07 · 15 分钟</div></a><a>
+<div><span></span>技术前沿</div>
+<div>OpenAI 首席科学家：我们正在创造一个智力超越人类、但内部机理人类无法完全理解的“外星生命”</div>
+<div>09-07 · 12 分钟</div></a><a>
+<div><span></span>研究解读</div>
+<div>浏览器安全公司 LayerX 发现了一种新型的“视觉欺诈”攻击方式，专门用来欺骗 AI 助手</div>
+<div>07-30 · 10 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Anatomy：一句话，让 AI 把复杂机械原理做成可操作的动态图解</title>
+<link>https://best.xiaohu.ai/article/anatomy-interactive-machine-skill/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:anatomy-interactive-machine-skill</guid>
+<pubDate>Tue, 13 Oct 2026 12:01:50 +0000</pubDate>
+<description>用可操作的结构讲清机械原理与算法规则，再按五步完成安装、生成、预览和修改。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 13 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Anatomy：一句话，让 AI 把复杂机械原理做成可操作的动态图解</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/anatomy-interactive-machine-skill/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>从一句请求到可操作图解：按这 5 步做</span></a><a><span>02</span><span>先玩现成图解，再挑一个机制来做</span></a><a><span>03</span><span>进阶：本地改代码，或嵌入现有网页</span></a><a><span>04</span><span>怎样判断图解真的讲清了原理？</span></a><a><span>05</span><span>先做小机制，复杂图解留时间打磨</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Anatomy：一句话，让 AI 把复杂机械原理做成可操作的动态图解</h1><p>用可操作的结构讲清机械原理与算法规则，再按五步完成安装、生成、预览和修改。</p><div><span><b>已核对</b></span><span>Ryan (@wheresryan22)</span><span>10-13 · 约 18 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>Anatomy 用对象的动作解释机械原理和算法规则，让你看见状态怎样变化。</li><li>按五步完成安装、发送请求、预览检查和修改，学会把机制与参数写进提示词。</li><li>直接操作 6 种装置寻找灵感，也能本地改代码或把现成图解放进网页。</li></ul><div><p><strong>Anatomy</strong> 是一个面向 AI 编程助手（Claude Code、Antigravity、OpenCode、Codex）的开源 Agent Skill，能把机械原理与抽象算法做成可操作的等距图解。理解复杂机制时，知道部件叫什么只是起点，还要弄清它们怎样配合：动力从哪里传到哪里，哪个动作改变了状态，什么条件会让下一步停止。结构图和流程图能列出部件、连接与步骤；运行中的变化，往往还需要读者在脑中补齐。</p>
+<p>可操作图解把这段过程放到眼前。给机械表上弦，可以观察动力怎样经过齿轮传递、怎样被擒纵机构有节奏地释放；访问缓存中的一个数据项，可以看它怎样移到最近使用的位置，以及容量满时哪个项被淘汰。你能改变输入、放慢过程、拆开结构，追踪动作与结果的关系。这让技术文档、课程与科普文章可以用具体过程解释规则。</p>
+<p>Anatomy 的做法是<strong>让物体的动作承担解释</strong>：把 LRU 缓存映射成有限槽位的书架，把令牌桶限流映射成不断补充气体、按请求打孔的装置。书架的移动对应访问顺序，储气与消耗对应额度变化。画面用 SVG、WebGL 或 3D 代码绘制，构件运动与角落读数由同一套状态模型驱动。读者能据此检查表现是否符合规则，原理与参数仍需核对。</p>
+<p>你在编程助手中描述机制、关键参数与输出要求，Skill 提供相机、零件绘制、交互和检查方法，助手据此编写可编辑的网页代码。输出可选择独立 HTML、SVG 或 React 组件，适合放进文档、课程与网页；需要调整时继续改代码或追问助手。它生成的是浏览器中的解释图解，不是用于加工制造的 CAD 图纸或工程仿真。</p>
+<figure><figcaption>涡扇发动机点火、推力变化与发电站电弧演示。视频经过剪辑，播放时长不是生成耗时。</figcaption></figure>
+<h2>从一句请求到可操作图解：按这 5 步做</h2>
+<h3>1. 准备工具，安装 Skill</h3>
+<p>准备一个已能正常使用的编程助手，以及 Node.js。绘图库要求 Node.js 20.10+；<code>skills</code> 安装工具需要较新的 Node.js（如 22.20+）。</p>
+<p>Skill 免费，生成与修改消耗编程助手的模型配额。自动截图和线条检查需要 Chrome 或 Chromium。</p>
+<p>下面的命令按你使用的工具选择一条执行。带 <code>-g</code> 的是全局安装；只在当前项目使用时，选最后一条。</p>
+<p><strong>安装命令：</strong></p>
+<div><pre><code># Claude Code
+npx skills add wheresryan22/anatomy -g -a claude-code
+# Antigravity
+npx skills add wheresryan22/anatomy -g -a antigravity
+# OpenCode
+npx skills add wheresryan22/anatomy -g -a opencode
+# Codex
+npx skills add wheresryan22/anatomy -g -a codex
+# 仅当前项目（团队共用）
+npx skills add wheresryan22/anatomy
+</code></pre></div>
+也可以用 Git 安装：展开对应路径
+<p>将仓库克隆至对应工具的技能目录：</p>
+<div><pre><code># Claude Code
+git clone https://github.com/wheresryan22/anatomy.git ~/.claude/skills/anatomy
+# Antigravity
+git clone https://github.com/wheresryan22/anatomy.git ~/.gemini/antigravity/skills/anatomy
+# OpenCode
+git clone https://github.com/wheresryan22/anatomy.git ~/.config/opencode/skills/anatomy
+# Codex
+git clone https://github.com/wheresryan22/anatomy.git ~/.agents/skills/anatomy
+</code></pre></div>
+<p>安装完成后，Claude Code 正在运行的会话可输入 <code>/reload-skills</code> 立即重载；Antigravity、OpenCode 或 Codex 若未自动列出 <code>/anatomy</code>，重启客户端即可生效（在 Codex 中以 <code>$anatomy</code> 触发）。</p>
+<h3>2. 创建工作目录，启动编程助手</h3>
+<p>在终端创建工作目录并启动助手。下面以 Claude Code 为例：</p>
+<div><pre><code>mkdir anatomy-demo &amp;&amp; cd anatomy-demo
+# 启动你的 AI 编程助手（例如 claude / antigravity / opencode / codex）
+claude
+</code></pre></div>
+<p><code>/anatomy ...</code> 是发给编程助手的请求。先启动 Agent，再在它的会话中发送；不要把它粘到终端的 shell 提示符后。</p>
+<h3>3. 复制请求，先做一个令牌桶</h3>
+<p>第一次从令牌桶这样的小机制开始：每个请求消耗 1 个令牌，有令牌才能通过；令牌按固定速率补充，存量达到上限后不再增长。<strong>容量决定能承受多大的短时突发，补充速率决定额度恢复有多快。</strong> 两者一起决定限流行为，不能只写“画一个限流器”。</p>
+<p>下面把容量定为 8、补充速率定为每秒 2 个，并明确空桶时阻断请求，让助手有具体规则可建模，也让你能检查结果。要求输出 <code>build.mjs</code> 与 <code>index.html</code>，是为了同时拿到可修改的构建脚本和可打开的页面：改参数后重新构建，页面便能反映新设置。绝对路径与预览命令则把“生成代码”接到“看到结果”这一步。</p>
+<p>下面两版任选一版在 Agent 会话中发送，模板由本文提供。使用 Codex 时，将开头的 <code>/anatomy</code> 换成 <code>$anatomy</code>。</p>
+<ul>
+<li>
+<p><strong>中文指令（复制后在 Agent 会话中发送）：</strong></p>
+<div><pre><code>/anatomy 请用一个具体的机械装置解释令牌桶限流算法：桶容量固定为 8 个令牌，注水/充气泵以每秒 2 个的固定速率补充令牌，外部请求到来时消耗 1 个令牌并触发物理动作；当桶空时机构互锁阻断请求。请生成独立的 build.mjs 构建脚本与可直接在浏览器打开的 index.html 单页，浅色主题，interactive，并请在回答中给出实际生成文件的绝对路径与本地预览命令。
+</code></pre></div>
+</li>
+<li>
+<p><strong>英文模板：</strong></p>
+<div><pre><code>/anatomy Explain a token bucket rate limiter using a concrete physical machine: fixed bucket capacity of 8 tokens, a pump replenishing at 2 tokens/sec, incoming requests spend 1 token to trigger an action, and an interlock blocks requests when empty. Output a standalone build.mjs script and an index.html file that opens directly in a browser, light theme, interactive. Please provide the exact output file paths and the local preview command in your response.
+</code></pre></div>
+</li>
+</ul>
+<p>换题材时，讲清机制、数值和输出形式，让助手知道哪些规则必须保持。例如连接池要说明容量、借出归还与满时排队；机械装置要说明哪个构件运动、运动改变什么。<code>interactive</code> 要求交互；需要火焰、水面等效果时再加 <code>WebGL</code>；需要构件沿深度方向旋转时再选 <code>3D</code>（Beta）。</p>
+<h3>4. 打开结果，检查动作和读数</h3>
+<p>生成结束后，按实际输出路径打开页面：</p>
+<ol>
+<li><strong>确认实际输出文件路径</strong>：
+按助手回复的实际路径打开文件。没有给出路径时，追问：“请给出生成文件的绝对路径，以及在当前目录启动预览的命令。”</li>
+<li><strong>启动本地静态服务预览</strong>：
+在工作目录执行下列命令，再按终端显示的地址和文件路径打开页面：<div><pre><code>npx serve .
+</code></pre></div>
+</li>
+<li><strong>检验画面与动作</strong>：
+<ul>
+<li>检查卡片四角：图号、标题、交互提示和实时读数是否清楚。随后按图中提示操作，核对规则，而不只看动画是否流畅。</li>
+<li><strong>有额度时看消耗</strong>：等待令牌恢复后触发请求，检查一次请求是否消耗 1 个令牌，对应构件是否动作，读数是否同步。</li>
+<li><strong>耗尽时看阻断</strong>：快速连续触发请求，使消耗快于补充。余额耗尽时，请求应被阻断，不能让冲头继续动作而读数停在零。</li>
+<li><strong>停止请求后看恢复</strong>：观察令牌是否按每秒 2 个的速率补充，恢复到 8 后是否封顶。有了可用令牌，请求应能再次通过，不必等整个桶装满。</li>
+</ul>
+</li>
+<li><strong>自检失败与沙箱拦截排查</strong>：
+<ul>
+<li>几何审计在已接入 <code>kit/audit.mjs</code> 的构建脚本中运行；截图、线条等浏览器检查才需要 Chrome。请让 Agent 返回实际执行的命令、文件路径与检查结果。</li>
+<li>若检查被沙箱拦截，先用浏览器查看页面；自动检查仍未完成。</li>
+<li>处理方式：针对具体检查命令使用运行环境提供的授权入口，或在正常终端执行确认过的检查脚本。</li>
+</ul>
+</li>
+</ol>
+<h3>5. 针对具体问题追问修改</h3>
+<p>先操作初稿，再说明具体问题。以下两组修改模板按需使用，每组中英文任选一版。</p>
+<p><strong>画面空、零件像悬浮着：</strong></p>
+<ul>
+<li>
+<p><strong>中文指令：</strong></p>
+<div><pre><code>初稿整体功能已跑通，但底座与机构中部显得过于平整空旷。请按照 4× 检查标准深化细节：在底座增加边缘倒角、嵌槽与四角螺钉，在滑轨处补充滚珠衬套、行程限位块以及刻度线；让各层实体零件紧密叠放，确保没有悬空面。
+</code></pre></div>
+</li>
+<li>
+<p><strong>英文模板：</strong></p>
+<div><pre><code>The baseline mechanics work, but the baseplate and central carriage look too bare and flat. Please refine it to meet Anatomy's 4× audit standard: add beveled edges, inset grooves, and corner screws to the plate; add ball bushings, travel stops, and tick scales to the rails; ensure every part rests solidly on another part with zero floating surfaces.
+</code></pre></div>
+</li>
+</ul>
+<p><strong>数字变化了，构件却没有同步：</strong></p>
+<ul>
+<li>
+<p><strong>中文指令：</strong></p>
+<div><pre><code>当前的角落读数与物理零件的运动存在偏差。请检查底层状态模型，确保右下角的读数字符串与驱动主构件位移的物理量共享同一套纯函数状态，避免在 UI 层单独运行非同步的定时器。
+</code></pre></div>
+</li>
+<li>
+<p><strong>英文模板：</strong></p>
+<div><pre><code>The corner readout is currently out of sync with the physical motion. Please refactor the underlying math model so that both the readout string at the bottom right and the displacement of the moving parts read from the exact same pure state function, without independent UI timers.
+</code></pre></div>
+</li>
+</ul>
+换题材：连接池、本生灯、咖啡机的完整双语请求
+<p><strong>数据库连接池：输出 React 组件与静态预览</strong></p>
+<ul>
+<li>
+<p><strong>中文译文：</strong></p>
+<div><pre><code>/anatomy 为我们的 Next.js 文档制作一个解释数据库连接池的图形：包含容量为 10 的连接池，请求借出连接并在完成后归还，当 10 个连接全忙时新请求在队列中等待。输出为 React 组件并附带静态 HTML 预览，采用深色主题。
+</code></pre></div>
+</li>
+<li>
+<p><strong>英文指令：</strong></p>
+<div><pre><code>/anatomy a figure for our Next.js docs on database connection pooling: a pool of 10 connections, requests borrow one and give it back, and when all 10 are busy new requests wait in a queue. A React component plus a static HTML preview, dark theme.
+</code></pre></div>
+</li>
+</ul>
+<p><strong>本生灯：用 WebGL 表现火焰</strong></p>
+<ul>
+<li>
+<p><strong>中文译文：</strong></p>
+<div><pre><code>/anatomy 实验台上的本生灯：旋转空气调节环将懒散的黄色火焰转变为呼啸的蓝色锥形焰。火焰使用 WebGL，单 HTML 文件，深色主题。
+</code></pre></div>
+</li>
+<li>
+<p><strong>英文指令：</strong></p>
+<div><pre><code>/anatomy a Bunsen burner on a lab bench: opening the air collar turns the lazy yellow flame into a roaring blue cone. WebGL for the flame, one HTML file, dark theme.
+</code></pre></div>
+</li>
+</ul>
+<p><strong>咖啡机：展示内部结构与水流</strong></p>
+<ul>
+<li>
+<p><strong>中文译文：</strong></p>
+<div><pre><code>/anatomy 侧面板拆卸的热交换意式浓缩咖啡机：包含锅炉、热交换管、冲煮头、水泵、蒸汽棒和压力表。萃取咖啡时展示水流流动。独立 HTML，浅色主题。
+</code></pre></div>
+</li>
+<li>
+<p><strong>英文指令：</strong></p>
+<div><pre><code>/anatomy a heat-exchanger espresso machine with the side panel off: boiler, heat-exchanger tube, group head, pump, steam wand and gauge. Show the water flowing when you pull a shot. Standalone HTML, light theme.
+</code></pre></div>
+</li>
+</ul>
+<h2>先玩现成图解，再挑一个机制来做</h2>
+<p>只想体验时，无需安装。切换下面的装置，按提示操作；要用快捷键，先点击图内获得焦点。</p>
+<p>6 种装置 · 动手观察机制</p>
+<div>
+指针测量表
+复古电脑
+投币街机
+猛禽发动机
+水波槽
+3D 密码盘
+</div>
+<div>
+<h3>指针测量表 · dial-indicator</h3>
+<p><strong>怎么操作：</strong>先点一下图，按 Home 和 End 切换滑台位置；也可以在图中横向移动指针。</p>
+<p><strong>看什么：</strong>不同高度的量块经过探针时，探针高度、表针和右下读数一起改变。读数以 px 显示模型高度。</p>
+</div>
+<p><a>单独打开此图解 ↗</a><a href="https://github.com/wheresryan22/anatomy/tree/454a0ef801b6d9b905f08309d094491c7085b3dd/examples/dial-indicator">查看当前例子源码 ↗</a></p>
+<p>图中的标注为英文。选好装置后，在图内点击一下再使用快捷键；触摸设备可直接操作图中控件，也可以单独打开。</p>
+<h3>从机械表、发动机和算法里找灵感</h3>
+<p>给机械表上弦，观察能量怎样传到擒纵机构；拖动油门，看三转子与推力怎样变化；改变日期，看地轴倾角怎样影响南北半球的受光。算法也能这样探索：访问一本书触发缓存重排，按住打孔则观察令牌怎样消耗与补充。</p>
+<p><a href="https://skills.wheresryan.sh/anatomy/collection">Anatomy Collection 在线合集</a> 有 52 个可直接操作的图解，包括 33 个主要案例和 19 个早期探索案例。想体验不同机制，可以从这里选；想运行和修改代码，可以使用仓库中的 8 个完整工程。</p>
+<p>点击图片放大查看；点击下方入口，打开图解并动手操作。</p><div>
+<div><img><h3>机械表机芯</h3><p>拖表冠上弦；S 减速，E 拆开</p><a href="https://skills.wheresryan.sh/anatomy/collection/watch">打开交互图解 ↗</a></img></div>
+<div><img /><h3>涡扇发动机</h3><p>推拉油门；Space 起飞工况</p><a href="https://skills.wheresryan.sh/anatomy/collection/turbofan">打开交互图解 ↗</a></div>
+<div><img /><h3>地球与四季</h3><p>拖动转向；方向键改日期</p><a href="https://skills.wheresryan.sh/anatomy/collection/seasons">打开交互图解 ↗</a></div>
+<div><img /><h3>复古电脑</h3><p>点键盘后打字；点机箱开关机</p><a href="https://skills.wheresryan.sh/anatomy/collection/computer">打开交互图解 ↗</a></div>
+<div><img /><h3>哈希分拣台</h3><p>点击放置信件；看桶内堆叠</p><a href="https://skills.wheresryan.sh/anatomy/collection/hash-map">打开交互图解 ↗</a></div>
+<div><img /><h3>消息队列</h3><p>拖动调速；点击消费滚筒</p><a href="https://skills.wheresryan.sh/anatomy/collection/message-queue">打开交互图解 ↗</a></div>
+<div><img /><h3>LRU 缓存书架</h3><p>点击一本书；看重排与淘汰</p><a href="https://skills.wheresryan.sh/anatomy/collection/lru-cache">打开交互图解 ↗</a></div>
+<div><img /><h3>令牌桶工作台</h3><p>按住打孔；看令牌耗尽后阻断</p><a href="https://skills.wheresryan.sh/anatomy/collection/rate-limiter">打开交互图解 ↗</a></div>
+<div><img /><h3>托卡马克</h3><p>拖动回放；Space 播放脉冲</p><a href="https://skills.wheresryan.sh/anatomy/collection/tokamak">打开交互图解 ↗</a></div>
+<div><img /><h3>发动机加力燃烧室</h3><p>点击或方向键调油门</p><a href="https://skills.wheresryan.sh/anatomy/collection/afterburner">打开交互图解 ↗</a></div>
+<div><img /><h3>等离子切割台</h3><p>悬停或拖动钢板；Space 运行</p><a href="https://skills.wheresryan.sh/anatomy/collection/plasma-cutter">打开交互图解 ↗</a></div>
+<div><img /><h3>点样盘与融合</h3><p>横向滑动展开扇形测隙规</p><a href="https://skills.wheresryan.sh/anatomy/collection/spot-plate">打开交互图解 ↗</a></div>
+</div><p><a href="https://skills.wheresryan.sh/anatomy/collection">浏览全部 52 个图解（33 个主要案例 + 19 个早期案例）↗</a></p>
+<p><strong>机械表：把连续动力变成计时节拍。</strong> 上弦把能量存进发条，齿轮把动力传向擒纵机构。模型中的摆轮以 4 Hz 摆动，擒纵叉交替卡住和放行擒纵轮，每次放行半个齿距，一秒发生 8 次。因此，看到秒针一步步前进时，可以沿着“储能—传动—节拍控制”追溯原因，而不只是看到一组转动的齿轮。</p>
+<p><strong>令牌桶：短时突发与持续限速怎样共存。</strong> 储气罐中的存量对应令牌，气泵对应每秒 2 个的补充速率，泄压阀限制最多积累 8 个。请求到来时，打孔动作消耗一个令牌；耗尽时，联锁阻止打孔。积累的额度允许一段短时突发，固定补充速率约束长期的请求通过量。重新积累出一个可用令牌后就能继续，不需要等存量恢复到上限。</p>
+<p><strong>四季：地轴方向不变，受光关系却在变。</strong> 三球仪用中央灯代表太阳，齿轮让地球仪绕灯运动时仍保持 23.4° 的地轴倾角和基本不变的指向。公转位置改变，南北半球便轮流更朝向灯源。沿着这个过程看，可以把地轴姿态、太阳照射角度与季节变化连起来，而不是仅记住“地球绕太阳转”这句话。
+想改代码，从 <a href="https://github.com/wheresryan22/anatomy/tree/454a0ef801b6d9b905f08309d094491c7085b3dd/examples/dial-indicator">百分表工程</a> 开始最容易。其余工程可按需要选择：<a href="https://github.com/wheresryan22/anatomy/tree/454a0ef801b6d9b905f08309d094491c7085b3dd/examples/desk-computer">电脑</a>看输入与屏幕响应，<a href="https://github.com/wheresryan22/anatomy/tree/454a0ef801b6d9b905f08309d094491c7085b3dd/examples/arcade-cabinet">街机</a>看投币信号，<a href="https://github.com/wheresryan22/anatomy/tree/454a0ef801b6d9b905f08309d094491c7085b3dd/examples/raptor-engine">发动机</a>看拆解与喷流，<a href="https://github.com/wheresryan22/anatomy/tree/454a0ef801b6d9b905f08309d094491c7085b3dd/examples/ripple-tank">水波槽</a>看干涉，<a href="https://github.com/wheresryan22/anatomy/tree/454a0ef801b6d9b905f08309d094491c7085b3dd/examples/turning-dial">密码盘</a>看 3D 旋转。另有 <a href="https://github.com/wheresryan22/anatomy/tree/454a0ef801b6d9b905f08309d094491c7085b3dd/examples/test-rig">弹簧测试台</a>和 <a href="https://github.com/wheresryan22/anatomy/tree/454a0ef801b6d9b905f08309d094491c7085b3dd/examples/spot-plate">点滴板</a>两个 React 工程，需要接入前端项目与 <code>kit/react/</code>，不能当独立 HTML 打开。</p>
+<h2>进阶：本地改代码，或嵌入现有网页</h2>
+<h3>跑一个可修改的百分表</h3>
+<p>这条路径需要 Node.js 20.10+ 和 Python 3，不调用模型：</p>
+<ol>
+<li><strong>克隆仓库至本地测试目录</strong>：<div><pre><code>git clone https://github.com/wheresryan22/anatomy.git anatomy-examples
+cd anatomy-examples
+</code></pre></div>
+</li>
+<li><strong>执行轻量级构建脚本</strong>：
+运行最小示例百分表（<code>dial-indicator</code>），添加 <code>--light</code> 参数构建浅色单页：<div><pre><code>node examples/dial-indicator/build.mjs --light
+</code></pre></div>
+<em>说明</em>：该脚本仅使用 Node.js 原生模块（要求 Node.js &gt;= 20.10），无需额外执行 <code>npm install</code>。构建完成后，脚本会在同级目录下输出 <code>examples/dial-indicator/dial-indicator-light.html</code>。</li>
+<li><strong>启动本地静态 HTTP 服务</strong>：
+在仓库根目录启动静态服务：<div><pre><code>python3 -m http.server 8000
+</code></pre></div>
+</li>
+<li><strong>浏览器访问确切地址</strong>：
+保持刚才的 Python 服务运行，在浏览器地址栏输入：<div><pre><code>http://localhost:8000/examples/dial-indicator/dial-indicator-light.html
+</code></pre></div>
+</li>
+<li><strong>交互检验</strong>：用鼠标在滑台上左右悬停移动，或者敲击键盘方向键（<code>←</code> / <code>→</code>）、<code>Home</code>、<code>End</code> 键切换不同厚度的量块，观察百分表测头压下、表盘指针旋转以及右下角 px 高度读数的联动。</li>
+<li><strong>改完重新构建</strong>：修改 <code>examples/dial-indicator/build.mjs</code> 中的零件尺寸或行程，再次构建并刷新页面。</li>
+</ol>
+<h3>把现成图解放进网页</h3>
+<p>在已有前端项目中安装图解组件：</p>
+<div><pre><code>npm install anatomy-figures
+</code></pre></div>
+<ul>
+<li><strong>React（&gt;=18）或 Next.js 项目中引入</strong>：
+直接按名称引入对应组件：<div><pre><code>import { Watch } from "anatomy-figures";
+export default function Page() {
+  return &lt;Watch theme="light" /&gt;;
+}
+</code></pre></div>
+或者单独按路径导入对应图解，避免捆绑未使用的其他模型代码：<div><pre><code>import Watch from "anatomy-figures/watch";
+</code></pre></div>
+</li>
+</ul>
+进阶：自定义主题，或在非 React 网页中使用
+<ul>
+<li><strong>主题与 Token 配置</strong>：
+主要图解提供 5 种主题（<code>dark</code>、<code>light</code>、<code>paper</code>、<code>blueprint</code>、<code>sepia</code>），早期例子保持各自的浅色、深色配色。可通过 tokens 覆盖颜色：<div><pre><code>&lt;Watch
+  theme="light"
+  tokens={{
+    "--anatomy-card": "#ffffff",
+    "--anatomy-lit": "#e5484d",
+  }}
+/&gt;
+</code></pre></div>
+也可使用 <code>&lt;AnatomyTheme&gt;</code> 为整棵组件树统一设定主题与主色：<div><pre><code>import { AnatomyTheme, Turbofan, Watch } from "anatomy-figures";
+&lt;AnatomyTheme theme="paper" tokens={{ "--anatomy-lit": "#e5484d" }}&gt;
+  &lt;Watch /&gt;
+  &lt;Turbofan /&gt;
+&lt;/AnatomyTheme&gt;
+</code></pre></div>
+</li>
+<li><strong>非 React 网页中使用 Custom Element</strong>：
+组件库为每个图解提供了自定义 Web 组件：<div><pre><code>&lt;script type="module"&gt;
+  import { define } from "anatomy-figures/element/watch";
+  define();
+&lt;/script&gt;
+&lt;anatomy-watch theme="light"&gt;&lt;/anatomy-watch&gt;
+</code></pre></div>
+<em><strong></strong></em>，不能将其当作开箱即用的浏览器本地静态脚本。此外，若使用 <code>spot-plate</code> 或 <code>press-and-pull</code> 等早期案例的 Custom Element，其内部仍依赖 React 渲染，需在项目中一并安装 <code>react</code> 与 <code>react-dom</code>。</li>
+</ul>
+<p>Skill 和图解组件采用 MIT 许可，使用和分发时需保留原版权及许可声明。</p>
+<h2>怎样判断图解真的讲清了原理？</h2>
+<h3>用缓存检查顺序和淘汰规则</h3>
+<p>用容量为 4 的 LRU 缓存检查“动作是否讲对了规则”。下面是本文编写的简化教学模型：</p>
+<ul>
+<li><strong>最近使用变序</strong>：每次点击一个数据键，对应的滑块若已在书架中，就会被抽拉并移到最左侧的最新位置；其余滑块相应右移。</li>
+<li><strong>满时淘汰</strong>：当 4 个卡槽均已占满，若访问未在缓存中的新数据，最右端久未被访问的滑块将被顶出卡槽淘汰，腾出空间给新入块。</li>
+</ul>
+<div>
+<div>
+<div>
+<span>访问数据:</span>
+A
+B
+C
+D
+E
+重置
+</div>
+</div>
+<div>
+<div>
+<div>LRU · 最近使用排在最前</div>
+<div>4 个槽位 · 简化教学模型</div>
+</div>
+<div>
+ABCD
+</div>
+<div>
+<div>点击 C，再点 E，观察重排和淘汰</div>
+<div>容量 4/4 · 命中 0/0 · 本次淘汰 无</div>
+</div>
+</div>
+<div>
+<p><strong>最近 → 最久：</strong><span>A → B → C → D</span></p>
+<p>初始缓存已装入 A、B、C、D。访问已有项，它移到最前；缓存满后访问新项，最久没用的末项被淘汰。</p>
+<div>本文用容量为 4、键为 A–E 的简化模型解释 LRU。它由本文编写，不是 Anatomy 的生成结果；读数表示本次点击序列，未进行 Anatomy 几何审计。</div>
+</div>
+</div>
+<h3>让动作和读数使用同一套计算结果</h3>
+<p>Anatomy 先建立状态模型，再生成几何与交互。<code>SKILL.md</code> 规定构建流程，<code>kit/</code> 提供相机与绘图工具，<code>references/</code> 补充做法，<code>scripts/</code> 用于检查，<code>examples/</code> 提供可运行工程。绘制按尺寸、状态、零件、遮挡、交互和自检等十步推进。</p>
+<p>水波槽的状态模型（<code>examples/ripple-tank/model.mjs</code>）这样计算：</p>
+<figure><img /><figcaption>两个波源在水面产生干涉，投影屏显示条纹。波纹、投影图案和读数由同一套波动与光学模型驱动。</figcaption></figure>
+<ul>
+<li>模型固定了水深 6 毫米（0.006 米）、重力加速度与表面张力等物理常数。</li>
+<li>当用户调节频率时，系统通过包含重力、表面张力与水深的色散关系求解对应的波数，进而计算出水波波长。</li>
+<li>解算出的状态对象（<code>stateOf</code>）同时传递给图形渲染函数（<code>patternOf</code>）与文字读数函数（<code>readoutOf</code>）。波纹图案绘制水波间距与节点线，读数牌则格式化输出实时频率、波长与节线数量。</li>
+</ul>
+<p>调频后，波纹间距和波长读数一起改变；缓存模型则要让顺序和淘汰读数对应每次访问。同步能减少画面与数字脱节，模型本身仍需核对。</p>
+<h3>图层穿模时，检查遮挡与几何</h3>
+<p>SVG 绘制主体，WebGL 表现火、水、光，两者共用相机。需要部件沿深度方向转动时，3D 模式才逐帧重新投影。管线穿过机架时，还要检查前后遮挡：</p>
+<ul>
+<li><strong>分层与切分</strong>：在绘制嵌套构件时（例如套在立柱外的弹簧或包围滑块的机架），设计规范要求将包裹件人工拆分为前后两半，分别插入遮挡链的不同层级。</li>
+<li><strong>深度测量（<code>A.settle</code>）</strong>：在离线构建期，利用射线计算记录的各构件重叠位置的相对深度并确定绘制层级。</li>
+<li><strong>几何审计（<code>--audit</code>）</strong>：该检查根据源码中记录的几何形态、管线走向与采样状态，对构件之间的碰撞、间隙、悬空端点与深度次序进行校对。它检查记录的几何和采样状态；概念是否讲对、参数是否适用，仍需要另外核对。</li>
+</ul>
+<h2>先做小机制，复杂图解留时间打磨</h2>
+<p>第一次先选一个能用动作讲清的机制，用 <code>interactive</code> 做出可运行初稿。Figure 档约 40–80 个零件，不承诺固定生成时间；Hero 档约 80–150 个零件，规划耗时约 2–4 小时；Epic 档规模更大，通常需 6 小时以上，先与助手讨论能否缩小题目。</p>
+<p>复杂图解的<a href="https://skills.wheresryan.sh/anatomy">活跃开发时间</a>可能很长：机械表约 1 小时 54 分钟，猛禽发动机约 10 小时 33 分钟，涡扇发动机约 14 小时。这些是具体案例的制作记录。3D 仍为 Beta，复杂场景会降低帧率；能用常规等距 SVG 讲清时，先从 SVG 开始。</p>
+</div><div><div><div>来源</div><div><span>Anatomy：可交互机械图解的开源 Agent Skill</span><span>Ryan (@wheresryan22)<span>·</span><a href="https://github.com/wheresryan22/anatomy">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/wheresryan22/status/2108948624004526516">Anatomy 发布主题贴</a><span>·</span><a href="https://skills.wheresryan.sh/anatomy">原理说明与作品集</a><span>·</span><a href="https://github.com/wheresryan22/anatomy/blob/454a0ef801b6d9b905f08309d094491c7085b3dd/examples/ripple-tank/model.mjs">水波槽模型源码</a><span>·</span><a href="https://skills.wheresryan.sh/anatomy/collection">Anatomy 交互图解合集（主要与早期图解）</a><span>·</span><a href="https://github.com/wheresryan22/anatomy/blob/454a0ef801b6d9b905f08309d094491c7085b3dd/README.md">安装与提示词文档</a></div></div><div><div>本站说明</div><div>项目文档与源码解读；文中耗时为作者案例记录。</div></div></div></div></div><div>
+<div>Agent Skill · Interactive Mechanics</div>
+<h1>Anatomy：让动作承担解释的交互机械图解 Skill</h1>
+<p>一个开源 Agent Skill：让 AI 编程助手把机械原理与算法规则做成可操作的网页图解。</p>
+<div>从说明规则到检查结果 · 令牌桶上手路径 · 动作与读数同源</div>
+<div><p>理解复杂机制时，知道部件叫什么只是起点，还要弄清它们怎样配合：动力从哪里传到哪里，哪个动作改变了状态，什么条件会让下一步停止。结构图和流程图能列出部件、连接与步骤；运行中的变化，往往还需要读者在脑中补齐。</p><p>Anatomy 让物体的动作承担解释：把 LRU 缓存映射为有限槽位的书架，把令牌桶限流映射为不断充气、按请求打孔的装置。改变输入、放慢过程或拆开结构，就能追踪动作与结果的关系。这适合技术文档、课程与科普网页；动作是否讲对规则，仍要操作检查。</p></div>
+<div><h2>先做一个令牌桶，把生成与检验连起来</h2>
+<div><p><strong>准备：</strong>先有能正常使用的 Claude Code、Antigravity、OpenCode 或 Codex，以及 Node.js。绘图库要求 20.10+；skills 安装工具需较新版本，如 22.20+。Skill 免费，生成和修改消耗助手的模型配额。</p><p>以 Codex 全局安装为例：</p><pre><code>npx skills add wheresryan22/anatomy -g -a codex</code></pre><p>新建工作目录并启动助手。在 Agent 会话中发请求；Codex 用 <code>$anatomy</code>，其他工具用 <code>/anatomy</code>。不要把提示词当 shell 命令运行。</p></div>
+<div>
+<div>说明机制＋参数 <span>→</span> Agent 生成 <span>→</span> 本地预览 <span>→</span> 检查动作规则 <span>→</span> 定向修改</div>
+<div>
+<div><div><span>01</span><span>说明机制、参数与输出</span></div><p>容量决定短时突发能有多大，补充速率决定额度恢复有多快。先把规则写清，再让助手生成：</p><div><div><b>8</b><span>令牌容量</span></div><div><b>2/s</b><span>补充速率</span></div><div><b>1</b><span>每请求消耗</span></div></div><p>$anatomy 用机械装置解释令牌桶：容量 8，泵每秒补充 2 个令牌，每请求消耗 1 个并触发动作，空桶时互锁阻断。生成独立 build.mjs，以及可直接在浏览器打开的浅色、interactive 单页 index.html，并返回实际绝对路径和本地预览命令。</p></div>
+<div><div><span>02</span><span>让 Agent 生成可修改代码</span></div><p>助手依据 Skill 的相机、零件绘制、交互与检查方法编写代码。build.mjs 用于修改和重新构建，index.html 用于打开预览；检查回复中的实际路径与执行结果。</p></div>
+<div><div><span>03</span><span>打开页面，确认能操作</span></div><p>按实际输出路径打开。在工作目录运行 <code>npx serve .</code>，按终端给出的地址预览；没有路径就追问。确认图号、标题、交互提示与读数清楚，再按图中提示操作。</p></div>
+<div><div><span>04</span><span>用三种状态核对规则</span></div><div><div><div>有额度 → 消耗</div><p>单次请求扣除 1 个令牌；构件动作一次，读数同步扣减。</p></div><div><div>空桶 → 阻断</div><p>连续请求使消耗快于补充。耗尽时冲头应停止，不能零余额仍动作。</p></div><div><div>停请求 → 恢复</div><p>以 2/s 补充，达到 8 封顶；至少有 1 个可用令牌就能再次通过，不用等满。</p></div></div></div>
+<div><div><span>05</span><span>按发现的问题定向修改</span></div><p>读数与动作不同步：要求二者共用同一套状态计算，避免 UI 层独立定时器。零件悬空或底座空：补倒角、嵌槽、螺钉与限位块，并检查实体支撑。修改后重建、刷新，再检验。</p></div>
+</div><div><strong>结果怎么判断？</strong><p>能打开、能操作只是起点。三种状态下的动作、数值和规则一致，才能说明这张图解讲清了当前机制；任一不符，就回到具体问题继续修改。</p></div>
+</div></div><div><h2>动作和读数为什么要共用计算结果？</h2><p>同一个参数变化，要同时改变图形与读数。水波槽的实现先求出波数与波长，再把同一状态对象交给绘图与读数函数；这样能减少画面与数字脱节，模型本身仍需核对。</p><div><div><div>水波槽示例：调频 → stateOf 求解状态</div><p>包含水深、重力与表面张力的模型，计算对应的波数与波长。</p></div><div><div><div>同一状态 → patternOf 绘图</div><p>波纹间距、干涉条纹与节点线随计算结果改变。</p></div><div><div>同一状态 → readoutOf 读数</div><p>格式化频率、波长与节线数量，供读者比对。</p></div></div></div></div>
+<div><h2>图层穿模时，检查遮挡与几何</h2><p>套在立柱外的弹簧等嵌套件，需要拆成前后两半，放进不同遮挡层级。离线构建时，<code>A.settle</code> 用射线计算记录构件重叠处的相对深度；<code>--audit</code> 核对记录的几何与采样状态，检查碰撞、间隙、悬空端点和深度次序。</p><div><p>几何检查不证明概念与参数正确。自动截图和线条检查需要 Chrome / Chromium；若被沙箱拦截，记录尚未完成的检查与实际执行结果。</p></div></div>
+<div><h2>先做小机制，复杂图解留时间打磨</h2><div><div><div>Figure</div><div>约 40–80 个零件；做可运行初稿，不承诺固定生成时间。</div></div><div><div>Hero</div><div>约 80–150 个零件；规划耗时约 2–4 小时。</div></div><div><div>Epic</div><div>规模更大，通常需 6 小时以上；先讨论能否缩小题目。</div></div></div><p>这些档位用于规划，具体案例的制作记录不能当作每次生成的耗时保证。3D 仍为 Beta，复杂场景会降低帧率；能用等距 SVG 讲清时，先从 SVG 开始。</p><div><strong>输出与用途</strong><p>可选择独立 HTML、SVG 或 React 组件，用于文档、课程与网页。它生成浏览器中的解释图解，不是视频导出工具，也不是用于加工制造的 CAD 图纸或工程仿真。</p></div></div>
+</div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/wheresryan22/status/2108948624004526516">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>深度</div>
+<div>Anthropic 官方 Skill 实践指南：怎样写、怎样改、怎样验证它有用</div>
+<div>10-04 · 18 min</div></a><a>
+<div><span></span>工具</div>
+<div>Lieflat Charts：61 种图表、12 套报告模板，能让 AI 直接生成各种好看炫酷的 HTML 图表或报告</div>
+<div>09-17 · 约 25 分钟</div></a><a>
+<div><span></span>工具教程</div>
+<div>如何系统评测 Agent Skills：从触发用例到自动化评分的完整指南</div>
+<div>09-14 · 约 16 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Meta 推出 Muse Wonder 前沿系列模型：主动记忆，遇阻换方法继续推进，Agent 编程媲美 Opus 5.5</title>
+<link>https://best.xiaohu.ai/article/meta-muse-wonder/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:meta-muse-wonder</guid>
+<pubDate>Tue, 13 Oct 2026 12:01:50 +0000</pubDate>
+<description>跨会话记住背景，遇到变化接着推进任务；用对应评测和官方演示，看清两款模型的能力与差别。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 13 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Meta 推出 Muse Wonder 前沿系列模型：主动记忆，遇阻换方法继续推进，Agent 编程媲美 Opus 5.5</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/meta-muse-wonder/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>两个版本，现在分别在哪里用？</span></a><a><span>02</span><span>四项能力，分别解决什么问题？</span></a><a><span>03</span><span>遇到陌生任务，能否灵活应对？</span></a><a><span>04</span><span>应用演示：从个人资料到具体结果</span></a><a><span>05</span><span>能代办，也要管好权限</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Meta 推出 Muse Wonder 前沿系列模型：主动记忆，遇阻换方法继续推进，Agent 编程媲美 Opus 5.5</h1><p>跨会话记住背景，遇到变化接着推进任务；用对应评测和官方演示，看清两款模型的能力与差别。</p><div><span><b>已核对</b></span><span>Meta Superintelligence Labs</span><span>10-13 · 约 10 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>主动记忆让新任务用上已有背景，持续推进让模型根据阻碍和新信息调整做法。</li><li>两款模型在两项长期项目编程评测中高于 Opus 5.5，Full 的持续执行提升更明显；终端与程序重建仍有更高的对照成绩。</li><li>泛化帮助处理新的任务组合，官方演示展示路线规划、礼品下单、婚礼排座、保险跟进和健康资料辅助。</li></ul><div><p>Meta 推出了 <strong>Muse Wonder</strong> 前沿系列模型。本次发布包含 <strong>Muse Wonder</strong> 与能力更强的 <strong>Muse Wonder Full</strong> 两款主力模型。两款模型拥有 100 万 token 的推理上下文窗口，支持文本、图像、音频与视频的多模态输入，输出则为纯文本，并在千兆瓦级规模的 Prometheus 数据中心完成训练。</p>
+<p>主要功能特点包括：</p>
+<ul>
+<li><strong>Active Memory（主动记忆）</strong>：跨会话保留重要背景，新任务中找回相关信息，并识别事实更新。</li>
+<li><strong>Active Focus（持续推进）</strong>：遇到阻碍调整方案，跟进多步骤任务，必要时提问、重要操作前确认。</li>
+<li><strong>专业领域知识（Domain Expertise）</strong>：结合合同、财报和健康资料，分析问题并起草供审阅的文件。</li>
+<li><strong>持续软件开发（Frontier Coding）</strong>：跟踪需求、跨文件修改代码，反复测试和修错，支持长期项目。</li>
+</ul>
+<p>Meta 将它定位为迈向“个人超级智能”的一步：让 AI 结合个人背景，持续完成生活事务和专业工作。</p>
+<figure><figcaption>研究员介绍：主动记忆与持续推进</figcaption></figure>
+<h2>两个版本，现在分别在哪里用？</h2>
+<ul>
+<li><strong>现在</strong>：Muse Wonder 可通过 <a href="https://dev.meta.ai/">Meta Model API</a> 和 <a href="https://dev.meta.ai/code">Muse Code</a> 使用；Full 仅向 Muse Code 订阅用户开放。</li>
+<li><strong>后续</strong>：Wonder 将接入 <a href="https://muse.ai/">Muse</a>，订阅用户优先，用于生成交互应用等需要更强智能的功能。Meta 还计划基于它开发面向全体 Muse 用户的专用模型。</li>
+</ul>
+<a>
+<span>延伸阅读 · Muse 的运行环境</span>
+<strong>Meta 推出个人 AI Agent Muse：每人一台云端电脑，可持续在后台推进任务</strong>
+<span>了解模型如何与云端电脑、后台任务和独立权限系统配合。</span>
+<span>阅读介绍文章 →</span>
+</a>
+<h2>四项能力，分别解决什么问题？</h2>
+<p>长期任务需要把前面的背景、执行中的变化和最后的结果连起来。记住要求只是起点，过程中还要调整做法，交付前再检查是否做对。</p>
+<h3>1. 主动记忆：记住背景，按新要求更新</h3>
+<p>每次办新事情都重新交代背景，会让助理很难用。Active Memory 会跨会话保留重要信息，在相关任务出现时主动找回，并识别更新。例如，规划出差时沿用你说过的出行偏好，要求改变后采用新条件。</p>
+<p>100 万 token 上下文对应一次推理能处理的材料量。跨会话记忆还要把有用背景带到后续会话，在需要时调取。</p>
+<p>Meta 内部的 <strong>MemoryBench</strong> 用 64K–100K token 的长对话，加入无关谈话、冲突事实和后续更正，再由大模型按加权标准评分，检验模型能否从混杂信息中找回有效细节、识别事实更新。</p>
+<div><table>
+<thead>
+<tr>
+<th>评测与指标</th>
+<th>Full</th>
+<th>Wonder</th>
+<th>Opus 5.5</th>
+<th>Astra</th>
+<th>Fable 5.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MemoryBench：记忆加权得分（%）</td>
+<td>85.5</td>
+<td><strong>85.6</strong></td>
+<td>81.5</td>
+<td>81.4</td>
+<td>79.0</td>
+</tr>
+</tbody>
+</table></div>
+<p>两款模型得分接近，且都高于所列对照，长对话记忆是共同强项。</p>
+<figure><img><figcaption>MemoryBench：长对话记忆得分</figcaption></img></figure>
+<h3>2. 持续推进：遇到阻碍，换方法接着做</h3>
+<p>任务做到一半，工具可能报错，资料可能缺失，用户也可能改变要求。Active Focus 会围绕目标尝试替代方案，根据新信息调整后续步骤；关键条件不明确时向用户提问，重要操作前先确认。计划需要随着执行结果更新，才能把任务继续推进。</p>
+<p><strong>FocusBench</strong> 是 Meta 内部的动态场景测试，覆盖住房、旅行、IT、金融等领域，考察受阻后的坚持与调整。<strong>AutomationBench-AA</strong> 则在模拟业务应用中检查最终状态，所有检查都通过才算一次成功。前者看能否应对变化，后者看整个流程是否做对。</p>
+<div><table>
+<thead>
+<tr>
+<th>评测与指标</th>
+<th>Full</th>
+<th>Wonder</th>
+<th>Opus 5.5</th>
+<th>Astra</th>
+<th>Fable 5.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FocusBench：持续推进得分（%）</td>
+<td><strong>54.2</strong></td>
+<td>44.9</td>
+<td>45.8</td>
+<td>47.7</td>
+<td>36.6</td>
+</tr>
+<tr>
+<td>AutomationBench-AA：完整流程通过率（%）</td>
+<td><strong>45.4</strong></td>
+<td>39.1</td>
+<td>41.2</td>
+<td>41.6</td>
+<td>32.1</td>
+</tr>
+</tbody>
+</table></div>
+<p>Full 在两项中领先所列对照，比普通版分别高出 9.3 和 6.3 个百分点；普通版低于 Astra 和 Opus。与记忆得分接近相比，持续执行是 Full 更明显的提升所在。但 AutomationBench 的完整通过率仍为 45.4%，未达到半数。</p>
+<figure><img /><figcaption>FocusBench：持续推进得分</figcaption></figure>
+<figure><img /><figcaption>AutomationBench-AA：完整流程通过率</figcaption></figure>
+<p>实际操作软件，还需要看 <strong>OSWorld 2.1</strong>。模型在 Ubuntu 桌面虚拟机中，通过截图、点击、输入和滚动完成 108 项工作流，分别报告部分得分与完整完成率。</p>
+<div><table>
+<thead>
+<tr>
+<th>评测与指标</th>
+<th>Full</th>
+<th>Wonder</th>
+<th>Opus 5.5</th>
+<th>Astra</th>
+<th>Fable 5.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OSWorld 2.1：桌面任务部分得分（%）</td>
+<td>78.4</td>
+<td>72.6</td>
+<td><strong>81.8</strong></td>
+<td>75.8</td>
+<td>80.7</td>
+</tr>
+<tr>
+<td>OSWorld 2.1：桌面任务完整完成率（%）</td>
+<td>39.4</td>
+<td>34.3</td>
+<td>—</td>
+<td>34.3</td>
+<td><strong>43.1</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>部分做对也能得到分数，完整完成率只算整个任务达标。Full 的两项成绩分别为 78.4% 和 39.4%；Opus、Fable 的部分得分更高，Fable 的完整完成率也更高。</p>
+<h3>3. 专业知识：读懂材料，完成专业任务</h3>
+<p>Domain Expertise 用于处理合同、财报和健康资料：结合原始文件找依据，再按要求分析或起草成果。法律、金融和健康任务的要求不同，评测也分别进行。</p>
+<p><strong>法律：Harvey LAB-AA 1.1。</strong> 模型根据案件材料生成法律成果，评审系统逐项检查任务要求与编造信息问题，全部达标才算成功。</p>
+<div><table>
+<thead>
+<tr>
+<th>评测与指标</th>
+<th>Full</th>
+<th>Wonder</th>
+<th>Opus 5.5</th>
+<th>Astra</th>
+<th>Fable 5.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Harvey LAB-AA：法律文件全部达标率（%）</td>
+<td><strong>13.1</strong></td>
+<td>10.0</td>
+<td>4.2</td>
+<td>8.6</td>
+<td>6.4</td>
+</tr>
+</tbody>
+</table></div>
+<p>两款模型领先所列对照，但 Full 的通过率仍是 13.1%，大多数成果未同时满足全部标准。</p>
+<figure><img /><figcaption>Harvey LAB-AA：法律文书通过率</figcaption></figure>
+<p><strong>金融：Vals Finance Agent V2。</strong> 模型结合财报和市场资料完成分析，在 Vals AI 私有测试集上计算准确率。</p>
+<div><table>
+<thead>
+<tr>
+<th>评测与指标</th>
+<th>Full</th>
+<th>Wonder</th>
+<th>Opus 5.5</th>
+<th>Astra</th>
+<th>Fable 5.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vals Finance Agent V2：金融准确率（%）</td>
+<td><strong>59.1</strong></td>
+<td>56.6</td>
+<td>58.6</td>
+<td>53.5</td>
+<td>58.9</td>
+</tr>
+</tbody>
+</table></div>
+<p>Full 比 Fable 高 0.2 个百分点，与 Opus 的成绩也接近，优势很小。普通版的成绩低于这三款模型。</p>
+<figure><img /><figcaption>Vals Finance Agent V2：金融分析准确率</figcaption></figure>
+<p><strong>健康：HealthBench Pro。</strong> 模型不调用外部工具，回答 525 道专业健康问题，由大模型按医生制定的标准评分，并按回答长度调整。</p>
+<div><table>
+<thead>
+<tr>
+<th>评测与指标</th>
+<th>Full</th>
+<th>Wonder</th>
+<th>Opus 5.5</th>
+<th>Astra</th>
+<th>Fable 5.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HealthBench Pro：健康回答加权得分（%）</td>
+<td>62.3</td>
+<td>60.5</td>
+<td><strong>65.6</strong></td>
+<td>65.3</td>
+<td>62.1</td>
+</tr>
+</tbody>
+</table></div>
+<p>两款 Wonder 都低于 Opus 和 Astra，健康问答尚未领先。</p>
+<h3>4. Agent 编程：跨文件修改，反复测试和修错</h3>
+<p>软件开发需要持续跟踪需求，理解代码库，修改相互依赖的文件，再用测试检查新功能和已有行为，根据报错继续修复。Frontier Coding 将记忆、专业知识和持续推进用到这一过程。Meta 用多样、长期开发任务训练两款模型，支持从小应用到复杂软件的持续开发。</p>
+<p><strong>DeepSWE 1.1</strong> 覆盖 91 个仓库、5 种语言的 113 个任务，用功能和回归测试判断一次尝试是否成功。<strong>SWE-Marathon</strong> 则让模型完成较大的软件项目，再运行项目测试检查成果。</p>
+<div><table>
+<thead>
+<tr>
+<th>评测与指标</th>
+<th>Full</th>
+<th>Wonder</th>
+<th>Opus 5.5</th>
+<th>Astra</th>
+<th>Fable 5.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DeepSWE 1.1：开发任务通过率（%）</td>
+<td><strong>79.0</strong></td>
+<td>78.8</td>
+<td>74.2</td>
+<td>74.1</td>
+<td>67.4</td>
+</tr>
+<tr>
+<td>SWE-Marathon：长期项目通过率（%）</td>
+<td><strong>57.5</strong></td>
+<td>53.1</td>
+<td>46.3</td>
+<td>42.5</td>
+<td>45.6</td>
+</tr>
+</tbody>
+</table></div>
+<p>两款模型在这两项长期项目评测中，得分均高于 Opus 5.5 和 Astra。DeepSWE 上两者只差 0.2 个百分点，SWE-Marathon 上 Full 高出普通版 4.4 个百分点。</p>
+<p>SWE-Marathon 中，Full 使用 xhigh 推理档位，Astra 和 Fable 分别使用 Codex、Claude Code 等 Agent 环境。多数其他结果采用 max 推理档位。</p>
+<figure><img /><figcaption>DeepSWE：长期开发任务通过率</figcaption></figure>
+<figure><img /><figcaption>SWE-Marathon：长期项目通过率</figcaption></figure>
+<p>其他工程任务的表现有所不同。<strong>Terminal-Bench 4.0</strong> 在隔离终端中检查最终环境状态；<strong>ProgramBench</strong> 要模型在不能联网的环境中重建完整程序，每次尝试通过至少 95% 的隐藏行为测试才算达标。</p>
+<div><table>
+<thead>
+<tr>
+<th>评测与指标</th>
+<th>Full</th>
+<th>Wonder</th>
+<th>Opus 5.5</th>
+<th>Astra</th>
+<th>Fable 5.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Terminal-Bench 4.0：终端任务准确率（%）</td>
+<td>57.1</td>
+<td>52.0</td>
+<td><strong>59.6</strong></td>
+<td>59.1</td>
+<td>52.0</td>
+</tr>
+<tr>
+<td>ProgramBench：程序重建达标率（%）</td>
+<td>59.0</td>
+<td>50.0</td>
+<td><strong>70.5</strong></td>
+<td>52.5</td>
+<td>55.5</td>
+</tr>
+</tbody>
+</table></div>
+<p>终端任务中，Opus 和 Astra 高于 Full；程序重建中，Opus 的 70.5% 明显高于 Full 的 59.0%。</p>
+<p>官方厨房演示把这种开发能力用到了一个小应用：根据可定制的图片输入，编写代码，生成可游玩的 <strong>3D 厨房小游戏</strong>。模型原生输出是文本，游戏由生成的代码交给运行环境执行。</p>
+<figure><figcaption>3D 厨房游戏 · <a href="https://research.meta.ai/artifacts/introducing-muse-wonder/kitchen-game/v6/index.html">打开原始演示 ↗</a></figcaption></figure>
+<h3>综合评测：两种指标为什么排名不同？</h3>
+<p>综合指标把多项任务的表现汇总起来。Meta 内部的 <strong>Personal Superintelligence Index（PSI）</strong> 包含 7 项个人与知识工作评测，涵盖持续执行、业务流程、职业任务、浏览和研究。第三方 <strong>Artificial Analysis 综合智能指数</strong> 则汇集另一组工作、编程、科学与通用推理测试。</p>
+<div><table>
+<thead>
+<tr>
+<th>评测与指标</th>
+<th>Full</th>
+<th>Wonder</th>
+<th>Opus 5.5</th>
+<th>Astra</th>
+<th>Fable 5.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PSI：个人与知识工作综合指标</td>
+<td><strong>59.1</strong></td>
+<td>54.3</td>
+<td>55.2</td>
+<td>54.5</td>
+<td>49.9</td>
+</tr>
+<tr>
+<td>AA 综合智能指数（分）</td>
+<td>56</td>
+<td>52</td>
+<td><strong>58</strong></td>
+<td>53</td>
+<td>53</td>
+</tr>
+</tbody>
+</table></div>
+<p>Full 在 PSI 中领先，在 AA 综合指数中低于 Opus。两种排名并不矛盾：任务选取和汇总方式不同，衡量的侧重点也不同。</p>
+<figure><img /><figcaption>PSI：个人任务综合指标</figcaption></figure>
+<figure><img /><figcaption>AA 综合智能指数</figcaption></figure>
+<figure><img /><figcaption>官方评测总表</figcaption></figure>
+<h2>遇到陌生任务，能否灵活应对？</h2>
+<p>固定测试覆盖有限任务，现实中的目标、工具和要求却不断变化。两个模型的常用测试分数接近，遇到陌生任务时仍可能表现不同。“Benchmaxxing”讨论的正是这种差距：针对固定测试优化，未必能带来同样的现实适应能力。</p>
+<p>Meta 对比 Muse Spark 1.3 与 Wonder Full，增加推理时的计算投入，观察它们在后训练未专门针对的任务上表现如何。</p>
+<h3>怎样看这两条线？</h3>
+<p>深蓝是 Wonder Full，浅蓝是 Spark 1.3。原图比较两款模型在不同任务上的表现。</p>
+<div>
+看完整比较
+横轴：后训练重点任务
+纵轴：后训练未重点优化
+看相近横轴的差距
+</div>
+<figure><div>
+<img />
+<span></span></div>
+<figcaption>圆点代表不同推理投入，虚线表示趋势。</figcaption></figure>
+<p>选择上方按钮，看横轴、纵轴和两条线的差距。</p>
+<p>图中横轴是后训练重点优化的任务成绩，纵轴是后训练未专门针对的任务成绩，每个点对应一种推理投入。两条轨迹都随投入增加而上升；横轴成绩相近时，Wonder Full 的纵轴更高，即它在这组未针对任务上表现更好。</p>
+<p>Meta 将提升归因于更大、更强的基础模型，使后训练获得的能力更容易迁移。</p>
+<p>个人 Agent 会遇到不同日程、偏好、工具和临时变化形成的新组合，训练无法逐一预设，需要把已有能力用到这些组合中，处理新的需求。</p>
+<h2>应用演示：从个人资料到具体结果</h2>
+<p>官方演示让模型调取个人资料，通过浏览器与应用交付路线、订单、座位图或跟进邮件。任务中的偏好、约束和变化，分别用到了前面的记忆、执行与专业理解能力。</p>
+<h3>跑步：结合健康习惯和日程规划路线</h3>
+<p>规划周六长跑时，模型从日历和健康记录中找到三项要求：长跑每周增加 1 公里、走平路保护膝盖、10 点前到图书馆。它据此安排 8 点出发的 15.1 公里路线，在基于 OpenStreetMap 数据的地图上每隔 5 公里加标记，生成分享链接，再把带链接的跑步安排写入日历。</p>
+<figure><figcaption>跑步规划：结合日程与健康记录</figcaption></figure>
+<h3>礼品：用猫的照片设计 T 恤并下单</h3>
+<p>用户想给猫 Coco 做生日 T 恤。模型浏览 Coco 的 Instagram 主页，选取真实照片，按偏好设计带金色“COCO”字样的复古乐队风 T 恤，再进入结算、完成订单确认。</p>
+<figure><figcaption>定制礼品：从照片到生日 T 恤</figcaption></figure>
+<h3>婚礼：按宾客要求排座，逐项检查</h3>
+<p>用户提供 47 位宾客名单，备注无障碍需求、过敏情况和哪些人要分开。模型查看场地布局，把备注转成规则，按这些规则在规划工具里逐桌安排，最后重新对照原始要求逐项检查并导出座位图。</p>
+<figure><figcaption>婚礼排座：按宾客要求生成方案</figcaption></figure>
+<h3>保险：从核对账单到邮件跟进</h3>
+<p>用户上传门诊账单和保险卡正反面照片。模型对照材料，解释收费问题及保险为何未被应用，提出方案并拟好与诊所账单部门沟通的电话要点。用户希望改用文字跟进，它便调整为起草并发送邮件，最终由诊所账单部门向保险公司提交理赔。</p>
+<figure><figcaption>保险账单：识别问题并跟进理赔</figcaption></figure>
+<h3>健康：把旅行与症状线索联系起来</h3>
+<p>模型从日历、消息和邮件中找旅行与症状线索，在连接 Withings、HealthEx 等健康服务前请求许可，再联系海拔和症状出现的时间，帮助用户理解情况。</p>
+<figure><figcaption>旅途中的健康资料辅助 · <a href="https://research.meta.ai/artifacts/introducing-muse-wonder/health-advice/v6/index.html">打开原始演示 ↗</a></figcaption></figure>
+<h2>能代办，也要管好权限</h2>
+<p>个人 Agent 处理邮件、日程和私密资料时，可能读到夹带恶意指令的外部内容。在 Meta 测试中，Full 的个人信息处理违规率为 2.2%，诱导越权执行代码的攻击成功率为 10.7%。付款、外发信息、修改或删除数据等操作，仍需要系统权限限制与必要确认。</p>
+<figure><img /><figcaption>个人信息处理违规率</figcaption></figure>
+<figure><img /><figcaption>越权执行代码的攻击成功率</figcaption></figure>
+<p>Meta 强化了对化学、生物、放射性、核风险及网络滥用请求的拒答，也保留合规网络防御能力。Full 在 BioTIER 英文测试中的高风险生物请求拒答率为 98.7%，合规网络防御任务配合率为 93.3%，分别衡量拒绝危险用途和帮助正当防御。</p>
+<figure><img /><figcaption>BioTIER：生物高风险请求拒答率</figcaption></figure>
+<figure><img /><figcaption>恶意网络请求拒答率</figcaption></figure>
+<figure><img /><figcaption>合规网络防御请求配合率</figcaption></figure>
+<p>依据 Meta 的<a href="https://research.meta.ai/static/meta-superintelligence-scaling-framework">超级智能扩展框架</a>，未采取缓解措施时，无法排除 Full 在化学与生物领域达到高风险阈值；加入安全后训练和系统级分类器后，Meta 将各领域的剩余风险评为“中度或更低”。</p>
+<figure><figcaption>概念视频：持续推进个人目标</figcaption></figure>
+</div><div><div><div>来源</div><div><span>Muse Wonder: A Frontier Model For Personal &amp; Professional AI Agents</span><span>Meta Superintelligence Labs<span>·</span><a href="https://research.meta.ai/blog/muse-wonder">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://research.meta.ai/static/muse-wonder-model-card">Muse Wonder Model Card</a></div></div></div></div></div><div>
+<div>
+<div>Meta Muse Wonder 深度解读</div>
+<h1>Meta 推出 Muse Wonder 前沿系列模型：主动记忆，遇阻换方法继续推进，Agent 编程媲美 Opus 5.5</h1>
+<div>涵盖基础版 Wonder 与能力更强的 Full。两款模型具备 100 万 token 推理窗口与多模态输入，长对话记忆得分接近；Full 版更明显的提升在于遭遇阻碍时持续推进任务与长流程 Agent 编程。</div>
+<div>
+<div><span></span><strong>规格：</strong>100万 token 推理窗口</div>
+<div><span></span><strong>模态：</strong>文本/图像/音频/视频输入，纯文本输出</div>
+<div><span></span><strong>训练：</strong>千兆瓦级 Prometheus 数据中心</div>
+<div><span></span><strong>入口：</strong>API / Muse Code（Full 需订阅）；后续接入 Muse</div>
+</div>
+<div>
+<div>核心对照：长对话记忆接近，Full 在遇阻推进上拉开显著差距</div>
+<p>100 万 token 是一次推理能处理的材料量。Active Memory 会跨会话保留重要背景，在新任务中找回相关信息并识别更新。MemoryBench 用 64K–100K token 长对话、干扰与事实更正来检验信息使用；两款模型在记忆测试中的成绩接近。</p>
+<div>
+<div><table>
+<thead>
+<tr>
+<th>评测场景与考察重点</th>
+<th>Full</th>
+<th>Wonder</th>
+<th>Opus 5.5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MemoryBench</strong>（长对话加权记忆）</td>
+<td>85.5%</td>
+<td>85.6%</td>
+<td>81.5%</td>
+</tr>
+<tr>
+<td><strong>FocusBench</strong>（受阻调整与坚持）</td>
+<td>54.2%</td>
+<td>44.9%</td>
+<td>45.8%</td>
+</tr>
+<tr>
+<td><strong>AutomationBench-AA</strong>（业务终态全通过）</td>
+<td>45.4%</td>
+<td>39.1%</td>
+<td>41.2%</td>
+</tr>
+<tr>
+<td><strong>OSWorld 2.1</strong>（桌面端虚拟机操作）</td>
+<td>78.4% / 39.4%</td>
+<td>72.6% / 34.3%</td>
+<td>81.8% / —</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Active Focus 围绕目标尝试替代方案，根据新信息调整步骤；缺少关键条件时提问，重要操作前确认。Full 比普通版在 FocusBench 高 9.3 个百分点、AutomationBench 高 6.3 个百分点，后者要求全部终态检查通过，Full 的通过率仍为 45.4%。OSWorld 两个数依次为部分得分与完整完成率；Fable 为 80.7% / 43.1%，均高于 Full。</p>
+</div>
+<div>
+<div>
+<div>
+<span>Agent 编程评测：对标 Opus 5.5</span>
+<span>Frontier Coding</span>
+</div><p>跟踪需求、跨文件修改代码，反复运行测试并按报错修复。</p>
+<div>
+<span>DeepSWE 1.1（长流程开发通过率）</span>
+<span>Full 79.0% / Wonder 78.8% <span>(Opus 74.2%)</span></span>
+</div>
+<div>
+<span>SWE-Marathon（大型长期项目）</span>
+<span>Full 57.5% / Wonder 53.1% <span>(Opus 46.3%)</span></span>
+</div>
+<div>
+<span>Terminal-Bench 4.0（隔离终端准确率）</span>
+<span>Full 57.1% <span>&lt; Opus 59.6%</span> (Wonder 52.0%)</span>
+</div>
+<div>
+<span>ProgramBench（离线完整程序重建）</span>
+<span>Full 59.0% <span>&lt; Opus 70.5%</span> (Wonder 50.0%)</span>
+</div>
+<p>两款在长期项目（DeepSWE 与 SWE-Marathon）上均高于 Opus 5.5；但在终端操作与程序重建任务中 Opus 仍具明显优势。（SWE-Marathon 中 Full 采用 xhigh 档位，各对照 Agent 环境略有不同）。</p>
+</div>
+<div>
+<div>
+<span>法律、金融和健康评测</span>
+<span>Domain Expertise</span>
+</div>
+<div>
+<span>Harvey LAB-AA 1.1（法律文件全达标）</span>
+<span>Full 13.1% / Wonder 10.0% <span>(Opus 4.2%)</span></span>
+</div>
+<div>
+<span>Vals Finance Agent V2（金融分析）</span>
+<span>Full 59.1% / Wonder 56.6%，Fable 58.9% <span>(Opus 58.6%)</span></span>
+</div>
+<div>
+<span>HealthBench Pro（健康回答加权分）</span>
+<span>Full 62.3% / Wonder 60.5% <span>&lt; Opus 65.6%</span> (Astra 65.3%)</span>
+</div>
+<p>法律任务在严查与防幻觉下虽领先但通过率仅 13.1%；金融任务对 Fable 与 Opus 仅微弱优势；健康领域问答尚未领先，低于 Opus 与 Astra。</p>
+</div>
+</div>
+<div>
+<div>真实落地案例：从个人背景到可交付结果</div>
+<div>
+<div>
+<div>跑步：日程与健康规划</div>
+<p>提取“每周增 1km、走平路保护膝盖、10 点前到图书馆”三项要求，规划 8 点出发的 15.1km 路线，在地图上每 5km 标记并写入日历。</p>
+</div>
+<div>
+<div>保险：按沟通偏好调整跟进</div>
+<p>核对门诊账单和保险卡，解释收费问题；用户希望把电话跟进改为文字，模型转而起草、发送邮件，最终由诊所账单部门提交理赔。</p>
+</div>
+<div>
+<div>婚礼：47 人约束排座与复核</div>
+<p>将无障碍、食物过敏及分开就座等备注转为规划规则，在工具中逐桌安排，最终重新对照原始名单逐项复核后导出座位图。</p>
+</div>
+<div>
+<div>礼品定制与轻代码小游戏</div>
+<p>浏览猫 Coco 的照片定制金色文字复古 T 恤并完成结算下单；根据图片输入生成代码，交由环境运行 3D 厨房小游戏。</p>
+</div>
+</div><p>健康演示从日历、消息、邮件串联旅行与症状线索，连接 Withings、HealthEx 等健康服务前先请求许可。</p>
+<div>
+<div>陌生任务（OOD）迁移与综合指标解析</div>
+<p>Meta 对比 Wonder Full 与 Spark 1.3：在后训练重点优化任务的成绩相近时，Full 在后训练未专门针对的任务上得分更高。Meta 将提升归因于更大、更强的基础模型，更容易迁移已有能力。PSI 汇总 7 项个人与知识工作评测，Full 为 59.1、Opus 为 55.2；AA 综合智能指数中 Full 为 56 分、Opus 为 58 分。排名不同，来自测试组合与汇总方式的差别。</p>
+</div>
+</div>
+<div>
+<div>
+<span>权限底线与系统防线</span>
+<span>安全基准</span>
+</div>
+<p>代办任务深度接管邮件、日程与私密数据时易接触夹带恶意指令的外部内容。Meta 评测显示，Full 的<strong>个人信息处理违规率为 2.2%</strong>，<strong>诱导越权执行代码的攻击成功率为 10.7%</strong>。付款、外发信息、修改或删除关键数据等操作，需要系统级权限限制与必要确认。在危险用途防御上，Full 在 BioTIER 英文高风险生物请求拒答率达到 98.7%，对恶意网络利用严格拦截，合规网络防御配合率为 93.3%。</p>
+</div>
+</div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://research.meta.ai/blog/muse-wonder">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>产品发布</div>
+<div>Meta 发布 Muse Spark 1.1 模型，在多个代理评估中，媲美 GPT-5.5 和 Opus 4.8</div>
+<div>07-09 · 10 分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>Meta 发布 Muse Image：生图会自己查资料、自己纠错，评分排全球第二</div>
+<div>07-08 · 7 分钟</div></a><a>
+<div><span></span>深度</div>
+<div>SpaceXAI 团队分享构建 Grok Bot 的工程经验：涉及分布式系统设计、操作安全策略与上下文工程取舍</div>
+<div>10-12 · </div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Harness Learning：让模型自己修改 Harness 的源代码适应新任务，打造自我进化的 Harness</title>
 <link>https://best.xiaohu.ai/article/harness-learning-test-time-adaptation/</link>
