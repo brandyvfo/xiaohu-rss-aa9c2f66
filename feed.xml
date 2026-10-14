@@ -6,7 +6,1788 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Tue, 13 Oct 2026 12:01:50 +0000</lastBuildDate>
+<lastBuildDate>Wed, 14 Oct 2026 12:01:10 +0000</lastBuildDate>
+<item>
+<title>【日报】把你的书桌变成3D赛车场：从照片、建模到录屏的手把手教程</title>
+<link>https://best.xiaohu.ai/article/desk-racer-photo-to-game/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:desk-racer-photo-to-game</guid>
+<pubDate>Wed, 14 Oct 2026 12:01:10 +0000</pubDate>
+<description>拆解 Desk Racer 的完整制作流程，用 Gemini、Blender MCP 和 Three.js 做出可玩的桌面赛车，再录成演示视频。附双语过程视频和逐轮中英文提示词。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 14 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">把你的书桌变成3D赛车场：从照片、建模到录屏的手把手教程</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/desk-racer-photo-to-game/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>先选路线：在线试玩改编，还是本地自建书桌赛道</span></a><a><span>02</span><span>第一阶段：配置 Blender MCP 与 Three.js 本地开发环境</span></a><a><span>03</span><span>第二阶段：拍照片，确定赛道外观与尺寸</span></a><a><span>04</span><span>第三阶段：先问清需求，再分工执行</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>把你的书桌变成3D赛车场：从照片、建模到录屏的手把手教程</h1><p>拆解 Desk Racer 的完整制作流程，用 Gemini、Blender MCP 和 Three.js 做出可玩的桌面赛车，再录成演示视频。附双语过程视频和逐轮中英文提示词。</p><div><span><b>已核对</b></span><span>Geneviève Huskens · Google AI Studio</span><span>10-14 · 20 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>一组书桌照片可以成为可玩赛车世界的起点：AI 负责建模和写代码，你用概念图与截图决定它长什么样。</li><li>先让赛车跑起来，再加道具、材质和灯光，每一轮都有能看到、能检查的结果。</li><li>缩小赛车时同步拉近镜头，能保住车的屏幕大小，让道路和桌面物件更有微缩世界的反差。</li></ul><div><p>Google 开发者关系工程师 Geneviève Huskens 分享一个使用 Gemini 4 Argon 将她的办公桌变成赛车场的炫酷案例：她用手机给自己的办公桌拍了一组照片，随后在 Google Antigravity 环境中调用 Gemini 4 Argon 模型，通过 Agent 任务编排，连接 Blender MCP 与 Three.js，将键盘、显示器和桌面摆件变成了一款可在浏览器中驾驶的 3D 桌面赛车游戏《Desk Racer》。</p>
+<figure>
+<figcaption>作者的80秒成品演示：可玩的桌面赛车游戏，赛道绕过键盘、鼠标和台灯。</figcaption>
+</figure>
+<p>如果你用手工制作这样的游戏，要安排道具的位置与尺寸、建模和贴材质，再编写驾驶、碰撞和镜头控制。而在这套新流程中，AI 可以直接分析多角度照片中的桌面空间布局，通过模型上下文协议（MCP）向 3D 建模软件注入 Python 脚本生成几何体，自动编写前端渲染与赛车控制代码，并在浏览器运行环境中通过截屏自我审视画面缺陷，分步迭代材质与灯光。</p>
+<p>这是她第一次认真制作 3D 项目。跟做时，照片提供布局参考，你决定赛道走向和画面风格，AI 负责把这些要求落实为模型、代码与可玩的场景。</p>
+<hr />
+<h2>先选路线：在线试玩改编，还是本地自建书桌赛道</h2>
+<p>先分清各工具的作用：</p>
+<div><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>在这个项目中做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gemini 4 Argon</td>
+<td>看照片、问清需求、制定计划、编写和修改代码</td>
+</tr>
+<tr>
+<td>Nano Banana</td>
+<td>生成概念图与木纹、路面等表面贴图</td>
+</tr>
+<tr>
+<td>Blender MCP</td>
+<td>让 Agent 通过 Python 脚本建模，并导出 GLB 道具文件</td>
+</tr>
+<tr>
+<td>Three.js</td>
+<td>在浏览器中加载场景、渲染画面并响应驾驶操作</td>
+</tr>
+</tbody>
+</table></div>
+<p>只想做简洁的低多边形场景，可以先用 Three.js 的基础几何体，跳过 Blender；需要更细致的道具结构时再加入建模流程。</p>
+<div><pre><code>【路径 A：在线快速体验与改编 (AI Studio)】
+无需本地环境 ──&gt; 浏览器打开 Desk Racer ──&gt; 点击「Remix」──&gt; 直接修改赛车速度/赛道颜色
+适合：想立刻上手体验操控手感、观察现成代码结构、暂不配置本地环境的读者。
+【路径 B：打造自己的书桌赛场 (本地全套管线)】
+手机拍自己的桌子 ──&gt; Antigravity / 智能体编排 ──&gt; Blender MCP (建模) ──&gt; Three.js (可玩游戏)
+适合：希望将个人工位、卧室书桌转化为专属 3D 场景并录制高质量演示视频的读者。
+</code></pre></div>
+<h3>1. 路径 A：在线体验与改编（无需安装）</h3>
+<p>官方已在 Google AI Studio 应用库中公开了<a href="https://aistudio.google.com/apps/bundled/desk-racer">《Desk Racer》的在线运行页面</a>。在页面中可以直接看到：</p>
+<ul>
+<li><strong>预览与操作</strong>：点击进入游戏，按 <code>W</code> 加速，<code>A</code> / <code>D</code> 转向，<code>S</code> 刹车；按数字键 <code>1</code>（跟车视角）、<code>2</code>（座舱视角）、<code>3</code>（桌面全景俯瞰）、<code>4</code>（无人机漫游）自由切换机位；按 <code>Enter</code> 开启三圈计时挑战。</li>
+<li><strong>源码与资产入口</strong>：页面顶部提供 <code>Preview</code>（实时画面）、<code>Code</code>（Three.js 与物理脚本源码）、<code>Artifacts</code>（模型与贴图资源）以及 <code>Remix</code>（分叉复制为自己的云端项目）。</li>
+<li><strong>改编入口</strong>：点击 Remix，把现有作品复制到自己的项目后，可以向助手提出修改需求。先改速度或颜色容易观察效果；要换成自己的书桌，还需重新设计道具布局与资产。</li>
+</ul>
+<h3>2. 路径 B：从零自建你的专属书桌赛道</h3>
+<p>自建方案需要模型理解你的真实空间几何。原作者在演示中使用的是结合 Gemini 4 Argon 驱动的 Blender MCP 流程。作者未公布所用无头（Headless）Blender MCP 的具体安装配置，本教程采用有公开安装文档、需要保持 Blender 开启的桌面端 <code>mcp-for-blender</code> 替代路线，配合本地运行的 Three.js 项目实现从照片到游戏的闭环。</p>
+<figure>
+<figcaption>作者的156秒制作过程讲解，已加中英双语字幕并保留原声。字幕放在画面下方独立留白区，便于看清演示界面。</figcaption>
+</figure>
+<p>账户与环境条件：</p>
+<p>在官方演示环境中，Gemini 4 Argon 在 Antigravity 中面向 Google AI Ultra 订阅者开放，而在 AI Studio Build 中面向 Ultra 或绑定结算的付费 Gemini API 用户。由于各平台模型选择器与配额策略会动态调整，请以你当前工作区的实际可用模型为准。如果在 Cursor、VS Code、Claude Desktop 或其他支持 MCP 的编程工具中跟做，通过自然语言调用对应 MCP 协议也可以执行建模与工程构建，需要分别确认该工具的文件编辑、MCP 调用、截图和任务持续执行能力。</p>
+<hr />
+<h2>第一阶段：配置 Blender MCP 与 Three.js 本地开发环境</h2>
+<p>要让 AI 替你操作 3D 软件并驱动网页游戏，必须在电脑中建立一条“代码助手 ↔ 3D 建模工具 ↔ 网页渲染环境”的通信管道。</p>
+<figure>
+<img>
+<figcaption><span>工作流起点：多角度拍摄的真实书桌参考照片。</span><br>制作过程视频 15 秒处，展示白木纹理桌面、显示器底座、键盘与台灯等待转化的真实道具。</br></figcaption>
+</img></figure>
+<p>本文的提示词均为跟做而改写的模板；尺寸、灯光数值和帧率目标是教学初值，按自己的桌面实测与电脑表现调整。原视频的录屏和剪辑软件未披露，后面的录制步骤是本文补充。</p>
+<h3>1. 安装基础依赖与软件入口</h3>
+<p>在开始之前，请访问对应官方网站下载并安装以下四个基础工具：</p>
+<ol>
+<li><strong><a href="https://antigravity.google/">Google Antigravity</a></strong>（或支持 MCP 客户端的编辑器如 Cursor、VS Code、Claude Desktop）。</li>
+<li><strong><a href="https://www.blender.org/download/">Blender 3.0 或更高版本</a></strong>：开源三维建模套件，安装后确认可正常启动进入三维视口。</li>
+<li><strong><a href="https://nodejs.org/">Node.js LTS</a></strong>：JavaScript 运行时，自带 npm 包管理器，用于启动本地前端服务器。</li>
+<li><strong><a href="https://docs.astral.sh/uv/getting-started/installation/">uv 包管理器</a></strong>：用于快速执行 Python 工具包而无需污染系统 Python 环境。
+<ul>
+<li><strong>macOS 终端安装</strong>：若系统中已配置 <a href="https://brew.sh/">Homebrew</a>，执行 <code>brew install uv</code>；若未安装 Homebrew，可在终端直接执行官方安装脚本：<div><pre><code>curl -LsSf https://astral.sh/uv/install.sh | sh
+</code></pre></div>
+</li>
+<li><strong>Linux 终端安装</strong>：<div><pre><code>curl -LsSf https://astral.sh/uv/install.sh | sh
+</code></pre></div>
+</li>
+<li><strong>Windows PowerShell 安装</strong>：<div><pre><code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ol>
+<h3>2. 安装与激活 Blender MCP 插件</h3>
+<p>我们将使用社区开源项目 <a href="https://github.com/ahujasid/mcp-for-blender">mcp-for-blender</a>，它通过本地 TCP Socket 让外部智能体可以向 Blender 注入 Python 脚本并取回几何数据。</p>
+<p>在终端中执行以下命令自动安装插件到 Blender：</p>
+<div><pre><code>uvx mcp-for-blender install-addon
+</code></pre></div>
+<p>安装完成后，进行如下操作：</p>
+<ol>
+<li>打开 Blender，点击顶部菜单栏 <strong>Edit（编辑）→ Preferences（偏好设置）→ Add-ons（插件）</strong>。</li>
+<li>在右上角搜索框输入 <code>MCP for Blender</code>，勾选启用该插件。</li>
+<li>回到 3D 视口，在英文输入法状态下按键盘上的 <code>N</code> 键，呼出右侧侧边栏。</li>
+<li>找到 <strong>MCP for Blender</strong> 选项卡，确认状态显示为已启动或点击 <strong>Start MCP Server</strong>（默认监听本地端口为 <code>9876</code>）。</li>
+<li><strong>在后续的所有生成过程中，请保持 Blender 窗口处于开启状态</strong>。</li>
+</ol>
+<h3>3. 配置 Antigravity MCP 连接</h3>
+<p>在 Antigravity 中，你可以通过项目级配置文件或全局配置文件接入该服务：</p>
+<ul>
+<li>全局配置路径：<code>~/.gemini/config/mcp_config.json</code></li>
+<li>项目专属路径：项目根目录下的 <code>.agents/mcp_config.json</code></li>
+</ul>
+<p>在现有的 <code>mcpServers</code> 键内追加（注意保留已有其他服务配置）：</p>
+<div><pre><code>{
+  "mcpServers": {
+    "blender": {
+      "command": "uvx",
+      "args": ["mcp-for-blender"],
+      "env": {
+        "BLENDER_HOST": "localhost",
+        "BLENDER_PORT": "9876"
+      }
+    }
+  }
+}
+</code></pre></div>
+<p><em>排错提示</em>：如果在启动时提示找不到命令 <code>spawn uvx ENOENT</code>，说明 GUI 编辑器未继承系统终端的环境变量。在 macOS/Linux 终端中运行 <code>which uvx</code>（Windows PowerShell 运行 <code>where.exe uvx</code>），将输出的绝对路径（如 <code>/opt/homebrew/bin/uvx</code> 或 <code>C:\Users\username\.local\bin\uvx.exe</code>）替换配置中的 <code>"command": "uvx"</code>。</p>
+<p><strong>连通性检查点</strong>：
+完全重启 AI 编辑器，向智能体发送一条测试指令：<code>"请调用 blender 工具，读取当前场景信息，并新建一个名为 TestCube 的红色立方体"</code>。如果你看到 Blender 视口中立刻生成了一个红色立方体，并且 AI 正确汇报了物体名称，即表明 3D 控制通道已打通。</p>
+<h3>4. 创建工程目录并安装 Three.js</h3>
+<p>先建好项目目录和依赖，确认概念与计划后，再在第四阶段生成 HTML 和游戏代码。</p>
+<p>根据操作系统执行目录创建与依赖安装：</p>
+<ul>
+<li><strong>macOS / Linux 终端</strong>：<div><pre><code>mkdir desk-racer
+cd desk-racer
+npm init -y
+npm install three
+npm install --save-dev vite
+mkdir -p public/models
+mkdir -p public/textures
+mkdir src
+</code></pre></div>
+</li>
+<li><strong>Windows 命令行 / PowerShell</strong>：<div><pre><code>mkdir desk-racer
+cd desk-racer
+npm init -y
+npm install three
+npm install --save-dev vite
+mkdir public\models
+mkdir public\textures
+mkdir src
+</code></pre></div>
+</li>
+</ul>
+<p>保留 <code>npm install</code> 写入的依赖版本，在 <code>package.json</code> 中合并以下字段；不要整文件覆盖已安装的 dependencies 和 devDependencies：</p>
+<div><pre><code>{
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}
+</code></pre></div>
+<p>工具安装完成、Blender 连通后，继续拍照并确认视觉方向。正式生成游戏代码放在第四阶段。</p>
+<hr />
+<h2>第二阶段：拍照片，确定赛道外观与尺寸</h2>
+<p>先用 Nano Banana 做概念图，比较赛道绕哪些物体、灯光偏暖还是偏冷、赛车显得多小。选定一版后，后续建模和灯光调整就有共同参照。</p>
+<h3>1. 拍摄实物照片与多模态参考素材</h3>
+<p>参考素材可以是照片、草图，或约 15 秒的绕物视频。这次先拍清楚桌面全貌与关键道具，照片足够作为起点。</p>
+<p>拍摄实物照片时，把握以下 4 个要点：</p>
+<ul>
+<li><strong>光照均匀充足</strong>：选择室内均匀明亮光线下拍摄，避免大面积死黑阴影干扰对物体边缘轮廓的提取。</li>
+<li><strong>全景布局照片</strong>：站在桌前拍 1~2 张包含整张书桌全貌的视角照片，明确显示器底座、键盘、鼠标与杯子之间的相对距离与朝向。</li>
+<li><strong>局部关键物特写</strong>：贴近键盘按键、台灯支架各拍 1 张特写，记录物体的厚度与材质反光特征。</li>
+<li><strong>清理无关杂物</strong>：移走散乱电线团与纸巾，保留具有明确几何特征的文具或摆件。</li>
+</ul>
+<p>概念图生成后，先和 AI 一起评审 2D 概念图并挑选满意的视觉方向，确认后再开始编写 3D 代码。</p>
+<strong>官方概念构思参考过程（点击展开）</strong>
+<figure>
+<figcaption>Google 指南中的另一款奇幻桌游：先比较概念图，再整理视觉风格。18 秒，无旁白。</figcaption>
+</figure>
+<h3>2. 概念图生成提示词</h3>
+<p>将拍摄的照片上传至多模态图像生成界面，发送以下提示词生成概念图：</p>
+<strong>模板 1：从桌面实拍照片生成微缩赛车概念图</strong>
+<p><strong>中文可复制版本：</strong></p>
+<div><pre><code>请分析我上传的书桌照片中的物品布局（显示器、机械键盘、鼠标、台灯摆件）。以这些真实物品为地形障碍，生成一张具有强烈微缩模型玩具质感（Tilt-Shift Macro Photography）的 3D 赛车赛道概念图。
+视觉要求：
+1. 一辆鲜红色的微型卡丁车正在键盘前方疾驰，车身尺寸与单个机械键帽相仿。
+2. 赛道是一条高架曲面轨道，配有红白相间的减速路缘与柔光防撞护栏，轻巧地从显示器支架下方穿过并环绕鼠标。
+3. 灯光具有戏剧性对比：暗调房间背景，屏幕背后的深紫色氛围光，机械键盘缝隙透出的青色背光，以及桌面台灯投下的高对比暖白主光。
+4. 整体呈现出精致小巧的微缩玩具世界视觉质感。
+</code></pre></div>
+<p><strong>English Copyable Version (Teaching Adaptation):</strong></p>
+<div><pre><code>Analyze the desktop layout in the uploaded photos (monitor, mechanical keyboard, mouse, desk lamp). Using these real objects as miniature terrain obstacles, generate a 3D racing concept art with strong tilt-shift macro toy aesthetic.
+Key requirements:
+1. A vibrant red miniature go-kart racing in front of the keyboard, scaled proportionally to single keycaps.
+2. An elevated curved track with red-and-white rumble strips and glowing barriers, looping under the monitor stand and around the mouse.
+3. Dramatic lighting contrast: dim room ambience, deep purple backlight behind monitor, cyan glow between keycaps, and warm white key light from desk lamp.
+4. Premium stylized game aesthetics reminiscent of a micro miniature toy universe.
+</code></pre></div>
+<h3>3. 复杂桌面或多遮挡布局的 2D 空间规划分支（普通桌面可跳过）</h3>
+<p>对于摆放简单的小书桌，完成概念图后即可直接进入下一阶段。但如果你的桌面布局复杂（例如有多层置物架、双屏幕支架或错综复杂的外设摆件），或者希望赛车道严格贴合真实物体尺寸，还需要实测尺寸作为比例标尺。</p>
+<p>先量桌面宽深和主要道具的长宽、高度，再让 Argon 生成带米制尺寸的俯视图 <code>PLAN/layout.svg</code>，并给照片加编号网格。确认物体位置和道路间隙后再建模，避免细节做好了才发现车道穿过键盘。</p>
+<figure>
+<img />
+<figcaption>Google 指南中的法隆寺建筑示例：先确定米制平面与剖面，再生成 3D。复杂桌面可借用这一方法。</figcaption>
+</figure>
+<strong>模板 2：复杂桌面 2D 俯视平面图与米制坐标生成（本文改写）</strong>
+<p><strong>中文可复制版本：</strong></p>
+<div><pre><code>请查看我上传的书桌照片与实测尺寸。以下以宽 1.2m、深 0.6m 为示例，先让我替换为自己的桌面和道具尺寸，缺少的尺寸向我确认。
+因为本场景需要精确贴合物体间隙，请先不要生成任何 3D 网格代码：
+1. **生成 2D 矢量平面图**：以米为单位，生成一份顶视图 2D 矢量图并保存至 `PLAN/layout.svg`，明确标注显示器底座、键盘、鼠标与边缘留白的绝对长宽与中心坐标（原点设在桌面几何中心）。
+2. **叠加参考编号网格**：写一段轻量脚本或在 SVG 中绘制带编号的 X/Y 米制网格（间距 0.05m），标明计划中的闭环赛道走线与关键转弯控制点。
+3. **空间通行检验**：检查键盘与显示器底座之间的预留间隙是否大于赛道宽度（0.08m），确认无阻挡后再输出坐标总结。
+完成上述 2D 尺寸验证后，我们再依据这些已锁定的绝对坐标构建 3D 几何网格。
+</code></pre></div>
+<p><strong>English Copyable Version (Teaching Adaptation):</strong></p>
+<div><pre><code>Review my desk photos and measured dimensions. The example tabletop is 1.2m wide and 0.6m deep; ask me to replace these and supply the measured prop sizes before fixing coordinates.
+Since this build requires spatial accuracy, do NOT generate any 3D meshes yet:
+1. **Generate 2D Vector Plan**: Create a top-down 2D floorplan in metric units and save it to `PLAN/layout.svg`. Map out the exact bounding boxes and center coordinates for the monitor base, keyboard, mouse, and margins (origin at desk center).
+2. **Numbered Reference Grid**: Overlay a numbered X/Y metric grid (0.05m spacing) across the layout, plotting the planned closed track loop and key spline control points.
+3. **Clearance Verification**: Verify that the gap between the keyboard and monitor base exceeds the road width (0.08m) without collisions before outputting coordinate tables.
+Once we verify these 2D spatial dimensions, we will use these locked coordinates to build the 3D scene.
+</code></pre></div>
+---
+<h2>第三阶段：先问清需求，再分工执行</h2>
+<p>在 Antigravity 中发送 <code>/grill-me</code>，让模型先问清操控、机位和道具处理方式。确认第二阶段的概念图后，请它写出 <code>PLAN.md</code> 和对应的 <code>/goal</code> 指令，再开始执行。</p>
+<figure>
+<figcaption>《Desk Racer》的实际任务编排：氛围与界面、道具建模、纹理与标识三个子 Agent 同时工作。</figcaption>
+</figure>
+<h3>1. 确认玩法、机位和建模方式</h3>
+<p>先回答这些会影响实现的问题：</p>
+<ul>
+<li><em>“赛车的物理操控倾向于轻快灵敏的街机手感，还是带惯性与漂移的模拟手感？”</em></li>
+<li><em>“桌面道具是直接用 Three.js 原生几何体拼装，还是通过 Blender MCP 建立带倒角与独立坐标的 GLB 模型？”</em></li>
+<li><em>“赛道高架段与键盘、显示器底座之间如何预留落点净空，防止支柱穿模？”</em></li>
+</ul>
+<p><strong>标准执行顺序</strong>：</p>
+<ol>
+<li><strong>输入素材并发起盘问</strong>：在 Antigravity 中输入 <code>/grill-me</code>，上传桌面参考照片，要求模型此时<strong>先不要写任何 3D 代码</strong>。</li>
+<li><strong>确认概念图</strong>：让模型使用第二阶段选中的概念图；需要调整时再生成候选，在聊天窗口或 Markdown 中展示。</li>
+<li><strong>固化计划与长期目标</strong>：开发者确认概念图并回答盘问问题后，让模型将分步执行计划写入 <code>PLAN.md</code>，并生成一段就绪可运行的 <code>/goal</code> 指令。</li>
+<li><strong>启动长期自主循环</strong>：运行该 <code>/goal</code> 指令，模型将围绕“赛车能顺畅跑圈、多机位可用、资产正确加载无报错”等具体检验指标持续推进任务。</li>
+</ol>
+<h3>2. 三个专业角色的任务分工与防冲突机制</h3>
+<p>图中是原作的三个子 Agent。跟做时可按下面的文件分工安排任务：</p>
+<ul>
+<li><strong>3D Desk &amp; Props Architect（道具与场景架构师）</strong>：负责通过 Blender MCP 编写 Python 脚本，自动化建模显示器底座、键盘与鼠标的低多边形网格，并导出为 <code>public/models/desk-props.glb</code>。</li>
+<li><strong>Nano Banana Texture &amp; Logo Artist（纹理贴图艺术家）</strong>：负责调用 Nano Banana 生成无缝木纹、沥青及赛道减速带贴图，为 Three.js 提供材质贴图。</li>
+<li><strong>Atmosphere &amp; HUD Engineer（氛围打光与界面工程师）</strong>：负责配置 Three.js 聚光灯、环境点光源、多机位跟随控制器与基础界面。</li>
+</ul>
+<p><strong>防冲突的核心规约</strong>：
+并行不自动消除冲突。把这三项约定写入计划，由总控检查合并结果：</p>
+<ol>
+<li><strong>共享单位与坐标系</strong>：各角色统一采用米（meters）为单位，遵循 Three.js Y 轴向上坐标约定（Blender 建模时统一映射为 Z=0 桌平面），以桌面几何中心为共享世界原点。</li>
+<li><strong>清晰的文件边界</strong>：子 Agent 各自独立维护专属文件（<code>props.js</code>、<code>textures.js</code>、<code>lights.js</code>），跨模块修改先交给总控协调。</li>
+<li><strong>总控智能体合并</strong>：由主 Agent 统一在 <code>main.js</code> 与 <code>track.js</code> 中引入各模块资产，并执行射线碰撞与立柱对齐，确保所有部件无缝拼合。</li>
+</ol>
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 15 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 15 分钟正文</span><span>14 处图表与交互</span></div>
+<div><span>🔓 385 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div><div><h2>实操带走包</h2><p>滚动查看原始 Markdown，复制后可按团队实际系统与政策修改。</p></div><span>Markdown · 会员</span></div><pre>正在载入 Markdown…</pre><div>复制 Markdown下载 .md<span></span></div><a></a><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/genevieve__h/status/2110041611455353197">阅读原文 ↗</a>
+</div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>深度</div>
+<div>Claude 动效实战指南：完整提示词、修改方法和导出步骤</div>
+<div>10-11 · 25 分钟</div></a><a>
+<div><span></span>深度</div>
+<div>Claude Motion 与 Dashboards 完整上手指南 把任何数据和内容做成动画视频</div>
+<div>10-09 · 28 分钟</div></a><a>
+<div><span></span>深度</div>
+<div>Claude Opus 5.5 写代码画出一支手绘 MV：拆解做法，教你用开源模板自己做</div>
+<div>09-24 · 约 15 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Gemini 4 Argon 全面开放：热门创作案例集锦 从复杂工程到调用工具完成工作再到用代码制作 3D 和可视化视频</title>
+<link>https://best.xiaohu.ai/article/gemini-4-argon-global-release/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:gemini-4-argon-global-release</guid>
+<pubDate>Wed, 14 Oct 2026 12:01:10 +0000</pubDate>
+<description>结合 Google 工程复盘、作者教程与 18 段演示，看懂 Argon 怎样把资料、代码与工具接成完整工作。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 14 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Gemini 4 Argon 全面开放：热门创作案例集锦 从复杂工程到调用工具完成工作再到用代码制作 3D 和可视化视频</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/gemini-4-argon-global-release/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>接管现有复杂代码：从架构解耦到夜间自主优化</span></a><a><span>02</span><span>从代码计算光影，再用工具制作 3D 场景</span></a><a><span>03</span><span>机器人投袋四步：从看人投掷到实机 7 连中</span></a><a><span>04</span><span>网络安全排查、专利分析与多模态数据应用</span></a><a><span>05</span><span>哪些任务领先，哪些任务仍有差距</span></a><a><span>06</span><span>接入指南与落地建议</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Gemini 4 Argon 全面开放：热门创作案例集锦 从复杂工程到调用工具完成工作再到用代码制作 3D 和可视化视频</h1><p>结合 Google 工程复盘、作者教程与 18 段演示，看懂 Argon 怎样把资料、代码与工具接成完整工作。</p><div><span><b>已核对</b></span><span>Google / Google DeepMind</span><span>10-14 · 25 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>Gemini 4 Argon 能把资料、代码和工具串起来，持续推进复杂工作。</li><li>真实项目的收益来自 AI 探索、测试和人工审查共同完成。</li><li>3D 创作与机器人演示都靠观察结果再调整，让输出逐步接近目标。</li></ul><div><p>Google 正式发布 <strong>Gemini 4 Argon</strong> ，这是Google沉寂许久后再次发布其旗舰模型，这款通用 AI 模型能持续处理代码和资料，并调用工具完成多步骤任务。</p>
+<a href="https://best.xiaohu.ai/article/gemini-4-argon/">
+<span>首次发布解读</span>
+<strong>Google 发布Gemini 4 Argon：综合评分超越GPT-6 Astra、Claude Fable 5.1 以及 Claude Opus 5.5</strong>
+<span>了解能力定位、早期工程成果和各项评测的强弱。本篇继续看扩大开放后的使用入口与新案例。</span>
+<span>阅读介绍文章 →</span>
+</a>
+<h3>Gemini 4 Argon 的功能特点</h3>
+<ul>
+<li><strong>持续处理复杂任务</strong>：分步骤推进软件工程、法务金融分析和科研推导，持续阅读资料、推理并修改方案。</li>
+<li><strong>理解多种资料</strong>：处理文本、代码、PDF、图像、音频和视频，把不同格式的信息联系起来。</li>
+<li><strong>调用工具完成工作</strong>：配合 Agent 工作环境运行代码、检索文件和搜索网页，再根据工具返回的结果继续执行。</li>
+<li><strong>用代码制作 3D 和可视化</strong>：编写脚本，配合 Blender、Three.js 等工具制作场景、游戏和动画；Argon 生成文本与代码，成品由渲染工具生成。</li>
+<li><strong>更大的窗口与长输出</strong>：输入和输出共用约 1M token 窗口；同步调用默认最大输出 65,536 tokens，更长输出可使用 Long Decode。</li>
+</ul>
+<h3>目前哪些人可以用？</h3>
+<ul>
+<li><strong>Google AI Pro 订阅者</strong>：在 Gemini App 和 Google 搜索的 AI Mode 中使用。</li>
+<li><strong>Google AI Ultra 订阅者</strong>：除上述入口外，还可在 Google Antigravity 和 Google AI Studio 中使用 Argon。</li>
+<li><strong>付费 API 开发者</strong>：通过 Gemini API 付费层接入，可在 AI Studio、Android Studio 等开发环境中调用。API 按 token 计费，与个人 Pro/Ultra 订阅分开。</li>
+<li><strong>企业用户</strong>：通过 Gemini for business、API 和 Antigravity 等入口，按相应企业接入方案使用。</li>
+</ul>
+<p>科研与安全团队另有申请通道：Google 为符合条件、获选的科研人员提供 <strong>10,000 个最高额度 Antigravity 的六个月免费名额</strong>，按容量和遴选结果逐步开通；<a href="https://deepmind.google/fairwind-program/">Fairwind 计划</a> 面向受信任的网络防御团队，须单独申请专用版本。</p>
+<p>本次 Argon 开放对象中未列入普通免费账号，各入口正在逐步推送。具体范围见<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/">官方发布说明</a>和 <a href="https://ai.google.dev/gemini-api/docs/models/gemini-4-argon">API 模型文档</a>。</p>
+<p>这些工作的难点，是前后步骤要接得上。改动一个文件，需要照顾其他模块的接口；读到一张分子结构图，需要找到几十页外对应的实验结果；写出机器人的动作，还得观察它有没有投中。下面结合 Google 的工程复盘、X 热门主题帖和 18 段演示，看看 Argon 如何推进这些工作，以及成果怎样经过验证。</p>
+<hr />
+<h2>接管现有复杂代码：从架构解耦到夜间自主优化</h2>
+<p>大型代码库的改动，需要同时满足既有接口、模块依赖和测试要求。Chrome 与 ADK 的案例展示了 Argon 在这些条件下的表现。</p>
+<h3>1. Chromium：分离核心网页处理与 600 万行遗留功能文件夹</h3>
+<p>Chromium 代码库整体规模约 4000 万行。在长期迭代中，核心网页处理（core webpage handling）与包含书签、下载等功能的约 600 万行遗留浏览器功能代码文件夹深度交织。这种耦合使得活跃网页难以在标签页、侧边栏和独立浮动窗口之间平滑迁移，也容易引发浏览器崩溃。</p>
+<figure>
+<figcaption>
+<span>Chrome 工程师讲述 Gemini 4 Argon 如何协助解耦 600 万行遗留功能模块。</span><br>
+    在规范约束下，模型并行提交多组清晰改动（Clean Changes），跑过数十万项自动化测试与两名工程师审查。
+  </br></figcaption>
+</figure>
+<p>根据 Chrome 工程师的说明，浏览器的整体组件化原本是一项按年计算的长期工作；而在具体跨越数百个文件的架构重构中，Argon 协助团队将数月的工作压缩到了数周推进。模型每次并行拉起多组清晰改动（Clean Changes），跑过数十万项自动化回归测试、通过两名工程师的人工审查，并在新旧设备上经历了数百万次测试。</p>
+<p>类似的代码工程优化也扩展到了开源科学计算与大模型推理：在分子量子化学工具包 xTB 中，研究人员借助 Argon 将分子结构预测提速最高 2.3 倍、构象搜索提速 1.8 倍；在开源模型优化中，团队借助 Argon 在 A100 上通过 vLLM 将 Gemma 4 E2B 的推理吞吐提升 2.85 倍（从约 3.79 万提升至超 10.8 万 tokens/s），且该测试中的输出 tokens 保持 100% 一致。</p>
+<hr />
+<h3>2. ADK 框架 11 小时夜间实战：先过滤再拷贝与按需加载</h3>
+<p><strong>Agent Development Kit（ADK）</strong> 是 Google 用来搭建 Agent 的开源框架。Agent 指能调用工具、连续完成任务的 AI。ADK 团队公开了一次 11 小时的夜间性能优化过程，包含模型提案、测试结果和维护者的取舍。</p>
+<p>ADK 是 Google 驱动企业 Agent 的 Python 基础框架，拥有约 20.5 万行代码、近 800 个文件，以及近 1.7 万个单元测试。性能瓶颈会跨越多个文件，改动前需要理清调用关系和共享状态。测试中还有 Mock，也就是用来代替真实对象或外部服务的模拟对象，改动同样要兼容它们。</p>
+<h4>两次尝试的成败分水岭</h4>
+<ul>
+<li><strong>第一轮（未配置仓库规范）</strong>：团队仅给了一段目标提示词，未配置仓库具体规范，运行约 2 小时。Argon 在 7 分钟内写出基准脚本，花 70 分钟阅读代码，确实找出了会话拷贝和依赖导入的真实瓶颈，部分代码最终被采纳。但在缺少维护准则时，它在认证模型上挂载了自定义钩子，改变了公共 JSON Schema，漏掉了 Mock 事件边缘情况，仅执行了附近的 216 个测试，PR 中也未附带基准对比数据。</li>
+<li><strong>第二轮（规则对齐）</strong>：团队在仓库 <code>.agents/skills</code> 中沉淀了清晰的规范文件（如私有模块命名规范与懒加载检查规则），并在 Google Antigravity 中开启 <code>/goal</code> 模式保持目标跨上下文压缩不丢失，明确要求提交附带前后对比数据且不合并的 Pull Request。</li>
+</ul>
+<strong>查看 ADK 团队使用的官方提示词（英文原文与中文译文）</strong>
+<blockquote>
+<p><strong>官方英文原件（来自 Google Developers 博客公开用例）：</strong></p>
+<div><pre><code>/goal Make ADK add no noticeable overhead to any agent:
+at startup, in long sessions, in multi-agent and workflow setups.
+Keep what the model receives and the public API unchanged, and back each change with a test that would catch a regression.
+Open one pull request against main that the ADK maintainers would approve, with before and after numbers in its description. Don't merge it.
+</code></pre></div>
+<p><strong>中文完整译文：</strong></p>
+<div><pre><code>/goal 让 ADK 在任何智能体场景下都不产生可察觉的开销：
+包括启动阶段、长会话、多 Agent协同以及复杂工作流配置。
+保持模型接收的上下文载荷与公共 API 完全不变，并为每处改动
+补充能够捕获退化问题的回归测试。
+针对 main 分支提交一个符合 ADK 维护者批准标准的 Pull Request，
+在描述中附带前后对比数据。切勿直接合并。
+</code></pre></div>
+</blockquote>
+<p>在整整 11 个小时的夜间运行中，Argon 阅读了 12 份规则文件，在 4 套基准负载上各跑了 30 次基线测试，甚至在结束前的最后 3 分钟还在审查自己的 Diff，自主修复了多 Agent 缓存里的 Bug 并完整跑通了全部 <strong>16,892 个单元测试</strong>。</p>
+<h4>6 项优化提案的审查取舍：采纳 2 项，否决 4 项</h4>
+<p>第二天维护团队面对一份涉及 32 个文件的 Pull Request，包含 6 项优化提案。团队最终采纳了 2 项，否决了 4 项。</p>
+<div>
+158 轮长会话开销对比
+6 大提案审查决策（采纳 2 vs 否决 4）
+</div>
+<div>
+<div>
+<div>
+<div>会话载入/准备耗时 (150 轮深层)</div>
+<div>约 -40%</div>
+<div>↓ 内存深拷贝转为先过滤后按需拷贝</div>
+</div>
+<div>
+<div>包冷启动导入 (import google.adk)</div>
+<div>约 -21%</div>
+<div>↓ 重型模块推迟至初次调用加载</div>
+</div>
+<div>
+<div>全新进程到发出首次模型请求</div>
+<div>3.07s → 3.09s</div>
+<div>≈ 基本持平（延迟模块首轮补载）</div>
+</div>
+</div>
+<div>
+<div>
+<span>基线版本：158 轮工具交互累计框架开销</span>
+<span>65.6 秒</span>
+</div>
+<div>
+<div>65.6s</div>
+</div>
+<div>
+<span>优化后的158轮累计框架开销</span>
+<span>56.1 秒（净省 9.5 秒）</span>
+</div>
+<div>
+<div>56.1s （总耗时约减少14.5%）</div>
+</div>
+（注：ADK 官方独立隔离基准 bench_turn.py 统计，消除模型推理网络波动，纯测试框架在瞬时 Mock 交互下的真实运转负担。）
+</div>
+</div>
+<div>
+<div>
+<div>
+<div>
+<span>会话事件先过滤后拷贝 + 支持循环引用的复制器</span>
+<span>正式合并</span>
+</div>
+<div>
+        不再对不需要的历史事件先做 Pydantic deepcopy 的逻辑；先根据调用方诉求过滤有效事件，并用自研 cycle-safe 复制器保全 Mock 和共享状态字典。
+      </div>
+</div>
+<div>
+<div>
+<span>顶层依赖重型库按需延迟访问（Lazy Accessors）</span>
+<span>正式合并</span>
+</div>
+<div>
+        将音视频流、OpenTelemetry、FastAPI/Starlette 等延迟至对应 Agent 首次调用时加载；使用惰性模块访问器，保证测试用例直接 mock 属性时仍完全兼容。
+      </div>
+</div>
+<div>
+<div>
+<span>多 Agent 弱引用事件缓存机制</span>
+<span>审查否决</span>
+</div>
+<div>
+        虽将合成基准跑分拉高 17%，但使用了 weakref；一旦 Python 垃圾回收后重用内存物理地址，可能跨会话读到陈旧数据，存在一致性风险。
+      </div>
+</div>
+<div>
+<div>
+<span>OpenTelemetry 追踪实现私有内部属性直读</span>
+<span>审查否决</span>
+</div>
+<div>
+        直接读取了三方库 Tracer 的私有下划线属性；一旦依赖库做小版本升迁，可能在库的小版本升级后出现不易察觉的兼容问题。
+      </div>
+</div>
+<div>
+<div>
+<span>会话历史送入模型前的重排格式重构</span>
+<span>审查否决</span>
+</div>
+<div>
+        大幅增加了核心路径的代码可读性复杂度，但经独立基准实测，端到端延迟未见改善。
+      </div>
+</div>
+<div>
+<div>
+<span>工作流事件重放查找加速索引</span>
+<span>审查否决</span>
+</div>
+<div>
+        引入了额外的状态跟踪开销；该机制收益集中在合成回放测试，维护者认为不足以抵偿日常运行的额外复杂度。
+      </div>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>正式采纳的 2 项优化</strong>：
+<ol>
+<li><strong>会话历史先过滤后拷贝</strong>：原框架在读取历史时对完整会话执行 Pydantic deepcopy。Argon 更新为先按需过滤事件再执行复制，并实现了一个支持循环引用的复制器（cycle-safe copier），保留共享状态字典与测试 Mock。</li>
+<li><strong>重型依赖库延迟懒加载</strong>：Argon 在第 2 轮移除 <code>llm_agent.py</code> 内部导入后，16,892 个开源测试全部通过，但 25 个内部测试 Target 因直接 Mock 这些属性而失败。最终方案采用模块惰性访问器（lazy accessors），使重型库仅在首次使用时载入，同时保留公共属性可被测试 patch 的入口。</li>
+</ol>
+</li>
+<li><strong>审查否决的 4 项提案</strong>：
+<ol>
+<li><em>多 Agent 事件弱引用缓存</em>：使合成基准提速 17%，但依赖 weakref，在 Python 垃圾回收复用内存地址时可能跨会话返回过期数据。</li>
+<li><em>OpenTelemetry 私有属性读取</em>：读取三方库私有 <code>_</code> 属性，依赖库小版本升级时可能破坏现有功能。</li>
+<li><em>会话历史格式化重写</em>：增加了核心代码的阅读难度，但在独立基准上端到端延迟并未显现变化。</li>
+<li><em>重放查找索引</em>：增加了状态跟踪复杂度，仅对合成重放测试有收益，日常 Agent 运行收益不明显。</li>
+</ol>
+</li>
+</ul>
+<p>团队最终将两轮有效改动合并为涉及 22 个文件、补充 17 个新测试函数的提交。详细过程可参考 <a href="https://developers.googleblog.com/optimizing-a-200000-line-python-codebase-overnight-with-gemini-4-argon">Google Developers ADK 博客</a>。</p>
+<h4>什么是 Turn？如何理解会话准备开销下降约 40%</h4>
+<p>在 ADK 框架中，用户输入问题并得到最终回答称为一次 Invocation；而 Agent 内部每次发起工具调用、并发查询或与外部交互，被记为一个内部 Turn。</p>
+<p>在官方设立的独立隔离基准 <code>bench_turn.py</code> 中（使用 instant 模型与 instant 工具以纯测框架自身开销），该优化主要针对内存会话存储 <code>InMemorySessionService</code>。在 158 轮工具交互场景下，框架总耗时从 65.6 秒下降至 56.1 秒，节省约 9.5 秒框架开销，会话准备阶段开销降低约 40%（外部 SQLite、Firestore、Redis 等存储因直接从数据库反序列化，无此项收益）。</p>
+<p>从全新独立进程启动到发出第一个模型请求的时间基本持平（3.07 秒 vs 3.09 秒），因为惰性加载的依赖在首次发出请求时仍需完成载入。在生产部署中，可通过发送预热请求平摊首次载入耗时。</p>
+<hr />
+<h2>从代码计算光影，再用工具制作 3D 场景</h2>
+<p>3D 创作要求模型同时处理形状、材质、光照和程序行为。图书馆与赛车演示展示了两种具体做法。</p>
+<h3>1. Python + NumPy 逐像素光线追踪与 WebGL2 实时渲染</h3>
+<p>在 3D 渲染示例中，Argon 构建了两个独立的实现版本：一个是基于 Python 和 NumPy 的离线光线追踪器，不依赖现成 3D 图形引擎（如 OpenGL、Blender 或 Unity），也不加载外部模型与材质贴图，纯靠逐像素数学计算；另一个是基于原生 JavaScript 和 WebGL2 的独立浏览器版本，两者互不依赖。NumPy 负责数组计算，Pillow 用来保存生成的图片文件。</p>
+<figure>
+<figcaption>
+<span>Python 与 NumPy 逐像素计算的光线追踪日光书房。</span><br>
+    5000 余行数学与向量计算，不加载外部 3D 模型与网格，借助有符号距离函数（SDF）与波动函数解算光影。
+  </br></figcaption>
+</figure>
+<p>在 Python 渲染脚本中，几何体与材质特性被表示为数学函数：</p>
+<ul>
+<li><strong>数学化建模</strong>：通过模算术控制书架上数百本书籍的差异化倾斜角；借助有符号距离函数（SDF）完成刚性立方体到沙发软包的平滑过渡。</li>
+<li><strong>算法纹理</strong>：通过分层波函数在像素级计算木纹微孔与石材质感，生成法线扰动。</li>
+<li><strong>光学 7 步计算</strong>：光线投射求交、法线扰动、环境光遮蔽（AO）、地面二次漫反射、各向异性高光反射、穿透玻璃水杯的双重斯涅尔折射焦散，以及大气体积散射。</li>
+</ul>
+<p>在本地运行该开源项目（仓库见 <a href="https://github.com/google-gemini/gemini-4-demo-vanilla-3D">gemini-4-demo-vanilla-3D</a>），可按以下步骤操作：</p>
+<div><pre><code>git clone https://github.com/google-gemini/gemini-4-demo-vanilla-3D.git
+cd gemini-4-demo-vanilla-3D
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r python/requirements.txt
+python3 python/sunlit_library.py
+</code></pre></div>
+<p>渲染图像默认保存至 <code>renders/</code> 目录下（如 <code>renders/sunlit_library_1600x1200.png</code>）。若需体验浏览器实时交互版本，可直接启动本地服务器打开 <code>/javascript/index.html</code>，该页面基于 WebGL2 独立运行，无需先执行 Python 离线渲染：</p>
+<div><pre><code>python3 -m http.server 8000
+# 浏览器访问 http://localhost:8000/javascript/index.html
+</code></pre></div>
+<h3>2. 从桌面照片到可玩赛车：作者怎样指导多 Agent 工作</h3>
+<p>Google 开发者关系工程师 Geneviève Huskens 把自己书桌的照片变成了 Desk Racer 赛车游戏。她发布的完整主题帖补充了制作过程：先和模型确定玩法与视觉方向，再让它持续搭建、检查和修改。</p>
+<figure>
+<figcaption>
+<span>Geneviève 讲解桌面赛车的完整制作过程。</span><br />
+    从照片、概念图到多 Agent 分工，再用截图检查成果。 <a href="https://x.com/genevieve__h/status/2110041614685282336">查看原帖</a>
+</figcaption>
+</figure>
+<p>她先上传桌面照片，用 <code>/grill-me</code> 让 Argon 通过提问明确玩法、光照和物品处理方式。Nano Banana 生成概念图供她选定风格，方向确定后，Argon 给出计划与 <code>/goal</code> 命令，开始长时间推进任务。多个 Agent 分别处理灯光、桌面物品和纹理，Blender MCP 负责建模，Three.js 把场景接成浏览器里的游戏。</p>
+<p>空间对齐是一个具体难点。作者的复盘提到，Argon 做了相交检查，让赛道的 <strong>68 根支柱</strong>落在桌面或摆件表面。她的指南还建议从四种视角检查成果：总览看构图，特写看材质，低角度看物体是否悬空，线框看几何和相交关系。这样，“再做精细一点”就能变成模型可以定位的修改目标。</p>
+<p>人类也持续调整目标。早期赛车的 <strong>1:87</strong> 比例让道路显得拥挤，她把比例改为 <strong>1:150</strong>，同时拉近跟车镜头。车在屏幕上仍然一样大，道路却感觉宽了近一倍，桌上的物品也更显巨大。这说明做出可玩版本之后，尺度和镜头仍会明显影响体验。</p>
+<figure>
+<figcaption>
+<span>Desk Racer 桌面赛车成品。</span><br />
+    桌面物品成为赛道环境，Three.js 接入物理、着色器与音效。 <a href="https://x.com/genevieve__h/status/2110041611455353197">查看原帖</a>
+</figcaption>
+</figure>
+<p>想先体验作品，可以打开 <a href="https://aistudio.google.com/apps/bundled/desk-racer">AI Studio 的 Desk Racer</a> 试玩或改编。想从自己的照片开始搭建，则可参考作者的<a href="https://aistudio.google.com/learn/building-3d-games-and-worlds-with-gemini-4-argon?e=0">完整英文 3D 制作指南</a>：普通浏览器场景可以先用 Three.js，需要复杂物件时再加入 Blender；原演示的长任务与多 Agent 编排运行在 Antigravity 中。</p>
+<strong>展开查看更多 3D 程序化建模与游戏生成演示（视频 02、04、06）</strong>
+<div>
+<p><strong>案例 A：多 Agent视觉审查雕刻古典寺庙建筑群</strong></p>
+<figure>
+<figcaption>
+<span>多 Agent审查循环生成的佛寺建筑群（演示说明与画面文字）。</span><br />
+      智能体在 Blender 中通过多轮视觉互评，自主迭代多栋建筑结构、复杂飞檐斗拱、周边植被分布与写实光影。
+    </figcaption>
+</figure>
+<p><strong>案例 B：巫师棋 3D 程序化建模与单人博弈 AI</strong></p>
+<figure>
+<figcaption>
+<span>程序化建模、绑定骨骼与碎裂物理的巫师棋（演示说明与画面文字）。</span><br />
+      Python 脚本在 Blender 中完成棋子雕刻与 PBR 贴图烘焙，Three.js 加入 GLSL 碎裂着色器与单机博弈决策。
+    </figcaption>
+</figure>
+<p><strong>案例 C：单张概念草图驱动哥特大教堂声光场景</strong></p>
+<figure>
+<figcaption>
+<span>单张概念图自主推导完整 3D 哥特建筑（演示说明与画面文字）。</span><br />
+      校准网格相机视角，自主循环雕刻回廊与立柱，并配置能够根据背景音乐动态闪烁的音频响应灯光系统。
+    </figcaption>
+</figure>
+</div>
+<h3>3. 代码画廊：534 项作品与版本，怎样画出光影？</h3>
+<p>外部创作者 Surya（@kickingkeys）分享了一组由 Argon 编写代码绘制的图像和动画，并公开作品代码。它把编程能力用在了绘画上：程序决定物体的形状、透视、阴影和笔触，再由画布渲染出来。</p>
+<figure>
+<figcaption>
+<span>Surya 展示代码绘画与动画。</span><br />
+    雪地自行车、几何分格水壶等作品，以及最后的画廊总览。 <a href="https://x.com/kickingkeys/status/2110037855452180633">查看原帖</a>
+</figcaption>
+</figure>
+<p><a href="https://claude.ai/artifact/9znB6dfumu3bWHPWiwwNx2">Argon Paintings 画廊</a> 收录了 <strong>534 项作品及迭代版本</strong>，每项带有轮次信息。以《棕榈泉泳池躺椅》第 14 轮为例，页面提供一份 <strong>1,823 行的 <code>sketch.js</code></strong>。其中的透视函数把三维坐标投到二维画面，阴影函数计算阳光如何落到泳池边的台阶、水面等位置，笔刷函数再处理多边形填色、水彩肌理和排线。</p>
+<p>这种做法的吸引力在于，视觉效果可以对应到代码里的参数与函数。想改变椅子的朝向、太阳方向或笔触，可以从这些具体位置调整。画廊托管在 Claude Artifacts 中，作者把这些作品归于 Argon；这里展示的是模型写代码后得到的图像与动画，Argon 的原生输出仍是文本与代码。</p>
+<h3>4. Pixel 拆解与动态字体：已有资产和纯几何的两种动画</h3>
+<p>Sundar Pichai 分享的 Google 员工主题帖，补充了两种视觉创作用法。第一种从 <strong>已有 Pixel CAD 文件</strong>出发，在 Antigravity 中通过 Blender MCP 编排手机组件的展开与合拢，并处理灯光、镜头和音频。</p>
+<figure>
+<figcaption>
+<span>Pixel 手机组件展开与重新装配。</span><br />
+    工作起点是已有 CAD 文件，模型将它编排成产品动画。 <a href="https://x.com/sundarpichai/status/2110059840957768027">查看原帖</a>
+</figcaption>
+</figure>
+<p>Pichai 描述，这个演示运行了 <strong>1,000 轮迭代</strong>，检查渲染结果并修改代码。这里值得观察的是输入资产与反馈过程：CAD 提供结构，代码控制组件和镜头的运动，渲染结果再反过来指导修改。1,000 轮是这个项目的工作量描述，帖文没有给出相应耗时或成本。</p>
+<p>第二种是 <strong>3D 动态字体</strong>。发帖称，它没有使用预录视频或视频剪辑软件，每帧由三维网格、粒子模拟和矢量几何等算法绘制，音乐也通过代码生成。视频里，字母与网格线、粒子一起变化，组成 GEMINI 的视觉动效。</p>
+<figure>
+<figcaption>
+<span>通过代码绘制的 3D 动态字体。</span><br />
+    观察字母形态、网格与粒子如何随时间变化；发布者称音乐也由代码生成。 <a href="https://x.com/sundarpichai/status/2110059842664825132">查看原帖</a>
+</figcaption>
+</figure>
+<p>这两种方法分别适合产品结构展示和程序化动效。对能够取得源码的项目，后续修改可以落到几何、材质、镜头或动画时间上，而不仅是重新描述一遍想要的画面。</p>
+<hr />
+<h2>机器人投袋四步：从看人投掷到实机 7 连中</h2>
+<p>在具身物理场景中，Gemini 4 Argon 在具身常识推理基准 ERQA（Embodied Reasoning）上取得了 87% 的纯推理成绩（数据来自 <a href="https://developers.googleblog.com/gemini-4-argon-for-robotics">Google Developers 机器人博客</a>）。在内部试验中，团队展示了基于 Video-to-Sim-to-Real 流程学习投掷沙包（Cornhole）的过程。</p>
+<figure>
+<figcaption>
+<span>Apptronik Apollo 人形机器人沙包投掷（Cornhole）试验。</span><br />
+    观察人类投掷视频并建立仿真，在实机上微调完成连续 7 次命中。
+  </figcaption>
+</figure>
+<p>在投沙包的内部试验中，模型通过 4 步完成从视频到实机的投掷学习：</p>
+<div><span>第 1 步</span><span>观察人类投掷</span><span>第 2 步</span><span>建立仿真环境</span><span>第 3 步</span><span>在仿真中练习</span><span>第 4 步</span><span>实机投掷与修正</span></div><div><div><span>1 观察人类投掷</span><span>输入：人类投掷沙包的视频</span></div><p>追踪手臂摆动与出手动作，将观察到的运动映射到机器人的关节和双手。</p><div><span>观察视频</span><span>映射动作</span></div></div>（根据官方投袋视频的四步说明整理；选择步骤可查看输入、动作和反馈）
+<ol>
+<li><strong>观察人手摆臂释放</strong>：观看人类投掷沙包的视频，追踪手臂摆幅与释放动作，将人体动作映射到机器人的关节与手部。</li>
+<li><strong>双目测板并建仿真</strong>：机器人通过头部双目相机测量目标板的 3D 空间位置，并在物理仿真器中构建身体与目标板的仿真环境。</li>
+<li><strong>仿真调整姿态</strong>：在仿真中加宽站距并调整挥臂轨迹，让手部在挥动中避开髋部，投出平滑弧线。</li>
+<li><strong>实机微调达成 7 连中</strong>：在真实机器人上观察每个沙包的落点，微调出手位置数厘米，最终达成连续 7 次空心入洞。</li>
+</ol>
+<hr />
+<h2>网络安全排查、专利分析与多模态数据应用</h2>
+<p>专业工作常常需要把相距很远的信息连起来：文件下载异常与配置里的密钥、专利结构图与实验读数，都要放在同一条分析过程里。</p>
+<h3>1. Wiz “Scan for Good”：发现并修复医疗系统中的漏洞链</h3>
+<p>云安全公司 Wiz 在“Scan for Good”计划中用 Argon 排查政府、医院和其他关键基础设施的安全问题。模型可以连续分析多个风险线索，判断它们串起来会产生什么影响。</p>
+<figure>
+<figcaption>
+<span>Wiz 披露通过 Gemini 4 Argon 排查医疗系统漏洞链。</span><br />
+    排查公开文件下载绕过风险，定位配置文件中的 Master Key，通过只读操作验证管理员权限并评估波及范围。
+  </figcaption>
+</figure>
+<p>在公开披露的案例中，Argon 协助安全团队发现公开文件下载功能可被绕过以获取内部系统配置文件。配置中包含 Master Key，随后团队通过只读操作验证了管理员访问权限（admin access），查清了漏洞影响范围并协助完成修复，避免了潜在的患者数据泄露。</p>
+<hr />
+<h3>2. Isomorphic Labs：跨页关联制药专利结构与读数</h3>
+<p>在生物制药领域，每一款先导化合物的研发都离不开庞大文献与专利的摸底。</p>
+<figure>
+<figcaption>
+<span>Isomorphic Labs 研究员展示专利文档信息提取。</span><br />
+    阅读长篇专利，将相距数十页的化学分子结构与实验读数跨页对齐并整理成结构化报告。
+  </figcaption>
+</figure>
+<p>化学制药专利篇幅较长（有时可达 500 页），分子母核结构图与具体的生物活性读数可能相隔 50 页以上。Isomorphic Labs 的研究员在访谈中提到，其以往需要耗费近一个月手工比对的 10 份复杂专利，借助 Argon 可以在一个下午内完成跨页关联、数据提取与制表输出，用于辅助药物研发前期的调研工作。</p>
+<hr />
+<h3>3. 把扫描数据、文档和照片做成可操作的成果</h3>
+<p>在企业级知识管理与物理资产生成上，Argon 同样提供了完整的链路支撑：</p>
+<figure>
+<figcaption>
+<span>查科峡谷（Chaco Canyon）考古数字化重建演示。</span><br />
+    融合机载激光雷达（LiDAR）、GIS 矢量与历史图纸，演示中构建了可交互遗址与太阳投影刻度模型。
+  </figcaption>
+</figure>
+<p>在查科峡谷考古遗址数字化的演示中，模型整合了包含机载激光雷达（LiDAR）点云、GIS 矢量与历史建筑图纸等资料，在生成的互动模型中加入了模拟古代太阳观象夏至与冬至投影的日晷刻度。</p>
+<h4>NASA 火星资料：把 8 万余份文件接到汇报制作</h4>
+<p>Pichai 的主题帖还展示了资料整理。演示者在本地保存了 <strong>8 万余份 NASA 开放档案</strong>，包含火星每日天气数据与 Ingenuity“机智号”直升机遥测日志。CSV、图像、PDF、网页文章、XML 日志和视频混在同一批资料里，先要从中找到与火星大气和飞行有关的信息。</p>
+<figure>
+<figcaption>
+<span>NASA 混合资料转为 Google Slides 演示文稿。</span><br />
+    先解析文件夹中的资料，再按用户给定的模板与设计规范提炼图表、原图和叙事。 <a href="https://x.com/sundarpichai/status/2110059844187406428">查看原帖</a>
+</figcaption>
+</figure>
+<p>流程分成两段：Argon 在 Antigravity 中通过工具读取和解析本地资料；用户再提供自定义幻灯片模板与严格设计规范，让它把分析结果组织成演示文稿。视频展示了从数据集取图、根据发现制作图表，以及把结果排成连续的说明。</p>
+<p><strong>8 万余份文件是工作流处理的资料规模，1M token 则是模型输入与输出共用的窗口上限。</strong> 通过工具访问文件夹，可以分步读取需要的信息，文件数与一次请求装入多少内容是两回事。Pichai 将这次整理描述为数分钟完成；它提供的是从资料到汇报的用法示范，具体图表用于研究或决策前仍应回查原始数据。</p>
+<strong>展开查看更多业务自动化与现实物理建模案例（视频 08、09、10）</strong>
+<div>
+<p><strong>案例 A：非结构化手写名单与资料直接生成客户提案并设定定时流程</strong></p>
+<figure>
+<figcaption>
+<span>商业提案生成工作流展示（画面节奏有模拟缩短）。</span><br />
+    解析手写来宾偏好与菜单草案，生成商业文档并通过定时任务跟进后续流程。
+    </figcaption>
+</figure>
+<p><strong>案例 B：融合三个开源项目的三维人体解剖学教学工具</strong></p>
+<figure>
+<figcaption>
+<span>三维人体解剖学习工具工作流展示（画面节奏有模拟缩短）。</span><br />
+    展示解剖图层剥离、查看临床元数据与骨骼运动模拟的交互界面。
+    </figcaption>
+</figure>
+<p><strong>案例 C：一张尺寸草图 + 沙发照片直出 3D 打印沙发替换腿</strong></p>
+<figure>
+<figcaption>
+<span>草图建模与 3D 打印试装（功能演示）。</span><br />
+    根据测量尺寸草图建立 3D 模型并导出打印文件，用于沙发替换腿的试装。
+    </figcaption>
+</figure>
+</div>
+<h3>4. 让计算方案接受数学证明与实验检验</h3>
+<p>除了工程重构，Argon 也在科研探索中承担辅助计算与设计任务：</p>
+<ul>
+<li><strong>量子计算</strong>：将量子纠错解码器 AlphaQubit 转换为高度优化的硬件内核，推理吞吐提升近 2 倍；在量子算法基础构建块 arcsin 实现中，Argon 编写并通过 Lean 形式化验证的方案将时空成本相比量子 CORDIC 降低超过 100 倍。</li>
+<li><strong>核聚变仿真</strong>：Google 团队与马里兰大学 Matt Landreman 教授利用 Argon 发现了核聚变仿星器 Grad 猜想更广泛的反例，为磁场仿真代码提供了可靠的基准测试用例。</li>
+<li><strong>酶分子设计</strong>：针对基准分子 4MU-acetate，Argon 筛选设计出 5 种新型丝氨酸酯酶，随后经真实湿实验室（Wet-lab）测试证实了催化活性。这类生成探索仍需依托外部严谨实验或形式化证明进行最终验证。</li>
+</ul>
+<hr />
+<h2>哪些任务领先，哪些任务仍有差距</h2>
+<p>在官方发布的 <a href="https://deepmind.google/models/model-cards/gemini-4-argon/">Gemini 4 Argon Model Card</a> 中，模型在多个领域的标准基准上进行了评测：</p>
+<div>
+全部基准
+知识工作
+编程
+长上下文
+科学与多模态
+</div>
+<div>
+<div><table>
+<thead>
+<tr>
+<th>评测基准与维度</th>
+<th>Gemini 4 Argon</th>
+<th>GPT-6 Astra</th>
+<th>Claude Fable 5.1</th>
+<th>Claude Opus 5.5</th>
+</tr>
+</thead>
+<tbody><tr><td><strong>Vals Index</strong><span>领先</span><span>专业知识工作综合评分</span></td><td>68.9%</td><td>63.1%</td><td>65.8%</td><td>67.0%</td></tr><tr><td><strong>AutomationBench</strong><span>领先</span><span>工作自动化评测</span></td><td>51.3%</td><td>41.4%</td><td>31.4%</td><td>42.5%</td></tr><tr><td><strong>Vals Finance Agent v2</strong><span>领先</span><span>金融 Agent 评测</span></td><td>65.4%</td><td>53.5%</td><td>58.9%</td><td>58.6%</td></tr><tr><td><strong>Harvey Legal Agent</strong><span>领先</span><span>法律 Agent 评测</span></td><td>19.6%</td><td>5.4%</td><td>6.7%</td><td>3.8%</td></tr><tr><td><strong>DeepSWE v1.1</strong><span>领先</span><span>Agent 编程评测</span></td><td>77.9%</td><td>74.1%</td><td>67.4%</td><td>74.2%</td></tr><tr><td><strong>FrontierSWE v2</strong><span>Agent 编程评测</span></td><td>55.0%</td><td>65.5%</td><td>56.3%</td><td>62.3%</td></tr><tr><td><strong>Vibe Code Bench</strong><span>领先</span><span>代码生成评测</span></td><td>91.9%</td><td>89.6%</td><td>90.3%</td><td>90.3%</td></tr><tr><td><strong>Terminal-bench 4.0</strong><span>终端任务评测</span></td><td>57.4%</td><td>58.2%</td><td>57.9%</td><td>66.4%</td></tr><tr><td><strong>GraphWalks (128k BFS)</strong><span>领先</span><span>图遍历 F1，最长128k输入</span></td><td>99.7%</td><td>98.7%</td><td>91.4%</td><td>90.6%</td></tr><tr><td><strong>GraphWalks (256k-1M BFS)</strong><span>领先</span><span>图遍历 F1，256k至1M输入</span></td><td>84.2%</td><td>71.8%</td><td>65.0%</td><td>66.8%</td></tr><tr><td><strong>LABBench 2</strong><span>领先</span><span>科学与实验知识评测</span></td><td>88.8%</td><td>85.4%</td><td>68.6%</td><td>73.1%</td></tr><tr><td><strong>RiemannBench</strong><span>领先</span><span>数学推理评测</span></td><td>76.0%</td><td>72.0%</td><td>65.6%</td><td>69.6%</td></tr><tr><td><strong>Chartography</strong><span>领先</span><span>多模态图表理解</span></td><td>71.6%</td><td>71.0%</td><td>46.2%</td><td>66.3%</td></tr></tbody>
+</table></div>
+</div>
+（
+  注：数据均提取自 Google DeepMind 官方 Model Card 公布基准表。部分评测中各模型互有胜负（如在 FrontierSWE v2 与终端基准中对手仍具优势），反映出当前前沿工程模型在各自擅长领域的真实权衡。
+）
+<h3>1. 各领域公开基准测试成绩</h3>
+<ul>
+<li><strong>知识与专业领域（Knowledge work）</strong>：
+<ul>
+<li><strong>Vals Index</strong>：取得 <strong>68.9%</strong>（对比 GPT-6 Astra 63.1%、Claude Opus 5.5 67.0%）。</li>
+<li><strong>Harvey's Legal Agent Benchmark</strong>：取得 <strong>19.6%</strong>（对比 Astra 5.4%、Opus 5.5 3.8%）。</li>
+</ul>
+</li>
+<li><strong>Agent 编程（Agentic coding）</strong>：
+<ul>
+<li><strong>DeepSWE v1.1</strong>：取得 <strong>77.9%</strong>（对比 Astra 74.1%、Opus 5.5 74.2%）。</li>
+<li><strong>FrontierSWE v2</strong>：取得 <strong>55.0%</strong>，落后于 Astra 的 <strong>65.5%</strong> 与 Opus 5.5 的 <strong>62.3%</strong>。</li>
+<li><strong>Terminal-bench 4.0</strong>：取得 <strong>57.4%</strong>，低于 Opus 5.5 的 <strong>66.4%</strong>。</li>
+</ul>
+</li>
+<li><strong>长上下文（Long context）</strong>：
+<ul>
+<li><strong>GraphWalks</strong>（合成图遍历基准）：在 256k 至 1M 上下文区间，广度优先遍历（BFS）F1 得分为 <strong>84.2%</strong>（对比 Astra 71.8%、Opus 5.5 66.8%）。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3>2. 安全防御与前沿安全框架评估</h3>
+<ul>
+<li><strong>滥用防范与提示注入防御</strong>：
+<ul>
+<li>在 Gray Swan 间接提示注入（IPI）基准中，经过 15 次自适应攻击测试，攻击成功率为 0.7%。</li>
+<li>编码评测中，针对权限错误或测试失败尝试绕过限制的比例下降至 2%。部署了失准监控器（misalignment monitor）实时审视动作与推演路径，并在强化学习训练中避免惩罚模型的思考过程（thoughts），以防止模型学会隐匿推理。</li>
+</ul>
+</li>
+<li><strong>前沿安全框架（Frontier Safety Framework, FSF）关键能力评估</strong>：
+<ul>
+<li><strong>生物信息风险（Biological CCL）</strong>：红队测试显示在特定场景下具备可操作信息支持，评估为“无法排除达到一级关键能力阈值（CCL）”，团队已部署缓解措施以降低残留风险。</li>
+<li><strong>网络安全风险（Cybersecurity CCL）</strong>：网络攻防评估显示具备显著能力提升，同样为“无法排除达到一级关键能力阈值”，并配备了相应安全策略。</li>
+<li><strong>隐匿与部署情境意识（Stealth &amp; Situational Awareness TCL）</strong>：在 15 项测试挑战中通过 14 项，显示较强的部署情境意识（即发现并利用部署环境细节的能力，非主观意识），评估为“无法排除达到 TCL 阈值”，已在内部与外部部署中应用监控防护。</li>
+</ul>
+</li>
+<li><strong>已知局限与使用说明</strong>：
+<ul>
+<li>Model Card 说明模型仍具有基础模型的常见局限，可能出现幻觉、偶发缓慢或超时；内置知识有截止时间，涉及最新信息时需要另外检索并核对。</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>接入指南与落地建议</h2>
+<p>对于希望在业务中实际验证 Gemini 4 Argon 的团队，以下是关键的通道、成本核算与实践策略：</p>
+<h3>1. 接入渠道与门槛</h3>
+<ul>
+<li><strong>开发者 API 渠道</strong>：通过 Google AI Studio 与 Gemini Platform API 正式上线，提供完整的 <code>gemini-4-argon</code> 模型调用标识，首日支持 <code>google-genai</code> 各主力语言 SDK。</li>
+<li><strong>全功能工作台 Google Antigravity</strong>：面向 Google AI Ultra 订阅者开放，可直接调用 <code>/goal</code> 长程多 Agent 编排模式，支持沉浸式代码与工具链交互。</li>
+<li><strong>日常搜索与助理端</strong>：面向 Google AI Ultra 与 Pro 订阅用户，在 Gemini 网页端、移动 App 以及 Google 搜索的 AI Mode 中提供服务。</li>
+<li><strong>学术扶持计划</strong>：官方为全球 10,000 名符合条件的科学家和科研人员提供为期 6 个月的最高额度 Antigravity 免费试用通道。</li>
+</ul>
+<h3>2. 开发者成本核算</h3>
+<p>模型提供统一的 <strong>1M 联合上下文输入输出窗口</strong>，计费规则如下：</p>
+<ul>
+<li><strong>推广期价格</strong>：
+<ul>
+<li>输入 Tokens：<strong>$2 / 百万 Tokens</strong></li>
+<li>输出 Tokens：<strong>$10 / 百万 Tokens</strong></li>
+<li>缓存输入（Cached Input）：享受 <strong>95% 折扣（0.5 折）</strong></li>
+</ul>
+</li>
+<li><strong>推广期结束后</strong>：
+<ul>
+<li>输入 Tokens 调整为 <strong>$4 / 百万 Tokens</strong></li>
+<li>输出 Tokens 调整为 <strong>$20 / 百万 Tokens</strong></li>
+</ul>
+</li>
+</ul>
+<h3>3. 落地建议：如何在自己的仓库中复现 ADK 式的工程收益？</h3>
+<p>如果准备让 Argon 接管团队的现有项目，先给出目标与项目规则，再检查最终改动：</p>
+<ol>
+<li><strong>先建规则库，再放 Agent 进场</strong>：在项目根目录下建立规范目录（如 <code>.agents/skills</code>），将团队的代码规范、私有方法命名、不可变更的公共接口契约与单元测试命令整理为规则备忘。</li>
+<li><strong>明确验证要求</strong>：在提示词中明确“保持输入载荷与公共 API 不变”，并强制要求“每一处改动必须附带能够捕获退化的测试”。</li>
+<li><strong>保持维护者的审慎审查</strong>：让模型探索可能的解法，但始终坚持人工审查，剔除引入脆弱内部依赖或仅对合成测试有收益的方案，由维护者守住工程底线。</li>
+</ol>
+</div><div><div><div>来源</div><div><span>Gemini 4 Argon: Built to solve your hardest problems</span><span>Google / Google DeepMind<span>·</span><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/googleaistudio/status/2110061450618159297">AI Studio 官方 X 长文与13段演示</a></div></div></div></div></div><div><div>
+<div>Gemini 4 Argon · 架构实战与多步验证</div>
+<h1>Gemini 4 Argon 全面开放：热门创作案例集锦 从复杂工程到调用工具完成工作再到用代码制作 3D 和可视化视频</h1>
+<p>当 AI 不仅能写代码片段，还能在数十万行真实仓库中对齐规范、跑通数万测试、并在仿真与实机中自我闭环。</p>
+<div>长篇解读精华提炼 · 预计阅读时间 5 分钟</div>
+<div>
+<p>通用大模型以往在实际工程中最大的障碍，不是能不能写出一段代码，而是<strong>前后步骤能不能接得上</strong>。改动一个底层模块，必须兼容其他数十个文件的接口契约；读到长篇文献，必须把跨页的分子图与读数对应起来；做出机器人姿态推算，还必须看它在物理世界里能不能稳稳投中。</p>
+<p>Google 推出的旗舰模型 Gemini 4 Argon 拥有约 1M token 的联合上下文窗口与长输出能力，但它的真正跃迁在于长程任务的执行耐力：能够持续阅读海量工程资料、配合工具环境检验假设，并在遭遇测试报错时自主回溯与重构。</p>
+<div>
+<div>
+<div>16,892</div>
+<div>ADK 单元测试全量跑通</div>
+</div>
+<div>
+<div>1M Tokens</div>
+<div>输入与输出联合上下文</div>
+</div>
+<div>
+<div>7 连中</div>
+<div>Apollo 机器人实机投掷</div>
+</div>
+</div>
+</div>
+<div>
+<p>大型代码库的改动，需要同时满足既有接口、模块依赖和测试要求。Google 开源 Agent 框架 ADK 拥有约 20.5 万行 Python 代码、近 800 个文件以及近 1.7 万个测试用例。团队记录了一次整整 11 个小时的夜间优化实战，展现了真实长程任务成败的关键分水岭。</p>
+<div>
+<div>核心机制解析 · ADK 11 小时实战</div>
+<div>从“盲目提速”到“规则对齐与严格回归”</div>
+<p>大模型在缺少约束时容易走捷径破坏隐式契约。只有把工程准则沉淀为规则输入，模型的高强度探索才能转化为符合维护者标准的工业级提交。</p>
+<div>
+<div>
+<div>第 1 轮：无仓库规范（部分代码后来采纳）</div>
+<p>仅输入目标提示词。7 分钟写出基准，70 分钟定位瓶颈，但擅自在认证模型上挂载钩子、改变公共 JSON Schema、破坏 Mock 边界，仅跑了附近的 216 个测试；找到的部分改动后来被采纳。</p>
+</div>
+<div>
+<div>第 2 轮：.agents/skills 规则对齐（采纳）</div>
+<p>沉淀命名规范与懒加载规则，Antigravity /goal 模式防止目标漂移。11 小时内阅读了 12 份规则并运行 4 套基准压测，自主修复多 Agent 缓存缺陷，完整跑通全部 16,892 个测试。</p>
+</div>
+</div>
+<div>
+<div>维护团队的审查取舍：采纳 2 项，否决 4 项</div>
+<div>
+<div>
+<span>采纳 1</span>
+<div><strong>历史先过滤再深拷贝</strong>：替换无节制 deepcopy，构建支持循环引用的安全复制器，保留共享状态字典与 Mock。</div>
+</div>
+<div>
+<span>采纳 2</span>
+<div><strong>重型依赖模块惰性加载</strong>：采用模块惰性访问器，将包冷启动导入开销降低约 21%，且保留公共属性可被测试 patch 的入口。会话过滤后复制则使准备开销降低约 40%；首次请求耗时基本持平（3.07→3.09 秒）。</div>
+</div>
+<div>
+<span>否决 4 项</span>
+<div><strong>坚决否决脆弱方案</strong>：排除弱引用缓存（GC 复用地址会导致数据错乱）与三方库私有属性读取，守住软件架构的健壮性底线。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div><h2>热门创作：先确定输入，再用代码与反馈推进</h2><p><strong>桌面赛车</strong>：从照片与概念图选定方向，Blender 建模、Three.js 接入游戏。作者调整 1:87→1:150 的比例和跟车镜头，让道路感觉更宽。</p><p><strong>代码绘画与产品动画</strong>：Surya 公开的画廊有 534 项作品及迭代版本，光影和笔触对应代码函数；Pixel 动画从已有 CAD 文件出发，通过渲染结果检查并修改。Argon 生成代码，渲染工具生成画面。</p></div>
+<div>
+<p>长程任务的闭环不仅发生在软件仓库中，也延伸到了 3D 渲染与物理世界。在具身物理场景中，模型通过 4 步完成从视频到实机的投掷学习，展现了从纯数字推理向物理世界自适应修正的跨越：</p>
+<div>
+<div>
+<div>STEP 01</div>
+<div>观察人手</div>
+<p>解析人类投掷沙包视频，追踪摆臂幅度与释放点，映射至机器人手腕与关节。</p>
+</div>
+<div>
+<div>STEP 02</div>
+<div>双目建仿</div>
+<p>头部双目相机测定目标板 3D 空间坐标，在物理引擎中构建包含身体与环境的仿真器。</p>
+</div>
+<div>
+<div>STEP 03</div>
+<div>仿真姿态</div>
+<p>仿真中加宽站距并微调挥臂轨迹，确保手部挥动时避开髋部碰撞，投出稳定弧线。</p>
+</div>
+<div>
+<div>STEP 04</div>
+<div>实机微调</div>
+<p>观察真实落点持续修正出手位置数厘米，最终达成实机连续 7 次空心入洞。</p>
+</div>
+</div>
+<div>
+<p><strong>辨析：工作流资料规模 vs 联合上下文窗口</strong>。在 NASA 火星天气与遥测档案分析中，系统调阅了 8 万余份多格式文件并自动生成演示文稿。这是长程 Agent 通过外部工具按需分步读取、交叉比对的工作流资料规模，而非一次性填满 1M 上下文。分步检索与大容量上下文的结合，才是处理超长材料的关键。</p>
+</div>
+</div>
+<div>
+<p>如果准备让 Argon 接管团队的现有项目，先给出目标与项目规则，再检查最终改动：</p>
+<div>
+<div>在自有团队复现 ADK 式收益的三项法则</div>
+<div>
+<div>
+<span>1</span>
+<div><strong>先建规则库，再放 Agent 进场</strong>：在项目根目录下建立规范目录（如 <code>.agents/skills</code>），把团队规范、私有命名与不可变更的公共接口写成清晰规则备忘。</div>
+</div>
+<div>
+<span>2</span>
+<div><strong>强制退化测试与接口防御</strong>：在提示词中强制约定“保持公共 API 与载荷完全不变”，要求每一项优化提交必须包含能够捕获退化的测试函数。</div>
+</div>
+<div>
+<span>3</span>
+<div><strong>坚持人类维护者终审底线</strong>：放手让模型探索潜在解法，但始终坚守人工代码审查，坚决剔除引入黑盒依赖或仅对基准测试有益的不可行方案。</div>
+</div>
+</div>
+</div>
+<p><strong>成本与局限提示</strong>：推广期输入为 $2 / 百万 tokens，输出为 $10 / 百万 tokens，支持 95% 的上下文缓存折扣。Argon 仍具有基础模型的常见局限，可能出现幻觉、偶发缓慢或超时，在 FrontierSWE v2（55.0%）与终端指令基准上仍有差距，工程落地必须保持严谨的测试与人工监控防御。</p>
+</div>
+</div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>产品发布</div>
+<div>Google 发布Gemini 4 Argon：综合评分超越GPT-6 Astra、Claude Fable 5.1 以及 Claude Opus 5.5</div>
+<div>10-01 · 约 10 分钟</div></a><a>
+<div><span></span>产品解读</div>
+<div>Google 推出一个类似个人 Agent 的实验性产品：CC，一个专门服务于家庭场景的“群组级 AI 助理”</div>
+<div>09-29 · 约 12 分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>Google 发布 Gemini 3.8 Flash TTS语音模型 让你像导演一样逐行指导配音</div>
+<div>09-24 · 约 15 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】基于 Google 多模态嵌入模型 EmbeddingGemma 2 的 Mac 菜单栏搜索工具，连视频和声音片段都能搜</title>
+<link>https://best.xiaohu.ai/article/digup-local-semantic-search/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:digup-local-semantic-search</guid>
+<pubDate>Wed, 14 Oct 2026 12:01:10 +0000</pubDate>
+<description>DigUp 把照片、文档、代码和音视频片段变成可按含义搜索的本地资料，再带你跳到文件里的相关位置。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 14 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">基于 Google 多模态嵌入模型 EmbeddingGemma 2 的 Mac 菜单栏搜索工具，连视频和声音片段都能搜</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/digup-local-semantic-search/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>为什么一句话能找到照片和录音</span></a><a><span>02</span><span>找到文件以后，怎样跳到对应页和时刻</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>基于 Google 多模态嵌入模型 EmbeddingGemma 2 的 Mac 菜单栏搜索工具，连视频和声音片段都能搜</h1><p>DigUp 把照片、文档、代码和音视频片段变成可按含义搜索的本地资料，再带你跳到文件里的相关位置。</p><div><span><b>已核对</b></span><span>Google Gemma · DigUp</span><span>10-14 · 12 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>只记得内容也能找：DigUp 用本地模型搜索 Mac 里的照片、音视频、文档和代码。</li><li>它把文件拆成带位置的片段，让搜索结果直接通向相关画面、录音时刻或文档页。</li><li>资料留在 Mac 上，代价是先建索引；短暂画面与中文精确词搜索仍有使用限制。</li></ul><div><p>DigUp 是一款基于 Google 多模态嵌入模型 <strong>EmbeddingGemma 2</strong> 打造的 Mac 菜单栏搜索工具，可以搜索你选定文件夹里的各种内容，包括照片、文档、代码，以及视频和声音片段。它由开发者 Abdur Rahim 开源：描述你记得的内容，就能在本地找出相关文件，再跳到视频时刻、文档页码或代码段。</p>
+<p>Mac 自带的 Spotlight 已能搜索文件名、文档正文和元数据。DigUp 进一步处理照片里的场景、录音里的话题，以及视频中出现的画面，例如：</p>
+<ul>
+<li>拍过的一段视频，只记得画面里出现过斑马，却想不起文件名；</li>
+<li>听过的一期播客，依稀记得聊到了睡眠话题，却只能拉动进度条盲猜；</li>
+<li>签过的一份长篇 PDF 租约合同，不知道宠物条款具体在第几页；</li>
+<li>本地代码仓库里的一段指数退避重试函数，文件名和函数名里都没有包含 <code>retry</code>。</li>
+</ul>
+<p>它基于 Google DeepMind 推出的多模态嵌入模型 <strong>EmbeddingGemma 2</strong>，（嵌入模型把内容编码成一串可比较的数字，称为向量）在 Mac 本地为图片、截图、PDF、文本文档、音频和视频建立统一的向量表示，实现按文件“包含什么内容”而非“叫什么名字”进行语义检索。</p>
+<p>更进一步，DigUp 的定位不只是指出文件本身，而是直接跳转到文件内部的相关位置：将播放器跳到出现相关画面的时间点、将播客定位到对应话题的音频区间、将 PDF 翻到相关条款所在的页码，或在编辑器中定位到相关代码段。所有切片与检索均在 Apple Silicon 本地完成，无需将个人文件上传到外部服务。</p>
+<hr />
+<h2>为什么一句话能找到照片和录音</h2>
+<p>要理解 DigUp 的检索逻辑，核心在于其搭载的多模态嵌入模型 <strong>EmbeddingGemma 2</strong>（由 Google DeepMind 开源，遵循 Apache 2.0 协议）。</p>
+<div>不同输入，各自编码</div><div><div><b>文字与代码</b><span>文本部分 · 270M 参数</span></div><div><b>照片与视频帧</b><span>视觉编码器 · 170M 参数</span></div><div><b>语音与其他声音</b><span>音频编码器 · 300M 参数</span></div></div><div>↓</div><div><b>共享 768 维向量空间</b><span>每个片段有自己的向量；一句文字查询的向量可与它们比较。</span></div>
+<p>一种常见的多模态检索做法是先经过中间文字转换：用语音识别转出台词、用 OCR 提取画面字符，再基于纯文本计算相似度。这种链路依赖文字作为媒介，容易漏掉未被文字标注的信息，例如语音里的语调、背景声响，或是画面中的构图、动作与非文字细节。</p>
+<p>EmbeddingGemma 2 走的是<strong>原生多模态对齐（Native Multimodality）</strong>路线：</p>
+<ol>
+<li><strong>统一的向量空间</strong>：模型总参数量为 740M（包括 270M 文本主干、170M 视觉编码器和 300M 音频编码器）。文本、静态图像、视频抽帧和音频切片均被映射到同一个 <strong>768 维</strong>向量空间中。</li>
+<li><strong>跨模态的可比表示</strong>：统一空间让文字查询能与图片、音频或视频片段直接计算余弦相似度。应用据此给候选资料排序，再让你查看原文件。</li>
+<li><strong>任务指令前缀（Task Instruction Prefixes）</strong>：模型在训练时对不同任务使用了特定文本前缀引导。常规搜索查询使用 <code>task: search result | query: {query}</code>；代码意图检索使用 <code>task: code retrieval | query: {query}</code>；文档内容则包装为 <code>title: {title} | text: {content}</code>。前缀帮助文本向量更好地对齐目标检索场景。</li>
+<li><strong>编码器模块化解耦</strong>：视觉编码器和音频编码器相互独立。在仅需要根据输入文本进行匹配的搜索阶段，只需调入文本主干，无需同时加载视觉与音频编码组件。</li>
+</ol>
+<a href="https://best.xiaohu.ai/article/embeddinggemma-2/"><span>进一步理解底层模型</span><b>Google 开源多模态向量模型 EmbeddingGemma 2：用自然语言搜索文字、图片、声音和视频</b><p>了解模型按需加载、输入预算与向量压缩之间的取舍。</p><em>阅读模型解读 →</em></a>
+<hr />
+<h2>找到文件以后，怎样跳到对应页和时刻</h2>
+<p>如果只是把整部视频或几百页的 PDF 整体算成单个向量，检索结果最多只能指出文件本身。DigUp 的实际做法是将不同媒体切分为<strong>具备时间戳或位置元数据的片段（Segments）</strong>，以便直接定位到文件内部。</p>
+<p>在 macOS 系统下，DigUp 调用 AVFoundation、PDFKit、Vision 与 ImageIO 框架实现文件解析与特征抽取：</p>
+<h3>1. 视频切片：关键帧抽样与图像指纹去重</h3>
+<p>视频是数据量最大的媒体类型。在后台处理时，DigUp 采取了抽样预算与指纹去重策略（见 <code>Media+Apple.swift</code> 源码）：</p>
+</div></div></div><div></div></div></div><div><div>
+<div>
+<div>🔒 MEMBERS ONLY</div>
+<h2>后面约 9 分钟，是会员的。</h2>
+<p>免费部分到这里。墙内还有：</p>
+<div><span>约 9 分钟正文</span><span>7 处图表与交互</span></div>
+<div><span>🔓 385 篇存量深度 / 研究解读全文一并解锁</span><span>🎧 全部播客音频 + 私有播客源</span><span>⧉ 全文 Markdown 导出</span></div>
+<div>🔥 创始 100 席已售罄 · 350+ 位会员在读</div>
+<div>
+<a>解锁全站 $59/年</a>
+<a>先读这篇 $1.99</a>
+<a>按月 $6.99</a>
+</div>
+<div>单篇费用 30 天内升年卡可全额抵扣（回复收据邮件即可）</div>
+<div>
+<a>已是会员？邮箱登录 →</a>
+<span>美元结算 · 年卡 / 单篇支持支付宝、微信；月卡需银行卡 · 年付 7 天不满意全额退。</span>
+</div>
+</div>
+<div>
+<div>暂时不开会员？</div>
+<p>留个邮箱，新解读第一时间发你。确认订阅后，我把<b>这篇的一页纸</b>一起发过去。</p>
+订阅<div></div>
+<a>全部订阅方式（RSS / Telegram / 播客）→</a>
+</div></div><div>
+<div><span>↑ 正文结束</span></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/googlegemma/status/2110044337849692644">阅读原文 ↗</a>
+</div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Anthropic 放弃代码管理工具 Git，自己开发了一套名为 Scion 的版本控制系统，来适应 AI 开发需要</title>
+<link>https://best.xiaohu.ai/article/anthropic-scion-source-control/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:anthropic-scion-source-control</guid>
+<pubDate>Wed, 14 Oct 2026 12:01:10 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 为什么 Git 顶不住了？（背景与痛点） 02 Git 的离线优势，为什么在这里变成了负担？ 03 Scion 把哪些工作交给了服务端？ 04 改动怎样保存，文件怎样取回来？ 05 快了多少，要按操作分别看 06 七个人怎样完成这次迁移？ 07 普通团队能借鉴什么？ 复制 Markdown 下载 .md Anthropic 放弃代码管理工具 Git，自己开发了一套名为 Scio</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 14 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Anthropic 放弃代码管理工具 Git，自己开发了一套名为 Scion 的版本控制系统，来适应 AI 开发需要</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/anthropic-scion-source-control/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>为什么 Git 顶不住了？（背景与痛点）</span></a><a><span>02</span><span>Git 的离线优势，为什么在这里变成了负担？</span></a><a><span>03</span><span>Scion 把哪些工作交给了服务端？</span></a><a><span>04</span><span>改动怎样保存，文件怎样取回来？</span></a><a><span>05</span><span>快了多少，要按操作分别看</span></a><a><span>06</span><span>七个人怎样完成这次迁移？</span></a><a><span>07</span><span>普通团队能借鉴什么？</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Anthropic 放弃代码管理工具 Git，自己开发了一套名为 Scion 的版本控制系统，来适应 AI 开发需要</h1><div><span><b>已核对</b></span><span>Anthropic Engineering</span><span>10-14 · 12 分钟</span></div><div><div>正文一页纸</div>收起播客 ⌃☆ 收藏</div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><div><p>Anthropic 放弃行业通用的代码管理工具 Git，转而自己开发了一套名为 Scion 的新系统。</p>
+<p>当 AI 替人写代码、代码提交量迅速暴增时，Anthropic 原有的 Git 基础设施被撑到了极限。这次从开发 Scion 到迁移代码仓库，团队用了 5 个月。</p>
+<p>这套新系统的核心逻辑主要有三点：</p>
+<ul>
+<li><strong>按需索取</strong>：工作的大多是始终联网的 AI 智能体，不需要每次都把全部历史记录下载下来。系统只在需要某些文件时，才去服务器调取对应内容。</li>
+<li><strong>服务器挑大梁</strong>：版本管理中复杂、繁重的计算主要放在云端服务器完成，客户端主要负责把文件放到磁盘、监测改动和维护简单缓存，极大地节省了本地机器的资源消耗。</li>
+<li><strong>更轻便的记录方式</strong>：每次保存修改时，系统只记录改动的文件清单和内容指针，创建变更集时不需要给整个代码库加锁；分支引用另行更新，减少大量任务同时提交时的协调和堵塞。</li>
+</ul>
+<h2>为什么 Git 顶不住了？（背景与痛点）</h2>
+<p>在 Anthropic 内部，<strong>写代码本身已经不再是瓶颈</strong>。因为 Claude 能够自主推进研究循环、微调底层程序，甚至平地起高楼建新服务，代码生产速度极其夸张：</p>
+<ul>
+<li><strong>合并量涨到 12 倍以上</strong>：2026 年 5 月，他们每天大概合并 2,500 次代码；到了 9 月，这个数字冲到了<strong>每天 30,000 多次</strong>。</li>
+<li><strong>仓库庞大且流量惊人</strong>：主分支历史记录接近 100 GB，压缩后的本地副本超过 25 GB；为了跑 CI（持续集成），每天需要执行约 2,500 万次 checkout。如果每次都把压缩副本完整拉取，每天要产生 <strong>600 PB 以上</strong>的网络流量。</li>
+<li><strong>Git 的设计假设不再匹配负载</strong>：Git 的本质是“去中心化、支持离线工作”，默认的完整克隆保留全量历史。但 Anthropic 绝大多数代码客户端都是<strong>始终在线的 AI Agent 和云端 CI 任务</strong>。为了让 Git 扛住，他们以前开了几百个镜像节点，但随着合并频率越来越高，主分支更新太快，镜像扩容、更新快照（seeds），以及在部分副本上计算 diff 和 blame 都越来越难维护。</li>
+</ul>
+<figure>
+<img>
+<figcaption>
+<span>单一代码仓库每日合入量在数月内增长超过十倍。</span><br>
+    蓝色柱体代表传统拉取请求（PR），橙色柱体代表新代码审查系统 Antique 请求，折线为 7 日移动平均线。图中标注的一天合入 30,401 次，同期 7 日均线接近 1.8 万次。
+  </br></figcaption>
+</img></figure>
+<h2>Git 的离线优势，为什么在这里变成了负担？</h2>
+<p>Git 的关键优势是本地仓库可以独立工作：网络断开后，开发者仍能提交代码、对比差异和读取已有历史。</p>
+<p>这种设计让客户端保留了很强的能力：</p>
+<ol>
+<li><strong>去中心化（Decentralized）</strong>：每一个开发者的本地克隆都是一个功能完备的完整仓库。即使在没有网络的高铁或飞机上，你也能离线查看历史提交、对比差异（Diff）以及追溯每一行代码由谁修改（Blame）。</li>
+<li><strong>对等架构（Peer-to-Peer）</strong>：客户端和服务端能力完全对等。你的笔记本电脑本质上就是一个随时可以对外提供服务的 Git 服务器。</li>
+<li><strong>快照完整性（Full Snapshot）</strong>：每次提交（Commit）在逻辑上都是对整个项目文件树（Tree）的完整记录，通过打包文件（Packfile）和增量压缩来节省磁盘空间。</li>
+</ol>
+<p>对于中小型项目或普通开源社区，这种设计极为优雅且坚固。但在一个历史动辄上百 GB 的超大单一仓库（Monorepo）中，当大量在线 Agent 和短生命周期的任务重复获取同一份代码时，维护各自的本地仓库会产生很大的成本。</p>
+<figure>
+<img />
+<figcaption>
+<span>超大代码库运行 Git 时的典型多级镜像架构。</span><br>
+    为支撑数千万次检出，依赖数百个 Git 镜像与对象存储中的全量快照种子，但快照与主干尖端的延迟及历史追溯成本随着提交频率激增而愈发严苛。
+  </br></figcaption>
+</figure>
+<p>Git 本来就提供缩小获取范围的工具，Anthropic 也采用了常见的扩容办法：</p>
+<ul>
+<li>
+<p><strong>搭建多级镜像阵列</strong>：在集群内部署 Git 镜像（Mirrors），Anthropic 高峰期运行了数百个，用来分流主仓库的拉取压力。</p>
+</li>
+<li>
+<p><strong>冷数据快照（Seeds）</strong>：把仓库快照作为种子存放在对象存储中，新节点启动时先下载快照，再增量拉取少量新提交。</p>
+</li>
+<li>
+<p><strong>部分检出与浅克隆</strong>：利用 Git 的 <code>shallow clone</code>（浅克隆，仅拉取最近几次提交）或 <code>sparse-checkout</code>（稀疏检出，只保留部分目录）。</p>
+</li>
+</ul>
+<p>这些办法减轻了负担，但在它的规模下越来越难维护：</p>
+<ul>
+<li>
+<p><strong>快照越来越落后</strong>：随着合入加速，定期刷新的种子快照距离主干最新版本越来越远，新任务需要补取更多改动。</p>
+</li>
+<li>
+<p><strong>镜像容量与维护成本增长</strong>：单一仓库主干历史达到近 100 GB，压缩后的工作副本仍超过 25 GB。仓库继续增长时，镜像的磁盘、内存容量和维护成本也成为扩容约束。</p>
+</li>
+<li>
+<p><strong>部分副本的历史查询更复杂</strong>：部分克隆可能缺少查询所需的历史与对象；为了让 Diff 和 Blame 在这些副本上正常工作，工具链需要处理补取数据等额外步骤。</p>
+</li>
+</ul>
+<p>Anthropic 发现，自己的绝大多数客户端都是在线 Agent 和自动化任务，实际协作又围绕一个权威代码库展开。于是它改变了设计起点：客户端只拿需要的数据，历史查询和提交处理交给在线服务。</p>
+<h2>Scion 把哪些工作交给了服务端？</h2>
+<p>以「客户端始终在线」作为设计前提后，Anthropic 借鉴了 Google Piper 和 Meta Sapling 等超大单仓系统的演进经验，确立了专为智能体规模设计的自研版本控制系统 <strong>Scion</strong> 的六大支柱：</p>
+<ol>
+<li><strong>客户端永远在线（Always Online）</strong>：放弃离线自主运算的包袱。客户端只在需要时向服务端请求特定数据，不再默认保存完整的历史副本。</li>
+<li><strong>极端的非对称性（Client-Server Asymmetry）</strong>：服务端成为唯一的重算中枢，负责处理分支合并、变基（Rebase）、责任归属计算与历史索引；客户端保留轻量职责，仅维护受控的本地缓存、负责把文件投射到磁盘，减少本地所需的数据和计算。</li>
+<li><strong>版本控制即服务化 API（API-First）</strong>：CI 工具如果想知道「这两次提交之间有哪些改动」或者「这一行是谁写的」，不再需要在磁盘上克隆仓库，直接调用服务端的元数据 API，获取查询结果。</li>
+<li><strong>全链路水平扩展，消灭全量物化副本</strong>：系统中不存在任何一个地方存有整座仓库的完整展开形态。没有 Git 那种庞大复杂的 Packfile，也就彻底免除了仓库定期的解包与压缩维护。</li>
+<li><strong>极简增量、无锁提交（Lock-Free Changesets）</strong>：提交必须便宜且迅速。每次提交只记录变动的增量文件列表，绝不扫描全仓；创建变更集与移动分支引用分开处理，减少创建阶段的协调。</li>
+<li><strong>工作目录彻底可选，默认稀疏与虚拟化</strong>：能不落盘就不落盘。代码检出支持只拉取指定目录（稀疏检出），或者只建立虚拟目录树、待程序实际读取文件时才流式加载数据（虚拟化检出）。</li>
+</ol>
+<div>
+<div>
+<h4>切换任务，比较 Git 与 Scion 的处理路径</h4>
+<p>选择不同的开发运维场景，对照一直保留；看哪些工作在本地完成，哪些交给在线服务。</p>
+</div>
+<div>
+场景 1：CI 任务检出代码
+场景 2：创建与共享改动
+场景 3：追溯历史与行级责任（Blame / Diff）
+</div>
+<div>
+<div>
+<div>
+Anthropic 原 Git 链路
+<span>分布式对等</span>
+</div>
+<div><div><span>① 从种子或镜像起步</span>任务可先用节点快照，再从镜像获取新对象；Git 也支持浅克隆与部分克隆。</div><div><span>② 协商并传输对象</span>客户端与服务端协商缺哪些对象，服务端生成打包响应。</div><div><span>③ 准备任务所需文件</span>客户端维护本地仓库；高频检出时，重复获取、解包和更新仍有成本。</div></div>
+<div><strong>这次迁移的旧链路：</strong>数百个镜像与种子快照分担负载，但种子日益落后，部分副本的历史查询也更难维护。</div>
+</div>
+<div>
+<div>
+Scion 在线服务
+<span>非对称服务化</span>
+</div>
+<div><div><span>① 节点共享缓存</span>CI 任务向本节点 scion-daemon 请求所需对象，同一节点的任务复用缓存。</div><div><span>② 未命中才向上取</span>节点 → 区域 scion-cache → 权威 scion-server，逐级请求缺失的树与文件内容。</div><div><span>③ 只准备需要的文件</span>稀疏检出只取选定目录；虚拟化检出按实际读取取文件。只查询 Diff 时可直接用 API。</div></div>
+<div><strong>省在哪里：</strong>不可变对象可重复缓存，不为每个任务维护完整仓库。Anthropic 报告各缓存层命中率均超过 99%。</div>
+</div>
+</div>
+</div>
+<h2>改动怎样保存，文件怎样取回来？</h2>
+<p>为了让这六项原则落到实处，Scion 在数据结构和网络拓扑上采用了不同的设计。</p>
+<h3>1. 先记录变更集，再派生目录树（Changeset）</h3>
+<p>在 Git 的底层结构中，一次提交指向的是一个代表项目根目录的 Root Tree 对象，哪怕你只改动了一个字符，Git 也会从底层叶子节点向上重新构建一连串目录树哈希。</p>
+<p>Scion 的核心记录方式不同。它的核心逻辑单元是预写式日志（Write-Ahead Log）中的一条 <strong>Changeset（变更集）</strong>：</p>
+<figure>
+<img />
+<figcaption>
+<span>Scion 变更集（Changeset）仅存储差异文件清单与内容指针。</span><br />
+    元数据记录于分布式数据库，目录树由服务端派生生成，不直接存进变更集；文件内容按哈希去重压缩存入分布式对象存储。
+  </figcaption>
+</figure>
+<ul>
+<li>
+<p><strong>存了什么</strong>：Changeset 记录元数据（作者、说明、父节点指针）以及一份相对第一父节点的<strong>变动文件清单</strong>（例如被修改的 <code>guide.md</code> 对应的哈希、被删除的 <code>legacy.rs</code>）。文件具体内容经过压缩后，按内容哈希直接写入云端对象存储（Cloud Storage）。</p>
+</li>
+<li>
+<p><strong>去除了什么</strong>：Changeset <strong>不存储整仓目录树结构</strong>。提交时无需协调多台服务器打包，也无需更新任何全局分支引用。</p>
+</li>
+<li>
+<p><strong>分支移动是单行数据库操作</strong>：主分支（Main Branch）引用的推进，在底层被抽象为对 Google Cloud Spanner 分布式数据库中单行数据的 CAS（Compare-And-Swap，比较并交换）原子更新。提交过程因此完全解耦，吞吐量极大提升。</p>
+</li>
+</ul>
+<h3>2. 派生数据机制（Derived Data）</h3>
+<p>单纯记录变动清单固然能实现写入飞快，但如何快速回答「这行代码五年前是谁写的」或者「某个文件经历过哪些提交」？</p>
+<p>Scion 采用了一种名为<strong>派生数据（Derived Data）</strong>的通用计算框架：</p>
+<ul>
+<li>
+<p>文件的 Blame 链条、路径变迁历史、提交图跳表（Skip Lists）等辅助结构，全都被定义为派生数据。</p>
+</li>
+<li>
+<p>派生数据以递归方式定义：某个变更集的派生值，可以通过其父变更集的派生值加上当前变更集中的改动计算得出。</p>
+</li>
+<li>
+<p>服务端可以自主决定哪些常用索引立即预先计算（Eager），哪些冷僻索引推迟到被查询时再算（Lazy）。由于客户端完全看不到底层索引的细节，服务端可以优化索引，无需客户端做出任何改动。</p>
+</li>
+</ul>
+<h3>3. 三级流式缓存架构：scn 客户端的工作原理</h3>
+<p>为了支撑每天数千万次的高频读取，Scion 搭建了一套分层隔离的物理缓存网络：</p>
+<figure>
+<img />
+<figcaption>
+<span>Scion 的三级分层检出与缓存架构。</span><br />
+    客户端通过本节点守护进程直接复用缓存对象，未命中时向区域级内存缓存流式拉取，严格的分级隔离避免了下游故障反噬中央数据库。
+  </figcaption>
+</figure>
+<p>在传统 Git 协商协议中，客户端与服务端会协商哪些对象已经存在、哪些还需要传输，由服务器计算双方差集。在超大仓库中，这种握手极为消耗 CPU。</p>
+<p>Scion 改变了协商流程：<strong>客户端从不向上游汇报自己拥有什么，它只向服务端索取自己缺失的目标树与对象哈希。</strong></p>
+<p>具体的运转层级如下：</p>
+<ol>
+<li><strong>本地守护进程（scion-daemon）</strong>：运行在每个物理计算节点的后台。同一节点上的多个任务共享该守护进程。因为同一节点上的任务运行的代码高度重合，绝大部分文件直接在本地守护进程的缓存中命中。</li>
+<li><strong>区域内存缓存（scion-cache）</strong>：当节点守护进程未命中时，请求被转发至该数据中心的区域缓存集群。这组服务器直接在内存中以磁盘原生格式流式下发对象，不必为每个请求计算缺失对象集合和重新做增量压缩。</li>
+<li><strong>权威服务集群（scion-server）</strong>：只有两级缓存全部穿透时，请求才会抵达最顶层的权威节点，从分布式数据库 Spanner 和对象存储中读取源数据。</li>
+</ol>
+<p>Anthropic 报告各缓存层的命中率均超过 99%。这三个层级对外暴露完全一致的 RPC 接口，但通过严格的分级规则隔离故障域，防止区域缓存故障时的大量请求直接冲击权威服务。</p>
+<h2>快了多少，要按操作分别看</h2>
+<p>这套体系在实际落地后，带来了怎样的量化改善？</p>
+<p>在全量迁移上线后，各环节性能出现了显著的分化加速。收益在不同环境、不同命令之间并不均匀。下面保留 Git 和 Scion 的同类操作对照。</p>
+<div>
+<div>
+<h4>同一操作，Git 和 Scion 各等多久？</h4>
+<p>基于 Anthropic 内部超大单一代码仓库实测中位耗时（Median Time），直观查看不同环境下的加速比与规模收益。</p>
+</div>
+<div>
+开发者日常环境
+智能体沙箱环境
+CI 与集群计算任务
+</div>
+<div>
+<div><div><div><span>拉取最新代码 (Pull latest)</span><span>25x 更快</span></div><div><div><span>Git</span><div><div></div></div><span>87 s</span></div><div><span>Scion</span><div><div></div></div><span>3.5 s</span></div></div></div><div><div><span>工作区状态查询 (Status)</span><span>207x 更快</span></div><div><div><span>Git</span><div><div></div></div><span>3900 ms</span></div><div><span>Scion</span><div><div></div></div><span>19 ms</span></div></div></div><div><div><span>分支检出 (Checkout)</span><span>14x 更快</span></div><div><div><span>Git</span><div><div></div></div><span>15 s</span></div><div><span>Scion</span><div><div></div></div><span>1.1 s</span></div></div></div><div><div><span>变基同步 (Rebase)</span><span>4.8x 更快</span></div><div><div><span>Git</span><div><div></div></div><span>13 s</span></div><div><span>Scion</span><div><div></div></div><span>2.7 s</span></div></div></div><div><div><span>提交改动 (Commit)</span><span>1.3x 更快</span></div><div><div><span>Git</span><div><div></div></div><span>1.4 s</span></div><div><span>Scion</span><div><div></div></div><span>1.1 s</span></div></div></div><div><div><span>差异比较 (Diff)</span><span>6.1x 更快</span></div><div><div><span>Git</span><div><div></div></div><span>407 ms</span></div><div><span>Scion</span><div><div></div></div><span>67 ms</span></div></div></div></div>
+<div><div><strong>开发者体感：</strong>同一开发环境中，Status 的改善约 207 倍，Commit 约 1.3 倍；不同操作不能套用统一加速比。</div></div>
+<p>各行以 Git 耗时为 100%，细条保留实际比例；小于 0.2 秒的 Status 用 0.2 秒上界画条。数字为内部中位数，未披露样本量及缓存条件。</p>
+</div>
+</div>
+<figure>
+<img />
+<figcaption>
+<span>日常版本控制命令在中位耗时上的实测对比。</span><br />
+    橙色为 Scion（scn），灰色为 Git。在智能体环境与大规模计算任务中，新建工作目录、状态查询与检出各有不同幅度的改善；数据源自内部单一仓库实测中位数。
+  </figcaption>
+</figure>
+<p>在 Agent 环境里，每个变更请求的版本控制总耗时从 34 分钟降到 3.7 分钟，约快 9.2 倍。这是多种操作累积的等待，能说明重复准备代码对一个任务的整体影响。</p>
+<p>关键维度表现如下：</p>
+<ul>
+<li>
+<p><strong>智能体工作树（Worktree）初始化</strong>：从过去的 <strong>7.1 分钟</strong> 锐减至 <strong>5.1 秒</strong>，提速达 <strong>84 倍</strong>。智能体无需再为空转等待付出漫长时间。</p>
+</li>
+<li>
+<p><strong>状态查询（Status）</strong>：开发机上的 <code>scn status</code> 耗时从 <strong>3.9 秒</strong> 缩短至 <strong>19 毫秒</strong>（<strong>207 倍</strong>），减少了交互等待。</p>
+</li>
+<li>
+<p><strong>CI 检出耗时</strong>：CI 任务内的检出从中位数 <strong>31 秒</strong> 降至 <strong>3.5 秒</strong>（<strong>8.8 倍</strong>）；启动计算任务时的检出从 <strong>175 秒</strong> 降至 <strong>22 秒</strong>（<strong>8 倍</strong>）。</p>
+</li>
+<li>
+<p><strong>Agent 等待和机器时间减少</strong>：</p>
+<ul>
+<li>智能体环境每天节省约 <strong>11,000 小时</strong> 的版本控制等待时间；</li>
+<li>CI 与计算集群每天释放合计约 <strong>280,000 机器小时</strong>；</li>
+<li>仅 CI 一项提速，使 CI 自身获得了 <strong>25% 的 CPU 容量收益</strong>。</li>
+</ul>
+</li>
+<li>
+<p><strong>版本控制基础设施占用减少</strong>：相比过去需要维护数百个 Git 镜像，Scion 服务端在 CPU 与内存占用上的基础设施需求约为原来的 <strong>1/200</strong>。</p>
+</li>
+</ul>
+<p>这些机器时间和 Agent 时间的节省来自 Anthropic 对内部负载的估算，不能换算成人类工程师节省的工时。性能图给的是命令中位耗时，未列出硬件、样本量或缓存条件；每个数字都应按对应环境理解。开发者的 Commit 就只有约 1.3 倍提速：从 1.4 秒到 1.1 秒。</p>
+<h2>七个人怎样完成这次迁移？</h2>
+<p>七人团队在五个月里完成了 Scion、Antique 和相关系统，并迁移了整个代码仓库。Anthropic 认为，这类工程过去往往需要更多工程师和多年的渐进迁移；这里的团队规模也离不开它能大量使用内部 Claude 的条件。</p>
+<figure>
+<img />
+<figcaption>
+<span>版本控制系统与审查工具自身的每周变更频率。</span><br />
+    统计覆盖版本控制核心与代码审查两个核心目录，数月内累计合入超过 1.2 万次变更，展示了这两个系统自身的迭代频率。
+  </figcaption>
+</figure>
+<p>Claude 既增加了旧工具链的负载，也帮助工程师实现和优化新工具链。</p>
+<p>这次迁移也改变了团队的工作方式：</p>
+<h3>1. 模型负责写代码，工程师负责「对模型说不」</h3>
+<p>参与项目的工程师认为，Claude 在<strong>写代码</strong>方面已经比自己更强；系统目标、组件关系和设计取舍仍由他们把握。</p>
+<p>早期由人类工程师手写完成的 Git 到 Scion 历史数据摄取原型，是团队原先认为不错的版本。当工程师将这套代码丢给 Claude 后，在没有任何额外调优指令的前提下，模型直接重构产出了一版<strong>内存占用降为原来的 1/20、处理速度提升 4 倍</strong>的高性能实现，并完整保留了所有隐式的时序不变量约束。</p>
+<p>但这也带来了新的挑战：Agent 有时会为了满足局部要求而违反系统约束，也可能因为过度防御而把实现变复杂。</p>
+<ul>
+<li>
+<p>多个由模型编写的周边脚本，为了查询某项变更何时合并到主干，竟然试图线性遍历提交日志，而不是去调用成熟的审查工具 API。</p>
+</li>
+<li>
+<p>在内部推行的对抗性审查（Adversarial Review）中，模型由于过度担心另一个微服务不可靠，自行添加了大量臃肿的校验层和防御代码，导致系统复杂度不合理膨胀。</p>
+</li>
+<li>
+<p><strong>审核重心发生变化</strong>：团队仍审查每一项变更，但把重心放到<strong>根本意图（Intent）</strong>，确立跨系统契约，并在模型试图破坏架构约束时坚决予以否决。</p>
+</li>
+</ul>
+<h3>2. 测试期间主干还在变化，验证要重新安排</h3>
+<p>在传统研发体系中，为了保证主干永远处于可构建状态，广泛采用带有全局锁的合并队列（Merge Queue）：提交 A 必须通过完整测试合入后，提交 B 才能基于最新状态排队。</p>
+<p>但当单日合入量达到数万次、每分钟都有多笔代码落盘时，测试运行期间可能又有数百甚至数千项变更合入，团队难以复制全仓合并队列锁的做法。</p>
+<p>因此它把更多验证投入到<strong>合入后测试（Post-Merge Testing）与部署前验证</strong>。并发合入固然会导致代码逻辑冲突，但 Anthropic 称 Claude 通常能很快修复这些冲突。这里的取舍是接受合入阶段可能出现的问题，再通过合入后和部署前的测试处理；这需要配套验证能力，并没有取消代码审查。</p>
+<h3>3. 运维监控的「死忠粉」（Superfans）</h3>
+<p>在监控方面，团队借助内部工具，使用 Claude Tag，在 Slack 频道中安排 Claude 持续关注各个核心组件。</p>
+<ul>
+<li>
+<p>有专门盯梢 <code>scion-daemon</code> 守护进程的 Claude，有专属守护 <code>scion-cache</code> 内存池的 Claude，也有紧盯代码审查合入队列的 Claude。</p>
+</li>
+<li>
+<p>它们能访问相关遥测和日志，持续寻找异常；团队称这能发现传统告警不易覆盖的细微和新型问题。传统告警也继续保留。</p>
+</li>
+</ul>
+<h3>4. 封闭仿真与语义权限：高吞吐下怎样守住质量与敏感代码</h3>
+<p>随着 Agent 写入吞吐大幅提升，如何保持测试覆盖并管控敏感代码的访问与审批成为关键。团队借助 Claude 与 Scion 机制在两个环节建立防线：</p>
+<ul>
+<li>
+<p><strong>以封闭仿真保障测试覆盖</strong>：在紧张的迁移工期内，Claude 帮助团队快速建立了针对复杂基础设施与源控交互的封闭仿真（Hermetic simulations），并配合模糊测试（Fuzzing）与精细限流。这套机制的作用是在受控隔离环境中模拟各种极端交互与异常输入，在代码吞吐激增时排查潜在缺陷与并发隐患，并通过限流防止高频请求冲击底层服务，增加测试覆盖。</p>
+</li>
+<li>
+<p><strong>以目录权限与语义审查管控敏感代码</strong>：Scion 原生支持仓库与目录级别的细粒度权限控制，在保留单一仓库协作便利的同时保护敏感代码；配套的代码审查工具则能表达复杂的审批语义条件，区分单纯的注释变化与敏感的逻辑改动。这套机制的作用是将人工审查精力聚焦在真正关键的逻辑变更上，避免无关改动阻塞流程，并按照权限和审批要求处理敏感代码。</p>
+</li>
+</ul>
+<h2>普通团队能借鉴什么？</h2>
+<p>看到这次迁移，开发者最容易产生的疑问是：<strong>Git 真的要被淘汰了吗？我们是不是也该换掉 Git？</strong></p>
+<p><strong>普通团队仍可继续使用 Git；Scion 的优势需要巨大代码库和高频在线任务这样的负载才能体现。</strong></p>
+<p>Scion 针对的是非常特殊的负载：</p>
+<ul>
+<li>
+<p><strong>自研闭环成本极高</strong>：Scion 并不是一个开箱即用的命令行工具。它深度绑定了自研的代码审查平台 Antique、定制的代码搜索和内部 IAM 权限控制。任何团队如果想换掉 Git，就必须配套迁移代码审查、搜索和 CI 等开发流程。</p>
+</li>
+<li>
+<p><strong>不可复制的算力倾斜</strong>：Anthropic 内部对大模型 Token 的消耗额度，远远超出了普通商业公司在内部研发工具上所能承担的财务预算。</p>
+</li>
+<li>
+<p><strong>场景不同</strong>：对常规团队，Git 的离线能力与成熟工具生态仍有价值；Scion 主要面向巨大单仓和大量 Agent。</p>
+</li>
+</ul>
+<p>Anthropic 希望把其中一些思路带回 Git 生态：</p>
+<ol>
+<li><strong>Git 服务端不应再机械模拟客户端</strong>：GitHub、GitLab 等代码托管平台完全可以引入类似 Scion 的非对称架构，让服务端负责重算并提供精细的 RPC 查询接口，而不是逼迫客户端把庞大的 Packfile 下载到本地。</li>
+<li><strong>重塑协商与检出协议</strong>：Git 生态长期以来虽然拥有稀疏检出（Sparse checkout）和按需加载（Promisor remotes）等特性，但仍有进一步协同优化的空间。如果能够标准化「按需流式拉取对象」的精简协商协议，可以减少大规模任务在传输与维护仓库上重复付出的成本。</li>
+</ol>
+<p>这次迁移显示，AI 加快代码生产后，瓶颈会继续向存储、分发、审查和验证移动。对普通团队，更有参考价值的是检查哪些任务其实只需要一个查询结果、哪些文件被重复搬运，以及服务端能否承担更多公共计算。Scion 是 Anthropic 内部系统，目前没有可供普通团队安装的通用版本。</p>
+</div><div><div><div>来源</div><div><span>Redesigning source control at Anthropic</span><span>Nick G. 与 Anthropic source control team<span>·</span>2026-10-13<span>·</span><a href="https://www.anthropic.com/engineering/redesigning-source-control">查看主材料</a></span></div></div></div></div></div><div>
+<div>Anthropic · Scion</div>
+<h1>Anthropic 放弃代码管理工具 Git，自己开发了一套名为 Scion 的版本控制系统，来适应 AI 开发需要</h1>
+<p>AI 把代码生产加快后，重复搬运代码、维护历史和协调提交成了新的等待。Scion 从“客户端始终在线”出发，把版本管理改成按需服务。</p>
+<div>先看负载为什么变，再看系统怎样响应。</div>
+<div><div><p>Anthropic 的单一仓库历史接近 100 GB，压缩副本超过 25 GB；CI 每天约需 2,500 万次检出。多数客户端是在线 Agent 和云端任务，反复准备本地仓库的成本不断累积。</p></div><div><strong>2,500 → 30,000+</strong><span>每日合并量：2026 年 5 月到 9 月，涨到 12 倍以上。</span><span>若每次完整拉取压缩副本，每日流量将超过 600 PB。这是估算场景，并非实际流量。</span></div></div>
+<p>Git 支持离线和对等协作，默认完整克隆保留全量历史。Anthropic 已用数百个镜像和种子快照分流；合入越来越快后，快照追赶主干、镜像扩容和部分副本的历史查询都越来越难维护。</p>
+<h2>在线任务按需取，公共重算交给服务端</h2>
+<div><div><h3>Git 的本地能力</h3><p>保存仓库副本，在本地提交、查看差异和追溯历史；离线也能工作。</p></div><div><h3>Scion 的职责分工</h3><p>客户端放置文件、监测改动、维护轻量缓存。合并、变基和历史索引由服务端处理；只查询结果时可直接调用 API。</p></div></div>
+<div><h3>文件读取：命中就返回，缺什么才向上取</h3><div><div><strong>节点守护进程</strong><span>同机任务共享缓存</span></div><div>→</div><div><strong>区域内存缓存</strong><span>流式下发缺失对象</span></div><div>→</div><div><strong>权威服务</strong><span>数据库与对象存储</span></div></div><div>箭头只在缓存未命中时继续。Anthropic 报告各缓存层命中率均超过 99%；分层规则隔离故障，减少请求直接冲击权威服务。</div></div>
+<p>客户端只索取缺失的树与对象哈希，无需先汇报自己已有的全部对象；系统避免维护整仓展开副本及 Git Packfile。</p>
+<h2>把“记录改动”与“移动分支”拆开</h2>
+<div><div><h3>先创建变更集</h3><p>仅记录相对第一父节点的改动文件清单、元数据和内容指针，不存整仓目录树；创建阶段无需全仓锁。</p></div><div><h3>再更新分支引用</h3><p>主分支通过 Spanner 单行 CAS（比较并交换）原子更新推进。目录树、Blame 与历史索引由服务端派生计算。</p></div></div>
+<h2>提速要按同一操作、同一环境看</h2>
+<div>
+<div><span>Agent 每个变更请求的版本控制总等待</span><span>34 分钟 → 3.7 分钟</span><strong>9.2×</strong></div>
+<div><span>Agent 新建工作树</span><span>7.1 分钟 → 5.1 秒</span><strong>84×</strong></div>
+<div><span>开发机状态查询</span><span>3.9 秒 → 19 毫秒</span><strong>207×</strong></div>
+<div><span>CI 检出</span><span>31 秒 → 3.5 秒</span><strong>8.8×</strong></div>
+<div><span>开发者提交</span><span>1.4 秒 → 1.1 秒</span><strong>1.3×</strong></div>
+</div><div>命令数据是内部单仓中位耗时，收益并不均匀。版本控制基础设施 CPU 与内存需求约为原来的 1/200；每天约节省 11,000 Agent 等待小时及 CI 与计算集群合计 280,000 机器小时，均不能换算成人类工时。</div>
+<h2>7 人、5 个月：模型写代码，人类把握契约</h2>
+<div><div><h3>实现与架构</h3><p>团队完成 Scion、审查工具 Antique 与全仓迁移。Claude 重构历史摄取原型后，内存降为 1/20、速度提升 4 倍；工程师仍审查每项改动，防止模型违背系统意图或过度增加防御代码。</p></div><div><h3>高吞吐仍需验证</h3><p>合入后测试、部署前验证承接并发变化；封闭仿真与模糊测试增加覆盖。目录权限和语义审批保护敏感代码，Claude 监控与传统告警共同关注异常。</p></div></div>
+<h2>普通团队借鉴分工，不必照搬迁移</h2>
+<p>Scion 面向巨大单仓与大量在线任务，是 Anthropic 内部系统，目前没有通用安装版本。迁移还涉及审查、搜索、CI 和权限体系；其大量使用内部模型的条件也难直接复制。</p>
+<div><strong>可借鉴的判断</strong><p>检查哪些任务只需要一个查询结果，哪些文件正在被反复搬运，以及服务端能否承担更多公共计算。Git 的离线能力与成熟生态对普通团队仍有价值；按需读取与服务端非对称分工也可成为 Git 生态的改进方向。</p></div>
+</div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://www.anthropic.com/engineering/redesigning-source-control">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>产品发布</div>
+<div>Claude 发布实时数据看板 Dashboards 和代码驱动动态解说工具 Claude Motion：让一切都被做成视频能动起来</div>
+<div>10-09 · 12 分钟</div></a><a>
+<div><span></span>洞察</div>
+<div>Anthropic 修改使用政策，禁止“虐待”Claude：他们正在把 AI 当人看待？</div>
+<div>10-09 · 16 分钟</div></a><a>
+<div><span></span>商业动态</div>
+<div>技术分析机构 SemiAnalysis 测试发现：Anthropic 才是最大慈善家，Claude 订阅等效 API 价值是 OpenAI 的 5 倍多…</div>
+<div>10-06 · 18 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】凯文·凯利的 AI 预测，十年后哪些成了现实？</title>
+<link>https://best.xiaohu.ai/article/kevin-kelly-ai-predictions-2026/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:kevin-kelly-ai-predictions-2026</guid>
+<pubDate>Wed, 14 Oct 2026 12:01:10 +0000</pubDate>
+<description>他预见了通用云端智能，却低估了单个模型能容纳多少种能力。重读五项预测，理解智能如何融进产品，以及廉价问答如何进入日常。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 14 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">凯文·凯利的 AI 预测，十年后哪些成了现实？</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/kevin-kelly-ai-predictions-2026/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>搜索怎样成为 AI 进步的入口？</span></a><a><span>02</span><span>智能会集中在两三家公司吗？</span></a><a><span>03</span><span>AI 怎样藏进产品、按需提供能力？</span></a><a><span>04</span><span>他低估了同一个模型能做多少种事</span></a><a><span>05</span><span>从查知识到问生活，AI 还需要什么？</span></a><a><span>06</span><span>十年后，更该看清哪件事？</span></a><a><span>07</span><span>原文要点 · 中文译述</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>凯文·凯利的 AI 预测，十年后哪些成了现实？</h1><p>他预见了通用云端智能，却低估了单个模型能容纳多少种能力。重读五项预测，理解智能如何融进产品，以及廉价问答如何进入日常。</p><div><span><b>已核对</b></span><span>taylor.town · Kevin Kelly</span><span>10-14 · 8 分钟</span></div><div><div>正文一页纸</div>收起播客 ⌃☆ 收藏</div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>智能可以藏在产品背后，按任务需要调用；许多工作无需从头造一个 AI。</li><li>一个通用模型能支撑多种专用应用，改变了翻译、编程等工具的制作方式。</li><li>廉价问答让日常小问题也值得随手一问，助手的用途从查知识延伸到生活。</li></ul><div><p>2016 年，凯文·凯利在《必然》（<em>The Inevitable</em>）中描绘了一种 AI 生活：智能在云端运行，像水电一样随取随用，人们每天向它提出数百个问题。</p>
+<p>十年后，云端智能已经走进产品，同一个模型也能理解图像、编写代码、分析问题。凯利看准了智能的供给方式，却低估了单个模型的能力范围。taylor.town 摘出了书中的五组预测，重读它们，可以看清这十年的变化。</p>
+<div><span>2016 → 2026</span><h3>五项预测里的变化</h3><p>从搜索入口，到云端供给，再到随时提问的日常助手。</p></div>
+<div>
+搜索与 AI
+两三家寡头
+后台按需供给
+专用与通用
+日常提问</div>
+<div><span>当年的设想</span><p>Google 用搜索帮助 AI 进步，最终让 AI 成为主要产品。</p></div>
+<div><span>搜索留下怎样的学习线索</span><div><div><b>搜索与选择</b><span>搜索兔子，选中某张图</span></div><i>→</i><div><b>留下反馈</b><span>这张图更符合这个词</span></div><i>→</i><div><b>用于改进</b><span>筛选反馈，改善系统</span></div></div><div><b>52.8%</b><span>2026 年第二季度，Alphabet 收入来自“搜索及其他”</span></div></div>
+<p>搜索是生意和用户入口，AI 成为支撑产品的共同能力。</p>
+<div><span>当年的设想</span><p>用户与能力相互推动，形成两三家大型云端商业智能。</p></div>
+<div><span>怎样拉开差距</span><div><span>更多用户</span><i>→</i><span>更多可用反馈</span><i>→</i><span>改进能力</span><i>→</i><span>吸引更多用户</span></div><div><div><b>应用层</b><span>面向具体工作的助手</span></div><i>↓ 取得模型能力</i><div><b>云接入层</b><span>例如 Bedrock 提供托管访问</span></div><i>↓ 接入多个供应商</i><div><b>模型层</b><span>不同公司的基础模型</span></div></div></div>
+<p>应用可以很多，底层资源与分发渠道可以集中。</p>
+<div><span>当年的设想</span><p>智能在后台运行，像云服务一样按需获取。</p></div>
+<div><span>用户完成工作，产品调用智能</span><div><div><b>具体任务</b><span>提取字段、分析资料</span></div><i>→</i><div><b>后台服务</b><span>匹配模型与资料</span></div><i>→</i><div><b>回到产品</b><span>呈现处理结果</span></div></div><div><div><b>简单提取</b><p>先试较轻量的模型</p></div><div><b>复杂分析</b><p>按需要选择更强的模型</p></div></div></div>
+<p>用实际任务检查结果，再取舍成本和速度。</p>
+<div><span>当年的设想</span><p>云端提供通用智能，具体工作大多由能力很窄的专用程序承担。</p></div>
+<div><span>今天，多种能力汇入同一个模型</span><div><b>同一个多模态基础模型</b><span>如 Gemini 2.5 Pro</span></div><div>↓　　↓　　↓</div><div><span>理解图像与视频</span><span>编写代码</span><span>分析与推理</span></div><div><div><b>接翻译资料</b><p>配置成翻译助手</p></div><div><b>接代码与工具</b><p>配置成编程助手</p></div></div></div>
+<p>应用专注一件事，背后可以共用能力更宽的模型。</p>
+<div><span>当年的设想</span><p>答案足够便宜，人们每天就可能问数百个与自己和朋友有关的问题。</p></div>
+<div><span>日常问题需要什么信息</span><div><div><b>问清问题</b><span>口味，还是饮食要求？</span></div><i>→</i><div><b>取得资料</b><span>找到对应的信息</span></div><i>→</i><div><b>解释答案</b><span>信息不足时说明缺口</span></div></div><div>公开知识实时信息个人情境</div><div><b>为什么天空是蓝色？</b><p>从已有知识中解释光的散射。</p></div><div><p><b>实时信息：</b>公交何时到，需要站点、线路和当前运行数据。</p><p><b>个人情境：</b>朋友在哪里，需要对方授权分享的位置。</p></div></div>
+<p>从偶尔查资料，走向随时弄清生活中的一件事。</p>
+<hr />
+<h2>搜索怎样成为 AI 进步的入口？</h2>
+<p>凯利预测，到 2026 年，Google 的主要产品会是 AI。这个判断来自一次与联合创始人拉里·佩奇的交谈。2002 年左右，他问佩奇：免费提供网页搜索，究竟要做成什么生意？佩奇回答：“我们其实是在做 AI。”</p>
+<p>凯利由此把搜索与 AI 的关系倒过来看：搜索除了使用 AI，也能帮助 AI 学习。用户搜索“复活节兔子”，再选中最像兔子的图片，就留下了“这张图更符合这个词”的反馈。大量这样的选择，为改进图片识别和结果排序提供了线索。在他的设想中，搜索积累的反馈与算法、算力一起增长，最终让 AI 成为 Google 的主要产品。</p>
+<p>今天，这两者已经融在一起。Google 把 AI 能力加进搜索，AI 功能又带来更多查询。搜索的生意仍然很大：Alphabet <a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm">2026 年第二季度财报</a>中，“搜索及其他”贡献了 52.8% 的收入。</p>
+<p>因此，这项预测更适合用来理解 Google 怎样发展智能：搜索既是赚钱的产品，也是接触用户问题、获得反馈的入口；AI 则逐渐成为支撑多种产品的共同能力。</p>
+<hr />
+<h2>智能会集中在两三家公司吗？</h2>
+<p>凯利预想了一条不断放大的循环：更多人使用 AI，带来更多可用反馈；反馈帮助改善能力，更好的能力再吸引更多人。他认为，先进入这个循环的公司会迅速拉开差距，最终形成两三家大型云端商业智能。</p>
+<p>今天，智能产业已经分成几层：基础模型提供能力，云平台负责托管和接入，应用把能力用到具体工作中。例如，<a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html">Amazon Bedrock</a>让开发者在同一个云平台上调用不同公司的模型，再据此制作自己的产品。</p>
+<p>这样的结构允许两种景象同时出现：用户面前有很多助手和工具，底层的模型研发与算力却依赖少数大型机构。要看智能是否集中，关键是看哪一层掌握资源与分发渠道。</p>
+<p>凯利也希望智能成为免费的公共资源，像早期互联网一样滋养商业与科学。这里有两种扩大使用的方式：免费服务降低使用门槛，开放模型权重让开发者可以按许可自行部署。前者让更多人用得起，后者让更多人有机会改造和掌控自己的系统。</p>
+<h2>AI 怎样藏进产品、按需提供能力？</h2>
+<p>凯利设想的日常 AI，像 AWS 云服务：在产品背后运行，平时几乎不可见，只有停止工作时才让人察觉。用户接入这张“智能电网”，就能取得当前任务所需的能力。</p>
+<p>这种形态已经很常见。软件可以在后台用 AI 分类文本、提取字段、分派任务，用户只需要完成手头的工作。开发者通过 <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html">Bedrock 等托管服务</a>调用模型，省去了自行部署模型的负担。</p>
+<p>“只取需要的智力”也意味着按任务选能力：从一封邮件里提取姓名和日期，可以先用较轻量的模型；比较多份材料、分析复杂问题，再选更强的模型。选型时，用实际任务检查结果是否合格，再决定成本和响应速度怎样取舍。</p>
+<p>这项预测的价值在于，它把注意力从 AI 的外形转向了供给方式：智能可以融进既有产品，成为人们做事时随手可用的一部分。</p>
+<hr />
+<h2>他低估了同一个模型能做多少种事</h2>
+<p>凯利同时预测，未来十年，人们直接或间接接触的 AI 中，99% 会是能力很窄的专家：翻译工具能翻译却做不了别的，驾驶程序能开车却无法交谈。</p>
+<p>今天的变化发生在这些应用背后。同一个基础模型可以读图、写代码、分析问题；加上专业资料、提示词和工具，它又能服务于不同的具体工作。翻译助手和编程助手仍然有各自的职责，却可以共用一个能力更宽的模型。</p>
+<p>为什么会出现这条路线？里奇·萨顿在<a href="https://www.incompleteideas.net/IncIdeas/BitterLesson.html">《苦涩的教训》</a>中回顾棋类、语音和视觉研究：把人的专业经验写成规则，常能迅速改善某项任务；让系统通过搜索和学习利用更多计算资源，则能随着算力增长继续进步。后一种方法给能力的扩展留下了更大空间。</p>
+<p>2017 年提出的 <a href="https://arxiv.org/abs/1706.03762">Transformer</a>让模型训练更容易并行。<a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025/">Gemini 2.5</a>则展示了这种扩展的结果：同一套模型能处理文本、图像、音频和代码，也能进行推理、编写程序。</p>
+<figure>
+<figcaption><span>用一句自然语言要求生成恐龙小游戏代码，再在 p5.js 中运行。</span><br>Google DeepMind 演示，生成片段经过加速。<a href="https://www.youtube.com/watch?v=RLCBSpgos6s">原始视频</a></br></figcaption>
+</figure>
+<p>凯利已经想到了通用的云端智能，但他设想的具体工作更多由独立、专用的程序承担。十年间最显著的变化，是多种能力汇入同一个基座，再由不同应用把它们用到各自的任务中。</p>
+<h2>从查知识到问生活，AI 还需要什么？</h2>
+<p>凯利描绘的问答服务有三个特点：用日常语言提问，问题含糊时通过对话问清楚，有答案时解释知识，也逐渐学会表达哪些事情仍然未知。</p>
+<p>他更看重的是提问成本降低之后的生活变化。当每个答案便宜到几乎可以忽略，人们就可能每天问数百个问题，而且大部分围绕自己和朋友：“珍妮在哪？”“下一班公交什么时候到？”“这种零食好不好？”</p>
+<p>这些问题很小，却贯穿一天。搜索从偶尔查一份资料，变成随时替自己弄清一件事。</p>
+<p>要接住它们，助手需要知道不同问题该到哪里找答案：</p>
+<ul>
+<li>“天空为什么是蓝的？”可以从已有知识中解释。</li>
+<li>“下一班公交什么时候到？”需要所在站点、线路和当前运行数据。</li>
+<li>“朋友现在在哪里？”需要对方授权分享的位置。</li>
+</ul>
+<p>同样一句“这种零食好不好”，也可能是在问口味，或问是否适合自己的饮食要求。先问清楚，才知道该找什么资料、怎样回答。</p>
+<p>自然语言提问已经成为现实；回答仍可能出现<a href="https://ai.google.dev/gemini-api/docs/safety-guidance">事实错误或虚构内容</a>。从会聊天走向好用的日常助手，还要把对话与具体资料连起来：问清问题，取得相关信息，解释答案；信息缺失时说明缺在哪里。</p>
+<h2>十年后，更该看清哪件事？</h2>
+<p>凯利看准了智能会怎样进入生活：通过云端供给，藏在产品背后，降低每次使用的门槛。他低估的则是能力会怎样组合——一个模型可以承担多种任务，再支撑许多专用应用。</p>
+<p>这也改变了做产品的起点。开发者可以从已有模型取得能力，把更多精力放在具体任务、相关资料和使用体验上。对使用者来说，值得关注的是：这份智能能否在自己正在做的事情里，提供合用的帮助。</p>
+<hr />
+<h2>原文要点 · 中文译述</h2>
+<blockquote>
+<p><strong><a href="https://taylor.town/kk-ai-2026">凯文·凯利的 2016 年 AI 预测，十年后再看</a></strong></p>
+<p>taylor.town 从《必然》中选出五组书摘，回看凯利对 AI 的设想。以下为要点译述。</p>
+<p><strong>一、搜索推动 AI 进步</strong>
+凯利认为，搜索中的提问与选择能帮助智能学习。算法、数据和算力继续增长，AI 将成为 Google 的主要产品。</p>
+<p><strong>二、云端智能可能集中</strong>
+更多用户带来更好的能力，更好的能力吸引更多用户，领先者可能形成两三家寡头。他同时希望廉价、免费的智能像公共互联网一样支持商业与科学。</p>
+<p><strong>三、智能成为后台服务</strong>
+AI 将像 AWS 一样，在产品背后提供工业级能力，用户按需要取用。</p>
+<p><strong>四、多数工作由专用程序承担</strong>
+凯利预计，人们接触的 AI 大多仍是翻译、驾驶等狭窄专家。博客作者借《苦涩的教训》回看这一判断。</p>
+<p><strong>五、随时用日常语言提问</strong>
+云端系统可以解释已有答案，通过对话澄清问题，并逐渐表达已知与未知。答案成本大幅下降后，人们可能每天问数百个与自己和朋友有关的小问题，问答成为普遍的生活服务。</p>
+</blockquote>
+</div><div><div><div>来源</div><div><span>Kevin Kelly’s 2016 AI Predictions, 10 Years Later</span><span>taylor.town<span>·</span><a href="https://taylor.town/kk-ai-2026">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm">Alphabet 2026 年第二季度财报</a><span>·</span><a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025/">Gemini 2.5 发布说明</a><span>·</span><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html">Amazon Bedrock 官方概览</a><span>·</span><a href="https://ai.google.dev/gemini-api/docs/safety-guidance">Gemini 事实性与安全指南</a><span>·</span><a href="https://www.incompleteideas.net/IncIdeas/BitterLesson.html">The Bitter Lesson</a><span>·</span><a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a></div></div><div><div>本站说明</div><div>以原博客选取的五组书摘为讨论范围，结合官方材料作对照。</div></div></div></div></div>
+<div>
+<div>十年回看 · 2016–2026</div>
+<h1>凯文·凯利的 AI 预测，十年后哪些成了现实？</h1>
+<div>看准了云端供给，低估了单个模型的能力范围。</div>
+<div>《必然》中的五项预测 · 来源：taylor.town</div>
+<div>
+<p>2016 年，凯文·凯利设想智能会像水电一样随取随用，人们每天向它提出数百个问题。十年后，云端 AI 已走进产品，多种能力也汇入同一个模型。</p>
+</div>
+<div>
+<h2>01 · 搜索既是产品，也是学习入口</h2>
+<p>凯利认为，用户提问和选择结果，可以留下帮助 AI 学习的反馈。今天，AI 融进搜索，搜索仍是大生意。</p>
+<div><p><strong>52.8%</strong>：Alphabet 2026 年第二季度收入来自“搜索及其他”。搜索连接用户问题，AI 成为支撑多种产品的共同能力。</p></div>
+</div>
+<div>
+<h2>02 · 很多应用，底层仍可能集中</h2>
+<p>凯利预计，用户与能力相互促进，最终形成两三家云端智能。今天判断集中程度，要看产业的哪一层。</p>
+<div>
+<div><b>基础模型</b><span>研发与算力依赖少数大型机构</span></div>
+<div><b>云平台</b><span>托管与接入不同模型，如 Bedrock</span></div>
+<div><b>应用</b><span>把模型能力用于各种具体工作</span></div>
+</div>
+<p>免费服务降低使用门槛；开放权重让开发者按许可自行部署和改造。</p>
+</div>
+<div>
+<h2>03 · 智能藏进产品，按任务取用</h2>
+<p>后台分类邮件、提取字段、分派任务，正是凯利设想的“智能电网”。开发者通过云服务调用模型：简单任务先试轻量模型，复杂任务再选更强的能力，用实际结果决定成本与速度的取舍。</p>
+</div>
+<div>
+<h2>04 · 多种任务，共用一个能力更宽的基座</h2>
+<p>凯利预计，人们直接或间接接触的 AI 中，99% 会是狭窄专家。今天，专用应用可以共用同一个基础模型。</p>
+<div>
+<div>
+<div><h3>2016 年的设想</h3><div><span>翻译程序 → 翻译</span><span>驾驶程序 → 开车</span><span>各自承担狭窄任务</span></div></div>
+<div><h3>今天的组合方式</h3><div><div>同一基座：读图 · 代码 · 分析</div><div>↓ 加资料、提示词与工具</div><div>翻译助手 · 编程助手 · 其他应用</div></div></div>
+</div>
+<p>《苦涩的教训》解释了能力扩展的一条路线：通用搜索和学习，能继续利用增长的算力。Transformer 让训练更容易并行，Gemini 2.5 展示了同一套模型的多种能力。</p>
+</div>
+</div>
+<div>
+<h2>05 · 随手问生活，需要相应的资料</h2>
+<p>答案便宜之后，小问题也值得随时一问。助手要先问清意思，再找到问题所需的信息。</p>
+<div><b>天空为何蓝？</b><span>已有知识</span><b>公交何时到？</b><span>站点、线路和当前运行数据</span><b>朋友在哪里？</b><span>对方授权分享的位置</span></div>
+<p>信息缺失时说明缺在哪里，才能从顺畅对话走向好用的日常助手。</p>
+</div>
+<div><p><strong>做产品的新起点：</strong>从已有模型取得能力，把精力放在具体任务、相关资料和使用体验上。</p></div>
+</div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://taylor.town/kk-ai-2026">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>深度</div>
+<div>State of AI Report 2026 报告解读：AI 这一年发生了什么？</div>
+<div>10-09 · 35 分钟</div></a><a>
+<div><span></span>深度</div>
+<div>AI 几秒就能复制你的作品，但有八样东西它抄不走</div>
+<div>07-18 · 7 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】微软开源 Code Video Model 模型：用代码生成视频</title>
+<link>https://best.xiaohu.ai/article/code-video-model/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:code-video-model</guid>
+<pubDate>Wed, 14 Oct 2026 12:01:10 +0000</pubDate>
+<description>先用代码搭场景、排动作和运镜，再让视频模型生成材质与光影。像拍电影做动态预演一样，让 AI 视频多一个可查看、可修改的中间环节。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 14 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">微软开源 Code Video Model 模型：用代码生成视频</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/code-video-model/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>Code Video Model 的主要功能特点</span></a><a><span>02</span><span>核心原理：像拍电影做“动态预览”一样写代码</span></a><a><span>03</span><span>具体能用来做什么？</span></a><a><span>04</span><span>评测数据：更平衡的结构与质感</span></a><a><span>05</span><span>使用边界与当前怎么体验</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>微软开源 Code Video Model 模型：用代码生成视频</h1><p>先用代码搭场景、排动作和运镜，再让视频模型生成材质与光影。像拍电影做动态预演一样，让 AI 视频多一个可查看、可修改的中间环节。</p><div><span><b>已核对</b></span><span>Microsoft Research · Code Video Model</span><span>10-13 · 9 分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>场景摆放、物体轨迹和镜头运动先写进程序，确认粗模预览后再生成成片。</li><li>粗模只在早期采样时提供引导，随后撤掉，减少“塑料感”进入最终视频。</li><li>论文展示了子弹时间、路径修改和室内运镜；最终成片仍可能偏离程序。</li></ul><div><p>微软研究院推出了一套新的视频生成方案：<strong>Code Video Model（代码视频模型）</strong>。</p>
+<p>它<strong>让 AI 生成视频少一些“开盲盒”，可以先用写代码的方式，明确画面布局、动作轨迹和物理运动。</strong></p>
+<figure>
+<figcaption><span>官方完整演示 · 2 分 18 秒</span><br>先看代码预演与最终视频的效果。点击播放，可开启声音。<a href="https://code-video-model.github.io/">项目来源</a></br></figcaption>
+</figure>
+<p>现在的视频生成模型（比如主流的视频扩散模型），在直接用文字生成视频时，就像一个<strong>黑盒子</strong>：</p>
+<ul>
+<li><strong>物理规律更多靠“猜”</strong>：模型主要根据训练中学到的视觉规律推测运动，没有逐项按重力、速度等物理量计算，容易出现穿模、反重力等诡异动作。</li>
+<li><strong>过程难以精确控制</strong>：镜头怎么转、物体怎么摆、轨迹怎么走，仅靠提示词很难在生成前看清这些安排。如果不满意，改一个细节可能得把整个视频重抽一遍。</li>
+</ul>
+<h2>Code Video Model 的主要功能特点</h2>
+<p>Code Video Model 在正式生成前增加了一个可以查看和修改的代码预演环节，主要带来四种能力：</p>
+<p><strong>场景布局、物体轨迹可以直接修改</strong>。AI 写出的程序会把物体放在指定坐标上，并设定它随时间变化的移动路径。想要改变一个角色的行进路线，或者调整场景中桌椅家具的相对间距，可以直接修改对应的坐标参数，先在预览中确认效果。</p>
+<p>还可以基于同一场景做局部替换。论文展示了拱门改门洞、人形机器人换四足机器人、左侧路线改右侧路线。程序和参考图都基于原件对应修改，目标是只改变指定因素，保持无关的环境、镜头与时序一致。最终成片仍可能出现额外变化。</p>
+<figure><p>左右滑动查看完整图，或点击下方打开高清原图。</p><div><a><img /></a></div><figcaption><span>论文图 13：在同一场景中做定向修改</span><br>左侧为粗模，右侧为生成视频；从上到下分别是拱门改门洞、人形换四足机器人、左侧路线改右侧路线。对照展示修改效果，成片并非逐像素保持不变。<br /><a>打开高清原图</a> · <a href="https://code-video-model.github.io/tech_report.pdf#page=14">论文第 14 页</a></br></figcaption></figure>
+<p><strong>镜头运镜与场景动作独立规划</strong>。镜头的推拉摇移、环绕旋转可以单独通过代码控制，与物体自身的运动分别设定。例如，让主体停在某个动作上，同时让镜头继续围绕它转动。</p>
+<p><strong>引入物理方程作为运动参考</strong>。遇到弹簧振动、双摆运动等可以用数学描述的场景，程序可以按相应方程计算运动，给后续生成提供物理参照。例如，双摆由两个相连的摆杆组成，两者运动相互影响。程序根据耦合动力学方程计算它们随时间变化的角度和位置，再把结果渲染成粗模运动。方程约束的是代码预演，成片仍要检查是否跟上了这些运动。</p>
+<p><strong>先看预览再生成，且无需重新训练大模型</strong>。先看简易三维预览，调整好动作和镜头，再交给视频模型生成材质与光影。论文使用现成的 MiniMax-H3，通过改变粗模输入的时机来引导生成，保持模型权重不变。</p>
+<h2>核心原理：像拍电影做“动态预览”一样写代码</h2>
+<p>这套技术借鉴了传统电影工业中的前期可视化预览（Previs）机制：先用简易三维场景预演机位、演员走位和镜头节奏，确认安排后，再投入正式拍摄与后期制作。</p>
+<p>Code Video Model 把这个工业流程搬进了 AI 视频生成：</p>
+<figure><p>左右滑动查看完整图，或点击下方打开高清原图。</p><div><a><img /></a></div><figcaption><span>论文图 3：从代码预演到最终成片</span><br />文字生成程序，程序渲染粗模视频，并从代表帧制作参考图。蓝线表示粗模只参与前 25% 的采样步骤；文字和参考图贯穿整个生成过程。<br /><a>打开高清原图</a> · <a href="https://code-video-model.github.io/tech_report.pdf#page=5">论文第 5 页</a></figcaption></figure>
+<h3>1. 先用代码搭骨架：快速预览，直接修改</h3>
+<p>输入文本提示词后，编程 Agent（论文中使用 GPT-6）先编写一段可执行的 Three.js 程序。</p>
+<p>Agent 写完代码，还会渲染关键帧和覆盖整段视频的抽帧图，对照提示词检查构图、遮挡、运动与时序，再修改代码、重新渲染。代码生成和修改可以交给 AI 完成，创作者也能进一步调整程序中的参数。</p>
+<p>这段代码明确承担了“场景搭建与运镜导演”的工作：它负责在三维空间中摆放几何体、设定物体的空间位移、规划虚拟相机的运动轨迹，并在需要时通过数学方程计算力学动态。</p>
+<p>论文报告，渲染这段程序<strong>不到一分钟</strong>就能得到一段低精度的<strong>代理视频（Proxy Video）</strong>，也就是粗模预览。接着，系统会提取代理视频中的代表帧，调用图像大模型（如 GPT-Image-2）重新绘制为一张具备目标光影、质感与真实摄影风格的<strong>参考图片（Reference Image）</strong>，也可以由用户直接上传现成的风格参考图。</p>
+<p>这种做法带来的好处非常直接：速度快、所见即所得。如果对桌子的摆放位置或小车的行驶速度不满意，调整代码里对应的坐标或速度参数，就能重新渲染粗模复查。简单的参数修改可能只涉及一行代码。这里的“不到一分钟”仅指粗模渲染，不包含 AI 写代码、制作参考图和生成最终视频的时间。</p>
+<p>配套的浏览器查看器支持拖动时间轴、逐帧查看和阅读源码。创作者还能自由环绕、平移或缩放三维视角，显示网格、相机轨迹与视锥（相机能够拍摄到的空间范围），检查物体之间的位置关系，以及镜头会从哪里经过、拍到什么。</p>
+<h3>2. 解决“塑料感”难题：早期步数条件注入</h3>
+<p>有了低精度的代码视频后，怎样把它变成逼真的最终成片？</p>
+<p>这里存在一个关键挑战：如果直接把代码视频作为参考条件全程输入给视频扩散模型，AI 容易连同它的简陋几何和平坦材质一起模仿，导致成片仍有“塑料感”。</p>
+<p>为了解决这个问题，研究团队提出了一种<strong>无需重新训练</strong>的调度机制：<strong>早期步数条件注入（Early-step Conditioning）</strong>。</p>
+<p>团队的实验观察到，粗模在不同生成阶段的影响有所不同：</p>
+<ul>
+<li><strong>前期采样阶段</strong>：粗模主要帮助建立画面布局、镜头变化和主体运动；</li>
+<li><strong>后期采样阶段</strong>：继续参考粗模，容易把它简陋的外观带入材质与纹理细节。</li>
+</ul>
+<p>基于这个特性，团队设计了一个分工时序：以默认的 20 步去噪迭代为例，系统<strong>仅在最前 5 步（前 25%）</strong>将低精度的代理视频作为条件输入给模型，让它迅速把画面的空间构图和动作骨架“立住”；从第 6 步开始，系统撤掉代理视频，继续根据参考图片和文本提示生成材质、光影与细节。参考图片和文字在整个过程中一直保留。</p>
+<p>视频模型还会补充粗模省略的形体和关节动作细节。因此，前面的程序无需精细制作所有三维资产，只需把主要结构和运动交代清楚。</p>
+<div>粗模看多久，结构与外观怎样变化？</div>
+选择论文实测配置 不输入粗模仅前 3 步仅前 5 步（默认）仅前 7 步全部 20 步仅最后 5 步
+<div><span></span>有粗模的采样步 · 文字与参考图始终保留</div>
+<div><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span></div>
+<div><span>从噪声开始</span><span>整段视频逐步成形</span></div>
+<div>彩色条：当前配置　细线：全程输入粗模（固定参照）</div>
+<div><div><div><span>结构贴合</span><strong>81.98</strong></div><div><div></div><span></span></div><div>全程粗模：87.67</div></div><div><div><span>外观风格</span><strong>80.33</strong></div><div><div></div><span></span></div><div>全程粗模：57.07</div></div><div><div><span>三项综合</span><strong>85.17</strong></div><div><div></div><span></span></div><div>全程粗模：75.22</div></div></div><p>前 5 步在这组实验中取得最高综合分；结构分低于全程粗模，外观风格分更高。</p><div>论文表 6 · Qwen-27B 裁判 · 0–100 分，越高越好。综合分是结构、风格与画质的均值。这里切换已有测量，不运行视频模型。</div>
+<p>这里的“前 5 步”是模型生成整段视频时的前 5 轮计算，每一轮都会更新整段视频，并不是视频时间轴上的前 5 秒。</p>
+<p>前 5 步是作者这组实验采用的默认配置，实际可以调整。实验中，延长粗模参与的时间，通常能让成片更贴近原有结构，但也更容易带入粗模外观；缩短则会削弱结构约束。这是在调节控制力度与画面质感之间的取舍。</p>
+<h2>具体能用来做什么？</h2>
+<p>这种分工尤其适合需要反复修改动作、路线和镜头的制作任务。下面三组对照来自项目的官方演示。</p>
+<h3>1. 子弹时间：动作停住，镜头继续转</h3>
+<p>在经典的电影“子弹时间”镜头中，需要同时满足两件事：主体动作瞬间停滞，而摄像机继续顺畅地围绕主体环绕推进。只用文字描述，很难准确指定动作停在哪一刻、镜头此后转多远。</p>
+<p>在代码中，可以将<strong>物理时间</strong>与<strong>相机时间</strong>拆为两个独立变量分别计算。</p>
+<p>代码先让摩托车和骑手在特定帧冻结在世界坐标中，同时驱动虚拟相机继续围绕骑手旋转。视频扩散模型接收到这段粗模后，以其中的动作与运镜为引导，生成更丰富的路面反光、车身材质和场景细节。</p>
+<div>
+<figure>
+<figcaption>
+<span>Three.js 粗模预演视频。</span><br />
+      机位环绕暗色地面的简易摩托模型旋转，物理时间在峰值定格。
+    </figcaption>
+</figure>
+<figure>
+<figcaption>
+<span>Code Video Model 最终生成。</span><br />
+      成片较好地跟随了粗模的环绕轨迹，同时由参考图引导渲染出湿滑路面反光与骑手服饰质感。
+    </figcaption>
+</figure>
+</div>
+<h3>2. 机器人改路线：先改路径，再看效果</h3>
+<p>在机器人动作模拟中，用户往往需要针对具体场景反复调试行进方案。如果只改提示词重新生成，路径之外的场景细节也可能跟着变化。</p>
+<p>有了代码中间层，修改就变得非常明确。如果需要让机器人改变折返走向，创作者只要打开程序，调整路径点列表（<code>route=[v(-0.75, 6.75), ...]</code>）中的几个坐标数值，就能在不到一分钟内渲染出新的预览视频。确认路径无误后，再交给视频模型生成成片。</p>
+<p>在下面的案例中，代码预演安排了人形机器人走向实验室大门的运动，而成片在此基础上补齐了室内光照、金属反光与机械关节细节。</p>
+<div>
+<figure>
+<figcaption>
+<span>实验室内人形机器人走向门洞粗模。</span><br />
+      机器人从实验室内部朝门口移动，运动由程序中的动画与相机设置决定。
+    </figcaption>
+</figure>
+<figure>
+<figcaption>
+<span>写实最终成片。</span><br />
+      跟随了粗模的前行方向与镜头推进构图，并呈现出金属关节与室内灯光质感。
+    </figcaption>
+</figure>
+</div>
+<h3>3. 室内建筑运镜与产品摄影</h3>
+<p>在空间结构复杂的室内漫游镜头中，创作者既要安排家具的位置，也要让镜头连贯地穿行其中。</p>
+<p>Three.js 程序可以明确沙发、楼梯与窗户的位置，并设定相机经过的路径。先看粗模，就能检查镜头是在靠近沙发、抬升视角，还是转向楼梯，再决定最终画面的材质与光线。</p>
+<div>
+<figure>
+<figcaption>
+<span>挑高 Loft 室内 Three.js 预演。</span><br />
+      镜头自橘色简易沙发抬升并巡览二层悬挑楼梯。
+    </figcaption>
+</figure>
+<figure>
+<figcaption>
+<span>最终写实漫游视频。</span><br />
+      成片在构图与运镜走向上较好呼应了粗模，并将简易表面转化为皮革沙发与木质台阶的写实视觉质感。
+    </figcaption>
+</figure>
+</div>
+<p>在产品摄影中也是同样的道理：比如拍摄一辆跑车，代码可以先安排从车身外观转到车轮近景的镜头；粗模把视线轨迹和透视变化定好之后，视频模型负责补齐金属车漆的流光倒影和轮毂上的机械纹理。</p>
+<h2>评测数据：更平衡的结构与质感</h2>
+<p>为了系统衡量生成效果，研究团队构建了包含 22 个案例的评测基准 <strong>CodeVideoBench</strong>，涵盖场景编辑、机器人仿真、轨迹变化、游戏、产品摄影、建筑运镜、物理规律和子弹时间 8 大应用类别。</p>
+<p>评测围绕三个核心维度展开：</p>
+<ul>
+<li><strong>结构分（Structure）</strong>：画面中的空间布局、主体动作与镜头运镜与代码粗模有多接近；</li>
+<li><strong>风格分（Style）</strong>：材质、光影与摄影质感是否充分贴合参考图，还是残留了粗模的塑料感；</li>
+<li><strong>画质分（Quality）</strong>：画面的连续性与运动自然度，是否存在闪烁、撕裂或伪影。</li>
+</ul>
+<div>作者的 22 例测试；自动评分为 0–100 分，人类评分使用报告原分值，两者不直接比较。窄屏可横向滚动查看全部指标。</div>
+<div>
+QwenVL-3.8-27B 评测
+GPT-5.6 评测
+GPT-6 评测
+人类盲评（原分值）
+</div>
+<div>
+<div><table><thead><tr><th>生成方法</th><th>基座模型</th><th>结构分 (Structure)</th><th>风格分 (Style)</th><th>画质分 (Quality)</th><th>综合分 (Overall)</th></tr></thead><tbody><tr><td>VACE</td><td>Wan</td><td>78.74</td><td>57.59</td><td>86.55</td><td><div><span>74.29</span><div></div></div></td></tr><tr><td>Go-with-the-Flow</td><td>CogVideoX</td><td>48.36</td><td>55.93</td><td>41.16</td><td><div><span>48.48</span><div></div></div></td></tr><tr><td>Diffusion as Shader</td><td>CogVideoX</td><td>50.71</td><td>62.69</td><td>64.43</td><td><div><span>59.28</span><div></div></div></td></tr><tr><td>Text-to-Video</td><td>MiniMax-H3</td><td>43.47</td><td>58.50</td><td>89.43</td><td><div><span>63.80</span><div></div></div></td></tr><tr><td>R2V (全程粗模)</td><td>MiniMax-H3</td><td>87.67</td><td>57.07</td><td>80.91</td><td><div><span>75.22</span><div></div></div></td></tr><tr><td>SDEdit (加噪粗模)</td><td>MiniMax-H3</td><td>93.92</td><td>10.34</td><td>88.86</td><td><div><span>64.37</span><div></div></div></td></tr><tr><td>Code Video Model</td><td>MiniMax-H3</td><td>81.98</td><td>80.33</td><td>93.20</td><td><div><span>85.17</span><div></div></div></td></tr></tbody></table></div>
+</div>
+<div>关键发现：SDEdit 的结构分最高 (93.92)，但风格分暴跌至 10.34，体现了保留粗模结构与改善外观之间的取舍；全程 R2V 同样因粗模风格泄漏导致风格分仅 57.07；本项目在保住结构 (81.98) 的同时，风格跃升至 80.33，在这组测试中综合分最高。</div>
+<p>与同样使用 MiniMax-H3、全程保留粗模的 R2V 相比，Code Video Model 在作者的测试中取得了更高的综合分。以 Qwen-27B 自动裁判为例，两者分别为 <strong>85.17 和 75.22</strong>。</p>
+<p>但更能说明取舍的是人类盲测：Code Video Model 的<strong>结构分为 6.92，低于全程 R2V 的 7.81；风格分为 8.46，高于 R2V 的 6.02</strong>。综合分则为 8.17，对比 R2V 的 7.64。</p>
+<p>也就是说，提早撤掉粗模，让成片更接近参考图的外观，但也损失了部分对原有结构的贴合。它的优势是控制与质感之间的平衡，不能据此说所有动作都更精确。</p>
+<p>这些分数来自作者自建的 22 例测试，人类盲测未披露参与人数与统计显著性，结论适用于这组实验配置。</p>
+<h2>使用边界与当前怎么体验</h2>
+<p>代码预演可以精确设定参数，最终成片却仍由视频模型生成，布局、姿态和运动都有可能偏离。用于需要严格物理精度或逐帧对齐的任务时，仍要单独验证成片。</p>
+<p>参考图也要与粗模相配。论文中，给人形机器人粗模配上狗的参考图，结果可能是在保留原主体的同时，额外生成一只狗。把室内参考图整体改成蓝色，成片又可能大体回到原来的暖色日光，只保留部分蓝色。代码与参考图分别表达了创作者的意图，但模型未必能完全按要求组合。</p>
+<h3>开发者当前如何上手</h3>
+<p>目前公开的入口是 <a href="https://github.com/code-video-model/CodeVideoModel">GitHub 仓库</a>，包含代码、预制样例和评测基准。</p>
+<p>开发者可以先从 <code>sports_car</code>、<code>tank_boarding</code>、<code>loft_tour</code> 等样例起步。这些样例已经准备好提示词、代理视频与参考图，可以跳过代码编写和粗模渲染，先运行后半段的视频生成。</p>
+<p>本地运行需要准备 MiniMax-H3 模型与 NVIDIA GPU 环境；仓库建议使用 Ubuntu 22.04 和兼容 CUDA 12.6 的驱动。若要从提示词开始跑完整流程，还涉及 GitHub Copilot CLI 的代码生成及图像模型调用。仓库未给出最低显存和完整流程耗时的实测值，因此还不能把它当作开箱即用的一键视频工具。</p>
+<p>报告也展示了用代码粗模引导 Seedance 2.5 的例子，说明这种预演思路可以尝试接入其他视频模型。但这些例子没有证明能通过闭源 API 操作相同的“前 5 步”调度。</p>
+<p>Code Video Model 值得关注的地方，是让创作者在最终生成之前，多了一份<strong>看得见、改得动、能重新运行的镜头安排</strong>。先用代码确认“物体怎么动、镜头怎么拍”，再让视频模型实现目标质感，这给反复修改视频提供了更具体的抓手。</p>
+</div><div><div><div>来源</div><div><span>Code Video Model 技术报告</span><span>Microsoft Research · Code Video Model Team<span>·</span><a href="https://code-video-model.github.io/tech_report.pdf">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://code-video-model.github.io/">项目主页与官方演示</a><span>·</span><a href="https://github.com/code-video-model/CodeVideoModel">CodeVideoModel 官方代码仓库</a></div></div></div></div></div><div>
+<div>Microsoft Research · Code Video Model</div>
+<h1>微软开源 Code Video Model 模型：用代码生成视频</h1>
+<div>先用可修改的三维程序安排动作与镜头，再让视频模型生成质感。</div>
+<div>代码预演 → 粗模与参考图 → 分时引导视频生成</div>
+<div>
+<p>直接用文字生成视频，镜头怎么转、物体怎么走，往往很难提前看清；改一个细节，也可能连带改变其他画面。</p>
+<p>微软这套方案借鉴电影的<strong>前期可视化预览（Previs）</strong>：先用简易三维场景排演走位与机位，确认后再生成成片。它组合现有编程、图像和视频模型，增加了一层看得见、改得动的镜头安排。</p>
+</div>
+<div>
+<h2>先搭骨架：代码负责什么？</h2>
+<div>
+<div><div>01</div><div><div>Agent 写代码，检查并修改</div><div>Three.js 程序设定物体坐标、运动路径与相机轨迹。Agent 渲染抽帧、检查构图和时序，再修改；需要时用物理方程计算粗模运动。</div></div></div>
+<div><div>02</div><div><div>粗模定动作，参考图定质感</div><div>程序渲染出代理视频；图像模型再把代表帧重绘为目标外观参考图，也可用用户提供的图。论文的<strong>不到一分钟</strong>仅指粗模渲染。</div></div></div>
+<div><div>03</div><div><div>预览确认后，交给视频模型</div><div>不满意就先改坐标、速度或机位，再看预演。例如“子弹时间”：主体动作停住，相机仍可围绕主体转动。</div></div></div>
+</div>
+</div>
+<div>
+<h2>为什么不让粗模一直参与？</h2>
+<p>全程参考粗模，模型容易连同简陋几何与平坦材质一起模仿，留下“塑料感”。团队于是调整粗模参与的时机，保持 MiniMax-H3 权重不变，<strong>无需重新训练</strong>。</p>
+<div>
+<div>Early-step Conditioning</div>
+<div>只在生成初期，借用粗模骨架</div>
+<p>以论文默认的 <strong>20 步去噪迭代</strong>为例：</p>
+<div><div>
+<div><div>第 1—5 步 · 前 25%</div><div>粗模参与</div><div>帮助建立布局、主体运动和运镜。</div></div>
+<div><div>第 6—20 步 · 后 75%</div><div>撤掉粗模</div><div>继续生成形体、关节、材质与光影细节。</div></div>
+</div><p><strong>参考图片 + 文字提示：全程保留</strong></p></div>
+<p>“步”是更新整段视频的一轮计算，<strong>不是视频的前 5 秒</strong>。5 步是默认配置，可调整。</p>
+</div>
+</div>
+<div>
+<h2>质感更好，结构也有取舍</h2>
+<p>作者自建 CodeVideoBench：22 例、8 类场景。下面比较 Code Video Model 与全程保留粗模的 R2V，二者均使用 MiniMax-H3。</p>
+<div>
+<div><div>8.46 / 6.02</div><div>人类盲测 · 风格分<br />Code Video Model / R2V</div></div>
+<div><div>6.92 / 7.81</div><div>人类盲测 · 结构分<br />Code Video Model / R2V</div></div>
+<div><div>8.17 / 7.64</div><div>人类盲测 · 综合分<br />Code Video Model / R2V</div></div>
+</div>
+<p>提早撤掉粗模，提升了外观贴合，也损失了部分结构贴合。<strong>不能据此说所有动作都更精准。</strong>人类盲测未披露人数与统计显著性。</p>
+<div><p><strong>边界：</strong>代码参数可以精确设定，最终视频仍可能偏离；参考图与粗模冲突时，也可能出现额外主体。严格物理精度需要另行验证。</p></div>
+<p>仓库提供代码、样例与基准；本地还需准备 MiniMax-H3 与 NVIDIA GPU 环境，尚不是开箱即用的一键视频工具。</p>
+</div>
+</div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://code-video-model.github.io/">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>小商家怎样用 AI 做视频广告：从产品图到能讲清卖点的素材</div>
+<div>10-09 · 约 12 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Lemo-Opuscar：43 种通用风格、98 种电影风格，精选 9 支完整样片，让 Claude Opus 学做大片</title>
 <link>https://best.xiaohu.ai/article/lemo-opuscar-code-filmmaking/</link>
