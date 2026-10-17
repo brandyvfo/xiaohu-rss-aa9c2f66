@@ -6,7 +6,836 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Fri, 16 Oct 2026 12:02:12 +0000</lastBuildDate>
+<lastBuildDate>Sat, 17 Oct 2026 12:00:41 +0000</lastBuildDate>
+<item>
+<title>【日报】用 AI 制作《小王子》3D 游戏：场景与角色的跟做指南</title>
+<link>https://best.xiaohu.ai/article/little-prince-ai-game-workflow/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:little-prince-ai-game-workflow</guid>
+<pubDate>Sat, 17 Oct 2026 12:00:41 +0000</pubDate>
+<description>对照 Sac 的原帖，按准备工具、生成参考、制作场景与角色、接入动作的顺序跟做；每步写清工具、文件、提示词与检查方法。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 17 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">用 AI 制作《小王子》3D 游戏：场景与角色的跟做指南</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/little-prince-ai-game-workflow/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>制作环境准备与协作分工</span></a><a><span>02</span><span>场景构建：从全貌概念到 3D 星球</span></a><a><span>03</span><span>角色构建：小王子的三维化与骨骼绑定</span></a><a><span>04</span><span>动作重定向与复杂道具交互</span></a><a><span>05</span><span>把场景和角色接到 Unity，检查这一轮的成果</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>用 AI 制作《小王子》3D 游戏：场景与角色的跟做指南</h1><p>对照 Sac 的原帖，按准备工具、生成参考、制作场景与角色、接入动作的顺序跟做；每步写清工具、文件、提示词与检查方法。</p><div><span><b>已核对</b></span><span>Sac</span><span>10-17 · 约20分钟</span></div><div><div>正文一页纸</div>☆ 收藏</div></div><div><div><strong>一分钟速览</strong><ul><li>先准备本地工具与账号权限，再用参考图拆出独立的 3D 道具，交给 Agent 组装场景。</li><li>角色按四视图、白模检查、贴图、绑骨、动作接入的顺序制作，逐步检查形变与接触。</li><li>保留作者 8 张操作配图和完整演示视频；目录与操作补充均与原帖内容区分。</li></ul><div>
+<p>Sac 把《小王子》的星际旅行做成了可以探索的 3D 游戏：小王子在草地星球奔跑，走进宫殿，与国王和狐狸相遇。先看作者的演示，再动手做其中的场景和角色。</p>
+<figure>
+<div><span>作者游戏演示</span><span>01:03</span></div>
+<div>
+      您的浏览器暂不支持视频播放。
+</div>
+▶ 播放作者完整演示 · 1分03秒
+<p></p>
+<figcaption>先看角色跑动、水池、国王与狐狸等成果画面，再按下文制作场景和角色。这是原帖嵌入的作者演示，操作过程由下文截图与步骤说明。</figcaption>
+</figure>
+<p><a href="https://x.com/saccc_c/status/2109962425512734739">查看演示原帖</a> · <a href="https://littleprince.dev/">作者提供的在线试玩</a></p>
+<p>这份指南按原帖的制作顺序展开：准备工具 → 生成参考图 → 拆出并生成 3D 道具 → 组装场景 → 制作与绑定角色 → 接入动作 → 修正提水壶的接触。每段提示词前都写明发到哪里、要带什么文件，做完后也有检查方法。</p>
+<p>原帖重点公开了场景与人物制作，没有附完整 Unity 工程或作者的 Agent 连接配置。因此先以“一颗 B-612 星球、一个能播放动作的小王子”为练习目标，再做提水壶。下文的目录、环境检查及部分提示词是教学补充，文件名按你的工程替换；提示词均为改写示例，中英文任选一版发送。</p>
+<h2>制作环境准备与协作分工</h2>
+<p>先准备图像工具、Tripo 和 Adobe Mixamo 账号，再安装 Blender、Auto-Rig Pro 与 Unity。Auto-Rig Pro 是付费插件；Tripo 的多视角输入目前需要订阅权限，先确认账号能使用再开始。原帖里的模型名和界面版本保留作对照，操作时以自己账号显示的选项为准。</p>
+<h3>工具分工与角色定位</h3>
+<p>作者先让 Fable 5.1 整理 PRD（游戏需求文档），列出场景、人物和剧情线，再让 Image 2.5 出图、Tripo 出 3D 资产、Opus 5.5 写核心代码，最后用 Astra 优化和修 bug。跟做时，先用几句话写清“在哪个场景、出现谁、要完成什么动作”，保存为 <code>requirements.md</code>。例如本次练习只做“小王子在 B-612 星球上拿起水壶”，避免一开始就铺开所有星球。</p>
+<p>工具分工如下：</p>
+<ol>
+<li><strong>创作者（人类）</strong>：负责需求梳理、参考图质量把控、各平台账号权限准备（如订阅 Tripo 多视角功能、购买并安装 Auto-Rig Pro 插件）、以及最终在引擎中的游玩逻辑搭建。</li>
+<li><strong>Image 2.5</strong>：负责生成 2D 视觉参考，包括场景全貌参考板、多视角补充图、以及用于角色建模的标准 T-pose 四视图。</li>
+<li><strong>Tripo AI</strong>：负责将 2D 图像重构成 3D 几何资产。单体场景道具采用高细节的 <code>H3.1</code> 模型；具备动画需求的角色模型采用支持四边面（Quad）拓扑与多视角输入的 <code>Smart Mesh P2.0</code>。</li>
+<li><strong>编程 Agent（如 Claude / Opus 5.5）</strong>：在本地终端与工程环境中运行，负责执行批处理脚本、操作 Blender 完成资产摆放与自动绑骨、驱动 Unity 导入并配置场景。</li>
+<li><strong>Astra</strong>：用于场景细节调优与 bug 修复过程中的多轮迭代反馈。</li>
+</ol>
+<h3>本地运行环境与官方接入路径</h3>
+<p>网页聊天窗口能给建议，但能否实际改 <code>.blend</code> 工程，取决于你的 Agent 是否能访问本地文件并运行 Blender。先在空白练习项目验证连接：</p>
+<ul>
+<li><strong>Blender 与 Auto-Rig Pro</strong>：下载安装 <a href="https://www.blender.org/">Blender 官方稳定版</a>。Blender 本身支持命令行与 Python 脚本，可作为本地 Agent 操作它的一条路径（例如 <code>blender --background</code>）。原帖没有提供作者使用的具体桥接脚本；在 Blender 中安装已购买的付费插件 <a href="https://www.lucky3d.fr/auto-rig-pro/">Auto-Rig Pro</a>，用于后续的自动化骨骼装配与动画映射。</li>
+<li><strong>Unity 6.0 LTS 与 Unity Editor</strong>：安装 <a href="https://unity.com/">Unity 官方引擎</a>（建议使用 6.0 LTS 或更高版本），并在 Unity Hub 中新建一个空白 3D 练习项目。</li>
+<li><strong>Unity CLI 与 Pipeline 官方桥接</strong>：先按 <a href="https://docs.unity.com/en-us/unity-cli/use-unity-cli#install-the-unity-cli">Unity 官方安装指引</a> 安装 CLI，再打开练习项目，在项目目录的系统终端运行下面的命令。用于驱动运行中 Editor 的 Pipeline 包需要 Unity 6.0 LTS 或以上版本。这里走官方 CLI 的 MCP 接入路径；被弃用的是 <code>com.unity.ai.assistant</code> 包里的旧 MCP 服务器，CLI 自带的 MCP 仍受支持：</li>
+</ul>
+<div><pre><code># 安装 Unity Pipeline 包以支持外部自动化驱动
+unity pipeline install
+# 将 Unity CLI 的 MCP 服务器配置到指定的 Agent 客户端（例如 Claude）
+unity mcp configure claude
+# 检查当前项目与 CLI 的连接就绪状态
+unity status
+</code></pre></div>
+<p>若终端提示找不到 <code>unity</code> 或 <code>blender</code>，先解决安装或可执行文件路径，再往下走。把练习目录交给能访问本地文件的 Agent，让它报告已找到的工具、插件和工程；先读取一次真实场景对象，再在空白测试工程创建一个立方体并保存、重新打开检查。原帖没有提供这部分配置，不能仅靠后面的建模提示词跳过它。</p>
+<h4>环境与依赖只读诊断提示词（本文教学补充）</h4>
+<ul>
+<li><strong>发送窗口</strong>：编程 Agent 终端会话（如 Claude Code / Cursor / 本地 Agent）</li>
+<li><strong>输入附件</strong>：无（直接在工作区终端发送）</li>
+</ul>
+<div><pre><code>请对当前机器的 3D 开发环境执行只读检测，检查以下依赖项的状态与路径，不要修改任何现有文件或系统设置：
+1. 检查 Blender 可执行文件路径与版本（例如通过 blender -v）。
+2. 检查当前 Blender 环境是否已安装并启用 Auto-Rig Pro，报告实际检测方法。
+3. 检查 Unity CLI 是否已安装，运行 `unity status` 查看当前打开的 Unity 6.0 项目连接状态。
+请输出真实检测结果，标出已就绪项与缺失项。若环境正常，读取 Unity 当前场景的层次结构，并将真实对象名称返回给我。
+</code></pre></div>
+<div><pre><code>Please perform a read-only environment check for the 3D development pipeline. Verify the status and paths of the following dependencies without modifying any existing files or system configurations:
+1. Verify the Blender executable path and version (e.g., via `blender -v`).
+2. Verify whether Auto-Rig Pro is installed and enabled in the active Blender environment, and report how you checked it.
+3. Check if Unity CLI is installed, and run `unity status` to inspect the connection to the currently running Unity 6.0 project.
+Provide a clear checklist of installed tools and missing requirements. If all connections are functional, execute a minimal verification (such as listing the root GameObjects in the current Unity scene) and report the retrieved names back to me.
+</code></pre></div>
+<h3>练习目录命名建议</h3>
+<p>为确保模型、材质、参考图与工程文件在各工具之间顺畅流转，建议在本地建立如下标准练习目录（本文建议命名，具体绝对路径请根据本机实际环境替换）：</p>
+<div><pre><code>little-prince-lab/
+├── references/
+│   ├── scene/              # Image 2.5 生成的场景全貌与多角度参考图
+│   └── character/          # 角色设定图与裁切后的 T-pose 四视图
+├── models/
+│   ├── props/              # Tripo H3.1 生成的单体道具模型（FBX/GLB）与贴图
+│   └── character/          # Tripo P2.0 生成的角色白模、带纹理模型与贴图
+├── animations/             # Mixamo 下载的原始动作 FBX 文件
+├── blender/                # Blender 工作工程文件（.blend）与装配暂存
+├── unity/                  # Unity 6.0 练习项目主目录
+└── checks/                 # 审查 Agent 截取的多机位盲审图与穿模检查图
+</code></pre></div>
+<p>将这个练习目录设为 Agent 的工作区；后面提到的路径均相对于它。网页只支持上传附件时上传相应文件，本地 Agent 则可直接读取你指定的路径。</p>
+<hr />
+<h2>场景构建：从全貌概念到 3D 星球</h2>
+<p>场景搭建遵循“先定视觉全貌、再拆分单体资产、最后组装与盲审迭代”的顺序。初次尝试时，建议将任务目标明确收敛为“B-612 小星球主体 + 小王子角色 + 玫瑰花与水壶”这一核心闭环，验证通畅后再逐步扩展场景复杂度。</p>
+<h3>步骤 1：生成场景视觉参考图</h3>
+<p>概念阶段需要在 Image 2.5 中建立整体的画风、色彩基调以及空间布局。</p>
+<p>在构图策略上，建议先收敛出一张满意的“主效果图”，再围绕它补充细节。视角分工至关重要：</p>
+<ul>
+<li><strong>俯视图（Top-Down View）</strong>：主要用来说明地表物体、水池、小路与建筑之间的空间平面布局；</li>
+<li><strong>斜侧视图（Isometric / Oblique View）</strong>：用于补充物体的高度起伏、落差比例以及视觉层次关系。</li>
+</ul>
+<p>也可以直接生成一张融合了宏观星球全景与局部细节特写的“全貌参考板”。必须澄清的是，这类全貌板属于 2D 概念参考图，用于指导资产拆分与摆放定位，不能等同于每个角度已具备现成的 3D 几何数据。</p>
+<h4>场景全貌参考图生成提示词（基于原帖工作流适配）</h4>
+<ul>
+<li><strong>发送窗口</strong>：Image 2.5（或主力图像生成工具）</li>
+<li><strong>输入附件</strong>：无（或上传手绘草图/色彩参考）</li>
+</ul>
+<div><pre><code>基于《小王子》中 B-612 小星球的设定，生成一张场景全貌多视角参考图片。画面中央为一个绿草覆盖的微型球体星球，地表包含一座小火山、一间木质小屋、一处小水池、带玻璃罩的玫瑰花、木椅与蜿蜒的石径。
+请在画面中同时呈现：
+1. 包含整体空间关系的斜侧全景主视图，体现星球弧度与各物体的高度层次；
+2. 顶部的平面俯视示意，交代各功能区域的相对位置；
+3. 底部配有局部关键物件（如水壶、长椅、石块）的特写细节与色彩基调色块。
+整体风格呈现温暖治愈的高品质 3D 风格化渲染质感。
+</code></pre></div>
+<div><pre><code>Based on the setting of Planet B-612 from The Little Prince, generate a comprehensive multi-angle reference sheet for the environment. In the center, depict a small grassy planet featuring a miniature volcano, a small wooden hut, a pond, a rose under a glass cloche, a chair, and winding pathways.
+The composition must include:
+1. An isometric perspective view showing the planetary curvature, spatial layering, and relative object heights;
+2. A top-down layout view clarifying the arrangement of landscape features;
+3. Close-up detail vignettes at the bottom showcasing props (such as the watering can, bench, stones) along with a core color palette block.
+The visual style should maintain a warm, stylized, high-fidelity 3D aesthetic.
+</code></pre></div>
+<p>生成并选定满意的主参考图后，将其保存至 <code>references/scene/b612_overview.png</code>。</p>
+<figure>
+<img>
+<figcaption><span>B-612 星球全景参考板由中央草地星球、局部细节视图与配色色块组成。</span><br>该图用于确立空间布局、材质与色彩关系，属于概念指导图，而非直接可游玩的 3D 场景。</br></figcaption>
+</img></figure>
+<h3>步骤 2：资产拆解与单体标注</h3>
+<p>有了全景参考图后，先拆出要独立编辑的物件。整景一起生成容易把相邻物体粘在一起，后面移动道具、修改材质或设置碰撞都更费力。可以将参考图发送给具备图像理解能力的 Agent，让它分析哪些资产适合单独使用 Tripo 生成，哪些可以在 Blender 中用基础几何体快速搭建，并在图中标注出来。</p>
+<p>在原作者的实际案例中，资产分工呈现出清晰的逻辑：</p>
+<ul>
+<li><strong>建议优先由 Tripo 单独生成的有机单体与复用母型</strong>：
+<ul>
+<li><code>T1</code> 岩石母型：生成单个高品质石块模型，在场景中通过不同的缩放与旋转角度多处复用；</li>
+<li><code>T2</code> 苔石母型：带青苔质感的石块，用于池边与休息区地貌装饰；</li>
+<li><code>T3</code> 猴面包树幼苗：作为危险植物母型，多点位复用散布；</li>
+<li><code>T4</code> 玫瑰花头：造型独特的重点视觉资产；</li>
+<li><code>T5</code> 毯子：具有自然褶皱与垂坠感的不规则布料；</li>
+<li><code>T6</code> 远景树：用于地平线装饰的特色乔木。</li>
+</ul>
+</li>
+<li><strong>更适合由 Agent 在 Blender / Unity 中直接搭建的结构</strong>：
+<ul>
+<li>星球地形底座（球体细分与地表置换）、平整小路、木棚梁架、椅子、屏风、玻璃罩（规则旋转体透明材质）、火山口凹坑、以及规则形状的金属水壶。</li>
+</ul>
+</li>
+</ul>
+<p>这种划分是该案例的实用工程选择，而非绝对不可更改的技术红线。其核心原则是：<strong>形态有机、纹理复杂且难以参数化生成的物件交给 Tripo；规则几何体、大面积地表与建筑结构直接在 3D 软件中拼装。</strong></p>
+<h4>场景资产拆解与标注提示词（基于原帖工作流适配）</h4>
+<ul>
+<li><strong>发送窗口</strong>：编程 Agent / 多模态对话窗口（如作者使用的 Opus 5.5）</li>
+<li><strong>输入附件</strong>：<code>references/scene/b612_overview.png</code></li>
+</ul>
+<div><pre><code>我们正在进行游戏场景搭建，使用的技术链路为 Tripo + Blender + Unity。
+请分析上传的场景参考图，评估各物件的造型复杂度与复用价值：
+1. 深入分析并列出哪些资产适合作为单体道具或母型由 Tripo 单独生成，哪些结构更适合在 Blender 中通过几何体直接建模；
+2. 给出母型复用建议（例如哪些岩石或植被可以生成一次、多处变换摆放）；
+3. 在参考图上标注出需要由 Tripo 生成的资产区域（编号标记为 T1, T2 等），输出标注说明清单，便于我确认后分批制作。
+</code></pre></div>
+<div><pre><code>We are building a 3D game environment using the Tripo + Blender + Unity pipeline.
+Please inspect the attached scene reference image and evaluate the geometric complexity and reusability of each visible object:
+1. Break down and categorize which assets should be individually generated via Tripo as hero props or reusable archetypes, and which architectural or structural elements should be modeled directly in Blender using primitives;
+2. Provide suggestions for reusable base meshes (e.g., modular rocks or vegetation that can be generated once and duplicated with varied transforms);
+3. Highlight and label the assets recommended for Tripo generation directly on the image (tagging them as T1, T2, etc.) and output a structured checklist for my confirmation.
+</code></pre></div>
+<figure>
+<img />
+<figcaption><span>资产拆解图将环境分为 Tripo 单体模型（T1~T6）与 Blender 直接搭建两大部分。</span><br>T1 岩石、T2 苔石、T3 幼苗属于可复用母型；地形、木棚、屏风与玻璃罩等规则结构由 3D 软件直接构建更高效。</br></figcaption>
+</figure>
+<h3>步骤 3：在 Tripo 中生成单体道具资产</h3>
+<p>确认清单后，先从参考图中单独裁出要做的物件，或让图像工具为它补一张完整、无遮挡的参考图。保存到 <code>references/scene/</code>，再登录 <a href="https://studio.tripo3d.ai/">Tripo Studio</a> 的图片生成 3D 入口，上传该物件图：</p>
+<ol>
+<li>模型选择：作者给场景道具选用 <code>H3.1</code>，用来保留细节。按照当前界面选择对应模型。</li>
+<li>参数控制：在右侧控制面板中检查 Texture Quality（贴图质量）、Topology（拓扑结构）与 Polycount（面数控制）。</li>
+<li>导出与保存：模型生成后，选择账号支持且后续工具能导入的 FBX 或 GLB 格式；若贴图另存，要和模型一起放入 <code>models/props/</code> 目录（例如 <code>models/props/rock_t1.fbx</code>）。</li>
+</ol>
+<p>下图中的扳手是工具预览，重点看左侧的模型与导出设置。生成后旋转检查物件背面和底部，确认没有粘连或缺口，再导出一件试着在 Blender 打开；能看见模型和贴图后，再批量做其余道具。</p>
+<figure>
+<img />
+<figcaption><span>Tripo H3.1 模型用于制作高细节单体道具，支持纹理质量与面数微调。</span><br />图中中心扳手为界面示例，重点在于通过参数面板控制生成质量与网格拓扑。</figcaption>
+</figure>
+<h3>步骤 4：组装场景，用不同机位逐轮修正</h3>
+<p>单体道具准备完毕后，不要指望用一句话就能让 AI 把整个场景拼得分毫不差。原作者的核心方法在于：<strong>给予详尽的多视角参考图，并引入一个独立审查 Agent 从不同机位找出差异，再交回构建 Agent 修改。</strong></p>
+<p>装配流程分为两部分：</p>
+<ol>
+<li><strong>主构建 Agent 装配</strong>：将 <code>references/scene/</code> 下的参考图以及 <code>models/props/</code> 中的 3D 资产一并交给连通 Blender / Unity 的编程 Agent，让其按照参考图中的相对比例、旋转角度与位置搭建基础地形，摆放道具。</li>
+<li><strong>独立审查 Agent 多机位盲审</strong>：构建完成后，由另一个独立审查 Agent，在场景的正面、侧面、顶面以及特定视线机位截取高分辨率视口图。审查 Agent 对照原始概念图进行比对，找出比例失真、物件悬空、穿模或方位偏差，并生成具体的返工修改清单。</li>
+</ol>
+<h4>场景组装与独立审查提示词（基于原帖工作流适配）</h4>
+<ul>
+<li><strong>发送窗口</strong>：编程 Agent 会话（已连接 Blender / Unity）</li>
+<li><strong>输入附件</strong>：<code>references/scene/b612_overview.png</code> 与 <code>models/props/</code> 目录下全部资产</li>
+</ul>
+<div><pre><code>请根据上传的场景全貌参考图以及 `models/props/` 目录中已生成的 Tripo 3D 资产，在 Blender 中还原 B-612 星球场景：
+1. 构建基础球体地面并赋予草地材质，严格对照参考图的布局摆放岩石母型、长椅、木棚、树苗与玫瑰花；
+2. 调整各物体的真实世界比例，确保长椅与小王子的尺度匹配，避免地表道具漂浮或重叠穿模；
+3. 搭建完成后，请独立审查 Agent 对照参考图检查场景，从正视、侧视、俯视与主角视高机位截取截图，保存到 `checks/`；若客户端不能调度另一 Agent，请报告这一限制，由我新开独立会话并交付参考图和截图审查；
+4. 列出地表起伏、朝向、间距的偏差，按清单修改后用同机位截图复查；最后保存为 `blender/b612_scene.blend`，报告仍未解决的差异。
+</code></pre></div>
+<div><pre><code>Based on the attached scene overview reference image and the generated Tripo 3D assets in `models/props/`, assemble the Planet B-612 environment in Blender:
+1. Construct the base planetary sphere with a stylized grassy surface, and position the rock archetypes, bench, hut frame, baobab seedlings, and rose cloche in strict accordance with the reference layout;
+2. Adjust relative scale transformations to ensure furniture and prop dimensions align realistically with character proportions, preventing floating origins or mesh intersections;
+3. Once assembled, ask a separate review agent to compare the scene with the reference using Front, Side, Top, and Eye-level viewport captures saved to `checks/`. If this client cannot dispatch another agent, report that limitation so I can open a separate review session with the reference and captures;
+4. List discrepancies in terrain, orientation and spacing, revise them and compare fresh captures from the same camera positions. Save `blender/b612_scene.blend` and report unresolved differences.
+</code></pre></div>
+<h4>场景多机位返工与细节微调提示词（本文教学补充）</h4>
+<ul>
+<li><strong>发送窗口</strong>：编程 Agent 会话</li>
+<li><strong>输入附件</strong>：<code>checks/</code> 目录下由审查 Agent 截取的 4 张多机位截图</li>
+</ul>
+<div><pre><code>这是上一轮的场景截图和原参考图。请按以下实际差异修改，不要改动已对齐的部分：
+- 问题机位与截图文件：[填写]
+- 有问题的物件及差异：[例如长椅离水池过近；只填写截图里确实看见的问题]
+- 希望保留的布局与材质：[填写]
+修改后保存新的 .blend 版本，用相同机位复拍到 checks/，说明改了什么、还有什么差异。
+</code></pre></div>
+<div><pre><code>Compare the attached review captures with the original reference. Correct only these observed differences:
+- Camera view and capture file: [fill in]
+- Object and visible mismatch: [fill in only problems actually visible]
+- Layout and materials to preserve: [fill in]
+Save a new .blend version, capture the same camera views into checks/, and report changes and unresolved differences.
+</code></pre></div>
+<hr />
+<h2>角色构建：小王子的三维化与骨骼绑定</h2>
+<p>角色制作是游戏可玩性的基石。整个链条涵盖：Image 2.5 生成正背左右四视图 → Tripo Smart Mesh P2.0 生成带四边面拓扑的角色白模 → 白模网格检查与 Edit Mesh 局部重构 → 生成贴图并导出 → 在 Blender 中通过 Auto-Rig Pro 插件完成自动绑骨与蒙皮测试。</p>
+<h3>步骤 1：生成小王子标准 T-pose 四视图</h3>
+<p>一致的角色参考图能减少不同视角互相矛盾，也方便后续模型检查。在 Image 2.5 中生成小王子形象时，必须明确设定为标准 <strong>T-pose（双臂向两侧水平平展呈 T 字形）</strong>，确保双腿自然直立微开，并且正、背、左侧、右侧各视角的服饰轮廓、腰带位置与靴子造型完全一致。</p>
+<h4>关键操作说明：四视图裁剪与规范交付</h4>
+<p>必须注意一个非常关键的实操细节：如下图所示，AI 生成的参考图通常是一张四合一的拼版图。<strong>Tripo 的多视角输入接口要求分别上传各个方向的独立图片，直接上传整张拼图会导致识别错乱。</strong></p>
+<p>在进入下一步前，先在图像处理软件中将拼版图裁切为 4 张独立的图片，分别命名并存入 <code>references/character/</code>：</p>
+<ul>
+<li><code>references/character/prince_front.png</code>（正面）</li>
+<li><code>references/character/prince_back.png</code>（背面）</li>
+<li><code>references/character/prince_left.png</code>（左侧面）</li>
+<li><code>references/character/prince_right.png</code>（右侧面）</li>
+</ul>
+<h4>角色 T-pose 四视图生成提示词（本文教学补充）</h4>
+<ul>
+<li><strong>发送窗口</strong>：Image 2.5</li>
+<li><strong>输入附件</strong>：无（或小王子头像/画风参考）</li>
+</ul>
+<div><pre><code>请生成一组标准的 3D 建模角色多视角参考图，展示经典小王子形象。
+角色特征：金色蓬松短发、身穿浅绿色连体服与长裤、系黄色腰带、脚穿深棕色短靴。
+构图与姿态要求：
+1. 角色保持标准 T-pose，双臂向两侧水平平展，手掌向下，双腿直立微开，面部表情自然放松；
+2. 在同一张画面中整齐排列四个视角：正视图、背视图、左侧视图、右侧视图；
+3. 四个视角的头部高度、腰带水平线、靴子底线严格水平对齐，确保服装接缝与装饰细节在各个视角完全一致；
+4. 背景为干净纯白，无杂物投影，边缘清晰无遮挡。
+</code></pre></div>
+<div><pre><code>Generate a standardized multi-view character reference sheet for 3D modeling, featuring the classic Little Prince.
+Character visual cues: Messy golden hair, light green jumpsuit and trousers, vibrant yellow waist sash, and dark brown ankle boots.
+Pose and layout requirements:
+1. The character must be in a clean standard T-pose, with arms extended horizontally to the sides, palms facing down, legs straight and slightly spaced, neutral facial expression;
+2. Arrange four orthogonal views side by side: Front View, Back View, Left Side View, and Right Side View;
+3. Head apex, waistline, and boot bases must align across all four views; ensure clothing seams, belt details, and silhouettes match consistently;
+4. Solid pure white background, free of shadows or occlusions, with crisp perimeter contours.
+</code></pre></div>
+<figure>
+<img />
+<figcaption><span>小王子四视图包含正、背、左侧与右侧视角，双臂水平平展呈 T-pose。</span><br />各角度服饰细节保持统一；在上传 Tripo 多视角模式前，需将该拼图裁剪为四张独立单图。</figcaption>
+</figure>
+<h3>步骤 2：在 Tripo Smart Mesh P2.0 中生成四边面角色资产</h3>
+<p>进入 Tripo Studio，选择 <code>3D Workspace</code> 下的 <code>Smart Topology Mesh</code> 模块：</p>
+<ol>
+<li><strong>权限核查与多视角上传</strong>：Tripo 官方规范中，多视角输入（Multi-view Input）最多支持 4 张定向图片（Front, Left, Right, Back），目前该功能面向订阅会员开放。在跟做前请确认账号权益；原帖的邀请点数不等于多视角功能已开放，点数、订阅权益和导出权限要分别看。在上传区域依次拖入裁切好的 4 张单视角图片。</li>
+<li><strong>选择专用生成模型</strong>：选择 <code>P2.0 Preview</code>。Smart Mesh P2.0 是专门针对游戏动画与实时交互设计的几何生成模型，能直接计算并输出规整的四边面网络。</li>
+<li><strong>拓扑结构设置（Topology）</strong>：
+<ul>
+<li>按作者示例选择 <strong>四边形面（Quad）</strong>。较规整的网格便于后续编辑和布置关节附近的边线，但 Quad 不保证绑骨后就能自然变形；仍要看网格走向、骨骼位置与蒙皮权重。三角面也并非天然不可用。</li>
+</ul>
+</li>
+<li><strong>面数预算设置（Polycount）</strong>：
+<ul>
+<li>滑杆支持在 500 至 25,000 面之间调节。图中选了 25,000 面；这是示例设置，按目标设备和同屏角色数量调整。右上角 8026 Faces 属于预览扳手，不能当作小王子的最终面数。</li>
+</ul>
+</li>
+</ol>
+<figure>
+<img />
+<figcaption><span>Smart Mesh P2.0 支持多视角输入，并提供原生四边面（Quad）拓扑生成。</span><br />红字强调人物资产首选四边面；示例滑杆为 25000 面，实际项目中应根据平台性能预算调整。</figcaption>
+</figure>
+<h3>步骤 3：白模网格检查与 Edit Mesh 局部再生成</h3>
+<p>模型生成完成后，系统首先返回的是没有贴图的纯白模（White Mesh），表面附带线框结构（如下图）。此时必须遵循<strong>“先查几何白模，再生成贴图”</strong>的严谨顺序：</p>
+<ol>
+<li><strong>几何白模检查</strong>：旋转模型，仔细检查颈部、腋下、手腕与靴口处的网格分布，确认没有凹陷、空洞、双层重叠面或手指粘合。</li>
+<li><strong>局部重构（Edit Mesh）</strong>：若局部形状不合理，先用 <code>Edit Mesh</code> 选中问题部位进行局部再生成，再复查。贴图不会修好几何形状，先修模型可减少返工。图中“最多 3 次”为当时界面提示，以当前账号规则为准。</li>
+<li><strong>生成纹理与导出</strong>：确认白模结构工整后，点击界面的 <code>Texture</code> 按钮生成材质贴图。完成后下载 FBX 或 GLB 格式，解压并保存到 <code>models/character/</code> 目录（例如 <code>models/character/prince_p2.fbx</code>）。</li>
+</ol>
+<figure>
+<img />
+<figcaption><span>白模阶段先核对几何结构与拓扑线，异常时通过 Edit Mesh 进行局部重构。</span><br />确认网格平整且无明显穿插粘连后，再执行 Texture 生成贴图，保证材质烘焙在准确的形体上。</figcaption>
+</figure>
+<h3>步骤 4：在 Blender 中利用 Auto-Rig Pro 自动绑骨与蒙皮</h3>
+<p>导出的模型目前只是一个静态的网格壳体，要让其动起来，必须在网格内部植入骨骼（Rigging）并为每个顶点分配受骨骼牵引的权重值（Skinning / 蒙皮）。</p>
+<p>将导出的角色及贴图交给已能操作 Blender 的 Agent，让它用 Auto-Rig Pro 生成骨架并蒙皮。骨骼要对准关节，权重要决定“抬起这根骨头时，哪部分皮肤跟着动”：
+关键检查：<strong>绑骨完成后，必须让 Agent 立即运行动作测试用例——抬手（拉伸腋下与肩膀）、弯腿（测试膝关节折痕）、转身（测试腰部扭转），观察是否有非正常的形变撕裂或网格脱离。</strong></p>
+<h4>角色 Auto-Rig Pro 绑骨与动作测试提示词（基于原帖工作流适配）</h4>
+<ul>
+<li><strong>发送窗口</strong>：编程 Agent 会话（已连接 Blender）</li>
+<li><strong>输入附件</strong>：<code>models/character/prince_p2.fbx</code></li>
+</ul>
+<div><pre><code>请在已安装 Auto-Rig Pro 的 Blender 环境中，加载 `models/character/prince_p2.fbx` 角色网格并完成绑定：
+1. 检查模型尺度、朝向与关节位置，使用 Auto-Rig Pro 完成全身骨骼与控制器设置；
+2. 完成蒙皮，检查肩膀、腋下与膝盖的权重分布，修正明显的拉扯或塌陷；
+3. 绑定完成后，在姿态模式（Pose Mode）下为角色设置 3 个测试姿态：抬手、弯腿、转身；
+4. 检查各部位是否存在尖锐拉扯、穿模或局部顶点未被骨骼牵引的情况，保存测试截图到 `checks/`，将绑定好的模型保存为 `blender/prince_rigged.blend`。
+</code></pre></div>
+<div><pre><code>Load the character mesh `models/character/prince_p2.fbx` into Blender with Auto-Rig Pro configured, and complete the rigging pipeline:
+1. Check model scale, orientation and joint positions, then use Auto-Rig Pro to create the full-body rig and controllers;
+2. Bind the mesh, inspect weights around shoulders, armpits and knees, and correct obvious stretching or collapse;
+3. Once bound, configure 3 evaluation poses in Pose Mode: raised arms, bent legs, and a torso turn;
+4. Inspect the deformation for sharp vertex spikes, mesh tearing, or unweighted points, save test captures into `checks/` and the rigged model into `blender/prince_rigged.blend`.
+</code></pre></div>
+<div>
+<div>
+<div>
+<span>小王子怎样从图变成能动的角色</span>
+<span>教学示意</span>
+</div>
+<p>四阶段分别交付不同产物。切换阶段，再比较目标状态与可能出现的问题；图形用于解释流程，不是生成模型的实测结果。</p>
+</div>
+<div>
+<span>阶段 1</span>
+<span>2D 角色四视图</span>
+<span>阶段 2</span>
+<span>Smart Mesh 白模</span>
+<span>阶段 3</span>
+<span>ARP 自动绑骨蒙皮</span>
+<span>阶段 4</span>
+<span>动作重定向与提水壶</span>
+</div>
+<div>
+<div>
+<div>
+<div>
+<span>✓</span>
+<span>规范交付状态</span>
+</div>
+<div>
+正常规范
+常见缺陷
+</div>
+</div>
+<div>正面左侧面背面右侧面</div>
+<div>多视图补充侧面和背面信息；仍需检查视角之间是否一致。</div>
+</div>
+<div>
+<div>
+<div>
+<div>STEP 1 / 4</div>
+<h4>Image 2.5 生成 T-pose 四视图</h4>
+</div>
+<div><div><span>输入源</span><span>原著角色设定描述词与画风参考</span></div><div><span>承接工具</span><span>GPT Image 2.5 (2D 生成)</span></div><div><span>交付形态</span><span>正面、背面与两个侧面参考图</span></div><div><span>验收关键</span><span>本例使用 T-pose；核对各视角服装、比例与轮廓</span></div></div>
+</div>
+<div>
+<div>验收标准</div>
+<div>先核对发型、腰带和衣服轮廓。多张参考图冲突时，先修参考再生成模型。</div>
+</div>
+</div>
+</div>
+</div>
+<hr />
+<h2>动作重定向与复杂道具交互</h2>
+<p>小王子有了骨骼和蒙皮后，下一步是赋予其奔跑、跳跃等生动的动作。对于通用运动，我们直接使用动作库资源；而对于“提水壶”这类涉及手掌与道具接触的动作，作者选择用反向动力学（IK）控制器进一步修正。</p>
+<h3>步骤 1：在 Mixamo 中检索与微调动作</h3>
+<p><a href="https://www.mixamo.com/">Adobe Mixamo</a> 是免费的通用人体动作库。登录后在搜索框输入需要的动作关键词（如 <code>Walk</code>, <code>Run</code>, <code>Jump</code> 等）：</p>
+<ol>
+<li><strong>挑选并预览动作</strong>：点击对应的动作卡片，观察动作循环是否平顺。</li>
+<li><strong>在右侧面板微调参数（见下图）</strong>：
+<ul>
+<li><strong>Arm-Space（手臂间距）</strong>：小王子身穿宽松的连身衣服，若双手自然下垂容易在奔跑时穿透腰带和大腿。在面板中适当增大 <code>Arm-Space</code>，使手臂摆动时与躯干保持安全距离；</li>
+<li><strong>Trim（帧区间裁剪）</strong>：建议将 Trim 滑块两端尽量拉宽，导出包含完整起跳、悬空与着地周期的长动作区间，便于后续截取使用。</li>
+</ul>
+</li>
+<li><strong>下载导出</strong>：点击右上角 <code>Download</code>，选择 FBX 格式；已有目标角色时，可下载 Without Skin 版本，但要保留带动画的源骨架供后续映射，保存至 <code>animations/</code> 目录（例如 <code>animations/jump.fbx</code>）。</li>
+</ol>
+<p>下图视口中央显示的红色人形是 Mixamo 平台的默认预览模特，并不代表动作已经适配到了小王子的具体骨骼上。</p>
+<figure>
+<img />
+<figcaption><span>Mixamo 动作库支持检索基础动画，并可在右侧面板微调手臂间距与裁剪区间。</span><br />图中红色模特为平台预览模型；下载后将 FBX 交付给 Agent，通过 Auto-Rig Pro 执行骨骼重定向。</figcaption>
+</figure>
+<h3>步骤 2：动作重定向（Retargeting）接入</h3>
+<p>Mixamo 导出的动画骨骼（源骨骼 Source）与 Auto-Rig Pro 生成的骨架（目标骨骼 Target）在骨骼命名规则、父子层级与初始姿态上各不相同。不能假设它们会自动一一对应。<strong>动作重定向，就是把源角色的髋部、手臂、腿等动作对应到目标角色的相应骨骼。</strong></p>
+<p>原帖只说让 Opus 检查并接入动作，未给出映射配置。下面补一条 <a href="https://www.lucky3d.fr/auto-rig-pro/doc/remap_doc.html">Auto-Rig Pro 官方 Remap 流程</a>，供跟做时使用：</p>
+<ol>
+<li>将下载的 <code>animations/jump.fbx</code> 导入 Blender 场景，将其指定为 Source Armature，并将小王子的绑定骨骼指定为 Target Armature；</li>
+<li>点击 <code>Build Bones List</code> 建立映射表；目标是 Auto-Rig Pro 骨架时可导入内置 Mixamo 预设。逐项检查髋部、脊椎、四肢对应，工具按名称猜测的结果可能出错；</li>
+<li>检查 Rest Pose（静置姿态）：先核对两套骨架的朝向与静置姿态，存在 A-pose / T-pose 差异时，再用 <code>Redefine Rest Pose</code> 对齐并应用。检查尺度后点击 <code>Re-Target</code>；角色身材比例不同，仍可能需要修正手脚位置。</li>
+</ol>
+<h4>动作重定向自动化适配提示词（本文教学补充）</h4>
+<ul>
+<li><strong>发送窗口</strong>：编程 Agent 会话（已连接 Blender）</li>
+<li><strong>输入附件</strong>：<code>blender/prince_rigged.blend</code> 与 <code>animations/jump.fbx</code></li>
+</ul>
+<div><pre><code>请在 Blender 中使用 Auto-Rig Pro 的 Remap 功能，将 Mixamo 动画适配到小王子绑定角色上：
+1. 导入 `animations/jump.fbx` 作为 Source Armature，指定小王子为 Target Armature；
+2. 应用内置的 Mixamo 骨骼映射预设，检查 hips、spine、limbs 关节映射列表是否完整匹配；
+3. 对齐两套骨架的初始 Rest Pose，启用 In-Place 选项（若需要原地动画），执行 Re-Target 动作传输；
+4. 烘焙动画曲线，播放检查跳跃过程中脚踝是否有滑步、双臂是否有非正常反关节翻折，将动作片段（Action）保存在 `blender/prince_animated.blend`；报告映射表、使用的动作和剩余问题。
+</code></pre></div>
+<div><pre><code>In Blender, utilize Auto-Rig Pro's Remap utility to retarget the Mixamo motion clip onto the rigged Little Prince character:
+1. Import `animations/jump.fbx` as the Source Armature and assign the Little Prince rig as the Target Armature;
+2. Load the built-in Mixamo bone mapping preset, ensuring hips, spine, and limb chains match correctly across the armature hierarchies;
+3. Align their initial Rest Poses to eliminate rotational offsets, toggle In-Place if stationary translation is required, and trigger the Re-Target transfer;
+4. Bake the animation curves, inspect the playback for foot sliding or unnatural elbow inversion, save the Action in `blender/prince_animated.blend` and report the bone mapping, clip used and remaining issues.
+</code></pre></div>
+<h3>步骤 3：复杂接触交互——小王子提水壶微调</h3>
+<p>在真实游戏中，角色与环境道具的接触（如捡拾、浇花、推门）是最容易露馅的地方。Mixamo 下载的通用动画无法预知本项目水壶的把手粗细与摆放位置。如果不做二次修整，直接套用动作就会出现“手悬在半空、水壶自己升起”或者“手掌直接插进金属壶体”的尴尬穿模。</p>
+<p>原作者在小王子提水壶这一动作上，采取了“选定接近的基础提物动作 + 在 Blender 里通过手臂 IK 反复微调接触细节”的策略：</p>
+<ol>
+<li><strong>输入要素</strong>：基础提物动画动作、绑定好的小王子模型、以及 <code>models/props/watering_can.fbx</code> 单体水壶模型。</li>
+<li><strong>反向动力学（IK）控制原理</strong>：
+<ul>
+<li>在正向动力学（FK）中，调整手部位置必须逐级旋转大臂、小臂和手腕，极难将手掌精准贴合在固定把手上；</li>
+<li>而 Auto-Rig Pro 提供了 <strong>手臂 IK 控制器</strong>。启用 IK 后，创作者或 Agent 可以直接抓取末端的手部控制器，将它移到把手附近并调整方向，肘关节会自动计算屈伸角度。</li>
+<li><strong>水壶也要跟着动</strong>：IK 控制器并不会“全自动通晓物理规律”，它不能自动感应把手表面，也不会自动带动水壶跟随移动。必须通过给水壶添加约束（如 Child Of 约束）并在抓取时为约束影响权重打关键帧，同时微调手指每根指节的弯曲闭合程度，使手掌形成真实的包裹接触。</li>
+</ul>
+</li>
+<li><strong>沿时间轴检查（见下图）</strong>：
+<ul>
+<li>下图中时间轴范围为第 1 帧至 191 帧，视口中显示的是小王子站立并单手持壶的某一静态姿态帧。</li>
+<li><strong>静态握住之后，还要检查整个提起过程。</strong> 必须沿时间轴逐帧拖动（伸手 → 五指张开 → 贴拢把手 → 握紧闭合 → 垂直提起），重点排查：提壶过程中手心与把手是否发生位移滑脱、金属把手是否穿透手指网格。发现穿模必须截图追问，让 Agent 修正关键帧。</li>
+</ul>
+</li>
+</ol>
+<h4>提水壶 IK 与手指接触精修提示词（基于原帖工作流适配）</h4>
+<ul>
+<li><strong>发送窗口</strong>：编程 Agent 会话（已连接 Blender）</li>
+<li><strong>输入附件</strong>：<code>models/props/watering_can.fbx</code> 与带基础提物动作的角色工程</li>
+</ul>
+<div><pre><code>请参考提供的基础拾取动画，在 Blender 中配合 `models/props/watering_can.fbx` 道具模型，完成小王子提水壶动作的精细化修整：
+1. 保留基础动画中身体俯身与站起的重心运动，将手臂控制模式切换至 Auto-Rig Pro 的手部 IK 控制器；
+2. 在手部接触把手的关键帧，精确调整手掌控制器位置与旋转，使掌心内侧紧贴把手上方；
+3. 逐一调整五指骨骼姿态，使食指、中指、无名指与大拇指自然环握把手，杜绝手指关节穿入水壶金属网格；
+4. 为水壶添加约束，使其在握紧关键帧后严格跟随手掌控制器上升，确保提起过程中握持稳定、无位移漂移、无把手脱手或悬空脱节；
+5. 逐帧检查接触前、握紧时、提起后的动作，修正跳动与穿模。保存为 `blender/prince_pickup.blend`，输出接触前后截图及短预览供我检查。
+</code></pre></div>
+<div><pre><code>Referencing the provided pickup animation clip and the prop model `models/props/watering_can.fbx`, refine the Little Prince lifting the watering can interaction in Blender:
+1. Retain the torso bending and recovery trajectory from the base clip, and switch the arm control chain to Auto-Rig Pro's hand IK solver;
+2. On the contact keyframes, translate and orient the hand IK effector so the inner palm surfaces align flush against the handle;
+3. Fine-tune individual phalange rotations so the thumb and fingers form a closed, natural grip around the grip perimeter, eliminating mesh clipping through the handle volume;
+4. Parent or constrain the watering can to the hand IK transform starting from the secure grasp keyframe, ensuring the prop ascends synchronously without positional drift, slip, or floating disconnection;
+5. Inspect frames before contact, during the grasp and after lifting, correcting popping and intersections. Save `blender/prince_pickup.blend` and output before/after contact captures and a short playback preview.
+</code></pre></div>
+<figure>
+<img />
+<figcaption><span>Blender 视口展示了小王子通过手臂 IK 控制器与手指骨骼握持水壶的单帧姿态。</span><br />单张截图不足以证明整段动作已完成；必须沿时间轴逐帧播放，重点排查手掌与把手的穿模与漂移。</figcaption>
+</figure>
+<hr />
+<h2>把场景和角色接到 Unity，检查这一轮的成果</h2>
+<p>这是在原帖制作流程基础上的导入检查补充。先在 Blender 中导出场景、带骨骼角色与所需动作，保留贴图；控制骨骼与游戏用变形骨骼的导出选项不同，可让 Agent 按 Auto-Rig Pro 的游戏导出方式处理。别把绑骨前的 <code>prince_p2.fbx</code> 当成最终动画角色。</p>
+<p>把导出文件放进 Unity 练习项目的 <code>Assets/</code> 下，分别建 <code>Art/Environment/</code>、<code>Art/Characters/</code> 和 <code>Art/Animations/</code>，再把场景与人物拖入 Scene。先检查三件事：</p>
+<ol>
+<li><strong>比例和方向对不对</strong>：人物、长椅、水壶放在一起看，脚能否落在地面，道具有没有大得离谱。尺寸按你的角色设定统一，不必套用某个固定身高。</li>
+<li><strong>材质能否显示</strong>：贴图是否跟随导入，材质是否适配项目选用的渲染管线。出现粉紫色通常要排查着色器兼容性；灰白模型要检查贴图与材质引用。</li>
+<li><strong>动作能否在引擎里播放</strong>：检查导出骨骼和动画片段是否齐全。先用动画预览分别播放走路、跳跃、提壶，再根据骨架与项目需要设置 Humanoid 或 Generic、Animator。提壶时尤其要复查水壶跟随是否在导出后保留。</li>
+</ol>
+<p>如果缺贴图或动作断了，把 Unity Console 的报错、Inspector 设置和异常截图一起交给 Agent，同时提供对应 <code>.blend</code> 与导出文件路径；修正后回到同一动作复查。最后留下 <code>b612_scene.blend</code>、<code>prince_rigged.blend</code>、带动作的工程以及 Unity 导入结果，避免只保存生成工具里的预览。</p>
+<p>到这里，你应当能检查一套场景、一名绑定角色及其动作是否接通。要像演示那样自由跑动、触发对话和切换区域，还要继续做角色控制、相机、碰撞与交互逻辑。原帖把核心代码交给 Opus、调试交给 Astra，但没有附这些实现；它承诺后续开源，也未在这篇分享中给出仓库链接。因此，本篇可以带着做场景与角色流程，不能承诺凭现有素材一键复刻整款游戏。</p>
+</div><div><div><div>来源</div><div><span>手把手教你用 Opus 5.5 / Astra + Tripo 制作 3D 游戏</span><span>Sac<span>·</span><a href="https://x.com/saccc_c/status/2110694725640474759">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/saccc_c/status/2109962425512734739">作者游戏演示与试玩入口</a><span>·</span><a href="https://docs.unity.com/en-us/unity-cli/replace-mcp-server-unity-cli">Unity CLI 与 MCP 接入</a><span>·</span><a href="https://www.tripo3d.ai/features/smart-mesh">Tripo Smart Mesh</a><span>·</span><a href="https://www.lucky3d.fr/auto-rig-pro/doc/remap_doc.html">Auto-Rig Pro 动作重定向</a><span>·</span><a href="https://docs.blender.org/manual/en/latest/advanced/command_line/arguments.html">Blender 命令行</a><span>·</span><a href="https://helpx.adobe.com/creative-cloud/help/animate-characters-mixamo.html">Mixamo 动作使用</a></div></div></div></div></div><div>
+<div>3D GAME PIPELINE · DECONSTRUCTION &amp; PRACTICE</div>
+<h1>用 AI 制作《小王子》3D 游戏：场景与角色的跟做指南</h1>
+<div>拆解 Sac 的原型工作流：如何用“多视角 Quad 建模 + 骨骼重定向 + 手臂 IK 微调”搭起第一套场景与角色。</div>
+<div>核心练习目标：在本地跑通“一颗 B-612 星球、一个能动作的小王子、一次提水壶交互”，摸清从生成到引擎的真实工程断点。</div>
+<div>
+<p>在这个案例中，参考图、3D 模型、骨骼与动作是逐步交接的不同产物。</p>
+<p>作者先让 Fable 5.1 整理 PRD（游戏需求文档），列出场景、人物和剧情线，再让 Image 2.5 出图、Tripo 出 3D 资产、Opus 5.5 写核心代码，最后用 Astra 优化和修 bug。人负责需求与画面判断，工具分别交付参考图、模型、动作和代码。</p>
+<div>
+<div>
+<div>5 类分工</div>
+<div>人类定边界 · 2D出参考 · Tripo生资产 · Agent写脚本 · Astra调优</div>
+</div>
+<div>
+<div>1 个练习</div>
+<div>聚焦练习目标：B-612 星球 + 小王子动作 + 提水壶修正</div>
+</div>
+<div>
+<div>2 项本地连接</div>
+<div>Blender + 付费 Auto-Rig Pro · Unity CLI + Pipeline</div>
+</div>
+</div>
+<div>
+<p><strong>关键提醒：</strong>先确认 Agent 能访问本地文件并执行 Blender；只在网页里收到操作建议，不等于它已能修改工程。Tripo 多视角输入目前需要订阅，Auto-Rig Pro 是付费插件。按本练习路径配置 Unity CLI（<code>unity pipeline install</code> 与 <code>unity mcp configure claude</code>），并让 Agent 找到 Blender 可执行文件，本地 Agent 才能真正读取工程、执行自动化脚本与装配场景。</p>
+</div>
+</div>
+<div>
+<p><strong>场景构建：从全貌概念到 3D 星球的“拆与合”</strong></p>
+<p>在 Image 2.5 中生成的 B-612 全景参考板包含了俯视图与斜侧视图，但它只是一张 2D 概念图，绝不能等同于现成的 3D 空间。如果直接把整张图丢给 3D 生成工具，整景一起生成容易把相邻物体粘在一起，后面移动道具、修改材质或设置碰撞都更费力。</p>
+<p>实操的核心原则是：形态有机、纹理复杂且难以参数化生成的物件交给 Tripo；规则几何体、大面积地表与建筑结构直接在 3D 软件中拼装。</p>
+<div>
+<div>
+<div>TRIPO H3.1 · 有机母型单体</div>
+<ul>
+<li><strong>T1/T2 岩石与苔石：</strong>生成单个高品质母型，在场景中缩放旋转多处复用</li>
+<li><strong>T3/T4 树苗与玫瑰花：</strong>造型曲折的不规则植被，单独出模保留细节</li>
+<li><strong>T5/T6 毯子与乔木：</strong>自然褶皱与地平线装饰物件</li>
+</ul>
+</div>
+<div>
+<div>BLENDER / UNITY · 规则几何拼装</div>
+<ul>
+<li><strong>星球基础地形：</strong>球体网格细分与局部微起伏置换</li>
+<li><strong>木棚与石径：</strong>梁架与平整道路由基础几何体快速参数化搭建</li>
+<li><strong>透明玻璃罩与水壶：</strong>规则旋转体与金属材质直接赋予</li>
+</ul>
+</div>
+</div>
+<p>单体资产生成后，主构建 Agent 在 Blender 中还原布局，再由独立审查 Agent 从正视、侧视、俯视与主角视高 4 个机位截取高分辨率视口图与原画比对，找出悬空、穿模或比例失真，按清单返工修改，形成多机位检查与返工循环。</p>
+<p><strong>文件交接：</strong><code>references/scene/</code> 参考图 + <code>models/props/</code> 单体模型 → <code>blender/b612_scene.blend</code> 场景；检查截图留在 <code>checks/</code>。</p>
+</div>
+<div>
+<p><strong>角色构建：小王子的三维化与骨骼装配</strong></p>
+<p>场景道具是静态的，而角色必须在地面奔跑、跳跃和弯曲。如果网格拓扑不良或蒙皮权重错乱，一做动作就会发生关节塌陷、腋下撕裂与顶点飞散。需要在接入动作前后分别检查。</p>
+<div>
+<p>角色制作：参考图、网格与骨骼依次交接</p>
+<p>角色绝不能只看“单张正面图是否好看”。本次跟做按四步检查：</p>
+<div>
+<div>
+<div>STEP 01 · 2D 四视图裁剪</div>
+<div>T-pose 统一基准与独立图分发</div>
+<p>Image 2.5 生成标准 T-pose 四视图（双臂平展、双腿微开）。Tripo 的多视角输入接口要求分别上传各个方向的独立图片，直接上传整张拼图会导致识别错乱。必须在 2D 阶段裁切为独立的正、背、左、右四张图片后分别上传。四张图保存在 <code>references/character/</code>。</p>
+</div>
+<div>
+<div>STEP 02 · SMART MESH 拓扑</div>
+<div>生成原生四边面（Quad）网络</div>
+<p>在 Tripo 中选择 Smart Mesh P2.0 Preview 模型，按作者示例选择四边面（Quad），便于后续编辑。Quad 不保证关节自然变形，仍需检查布线、骨骼与权重；面数预算按需设定（示例为 25,000 面）。</p>
+</div>
+<div>
+<div>STEP 03 · 白模质检与局部重构</div>
+<div>先查几何白模，再生成贴图（至关重要）</div>
+<p>此时必须遵循“先查几何白模，再生成贴图”的严谨顺序。若局部形状不合理，先用 Edit Mesh 选中问题部位进行局部再生成，再复查。贴图不会修好几何形状，先修模型可减少返工。仔细排查腋下、手腕与靴口无粘合穿插后，再执行 Texture 生成贴图并导出，存到 <code>models/character/</code>。</p>
+</div>
+<div>
+<div>STEP 04 · AUTO-RIG PRO 绑骨</div>
+<div>自动装配骨骼与动作测试</div>
+<p>在 Blender 中利用 Auto-Rig Pro 插件完成全身骨架植入与蒙皮权重分配。绑骨完成后，必须让 Agent 立即运行动作测试用例——抬手（拉伸腋下与肩膀）、弯腿（测试膝关节折痕）、转身（测试腰部扭转），观察是否有非正常的形变撕裂或网格脱离。保存为 <code>blender/prince_rigged.blend</code>。</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<p><strong>动作重定向与复杂道具交互：小王子提水壶微调</strong></p>
+<p>角色完成绑定后，从 Adobe Mixamo 下载通用的跑、跳动作（适当增大 <code>Arm-Space</code> 避免手掌穿透宽松裤腿），并通过 Auto-Rig Pro 的 Remap 功能重定向至小王子骨骼。把下载的动作 FBX 放入 <code>animations/</code>，与绑定好的 <code>prince_rigged.blend</code> 一起交给 Agent。通用动作还需与当前角色和道具位置核对。</p>
+<p>如果动作与道具位置不匹配，可能出现“手悬在半空、水壶自己升起”或者“手掌直接插进金属壶体”的尴尬穿模。原作者使用手臂 IK 调整手势、手指与水壶位置。下面的约束例子是指南补充的一种实现方式：</p>
+<div>
+<div>模式转换</div>
+<div><strong>启用手臂 IK 控制器：</strong>从逐级旋转肩肘的 FK 模式切换至 Auto-Rig Pro 的手臂 IK 控制器，直接拖拽手部末端控制器精准贴合水壶把手，肘部关节自动屈伸计算。</div>
+</div>
+<div>
+<div>约束打点</div>
+<div><strong>水壶 Child Of 约束与权重打帧：</strong>IK 只能定位手部，水壶不会凭空跟随。必须通过给水壶添加约束（如 Child Of 约束）并在抓取时为约束影响权重打关键帧，同时微调手指每根指节的弯曲闭合程度，使手掌形成真实的包裹接触。</div>
+</div>
+<div>
+<div>逐帧排查</div>
+<div><strong>沿时间轴排查滑脱与漂移：</strong>单帧握住不代表动画可用。沿时间轴拖动（伸手 → 五指张开 → 贴拢把手 → 握紧闭合 → 垂直提起），严查金属把手刺穿指节或手心位移滑脱。</div>
+</div>
+<div>
+<p><strong>实操要点：</strong>IK 只帮助求解手臂姿态，不会自动识别把手或带动水壶。用时间轴截图检查接触前、握紧时和提起后的状态，发现滑脱、穿模或跳动就反馈给 Agent 修正。保存提壶工程为 <code>blender/prince_pickup.blend</code>。</p>
+</div>
+</div>
+<div>
+<p><strong>Unity 组装验证与工程现实边界</strong></p>
+<p>在 Blender 中完成整理后，导出场景、带骨骼角色与所需动作，保留贴图；控制骨骼与游戏用变形骨骼的导出选项不同，可让 Agent 按 Auto-Rig Pro 的游戏导出方式处理。将 FBX 与贴图放入 Unity 练习项目的 <code>Assets/</code> 目录，拖入 Scene 执行三项基准验收：</p>
+<div>
+<div>
+<div>CHECK 01 · 比例与朝向</div>
+<p>小王子双脚平稳落于草地地表，长椅、水壶与角色体型比例协调，无漂浮无倒伏。</p>
+</div>
+<div>
+<div>CHECK 02 · 材质着色器</div>
+<p>贴图正确关联，无粉紫色 Shader 丢失；草地、金属与皮肤材质在目标渲染管线下呈现预期质感。</p>
+</div>
+<div>
+<div>CHECK 03 · 动作与跟随</div>
+<p>预览跑跳是否平顺、是否滑步，提水壶时水壶随手腕自然升起，无分离滞后。</p>
+</div>
+</div>
+<div>
+<p>这轮练习做到哪里，下一步还要做什么</p>
+<p>本篇可以带着做场景与角色流程，不能承诺凭现有素材一键复刻整款游戏。要实现演示中那样奔跑探索、遇狐狸对话与进宫殿漫游，还需要继续编写角色控制器、第三人称相机、物理碰撞体与状态机代码。这套流水线的核心价值，在于把从“2D 创意 → 3D 高品质几何 → 规整拓扑 → 动作重定向与接触修正”的流程接起来。</p>
+</div>
+</div>
+</div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/saccc_c/status/2110694725640474759">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>产品发布</div>
+<div>Gemini 4 Argon 全面开放：热门创作案例集锦 从复杂工程到调用工具完成工作再到用代码制作 3D 和可视化视频</div>
+<div>10-14 · 25 分钟</div></a><a>
+<div><span></span>深度</div>
+<div>Higgsfield 的 11 个制作技能：让 AI 交付还能继续改的工程</div>
+<div>09-28 · 约 10 分钟</div></a><a>
+<div><span></span>AI 实操</div>
+<div>3 天做完 18 个镜头：Higgsfield 动画团队怎样把 AI 放进传统动画流程</div>
+<div>09-28 · 约 15 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Meta 开放 Muse Spark 权重：816B、100 万 token 上下文，两台 Mac Studio 可运行，支持本地编程与 Agent 任务</title>
+<link>https://best.xiaohu.ai/article/meta-muse-spark-open/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:meta-muse-spark-open</guid>
+<pubDate>Sat, 17 Oct 2026 12:00:41 +0000</pubDate>
+<description>从本地改代码、处理视频，到低比特单机与双 Mac 部署：看懂 Muse Spark Open 的能力、硬件门槛和加速方法。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 17 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Meta 开放 Muse Spark 权重：816B、100 万 token 上下文，两台 Mac Studio 可运行，支持本地编程与 Agent 任务</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/meta-muse-spark-open/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>它怎样接手编程和剪辑任务</span></a><a><span>02</span><span>只用 42B 参数计算，为什么还要装下 816B 权重？</span></a><a><span>03</span><span>它的成绩，放到实际任务里怎么看？</span></a><a><span>04</span><span>从哪里开始用，费用怎么算？</span></a><a><span>05</span><span>许可规则（Muse Model License）</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Meta 开放 Muse Spark 权重：816B、100 万 token 上下文，两台 Mac Studio 可运行，支持本地编程与 Agent 任务</h1><p>从本地改代码、处理视频，到低比特单机与双 Mac 部署：看懂 Muse Spark Open 的能力、硬件门槛和加速方法。</p><div><span><b>已核对</b></span><span>AI at Meta</span><span>10-17 · 约15分钟</span></div><div>☆ 收藏</div></div><div><strong>一分钟速览</strong><ul><li>Muse Spark Open 开放权重并支持多模态输入，可在本地为编程和工具型 Agent 提供模型能力。</li><li>两台各 512GB 的 M5 Ultra Mac Studio 可运行官方量化版本；更低内存的 GGUF 另有路线，任务质量随版本而变。</li><li>推测解码让草稿模型先拟多个 token、大模型批量核验，提速幅度取决于硬件与运行框架。</li><li>它在部分岗位任务和 MCP 工具调用上领先，综合、长程工具和代码成绩各有差距，仍要按自己的任务试用。</li></ul><div><p>Meta 发布了开放权重模型 Muse Spark Open，官方将其定位为目前性能最强的美国开放权重模型。它的主要特点是：</p>
+<ul>
+<li><strong>专为代码与 Agent 设计</strong>：聚焦端到端复杂软件工程、长程规划与多步推理。</li>
+<li><strong>混合模态输入与纯文本输出</strong>：原生支持文本、图像、视频与音频混合输入，统一输出文本与结构化调用。</li>
+<li><strong>支持私有化与本地部署</strong>：除云端 API 外，也可在自己的设备上运行。官方桌面路线采用两台各配 512GB 统一内存的 M5 Ultra Mac Studio，运行 NVFP4 量化版本。</li>
+</ul>
+<h3>它怎样接手编程和剪辑任务</h3>
+<p>在实际任务中，Muse Spark Open 支持多模态混合输入与纯文本输出，并提供最高 100 万 token（1M）的上下文窗口。1M 属于窗口容量上限，并不等同于在任意超长材料下都能保证可靠检索或百分之百执行成功。</p>
+<p>模型面向的核心场景是端到端 Agent（智能体）开发。下载模型权重并不等于直接获得了操作电脑的现成能力。模型本身负责理解输入、规划步骤并生成符合接口规范的工具调用文本；具体动作必须由外部 Agent 框架（如 Muse Code 或开源运行框架）在沙箱、终端或操作系统中代为执行。这套工作按以下过程进行：</p>
+<ol>
+<li><strong>读取输入与环境反馈</strong>：模型接收代码文件、用户需求、截屏或上一步工具返回的执行结果。</li>
+<li><strong>生成工具调用</strong>：模型分析当前状态，生成下一步要调用的工具名称与参数（例如编辑文件、执行命令或查询接口）。</li>
+<li><strong>外部框架执行并返回</strong>：外部 Agent 框架调用实际环境执行该操作，并将标准输出、错误日志或新截图反馈给模型。</li>
+<li><strong>模型分析并修正方案</strong>：如果执行出现依赖冲突、编译错误或测试未通过，模型根据返回的报错信息调整参数、修改代码并再次尝试。每一步仍需核对结果。</li>
+</ol>
+<p>假设一个典型的界面修复任务：用户给 Agent 提供一张样式错位的页面截图以及对应的前端组件代码。模型首先比对截图中的视觉错位与代码结构，推测出冲突的样式属性，输出一段修改补丁；外部 Agent 框架将修改写入文件并运行本地构建命令；如果构建工具返回了语法报错，框架将错误日志传回模型；模型阅读报错后修正代码，再让框架运行并检查结果。这个例子说明的是工作方式，不代表模型每次都能修好。</p>
+<p>在 Meta 官方公布的技术案例中，也展示了类似的流程协同：</p>
+<ul>
+<li><strong>iOS 客户端 Ice Cubes 开发</strong>：在本地设备（on-device，不等于完全离线）上，通过模型驱动 Muse Code 读取开源 Mastodon 客户端代码、定位缺陷、编写补丁并完成了本地项目构建。</li>
+<li><strong>DaVinci Resolve 视频处理</strong>：模型作为 Agent 驱动 DaVinci Resolve，逐帧审阅素材画面寻找精彩片段（strongest moments），并执行竖屏画面重新裁切。</li>
+</ul>
+<h3>只用 42B 参数计算，为什么还要装下 816B 权重？</h3>
+<p>这次发布的模型有 8160 亿总参数。Muse Spark Open 能够实现两台桌面设备协同运行，核心在于其稀疏混合专家（MoE）结构：</p>
+<ul>
+<li><strong>MoE 专家架构</strong>：模型总参数量为 816B，共 62 层。每个 MoE 层包含 256 个专家前馈网络，单 token 生成时前端路由器挑选最相关的 8 个专家参与计算，整套模型每 token 活跃参数约为 42B。</li>
+<li><strong>算力与访存开销</strong>：单 token 虽然仅激活 42B 参数，但实际浮点计算量与时延不能简单等同于同规模密集模型，注意力层、路由选择、访存带宽以及多机通信都会带来额外开销。</li>
+<li><strong>权重驻留</strong>：官方这条部署路线仍需在内存或显存中加载整套权重。只调用少量专家，减少的是每一步参与计算的部分，没有把其余参数从模型中删除。</li>
+</ul>
+<p>两台 Mac Studio 运行这套模型，需要以下条件：</p>
+<ol>
+<li><strong>统一内存配置</strong>：采用两台搭载 Apple M5 Ultra 芯片、各配置 512GB 统一内存的 Mac Studio（合计 1TB 统一内存），或者四台 256GB 机型。内存容量解决权重放在哪里，带宽决定读取权重的速度：每台 M5 Ultra 提供 1.2TB/s 统一内存带宽，让 GPU 快速读取当前 token 所需的权重。实际生成速度还取决于计算和双机通信。</li>
+<li><strong>NVFP4 量化版本</strong>：运行的是 NVFP4 权重，主要将 MoE 专家权重压缩为 4-bit，部分层仍保留 BF16，静态文件体积约为 537GB。537GB 仅是权重文件体积；运行时还要为缓存已处理内容的 KV Cache、中间计算结果和系统留出内存，因此不能用总内存减去权重体积，就保证能跑满 1M 窗口。</li>
+<li><strong>MLX 张量并行切分</strong>：依托最新版 Apple MLX 框架，每一层的 256 个专家在两台机器间进行张量切分，两台设备各存储一部分权重参数（不是前 128 给 A、后 128 给 B），推理时权重保持在本地，设备之间通过 Thunderbolt 5 直连并启用 RDMA 来传输中间激活结果。</li>
+</ol>
+<p>同一套权重，两种看法</p>
+<h3>只算一部分，整套仍要存</h3>
+<div>
+<div><strong>816B</strong><span>总参数 · 存储看整套</span></div>
+<div><strong>42B</strong><span>每 token 活跃参数</span></div>
+<div><strong>约 537GB</strong><span>NVFP4 权重文件</span></div>
+</div>
+<div>
+看存储：全部驻留
+看计算：选中少量专家
+换一个 token（示意）
+</div>
+<div>
+<div><strong>一个 MoE 层里的专家</strong><span>256 个专家全部在场</span></div>
+<div></div>
+<p>每个格子表示一个专家。计算时每层选 8 个；点阵只说明选取关系，不表示整套模型的参数比例。</p>
+</div>
+<div>
+<div><span>MAC STUDIO A</span><strong>512GB 统一内存</strong><div>每层的一半权重分片</div><p>权重留在本机</p></div>
+<div><span>↔</span><strong>中间计算结果</strong>Thunderbolt 5 / RDMA</div>
+<div><span>MAC STUDIO B</span><strong>512GB 统一内存</strong><div>每层的另一半权重分片</div><p>权重留在本机</p></div>
+</div>
+<p>存储：采用 NVFP4 与 MLX，两台机器合计约 1TB 统一内存，分担整套权重。缓存、系统和运行时还会额外占用内存；权重文件大小不能当成完整推理需求。</p>
+<p>教学示意：专家位置与每次选取为演示设定，不是模型实测。两台机器切分每层张量，并非各自独占一半专家；本图不估算速度或满窗口可用内存。</p>
+<p>除双机 Mac 桌面环境外，官方文档还给出了数据中心 GPU 的配置示例：</p>
+<ul>
+<li><strong>NVFP4 部署路线</strong>：静态权重约 537GB，官方要求至少 700GB 显存，已在单节点 4 张 NVIDIA Blackwell Ultra 显卡（通过 TensorRT-LLM 运行）或 8 张 H200 上完成验证。</li>
+<li><strong>BF16 参考路线</strong>：全精度权重约 1.65TB，文档示例给出的显存预算约为 2TB（例如 8 张 NVIDIA B300 集群）。</li>
+</ul>
+<p>第三方 Unsloth 还提供 <strong>Dynamic GGUF 单工作站路线</strong>。其 2-bit 版本列出的总内存需求约为 250–316GB，指系统内存与显存合计，或 Apple 设备的统一内存。最小的 <code>UD-IQ2_XXS</code> 可装入 256GB 配置；但 Unsloth 建议 Agent 任务至少选择 <code>UD-IQ2_S</code>，更小版本在通用任务上会退化，聊天任务可以采用更小的规格。因此，想让模型简单聊天和让它连续改代码，用的未必是同一份量化文件。更长上下文也会额外占用内存，具体版本的任务质量和速度仍需分别试用。版本与选择依据可查阅 <a href="https://unsloth.ai/docs/models/muse-spark-open">Unsloth 指南</a>。</p>
+<figure>
+<img>
+<figcaption>Unsloth Desktop 的代码生成示例。左侧为模型回复，右侧预览 Flappy Bird 页面；图中使用的低比特规格与前文的 Agent 建议规格不同。</figcaption>
+</img></figure>
+<figure>
+<img />
+<figcaption>Unsloth 的量化偏差比较：KLD 越低越好，纵轴采用对数刻度。横轴是 GGUF 文件的磁盘体积，不是运行所需的总内存。</figcaption>
+</figure>
+<figure>
+<img />
+<figcaption>同一批量化版本的 top-1 指标，分别展示通用与聊天测试集。它用于比较量化质量，不能直接当作编程或 Agent 任务通过率。</figcaption>
+</figure>
+<p>装下权重以后，还可以通过<strong>推测解码</strong>减少生成等待：小型草稿模型先提出多个 token，Muse Spark Open 再一次核验这一批候选，接纳符合要求的部分，减少大模型逐个生成的轮次。SGLang 对应 DFlash V2，vLLM 对应 DSpark。官方开发指南报告，DFlash 在 AMD MI355X 上单请求吞吐提升 3.7 倍，16 个并发请求下为 2.9 倍；这是对应 GPU 与测试配置的结果，不能换算成双 Mac 的速度。</p>
+<p>底层计算也有优化：SGLang 中的 Helion GPU 内核在 NVIDIA、AMD GPU 上取得 1.03–3.95 倍的内核级加速，而 AMD MI350 上的端到端提升为 3%。一个局部算子快了多少，与整个请求快了多少，是不同的指标。</p>
+<h3>它的成绩，放到实际任务里怎么看？</h3>
+<p>Meta 将 Muse Spark Open 定位为“目前最强的美国开放权重模型”。根据官方评测方法说明，本次公布的评测数据并非全部由 Meta 自测，而是混合了第三方官方榜单（如 Scale AI、Artificial Analysis）、Meta 内部测试以及部分厂商自报数据。各模型测试时均开启了各自官方推荐的最高思考档位（如 Muse 为 xhigh、GLM 与 Kimi 为 max、Nemotron 开启 thinking），最高档位的名称相似，并不意味着花费相同计算量、时间或费用。</p>
+<p>同一张成绩表里，领先与落后的项目同时存在：</p>
+<div><table>
+<thead>
+<tr>
+<th>任务与基准</th>
+<th>Muse Spark Open</th>
+<th>同表对手参照</th>
+<th>设置与含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>综合能力 · AA Intelligence Index</td>
+<td>39</td>
+<td>GLM 5.3：45 / Kimi K3：44</td>
+<td>综合指数；Muse 低于这两款模型</td>
+</tr>
+<tr>
+<td>岗位任务 · JobBench</td>
+<td>61.8</td>
+<td>GLM 5.3：61.4</td>
+<td>官方榜单成绩；Muse 在所列模型中最高</td>
+</tr>
+<tr>
+<td>工具调用 · MCP-Atlas</td>
+<td>89.2</td>
+<td>Qwen3.8：84.5</td>
+<td>Muse 在所列模型中最高；Beam 为自报数据</td>
+</tr>
+<tr>
+<td>长程工具 · Toolathlon Verified</td>
+<td>72.8</td>
+<td>Kimi K3：76.5</td>
+<td>跨多款软件完成长程任务；Muse 未领先</td>
+</tr>
+<tr>
+<td>终端任务 · Terminal-Bench 2.1</td>
+<td>76.4</td>
+<td>Kimi K3：85.0</td>
+<td>这两项用 Terminus 2 框架；Muse 未领先</td>
+</tr>
+<tr>
+<td>代码工程 · DeepSWE 1.1</td>
+<td>60</td>
+<td>Kimi K3：68</td>
+<td>各自优选或自报框架，比较的是模型与框架的组合</td>
+</tr>
+</tbody>
+</table></div>
+展开查看官方横向基准测试原始对比图
+<figure>
+<img />
+<figcaption>
+<span>官方公布的横向基准成绩。</span><br>
+      涵盖 Agent 工作流、纯逻辑推理、代码修复与多模态评测；各模型采用各自官方公布的最高思考档位（Muse Spark Open 采用 xhigh，Kimi K3 与 GLM 5.3 采用 max，Nemotron 开启 thinking），测试运行框架与推理预算并不均等。
+    </br></figcaption>
+</figure>
+<ul>
+<li><strong>强势项</strong>：在涉及实际业务岗位流程的 <strong>JobBench</strong>（61.8）以及考察真实 MCP 协议工具调用的 <strong>MCP-Atlas</strong>（89.2）中，Muse Spark Open 处于领先位置；在无工具辅助的 <strong>HLE-Diamond</strong> 高难知识与推理问答中取得 26.1 分，<strong>AA-Omniscience</strong> 知识可靠性测试取得 25 分；在多模态视觉基准 <strong>ZeroBench</strong> 中取得 50.0 分（需注意该项为工具辅助下 5 次采样中至少 1 次正确的 pass@5 口径，非单次准确率）。</li>
+<li><strong>差距项</strong>：在真实终端交互执行的 <strong>Terminal-Bench 2.1</strong> 中得分为 76.4，低于 Kimi K3（85.0）、GLM 5.3（83.9）、Qwen3.8（82.0）与 Beam（80.1，注：Beam 未披露运行框架，其余所列终端成绩基于 Terminus 2）；在代码缺陷修复 <strong>DeepSWE 1.1</strong> 中得分为 60，低于 Kimi K3（68）与 GLM 5.3（67）。DeepSWE 各模型是在各自优选的 Agent 运行框架（如 Muse Code、Claude Code、Kimi Code 等）下运行，该分数体现的是模型与对应运行框架组合的综合表现。</li>
+</ul>
+<p>这些结果支持的是具体任务上的优势：Muse Spark Open 在 JobBench 和 MCP-Atlas 上领先所列模型，却没有在综合指数、Toolathlon 长程工具任务和代码工程上全部领先。选择时可以先拿自己的岗位流程与 MCP 工具试用；如果任务侧重终端操作、代码修复或跨软件长程执行，也应比较同表其他模型与对应运行框架的组合。模型经过了额外的安全后训练。实际接入工具时，系统外层仍要管理执行权限，对不可逆操作引入人工确认。</p>
+<h3>从哪里开始用，费用怎么算？</h3>
+<p>开发者与企业团队可以根据实际需求选择适配的使用方式：</p>
+<ol>
+<li>
+<p><strong>云端托管 API</strong>：
+第三方推理服务商已接入模型支持，包括 <a href="https://www.baseten.co">Baseten</a>、<a href="https://fireworks.ai">Fireworks AI</a>、<a href="https://modal.com">Modal</a>、<a href="https://tokenfactory.nebius.com">Nebius</a>、<a href="https://openrouter.ai">OpenRouter</a> 以及 <a href="https://www.together.ai">Together AI</a>；<a href="https://console.groq.com">Groq</a> 目前提供面向多步 Agent 循环的有限预览。Muse 许可赋予的免费使用权指的是模型权重本身，并不代表云端 API 推理免费，各服务平台均按照各自的 Token 用量或专用算力资源独立计费。</p>
+</li>
+<li>
+<p><strong>云端模型目录</strong>：
+在 Amazon SageMaker AI、Google Cloud Model Garden 和 Microsoft Foundry Models 的在线模型目录中，均提供了模型权重的获取与私有化部署入口。</p>
+</li>
+<li>
+<p><strong>本地与私有集群部署</strong>：
+开发者可访问 Hugging Face <a href="https://huggingface.co/collections/meta-models/muse-spark-open">模型集合</a> 获取 NVFP4 或 BF16 权重。双机 Mac 路线从 <a href="https://dev.meta.ai/docs/cookbook/muse-spark-open-mac">Meta 官方 Mac 部署指南</a> 开始：每台需运行 macOS 26.2 或更新版本、MLX 0.30.1 或更新版本，机器之间通过 Thunderbolt 5 直连并启用 RDMA，主控机能通过无密码 SSH 启动另一台的程序。</p>
+<p><strong>磁盘存完整文件，内存加载各自分片。</strong> 按该指南，每台 Mac 的磁盘都需要容纳完整的约 537GB NVFP4 checkpoint；启动时，MLX 才将各自负责的张量分片加载进统一内存。因此，每台机器不能只准备一半权重文件的磁盘空间。</p>
+<p>私有 GPU 节点可配合 SGLang、vLLM 或 TensorRT-LLM 运行，具体配置参见<a href="https://dev.meta.ai/resources/blog/build-with-muse-spark-open">开发说明</a>；选择单工作站低比特版本则参考前面的 Unsloth 路线。</p>
+</li>
+<li>
+<p><strong>后训练与定制</strong>：
+需要针对自己业务继续训练时，可以使用 PyTorch 的 TorchTitan 等已适配框架。</p>
+</li>
+</ol>
+<p>调用时还可以用 <code>reasoning_effort</code> 在 <code>low</code>、<code>medium</code>、<code>high</code>、<code>xhigh</code> 四档之间选择。模型卡默认 <code>xhigh</code>，复杂编程与 Agent 任务建议用 <code>high</code> 或 <code>xhigh</code>，简单、需要更快回复的任务可用 <code>low</code> 或 <code>medium</code>。官方建议的采样设置为 <code>temperature = 1.0</code>、<code>top_p = 1.0</code>，并禁用 <code>top_k</code>。</p>
+<h3>许可规则（Muse Model License）</h3>
+<p>Muse Spark Open 采用开放权重的 Muse Model License。在满足条款的前提下，可以修改、微调、蒸馏、合并及再分发，Meta 也明确不主张模型生成输出的所有权。使用时仍需遵守署名、使用政策（Usage Policy）和商业服务条件，主要约束包含三项：</p>
+<ol>
+<li><strong>署名要求</strong>：在基于该模型或其衍生品构建的产品与服务的用户界面、随附文档、网站或设置中，显著展示 <strong>"Built with Muse Spark Open"</strong>。</li>
+<li><strong>遵守使用政策</strong>：使用与分发需符合许可附带的 Usage Policy 安全与合规要求。</li>
+<li><strong>MaaS 额外协议要求</strong>：若向第三方提供模型服务（Model as a Service，即通过 API 或类似接口向第三方提供模型输出），且该实体及其关联方在任意连续 12 个月内的累计总营收超过 <strong>2000 万美元</strong>，必须事先通知 Meta 并另行签署书面协议。</li>
+</ol>
+<p>该 MaaS 限制明确豁免了企业内部使用、研究、其他非 MaaS 商业活动，以及将模型作为组件嵌入自身非 MaaS 产品中提供功能支持。</p>
+</div><div><div><div>来源</div><div><span>Muse Spark Open 官方发布主题帖（3条）</span><span>AI at Meta<span>·</span><a href="https://x.com/AIatMeta/status/2110779754274292212">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://research.meta.ai/blog/muse-spark-open">Muse Spark Open 研究发布</a><span>·</span><a href="https://dev.meta.ai/docs/muse-spark-open">开发总览与硬件条件</a><span>·</span><a href="https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B">模型卡与 Muse Model License</a><span>·</span><a href="https://dev.meta.ai/resources/blog/build-with-muse-spark-open">Build with Muse Spark Open</a><span>·</span><a href="https://research.meta.ai/static/muse-spark-open-evaluation-methodology">评测方法报告</a><span>·</span><a href="https://unsloth.ai/docs/models/muse-spark-open">Unsloth 本地量化与任务质量选择</a><span>·</span><a href="https://dev.meta.ai/docs/cookbook/muse-spark-open-mac">双 Mac Studio 官方部署指南</a></div></div></div></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/aiatmeta/status/2110779754274292212?s=46">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>洞察</div>
+<div>Meta 推出 Muse Wonder 前沿系列模型：主动记忆，遇阻换方法继续推进，Agent 编程媲美 Opus 5.5</div>
+<div>10-13 · 约 10 分钟</div></a><a>
+<div><span></span>洞察</div>
+<div>Meta Muse 设计负责人分享 Muse 的设计思路：如何让 Agent 融入日常生活</div>
+<div>10-13 · </div></a><a>
+<div><span></span>产品发布</div>
+<div>Meta 发布 Muse Spark 1.1 模型，在多个代理评估中，媲美 GPT-5.5 和 Opus 4.8</div>
+<div>07-09 · 10 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Goodfire 研究员提出新观点：AI 的“黑箱”可能比我们想的更容易看懂</title>
 <link>https://best.xiaohu.ai/article/goodfire-already-clean/</link>
