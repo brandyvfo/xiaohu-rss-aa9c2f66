@@ -6,7 +6,422 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Mon, 19 Oct 2026 12:01:06 +0000</lastBuildDate>
+<lastBuildDate>Tue, 20 Oct 2026 12:00:20 +0000</lastBuildDate>
+<item>
+<title>【日报】Gemini 4 Argon 官方开发者指南：长任务怎么交给 AI，结果怎么验收</title>
+<link>https://best.xiaohu.ai/article/gemini-4-argon-developer-guide/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:gemini-4-argon-developer-guide</guid>
+<pubDate>Tue, 20 Oct 2026 12:00:20 +0000</pubDate>
+<description>从修复整站页面、理解录屏，到生成 3D 场景：Google 的这份指南把重点放在目标、工具和验证闭环，也带来了共享百万 token 窗口与长解码。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 20 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Gemini 4 Argon 官方开发者指南：长任务怎么交给 AI，结果怎么验收</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/gemini-4-argon-developer-guide/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>长任务先对齐目标，再建立验证循环</span></a><a><span>02</span><span>参考图与录屏，也能成为任务说明</span></a><a><span>03</span><span>让 Argon 定方向，让 Flash 并行执行</span></a><a><span>04</span><span>任务结束后，留下可复用的经验和解释</span></a><a><span>05</span><span>百万 token 怎样分给材料、思考与回答</span></a><a><span>06</span><span>怎样开始使用，以及迁移时要改什么</span></a><a><span>07</span><span>价格怎样算，长时间运行要留意什么</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Gemini 4 Argon 官方开发者指南：长任务怎么交给 AI，结果怎么验收</h1><p>从修复整站页面、理解录屏，到生成 3D 场景：Google 的这份指南把重点放在目标、工具和验证闭环，也带来了共享百万 token 窗口与长解码。</p><div><div>正文一页纸原文</div>☆ 收藏<div><span><span>作者：</span>Geneviève Huskens、Jack Wotherspoon / Google</span><span>10-20 · 18 分钟</span><span>⚑ 产品发布</span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>Google 想让 Gemini 4 Argon 持续完成复杂任务，从改代码一直推进到验证和交付。</li><li>先准备成功标准和验证工具，模型才能根据真实反馈自行修正。</li><li>百万 token 由输入、思考与回答共享，长解码也要兼顾额度、等待时间和费用。</li></ul><div><p>Google 发布了 Gemini 4 Argon，把重点放在需要持续推进的复杂工作：读懂项目、调用工具、检查结果，再根据反馈修改，直到完成约定目标。它面向开发者和企业，适合跨文件重构、漏洞修补、多模态资料处理与 3D 应用等任务。</p>
+<p>这份官方开发者指南给出了三类值得关注的用法：</p>
+<ul>
+<li><strong>把一项工程任务持续推进到交付</strong>：让模型运行测试、阅读报错、修改多个文件，减少人逐轮发指令的负担。</li>
+<li><strong>把多种资料转成可用成果</strong>：结合视频、PDF、表格与账目核对信息，制作看板、幻灯片或带修改记录的文档。</li>
+<li><strong>完成需要反复试验的创作与仿真</strong>：编写 3D 场景、游戏和渲染程序，借助实际运行结果调整实现。</li>
+</ul>
+<p>Google 同时开放了输入、思考与回答共用的百万 token 窗口，以及超过原有单次响应长度的长解码。更大的额度给复杂任务留出空间，真正让工作向前走的，还包括清楚的目标和可检查的反馈。</p>
+<h2>长任务先对齐目标，再建立验证循环</h2>
+<p>以“修好整个网站的布局和无障碍问题”为例，先约定完成标准：哪些页面要检查、哪些设备要覆盖、什么结果算通过，哪些操作要由人确认。还可以让 Argon 先提出澄清问题，讨论架构和里程碑，并确认它能访问代码、文档与所需工具。</p>
+<p>这些准备决定了模型往哪里走。目标明确以后，可以让它连续执行计划，运行检查并根据结果修改；遇到不可逆操作，仍应暂停等人确认。</p>
+<p>模型要知道一处修改有没有效果，需要真实反馈。编译器报错、测试失败记录、运行日志、浏览器截图与页面结构，都能让下一次修改有依据。<strong>Agent 是把模型接到工具上、让它根据结果继续行动的程序</strong>；普通聊天生成一段代码，并不意味着已经运行或验证了它。</p>
+<p>没有现成检查脚本时，可以先让它编写一个：遍历网站页面，记录当前失败项，形成修改前的基线。再把失败项按共同根因归类，例如多个页面都受同一个公共导航组件影响，就先修这个组件，而不是逐页打补丁。</p>
+<p>目标与边界 → 测出基线 → 按根因修改 → 重新检查；失败就继续定位，达标后交付。</p>
+<p>每次修改都重新运行同一套检查，才能看出修复是否有效、有没有影响其他页面。脚本显示“零违规”只说明它能检查的项目通过了；真实页面的阅读、操作和视觉效果仍需查看。</p>
+<h4>实战资产：Web 应用无障碍与布局排查自动化基准 Prompt</h4>
+<p>在已经连接项目仓库、能启动网站并运行浏览器检查的 Antigravity 或其他 Agent 环境中，发送以下提示词。中英文任选一种；请将 <code>src/routes/</code> 换成项目实际路由目录。普通聊天可以协助写脚本，但不会凭这段话自动取得你电脑上的项目。</p>
+<p><strong>英文原文</strong></p>
+<div><pre><code>We want to fix accessibility and layout issues across our web app, but we don't have automated checks yet. First, write a headless Chrome script that crawls every route in src/routes/, inspects the live DOM and accessibility tree, and logs all violations to record our baseline score. Group the failing checks into shared root causes across our shared components, then fix them one cluster at a time. Re-run your script after each change to verify that each single fix resolves the entire cluster with zero regressions. Keep going until all routes pass with zero violations.
+</code></pre></div>
+<p><strong>中文翻译</strong></p>
+<div><pre><code>我们需要全面修复 Web 应用中的无障碍及布局问题，但目前项目尚未建立自动化检查体系。首先，请编写一个 Headless Chrome 自动化脚本，遍历爬取 src/routes/ 目录下的所有路由页面，审查实时运行的 DOM 和无障碍可访问性树（Accessibility Tree），并记录所有违规项以建立初始基线评分。接着，将失败检查项按照跨公共组件的根本原因进行归类聚类，随后以集群为单位逐一进行代码修复。每次完成局部修改后，重新执行你的基准脚本，验证该次修改是否彻底解决了该集群的问题且没有引入任何功能回退（Regression）。持续循环迭代，直到所有路由页面均以零违规通过检查。
+</code></pre></div>
+<h2>参考图与录屏，也能成为任务说明</h2>
+<p>想让 AI 复现一种界面风格，给一两张具体参考图，比只写“高级、简洁”更容易对齐。也可以先让它把字体、配色和布局规则写进轻量的 <code>DESIGN.md</code>，让后续组件按同一套规则实现。</p>
+<p>动画、交互和时序故障则适合用视频说明：录一段操作应用的画面，一边点击，一边说哪里不顺，同时保留相关日志。Argon 的视频 Agent 能力可以主动跳到相关时间点、检查高清帧，并把画面与声音中的线索对应起来。Google 还给出一个用法：提供 20 分钟用户测试录屏，让它找到用户卡住的位置，再修对应组件。</p>
+<p>这样，视频参与的是定位过程。多模态资料也可以作为业务工作的原料：把长视频、PDF、表格、账本等放在同一任务中交叉核对，再整理成看板、幻灯片或文档修改稿。</p>
+<h3>1. 复杂业务流水到交互式数据呈现</h3>
+<p>在企业财务与运营场景中，杂乱的账本、发票扫描件、PDF 财报常常难以直观比对。指南中的 Finance Story 应用会接收过去一年的交易数据，再制作成动画与可视化。</p>
+<figure>
+<img>
+<figcaption>
+<span>财务账目跨周期动态热力可视化。</span><br>
+    Finance Story 的示例界面把交易按月份与星期排成热力图。画面中的 96 笔账目和 711,862 美元支出是演示账本数据。
+  </br></figcaption>
+</img></figure>
+<h3>2. 用户意向到全功能应用交付</h3>
+<p>除了静态分析，托管环境中的 Argon 能够在沙盒内完成从界面构思、玩法编写、自主试玩调试到最终交付的全套流程。</p>
+<figure>
+<img />
+<figcaption>
+<span>像素街机游戏生成入口。</span><br>
+    展示了 Pixel Arcade 的生成交互起始屏，使用者只需输入昵称与游戏意向，这个应用会让托管 Agent 构建并试玩游戏，再返回结果。
+  </br></figcaption>
+</figure>
+<h3>3. 把空间与光影写成可以运行的程序</h3>
+<p>图书馆视频展示了一条具体实现路径：Argon 编写约 5,500 行 Python/NumPy 代码，用光线追踪表现窗边日光、木材、玻璃和阴影。光线追踪会计算光线与场景物体怎样相遇，再形成画面中的明暗与反射。这个案例把数学实现变成了能观察的视觉结果。</p>
+<figure>
+<figcaption>
+<span>纯 Python/NumPy 构建的光线追踪渲染。</span><br />
+    画面展示了 Argon 编写的约 5,500 行原生 Python 光线追踪引擎，独立实现了程序化材质（Procedural Materials）、日光阴影（Daylight &amp; Shadows）以及玻璃焦散（Glass Caustics）渲染，背景音轨则由多模态音乐模型 Lyria 3.5 协同生成。
+  </figcaption>
+</figure>
+<h2>让 Argon 定方向，让 Flash 并行执行</h2>
+<p>Google 团队给出了一种分工方式：Argon 负责拆任务、设计接口和审查结果；把范围清楚、可以独立推进的实现工作交给 Gemini 3.8 Flash 子代理。这样可以并行探索，同时把整体架构交给同一个主控把关。</p>
+<h3>分工逻辑</h3>
+<ol>
+<li><strong>主控 Argon（设置 <code>thinking_level="medium"</code> 或 <code>"high"</code>）</strong>：专注于大局。通读整个项目背景、理清架构设计、敲定模块边界与 API 规范，并在各子任务交付后进行严格的代码审查（Code Review）；</li>
+<li><strong>Flash 子代理（如 Gemini 3.8 Flash）</strong>：并行打下手。负责全代码库快速关键词扫描、批量补写单元测试样板代码、迁移相互独立的小模块；</li>
+<li><strong>分别负责图像、语音和音乐的模型</strong>：如界面 UI 图像与像素精灵交给 Nano Banana，语音交给 Gemini 3.8 Flash TTS，音乐交给 Lyria。</li>
+</ol>
+<figure>
+<figcaption>
+<span>单 Argon 与 Argon 加 Flash 子代理的同场景对照。</span><br />
+    在火星漫游车着陆物理仿真任务中（需考虑降落伞撕裂阈值、推进器燃料、横向侧风与 18 度撞击坑坡度），左侧单 Argon 耗时 14 分 13 秒历经 6 次设计，花费 0.11 美元；右侧 Argon 统筹 Flash 子代理耗时 8 分 33 秒历经 26 次设计，花费 0.08 美元完成安全着陆。
+  </figcaption>
+</figure>
+<p>视频只有 26 秒，压缩展示的是数分钟运行过程。这一次演示中，协作方案尝试了更多设计，用时和费用也更低；单个案例不能证明所有工程任务都会得到同样的收益。</p>
+<h2>任务结束后，留下可复用的经验和解释</h2>
+<p>在长时间自主编码或调试复杂的边缘问题时，模型不可避免会走弯路。项目代码库中常常隐藏着各种非显性的“暗坑”——例如某些私有构建参数、特定的代码规范偏好、已经废弃却未清理的内部工具库。</p>
+<p>如果每次开启新会话都让模型从零摸索，会白白浪费大量 Token。可以在任务结束后，<strong>让 Argon 复盘本次会话全过程，把摸索出的教训提取出来，直接沉淀到代码库的 <code>AGENTS.md</code> 文件或团队 Skill 中。</strong></p>
+<h4>实战资产：会话复盘与经验固化 Prompt</h4>
+<p>在复杂调试告一段落时，中英文任选一种发送给模型：</p>
+<p><strong>英文原文</strong></p>
+<div><pre><code>Investigate our current session to see where things stalled or required extra steps, and analyze why. Propose updates to our AGENTS.md or custom skills so we can improve our flow and take a more direct path next time.
+</code></pre></div>
+<p><strong>中文翻译</strong></p>
+<div><pre><code>请深入审查我们当前会话的完整执行过程，定位在哪些步骤出现了停滞或耗费了多余的调试轮次，并分析具体原因。随后，请为我们项目根目录的 AGENTS.md 文件或自定义技能规范（Custom Skills）提出增量修改建议，以便我们在后续会话中规避这些陷阱，直接走通最高效的操作路径。
+</code></pre></div>
+<p>长任务改了几十个文件后，人也需要理解方案。可以要求 Argon 生成一张可交互的架构图、数据流图或逐步管线讲解，把改动怎样协作展示出来。它能帮助审阅者在合并前检查设计，也能让不熟悉渲染算法或数学逻辑的人看懂改动的作用；测试通过和解释清楚，分别承担验证与理解的任务。</p>
+<h2>百万 token 怎样分给材料、思考与回答</h2>
+<p>Argon 的统一窗口上限是 <strong>1,048,576 token，由输入、思考和回答共同使用</strong>。（token 是模型处理内容时使用的计量单位，并不等于一个字或一个单词）它允许一个难题使用更多推理与回答空间，也意味着输入材料越多，留给生成的余量越少。</p>
+<p>例如，输入已经用了 800,000 token，思考和回答合计最多还剩 248,576 token。这个算术关系不会因为把输出参数设得更大而改变。</p>
+<h3>思考档位决定投入，额度上限决定何时停止</h3>
+<p><code>thinking_level</code> 有三档：<code>low</code> 适合分类、路由与定向提取；默认 <code>medium</code> 面向多数编程和 Agent 工作；<code>high</code> 适合最难的跨文件排错、数学与科学推理。可以在自己的任务上比较三档，选达到质量要求的最低一档。</p>
+<p>另一个参数 <code>max_output_tokens</code> 限制的是<strong>思考加回答的总量</strong>。假设把它设成 8,192，而模型把额度全部用于思考，最后可能没有可见回答。这是额度耗尽的可能情形，并不是 <code>high</code> 固定会消耗多少 token。</p>
+<p>想降低推理投入，可以调低思考档位；把额度硬压得很小，则可能把尚未完成的回答截断。更高上限也只是允许模型多用一些，不能保证答案更好或一定写满。</p>
+<div>
+<h3>一百万 token，怎样分给输入、思考和回答？</h3>
+<p>这是额度算术示例。思考用量由你假设，<strong>不是根据模型档位预测</strong>；给出的回答空间也是上限，不代表模型一定写满。</p>
+</div>
+<div>
+输入材料 50,000 token
+本轮思考＋回答的额度上限
+8,19265,536（默认）262,1441,048,576（仍需扣除输入）
+假设思考使用 16,384 token
+使用 Interactions API 后台模式（background=True）
+</div>
+<div><span></span><span></span><span></span></div>
+<div><span>蓝：输入</span><span>紫：假设思考</span><span>绿：回答空间</span><span>底色：未分配</span></div>
+<div>
+<div><span>窗口扣除输入后</span><strong>998,576</strong><span>token 可供思考与回答</span></div>
+<div><span>本例中回答最多可用</span><strong>49,152</strong><span>token</span></div>
+</div>
+<p>max(0，min(65,536，1,048,576 − 50,000) − 16,384) = 49,152</p>
+<p>额度同时覆盖思考与回答。thinking_level 调整推理投入，没有固定 token 换算表。</p>
+<p>本例的额度未超过 64K，无需长解码。多轮 Agent 每轮都很短时，通常也不需要开启长解码。</p>
+<h3>长解码怎样接着生成</h3>
+<p>在 Interactions API 中，普通流式与非流式请求默认都以 65,536 token 为上限。需要超过它时，必须同时设置 <code>background=True</code> 和大于 65,536 的 <code>max_output_tokens</code>；只开启后台模式，默认仍停在 64K。</p>
+<p>服务端会以每段最多 64K token 继续生成：第一段结束后，将原始输入与已经生成的内容交给下一段，直到模型结束或达到额度。每段都在同一个 interaction 中留下一个 <code>model_output</code> 步骤，取结果时需要把这些步骤的文本合并。</p>
+<p>这里会出现一个容易误读的数字：<strong><code>total_input_tokens</code> 是各段输入的累计值，不是当前窗口大小。</strong>官方示例中，1,000 token 输入生成 200,000 token 的思考与回答，分成四段；各段输入合计约 397,000 token，但窗口里实际只需容纳约 201,000 token。重复输入有隐式缓存优惠，仍应根据实际用量核对费用。</p>
+<p>长解码解决的是某一次响应需要很长思考或输出的问题。Agent 如果每次调用工具只用很短一轮，通常不需要长解码；把每一轮都放大，反而会更快填满共享窗口。大多数普通任务也不必开启它，更不能把上限理解为模型能按要求稳定写出固定字数。</p>
+<p>Interactions API 的方式由服务器负责续接；如果要自己管理每段重试与错误恢复，GenerateContent API 也提供客户端续接方式。</p>
+<h2>怎样开始使用，以及迁移时要改什么</h2>
+<p>不想写代码，可以在 <a href="https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon">Google AI Studio Playground</a> 试提示词，或在 <a href="https://aistudio.google.com/build">AI Studio Build</a> 做应用。指南列出的使用路径包括 Google AI Ultra 订阅，以及 Gemini API 付费层；Ultra 用户也可以在 <a href="https://antigravity.google/">Google Antigravity</a> 选择 Argon 进行复杂任务规划与执行。</p>
+<p>要在自己的程序中调用，可以使用 Google 官方 <code>google-genai</code> SDK。下面示例用于说明接入方式，未在本次解读中执行付费 API 调用。</p>
+<h3>1. 前置准备与环境配置</h3>
+<p>首先安装官方最新 SDK：</p>
+<div><pre><code>pip install google-genai
+</code></pre></div>
+<p>在运行任何代码前，必须确保终端中已配置有效的付费 API 密钥（Gemini 4 Argon 为全功能付费模型，暂不提供免费配额层）：</p>
+<div><pre><code>export GEMINI_API_KEY="your-paid-api-key-here"
+</code></pre></div>
+<h3>2. 基础调用：单文件 Web Audio 鼓机与合成器生成</h3>
+<p>体验 Argon 的默认开发调用方式非常直接。以下官方示例使用默认 <code>thinking_level="medium"</code> 请求生成带 16 步进音序器与动态波形显示的独立音频 Web 应用：</p>
+<div><pre><code>from google import genai
+client = genai.Client()
+interaction = client.interactions.create(
+    model="gemini-4-argon",
+    input=(
+        "Build a single-file HTML drum machine and synth using the "
+        "Web Audio API with a 16-step sequencer, tempo slider, and "
+        "a live waveform visualizer."
+    ),
+    generation_config={
+        "thinking_level": "medium"  # 可选: "low" | "medium" (默认) | "high"
+    },
+)
+print(interaction.output_text)
+</code></pre></div>
+<p>把代码存成 <code>try_argon.py</code>，在配置好密钥的同一终端运行 <code>python3 try_argon.py</code>，终端会打印生成结果。检查返回内容，把其中完整 HTML 保存成 <code>drum-machine.html</code>，用浏览器打开后尝试音序器、速度滑块和波形显示。生成结果可能需要调试，应以实际运行效果验收。</p>
+<h4>不写调用代码，也可以发送鼓机提示词</h4>
+<p>中英文任选一种；<a href="https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&amp;amp;prompt=Build%20a%20single-file%20HTML%20drum%20machine%20and%20synth%20using%20the%20Web%20Audio%20API%20with%20a%2016-step%20sequencer%2C%20tempo%20slider%2C%20and%20a%20live%20waveform%20visualizer.">在 AI Studio 打开已填入英文提示词的官方示例</a>。</p>
+<ul>
+<li><strong>英文原文</strong>：<code>Build a single-file HTML drum machine and synth using the Web Audio API with a 16-step sequencer, tempo slider, and a live waveform visualizer.</code></li>
+<li><strong>中文意译</strong>：<code>使用 Web Audio API 构建一个单文件 HTML 鼓机与合成器，包含 16 步进音序器、节拍速度滑块以及实时音频波形可视化画布。</code></li>
+</ul>
+进阶：长解码后台任务完整代码与状态处理
+<h3>长解码后台任务模式（跨越 64K 生成边界）</h3>
+<p>对于需要超长推导或生成完整大型源码库的任务，必须显式开启 <code>background=True</code>，并赋予充足的 <code>max_output_tokens</code>。下面代码由开发者每隔 5 秒查询状态，再拼接各段 <code>model_output</code>。后台方式要求保存交互（<code>store=True</code>）；示例中的证明请求来自官方文档，生成文本仍需要数学核验。</p>
+<div><pre><code>import time
+from google import genai
+client = genai.Client()
+# 发起长解码后台任务
+interaction = client.interactions.create(
+    model="gemini-4-argon",
+    input="Write a complete, rigorous proof of the prime number theorem.",
+    background=True,
+    store=True,
+    generation_config={
+        "max_output_tokens": 262144,  # 提升硬顶，防止思考吃满正文
+        "thinking_level": "high",      # 极高难度任务开启高思考
+    },
+)
+# 轮询等待后台分段 Hop 生成完成
+while interaction.status in ("in_progress", "queued"):
+    time.sleep(5)
+    interaction = client.interactions.get(id=interaction.id)
+# 退出等待后检查状态；completed 表示生成结束，不代表内容已核验。
+if interaction.status != "completed":
+    raise RuntimeError(f"Interaction ended with {interaction.status}: inspect status and usage")
+# 合并各段 model_output 文本
+text = "".join(
+    content.text
+    for step in interaction.steps
+    if step.type == "model_output"
+    for content in step.content
+    if content.type == "text"
+)
+print(text)
+print("最终交互状态:", interaction.status)
+print("实际计费使用统计:", interaction.usage)
+</code></pre></div>
+<p><code>completed</code> 表示这次生成已结束；<code>requires_action</code> 表示需要执行工具并回传结果；<code>incomplete</code> 可能是额度用完；<code>failed</code> 与 <code>cancelled</code> 需分别处理。退出等待循环不能直接当成成功。多轮对话或工具调用可通过 <code>previous_interaction_id</code> 续接已有交互。</p>
+进阶：让托管 Agent 搜索、运行代码并验证
+<h3>接入托管沙盒 Agent（Managed Agents）</h3>
+<p>如果你希望直接借助 Google 托管的基础设施让 Argon 自主调用网络搜索、运行代码并生成审查报告，可以调用托管 Antigravity Agent。它提供运行沙箱与工具调度环境，支持搜索、写代码、验证以及调用 MCP 工具。MCP 是让 Agent 接入外部工具的一种接口方式。下面示例要求它检查网站表现并整理优先修复项：</p>
+<div><pre><code>from google import genai
+client = genai.Client()
+interaction = client.interactions.create(
+    agent="antigravity-preview-09-2026",
+    agent_config={
+        "type": "antigravity",
+        "model": "gemini-4-argon",
+    },
+    input=(
+        "Audit https://web.dev for performance, Core Web Vitals, and SEO. "
+        "Query Google's PageSpeed Insights API for both Mobile and Desktop strategies. "
+        "Check search indexing with Google Search for site:web.dev. "
+        "Format the output as a side-by-side scorecard table with prioritized fixes."
+    ),
+    environment="remote",
+)
+print(interaction.output_text)
+</code></pre></div>
+<h3>从旧模型迁移时的关键改动清单</h3>
+<p>如果你正准备把现有的 Gemini 项目切换到 <code>gemini-4-argon</code>，要检查参数兼容性和运行设置：</p>
+<ol>
+<li><strong>废弃 <code>thinking_budget</code></strong>：改为使用显式的 <code>thinking_level</code>（"low" | "medium" | "high"）；</li>
+<li><strong>彻底移除采样参数</strong>：<code>temperature</code>、<code>top_p</code>、<code>top_k</code> 在 Argon 中已不再生效，强行传入会收到废弃警告；</li>
+<li><strong>下线显式缓存管理</strong>：不要再调用 <code>cachedContents</code> 或 <code>caches.create</code>。Argon 对至少 4,096 token 的提示词默认启用隐式缓存，只有命中的输入部分享受 95% 折扣；</li>
+<li><strong>拉长客户端网络超时</strong>：深度推理或长解码单次任务可能持续运行数分钟，务必开启 <code>background=True</code>，或将 HTTP 客户端超时时间至少设置为 15 至 20 分钟。</li>
+</ol>
+<h2>价格怎样算，长时间运行要留意什么</h2>
+<p>Gemini 4 Argon 不提供 Gemini API 免费层。官方列出了促销价与之后恢复的常规价，截止与生效安排见页末来源说明及官方实时定价。</p>
+<div><table>
+<thead>
+<tr>
+<th>计费项 (每 1M Tokens)</th>
+<th>当前促销价</th>
+<th>之后常规价</th>
+<th>关键适用条件与计费说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>常规输入 (Input)</strong></td>
+<td><strong>$2.00</strong></td>
+<td><strong>$4.00</strong></td>
+<td>包含提示词、上传的多模态媒体及历史会话上下文</td>
+</tr>
+<tr>
+<td><strong>缓存输入 (Cached Input)</strong></td>
+<td><strong>$0.10</strong></td>
+<td><strong>$0.20</strong></td>
+<td><strong>命中部分减免 95%</strong>。要求单次输入达到 4,096 Tokens 阈值且命中隐式缓存</td>
+</tr>
+<tr>
+<td><strong>输出与思考 (Output &amp; Thinking)</strong></td>
+<td><strong>$10.00</strong></td>
+<td><strong>$20.00</strong></td>
+<td><strong>按输出费率计费</strong>。模型在后台展开的深度思考（Thought Tokens）与最终正文按统一费率结算</td>
+</tr>
+</tbody>
+</table></div>
+<h3>必须看清的成本底线</h3>
+<ol>
+<li><strong>思考过程也付费</strong>：假设模型为一个棘手问题使用了 10 万个思考 token，这 10 万个 Token 与最终回答中的 token 按同一输出费率收费。因此，面对简单工作，切忌随意将 <code>thinking_level</code> 拉到 <code>high</code>；</li>
+<li><strong>分段续接会重复读取输入</strong>：各段输入累计会拉高 <code>total_input_tokens</code>，重复读取的部分有 95% 的隐式缓存折扣。核对成本时要区分输入、缓存命中输入、思考和回答。</li>
+</ol>
+<p>后台任务即使失败或取消，已经执行的部分仍会计费。结束后应查看 <code>usage</code>，而不是只看有没有得到最终正文。</p>
+</div><div><div><h2>实操带走包</h2><p>滚动查看原始 Markdown，复制后可按团队实际系统与政策修改。</p></div><span>Markdown · 会员</span></div><pre>正在载入 Markdown…</pre><div>复制 Markdown下载 .md<span></span></div><a></a><div><div><div>来源</div><div><span>Gemini 4 Argon: Developer Guide</span><span>Geneviève Huskens、Jack Wotherspoon / Google<span>·</span>2026-10-13<span>·</span><a href="https://aistudio.google.com/learn/gemini-4-argon-developer-guide">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://ai.google.dev/gemini-api/docs/latest-model">What’s new in Gemini 4 Argon</a><span>·</span><a href="https://ai.google.dev/gemini-api/docs/long-decode">Long decode</a></div></div><div><div>本站说明</div><div>指南发布于2026-10-13；本次核对时间为2026-10-20。官方促销价截至2026-11-30，2026-12-01起恢复文中常规价；使用前请核对官方实时定价。原文作者头像及品牌标志不纳入正文，其余两张应用截图和两段视频均保留。</div></div></div></div></div>
+<div>
+<div>GOOGLE · GEMINI 4 ARGON</div>
+<h1>长任务怎么交给 AI，结果怎么验收</h1>
+<div>Gemini 4 Argon 面向需要持续推进的复杂工作。让它改代码、运行工具、根据结果再修改，关键是把目标变成可检查的反馈。</div>
+<div>一页纸速读 · 从修好一个网站，理解长任务的工作方式</div>
+<div>
+<p>假设要修好整个网站的布局和无障碍问题。只让 AI 生成一段代码，还不知道页面是否真的变好；给它能运行的项目、测试和浏览器，它才能检查修改结果，再继续排错。</p>
+</div>
+<h2>先约定“怎样算修好”，再让检查推动下一步</h2>
+<div>
+<div><span>01 →</span><strong>约定目标与边界</strong><p>哪些页面、哪些设备要检查？什么结果算通过？不可逆操作由人确认。</p></div>
+<div><span>02 →</span><strong>测出修改前的基线</strong><p>没有检查脚本，就先写一个。记录当前失败项，留下前后比较的依据。</p></div>
+<div><span>03 →</span><strong>按共同根因修改</strong><p>多个页面都被同一个导航组件影响，就先修这个组件，减少逐页打补丁。</p></div>
+<div><span>04 ↺</span><strong>重跑同一套检查</strong><p>确认问题解决、其他页面未受影响。没通过，就根据报错回到定位与修改。</p></div>
+</div>
+<div><strong>未达标 → 继续定位、修改、复验；达标 → 交付。</strong><br />脚本“零违规”只说明它能检查的项目通过，真实页面的阅读、操作和视觉效果仍需查看。</div>
+<h2>百万 token 是共享空间，材料越多，生成余量越少</h2>
+<p>token 是模型处理内容的计量单位。Argon 的输入、思考和回答共用一个窗口，不是各有一百万。</p>
+<div>1,048,576 <span>token 总窗口</span></div>
+<div><div>输入</div><div>剩余</div></div>
+<div><div><strong>示例输入：800,000</strong>提供给模型的材料</div><div><strong>最多余下：248,576</strong>思考＋回答一起使用</div></div>
+<div><code>thinking_level</code> 调整推理投入；<code>max_output_tokens</code> 限制<strong>思考＋回答的总量</strong>。若思考把额度用完，可能没有可见回答。上限更高也不保证答案更好或一定写满。</div>
+<p><strong>思考也按输出费率计费。</strong>用实际 <code>usage</code> 核对成本，失败或取消前已执行的部分仍会计费。</p>
+<h2>Argon 把关，Flash 并行做范围清楚的工作</h2>
+<div><span>Argon</span><span>拆任务、设计接口，汇总并审查结果。</span></div>
+<div><span>Flash</span><span>并行扫描代码、补测试样板、迁移互不依赖的小模块。</span></div>
+<p>官方火星漫游车着陆仿真中，协作方案尝试了更多设计，用时和费用更低：</p>
+<div><table><thead><tr><th>方案</th><th>耗时</th><th>设计</th><th>费用</th></tr></thead><tbody><tr><td>单 Argon</td><td>14分13秒</td><td>6次</td><td>$0.11</td></tr><tr><td>Argon＋Flash</td><td>8分33秒</td><td>26次</td><td>$0.08</td></tr></tbody></table></div>
+<div>这是一场仿真演示的结果，不能推断所有工程任务都有同样收益。</div>
+<h2>一次需要很长回答时，才考虑长解码</h2>
+<p>Interactions API 默认上限为 65,536 token。超过它，需同时开启 <code>background=True</code>，并把 <code>max_output_tokens</code> 设得更高；只开后台模式仍停在默认上限。</p>
+<div><div><strong>首段：最多 64K</strong><br />原始输入 → 开始生成</div><div>→</div><div><strong>后续：每段最多 64K</strong><br />原始输入＋已生成内容 → 继续生成</div></div>
+<p>最后合并各段 <code>model_output</code> 文本。各段输入的累加值<strong>不是当前窗口大小</strong>；重复读取的输入只有命中隐式缓存的部分才享 95% 折扣。</p>
+<div><p>每轮都很短的 Agent 通常不需要长解码。生成 <code>completed</code> 也不代表内容正确，结果仍要验收。</p></div>
+<div><p><strong>任务完成后，把经验留下。</strong>让 Argon 复盘哪里停滞、为何多走弯路，把改进建议写进 <code>AGENTS.md</code> 或团队技能，供下次复用。</p></div>
+</div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://aistudio.google.com/learn/gemini-4-argon-developer-guide">看原网页 ↗</a></p></div><div></div><div><div><h1>Gemini 4 Argon: Developer Guide | Google AI Studio</h1></div><div><p>Developer guide for our frontier model, Gemini 4 Argon. What is new and tips and tricks to get the most out of the model.</p></div><div><p>Developer guide</p></div><div><p>Gemini 4 Argon is our new frontier model for complex workflows across real-world software engineering, enterprise knowledge work, and cybersecurity defense.</p></div><div><figure><img src="https://www.gstatic.com/aistudio-static/editorial/page-msrgq2u0/jack-wotherspoon.webp" alt="Jack Wotherspoon" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>Published October 13, 2026</p></div><div><p>Today, we are <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/">rolling out <strong>Gemini 4 Argon</strong></a> globally to developers and enterprises. You can start building using the paid tier of the Gemini API in Google AI Studio, and for Google AI Ultra subscribers in AI Studio and our agent-first development platform, <a href="https://antigravity.google/">Google Antigravity</a>.</p></div><div><p>Gemini 4 Argon is trained to <strong>work longer</strong> and <strong>retain context better</strong> than any previous Gemini model. From large-scale codebase refactoring and performance optimizations to vulnerability patching and multimodal synthesis, it is built to take on your hardest tasks, from start to finish.</p></div><div><h3>Gemini 4 Argon model overview</h3></div><div><div><div><table><thead><tr><th>Model</th><th>Model ID</th><th>Default thinking</th><th>Pricing (per 1M tokens)</th></tr></thead><tbody><tr><td><strong>Gemini 4 Argon</strong></td><td><code>gemini-4-argon</code></td><td><code>medium</code></td><td><strong>Intro (through Nov 30):</strong> $2 input · $10 output <em>(95% off cached)</em> <strong>From Dec 1:</strong> $4 input · $20 output · <a href="https://aistudio.google.com/docs/pricing">Pricing details</a></td></tr></tbody></table></div></div></div><div><p>Argon supports a <strong>unified 1M token context window</strong> via the Gemini API for input and output tokens (up from 64k in previous models), tunable thinking levels (<code>low</code>, <code>medium</code>, <code>high</code>), and the same suite of built-in Gemini API tools.</p></div><div><p>In this guide, we cover what is new in Gemini 4 Argon and share practical tips for building with the model. For more on how Gemini 4 Argon is being used across robotics, science, finance, legal and more, check out our <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">announcement blog post</a>.</p></div><div><h2>What Gemini 4 Argon unlocks across developer workflows</h2></div><div><p>Gemini 4 Argon's enhanced reasoning and problem solving capabilities give it the room to work through massive problems from start to finish.</p></div><div><ol><li><strong>Long-horizon engineering and security tasks:</strong> Hand Argon a measurable target—like untangling a legacy subsystem, refactoring a codebase from C++ to Rust, or remediating security vulnerabilities and let it build its own verification harness, test hypotheses against compiler or runtime output, and iterate until the task is done.</li><li><strong>End-to-end multimodal and business workflows:</strong> Point Argon at dense folders mixing long videos, PDFs, spreadsheets, financial ledgers, or legal filings to cross-reference facts across formats and turn unstructured inputs directly into interactive dashboards, slides, or audited redlines.</li><li><strong>3D visualizations, simulations, and full-stack apps:</strong> Combine Argon's spatial reasoning and visual code generation across tools like Blender, Three.js, and WebGPU to build complex 3D scenes, physics simulations, and full-stack web apps. Check out our companion guide, <a href="https://aistudio.google.com/learn/building-3d-games-and-worlds-with-gemini-4-argon?e=0"><strong>Building 3D Games and Procedural Worlds with Gemini 4 Argon</strong></a>, for practical workflows.</li></ol></div><div><h2>What’s new in the API</h2></div><div><p>Before diving into workflow tips, here are the key API updates to know when calling <code>gemini-4-argon</code> via the Gemini API:</p></div><div><h3>Controlling reasoning depth with thinking_level</h3></div><div><p>Gemini 4 Argon uses <code>thinking_level</code> (<code>"low"</code> | <code>"medium"</code> | <code>"high"</code>) to control how much reasoning (thinking) the model does before responding:</p></div><div><p>• <strong><code>"high"</code>:</strong> Maximizes reasoning depth for multi-file root-cause debugging, security vulnerability patching, formal math, and upfront architecture design.</p></div><div><p>• <strong><code>"medium"</code> (default):</strong> Recommended when you want an optimal balance of speed, cost efficiency, and high first-pass accuracy across interactive coding and agentic tool use.</p></div><div><p>• <strong><code>"low"</code>:</strong> Minimizes latency and cost for high-speed classification, routing, and targeted extraction.</p></div><div><p>python</p></div><div><p>12345678910111213141516</p></div><div><pre><code>from google import genai
+client = genai.Client()
+interaction = client.interactions.create(
+    model="gemini-4-argon",
+    input=(
+        "Build a single-file HTML drum machine and synth using the "
+        "Web Audio API with a 16-step sequencer, tempo slider, and "
+        "a live waveform visualizer."
+    ),
+    generation_config={
+        "thinking_level": "medium"  # "low" | "medium" (default) | "high"
+    },
+)
+print(interaction.output_text)</code></pre></div><div><p>123456789101112131415</p></div><div><pre><code>import { GoogleGenAI } from "@google/genai";
+const client = new GoogleGenAI({});
+const interaction = await client.interactions.create({
+  model: "gemini-4-argon",
+  input:
+    "Build a single-file HTML drum machine and synth using the " +
+    "Web Audio API with a 16-step sequencer, tempo slider, and " +
+    "a live waveform visualizer.",
+  generation_config: {
+    thinking_level: "medium", // "low" | "medium" (default) | "high" 
+  },
+});
+console.log(interaction.output_text);</code></pre></div><div><h3>Unified 1M input-output token limit and long decodes</h3></div><div><p>Earlier Gemini models capped max output (thinking + response) at 64K tokens. In Gemini 4 Argon, input, thinking, and output share a unified 1M-token window in the Gemini API, and you can use <strong>long decode</strong> to generate past 64K tokens (up to 1M tokens minus your input) so Argon can think as long as needed and still return complete multi-file diffs, test suites, or long-form proofs in a single pass.</p></div><div><ul><li><strong>Default output limit is</strong> <code>65,536</code> <strong>(</strong><code>64K</code><strong>) tokens:</strong> On the Interactions API, both streaming and non-streaming requests default to <code>65,536</code> tokens with no code changes required.</li><li><strong>Generate up to 1M tokens with</strong> <code>background=True</code><strong>:</strong> To generate past <code>65,536</code> tokens on the Interactions API, set <code>background=True</code> and set <code>max_output_tokens</code> above <code>65536</code>. Set it high enough that thinking doesn't cut the answer short, and low enough to limit spend when a hard prompt uses all of it.</li></ul></div><div><p><strong>NOTE:</strong> If you need finer-grained control over long decode, you may prefer client-side continuation for long decoding, which is currently only available via the legacy <strong>GenerateContent API</strong>. Client-side continuation will soon come to the Interactions API as a more advanced option to manage your own resilience.</p></div><div><p><a href="https://aistudio.google.com/docs/long-decode">See the long decode docs for more details</a></p></div><div><p>python</p></div><div><p>12345678910111213141516171819202122232425262728293031</p></div><div><pre><code>import time
+from google import genai
+client = genai.Client()
+interaction = client.interactions.create(
+    model="gemini-4-argon",
+    input="Write a complete, rigorous proof of the prime number theorem.",
+    background=True,
+    generation_config={
+        "max_output_tokens": 262144,
+        "thinking_level": "high",
+    },
+)
+while interaction.status in ("in_progress", "queued"):
+    time.sleep(5)
+    interaction = client.interactions.get(id=interaction.id)
+# Each segment adds a model_output step, so join the text of all of them.
+text = "".join(
+    content.text
+    for step in interaction.steps
+    if step.type == "model_output"
+    for content in step.content
+    if content.type == "text"
+)
+print(text)
+print("Status:", interaction.status)
+print("Usage:", interaction.usage)</code></pre></div><div><p>See the <a href="https://aistudio.google.com/docs/latest-model">What's new in Gemini 4 Argon</a> for details on updating hardcoded <code>64K</code> synchronous output limits, background retention, dynamic output clamping, and stateless continuation.</p></div><div><h3>Migrating from previous models</h3></div><div><p>When migrating to Gemini 4 Argon, clean up the following parameters:</p></div><div><ul><li><strong>Replace</strong> <code>thinking_budget</code> <strong>with</strong> <code>thinking_level</code><strong>:</strong> <code>thinking_budget</code> is deprecated and returns a warning.</li><li><strong>Remove</strong> <code>temperature</code><strong>,</strong> <code>top_p</code><strong>, and</strong> <code>top_k</code><strong>:</strong> Custom sampling values are ignored by <code>gemini-4-argon</code> and return a deprecation warning.</li><li><strong>Move off explicit context caching:</strong> Remove calls that create or pass explicit <code>cached_content</code>. Implicit caching is enabled automatically at a <strong>95% discount</strong> on cached input tokens.</li><li><strong>Increase client timeouts:</strong> Hard reasoning prompts can take several minutes. Use <code>background=True</code> on the Interactions API, or set your HTTP client timeout to at least 15 to 20 minutes.</li></ul></div><div><p>For full details, check out our <a href="https://ai.google.dev/gemini-api/docs/latest-model#migration-checklist">migration checklist</a>, or install the <code>gemini-api-dev</code><a href="https://ai.google.dev/gemini-api/docs/coding-agents#gemini-api-dev">skill</a> in your coding agent and ask it to migrate your codebase to <code>gemini-4-argon</code>.</p></div><div><h2>Use Gemini 4 Argon in managed agents</h2></div><div><p>You can also use <code>gemini-4-argon</code> as the model for <a href="https://ai.google.dev/gemini-api/docs/antigravity-agent">Managed Agents in the Gemini API</a>. Managed agents provide a hosted sandbox and the Antigravity harness where Argon's frontier reasoning can search the web, write code, verify work, and call MCP tools all with a single API call.</p></div><div><p>python</p></div><div><p>123456789101112131415161718192021</p></div><div><pre><code>from google import genai
+client = genai.Client()
+interaction = client.interactions.create(
+    agent="antigravity-preview-09-2026",
+    agent_config={
+        "type": "antigravity",
+        "model": "gemini-4-argon",
+    },
+    input=(
+        "Audit https://web.dev for performance, Core Web Vitals, and SEO. "
+        "Query Google's PageSpeed Insights API for both Mobile and Desktop strategies. "
+        "Check search indexing with Google Search for site:web.dev. "
+        "Format the output as a side-by-side scorecard table with prioritized fixes."
+    ),
+    environment="remote",
+)
+print(interaction.output_text)</code></pre></div><div><p>1234567891011121314151617181920</p></div><div><pre><code>import { GoogleGenAI } from "@google/genai";
+const client = new GoogleGenAI({});
+let interaction = await client.interactions.create({
+    model: "gemini-4-argon",
+    input: "Write a complete, rigorous proof of the prime number theorem.",
+    background: true,
+    generation_config: {
+        max_output_tokens: 262144,
+        thinking_level: "high",
+    },
+});
+while (["in_progress", "queued"].includes(interaction.status)) {
+    await new Promise((resolve) =&gt; setTimeout(resolve, 5000));
+    interaction = await client.interactions.get(interaction.id);
+}
+console.log(interaction.output_text);</code></pre></div><div><h3>Finance Story</h3></div><div><p>A personalized interactive visualization for your finances built by Argon. Drop in your transactions from the past year and let the agent turn them into animations and visuals.</p></div><div><figure><img src="https://www.gstatic.com/aistudio-static/applets/finance-story/image.png" alt="Finance Story - a Gemini Managed Agent" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><h3>Pixel Arcade</h3></div><div><p>An arcade machine that lets you generate your own personalized games. Choose a character and type of game style you want and a managed agent builds, plays, and returns you a working game.</p></div><div><figure><img src="https://www.gstatic.com/aistudio-static/applets/pixel-arcade/image.png" alt="Pixel Arcade - a Gemini Managed Agent" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><h2>5 practical tips for building with Gemini 4 Argon</h2></div><div><p>Here are five patterns we’ve seen our teams use to get the most out of the model and tackle their hardest problems.</p></div><div><h3>1. Align on intent before long runs</h3></div><div><p>Gemini 4 Argon can work on a task independently for a long time. This means that clear alignment upfront on measurable goals and key milestones helps you get to your result most effectively. Once pointed at a clear goal, the model holds context across long runs on its own really well. To make sure a long autonomous run is pointed at the exact right target from step one:</p></div><div><ul><li><strong>Share your goal and ask Argon to surface clarifying questions</strong> about edge cases and success criteria upfront.</li><li><strong>Ideate with Argon while scoping:</strong> Use the planning phase to pressure-test architecture and explore creative solutions. In our workflows, we’ve seen it suggest novel upgrades across the stack - from designing surprising gameplay mechanics and procedural visual effects to recommending cleaner data models and more intuitive API design.</li><li><strong>Run a quick pre-flight check:</strong> Have Argon confirm it has access to the required tools, docs and understands the intent before starting.</li><li><strong>Step back and let Argon run to completion:</strong> Instead of prompting turn by turn, let Argon execute the full plan autonomously - writing code, running checks, and iterating across files until it hits the target you agreed on, while pausing for your confirmation before taking irreversible steps.</li></ul></div><div><h3>2. Give the model a way to verify its work</h3></div><div><p>Argon does its best long-horizon work when it can test its own changes against a real feedback loop. Instead of making Argon guess whether a fix worked, give it a concrete signal to check: point it at your test suite, pipe in runtime logs, let it take browser screenshots to inspect the UI, or ask it to write a verification script and iterate in a loop until every check passes. Better yet, have Argon write a reproducible verification script, record a baseline score, and test every change against that script in a loop until the target is met. With a concrete pass/fail target, Argon can record a baseline, test hypotheses in a loop, and iterate until the checks are green.</p></div><div><p>If you don’t have something to measure, ask Argon to help analyze your project and <strong>build a baseline benchmark</strong>.</p></div><div><p>prompt</p></div><div><p>We want to fix accessibility and layout issues across our web app, but we don't have automated checks yet. First, write a headless Chrome script that crawls every route in src/routes/, inspects the live DOM and accessibility tree, and logs all violations to record our baseline score. Group the failing checks into shared root causes across our shared components, then fix them one cluster at a time. Re-run your script after each change to verify that each single fix resolves the entire cluster with zero regressions. Keep going until all routes pass with zero violations.</p></div><div><h3>3. Use multimodal references</h3></div><div><p>Gemini models have long been great at multimodal capabilities and Gemini 4 Argon is no different. It can take in images, audio, video, code, and text as input. Pass reference images when building frontends or recreating images in 3D builds, or pass it a video when you want to recreate a certain animation or interaction on your web app.</p></div><div><p>If you have a specific target style in mind for your project, point Argon at 1–2 concrete visual references, or ask it to summarize your typography, color palette, and layout rules into a lightweight <code>DESIGN.md</code> file first so every component stays visually cohesive.</p></div><div><p>Gemini 4 Argon also includes agentic video understanding, which lets the model dynamically scrub across timestamps, inspect individual frames in high resolution, and connect what it sees on screen with spoken narration or console audio. Try recording a quick screen-share where you click through your app and talk through rough edges out loud, capturing a tricky timing bug alongside your live console logs, or drop in a 20-minute user testing recording and ask Argon to pinpoint where users got stuck and patch the underlying components.</p></div><div><h3>4. Use Argon as an orchestrator</h3></div><div><p>For deeply technical tasks, Argon is great at orchestrating subagents to parallelize work. While you can let Argon steer multiple Argon subagents for complicated tasks, developers across Google frequently enjoy pairing Gemini 4 Argon with Gemini 3.8 Flash subagents as high-speed implementation workhorses. Argon handles the heavy architectural reasoning and code review, while Flash speeds through parallel execution, giving you the best of both worlds in terms of speed, cost, and code quality.</p></div><div><ul><li>Use <strong>Gemini 4 Argon</strong> (<code>thinking_level="medium"</code> or <code>"high"</code>) as the <strong>lead orchestrator</strong> to break down the problem, design interfaces, and review finalized work.</li><li>Delegate parallel, well-scoped tasks, such as fast codebase explorations, writing boilerplate tests, migrating individual leaf modules, or running high-frequency checks to <strong>Gemini 3.8 Flash</strong> subagents (<code>model: flash</code>).</li><li>For rich interactive apps, let Argon orchestrate specialized models across modalities: <strong>Nano Banana</strong> for UI images, textures, and sprites, and <strong>Gemini 3.8 Flash TTS</strong> or <strong>Lyria</strong> for voice and music</li></ul></div><div><h3>5. Have Argon reflect on past work</h3></div><div><p>At the end of a complex task - or mid-session when tackling a particularly gnarly problem - ask Argon to step back and review the trajectory so far. Because Argon excels at synthesizing details across long histories, building a habit of reflection pays off in two ways:</p></div><div><ul><li><strong>Skip repeated trial-and-error on codebase quirks:</strong> Every repo has non-obvious gotchas - custom test flags, strict lint rules, or deprecated helpers - that can cost extra turns to diagnose. Having Argon write those lessons into <code>AGENTS.md</code> or a reusable skill means future sessions take the direct path on the first try</li><li><strong>Turn one-off debugging into reusable team skills:</strong> Once Argon figures out a reliable multi-step workflow (like running a tricky local migration or verifying a build), ask it to package those exact steps into a reusable skill so you - and your teammates - never have to rediscover them from scratch.</li></ul></div><div><p>Try prompting Argon with:</p></div><div><p>prompt</p></div><div><p>Investigate our current session to see where things stalled or required extra steps, and analyze why. Propose updates to our AGENTS.md or custom skills so we can improve our flow and take a more direct path next time.</p></div><div><p>When Argon completes a long autonomous run across dozens of files, reading the raw diff isn't always the fastest way to build a mental model of what changed. Try asking Argon to generate an interactive visual explainer of its solution - like a live architecture diagram, a data-flow map, or a step-by-step pipeline walkthrough. It’s a fast way to sanity-check the design before merging, get up to speed on unfamiliar math or rendering logic, or see the progress on your 3D render in a satisfying animation so you can understand which changes had the biggest impact.</p></div><div><h2>Getting started</h2></div><div><p>You can start building with <strong>Gemini 4 Argon</strong> today across Google’s developer platforms:</p></div><div><ul><li><strong>Google AI Studio:</strong> Test prompts in <a href="https://aistudio.google.com/">Playground</a> or build full-stack apps in <a href="https://aistudio.google.com/build">Google AI Studio Build</a>, available to <a href="https://one.google.com/about/google-ai-plans/">Google AI Ultra</a> subscribers and developers using a paid tier in the Gemini API.</li><li><strong>Gemini API:</strong> Use <code>gemini-4-argon</code> in the <a href="https://aistudio.google.com/docs">Interactions API</a> with day-one support across the <code>google-genai</code> SDKs and in <a href="https://aistudio.google.com/docs/antigravity-agent">Managed Agents</a>.</li><li><strong>Google Antigravity:</strong> For <a href="https://one.google.com/about/google-ai-plans/">Google AI Ultra</a> subscribers, select <strong>Gemini 4 Argon</strong> (<code>gemini-4-argon</code>) as your active model in <a href="https://antigravity.google/">Google Antigravity</a> for complex planning, <code>/goal</code> runs, and multi-agent orchestration.</li><li><strong>Developer Documentation:</strong> Read the full <a href="https://aistudio.google.com/docs/latest-model">Gemini 4 Argon</a> and <a href="https://aistudio.google.com/docs/long-decode">Long Decode documentation</a>, plus our companion guide on <a href="https://aistudio.google.com/learn/">Building 3D Games and Procedural Worlds with Gemini 4 Argon</a>.</li><li><strong>Use your favorite development tools:</strong> You can also start building with Gemini 4 Argon today across popular tools and harnesses such as <a href="https://ai-sdk.dev/providers/ai-sdk-providers/google">Vercel</a>, <a href="https://docs.litellm.ai/blog/gemini-4-argon">LiteLLM</a>, <a href="https://openrouter.ai/docs/cookbook/evaluate-and-optimize/model-migrations/gemini-4">OpenRouter</a>, <a href="https://ai.pydantic.dev/">Pydantic</a>, <a href="https://opencode.ai/docs/providers/#google-vertex-ai">OpenCode</a>, <a href="https://docs.livekit.io/agents/models/llm/gemini/">LiveKit</a>, <a href="https://gemini.browserbase.com/">BrowserBase</a>, <a href="https://www.eigent.ai/use-cases/turn-video-tutorials-into-production-rl-environment-engineering-skills-gemini-4">Eigent</a>, and <a href="https://cua.ai/">Cua</a>.</li><li><strong>Gemini API skill:</strong> Install the <code>gemini-api-dev</code><a href="https://aistudio.google.com/docs/coding-agents#gemini-api-dev">skill</a> in your coding agent and ask it to migrate your codebase to <code>gemini-4-argon</code>.</li></ul></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://aistudio.google.com/learn/gemini-4-argon-developer-guide">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>产品解读</div>
+<div>Google 推出一个类似个人 Agent 的实验性产品：CC，一个专门服务于家庭场景的“群组级 AI 助理”</div>
+<div>09-29 · 约 12 分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>Gemini 3.8 Flash 发布：定位“全能主力（Workhorse）”，主打软件工程、自主 Agent 任务和多步骤深度推理</div>
+<div>09-03 · 约 9 分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>Gemini 4 Argon 全面开放：热门创作案例集锦 从复杂工程到调用工具完成工作再到用代码制作 3D 和可视化视频</div>
+<div>10-14 · 25 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Glimpse：专门理解图片和视频，还能为机器人规划任务的 AI 模型</title>
 <link>https://best.xiaohu.ai/article/elorian-glimpse-visual-thinking/</link>
