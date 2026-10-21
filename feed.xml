@@ -6,7 +6,2004 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Tue, 20 Oct 2026 12:00:20 +0000</lastBuildDate>
+<lastBuildDate>Wed, 21 Oct 2026 12:01:01 +0000</lastBuildDate>
+<item>
+<title>【日报】如何用决策模型给 AI 做自动化质检：六款模型实测</title>
+<link>https://best.xiaohu.ai/article/hamel-decision-model-evals/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:hamel-decision-model-evals</guid>
+<pubDate>Wed, 21 Oct 2026 12:01:01 +0000</pubDate>
+<description>默认 0.5 为什么会漏检？用租赁 Agent 的真实记录，讲清报警阈值、模型选型与概率校准。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 21 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">如何用决策模型给 AI 做自动化质检：六款模型实测</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/hamel-decision-model-evals/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>解决了什么问题与行业痛点</span></a><a><span>02</span><span>什么是决策模型</span></a><a><span>03</span><span>从公寓租赁 Agent 的 98 条生产轨迹说起</span></a><a><span>04</span><span>默认 0.50 阈值为什么会让评测“睁眼瞎”？</span></a><a><span>05</span><span>精确率与召回率：报警器不能只有“好坏排序”</span></a><a><span>06</span><span>动手推拉滑块：观察移动阈值如何改变误报与漏报</span></a><a><span>07</span><span>交叉验证的真实动作：为什么训练集达标，留出验证集还会下滑？</span></a><a><span>08</span><span>性能与费用权衡：候选模型怎么选？</span></a><a><span>09</span><span>分数能当概率用吗？模型校准与 Platt 缩放</span></a><a><span>10</span><span>生产落地的实践法则</span></a><a><span>11</span><span>附录：实验评测提示词</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>如何用决策模型给 AI 做自动化质检：六款模型实测</h1><p>默认 0.5 为什么会漏检？用租赁 Agent 的真实记录，讲清报警阈值、模型选型与概率校准。</p><div><div>正文一页纸原文</div>☆ 收藏<div><span><span>作者：</span>Hamel Husain、Antaripa Saha</span><span>10-21 · 约 18 分钟</span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>AI 质检的报警全报对，也可能漏掉大多数错误；分界线需要用自己的数据来调。</li><li>选模型要同时看误报、漏报和成本，单看一个综合分会掩盖实际代价。</li><li>模型打出 0.8 分，未必等于八成出错；概率校准也要在未参与调参的数据上验证。</li></ul><div><p>如何将决策模型（Decision Models）用作 AI 自动化评估工具（Evals）？</p>
+<p>通常评估一个 AI 系统（比如客服对话、工作流）表现好坏时，一种常见做法是让一个调用成本较高的大语言模型充当“裁判”（LLM Judge）来打分。而决策模型及相关分类接口（如 TypeSafe Jev、Perplexity Decider、Liquid d1、Cloudflare Clef、OpenAI Decisions API 等）把任务聚焦于分类与判断，直接输出一个“是否出错”的概率分数，主打以更低成本、更快速度完成这类评估。</p>
+<h3>解决了什么问题与行业痛点</h3>
+<ol>
+<li>
+<p><strong>大模型裁判成本高、速度慢</strong></p>
+<p>使用 GPT、Claude 等大语言模型逐条检查客服对话、工作流时，调用费用与等待时间会随着评估规模累积。决策模型主打压缩这类判断任务的推断开销与延迟，降低大规模自动化测试的门槛。</p>
+</li>
+<li>
+<p><strong>盲目使用默认阈值（0.50）导致性能浪费</strong></p>
+<p>直接拿官方默认的 0.50 分数作为切分合格与失败的阈值，可能漏掉大量错误。如果某个模型将所有失败样本打分为 0.40、合格样本打分为 0.10，用 0.50 就会漏掉所有错误；把阈值调到 0.30，却能把两类样本完全分开。有时不用换模型，只要根据实际业务调对阈值，就能显著改善评估结果。</p>
+</li>
+<li>
+<p><strong>模型输出的概率“不可信”</strong></p>
+<p>模型输出“0.80 的失败概率”，并不意味着真实世界中就有 80% 的概率会失败。这个数字是否可信，需要用实际结果检验；不能不加检验地直接当作置信度使用。</p>
+</li>
+</ol>
+<h3>什么是决策模型</h3>
+<p>假设系统要对一段客服对话做自动化质检：程序向模型输入完整对话记录，并附带明确问题“助手是否未按规定转接人工”。决策模型及专用判断接口把任务收紧到预先定义好的问题，直接返回程序能用的结构化结果：该条件成立的分数、从给定选项中选出的类别，或按既定标准给出的评分。程序随后按业务规则处理：比如分数达到报警阈值，就把这段对话送入人工复核队列。模型负责判断，程序负责决定下一步动作。</p>
+<p>这就是决策模型充当 Evals 裁判的逻辑：它本质上是嵌入代码中的分类、选择与评分组件。虽然各产品底层不同——例如 Jev 是专为结构化决策打造的模型，OpenAI Decisions 则是 GPT-6 Luna 的判断接口——但它们都让程序可以直接使用判断结果驱动业务。</p>
+<div><a><span>基础介绍 · Jev</span><strong>ChatGPT联合发明人 推出一款全新AI模型：System One 不生成文字 专注决策</strong><span>了解 Jev 如何把预设问题变成程序可用的判断。</span><span>阅读介绍文章 →</span></a>
+<a><span>产品对照 · Decisions API</span><strong>OpenAI 也做“决策模型”了？Decisions API 和 Jev 有多像</strong><span>了解条件概率、固定选项与评分，以及专用模型和判断接口的区别。</span><span>阅读介绍文章 →</span></a></div>
+<hr />
+<h3>从公寓租赁 Agent 的 98 条生产轨迹说起</h3>
+<p>为了检验决策模型在实战中的表现，机器学习评估专家 Hamel Husain 与 Antaripa Saha 调取了真实部署中的<strong>公寓租赁 AI 客服助手</strong>日志。</p>
+<p>该 Agent 通过电话和即时通讯处理租客业务，包括预约看房、确认取消、转接人工客服等。评测任务是进行二元判定：<strong>判断某次对话轨迹中，AI 助手的行为或工具调用是否存在实质性故障。</strong></p>
+<p>评测数据集共 100 条记录，在排除 2 条内部 QA 样本后，正式评估了 98 条轨迹。原始对话属于私有数据。评测时，模型读到的是遮去了人工标签和审阅备注的完整记录：</p>
+<ul>
+<li><strong>61 条包含已知故障（标签为 1）</strong>：包含原有人工审阅确认的 39 条故障，以及通过 Braintrust 和 Arize 工具筛查后再经人工核验确认的 22 条故障。评测准则将预约失败、未按规定转接人工、工具调用失败却谎称完成、违背系统指令或向客户暴露内部占位符等情况判定为实质性故障。</li>
+<li><strong>37 条未标记故障（标签为 0）</strong>：在本次基准中未被标记包含实质性故障，但这并不代表轨迹完全毫无瑕疵。</li>
+</ul>
+<p>测试覆盖了 6 款决策模型方案：Jev 1.13、Perplexity Decider 1.1 (27B)、Liquid d1、Liquid d1-ultra、Cloudflare Clef Flash 以及使用 GPT-6 Luna 的 OpenAI Decisions。Perplexity、Liquid、Clef 与 OpenAI 接收相同的文字提示词与序列化输入；Jev 则通过其结构化 API 接收等价准则。各模型针对每条轨迹输出一个 0 到 1 之间的故障倾向分。</p>
+<hr />
+<h3>默认 0.50 阈值为什么会让评测“睁眼瞎”？</h3>
+<p>API 通常约定：若分数 ≥ 0.50，就判定该轨迹为“故障”并报警，否则放行。但不同模型的打分尺度千差万别。</p>
+<p>假设一个模型把所有真故障的轨迹都打了 0.40 分，把所有正常轨迹都打了 0.10 分。在这个假设情境下，只要把及格线切在 0.30，它就能完美区分两类样本。然而，一旦按默认的 0.50 阈值切分，它就会把所有故障全部判为正常，故障检出率直接变为 0。</p>
+<p>在实际业务中，故障轨迹与正常轨迹的打分往往相互重叠，但不同模型的数值区间依然差异巨大。</p>
+<figure>
+<img>
+<figcaption>
+<span>默认 0.50 阈值下，不同模型的打分分布截然不同。</span><br>
+    橙色为已知故障轨迹的打分密度，蓝色为未标记故障的轨迹；每类曲线下面积各归一化为 1。Clef Flash 与 Liquid d1 的打分集中在接近 0 的极低区间；Perplexity 在 0.50 处漏报较多，而 OpenAI 对两类轨迹的分离较为明显。
+  </br></figcaption>
+</img></figure>
+<p>看一下在默认 0.50 阈值下，各模型的实际表现：</p>
+<ul>
+<li><strong>Cloudflare Clef Flash</strong>：打分整体偏低。在 0.50 阈值下，全量数据中只发出 13 次报警，虽然 13 次全部为真故障（精确率 100%），但漏掉了 61 个已知故障中的 48 个，召回率仅 21.3%（F1 为 0.35）。</li>
+<li><strong>Liquid d1</strong>：打分同样偏低，0.50 阈值下抓出 28 个故障，漏掉了 33 个，召回率 45.9%（精确率 77.8%，F1 为 0.58）。</li>
+<li><strong>Perplexity Decider</strong>：0.50 阈值下抓出 39 个故障，遗漏 22 个，召回率 63.9%（精确率 84.8%，F1 为 0.73）。</li>
+<li><strong>Liquid d1-ultra</strong>：0.50 阈值下抓出 49 个故障，误报 12 次，精确率 80.3%，召回率 80.3%（F1 为 0.80）。</li>
+<li><strong>OpenAI Decisions</strong>：两类分数拉得较开，0.50 阈值下抓出 55 个故障（召回率 90.2%），但误报了 15 次未标记故障的轨迹（精确率 78.6%，F1 为 0.84）。</li>
+</ul>
+<p>模型分数的绝对高低并不代表好坏，核心在于它能否把故障轨迹与正常轨迹在数值轴上拉开距离。绝不能在未检验打分分布的情况下，直接拿 0.50 当作评测系统的报警线。</p>
+<hr />
+<h3>精确率与召回率：报警器不能只有“好坏排序”</h3>
+<p>在设计自动化质检或报警系统时，工程师必须权衡<strong>精确率（Precision，查准率）</strong>与<strong>召回率（Recall，查全率）</strong>。</p>
+<p>两个概念的核心分母不同：</p>
+<ul>
+<li><strong>精确率（Precision / 查准率）</strong>：抓到的真故障数 / 系统发出的全部报警数。只要系统拉响报警，里面到底有多少次是真的故障？以 Clef Flash 为例，报警 13 次且 13 次全是真故障，精确率就是 13 / 13 = 100%。如果精确率过低，虚警频发，值班人员很快会陷入警报疲劳。</li>
+<li><strong>召回率（Recall / 查全率）</strong>：抓到的真故障数 / 全部已知故障数。在全部 61 个已知故障中，系统到底拦截到了多少？Clef Flash 只抓到了 13 个，召回率就是 13 / 61 ≈ 21.3%。如果召回率过低，大量故障就会从系统眼皮底下溜走。</li>
+</ul>
+<p>F1 分数是精确率与召回率的调和平均值，用于综合评估两者的平衡，但它不是常规意义上的准确率。在实际业务中，不能脱离最低底线去盲目追求高 F1。</p>
+<p>例如，对于自动化工单报警系统，作者在本次评测中设定了一组示例底线：<strong>精确率不低于 80%，且召回率不低于 80%</strong>。这意味着系统发出的报警里至少 8 成是真问题，同时已知故障中至少 8 成被当场拦截。这属于具体的业务约束示例，并非放之四海皆准的行业统一红线。</p>
+<figure>
+<img />
+<figcaption>
+<span>全样本 PR 曲线展示了各模型在不同阈值下的可行权衡。</span><br>
+    横轴为召回率（Recall），纵轴为精确率（Precision）。右上角阴影区代表精确率与召回率同时达到或超过 80% 的区间。在全样本阈值扫描中，仅 OpenAI Decisions、Liquid d1-ultra 和 Perplexity 曾进入阴影区成为候选模型；Jev、Liquid d1 和 Clef Flash 全程未能进入。
+  </br></figcaption>
+</figure>
+<p>在 98 条样本的全量扫描中，只有 3 款模型在某个阈值区间内能同时达到“双 80%”的门槛，它们被列为<strong>候选模型（Candidates）</strong>：</p>
+<ol>
+<li><strong>OpenAI Decisions</strong>：表现最好，大面积处于阴影区内；</li>
+<li><strong>Liquid d1-ultra</strong>：在阈值 0.525 附近能够触碰双 80%；</li>
+<li><strong>Perplexity Decider</strong>：在将阈值下调至约 0.127 时触达。</li>
+</ol>
+<p>而 Jev、Liquid d1 和 Clef Flash 无论把阈值调到哪里，在这 98 条全样本扫描中都无法同时满足双 80% 的要求。</p>
+<hr />
+<h3>动手推拉滑块：观察移动阈值如何改变误报与漏报</h3>
+<p>为了直观观察移动阈值对误报和漏报的影响，交互演示载入了这 98 条记录的公开标签与对应模型的原始预测分数。</p>
+<p>你可以自由切换模型，拖动滑块查看误报（虚警）与漏报如何在天平两端此消彼长。</p>
+<div>
+<div>
+<div>
+<span>⚙️ 决策模型报警阈值探索器（98 条记录）</span>
+</div>
+<div>
+<strong>全样本教学重算演示：</strong>本演示使用 98 条租赁 Agent 记录的公开标签与模型分数（61 条已知失败，37 条未标记失败）。拖动滑块可直观体验改变报警红线对<strong>误报（虚警）</strong>与<strong>漏报</strong>的影响。注意：这是在全量样本上的即时重算，不等于经过分折隔离的 5 折交叉验证留出成绩。
+    </div>
+</div>
+<div>
+OpenAI Decisions (GPT-6 Luna)
+Perplexity Decider 1.1
+Liquid d1-ultra
+Liquid d1
+Cloudflare Clef Flash
+TypeSafe Jev 1.13
+</div>
+<div>
+<div>
+报警阈值（分数 ≥ 阈值即报警）
+<span>0.50</span>
+</div>
+<div>0：全部报警 · 1.01：全部放行（超过最高可能分数 1）</div>
+<div>
+<span>快速预设对比：</span>
+默认阈值 (0.50)
+该模型全样本最佳 F1 阈值
+</div>
+</div>
+<p>固定 0.50 对照：查准率 78.6% · 召回率 90.2% · 抓到 55 条 · 误报 15 条 · 漏报 6 条。</p>
+<p>当前阈值 0.50：抓到 55 条，误报 15 条，漏报 6 条。</p>
+<div>
+<div>
+<div>
+<span>查准率 / 精确率 (Precision)</span>
+<span></span>
+</div>
+<div>78.6%</div>
+<div>分母为系统触发的全部报警数 (TP+FP)</div>
+</div>
+<div>
+<div>
+<span>召回率 / 查全率 (Recall)</span>
+<span></span>
+</div>
+<div>90.2%</div>
+<div>分母为全部 61 条已知失败记录</div>
+</div>
+<div>
+<div>
+<span>F1 综合分数</span>
+<span></span>
+</div>
+<div>0.840</div>
+<div>查准率与召回率的调和平均</div>
+</div>
+<div>
+<div>
+<span>报警总数 / 虚警数</span>
+</div>
+<div>70 触发 / 15 误报</div>
+<div>未标记故障的记录被报警 (FP)</div>
+</div>
+</div>
+<div>
+<div>98 条生产轨迹判决切分状态：</div>
+<div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+<div>
+<div><span></span><span>抓到故障 (TP): 55</span></div>
+<div><span></span><span>误报虚警 (FP): 15</span></div>
+<div><span></span><span>漏报故障 (FN): 6</span></div>
+<div><span></span><span>未标记故障且未报警 (TN): 22</span></div>
+</div>
+</div>
+</div>
+<p>从上面的即时重算中可以观察到一个关键事实：<strong>当把阈值推到极高、导致报警总数为 0 时，精确率在数学上未定义（0/0），绝不能误标为 100%。</strong> 同时也需注意：这属于全样本教学重算，它直观展示了阈值的杠杆作用，但在全样本上挑选出的阈值，并不保证在未见样本上也能完全重现相同表现。</p>
+<hr />
+<h3>交叉验证的真实动作：为什么训练集达标，留出验证集还会下滑？</h3>
+<p>在手头数据上挑出一个看似合规的阈值，并不等于系统上线后也能稳定达标。</p>
+<p>为了评估阈值的泛化表现，作者在实验中采用了<strong>分层五折交叉验证（Stratified 5-Fold Cross-Validation）</strong>方法：</p>
+<ol>
+<li><strong>分折隔离</strong>：将 98 条轨迹按已知故障与未标记故障记录的比例均匀切成 5 份。在每一轮中，拿出 4 份（约 78 条）作为训练集，剩下 1 份（约 20 条）作为留出验证集。</li>
+<li><strong>带约束搜寻阈值</strong>：对三款候选模型，在训练折上寻找满足“精确率 ≥ 80% 且召回率 ≥ 80%”的前提下使 F1 最大的阈值；非候选模型则直接进行无约束 F1 调优。</li>
+<li><strong>回退策略与留出核验</strong>：当候选模型在某个训练折中找不到任何满足双 80% 的阈值时，实验规则回退至无约束寻找 F1 最大值，并记录该折不可行。选定阈值后套用到对应的留出验证折记录结果。实验将全部留出折预测（包括回退折）均计入报告。</li>
+</ol>
+<p>实验进行了 20 轮五折交叉验证，共计 100 个训练切分：</p>
+<ul>
+<li><strong>OpenAI Decisions</strong>：在全部 100 次训练切分中均成功找到满足双 80% 的阈值；在留出验证集上的平均表现为：<strong>精确率 86.9%、召回率 86.2%、F1 达到 0.865</strong>。这是跨切分的平均表现，每一折及实际部署的表现仍会变化。</li>
+<li><strong>Liquid d1-ultra</strong>：在训练折中有 <strong>29 次切分未能找到满足双 80% 的阈值</strong>，按规则回退至无约束调优；最终在验证集上的平均留出精确率滑落至 <strong>75.9%</strong>（召回率 81.7%，留出 F1 为 0.787）。</li>
+<li><strong>Perplexity Decider</strong>：在训练折中有 <strong>36 次切分未能达标</strong>而触发回退；最终验证集平均留出精确率为 <strong>75.4%</strong>（召回率 82.5%，留出 F1 为 0.787）。</li>
+</ul>
+<p>训练集上选出的阈值无法消除样本扰动带来的边界波动，面对未见数据时，指标出现下滑是常见现象。</p>
+<figure>
+<img />
+<figcaption>
+<span>调整阈值对各模型表现的影响并不相同。</span><br />
+    空心圆代表 98 条样本在默认 0.50 阈值下的成绩，实心圆代表交叉验证调优后的平均留出 F1 分数；前三项为候选模型，后三项灰色为未达双 80% 约束的模型。Clef Flash 的留出 F1 从 0.35 提升至 0.78，Liquid d1 从 0.58 提升至 0.79；OpenAI 从 0.84 提升至 0.87。但 Jev 从 0.79 微降至 0.78，Liquid d1-ultra 从 0.80 微降至 0.79。这表明在训练集上调优阈值并不保证在留出验证集上一定获得改善。
+  </figcaption>
+</figure>
+<p>此外，F1 并非唯一的优化目标。如果业务对误报或漏报有明显偏好，可以采用 F-beta 分数（当 beta 小于 1 时赋予精确率更高权重，beta 大于 1 时赋予召回率更高权重），根据具体业务目标挑选阈值。</p>
+<h4>让编程 Agent 调优阈值的完整提示词</h4>
+<p>如果你手头已经积累了一批打好标签的轨迹和模型给出的原始分数，可以直接参考作者建议的提示词，让编程 Agent 自动执行交叉验证。需要注意：该示例提示词要求在没有达标阈值时直接报告而非放宽条件，与本文实验采用的回退策略不同。</p>
+<blockquote>
+<p><strong>英文提示词原件：</strong></p>
+<div><pre><code>Using my saved model scores and binary labels (1 means failure), tune a decision threshold to maximize F1 while requiring at least 80% precision and 80% recall. Use stratified five-fold cross-validation, choosing thresholds on the training examples and measuring performance on the remaining examples. If comparing models, use the same splits for each. Only select thresholds that meet both minimums on the training examples. If none qualifies, report that rather than relaxing either requirement. Report validation precision, recall, and F1, along with any splits where no threshold qualified or validation performance fell below my minimums. Compare with the default threshold of 0.50. Reuse the saved scores without making new model calls.
+</code></pre></div>
+<p><strong>完整中文翻译：</strong></p>
+<div><pre><code>利用我保存的模型分数和二元标签（1 表示故障），在要求精确率至少 80% 且召回率至少 80% 的前提下，微调决策阈值以最大化 F1 分数。采用分层五折交叉验证，在训练样本上选择阈值，并在剩余的验证样本上测量表现。如果要对比多个模型，请对每个模型使用相同的切分折。只在训练样本上选择同时满足这两项最低要求的阈值。如果没有符合条件的阈值，请直接报告该情况，而不要放宽任何一项要求。报告验证集的精确率、召回率和 F1，并指出哪些折没有合格阈值或验证表现跌破了我的最低要求。与默认阈值 0.50 进行对比。直接复用已保存的分数，不要发起新的模型调用。
+</code></pre></div>
+</blockquote>
+<hr />
+<h3>性能与费用权衡：候选模型怎么选？</h3>
+<p>调优各模型的专属阈值后，模型选型就落到了<strong>性能与费用权衡（Performance vs. Cost）</strong>上。</p>
+<p>本次费用统计基于 100 次评测的 API Token 消耗与实验中的费率快照计算（性能基于 98 条生产轨迹，不含 2 条内部 QA 样本）。其中，Liquid 的费率按文中说明进行了重新核定，d1 从每百万输入 token 0.04 美元更新为 0.02 美元，d1-ultra 为 0.042 美元；其余模型沿用实验时的费率记录，并非统一的现行市场报价。</p>
+<figure>
+<img />
+<figcaption>
+<span>比较三款候选模型在本次任务中的费用与表现。</span><br />
+    横轴为每 100 次评测的 API 费用（美分），纵轴为五折留出验证的平均 F1 表现。实心圆为候选模型，虚线连接 Perplexity 与 OpenAI Decisions，标出候选中的费用与 F1 前沿。灰色叉号为未达到双 80% 约束的模型。Perplexity 以 0.82 美分/100次成为最低成本候选，而 OpenAI 达到最高 0.87 F1 但成本为 3.72 美分。这一前沿仅对应当前评测任务，不能直接推广到未来的所有场景。
+  </figcaption>
+</figure>
+<p>拆解这三款候选模型的具体表现：</p>
+<ul>
+<li><strong>Perplexity Decider 1.1</strong>：每 100 次评测花费 <strong>0.82 美分</strong>，留出平均 F1 为 <strong>0.79</strong>（保留六位小数为 0.787289），留出平均精确率 75.4%、召回率 82.5%。它是候选模型中调用成本最低的方案。</li>
+<li><strong>Liquid d1-ultra</strong>：每 100 次评测花费 <strong>1.52 美分</strong>，留出平均 F1 同样舍入为 <strong>0.79</strong>（保留六位小数为 0.786636，与 Perplexity 略有细微差异），留出平均精确率 75.9%、召回率 81.7%。在这三款候选的前沿对比中，其单位费用高于留出 F1 相近的 Perplexity。</li>
+<li><strong>OpenAI Decisions (GPT-6 Luna)</strong>：每 100 次评测花费 <strong>3.72 美分</strong>，留出平均 F1 达到 <strong>0.87</strong>（保留六位小数为 0.865463），留出平均精确率 86.9%、召回率 86.2%。其费用约为 Perplexity 的 4.5 倍，但在本次实验中平均精确率与召回率均保持在 80% 以上。</li>
+</ul>
+<p>在非候选模型中，Liquid d1 调优后虽然在 98 条样本上能取得 0.79 的留出 F1 且费用极低（0.72 美分），但由于在前述 98 条全样本阈值扫描中无法同时达到精确率与召回率双 80%，因此未被列为候选模型。</p>
+<p>本实验没有在统一条件下比较模型延迟。在实际生产部署中，响应延迟高度取决于请求是否批处理或并发、距离供应商基础设施的物理位置、并发限制、尾延迟以及吞吐量等外部因素，不能仅凭单次实验的平均响应时间来对模型快慢排榜。</p>
+<hr />
+<h3>分数能当概率用吗？模型校准与 Platt 缩放</h3>
+<p>除了进行“是非”分类外，有些团队还希望把决策模型的打分直接当作<strong>置信度或故障概率</strong>使用。</p>
+<p>校准的实际含义是：如果一个模型打出了 0.80 的故障分，那么在许多获得类似分数的轨迹中，应当有大约 80% 确实存在故障。但在实际测试中，部分模型的原始打分与真实发生概率存在较大偏差。</p>
+<figure>
+<img />
+<figcaption>
+<span>原始打分与实际发生概率的吻合程度因模型而异。</span><br />
+    左图为原始打分，右图为经过 Platt 缩放调整后的概率。横轴为模型预测的故障概率，纵轴为该分组内实际观察到的故障比例，虚线对角线表示完美校准。每个数据点代表打分相近的约 20 条轨迹。校准后，Clef Flash、Perplexity 和 Liquid d1 明显向对角线收拢。
+  </figcaption>
+</figure>
+<p>看一下原始分布中的偏差现象：</p>
+<ul>
+<li>样本按预测概率从低到高分成 5 组（每组 19 或 20 条轨迹）。图中的点若落在对角线上方，说明模型低估了故障风险；若落在下方，说明高估了风险。</li>
+<li><strong>Cloudflare Clef Flash</strong>：在其中一个分组中，模型预测的平均故障概率仅约 8%，但在该组样本中实际有 60% 包含故障。这个比例描述的是该分组，未来单条记录的风险仍需新数据检验。</li>
+<li><strong>Perplexity 与 Liquid d1</strong>：同样在多个分组区间内存在低估故障风险的情况。</li>
+</ul>
+<p>为了修正这类偏差，常见的方法是<strong>普拉特缩放（Platt Scaling）</strong>。它的具体操作动作是：利用训练折的模型原始打分与 0/1 标签，拟合一条将打分映射为概率的平滑曲线（基于对数几率的逻辑回归）；然后将这条拟合好的曲线应用到未参与拟合的留出验证折上，完成概率转换。通过循环各折并汇总留出预测结果，避免拿同一批数据自拟合自评。</p>
+<p>使用校准时需要注意以下现实：</p>
+<ol>
+<li><strong>部分模型在此数据集上调整较少</strong>：Jev 1.13 与 Liquid d1-ultra 在这批数据上的原始打分已经比较贴近对角线，缩放带来的调整很小。这属于本批数据的表现，并非两款模型天然通用的性质。</li>
+<li><strong>拟合方法对结果较为敏感</strong>：检验校准通常使用<strong>布里尔分数（Brier Score）</strong>，即预测概率与真实 0/1 标签之差的平方再取平均值，数值越低越好，它同时受区分能力与校准程度的影响。在本实验展示的对数几率 Platt 拟合下，OpenAI Decisions 的布里尔分数从 0.159 微升至 0.164，这表明概率误差有所增大，但并不能证明模型的排序区分能力受损。作为对比，如果直接在概率尺度上进行探索性重拟合，OpenAI 的布里尔分数可以降至 0.154，这说明校准效果对拟合形式十分敏感，且不能保证在未知新数据上一定最优。</li>
+</ol>
+<h4>让编程 Agent 评估校准度的完整提示词</h4>
+<blockquote>
+<p><strong>英文提示词原件：</strong></p>
+<div><pre><code>Using my saved failure probabilities and binary labels (1 means failure), test whether Platt scaling improves each model’s probabilities. Use stratified five-fold cross-validation with the same splits for every model. Fit the calibration mapping on each training split and apply it to the remaining traces. Fit on log-odds, clipping probabilities away from 0 and 1 first. Plot predicted probabilities against observed failure rates before and after calibration. Report Brier scores (lower is better), and explain which models improved or got worse. Reuse the saved scores without making new model calls.
+</code></pre></div>
+<p><strong>完整中文翻译：</strong></p>
+<div><pre><code>利用我保存的故障概率和二元标签（1 表示故障），测试普拉特缩放（Platt scaling）是否能改善各个模型的概率输出。对所有模型使用切分一致的分层五折交叉验证。在每个训练折上拟合校准映射，并应用到该折剩余的轨迹上。基于对数几率（log-odds）进行拟合，拟合前先将概率限制在稍大于 0 且稍小于 1 的范围（clip）。绘制校准前后的预测概率与实际观测故障率对比图。报告布里尔分数（Brier score，越低越好），并解释哪些模型改善了、哪些模型变差了。直接复用已保存的分数，不要发起新的模型调用。
+</code></pre></div>
+</blockquote>
+<hr />
+<h3>生产落地的实践法则</h3>
+<p>在把决策模型用于实际 AI 系统的自动化评测前，可以参考以下实践经验：</p>
+<ol>
+<li><strong>窄化评测范围（One Judge per Failure Mode）</strong>：本实验使用的是较为宽泛的总评判规则。在实际落地中，建议<strong>针对每一种具体故障模式分别构建专职裁判</strong>（例如单独设立预约失败裁判、人工转接合规裁判）。任务目标越聚焦，作者预期大小模型之间的性能差距越可能收窄。</li>
+<li><strong>先大后小探索替代方案</strong>：先找到在本任务上表现可接受的大模型，再测试小模型能否以更低费用达到接近的效果。高质量的人工标注是评测的基石；在进行提示词开发或优化时，务必保留一份独立的测试集用于最终检查。</li>
+<li><strong>根据业务需求调优专属阈值</strong>：不要直接沿用默认的 0.50 阈值。明确业务对精确率和召回率的要求，在训练集上通过交叉验证寻找合适阈值。如果后续修改了提示词或更换了模型，需要重新检查阈值与校准状况。</li>
+<li><strong>解耦区分能力、判定阈值与概率解释</strong>：模型能有效排开好坏不代表默认阈值可用，训练集达标不代表验证集不会下滑，打分高低更不能直接等同于真实故障概率。</li>
+</ol>
+<h4>读者可复用的练习路径</h4>
+<p>如果你想亲自体验上述分析流程，原作者公开了图表对应的 JSON 数据（包含 98 条轨迹一一对应的 0/1 标签与各模型的预测打分）：</p>
+<ol>
+<li>将<a href="https://hamel.dev/blog/posts/decision-model-evals/charts/chart-data.json">公开分数与标签</a>保存为本地文件 <code>chart-data.json</code>（<code>labels</code> 为 0/1 标签，<code>models[].scores</code> 按相同顺序对应每条记录）；</li>
+<li>将数据交给编程 Agent，先发送阈值调优提示词（中文或英文原件任选一种），观察交叉验证下的留出精确率、召回率与阈值选择；</li>
+<li>若业务需要将打分转换为置信概率，再发送校准提示词，评估 Platt 缩放是否能降低各模型的布里尔分数。</li>
+</ol>
+<p>原客服对话未公开，外部读者可用公开的分数与标签练习阈值调优和概率校准；重新调用模型评错仍需要对话原件。</p>
+<hr />
+<h3>附录：实验评测提示词</h3>
+<p>测试中，Perplexity、Liquid d1/d1-ultra、Clef Flash 与 OpenAI Decisions 接收的是统一的文本提示词；Jev 则通过其专用 API 接收结构化的 JSON 指令。</p>
+<strong>查看通用评测提示词（英文原件与中文对照）</strong>
+<h4>通用文本提示词原件 (General Prompt)</h4>
+<div><pre><code>Decide whether `messages` contains at least one substantive failure, risk, or quality problem in the AI assistant's behavior or tool use. This is one complete production trace from an AI that handles apartment-leasing customer support over phone or messaging. The trace includes the conversation plus any tool calls and tool outputs.
+Evaluate the AI assistant and its tool use, not the customer. Treat system messages inside `messages` as the instructions governing the assistant's behavior and allowed capabilities. Inspect the full trace, including final turns and all tool calls and outputs. Base the judgment only on evidence visible in this trace. Do not assume external policies, channel behavior, or business requirements that are not present. Do not assume every trace failed. A short, ambiguous, or inconclusive trace is not an issue unless visible evidence establishes a substantive failure.
+Return the probability that at least one substantive issue is present; the issue does not need to be named or clustered.
+Count as an issue when supported by the trace: the assistant contradicts an applicable system instruction or tool result; makes an unsupported factual or operational claim; misses, misuses, repeats, or falsely claims completion of a required tool action, transfer, booking, cancellation, follow-up, or confirmation; materially misunderstands or leaves an explicit user request unresolved; or exposes internal actions, placeholders, or broken content to the customer in a way that materially harms the interaction.
+Do not count as an issue: a minor stylistic preference with no meaningful effect; a failure caused only by the customer's behavior; internal tool metadata that was not exposed to the customer and did not cause an incorrect response; a hypothetical concern requiring information outside the trace; or insufficient evidence and inconclusive conversations.
+</code></pre></div>
+<h4>通用文本提示词中文对照翻译</h4>
+<div><pre><code>判断 `messages` 中是否包含至少一个关于 AI 助手行为或工具调用的实质性故障、风险或质量问题。这是一段来自通过电话或即时通讯处理公寓租赁客户服务的 AI 助手的完整生产轨迹。该轨迹包含完整的对话以及所有工具调用与工具输出。
+仅评估 AI 助手及其工具调用，不要评估客户。将 `messages` 内部的系统消息视为规范助手行为和允许能力的操作指令。检查完整轨迹，包括最终轮次以及所有的工具调用与输出。仅依据本轨迹中可见的证据作出判断。不要臆测此处未出现的外部策略、渠道特性或业务需求。不要预设每个轨迹都必定失败。除非可见证据确凿证实了实质性失败，否则简短、模棱两可或无定论的轨迹不视为存在问题。
+返回至少存在一个实质性问题的概率；无需指明该问题的具体名称或进行归类。
+在有轨迹证据支持的情况下，以下情况计为问题：助手违背了适用的系统指令或工具结果；提出了未经支持的事实性或操作性断言；遗漏、误用、重复或谎称完成了必需的工具操作、转接、预约、取消、跟进或确认；实质性误解或未解决用户的明确诉求；或者向客户暴露了内部操作、占位符或损坏内容，从而对交互造成了实质性损害。
+以下情况不计为问题：无实质性影响的轻微语言风格偏好；完全由客户自身行为导致的失败；未暴露给客户且未导致错误响应的内部工具元数据；需要轨迹外信息才能证实的假设性隐患；或者证据不充分且无定论的对话。
+</code></pre></div>
+<strong>查看 TypeSafe Jev 专用结构化提示词（JSON 原件与中文对照）</strong>
+<h4>Jev 结构化提示词原件 (Structured JSON)</h4>
+<div><pre><code>{
+  "version": "nurtureboss-any-issue-v1",
+  "question_id": "has_substantive_issue",
+  "type": "noul",
+  "instructions": {
+    "task": "Does `messages` contain at least one substantive failure, risk, or quality problem in the AI assistant's behavior or tool use?",
+    "context": "This is one production trace from an AI that handles apartment-leasing customer support over phone or messaging. The trace contains the complete conversation plus any tool calls and tool outputs.",
+    "evaluation_rules": [
+      "Evaluate the AI assistant and its tool use, not the customer.",
+      "Treat system messages inside `messages` as the instructions governing the assistant's behavior and allowed capabilities.",
+      "Inspect the full trace, including the final turns and all tool calls and outputs.",
+      "Base the judgment only on evidence visible in this trace. Do not assume external policies, channel behavior, or business requirements that are not present.",
+      "Do not assume every trace failed. A short, ambiguous, or inconclusive trace is not an issue unless the visible evidence establishes a substantive failure.",
+      "Return the probability that at least one substantive issue is present. The issue does not need to be named or clustered."
+    ]
+  },
+  "criteria": {
+    "true": {
+      "definition": "At least one substantive problem is supported by evidence in the trace.",
+      "examples_of_qualifying_evidence": [
+        "The assistant contradicts an applicable system instruction or a tool result.",
+        "The assistant makes an unsupported factual or operational claim.",
+        "A required tool action, transfer, booking, cancellation, follow-up, or confirmation is missing, incorrect, repeated, or falsely claimed as complete.",
+        "The assistant materially misunderstands or leaves an explicit user request unresolved.",
+        "Customer-facing text exposes internal actions, placeholders, or broken content that materially harms the interaction."
+      ]
+    },
+    "false": {
+      "definition": "No substantive assistant problem can be established from the visible trace.",
+      "do_not_count_as_an_issue": [
+        "A minor stylistic preference with no meaningful effect.",
+        "A failure caused only by the customer's behavior.",
+        "Internal tool metadata that was not exposed to the customer and did not cause an incorrect response.",
+        "A hypothetical concern that requires information outside the trace.",
+        "Insufficient evidence or an inconclusive conversation."
+      ]
+    }
+  }
+}
+</code></pre></div>
+<h4>Jev 结构化提示词中文对照翻译</h4>
+<div><pre><code>{
+  "version": "nurtureboss-any-issue-v1",
+  "question_id": "has_substantive_issue",
+  "type": "noul",
+  "instructions": {
+    "task": "`messages` 中是否包含至少一个关于 AI 助手行为或工具调用的实质性故障、风险或质量问题？",
+    "context": "这是一段来自通过电话或即时通讯处理公寓租赁客户服务的 AI 助手的生产轨迹。该轨迹包含完整的对话以及所有工具调用与工具输出。",
+    "evaluation_rules": [
+      "仅评估 AI 助手及其工具调用，不要评估客户。",
+      "将 `messages` 内部的系统消息视为规范助手行为和允许能力的操作指令。",
+      "检查完整轨迹，包括最终轮次以及所有的工具调用与输出。",
+      "仅依据本轨迹中可见的证据作出判断。不要臆测此处未出现的外部策略、渠道特性或业务需求。",
+      "不要预设每个轨迹都必定失败。除非可见证据确凿证实了实质性失败，否则简短、模棱两可或无定论的轨迹不视为存在问题。",
+      "返回至少存在一个实质性问题的概率。无需指明该问题的具体名称或进行归类。"
+    ]
+  },
+  "criteria": {
+    "true": {
+      "definition": "轨迹中的证据支持存在至少一个实质性问题。",
+      "examples_of_qualifying_evidence": [
+        "助手违背了适用的系统指令或工具结果。",
+        "助手提出了未经支持的事实性或操作性断言。",
+        "必需的工具操作、转接、预约、取消、跟进或确认出现遗漏、错误、重复或谎称完成。",
+        "助手实质性误解或未解决用户的明确诉求。",
+        "面向客户的文本暴露了内部操作、占位符或损坏内容，从而对交互造成了实质性损害。"
+      ]
+    },
+    "false": {
+      "definition": "从可见的轨迹中无法确立任何实质性的助手问题。",
+      "do_not_count_as_an_issue": [
+        "无实质性影响的轻微语言风格偏好。",
+        "完全由客户自身行为导致的失败。",
+        "未暴露给客户且未导致错误响应的内部工具元数据。",
+        "需要轨迹外信息才能证实的假设性隐患。",
+        "证据不充分或无定论的对话。"
+      ]
+    }
+  }
+}
+</code></pre></div>
+</div><div><div><div>来源</div><div><span>How To Use Decision Models for Evals</span><span>Hamel Husain、Antaripa Saha<span>·</span>2026-10-20<span>·</span><a href="https://hamel.dev/blog/posts/decision-model-evals/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/HamelHusain/status/2112588257104216294">原帖</a><span>·</span><a href="https://hamel.dev/blog/posts/decision-model-evals/charts/chart-data.json">公开分数与标签</a><span>·</span><a href="https://docs.typesafe.ai/introduction">TypeSafe Jev 官方介绍</a><span>·</span><a href="https://developers.openai.com/api/docs/guides/decisions">OpenAI Decisions 官方指南</a></div></div></div></div></div>
+<div>
+<div>AI 质检 · 报警线与概率刻度</div>
+<h1>如何用决策模型给 AI 做自动化质检：六款模型实测</h1>
+<p>检查 AI 客服是否办错事，常见做法是请大模型当“裁判”。决策模型及分类接口尝试以更低成本，给每段对话打一个<strong>故障倾向分</strong>。分数到手后，还要处理两个问题。</p>
+<div>Hamel Husain、Antaripa Saha 实测：公寓租赁 Agent 的 98 条生产轨迹，其中 61 条有已知故障。</div>
+<div>
+<div><div>阈值 → 决定报不报警</div><p>分数达到哪条线才报警？移动这条线，会改变误报和漏报。</p></div>
+<div><div>校准 → 检验概率刻度</div><p>0.80 分能否理解为八成风险？要看同类分数的记录中，是否约八成真有故障。</p></div>
+</div>
+<h2>模型没换，只移动报警线</h2>
+<p>教学假设：正常对话全得 0.10 分，故障全得 0.40 分。<strong>分数 ≥ 阈值就报警。</strong></p>
+<div>
+<div>模型打分</div><div>阈值 0.50</div><div>阈值 0.30</div>
+<div>正常 · 0.10</div><div>放行</div><div>放行</div>
+<div>故障 · 0.40</div><div>全部漏掉</div><div>全部抓到</div>
+</div>
+<div>这个假设中两类分数完全分开；真实数据常有重叠，阈值需要按业务要求选择。</div>
+<h2>报警全对，也可能漏掉多数故障</h2>
+<p>Clef Flash 在默认 0.50 下，报警 13 次全对，却漏掉 61 个已知故障中的 48 个。</p>
+<div>
+<div><div>精确率：报警准不准</div><div>13/13 = 100%</div><div>抓到的真故障 ÷<br /><strong>全部报警数</strong></div></div>
+<div><div>召回率：故障抓全没</div><div>13/61 ≈ 21.3%</div><div>抓到的真故障 ÷<br /><strong>全部已知故障数</strong></div></div>
+</div>
+<h2>全样本入围，还要看未见数据</h2>
+<p>98 条全样本上，下面三款曾同时达到精确率、召回率“双 80%”，成为候选。再用每轮 4 折选阈值、剩下 1 折验证，重复 20 轮五折：</p>
+<div><table><thead><tr><th>候选模型</th><th>留出均值<br />精确率／召回率</th><th>费用<br />美分/100次</th></tr></thead><tbody>
+<tr><td>OpenAI Decisions</td><td><span><strong>86.9%／86.2%</strong></span></td><td>3.72</td></tr>
+<tr><td>Liquid d1-ultra</td><td><span>75.9%／81.7%</span></td><td>1.52</td></tr>
+<tr><td>Perplexity Decider</td><td><span>75.4%／82.5%</span></td><td>0.82</td></tr>
+</tbody></table></div>
+<div>双 80% 是本次业务约束示例。部分训练折无法满足要求时，实验改选综合分数 F1 最高的阈值；留出均值包含这些回退折，不保证每折或上线达标。性能用 98 条轨迹；费用按 100 次评测及实验费率快照计算，并非现价。</div>
+<h2>校准能调整刻度，仍需留出检验</h2>
+<p>Platt 缩放用训练折的分数和人工标签拟合“分数→概率”的映射，再在留出折检验。部分模型改善，OpenAI 的概率误差却略增：</p>
+<div>0.159 → 0.164 <span>布里尔分数<br />越低越好</span></div>
+<div>这是本次对数几率拟合的结果。校准方法敏感，<strong>不保证改善</strong>；调好报警线也不等于原分数已经是可靠概率。</div>
+<h2>用自己的数据照着做</h2>
+<ol><li>准备人工 0/1 标签与模型原始分数。</li><li>交给编程 Agent，分折调阈值并报告留出成绩。</li><li>需要风险概率时，再拟合校准并检查误差。</li></ol>
+<p><a>正文提供两段完整中英文提示词</a>；复用已保存分数，无需重新调用模型。</p>
+</div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://hamel.dev/blog/posts/decision-model-evals/">看原网页 ↗</a></p></div><div></div><div><div><h1>How To Use Decision Models for Evals</h1></div><div><p>How to choose a decision model for your task, tune its threshold, and interpret its scores.</p></div><div><p>Decision models have exploded onto the scene recently, starting with TypeSafe’s Jev, followed by Perplexity’s Decider, Liquid’s d1, Cloudflare’s Clef, and OpenAI’s Decisions API1. These models promise fast, inexpensive classification.</p></div><div><p>Decision models are an appealing low-cost alternative to LLM judges2 for automated evals. But whether they’re the right choice depends on the cost, performance, and latency requirements of your use case.</p></div><div><p>We’ve also noticed people using the default decision threshold of 0.50 without checking whether it works well for their task. This can leave a lot of performance on the table.</p></div><div><p>In this post, we’ll start by showing how to tune thresholds to get the best results from decision models. With those thresholds tuned, we’ll compare cost and performance to help you assess which model fits your use case. Finally, we’ll explore how to interpret model scores when deciding whether to act, and how calibration can make them more useful as confidence estimates.</p></div><div><h2>What we tested</h2></div><div><p>We used 100 traces, or logs of conversations and actions, from an apartment leasing agent. The task is to identify traces containing an error, such as a failed booking or a missed handoff to a human.3 We used the same dataset and broad failure-finding task in our <a href="https://parlance-labs.com/blog/posts/auto-evals/">prior post on automated evals</a>. Here, each decision model returns a failure probability for each trace.</p></div><div><p>We tested Jev 1.13, Perplexity Decider 1.1 27B, Liquid d1 and d1-ultra, Cloudflare Clef Flash, and OpenAI Decisions (GPT-6 Luna)1. Each model received the same evaluation criteria. The appendix shows the prompt and the structured version used for Jev.</p></div><div><p>We compare models on two dimensions:</p></div><div><ul><li><strong>Performance:</strong> We compare each model’s predictions with traces that people have reviewed and labeled as passing or failing. This measures how well the model catches failures while avoiding false alarms.</li><li><strong>Cost:</strong> We calculate API cost from token usage and the provider’s prices.4</li></ul></div><div><p>For brevity, we leave latency aside because it depends on factors outside this experiment’s control.5</p></div><div><h2>Understanding decision thresholds</h2></div><div><p>We assign each trace one of two labels, pass or fail. This is a <a href="https://hamel.dev/blog/posts/evals-faq/why-do-you-recommend-binary-passfail-evaluations-instead-of-1-5-ratings-likert-scales.html">binary pass/fail eval</a>, which we recommend because it encourages clear criteria and is easier to align with human preferences.</p></div><div><p>Each decision model returns a score from 0 to 1 that estimates how likely a trace is to contain a failure. The APIs turn this score into a decision using a <strong>default decision threshold of 0.50</strong>. Traces with scores at or above the threshold are flagged as failures. Using this default without checking it against your data can give you subpar results.</p></div><div><p>For example, a model could assign every failure a score of 0.40 and every passing trace a score of 0.10. Even though this model classifies traces perfectly at a threshold of 0.30, the default threshold of 0.50 would catch nothing.</p></div><div><p>In practice, scores for failures and passing traces will overlap. Lowering the threshold catches more failures but can also raise more false alarms. Choosing a threshold means balancing:</p></div><div><ul><li><strong>Precision:</strong> The share of flagged traces that contain a known failure.</li><li><strong>Recall:</strong> The share of known failures that the model catches.</li></ul></div><div><p>The right tradeoff depends on your business goals. For example, criminal trials set a high bar for conviction to avoid convicting innocent people, emphasizing precision. Cancer screening may emphasize recall, accepting more false alarms to miss fewer cases.6 For this comparison, we’ll give precision and recall equal weight using the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html">F1 score</a>, their harmonic mean. F1 ranges from 0 to 1, and higher is better.</p></div><div><p>The curves below show how each model scores failures (orange) and passing traces (blue). Taller parts of a curve mean more scores from that class fall in that range. Scores at or above the dashed threshold line are flagged. Use the toggle to compare <strong>0.50</strong> with <strong>Optimized for best F1</strong>, which chooses a threshold for each model.7</p></div><div><p>OpenAI separates the two classes best on this task, which is also reflected in its higher F1 score.</p></div><div><p>It’s also important not to blindly maximize F1 without thinking about your minimum requirements for the classifier to be useful. For example, if this classifier is used for an automated alerting system, I would want a minimum of 80% on both precision and recall so that I’m minimizing false alarms while catching a sufficient number of failures.</p></div><div><p>The chart below shows how precision and recall change at different thresholds.8 The shaded region marks where both reach at least 80%.</p></div><div><p>Perplexity, Liquid d1-ultra, and OpenAI Decisions meet our requirements, but we still need to choose a decision threshold within the shaded region for each model. In the next section, we’ll discuss how to tune those thresholds.</p></div><div><h3>Tuning the decision threshold</h3></div><div><p>For this example, we’ll optimize F1. For our candidates, we’ll restrict tuning to thresholds that meet both 80% minimums on the training data whenever possible. We leave the other models unconstrained to illustrate the effect of tuning.9</p></div><div><p>With labeled traces and saved model scores, you can ask a coding agent to tune the thresholds. Below is an example prompt you can modify for your use case:</p></div><div><blockquote><p>Using my saved model scores and binary labels (1 means failure), tune a decision threshold to maximize F1 while requiring at least 80% precision and 80% recall. Use stratified five-fold cross-validation, choosing thresholds on the training examples and measuring performance on the remaining examples. If comparing models, use the same splits for each. Only select thresholds that meet both minimums on the training examples. If none qualifies, report that rather than relaxing either requirement. Report validation precision, recall, and F1, along with any splits where no threshold qualified or validation performance fell below my minimums. Compare with the default threshold of 0.50. Reuse the saved scores without making new model calls.</p></blockquote></div><div><p>Here’s how tuning for F1 changed each model’s performance. We group the three candidates from the precision-recall chart together and show the other models in gray to illustrate how much tuning can help.</p></div><div><p>Our candidate models gained less from F1 tuning than Liquid d1 and Clef Flash, which fell below our minimums. However, even a small shift in precision and recall can affect business costs or the user experience, so choose the tradeoff deliberately. In practice, it’s unlikely that precision and recall are equally important (as we assumed in this post with F1). For example, the <a href="https://scikit-learn.org/stable/modules/model_evaluation.html#precision-recall-f-measure-metrics">F-beta score</a> lets you give precision more weight with beta below 1, or recall more weight with beta above 1. Optimizing a different metric could lead to different thresholds and results.</p></div><div><h2>Performance versus cost</h2></div><div><p>The chart below compares each model’s F1 (after tuning) against cost, focused on our remaining candidates:</p></div><div><p>The dashed line shows the <strong>Pareto frontier</strong> among our remaining candidates. For any given F1 score, it identifies the cheapest candidate that meets or exceeds that score. This particular chart is a bit silly as there are only three options, but it’s a useful illustration for how to think about cost vs. performance.</p></div><div><p>Perplexity was the cheapest of these candidates at 0.82 cents per 100 eval runs, with an F1 of 0.79. OpenAI Decisions reached an F1 of 0.87 at 3.72 cents per 100 eval runs, about 4.5 times the cost.</p></div><div><h2>Can we trust the probabilities?</h2></div><div><p>Beyond pass/fail evals, you may want to use a decision model’s score as a confidence estimate. But can you take that number literally? For a score of 0.80 to mean an 80% chance of failure, roughly 80% of traces with similar scores should contain failures.</p></div><div><p>The chart below shows each model’s <strong>probability calibration</strong>: how closely its predicted probabilities match observed outcomes.10 Each point represents about 20 traces with similar scores. A point on the diagonal means the predicted probability matches the failure rate in that group. Above the line, the model underestimates the risk of failure. Below it, the model overestimates that risk.</p></div><div><p>If the predicted probabilities don’t match the observed outcomes, we can adjust them using another model. The second panel shows one method, <strong>Platt scaling</strong>, which fits a simple curve to make that adjustment.11</p></div><div><p>Perplexity, Liquid d1, and Clef Flash move closer to the diagonal after calibration. For example, one group of Clef Flash traces had an average predicted failure probability of about 8%, but 60% contained failures.</p></div><div><p>Jev and Liquid d1-ultra were already well calibrated on this dataset and needed little adjustment.</p></div><div><p>Platt scaling isn’t always the best fit. For example, OpenAI’s probabilities got slightly worse with the version of Platt scaling we used.12 You can direct your coding agent to perform calibration with the following prompt:</p></div><div><blockquote><p>Using my saved failure probabilities and binary labels (1 means failure), test whether Platt scaling improves each model’s probabilities. Use stratified five-fold cross-validation with the same splits for every model. Fit the calibration mapping on each training split and apply it to the remaining traces. Fit on log-odds, clipping probabilities away from 0 and 1 first. Plot predicted probabilities against observed failure rates before and after calibration. Report Brier scores (lower is better), and explain which models improved or got worse. Reuse the saved scores without making new model calls.</p></blockquote></div><div><h2>Prompt tuning and evaluator scope</h2></div><div><p>We kept the eval task in this post broad to make the differences between models easier to see. In practice, we recommend building <a href="https://hamel.dev/blog/posts/evals-faq/what-should-i-do-when-i-cant-get-my-llm-judge-to-agree-with-human-reviewers.html">a separate judge for each failure mode</a>. With a narrower task and more specific guidance, we expect the performance gaps between models to shrink.</p></div><div><p>I like to start with a larger model that has acceptable performance on a task and then try smaller models to see if they can match the larger model’s performance for less cost. Prompt tuning can also be helpful if you have high-quality labels.13 I discuss how to craft a good judge prompt <a href="https://hamel.dev/blog/posts/llm-judge/index.html">in this post</a>.</p></div><div><h2>Putting these ideas into practice</h2></div><div><p>For this particular dataset, OpenAI had breakout performance at a higher cost. Perplexity and Liquid d1-ultra offer lower-cost options with lower performance. We have observed that model performance varies substantially across tasks and datasets, which means it’s important to measure things yourself.</p></div><div><p>To recap:</p></div><div><ul><li>Once you’re satisfied with your <a href="https://hamel.dev/blog/posts/llm-judge/index.html">judge’s prompt</a>, set minimum precision and recall requirements for your use case. Rule out models that cannot meet these.</li><li>Tune each model’s decision threshold before comparing performance. Choose a precision-recall tradeoff that fits your business goals. Be intentional, don’t just use F1 score because this post did!</li><li>If you want to use scores as confidence estimates, check whether the probabilities match observed outcomes. Calibration can help, but you need to measure whether it improves them.</li><li>Weigh performance against cost and latency for your workload.</li></ul></div><div><p>This process is iterative. You may improve the prompt, then need to tune the threshold again or revisit calibration. In this post, we focused on threshold tuning and calibration because we’ve seen many people use decision models off the shelf without considering these factors.</p></div><div><p>You might also be wondering how decision models stack up to LLMs. OpenAI Decisions uses GPT-6 Luna, which delivered our highest F1 at the highest cost, suggesting that harder eval tasks may justify paying more for an LLM. In a <a href="https://www.randalolson.com/2026/10/14/when-to-use-a-decision-model-instead-of-an-llm/">broader comparison</a>, Randy Olson found that decision models could match LLMs on classification and routing at lower cost, while LLMs pulled ahead on tasks requiring knowledge and reasoning.</p></div><div><p>None of the ideas discussed in this post are new. Choosing a precision-recall tradeoff, tuning thresholds and comparing performance vs. cost are part of evaluating any classifier. To learn more about these fundamentals, I recommend <a href="https://www.oreilly.com/library/view/machine-learning-with/9781098135713/">Machine Learning with Python Cookbook, 2nd Edition</a> by Kyle Gallatin and Chris Albon.</p></div><div><p>Finally, if you’re a data scientist or ML engineer wondering where you belong in the AI age, these are skills you already have. It’s time to <a href="https://hamel.dev/blog/posts/revenge/">get revenge</a> 🙂.</p></div><div><h2>Appendix: Evaluation prompt</h2></div><div><p>Perplexity, Liquid d1 and d1-ultra, Clef Flash, and OpenAI Decisions received the prompt below. Jev received equivalent criteria in a structured prompt, shown in the example below. The <a href="https://hamel.dev/blog/posts/decision-model-evals/charts/chart-data.json">scores and labels</a> used in the charts are available as JSON.</p></div><div><pre><code>Decide whether `messages` contains at least one substantive failure, risk, or quality problem in the AI assistant's behavior or tool use. This is one complete production trace from an AI that handles apartment-leasing customer support over phone or messaging. The trace includes the conversation plus any tool calls and tool outputs.
+Evaluate the AI assistant and its tool use, not the customer. Treat system messages inside `messages` as the instructions governing the assistant's behavior and allowed capabilities. Inspect the full trace, including final turns and all tool calls and outputs. Base the judgment only on evidence visible in this trace. Do not assume external policies, channel behavior, or business requirements that are not present. Do not assume every trace failed. A short, ambiguous, or inconclusive trace is not an issue unless visible evidence establishes a substantive failure.
+Return the probability that at least one substantive issue is present; the issue does not need to be named or clustered.
+Count as an issue when supported by the trace: the assistant contradicts an applicable system instruction or tool result; makes an unsupported factual or operational claim; misses, misuses, repeats, or falsely claims completion of a required tool action, transfer, booking, cancellation, follow-up, or confirmation; materially misunderstands or leaves an explicit user request unresolved; or exposes internal actions, placeholders, or broken content to the customer in a way that materially harms the interaction.
+Do not count as an issue: a minor stylistic preference with no meaningful effect; a failure caused only by the customer's behavior; internal tool metadata that was not exposed to the customer and did not cause an incorrect response; a hypothetical concern requiring information outside the trace; or insufficient evidence and inconclusive conversations.</code></pre></div><div><p>NoteExample: A structured prompt</p></div><div><p>This is how we structured the prompt for Jev’s requests, with separate fields for instructions and evaluation criteria.</p></div><div><pre><code>{
+  "version": "nurtureboss-any-issue-v1",
+  "question_id": "has_substantive_issue",
+  "type": "noul",
+  "instructions": {
+    "task": "Does `messages` contain at least one substantive failure, risk, or quality problem in the AI assistant's behavior or tool use?",
+    "context": "This is one production trace from an AI that handles apartment-leasing customer support over phone or messaging. The trace contains the complete conversation plus any tool calls and tool outputs.",
+    "evaluation_rules": [
+      "Evaluate the AI assistant and its tool use, not the customer.",
+      "Treat system messages inside `messages` as the instructions governing the assistant's behavior and allowed capabilities.",
+      "Inspect the full trace, including the final turns and all tool calls and outputs.",
+      "Base the judgment only on evidence visible in this trace. Do not assume external policies, channel behavior, or business requirements that are not present.",
+      "Do not assume every trace failed. A short, ambiguous, or inconclusive trace is not an issue unless the visible evidence establishes a substantive failure.",
+      "Return the probability that at least one substantive issue is present. The issue does not need to be named or clustered."
+    ]
+  },
+  "criteria": {
+    "true": {
+      "definition": "At least one substantive problem is supported by evidence in the trace.",
+      "examples_of_qualifying_evidence": [
+        "The assistant contradicts an applicable system instruction or a tool result.",
+        "The assistant makes an unsupported factual or operational claim.",
+        "A required tool action, transfer, booking, cancellation, follow-up, or confirmation is missing, incorrect, repeated, or falsely claimed as complete.",
+        "The assistant materially misunderstands or leaves an explicit user request unresolved.",
+        "Customer-facing text exposes internal actions, placeholders, or broken content that materially harms the interaction."
+      ]
+    },
+    "false": {
+      "definition": "No substantive assistant problem can be established from the visible trace.",
+      "do_not_count_as_an_issue": [
+        "A minor stylistic preference with no meaningful effect.",
+        "A failure caused only by the customer's behavior.",
+        "Internal tool metadata that was not exposed to the customer and did not cause an incorrect response.",
+        "A hypothetical concern that requires information outside the trace.",
+        "Insufficient evidence or an inconclusive conversation."
+      ]
+    }
+  }
+}</code></pre></div><div><h2>Footnotes</h2></div><div><ol><li>Versions tested: <a href="https://docs.typesafe.ai/introduction">Jev 1.13</a> (<a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">announced September 15, 2026</a>), <a href="https://docs.perplexity.ai/docs/decisions/quickstart">Perplexity Decider 1.1 27B</a>, <a href="https://docs.liquid.ai/lfm/models/decision-models">Liquid d1 and d1-ultra</a>, <a href="https://blog.cloudflare.com/clef-decision-models">Cloudflare Clef Flash</a>, and <a href="https://developers.openai.com/api/docs/guides/decisions">OpenAI Decisions</a>. OpenAI Decisions uses GPT-6 Luna. The API returns typed answers, including a probability from 0 to 1 for a true/false question. This is a separate API from Structured Outputs, which generates responses matching a custom JSON schema. We include it because it serves the same classification task.↩︎</li><li>An <a href="https://hamel.dev/blog/posts/llm-judge/index.html">LLM judge</a> uses a prompt to evaluate an AI system’s output or behavior. We recommend asking it for a <a href="https://hamel.dev/blog/posts/evals-faq/why-do-you-recommend-binary-passfail-evaluations-instead-of-1-5-ratings-likert-scales.html">binary pass/fail decision</a> about a specific failure mode. This encourages clear criteria and makes it easier to compare the judge’s decisions with human labels.↩︎</li><li>We scored 98 production traces after excluding two internal QA examples from the 100-trace dataset. The frozen reference contains 61 known failures and 37 traces without a labeled failure: 39 failures from the original human review plus 22 discoveries from Braintrust and Arize that we manually validated. Models received masked traces without human labels or reviewer notes. Perplexity, Liquid, Clef Flash, and OpenAI received the same instructions and serialized inputs; Jev received equivalent criteria through its structured API. The original conversations are private.↩︎</li><li>API cost covers 100 eval runs, one per trace. We use <a href="https://www.liquid.ai/pricing">Liquid’s prices as of October 17, 2026</a>, $0.02 per million input tokens for d1 and $0.042 for d1-ultra. The experiment recorded d1 at $0.04; we have repriced its saved token usage. Other models use the rates in the experiment’s operational metrics. Performance excludes two internal QA traces. Threshold tuning uses saved scores and requires no additional model calls.↩︎</li><li>Latency depends on how you batch or parallelize requests, your arrangement with the vendor, and your distance from its infrastructure, among other factors. Batching and concurrency can also change cost and throughput. See TypeSafe’s <a href="https://docs.typesafe.ai/primitives#ask-multiple-questions-together">multi-question requests</a> and <a href="https://docs.typesafe.ai/sdk/python/usage/advanced">client performance guidance</a>. Its <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">launch discussion</a> also notes the location of its latency tests relative to its service. Mean response times were 4.33 seconds for Jev, 7.85 for Perplexity, 7.38 for Liquid d1, 1.56 for Liquid d1-ultra, 2.09 for Clef Flash, and 2.77 for OpenAI. These came from separate runs and do not establish comparative throughput or tail latency.↩︎</li><li>These examples illustrate how the consequences of mistakes affect the tradeoff. In U.S. criminal trials, <a href="https://www.law.cornell.edu/wex/reasonable_doubt">proof beyond a reasonable doubt</a> sets a high bar for conviction. In cancer screening, a missed case can delay care, while a false alarm can lead to anxiety and unnecessary procedures. A positive screening result usually requires further testing. The <a href="https://www.cancer.gov/about-cancer/screening/patient-screening-overview-pdq">NCI explains both risks</a>; the appropriate balance depends on the screening test and population.↩︎</li><li>The density plots show unconstrained F1 tuning, before we introduce minimum precision and recall requirements. The later comparison charts apply those requirements to candidate models where feasible. All use the same five-fold cross-validation splits. Thresholds were chosen on training traces, and precision, recall, and F1 were measured on separate traces. We average those measurements across repeated splits. In the optimized density plots, the dashed line shows the average selected threshold. The displayed scores come from the individual splits, rather than applying that average threshold to the full dataset. The density curves use Gaussian smoothing with bandwidth 0.07 and reflection at 0 and 1. Each class has an area of one. Smoothing affects only the display.↩︎</li><li>A precision-recall curve plots precision against recall as the decision threshold changes. It shows the tradeoffs available for a model across thresholds. Scikit-learn’s <a href="https://scikit-learn.org/stable/auto_examples/model_selection/plot_precision_recall.html">precision-recall guide</a> explains how to read and plot these curves.↩︎</li><li>We identify candidates from the full-sample precision-recall curves. In each training split, we choose the highest-F1 threshold among those reaching at least 80% precision and 80% recall. When no threshold qualifies, we use the unconstrained F1 optimum and record the split as infeasible. This occurred in 36 of 100 training splits for Perplexity and 29 for Liquid d1-ultra, and never for OpenAI. Non-candidates always use unconstrained F1 tuning. We keep all validation predictions, including those from fallback splits, in the reported averages. The minimums apply during selection and do not guarantee the same performance on new examples. The <a href="https://hamel.dev/blog/posts/decision-model-evals/charts/threshold-selection-audit.json">threshold-selection audit</a> records each split without trace IDs.↩︎</li><li>A calibrated failure probability of 0.80 means that, among many examples receiving scores near 0.80, roughly 80% contain failures. Platt scaling and isotonic regression use labeled examples to learn an adjustment from model scores to probabilities. Platt scaling fits a sigmoid curve. Isotonic regression fits a more flexible mapping that preserves score order, but is more prone to overfitting with small datasets. Neither guarantees improvement on new examples. Scikit-learn’s <a href="https://scikit-learn.org/stable/modules/calibration.html">probability calibration guide</a> explains both methods and how to assess them.↩︎</li><li>The reliability chart groups each model’s scores into five groups of 19 or 20 traces, sorted by probability. The adjusted scores are each trace’s mean out-of-fold probability from the saved cross-validation results. We fit Platt scaling to the log-odds of the original probabilities. Each mapping is fitted without the traces it predicts. The chart summarizes this small sample and does not establish an exact failure rate for a future trace. The <a href="https://hamel.dev/blog/posts/decision-model-evals/charts/calibration-reliability-data.json">plotted calibration results</a> are available as JSON.↩︎</li><li>On the saved out-of-fold probability summaries, Jev’s Brier score was 0.187 before adjustment and 0.188 afterward. Liquid d1-ultra’s was 0.173 and 0.172, while OpenAI’s was 0.159 and 0.164. Brier score measures average squared probability error, so lower is better. It reflects discrimination as well as calibration. These results describe the log-odds Platt fit shown in the chart. An exploratory refit directly on probabilities, using the same folds, gave OpenAI a Brier score of 0.154. This illustrates sensitivity to the fitting method. It does not establish which method will work best on new data.↩︎</li><li><a href="https://arxiv.org/abs/2507.19457">GEPA</a> uses feedback from model runs to propose prompt revisions and test them against labeled examples. It retains candidates with different strengths, so a prompt that helps a difficult example can remain in consideration. Incorrect labels can steer this search toward the wrong changes. Keep a <a href="https://hamel.dev/blog/posts/evals-faq/how-do-i-know-if-i-can-trust-my-automated-eval.html">separate test set</a> outside prompt development for the final check. In our small manual Jev experiment, F1 at the default threshold rose from 0.78 with a simple prompt to 0.80 with a checklist of failure types. That experiment did not use GEPA or establish how much systematic optimization would help. Our <a href="https://hamel.dev/blog/posts/evals-faq/what-model-or-llm-should-i-use-to-build-automated-evals.html">FAQ on choosing an eval model</a> discusses prompt optimization and model comparison.↩︎</li></ol></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://hamel.dev/blog/posts/decision-model-evals/">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>对话式 AI 测试实战：八步搭建 QA 系统</div>
+<div>08-26 · 28 分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>Cloudflare 开源其多模态决策模型 Clef：能听声音、看视频、直接做判断</div>
+<div>10-10 · 8 分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>Vercel Labs 开源 fx0：超快的 HTML 工件构建器</div>
+<div>10-21 · 约 10 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Perplexity Computer 支持 Mac 全本地运行：模型和 Agent 都留在电脑上，本地任务不扣积分</title>
+<link>https://best.xiaohu.ai/article/perplexity-computer-local-mac/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:perplexity-computer-local-mac</guid>
+<pubDate>Wed, 21 Oct 2026 12:01:01 +0000</pubDate>
+<description>从客户资料整理、提案预算到跨应用待办，看懂它能替你做什么，以及全本地与 Hybrid 的分工、隐私机制和选择条件。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 21 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Perplexity Computer 支持 Mac 全本地运行：模型和 Agent 都留在电脑上，本地任务不扣积分</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/perplexity-computer-local-mac/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>功能特点：本地 Agent 在电脑上如何跑通具体任务？</span></a><a><span>02</span><span>核心机制：“本地动脑”与“本地动手”的区别</span></a><a><span>03</span><span>Hybrid 怎样把云端研究和私密资料接起来？</span></a><a><span>04</span><span>两种模式怎么选？看资料是否齐全，以及是否需要云端参与</span></a><a><span>05</span><span>本地使用的 PPLX Pro 是什么模型？</span></a><a><span>06</span><span>谁能用，怎样开始？</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Perplexity Computer 支持 Mac 全本地运行：模型和 Agent 都留在电脑上，本地任务不扣积分</h1><p>从客户资料整理、提案预算到跨应用待办，看懂它能替你做什么，以及全本地与 Hybrid 的分工、隐私机制和选择条件。</p><div><div>正文一页纸</div>☆ 收藏<div><span><span>作者：</span>Perplexity</span><span>10-21 · 约 9 分钟</span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>模型和 Agent 都能在 Mac 运行，把私密资料整理成复盘笔记、提案预算与待办，本地任务不扣 Computer 积分。</li><li>资料已齐全、希望全在本机处理时可选全本地；需要把最新公开研究与保密材料结合时，可选 Hybrid。</li><li>Hybrid 用本机隐私闸门检查外发信息；两种模式均有订阅与设备条件，全本地推荐 36GB，Hybrid 最低 24GB。</li></ul><div><p>Perplexity 为 Mac 客户端推出了全本地运行的 Perplexity Computer：模型和执行任务的 Agent 都在 Mac 上运行。用户授权后，它能处理本地文件和原生应用，完成任务时无需把敏感内容交给云端模型分析。</p>
+<p>主要变化包括：</p>
+<ul>
+<li><strong>模型和 Agent 都在本机</strong>：本地模型负责理解任务，Agent 负责调用获准的工具和应用；</li>
+<li><strong>本地处理私密资料</strong>：按官方说明，本地任务可以处理文件和应用中的敏感信息，无需将这些内容发送到云端模型；</li>
+<li><strong>本地任务不扣积分</strong>：不消耗 Computer credits，仍有订阅条件；</li>
+<li><strong>可选混合计算（Hybrid）</strong>：云端负责公开检索与推理，Mac 负责处理私密文件和本机操作，两端自动协调分工；</li>
+<li><strong>有订阅与设备条件</strong>：向 Pro、Max 和 Enterprise 用户开放，需受支持的 Apple silicon Mac，全本地推荐 36 GB 统一内存。</li>
+</ul>
+<figure>
+<figcaption>
+<span>官方演示：从客户资料生成复盘笔记，再从多个应用整理待办。</span><br>
+    先看客户文件怎样变成复盘笔记，再看邮件、短信、Slack 和日历中的行动项怎样写入“提醒事项”。视频是官方功能展示。
+  </br></figcaption>
+</figure>
+<h3>功能特点：本地 Agent 在电脑上如何跑通具体任务？</h3>
+<p>在日常使用中，用户交给 AI 助手的任务往往涉及大量不可公开的私人信息。官方演示展示了两个典型的本地执行场景：</p>
+<p>第一个场景是<strong>本地敏感文件的深度梳理</strong>。用户在输入框中选定 <code>PPLX Pro</code> 模型，要求它“读取 <code>~/Clients/West/Okonkwo</code> 目录下的最新邮件与税单，准备 Okonkwo 家族的第三季度投资复盘笔记，标出本季度变动以及 2027 年需覆盖的核心议题”。画面展示了表格、邮件和终端工具，随后产出一份复盘页面，列出退休、住房、投资分散和社保等议题。它展示的是从多份资料整理出讨论要点的过程，不能据此判断金融建议的准确性。</p>
+<p>第二个场景是<strong>跨系统应用的协同提取</strong>。指令要求扫描用户的邮件、短信、Slack 和日历，“将需要今天回复或处理的所有事项添加到‘提醒事项（Reminders）’”。系统自动读取各应用中分散的信息——例如短信里关于周五会议改期的对话——并将待办条目从原本的 1 项自动扩充为 5 项，直接写入系统原生提醒事项。</p>
+<p>官方博客还给出了一个<strong>客户提案</strong>场景：把保密访谈纪要、客户需求和内部价目表整理成提案，写出项目范围、Excel 预算，以及供人审阅的 Outlook 邮件草稿。</p>
+<figure>
+<img>
+<figcaption>
+<span>官方全本地演示：持仓和下载行情，变成工作簿与会议演示稿。</span><br>
+    界面的“Where the work ran”明确列出模型、Agent 均在 Mac，云端未使用。图中资源数值属于网页演示。来源：<a href="https://www.perplexity.ai/hub/products/hybrid-compute">Perplexity 官方产品页</a>，按官方页面快照呈现，非本轮产品实测。
+  </br></figcaption>
+</img></figure>
+<p>这些任务的共同用途，是把“读资料”一直接到“准备工作成果”：用户少做一轮逐份提取、整理，再转写到文档、表格和应用里的手工工作。经常整理客户材料、做预算提案，或从多个应用汇总事项的人，都能据此判断它是否用得上。</p>
+<p><strong>本地推理不等于所有应用都能离线使用。</strong> 邮件或 Slack 获取、同步消息仍可能需要联网；这与 AI 在哪里理解消息、决定下一步，是两个不同环节。</p>
+<h3>核心机制：“本地动脑”与“本地动手”的区别</h3>
+<p>“本地动脑”指模型在电脑上理解任务、分析内容；“本地动手”指 Agent 在电脑上调用工具、操作文件和应用。操作发生在 Mac 上，还不能单独说明分析也发生在 Mac 上。</p>
+<p>例如，假如一个桌面助手把报税单交给云端模型分析，再将分析结果写回本地文件，那么写文件这一步在 Mac 上，分析报税单这一步仍在远端。Perplexity 此次的全本地模式，把模型推理和 Agent 执行都放到了 Mac。</p>
+<ol>
+<li><strong>本地模型负责理解任务</strong>：本地模型在 Mac 上运行，分析获准读取的内容，决定要做什么；</li>
+<li><strong>本地 Agent 负责执行动作</strong>：调用获准的工具，读取文件、处理应用信息，把任务推进到结果。模型与这套执行系统配合，才不只是聊天框里的回答。</li>
+</ol>
+<h3>Hybrid 怎样把云端研究和私密资料接起来？</h3>
+<p><strong>Hybrid 由云端做公开研究、规划与推理，Mac 处理私密文件和本机应用动作。</strong> Computer 自动协调两端，再把工作合并为一个结果。用户不用自己把任务拆成多轮提示，再在几个工具之间搬运资料。</p>
+<p>例如，审查一笔交易时，云端可以查公开财报、同类交易与市场信息，Mac 则读取机密交易文件，提取条款和财务假设，再找出两边信息不一致的地方。这就是 Hybrid 的实际用途：把外部研究与不能直接交给云端的内部材料放进同一个工作流程。</p>
+<figure>
+<img />
+<figcaption>
+<span>官方 Hybrid 演示：本机处理机密文件，云端研究可比交易。</span><br />
+    两个子任务围绕同一个更新演示稿的目标分工；这是官方网页组件的演示快照。来源：<a href="https://www.perplexity.ai/hub/products/hybrid-compute">Perplexity 官方产品页</a>，按官方页面快照呈现，非本轮产品实测。
+  </figcaption>
+</figure>
+<p>这个过程由 Mac 上的<strong>隐私闸门（Privacy Gate）</strong>控制信息外发。按官方说明，本机分类器先识别姓名、地址、账号等敏感值，用代号替换后再发送；答案返回 Mac 时，再恢复真实值。比如客户姓名先换成“客户 A”，云端围绕代号处理请求，回到本机的结果再换回姓名。按规则，闸门也可以把信息留在本地、拒绝外发，或先询问用户。Hybrid 仍会与云端交换信息，保护的是哪些内容可以出去、出去前怎样处理。</p>
+<figure>
+<img />
+<figcaption>
+<span>官方隐私对照：全本地不调用云端；Hybrid 先检查和遮蔽敏感值。</span><br />
+    Hybrid 一侧依次显示本机处理、云端使用代号、返回后恢复真实值；页面也说明可保留本地或征求共享许可。来源：<a href="https://www.perplexity.ai/hub/products/hybrid-compute">Perplexity 官方产品页</a>，按官方页面快照呈现，非本轮产品实测。
+  </figcaption>
+</figure>
+<h3>两种模式怎么选？看资料是否齐全，以及是否需要云端参与</h3>
+<p><strong>全本地也能完成复杂、多步骤工作，选择依据不能只看任务难不难。</strong> 官方给出的两个对照更直接：</p>
+<ul>
+<li><strong>私密持仓＋已经下载的行情资料：可以全本地分析。</strong> 如果所需资料已在本机，又希望规划、分析和执行都在 Mac 上完成，就选全本地。</li>
+<li><strong>机密财务＋最新市场研究：可以选 Hybrid。</strong> Mac 处理保密材料，云端补上公开研究和推理，再合并成果。</li>
+</ul>
+<p>本地任务中途需要最新信息、浏览器、连接应用或云端模型帮助时，用户也可以授权 Computer 调用云端；涉及云端的步骤就不再是全本地处理。</p>
+<div>全本地和 Hybrid：怎么分工，怎么选？</div>
+<p>先看任务需要哪些资料，再决定在哪里处理。两种模式都能完成多步骤工作。</p>
+<div>
+<div>全本地运行</div>
+<h4>资料与分析都留在 Mac</h4>
+<div>
+<div>你的 Mac</div>
+<div><b>本地模型 · 动脑</b><span>理解任务，分析获准读取的资料，规划下一步</span></div>
+<div>↕</div>
+<div><b>本地 Agent · 动手</b><span>调用获准的工具，处理文件与原生应用</span></div>
+<div>↓</div>
+<div>复盘笔记 / 预算表 / 提醒事项</div>
+</div>
+<p><b>什么时候选？</b>所需资料已在本机，希望规划、分析和执行都在本机完成。</p>
+<p>例：私密持仓 ＋ 已下载行情 → 本地分析。<br /><b>本地任务不扣 Computer 积分，仍需订阅。</b></p>
+<div>混合计算 Hybrid</div>
+<h4>公开研究与私密材料接成一个任务</h4>
+<div>
+<div><b>云端模型</b><span>查找公开资料，负责研究、规划与推理</span></div>
+<div><span>↕ 外发内容先经 Mac 隐私闸门检查</span></div>
+<div><div>你的 Mac</div><b>本地模型与 Agent</b><span>处理私密文件、敏感信息与本机应用动作</span></div>
+<div>↓</div>
+<div>Computer 协调两端，合并工作成果</div>
+</div>
+<p><b>什么时候选？</b>既要处理保密材料，也需要最新公开研究或云端模型参与。</p>
+<p>例：机密财务 ＋ 最新市场研究 → 合并审查。<br />本地处理部分不耗云端积分，整个 Hybrid 任务不等于免积分。</p>
+</div>
+<div>
+<h4>Hybrid 的信息怎样往返？</h4>
+<p>按官方说明，本机分类器先识别姓名、地址、账号等敏感内容，再决定如何处理。</p>
+<ol>
+<li><b>① Mac 替换敏感值</b><span>例如，把真实客户姓名换成“客户 A”，再发出请求。</span></li>
+<li><b>② 云端处理请求</b><span>云端使用代号，完成获准的研究与推理。</span></li>
+<li><b>③ Mac 恢复真实值</b><span>答案返回本机，再把代号换回真实信息。</span></li>
+</ol>
+<p>隐私闸门也可按规则把信息留在本地、拒绝外发，或先询问用户；Hybrid 仍有信息与云端交换。</p>
+</div>
+<p>全本地任务需要云端能力时，可由用户授权调用；涉及云端的步骤就不再是全本地处理。邮件、Slack 等服务同步消息也可能联网，这与 AI 在哪里分析是两个环节。</p>
+<p>Hybrid 还提供了远程使用的方式：从 iPhone 发起任务，由 Mac 读取私密文件、执行敏感步骤，结果回到同一个任务，供其他设备打开。产品页也展示了每周一重复执行、把更新成果发送到 Slack 和邮件的场景，适合需要持续更新同类工作成果的需求。</p>
+<figure>
+<img />
+<img />
+<figcaption>
+<span>官方跨设备演示：手机发起，Mac 处理私密文件，成果回到同一任务。</span><br />
+    结果表把本机模型重建与云端可比交易研究分列。画面时间是演示标记，不用于推算实际耗时。来源：<a href="https://www.perplexity.ai/hub/products/hybrid-compute">Perplexity 官方产品页</a>，按官方页面快照呈现，非本轮产品实测。
+  </figcaption>
+</figure>
+<h3>本地使用的 PPLX Pro 是什么模型？</h3>
+<p>这段演示选用了 PPLX Pro，它并非唯一的本地模型选项。官方称它是 Qwen 的后训练版本：也就是在已有模型基础上继续训练，再用于这里的任务。仅凭“后训练”这个名称，无法得知具体训练方法或性能提升；官方此次公开说明也没有给出相应评测。可选模型以应用内提示为准。</p>
+<h3>谁能用，怎样开始？</h3>
+<p><strong>本地任务不消耗 Computer 积分，但这项功能仍面向 Pro、Max 和 Enterprise 订阅用户。</strong> 前者说的是执行本地任务时是否扣积分，后者说的是能否使用这项功能；两者不能混为一谈。Hybrid 产品页也说明，本地模型处理的工作不消耗云端积分；这不代表整个 Hybrid 任务免积分。</p>
+<p>设备要求因运行模式而异：</p>
+<ul>
+<li><strong>全本地模式</strong>：需要在受支持的 Apple silicon Mac 上运行。官方推荐 <strong>36 GB 统一内存</strong>，这是推荐配置，官方并未把它列为最低内存要求。模型改在本机运行后，会与系统和其他应用一起使用 Mac 的资源，不能从这个推荐值推断低内存机型的实际速度或兼容性。</li>
+<li><strong>混合计算（Hybrid）模式</strong>：官方产品页标明的要求为 Apple silicon Mac 与 macOS 15 及以上系统，统一内存门槛为 <strong>最低 24 GB</strong>，推荐 <strong>32 GB</strong>。</li>
+</ul>
+<p>开始使用的步骤：</p>
+<ol>
+<li>从<a href="https://www.perplexity.ai/hub/products/hybrid-compute">官方入口</a>下载并安装最新版的 Perplexity Mac 客户端；</li>
+<li>按照应用内提示一键下载所选的本地模型（只需在应用内配置一次，无需自行安装 Ollama、配置本地运行环境或配置 API 密钥）；</li>
+<li>在模型选择器中，根据任务需要选择全本地（fully local）直接在 Mac 上运行，或选择混合计算（Hybrid）并分别指定本地模型与云端模型。具体支持情况以应用内提示为准。</li>
+</ol>
+</div><div><div><div>来源</div><div><span>Perplexity Computer can now run fully local on your Mac</span><span>Perplexity<span>·</span>2026-10-20<span>·</span><a href="https://x.com/perplexity_ai/status/2112571597798461920">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/perplexity_ai/status/2112571609693523990">本地任务模型、积分与 Hybrid 分工说明</a><span>·</span><a href="https://x.com/perplexity_ai/status/2112571621550760085">订阅与硬件建议、Mac app 入口</a><span>·</span><a href="https://www.perplexity.ai/hub/blog/perplexity-computer-now-runs-fully-local-on-mac">Mac 全本地运行：官方博客与工作场景</a><span>·</span><a href="https://www.perplexity.ai/hub/products/hybrid-compute">Hybrid Compute：分工、隐私机制与使用条件</a><span>·</span><a href="https://www.perplexity.ai/hub/blog/introducing-hybrid-compute-on-mac">Hybrid Compute：隐私闸门与云端协作说明</a></div></div></div></div></div><div>
+<div>PERPLEXITY COMPUTER ON MAC</div>
+<h1>让 Mac 从读私密资料，一直做到工作成果</h1>
+<div>全本地把模型与 Agent 都放进 Mac；Hybrid 把本机私密工作与云端公开研究接成一个任务。</div>
+<div>一页纸速览 · 能做什么 · 两种模式怎么选 · 隐私与使用条件</div>
+<div>
+<p>Perplexity Computer 的 Mac 客户端新增全本地运行。获准后，它能读取文件、调用应用，把资料整理成文档、表格或待办。</p>
+<div><strong>客户复盘：</strong>邮件＋税单等资料 → 提取变动与议题 → 投资复盘笔记。</div>
+<div><strong>跨应用待办：</strong>邮件＋短信＋Slack＋日历 → 找出今天要处理的事 → 写入“提醒事项”。</div>
+<div><strong>客户提案：</strong>保密访谈＋需求＋内部价目表 → 项目范围＋Excel 预算＋供人审阅的 Outlook 邮件草稿。</div>
+<p>用途是少做一轮逐份提取、整理，再转写进文档和应用的手工工作。以上为官方展示的场景，不能据此判断金融建议准确性或实际运行速度。</p>
+</div>
+<div>
+<div>主要变化 · 模型与执行都在本机</div>
+<div>操作文件在 Mac，不代表分析内容也在 Mac</div>
+<div>
+<div>
+<div>用于理解区别的假设例子</div>
+<div>云端动脑＋本地动手</div>
+<p>报税单交给云端模型分析，结果写回本地文件：写文件在 Mac，分析仍在远端。</p>
+</div>
+<div>
+<div>这次的全本地模式</div>
+<div>本地动脑＋本地动手</div>
+<p>模型在 Mac 理解获准读取的资料，Agent 调用获准的工具与应用。按官方说明，本地任务无需把敏感内容发给云端模型分析。</p>
+</div>
+</div>
+<p>优势在于把资料理解与执行都留在本机。邮件、Slack 的获取或同步仍可能联网；本地推理不等于所有应用都能离线使用。</p>
+</div>
+<div>
+<h2>选全本地还是 Hybrid？看资料和云端需求</h2>
+<p>全本地也能处理复杂、多步骤任务，不能只按任务难度来选。</p>
+<div>
+<div>
+<div>FULLY LOCAL</div>
+<div>资料已齐，希望 AI 都在本机</div>
+<p>规划、分析、执行均在 Mac 完成。</p>
+<p>私密持仓＋已下载行情 → 本地分析 → 工作簿与会议演示稿。</p>
+</div>
+<div>
+<div>HYBRID COMPUTE</div>
+<div>私密文件还要结合公开研究</div>
+<p>Mac 处理机密文件和本机动作，云端做公开研究、规划与推理，自动合并成果。</p>
+<p>机密交易文件＋云端可比交易研究 → 更新投资委员会演示稿。</p>
+</div>
+</div>
+<p>Hybrid 省去自己拆任务、在工具间搬资料的步骤；也可从 iPhone 发起，由 Mac 处理私密文件，成果回到同一任务。</p>
+<div>全本地任务途中若授权使用云端，涉及云端的步骤就不再属于全本地处理。</div>
+</div>
+<div>
+<h2>Hybrid 怎样控制信息外发？</h2>
+<div>
+<div>Privacy Gate：本机检查 → 云端处理 → 本机恢复</div>
+<div>
+<div>
+<div>1 · MAC</div>
+<div>识别和遮蔽</div>
+<p>按官方说明，本机分类器识别姓名、地址、账号等敏感值，替换为“客户 A”等代号。</p>
+</div>
+<div>
+<div>2 · CLOUD</div>
+<div>围绕代号处理</div>
+<p>允许外发的信息进入云端，参与公开研究与推理。</p>
+</div>
+<div>
+<div>3 · MAC</div>
+<div>恢复真实值</div>
+<p>答案回到 Mac 后，再把代号替换回真实信息，接入最终成果。</p>
+</div>
+</div>
+</div>
+<p>按规则，闸门也可以把信息留在本机、拒绝外发或先询问用户。<strong>Hybrid 仍有信息往返</strong>，不能把遮蔽机制理解为绝对不会泄露的保证。</p>
+</div>
+<div>
+<h2>本地不扣积分，仍有订阅和设备门槛</h2>
+<p><strong>本地任务不消耗 Computer credits</strong>，功能面向 Pro、Max 和 Enterprise 订阅用户。Hybrid 中本地模型处理的部分不消耗云端积分，不能据此把整个 Hybrid 任务当成免费。</p>
+<div><table><thead><tr><th>模式</th><th>设备与统一内存</th></tr></thead><tbody><tr><th>全本地</th><td>受支持的 Apple silicon Mac；<strong>推荐 36 GB</strong>，官方未把它列为最低要求。</td></tr><tr><th>Hybrid</th><td>Apple silicon Mac，macOS 15+；<strong>最低 24 GB，推荐 32 GB</strong>。</td></tr></tbody></table></div>
+<p>开始使用：安装最新版 Mac 客户端 → 应用内一次配置并下载本地模型 → 在模型选择器选全本地或 Hybrid。无需自行安装 Ollama、搭运行环境或配置 API 密钥，具体支持以应用内提示为准。</p>
+<div><strong>适合谁：</strong>经常处理客户私密材料、预算提案，或跨应用汇总行动项的 Mac 用户。主要优势是少搬资料、让私密处理留在本机，以及需要时接上云端研究；实际准确性、速度和设备表现仍需按自己的任务验证。</div>
+</div>
+</div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/perplexity_ai/status/2112571597798461920">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>实操</div>
+<div>基于 Google 多模态嵌入模型 EmbeddingGemma 2 的 Mac 菜单栏搜索工具，连视频和声音片段都能搜</div>
+<div>10-14 · 12 分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>Vercel Labs 开源 fx0：超快的 HTML 工件构建器</div>
+<div>10-21 · 约 10 分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>DeepSeek V4.1 Flash 更新：做游戏、搭 3D 场景更拿手，也更快、更省</div>
+<div>10-18 · 约12分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】26 个 AI 语音模型实测：开口最快、读得最准、声音最自然，为什么不是同一个？</title>
+<link>https://best.xiaohu.ai/article/cekura-tts-benchmark-2026/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:cekura-tts-benchmark-2026</guid>
+<pubDate>Wed, 21 Oct 2026 12:01:01 +0000</pubDate>
+<description>Cekura 用同一批英文通话句子比较文字转语音模型：读懂 46 毫秒、负延迟与自动评分，才能把榜单用在真实语音 Agent 上。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 21 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">26 个 AI 语音模型实测：开口最快、读得最准、声音最自然，为什么不是同一个？</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/cekura-tts-benchmark-2026/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>为什么同一句话，换个输入方式就会换冠军？</span></a><a><span>02</span><span>拆解「-64毫秒」：负延迟是时光倒流，还是时序抢跑？</span></a><a><span>03</span><span>音频包落地不等于开口：开头静音陷阱</span></a><a><span>04</span><span>自动准确率评分究竟测出了什么？</span></a><a><span>05</span><span>打断与播放卡顿：音色之外的工程体验</span></a><a><span>06</span><span>自然度估算与真实试听建议</span></a><a><span>07</span><span>落地选型决策参考</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>26 个 AI 语音模型实测：开口最快、读得最准、声音最自然，为什么不是同一个？</h1><p>Cekura 用同一批英文通话句子比较文字转语音模型：读懂 46 毫秒、负延迟与自动评分，才能把榜单用在真实语音 Agent 上。</p><div><div>正文一页纸原文</div>☆ 收藏<div><span><span>作者：</span>Tarush Agarwal / Cekura</span><span>10-21 · </span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>Cekura 对 26 款文字转语音模型的测试显示，开口最快、读得最准和预测最自然的领先者不同。</li><li>Gradium 的“负延迟”来自边收文字边发声，计时零点放在最后一个词发送时。</li><li>读音和自然度是机器估分，选择语音 Agent 还要检查打断、卡顿与目标语言的实际表现。</li></ul><div><p>Cekura 团队比较了 26 款文字转语音（TTS）模型：让它们从同一美东云区域调用，朗读同一批 104 条英语通话句子，每句读三遍，并测整句输入、逐词输入与打断等不同情况。团队报告，整个基准共发起 30,564 次请求，包含多种测试，并非三万多条不同句子。</p>
+<p>每个模型选用一个固定的美式英语预置女声。这是一组特定接口、声音和网络位置下的比较，结果不能直接外推到中文或声音克隆。</p>
+<p>同一批模型，换个衡量标准，领先者就变了：</p>
+<ul>
+<li><strong>全句输入延迟</strong>：Inworld TTS-2 Flash 以 46 毫秒的中位数首个可听声音时间领跑；</li>
+<li><strong>逐词流式输入延迟</strong>：Gradium 的中位数为 −64 毫秒，出现了「负延迟」，在句子最后一个单词尚未输入完毕前就已经开口发声；</li>
+<li><strong>数字与专业术语准确率</strong>：Inworld TTS-2 达到 93.4%，与 Inworld TTS-2 Flash（93.2%）、Fish Audio S2.1-Pro（92.0%）处于第一梯队；</li>
+<li><strong>声音自然度估算</strong>：Fish Audio Drama 3 达到 4.54 分（满分 5 分）居首；</li>
+</ul>
+<p>本次比较没有一个模型在所有指标上都居首。快开口、读准电话号码、声音自然，以及用户插话后如何处理旧音频，分别考验不同能力。选语音 Agent 的声音，需要先弄清自己的产品最怕哪一种问题。</p>
+<figure>
+<img>
+<figcaption>
+<span>横轴越靠左代表流式延迟越低、开口越早；纵轴越靠上代表标记难点的读对率越高。</span><br>
+    测试基于统一美东云节点与 104 个通话句子；图中仅包含 18 款支持文本流式输入的模型，其余 8 款在本次接口与配置下不支持逐词文本输入，未进入散点图。准确率为两款自动语音识别系统的转录评分估计值，非人工质检。
+  </br></figcaption>
+</img></figure>
+<h3>为什么同一句话，换个输入方式就会换冠军？</h3>
+<p>把文章交给工具转成语音时，可以一次发送全文；实时语音对话却常常边生成回复边说。大语言模型陆续生成文字，Agent 可以把已生成的片段先交给 TTS，让语音合成与后续文字生成重叠进行。</p>
+<p>本次测试分别采用两种文本输入方式：</p>
+<ol>
+<li><strong>整句输入模式（Non-streaming）</strong>：客户端一次发送完整句子，从发送时刻量到首个可听声音出现。Inworld TTS-2 Flash 的中位数为 46 毫秒，Gradium 为 76 毫秒，Inworld TTS-2 为 126 毫秒。实际产品也可以先选好一个语段再发送，不必机械地等句号。</li>
+<li><strong>逐词流式输入模式（Streaming）</strong>：客户端逐词发送，让 TTS 在文字尚未传完时就有机会开始发声。本榜以每秒 30 个词模拟输入节奏，再从最后一个词发送算到首个可听声音：Gradium 为 −64 毫秒，Inworld TTS-2 Flash 为 45 毫秒，ElevenLabs v4 Turbo 为 69 毫秒。每秒 30 词是测试设定，并非大语言模型固定的生成速度。</li>
+</ol>
+<p>散点图未画出的 8 款模型，包括 GPT-4o mini TTS、Gemini 3.8 Flash、ElevenLabs v3 和 Qwen3-TTS 等，在本次所测接口与配置下不接受逐词文本输入。它们即使能把输出音频分块传回来，也与“文字没传完就开始合成”不同。这个区别影响应用怎样安排流水线，不能据此断言这些模型在所有部署方式下都无法低延迟。</p>
+<p>中位数还不能说明偶尔会等多久。P90 是约九成测试的等待不超过的时长，仍有最慢一成会更久。整句输入的同一项首声测量中：</p>
+<ul>
+<li>Inworld TTS-2 Flash：中位数约 46 毫秒，P90 约 73 毫秒；</li>
+<li>Smallest Lightning v3.1 Pro：中位数约 357 毫秒，P90 约 679 毫秒。</li>
+</ul>
+<p>后者的 P90 接近中位数的两倍。选型时既要看通常的节奏，也要看慢请求拖到什么程度；P90 本身也不是最长等待时间。</p>
+<h3>拆解「-64毫秒」：负延迟是时光倒流，还是时序抢跑？</h3>
+<p>“负延迟”来自计时起点的选择，并不表示模型预知了还没收到的文字。</p>
+<p>流式延迟计时的基准原点，是<strong>客户端把句子的「最后一个词」推入 TTS 接口的瞬间</strong>。</p>
+<p>比如用一个 10 个单词的句子理解这个计时法：将最后一个词发送的时刻记为 0；如果前面收到的文字已经开始发声，且首个可听声音早于零点 64 毫秒，就会记作 −64 毫秒。这只是计时示例；榜上的 −64 毫秒是多次测试的中位数，不表示每句话都提前这么多，也没有揭示模型收到第几个词才开始计算。</p>
+<div>换了输入方式，领先者也变了</div><p>圆点表示首个可听声音相对计时零点的位置；两图均采用 −100 至 +150 毫秒的尺度。</p><div><h4>逐词发送文本</h4><p>零点＝最后一个词发送</p><div><span>−100 ms</span><span>0</span><span>+150 ms</span></div><div><div>Gradium TTS</div><div><span></span><span></span></div><div>-64 ms</div></div><div><div>Inworld TTS-2 Flash</div><div><span></span><span></span></div><div>+45 ms</div></div><div><div>Inworld TTS-2</div><div><span></span><span></span></div><div>+127 ms</div></div><h4>一次发送完整文本</h4><p>零点＝完整文本发送</p><div><span>−100 ms</span><span>0</span><span>+150 ms</span></div><div><div>Gradium TTS</div><div><span></span><span></span></div><div>+76 ms</div></div><div><div>Inworld TTS-2 Flash</div><div><span></span><span></span></div><div>+46 ms</div></div><div><div>Inworld TTS-2</div><div><span></span><span></span></div><div>+126 ms</div></div></div><p>流式图中，Gradium 的圆点在零线左边：最后一个词发送前，声音已经开始。整句图中，Inworld Flash 更早出声。各点是各自测试的中位数，并非同一句话的内部运行记录。</p>
+<p>连接准备和整套对话系统的耗时，也会改变这些数字的含义。</p>
+<ul>
+<li><strong>计时前已建立连接，网络往返仍在计时内</strong>：握手、鉴权和上下文准备不计入；客户端发出文本，到音频返回并出现可听声音的等待则计入。因此，换一个网络位置，实际体验可能不同。</li>
+<li><strong>TTS 的首声时间只是整套对话的一段</strong>：整套对话还涉及判断说话是否结束、识别内容、生成回复和播放器输出等环节，这些过程也可能重叠进行。46 毫秒量的是已建连条件下，发送完整文本到首个可听声音的这一段，不能当成用户说完到 AI 回答的总耗时。</li>
+</ul>
+<h3>音频包落地不等于开口：开头静音陷阱</h3>
+<p>在语音交互中，接口返回了数据包（TTFB），人类耳朵不一定能听到声音。</p>
+<p>返回的音频开头可能有一段低于可听声音检测门槛的内容。如果只记录首个数据包抵达，系统会显示“已经响应”，用户却可能还没听到说话声。</p>
+<p>本次用首个可听声音时间（TTFA）来比较：先记录音频块到达，再计入声音开始之前的低音量段。检测采用去除直流分量后的 10 毫秒音频窗口，以 1 毫秒步长移动，寻找均方根幅度（RMS）首次超过满幅度 1% 的位置。这是统一的检测规则，并非逐个用户的听力测量。</p>
+<p>整句输入测试中，检测到的开头静音时长中位数包括：</p>
+<ul>
+<li>Deepgram Aura-2：223 毫秒；</li>
+<li>Cartesia Sonic 3.5 与 Sonic 3.6：分别为 132 和 142 毫秒；</li>
+<li>Smallest Lightning v3.1 Pro：141 毫秒。</li>
+</ul>
+<p>这些数值说明，收到音频数据与听到第一句话，是两个不同事件。不能将整句测试的静音中位数，直接拼入另一组逐词输入测试，假装它们是同一条录音的连续阶段。</p>
+<h3>自动准确率评分究竟测出了什么？</h3>
+<p>语音助手读出一个电话号码，听起来流畅还不够，数字也要对；读地址时，同一个缩写还可能因上下文改变读法。</p>
+<p>测试为通话句子中的难点片段标注可接受读法，分成四类：</p>
+<ol>
+<li><strong>数字与缩写速记</strong>：如 <code>7 a.m.</code>、<code>20%</code>、<code>36°F</code>、<code>approx.</code>；</li>
+<li><strong>代码与地址</strong>：如优惠券 <code>SAVE20</code>、电子邮箱 <code><span>help</span><span>@</span><span>north-clinic.org</span></code>、免费电话 <code>1-800-555-0199</code>；</li>
+<li><strong>依上下文展开的缩写</strong>：如 <code>St. Mary's on Main St.</code>（前一个 St. 是 Saint，后一个 St. 是 Street）、<code>Dr. Okafor</code> 中的 Dr. 应展开为 Doctor；</li>
+<li><strong>生僻医疗药物术语</strong>：如左旋甲状腺素 <code>levothyroxine</code>、胃肠病学 <code>gastroenterology</code>。</li>
+</ol>
+<p>这些标记难点的自动通过率，Inworld TTS-2 为 93.4%，Inworld TTS-2 Flash 为 93.2%，Fish Audio S2.1-Pro 为 92.0%，Fish Audio Drama 3 为 91.3%。它不是整句全部读对的比例，也不是整通电话的成功率。</p>
+<p>评分的方法决定了它适合怎样使用：</p>
+<ul>
+<li><strong>先转录，再核对难点</strong>：合成音频分别交给 Deepgram Nova-3 和 OpenAI Whisper 两个自动语音识别系统，检查转录中是否出现了标注的可接受读法；号码和代码还需核对字母、数字。识别器自己也会听错，因而这些是估计值。</li>
+<li><strong>两位机器“听者”可能给出不同结果</strong>：网页说明，它们对某个模型的读对率估计相差可达 10 个百分点。</li>
+<li><strong>顶部的小差距按并列看待</strong>：评测建议将两个百分点以内的顶部结果视作并列。例如 93.4% 与 93.2%，不足以据此认定前者有明确的体验优势。</li>
+<li><strong>快开口不能代替读音检查</strong>：Gradium 的流式延迟最小，难点通过率为 79.5%；Inworld Flash 则是 45 毫秒、93.2%。这说明两项能力需要分别比较，并不能证明“为了快才读错”。</li>
+</ul>
+<p>有些读音问题，转录文字本身就无法判断。例如 read 的现在式和过去式发音不同，转写结果却都可能是 read。原始语料把这类项目单列为需要听音频，没有计入这里的自动读对率。因此，“语境项目 100%”不能理解成所有同形异音词和重音都已经读对。</p>
+<p>总分还会掩盖题型差异。在这些可由转录判断的项目中，Gradium 的语境读法约为 67%，医学术语却约为 99%；Inworld TTS-2 的语境读法约为 100%，代码与地址约为 86%。这些同样是转录器的分类估计。经常报验证码的助手，应特别检查代码和号码，不能仅因医学术语得分高，就认为所有难点都可靠。</p>
+<h3>打断与播放卡顿：音色之外的工程体验</h3>
+<p>用户插话说“等一下”时，声音再好听，继续把旧话说下去也会妨碍对话。打断需要同时处理服务端的合成任务和客户端的播放。</p>
+<h4>1. 打断机制的协议真相</h4>
+<p>本次“Stopping”衡量的是发出取消请求后，仍收到多少可播放音频，以音频时长计算。它不是取消请求到最后一个数据包抵达的墙钟响应时间。</p>
+<ul>
+<li><strong>可用取消接口的结果</strong>：Grok TTS 和 Soniox 的取消后额外音频时长中位数为 0 毫秒，Deepgram Aura-2 为 40 毫秒，Cartesia Sonic 3.6 为 764 毫秒。这里的 0 是中位数，不表示每次都没有额外音频，也不表示整通电话可以在零时间内安静下来。</li>
+<li><strong>n/a 也有不同原因</strong>：Gradium、Inworld 和所测 ElevenLabs v3 等没有可用取消消息；所测 ElevenLabs Flash v2.5、v4 Turbo 和 v4 的关闭控制，则会先输出已提交文本的音频，再关闭上下文。它们都不能把 n/a 当作零，也不代表成品里的用户无法打断。</li>
+<li><strong>播放器仍要立即处理旧音频</strong>：Agent 需要停止本地播放、丢弃不再需要的音频，再按接口能力取消、关闭或放弃旧流。否则，即使后端不再发送，缓冲区里已有的声音仍可能继续播放。</li>
+</ul>
+<h4>2. 播放中途断粮（Playout stall / Underrun）</h4>
+<p>播放器可以先存下一些音频，再一边接收、一边播放。这像水箱一边进水一边出水：已经有余量时，短暂的供给波动未必会让出口断流。</p>
+<p>但如果后续音频迟迟不到，缓冲区被播空，声音就可能中断。因此，第一声出得快与整句话持续播放顺畅，是两项不同的要求。</p>
+<p>本次整句播放测量中，ElevenLabs v4 约有 7% 的句子出现音频供应落后于实时播放，v4 Turbo 约为 5%。这些比例对应整批测量句子，不是仅针对长段落的结果。</p>
+<h4>3. 请求能否正常完成</h4>
+<p>播放中途断粮之外，还要检查请求是否按测试规则正常结束。公开快照中，GPT-4o mini TTS 汇总的 936 次相关合成记录，有 52 次以超时结束。这是本次接口和等待规则下的记录，不能直接当作生产环境的长期失败率。</p>
+<p>测试把密钥、余额、配额或限流引起的账户拒绝另列，不能将它们与服务超时混算。一个多步骤测试未通过，也不一定是 API 请求报错：例如未满足取消要求，不能因此记成又一次服务超时。</p>
+<div>把同一批模型换个指标排序</div><p>保留各项读数，观察“最快”为什么不能代替其他选择条件。这里列出 10 个代表性模型。</p><div>按什么排序流式延迟：低到高难点读对率：高到低预测自然度：高到低参考标价：低到高<span>当前：按流式延迟排序</span></div><p>窄屏可左右滑动表格；键盘可聚焦表格区域后左右移动。</p><div><table><thead><tr><th>模型</th><th>流式延迟<br>中位数</br></th><th>难点读对率<br />自动估计</th><th>取消后仍收到<br />的音频时长</th><th>自然度<br />UTMOS预测</th><th>每百万字符<br />参考标价</th></tr></thead><tbody><tr><th>Gradium TTS</th><td>-64 ms</td><td>79.5%</td><td>n/a · 无可用取消消息</td><td>4.51 / 5</td><td>$36.00</td></tr><tr><th>Inworld TTS-2 Flash</th><td>+45 ms</td><td>93.2%</td><td>n/a · 无可用取消消息</td><td>4.46 / 5</td><td>$15.00</td></tr><tr><th>ElevenLabs v4 Turbo</th><td>+69 ms</td><td>79.9%</td><td>n/a · 关闭前仍读已送文本</td><td>4.42 / 5</td><td>$40.00</td></tr><tr><th>Deepgram Aura-2</th><td>+126 ms</td><td>77.2%</td><td>40 ms</td><td>4.43 / 5</td><td>$30.00</td></tr><tr><th>Inworld TTS-2</th><td>+127 ms</td><td>93.4%</td><td>n/a · 无可用取消消息</td><td>4.52 / 5</td><td>$25.00</td></tr><tr><th>Grok TTS</th><td>+157 ms</td><td>87.4%</td><td>0 ms</td><td>4.17 / 5</td><td>$15.00</td></tr><tr><th>Soniox TTS RT v2</th><td>+183 ms</td><td>83.6%</td><td>0 ms</td><td>4.37 / 5</td><td>$14.81</td></tr><tr><th>Cartesia Sonic 3.6</th><td>+270 ms</td><td>74.9%</td><td>764 ms</td><td>4.41 / 5</td><td>$39.20</td></tr><tr><th>Fish Audio Drama 3（预览）</th><td>+312 ms</td><td>91.3%</td><td>n/a · 无可用取消消息</td><td>4.54 / 5</td><td>未提供</td></tr><tr><th>Fish Audio S2.1-Pro</th><td>+321 ms</td><td>92.0%</td><td>n/a · 无可用取消消息</td><td>4.40 / 5</td><td>$15.00</td></tr></tbody></table></div><p>流式延迟从最后一个词发送算起。停止项为中位数，n/a 不按 0 排名，也不代表产品不能打断。价格为本次榜单收录的美元参考标价；不是整通电话的费用。顶部读对率相差两个百分点内，评测建议按并列看待。</p>
+<h3>自然度估算与真实试听建议</h3>
+<p>自然度一项采用开源模型 UTMOS，对整句生成的录音预测 1–5 分的平均听测评分。它估计人可能觉得声音有多自然，本次并未用真人听测来产生这个排名。</p>
+<p>Fish Audio Drama 3 的预测分为 4.54，Inworld TTS-2 为 4.52，Gradium 为 4.51。前三读数接近，0.02 分的差距没有证明用户会明显更喜欢哪一个。</p>
+<p>先用日常问候对照语调与停顿，再听含有两个 read 的句子，判断不同读法是否被保留。播放器标出相同的输入原句与中文释义，读音留给耳朵判断。</p>
+<div>同一句话，直接听三个模型</div><p>两组均使用原站公开的首次朗读样本，声音由 AI 合成。点击任一播放器开始对照。</p><h4>先听一句日常问候</h4><p>对照语调、停顿与语速；输入句子相同，音色不同。</p><div><span>同一段输入</span><p>Thanks for calling Cedar Valley Family Practice, this is Riley. How can I help you today?</p><p>感谢致电 Cedar Valley 家庭诊所，我是 Riley。今天有什么可以帮您？</p></div><div><div><strong>Inworld TTS-2 Flash</strong><span>预置音色：Sarah</span></div>您的浏览器无法显示播放器，可<a href="https://benchmarks.cekura.ai/tts-audio/inworld-tts-2-flash/prose.greet.mp3">播放原站音频</a>。</div><div><div><strong>Gradium TTS</strong><span>预置音色：Everly</span></div>您的浏览器无法显示播放器，可<a href="https://benchmarks.cekura.ai/tts-audio/gradium-tts/prose.greet.mp3">播放原站音频</a>。</div><div><div><strong>Fish Audio Drama 3（预览）</strong><span>预置音色：Delia</span></div>您的浏览器无法显示播放器，可<a href="https://benchmarks.cekura.ai/tts-audio/fish-audio-drama-3-preview/prose.greet.mp3">播放原站音频</a>。</div><h4>再听同一拼写的两种读音</h4><p>前一个 read 是现在式 /riːd/，后一个是过去式 /rɛd/；听原声判断，不用转录文字代替。</p><div><span>同一段输入</span><p>Please read the notice. I read it to you yesterday, but it's worth another look.</p><p>请读一下通知。我昨天给你读过，不过值得再看一遍。</p></div><div><div><strong>Inworld TTS-2 Flash</strong><span>预置音色：Sarah</span></div>您的浏览器无法显示播放器，可<a href="https://benchmarks.cekura.ai/tts-audio/inworld-tts-2-flash/heteronym.read.mp3">播放原站音频</a>。</div><div><div><strong>Gradium TTS</strong><span>预置音色：Everly</span></div>您的浏览器无法显示播放器，可<a href="https://benchmarks.cekura.ai/tts-audio/gradium-tts/heteronym.read.mp3">播放原站音频</a>。</div><div><div><strong>Fish Audio Drama 3（预览）</strong><span>预置音色：Delia</span></div>您的浏览器无法显示播放器，可<a href="https://benchmarks.cekura.ai/tts-audio/fish-audio-drama-3-preview/heteronym.read.mp3">播放原站音频</a>。</div><p>本站仅统一播放响度，保留完整朗读与原速。这里比较的是生成后的声音；点击播放时的等待不能用来验证 API 的首声延迟。更多模型与句子可到<a href="https://benchmarks.cekura.ai/text-to-speech#listen">官方试听页</a>对照。</p>
+<p>更多声音和测试句子可到官方的<a href="https://benchmarks.cekura.ai/text-to-speech#listen">同句试听页面</a>对照。</p>
+<h3>落地选型决策参考</h3>
+<p>这份榜单更适合用来缩小候选范围，再用自己的业务语句验证：</p>
+<ol>
+<li><strong>先看对话能否跟上节奏</strong>：Gradium 和 Inworld TTS-2 Flash 可进入低延迟候选；同时保留难点读对率这一列，检查快速开口是否伴随你的业务能接受的读音表现。</li>
+<li><strong>经常报号码、地址或专业名词</strong>：可对照 Inworld TTS-2（93.4%）、Flash（93.2%）、Fish Audio S2.1-Pro（92.0%）和 Drama 3（91.3%）继续测。将实际号码与专名放进完整业务句中听，必要时人工复核；这些英语自动分数不能直接证明中文业务可靠。</li>
+<li><strong>再比较语音合成预算</strong>：本次榜单每百万字符的参考标价，Soniox TTS RT v2 为 14.81 美元，Inworld Flash 和 Grok TTS 为 15 美元；Drama 3 未提供价格。它们是榜单收录的厂商报价或换算口径，不是包含识别、大模型和电话线路的整通通话成本，低标价也没有证明高并发性能。</li>
+</ol>
+<p>选出少数候选后，在目标语言与实际网络位置下复测：听首句要等多久，报出的数字是否正确，用户插话时旧声音能否停下，一整段话能否顺畅播完，请求能否正常完成。这些才是榜单与成品体验接上的地方。</p>
+</div><div><div><div>来源</div><div><span>26 个 TTS 模型、30,564 次请求：Cekura 评测主题帖</span><span>Tarush Agarwal / Cekura<span>·</span><a href="https://x.com/tarush_agarwal_/status/2112563925426511913">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://benchmarks.cekura.ai/text-to-speech">TTS Model Benchmarks：完整结果、方法与试听</a><span>·</span><a href="https://github.com/cekura-ai/cekura-bench/tree/8b4c736e7ad9ccbd91130d84d56f40edb3c1fb6a/tts-bench">TTS component bench：测试代码与语料</a></div></div></div></div></div><div>
+<div>CEKURA TTS BENCHMARK 2026</div>
+<h1>26 个 AI 语音模型实测：开口最快、读得最准、声音最自然，为什么不是同一个？</h1>
+<div>同一批模型，换个衡量标准就会换领先者。先看清比较条件，再用自己的业务句子验证。</div>
+<div>Cekura 英语通话基准 · 26 款模型 · 同一美东云区域</div>
+<div>
+<p>文字转语音（TTS）把输入文字读成声音。Cekura 让 26 款模型朗读同一批 104 条英语通话句子，每句三遍，并测整句输入、逐词输入与打断等情况，共发起 30,564 次请求。每个模型使用固定的美式英语预置女声。</p>
+<p>没有一款模型在所有指标上都居首：快开口、读准号码、声音自然，以及被插话后如何停下，是需要分别比较的能力。这些结果不能直接外推到中文或声音克隆。</p>
+</div><div>
+<div>
+<div>46 ms</div>
+<div>整句输入：首声中位数最低（Inworld TTS-2 Flash）</div>
+</div>
+<div>
+<div>-64 ms</div>
+<div>逐词输入：从末词发送计时（Gradium）</div>
+</div>
+<div>
+<div>93.4%</div>
+<div>标记难点自动通过率（Inworld TTS-2）</div>
+</div>
+</div>
+<div>
+<div>
+<div>换输入方式，先换了计时起点</div>
+<div>整句输入从整句发送计时；逐词输入从最后一个词发送计时。如果前面收到的词已开始发声，首声就可能早于后一个零点。负数不代表模型预知了尚未收到的文字。</div>
+<div><div><div>整句输入 · Inworld Flash</div><div><span>整句发送<br /><strong>0</strong></span><span>→</span><span>首声出现<br /><strong>+46 ms</strong></span></div></div><div><div>逐词输入 · Gradium</div><div><span>首声出现<br /><strong>−64 ms</strong></span><span>→</span><span>末词发送<br /><strong>0</strong></span></div></div></div>
+<div>图中各数值是各自测试的中位数；排列表示先后，不按时长比例。逐词输入按每秒 30 词模拟。8 款模型在本次接口与配置下不接受逐词文本输入，未进入该项比较。连接已在计时前建立，网络往返仍计入；这也不是整通对话的总延迟。</div>
+</div>
+<div>
+<p>中位数描述通常的节奏，P90 是约九成测试的等待不超过的时长，仍有最慢一成更久。整句首声测试中：Inworld Flash 为 46 / 73 毫秒（中位数 / P90）；Smallest Lightning v3.1 Pro 为 357 / 679 毫秒。P90 不是最长等待。</p>
+</div>
+</div>
+<div>
+<p>在语音交互中，接口返回了数据包（TTFB），人类耳朵不一定能听到声音。返回的音频开头可能有一段低于可听声音检测门槛的内容。如果只记录首个数据包抵达，系统会显示“已经响应”，用户却可能还没听到说话声。</p>
+<p>TTFA 把开头低音量段计入等待。本次检测采用去除直流分量后 RMS 首次超过满幅度 1% 的位置；这是统一门槛，不是对每个人听力的测量。整句测试的开头静音中位数如下：</p>
+<div><div><div><span>Deepgram Aura-2</span><span>223 ms</span></div><div><div></div></div></div><div><div><span>Cartesia Sonic 3.6</span><span>142 ms</span></div><div><div></div></div></div><div><div><span>Cartesia Sonic 3.5</span><span>132 ms</span></div><div><div></div></div></div><div><div><span>Smallest Lightning v3.1 Pro</span><span>141 ms</span></div><div><div></div></div></div></div>
+<div>
+<p>这些是整句输入测试的静音中位数，不能拼进另一组逐词输入测试，假装它们属于同一条录音。</p>
+</div>
+</div>
+<div>
+<p>快开口不能代替读音检查：Gradium 的流式延迟最低，难点通过率为 79.5%；Inworld Flash 则为 45 毫秒、93.2%。这需要分别比较，不能据此推断“为了快才读错”。测试核对下面四类标记难点：</p>
+<div>
+<div>
+<div>1. 数字与符号速记</div>
+<div>如 7 a.m.、20%、36°F、approx. 等通话高频口语转写。</div>
+</div>
+<div>
+<div>2. 代码与电话地址</div>
+<div>如优惠券 SAVE20、服务电话 1-800-555-0199 及电子邮箱。</div>
+</div>
+<div>
+<div>3. 依上下文展开缩写</div>
+<div>如 St. Mary's on Main St.（前一个 St. 是 Saint，后一个是 Street）、Dr. Okafor。</div>
+</div>
+<div>
+<div>4. 生僻医疗药物术语</div>
+<div>如左旋甲状腺素 levothyroxine、胃肠病学 gastroenterology。</div>
+</div>
+</div>
+<p>Deepgram Nova-3 与 OpenAI Whisper 先转录，再核对标记难点；这是机器估计，不是整句或整通电话的成功率。Inworld TTS-2 为 93.4%，Flash 为 93.2%，Fish Audio S2.1-Pro 为 92.0%；评测建议把顶部两百分点内的差距按并列看待。</p>
+<div><p>自动评分也有盲区：read 的现在式与过去式发音不同，转录却可能都是 read。这类项目需要听音频，没有计入自动分。因此，“语境项目 100%”不代表所有同形异音词和重音都读对。</p></div></div>
+<div><p><strong>自然度领先，也只是预测领先。</strong>UTMOS 为生成录音预测 1–5 分：Fish Audio Drama 3 为 4.54，Inworld TTS-2 为 4.52，Gradium 为 4.51。本次没有用真人听测产生这个排名，小差距不能证明用户明显偏爱谁。</p><div><p>听相同输入，才方便对照语调与停顿。正文已有两组、每组三个模型的试听：一句日常问候，以及含有两个 read 的句子。也可到<a href="https://benchmarks.cekura.ai/text-to-speech#listen">原站同句试听</a>继续比较；播放按钮的等待不能验证 API 首声延迟。</p></div></div><div>
+<p>打断需要同时处理服务端的合成任务和客户端的播放。用户插话说“等一下”时，声音再好听，继续把旧话说下去也会妨碍对话。</p>
+<div>
+<div>
+<div>用户插话后，旧声音怎样停</div>
+<ul><li><strong>取消后的额外音频</strong>：Grok TTS 与 Soniox 的中位数为 0 毫秒，Cartesia Sonic 3.6 为 764 毫秒。0 是中位数，不代表每次没有余音，也不是墙钟响应时间。</li><li><strong>n/a 不能当作零</strong>：Gradium、Inworld 和所测 ElevenLabs v3 无可用取消消息；ElevenLabs Flash v2.5、v4 Turbo、v4 的关闭控制会先发完已提交文本。</li><li><strong>播放器也要停止</strong>：客户端需要停止播放并丢弃旧缓冲，再按接口能力取消、关闭或放弃旧流。</li></ul>
+</div>
+<div>
+<div>开口之后，还能否顺畅完成</div>
+<ul><li><strong>供给跟不上播放</strong>：缓冲耗尽可能卡顿；整句测量中，ElevenLabs v4 约 7%、v4 Turbo 约 5% 的句子出现断粮。</li><li><strong>按测试规则超时</strong>：GPT-4o mini TTS 的 936 次相关合成记录中有 52 次超时，不能当作生产环境长期失败率。</li><li><strong>异常分开看</strong>：密钥、余额、配额或限流引起的账户拒绝另列；多步骤测试未通过也不一定是 API 报错。</li></ul>
+</div>
+</div>
+</div>
+<div>
+<div>
+<p>落地选型三步决策清单</p>
+<div>
+<div>
+<div>1</div>
+<div>先看对话节奏：可将 Gradium 与 Inworld TTS-2 Flash 纳入低延迟候选，同时比较难点读对率。</div>
+</div>
+<div>
+<div>2</div>
+<div>再用业务原句听测：把真实号码、地址与专名放回完整句子，在目标语言和实际网络位置下验证。</div>
+</div>
+<div>
+<div>3</div>
+<div>最后核算与联调：榜单标价不等于整通电话成本；同时检查插话停声、持续播放和请求完成。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://x.com/tarush_agarwal_/status/2112563925426511913">看原网页 ↗</a></p></div><div></div><div><div><p>We tested 26 text-to-speech models across 30,564 requests.</p></div><div><p>Inworld TTS-2 Flash started speaking in 46ms with full-text input. Gradium started speaking before the final word arrived. Fish Audio scored highest on estimated naturalness.</p></div><div><p>But the fastest, most accurate, and most natural models were not the same.</p></div><div><p>Full results 🧵</p></div><div><figure><img src="https://pbs.twimg.com/media/HVFVSVcaYAAXuWq.jpg?name=orig" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/tarush_agarwal_/status/2112563925426511913">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>产品发布</div>
+<div>ElevenLabs 发布 Eleven Realtime 语音模型：Max 0.57 秒开口，语音推理准确率 98.8%</div>
+<div>10-21 · 12 分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>Grok Voice 3.0发布：对话更自然 企业客服评测第一 已经在特斯拉上使用</div>
+<div>10-15 · 约 8 分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>OpenAI 开放 GPT‑Live‑1 API：可以将GPT的语音对话能力接入到任意应用中 每分钟 0.05 美元</div>
+<div>09-12 · 约 21 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】ElevenLabs 发布 Eleven Realtime 语音模型：Max 0.57 秒开口，语音推理准确率 98.8%</title>
+<link>https://best.xiaohu.ai/article/eleven-realtime/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:eleven-realtime</guid>
+<pubDate>Wed, 21 Oct 2026 12:01:01 +0000</pubDate>
+<description>Mini 侧重自然接话，Max 侧重复杂任务。两段中英双语视频，讲清系统怎么配合、五项成绩怎么读，以及平台和 API 怎么选。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 21 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">ElevenLabs 发布 Eleven Realtime 语音模型：Max 0.57 秒开口，语音推理准确率 98.8%</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/eleven-realtime/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>Mini 把对话接顺，Max 把事情查清</span></a><a><span>02</span><span>整套系统一起调优，内部仍是多个模型</span></a><a><span>03</span><span>速度与准确率测试表现</span></a><a><span>04</span><span>业务场景与合规选型</span></a><a><span>05</span><span>ElevenAgents 平台配置与 Realtime API 接入</span></a><a><span>06</span><span>计费方式与使用成本</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>ElevenLabs 发布 Eleven Realtime 语音模型：Max 0.57 秒开口，语音推理准确率 98.8%</h1><p>Mini 侧重自然接话，Max 侧重复杂任务。两段中英双语视频，讲清系统怎么配合、五项成绩怎么读，以及平台和 API 怎么选。</p><div><div>正文一页纸</div>☆ 收藏<div><span><span>作者：</span>ElevenLabs</span><span>10-21 · 12 分钟</span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>Eleven Realtime 把识别、接话判断、推理和发声一起调优，让语音 Agent 更快接上对话。</li><li>Mini 侧重自然对话与低成本，Max 侧重多步骤任务；Max 在这次评测中首音更快，Mini 的对话动态分数更高。</li><li>0.57 秒是 Max 在测试中开始输出语音的平均时间，查到答案、办完事情还取决于后续步骤。</li></ul><div><p>ElevenLabs 发布了 Eleven Realtime 实时语音大模型系列（首发包含 v1 Mini 与 v1 Max 两款配置），主打兼顾快速开口响应与口语推理能力。</p>
+<ul>
+<li><strong>两款配置分工</strong>：v1 Mini 专攻自然对话与低运行成本；v1 Max 专攻多步骤逻辑推理与工具调用。</li>
+<li><strong>半秒级首音响应</strong>：在基准测试中，平均首音频时间 Max 为 570 毫秒，Mini 为 620 毫秒。</li>
+<li><strong>级联系统整体调优</strong>：将语音识别、轮次判定、语言模型与语音合成作为整套系统协同打磨，降低各模块衔接损耗。</li>
+<li><strong>双通道接入路线</strong>：支持在 ElevenAgents 平台选用并部署到电话、网页与 WhatsApp 等渠道，也提供兼容 OpenAI 协议的 Realtime API 供代码级迁移（API 独立运行，不含平台级知识库与防护栏功能）。</li>
+<li><strong>音色支持与合规环境</strong>：支持 17,500 多种音色与 90 余种语言；在美区与欧区环境下，v1 Max 支持零数据留存（Zero Retention Mode）与 HIPAA 合规。</li>
+</ul>
+<hr />
+<h3>Mini 把对话接顺，Max 把事情查清</h3>
+<p>语音智能体通常面临两难：追求极速回复容易牺牲思考深度，而复杂的业务推理又往往带来等待延迟。Eleven Realtime 通过两款明确分工的模型应对这一需求：</p>
+<ul>
+<li><strong>Eleven Realtime v1 Mini</strong>：专为自然对话与低运行成本优化。它的强项在于能捕捉那些让声音交互产生“真人感”的微小细节：精准感知对方何时真正讲完、在被用户开口打断时能够迅速收声并恢复节奏，以及在用户只是随口发出“嗯哼/对”（mm-hmm）等倾听助词时，不会误判为用户要插话而突然停住。这种特性非常适合 AI 个人助理、口语陪练和交互式虚拟角色。</li>
+<li><strong>Eleven Realtime v1 Max</strong>：专为复杂业务任务而设计。它具备更强的口语逻辑推理能力，能理解用户包含多个转折与约束的多步骤诉求，并在对话过程中自主调用后台工具接口去查询数据、更新记录并采取实际行动。典型应用场景包括企业电话客服、售前线索初筛与预约排程。</li>
+</ul>
+<p>官方演示视频直观呈现了两款模型处理不同任务时的表现：</p>
+<figure>
+<figcaption><span>官方演示：Realtime Mini 日常追问与 Realtime Max 工具调用排障。</span><br>视频全长 71 秒，内嵌中英双语字幕；展示了 Mini 主动追问用户在软件操作中的困惑，以及 Max 在通话中调用网络状态接口排查移动网络故障的完整过程。</br></figcaption>
+</figure>
+<p><a>下载双语字幕视频（launch-bilingual.mp4）</a>
+<a>下载双语字幕文件（launch-bilingual.srt）</a>
+<a>下载官方演示原片（launch-original.mp4）</a></p>
+<p>视频前段展示了 Mini 在用户访谈中的反应：当用户 Sarah 表达自己第一个月使用 App 感到困难、险些放弃时，Mini 能够极快接话，发出略带同理心的感叹并顺畅追问“哪些环节让您感到困惑”。</p>
+<p>视频后段展示了 Max 面对 Eleven Mobile 移动网络断网申告时的表现：Max 先回应用户，随后发起了一个带邮编参数的工具查询 <code>check_network_status(postcode="10002")</code>。当接口返回当地存在网络故障、抢修工程师已就位、预计一小时内恢复后，Max 随即用自然的口语将这一结论转述给客户。</p>
+<hr />
+<h3>整套系统一起调优，内部仍是多个模型</h3>
+<p>Eleven Realtime 采用级联架构（Cascaded Architecture）：内部是多个独立模型配合，而非一个融合模型（Fused Model）。</p>
+<p>各组件在流水线中的作用分别为：</p>
+<ol>
+<li><strong>语音识别（ASR）</strong>：负责将用户说出的麦克风音频流转录为文字。</li>
+<li><strong>轮次管理（Turn-taking）</strong>：判断用户是否说完，以及新说的话是插话还是附和。</li>
+<li><strong>大语言模型（LLM）</strong>：负责理解上下文、进行逻辑推理、生成应答文字或执行工具调用（Tool Calls）。</li>
+<li><strong>语音合成（TTS）</strong>：负责将文本流合成为指定音色的音频流输出。</li>
+</ol>
+<p>官方表示底层具体模型的细节并未公开。所谓“端到端联合优化”，是指团队将这套流水线中的识别、轮次判定、推理与发音组件作为整体系统进行调优，使其彼此协同配合。</p>
+<h4>首音频时间与任务完成的区别</h4>
+<p>官方公布的 570 毫秒（Max）和 620 毫秒（Mini），具体指标为在 Big Bench Audio 测试中测得的平均首音频时间（Time to first audio，简称 TTFA）。它是这项测试的平均值，不能直接当作任意网络和设备上的实际通话延迟。</p>
+<p>需要明确的是，<strong>开口说话并不等于任务已经完成</strong>。在官方演示的排障场景中，智能体先告知用户去查询，随后后台调用网络状态接口，等待接口返回故障与预计恢复时间后，才进一步播报具体结果。开口响应体现的是对话开始的速度，而实质业务的解决依然依赖工具调用返回与后续处理。</p>
+<div>
+<h4>一次语音对话，由这些部分共同完成</h4>
+<p>功能分工示意：这些部分由 ElevenLabs 作为一套系统调优。图中不表示内部必须依次等待，也不分配各环节延迟。</p>
+</div>
+<div>
+<div><span>听</span><span><strong>语音识别</strong><br>把用户说的话转成可处理的内容</br></span></div>
+<div><span>接</span><span><strong>轮次判断</strong><br />区分说完、插话和“嗯哼”式附和</span></div>
+<div><span>想</span><span><strong>语言模型</strong><br />理解请求、推理，按需调用工具</span></div>
+<div><span>说</span><span><strong>语音合成</strong><br />把回复转换成选定音色的声音</span></div>
+</div>
+<p>一起调优的是整套系统，内部依然是独立模型组成的级联架构。</p>
+<div>
+<h4>开始说话，与查到答案，是两个时刻</h4>
+<ol>
+<li><strong>用户报障</strong><span>“我的移动网络一上午都用不了”</span></li>
+<li><strong>Max 先回应</strong><span>表示将查询网络状态</span></li>
+<li><strong>工具返回结果</strong><span>当地有故障，工程师在处理，预计一小时内恢复</span></li>
+<li><strong>Max 转述结果</strong><span>把查到的信息告诉用户</span></li>
+</ol>
+<p>Max 的 570 毫秒是基准测试中的平均首音频时间，不是这段演示的工具耗时，也不代表 570 毫秒就完成了排障。</p>
+</div>
+<hr />
+<h3>速度与准确率测试表现</h3>
+<p>第三方独立评测机构 Artificial Analysis 对两款模型进行了多维度测试，官方披露了散点图与五项维度的评测成绩。</p>
+<figure>
+<img>
+<figcaption><span>速度与准确率权衡前沿：Realtime Max 位于首音频响应与推理准确率的帕累托前沿。</span><br />数据来自 Artificial Analysis 语音对语音榜单均值；横轴为首音频时间（0–3000ms，越左越快），纵轴为 Big Bench Audio 准确率（50%–100%，越上越高）。图中仅展示首音频低于 3 秒的模型（5 个更慢模型未绘入，包括准确率 99.7%、延迟 8830ms 的 StepAudio3 Realtime）；原始图表未标注统计样本量。</figcaption>
+</img></figure>
+<p>从散点图的轴线与图注可以看到：</p>
+<ul>
+<li><strong>轴线含义</strong>：横轴为首音频时间（Time to first audio，数值越低越快）；纵轴为 Big Bench Audio 口语推理准确率（数值越高越好）。</li>
+<li><strong>前沿位置</strong>：Eleven Realtime Max 处于散点分布左上方的帕累托前沿虚线（Pareto frontier）上，在 600 毫秒以内的低延迟区间内推理准确率最高。</li>
+<li><strong>未绘入模型与条件</strong>：图表仅统计首音频时间在 3 秒以内的模型，有 5 个响应更慢的模型未在图中展示（例如 StepAudio3 Realtime 准确率达到 99.7%，首音延迟为 8830 毫秒）；原始图表未标注统计样本量。Max 是速度与准确率权衡下的前沿模型，并非全榜单准确率最高或延迟绝对最低。</li>
+</ul>
+<p>除了速度与准确率散点图，官方还公布了 Mini 与 Max 的五项详细测试成绩。需要特别注意：<strong>这五项指标的分母、衡量目标与测试基准各不相同，不能笼统混淆为同一种百分比正确率。</strong></p>
+<figure>
+<img />
+<figcaption><span>Eleven Realtime v1 Mini 五项基准评分卡。</span><br />语音推理 75.9%、首音频时间 620ms、任务成功率 60.3%、偏好分 Elo 988、对话动态 95.8%。各指标对应不同测试集，不可直接相加或换算。</figcaption>
+</figure>
+<figure>
+<img />
+<figcaption><span>Eleven Realtime v1 Max 五项基准评分卡。</span><br />语音推理 98.8%、首音频时间 570ms、任务成功率 87.1%、偏好分 Elo 998、对话动态 94.1%。Max 的语音推理与任务成功率都更高，但在全双工对话动态上 Mini 略高一筹。</figcaption>
+</figure>
+<ol>
+<li><strong>语音推理（Speech reasoning，基于 Big Bench Audio）</strong>：Max 为 98.8%，Mini 为 75.9%，Max 高出 22.9 个百分点。反映模型理解口语多层逻辑关系与常识推理的准确程度。</li>
+<li><strong>首音频时间（Time to first audio）</strong>：Max 为 570 毫秒，Mini 为 620 毫秒，Max 比 Mini 快 50 毫秒。</li>
+<li><strong>任务成功率（Task success rate，基于 Speech Agent Arena）</strong>：在模拟 Agent 执行任务的评测中，Max 达到 87.1%，Mini 为 60.3%，Max 高出 26.8 个百分点。该数据仅反映该基准测试的结果。</li>
+<li><strong>人类偏好分（Preference Elo，基于 Speech Agent Arena）</strong>：Max 为 998，Mini 为 988。</li>
+<li><strong>对话动态感（Conversational dynamics，基于 Full-Duplex-Bench）</strong>：Mini 达到 95.8%，高于 Max 的 94.1%，高出 1.7 个百分点。该项主要用于评估全双工交互中的接话以及被打断时的应对表现。</li>
+</ol>
+<div>
+<h4>Mini vs Max：五项成绩，分别回答不同问题</h4>
+<p>五项指标来自不同评测，不能相加或当成同一种正确率。所有成绩默认并排显示，按钮可突出与你有关的取舍。</p>
+</div>
+<div>
+完整比较
+口语辅导 / 情感陪伴
+客服排障 / 线索初筛
+美欧零留存 / HIPAA
+亚太驻留（印度/新加坡）
+</div>
+<div>
+<table>
+<thead>
+<tr>
+<th>评测维度与基准</th>
+<th>v1 Mini</th>
+<th>v1 Max</th>
+<th>指标意义与对比解读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>语音推理</strong> (Big Bench Audio)</td>
+<td>75.9%</td>
+<td>98.8%</td>
+<td>Big Bench Audio 的语音推理得分，Max 高 22.9 个百分点。</td>
+</tr>
+<tr>
+<td><strong>首音频时间</strong> (平均 TTFA)</td>
+<td>620 ms</td>
+<td>570 ms</td>
+<td>Big Bench Audio 的平均首音频时间，Max 低 50 毫秒。</td>
+</tr>
+<tr>
+<td><strong>任务成功率</strong> (Speech Agent Arena)</td>
+<td>60.3%</td>
+<td>87.1%</td>
+<td>该任务评测的成功比例，Max 高 26.8 个百分点。</td>
+</tr>
+<tr>
+<td><strong>偏好得分</strong> (Speech Agent Arena Elo)</td>
+<td>988</td>
+<td>998</td>
+<td>人类偏好的 Elo 分数，Max 数值高 10 分；不是百分比。</td>
+</tr>
+<tr>
+<td><strong>对话动态</strong> (Full-Duplex-Bench)</td>
+<td>95.8%</td>
+<td>94.1%</td>
+<td>衡量对话动态的成绩，Mini 高 1.7 个百分点。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+<strong>取舍</strong>：Mini 面向自然对话且成本更低；Max 面向复杂任务。此处 Max 的平均首音更快，Mini 的对话动态成绩更高。
+</div>
+<hr />
+<h3>业务场景与合规选型</h3>
+<p>在选型时，需结合业务任务复杂度、合规环境与数据驻留要求进行权衡：</p>
+<div><table>
+<thead>
+<tr>
+<th>考量维度</th>
+<th>Eleven Realtime v1 Mini</th>
+<th>Eleven Realtime v1 Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>核心优势</strong></td>
+<td>对话节奏轻快、成本较低、全双工动态感更强（95.8%）</td>
+<td>口语逻辑推理能力（98.8%）、任务成功率较高（87.1%）、支持复杂工具调用</td>
+</tr>
+<tr>
+<td><strong>推荐适用场景</strong></td>
+<td>虚拟伴侣、口语练习导师、通用闲聊助手、NPC 互动</td>
+<td>企业客服、售后排障、线索初筛、预约与工单办理</td>
+</tr>
+<tr>
+<td><strong>Token 数量限制</strong></td>
+<td>沿用原有设定，无特殊下限要求</td>
+<td>必须设定在 1,024 Token 以上（含），或不设上限</td>
+</tr>
+<tr>
+<td><strong>零留存与 HIPAA 合规</strong></td>
+<td><strong>不支持</strong>（不可用于 Zero Retention Mode 或 HIPAA 环境）</td>
+<td><strong>支持</strong>（在美区与欧区数据环境下支持 Zero Retention Mode 与 HIPAA 合规）</td>
+</tr>
+<tr>
+<td><strong>亚太数据驻留（印度/新加坡）</strong></td>
+<td><strong>支持</strong>（支持印度与新加坡数据驻留环境）</td>
+<td><strong>不支持</strong>（在印度与新加坡数据驻留环境下不可选）</td>
+</tr>
+</tbody>
+</table></div>
+<p>在合规与数据驻留方面，如果智能体需要启用零数据留存（Zero Retention Mode）或处于 HIPAA 合规环境，且位于美区或欧区数据环境，开发者可选择 v1 Max，或继续保持 Custom 模式；v1 Mini 在这两种合规环境下均不可选。若智能体设置了印度或新加坡数据驻留环境，当前 v1 Max 暂不支持，开发者可选用 v1 Mini 或继续使用 Custom 模式。此外，选用 v1 Max 时，Token 上限必须设定在 1,024（含）以上或不设上限。</p>
+<hr />
+<h3>ElevenAgents 平台配置与 Realtime API 接入</h3>
+<p>Eleven Realtime 提供了两条平行的技术接入路线：面向低代码与企业工作流的 <strong>ElevenAgents</strong>，以及面向底层研发的 <strong>Realtime API</strong>。</p>
+<h4>1. 在 ElevenAgents 中选择模型</h4>
+<p>在 ElevenAgents 控制台中，实时模型表现为一个可选的语音模式（Voice mode）。一段 7.9 秒的控制台操作演示展示了模式切换过程：</p>
+<figure>
+<figcaption><span>控制台配置切换演示：从 Custom 模式切换至 Realtime 模式。</span><br />视频全长 7.9 秒，画面无音轨，配有中英操作说明字幕；展示在 ElevenAgents 的 Agent 选项卡中切换 Voice mode 与选择模型的步骤（演示未展示最终发布成功）。</figcaption>
+</figure>
+<p><a>下载双语字幕视频（setup-bilingual.mp4）</a>
+<a>下载双语字幕文件（setup-bilingual.srt）</a>
+<a>下载官方演示原片（setup-original.mp4）</a></p>
+<p>在 ElevenAgents 中使用实时模型的完整配置流程为：进入智能体的 Agent 选项卡，将 <code>Voice mode</code> 切换为 <code>Realtime</code>，在模型下拉列表中选择 <code>Eleven Realtime v1 Mini</code> 或 <code>Eleven Realtime v1 Max</code>，最后点击 Publish 发布生效。需要注意的是，官方演示视频中仅展示了切换与选择过程，并未展示最终发布成功；同时该功能正在逐步开放，如果工作区的 Agent 选项卡中没有出现 Voice mode 入口，说明当前工作区暂不可用。</p>
+<p>切换为 Realtime 模式后，系统会自动全托管所选 LLM、思考预算（Thinking budget）、推理力度（Reasoning effort）、TTS 表现力模式以及 ASR 提供商；智能体原有的系统提示词（System prompt）、首句问候、音色、语言、外挂工具、知识库以及电话、网页与 WhatsApp 等渠道均可继续使用。</p>
+<p>在配置与发布时需注意以下直接影响迁移的限制：</p>
+<ul>
+<li><strong>自定义与第三方 LLM</strong>：使用自定义 LLM、Amazon Bedrock 或 Speech Engine 的智能体无法切换至 Realtime 模式，需保持 Custom 模式。</li>
+<li><strong>工作流覆盖</strong>：若工作流节点覆盖了 LLM、TTS 等托管设置或 Token 限制，需移除覆盖或保持 Custom 模式。</li>
+<li><strong>跨模式转接限制</strong>：Realtime 模式智能体仅支持与同处于 Realtime 模式的智能体互相转接（Mini 与 Max 之间支持互转），不支持与 Custom 模式智能体跨模式转接。</li>
+<li><strong>Max Token 限制</strong>：v1 Max 要求 Token 上限设定在 1,024（含）以上或不设上限。</li>
+</ul>
+<h4>2. Realtime API：沿用已有的 WebSocket 接入</h4>
+<p>对于已经基于 OpenAI Realtime API 构建了自主业务系统的开发者，ElevenLabs 提供了保持底层传输协议（Wire Protocol）兼容的 Realtime API。</p>
+<figure>
+<img />
+<figcaption><span>OpenAI Realtime SDK 客户端迁移核心代码差异。</span><br />主要修改 WebSocket 连接地址（指向 api.elevenlabs.io）与模型标识符（如 eleven_realtime_v1_mini）；实际生产环境中还需通过服务端换取临时 clientSecret 并在客户端自行实现 24kHz PCM16 音频输入输出。</figcaption>
+</figure>
+<p>接入过程采用客户端与服务端解耦的两步走模式：</p>
+<p><strong>第一步：后端换取临时密钥（Mint Client Secret）</strong><br />
+业务后端使用私有主密钥，调用 ElevenLabs SDK 签发一个具有有效期限（文档示例为 600 秒）的临时凭证 <code>clientSecret</code>，并将初始会话配置（如选择 <code>eleven_realtime_v1_mini</code>、系统设定以及所选音色 <code>brian</code>）绑定在该凭证上。</p>
+<p><strong>第二步：前端直接建立 WebSocket 通信</strong><br />
+前端浏览器可以直接复用 OpenAI 官方提供的 <code>@openai/agents-realtime</code> 客户端 SDK，将连接地址重定向至 ElevenLabs 节点：</p>
+<div><pre><code>import { OpenAIRealtimeWebSocket, RealtimeAgent, RealtimeSession } from "@openai/agents-realtime";
+// 1. 从自建后端获取刚才签发的临时会话凭据
+const { value: clientSecret } = await fetch("/api/token").then((res) =&gt; res.json());
+const agent = new RealtimeAgent({
+  name: "ElevenLabs agent",
+  instructions: "You are a helpful, friendly voice assistant. Keep replies concise.",
+});
+// 2. 将 WebSocket 传输地址指向 ElevenLabs 实时端点
+const transport = new OpenAIRealtimeWebSocket({
+  url: "wss://api.elevenlabs.io/v1/convai/realtime",
+});
+// 3. 指定 Realtime 模型名与发音人
+const session = new RealtimeSession(agent, {
+  transport,
+  model: "eleven_realtime_v1_mini",
+  config: {
+    outputModalities: ["audio"],
+    audio: {
+      output: { voice: "brian" }
+    },
+  },
+});
+// 4. 使用临时凭据建立长连接
+await session.connect({ apiKey: clientSecret });
+</code></pre></div>
+<p><strong>针对 Realtime API 的关键工程注意事项</strong>：</p>
+<ul>
+<li><strong>首发仅支持 WebSocket，不支持 WebRTC</strong>：目前 Eleven Realtime API 仅支持基于 WebSocket 的音频收发。由于 OpenAI 官方 SDK 只有在 WebRTC 模式下才会自动接管浏览器的麦克风与扬声器，在 WebSocket 模式下，开发者需要自行在前端进行 24kHz PCM16 音频的采集与推流播放（例如借助开源的 <code>wavtools</code> 库）。</li>
+<li><strong>两套产品体系能力不互通</strong>：Realtime API 与 ElevenAgents 是完全独立的工程运行链路。通过 Realtime API 直连的模型，无法直接读取 ElevenAgents 控制台里搭建的知识库、安全防护栏（Guardrails）与电话线路集成。</li>
+</ul>
+<hr />
+<h3>计费方式与使用成本</h3>
+<p>Eleven Realtime 采用分钟费用叠加 Token 消耗的计费方式：</p>
+<ul>
+<li><strong>ElevenAgents 渠道</strong>：按照标准的 ElevenAgents 每分钟费用，加上所选模型实际消耗的输入 Token、缓存输入 Token 与输出 Token 费用计费。控制台的模型选择器中会显示预估的每分钟成本。</li>
+<li><strong>Realtime API 渠道</strong>：按照每分钟实际连接的音频时长费用，加上实际消耗的 Token 费用计费，各层级套餐的 Token 单价保持一致。</li>
+</ul>
+<p>在两款模型中，v1 Mini 整体费用更低，v1 Max 的 Token 单价高于 v1 Mini。开发者可根据具体业务复杂度与合规要求，选择适合的接入方式与模型版本。</p>
+</div><div><div><div>来源</div><div><span>Eleven Realtime 发布主题帖</span><span>ElevenLabs<span>·</span><a href="https://x.com/ElevenLabs/status/2112550782063247521">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://elevenlabs.io/realtime">Eleven Realtime 产品介绍与评测说明</a><span>·</span><a href="https://elevenlabs.io/docs/eleven-agents/customization/realtime-models">Realtime 模型配置</a><span>·</span><a href="https://elevenlabs.io/docs/eleven-agents/guides/openai-realtime-compatibility">OpenAI Realtime API 兼容说明</a></div></div></div></div></div><div>
+<div>ElevenLabs Realtime Voice</div>
+<h1>Eleven Realtime：Mini 接话，Max 办事</h1>
+<p>Mini 侧重自然对话，Max 侧重多步骤任务。看懂半秒开口的含义，再按业务与部署环境选型。</p>
+<div>解读站 · 架构与选型一页纸</div>
+<div>
+<p>ElevenLabs 推出的实时语音模型，让 Agent 听人说话、接话并发声。Mini 着重把对话接顺，Max 着重理解复杂诉求并调用工具办事。</p>
+<div>
+<div>
+<div>
+<span>v1 Mini</span>
+<span>高频互动 · 低运行成本</span>
+</div>
+<p>判断人是否说完，被插话时收声，不把“嗯哼”等附和误当打断。适合口语陪练、个人助理与 NPC 互动。</p>
+</div>
+<div>
+<div>
+<span>v1 Max</span>
+<span>复杂逻辑 · 工具链调用</span>
+</div>
+<p>理解带转折与约束的诉求，调用后台接口查询、更新记录。适合企业客服、排障、线索初筛与预约排程。</p>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>几个模型一起配合，开口后还要继续办事</div>
+<p>内部是多个模型组成的级联系统，团队把识别、接话判断、推理与发声一起调优。下图说明各部分的职责，不代表未公开的内部执行顺序。</p>
+<div>
+<div>
+<div>01</div>
+<div>
+<div>语音识别 ASR</div>
+<div>把音频转成文字</div>
+</div>
+</div>
+<div>
+<div>02</div>
+<div>
+<div>轮次管理</div>
+<div>判断说完、插话或附和</div>
+</div>
+</div>
+<div>
+<div>03</div>
+<div>
+<div>语言模型 LLM</div>
+<div>理解、推理与调用工具</div>
+</div>
+</div>
+<div>
+<div>04</div>
+<div>
+<div>语音合成 TTS</div>
+<div>把应答文字转成声音</div>
+</div>
+</div>
+</div>
+<div>
+<div>关键分水岭：首音频时间 (TTFA) ≠ 任务完成</div>
+<div>
+<div>
+<div>先回应：我为您查询</div>
+<p>官方演示中，Max 先告诉用户要查询网络状态。这时已开始说话，但还没拿到故障结论。</p>
+</div>
+<div>
+<div>再查清：等待工具结果</div>
+<p>随后调用 <code>check_network_status</code>。接口返回故障、工程师已就位及预计一小时恢复后，Max 才转述结果。</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<p><strong>架构提示</strong>：具体底层模型未公开。570ms（Max）与 620ms（Mini）是 Big Bench Audio 测试中的平均首音频时间，不是上述演示的实测时间，也不是任意网络上的通话延迟或任务完成时间。</p>
+</div>
+</div>
+<div>
+<p>Artificial Analysis 评测中，Max 在首音频低于 600ms 的区间内推理准确率最高。官方散点图只展示首音低于 3 秒的模型，省略了 5 个更慢模型，包括准确率 99.7%、首音 8830ms 的 StepAudio3 Realtime；Max 并非全榜准确率最高。五项指标衡量不同能力，不能相加。</p>
+<div>
+<div>
+<div>评测维度 (基准测试)</div>
+<div>v1 Mini</div>
+<div>v1 Max</div>
+<div>核心结论与业务含义</div>
+</div>
+<div>
+<div>语音推理 (Big Bench Audio)</div>
+<div>75.9%</div>
+<div>98.8%</div>
+<div>Max 高 22.9 个百分点</div>
+</div>
+<div>
+<div>首音频时间 (TTFA)</div>
+<div>620 ms</div>
+<div>570 ms</div>
+<div>Max 在本次测试快 50ms</div>
+</div>
+<div>
+<div>任务成功率 (Speech Agent Arena)</div>
+<div>60.3%</div>
+<div>87.1%</div>
+<div>Max 高 26.8 个百分点</div>
+</div>
+<div>
+<div>人类偏好分 (Speech Agent Arena)</div>
+<div>988</div>
+<div>998</div>
+<div>Max 高 10 分；非百分比</div>
+</div>
+<div>
+<div>对话动态感 (Full-Duplex-Bench)</div>
+<div>95.8%</div>
+<div>94.1%</div>
+<div>Mini 高 1.7 个百分点</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<div>业务选型与合规边界</div>
+<ul>
+<li><strong>HIPAA / 零留存</strong>：在美国/欧洲数据环境，两款中仅 Max 支持；也可继续用 Custom 模式。Mini 不可选。</li>
+<li><strong>亚太数据驻留</strong>：印度/新加坡数据驻留环境可选 Mini 或继续用 Custom，Max 不可选。指数据环境，不是来电者位置。</li>
+<li><strong>Token 上限设定</strong>：选用 v1 Max 时，Token 上限必须设定在 1,024（含）以上或不设上限。</li>
+</ul>
+</div>
+<div>
+<div>接入路线与工程红线</div>
+<ul>
+<li><strong>ElevenAgents 平台</strong>：控制台选择模型并 Publish，支持原有工具、知识库及电话等渠道；正逐步向工作区开放。</li>
+<li><strong>Realtime API</strong>：兼容 OpenAI 的 WebSocket 协议；独立于平台，不含其知识库、防护栏与电话集成。</li>
+<li><strong>密钥与音频</strong>：后端签发临时 clientSecret；前端自理 24kHz PCM16 采集与播放。首发不支持 WebRTC。</li>
+</ul>
+</div>
+</div>
+<div>
+<p><strong>工程选型建议</strong>：先按任务选模型，再核对数据驻留与合规环境。两条接入路线都采用分钟费用加 Token 消耗计费；Mini 整体费用更低，Max 的 Token 单价更高。</p>
+</div>
+</div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/ElevenLabs/status/2112550782063247521">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>洞察</div>
+<div>Elevenlab 发布两款新语音模型：Eleven v4 和 Eleven v4 Turbo  能根据文本内容“按剧情表演”声音</div>
+<div>09-29 · 约 12 分钟</div></a><a>
+<div><span></span>深度</div>
+<div>ElevenLabs 联合创始人深度访谈：如何打造一家 AI 原生公司，以及如何把服务客户的 FDE 变成免费的研发实验室</div>
+<div>09-21 · 约 19 分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>Grok Voice 3.0发布：对话更自然 企业客服评测第一 已经在特斯拉上使用</div>
+<div>10-15 · 约 8 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】让显卡少做无用功 DeepSeek 开源了其背后的核心推理引擎</title>
+<link>https://best.xiaohu.ai/article/deepseek-deepinfer/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:deepseek-deepinfer</guid>
+<pubDate>Wed, 21 Oct 2026 12:01:01 +0000</pubDate>
+<description>读长文、接着聊、同时服务许多人，背后的计算怎样变省？一起看 DeepInfer 和 deepseek-recipe 开放了什么。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 21 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">让显卡少做无用功 DeepSeek 开源了其背后的核心推理引擎</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/deepseek-deepinfer/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>读输入与逐步生成：服务规模化时的解耦设计</span></a><a><span>02</span><span>访存与复用：Wide-EP、按类型存放的 KV 缓存与 SWA 有界重放</span></a><a><span>03</span><span>流水线重叠：减少设备空等的异步调度</span></a><a><span>04</span><span>DSpark：把验证计算花在更有把握的草稿上</span></a><a><span>05</span><span>服务更多人，和让每个人更快，是两个目标</span></a><a><span>06</span><span>deepseek-recipe：让自建服务接得住真实 API 请求</span></a><a><span>07</span><span>哪些团队能用，离完整在线服务还有多远</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>让显卡少做无用功 DeepSeek 开源了其背后的核心推理引擎</h1><p>读长文、接着聊、同时服务许多人，背后的计算怎样变省？一起看 DeepInfer 和 deepseek-recipe 开放了什么。</p><div><div>正文一页纸原文</div>☆ 收藏<div><span><span>作者：</span>DeepSeek</span><span>10-21 · 13 分钟</span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>DeepSeek 开源了支撑 V4.1 Flash 线上服务的核心推理引擎，开发团队可以查看、测试和复用其运行代码。</li><li>一项局部重放优化让总预填充计算接近减半；动态验证则在常见生产负载的官方基准中提高生成吞吐。</li><li>这次还开放了请求编解码组件 recipe；完整在线服务仍需配套缓存管理与负载均衡。</li></ul><div><p>DeepSeek 把支撑 V4.1 Flash 在线服务的核心推理引擎 <strong>DeepInfer</strong> 开源了。它负责安排显卡怎样分工、怎样复用已算过的结果、怎样连续生成回答，让硬件少重算、少等待。</p>
+<p>这套技术已经用于单集群每天约 <strong>155 万亿 token</strong> 的生产服务。它省掉的计算也有具体结果：准备模型开始回答时，一项局部状态重建优化让总预填充计算量接近减半；生成回答时，系统根据草稿的把握大小分配验证计算，在接近生产负载的官方基准中，相比每轮固定验证 5 个草稿的方案，估算吞吐提高约 <strong>4%～7%</strong>。一个减少回答前的准备计算，一个提高生成阶段单位时间的产出。</p>
+<p>同批开放的还有 <strong>deepseek-recipe</strong>：它把外部软件的 API 请求转成模型输入，再把模型输出还原为正文、思考内容或工具调用响应。这次交给开发者的是可查看、测试和复用的核心代码；完整在线服务所需的缓存管理和服务层负载均衡还需另行配套。</p>
+<p>要理解这两套组件解决的核心问题，可以看一个常见的实际交互：你向大模型发送了一篇长文让它写总结，随后又针对总结中的某一点继续追问。</p>
+<p>这次交互包含两段主要计算，以及一项决定追问时是否需要重算的缓存机制：</p>
+<ol>
+<li><strong>读输入（Prefill）</strong>：模型首先要读取你发来的长文。文字会被切分成模型处理的基本单位——token（token 与字数不一一对应，一个词可能被切成多个 token）。这些输入 token 是预先给定的，GPU 可以把它们组织成大矩阵批量计算，充分调动张量计算核心。</li>
+<li><strong>逐步生成（Decode）</strong>：总结正文时，模型无法预知后续内容，只能基于前面的输入一步步计算并预测下一个 token。混合专家模型（MoE）包含许多称为“专家”的计算模块，每个 token 只选择其中一部分参与计算。模型虽然不必每步动用全部专家，但每生成一个 token 都需要访存并推进自回归计算，往往更受显存带宽与卡间通信约束。</li>
+<li><strong>状态复用（KV 缓存）</strong>：当你基于总结继续追问时，前文的上下文其实已经计算过。如果系统能把先前计算的键值缓存（KV Cache）保存下来，第二轮对话就可以复用已经算好的部分，减少对整篇长文的重复计算。</li>
+</ol>
+<p>针对这些环节的计算开销，DeepInfer 在离线引擎中实现了算子优化、大专家并行、有界重放与动态投机验证；deepseek-recipe 则在前后端之间架起高效对齐的协议与解析通道。</p>
+<h2>读输入与逐步生成：服务规模化时的解耦设计</h2>
+<p>读取长输入与逐步生成回复，对硬件的需求不同。将它们分开部署，可以分别分配资源，优化开始回答前的等待和回答过程中的生成速度。</p>
+<p>在其大规模在线服务中，DeepSeek 选择了将视觉编码（VE）、输入预填充（Prefill）与逐步生成（Decode）在物理服务层面进行解耦部署（E/P/D Disaggregation）：</p>
+<ul>
+<li><strong>Prefill 阶段</strong>：面对长文或大批用户提问，计算模式更适合大批次（batch）矩阵运算。DeepSeek 将其部署在普通的 8 卡 GPU 机器上，采用较小规模的专家并行（如 EP2～EP8），利用显卡的张量计算能力快速处理未缓存的输入。</li>
+<li><strong>Decode 阶段</strong>：逐步生成需要兼顾批处理并发、显存带宽与跨卡通信。DeepSeek 将其部署在 64～128 卡的高带宽互联超节点上，使用超大专家并行（Wide-EP），把专家分散在更多卡上以摊薄单步访存压力。</li>
+<li><strong>视觉编码（VE）</strong>：独立使用单卡处理图片输入，根据图像的 patch 数量进行负载均衡，再将视觉特征送入 Prefill 节点。</li>
+</ul>
+<figure>
+<img>
+<figcaption>
+<span>生产级完整推理系统架构：解耦视觉编码（VE）、输入预填充（Prefill）与逐字解码（Decode）。</span><br>
+    用户请求由 deepseek-recipe 转换后接入 Entrypoint；底层以专用 3FS 分布式集群提供统一 KV 缓存共享，各环节均挂载独立负载均衡。本图包含完整生产系统；其中 KV 缓存管理及服务层负载均衡尚未完整开源。
+  </br></figcaption>
+</img></figure>
+<p>通过这种服务分工，Prefill 可以专注优化首字生成前的吞吐与计算效率，Decode 则专注保障用户接收回复时的平稳流速。完整的在线分工还依赖缓存与负载均衡服务；本次开放的是离线推理引擎核心，尚未包含整套线上服务。</p>
+<h2>访存与复用：Wide-EP、按类型存放的 KV 缓存与 SWA 有界重放</h2>
+<p>在 Decode 阶段，由于每个 token 只激活 MoE 模型的部分专家，如果只在少数几张显卡上运行，每张卡都需要承载较多专家参数，多并发下显存带宽容易成为瓶颈。</p>
+<h3>把专家分到更多卡上，也给热门专家安排副本</h3>
+<p>DeepSeek 的应对方案是采用 Wide-EP，将专家分布到 64 甚至 128 张 GPU 上。每张卡负责的专家数量减少，每张卡在一步中需要读取的专家权重随之减少。为了防止某些热门专家请求过于集中导致计算不均，系统引入了专家并行负载均衡（EPLB）：在各卡保留若干冗余专家槽位作为热点副本，根据近期执行统计动态调整专家分配。</p>
+<p>下图把 8 卡和 64 卡两种配置放在一起比较。图中的 DP rank 指参与数据并行的一路计算进程；这里每张 GPU 对应一路。“每路 64 个请求”指各路分别同时处理 64 个请求，并非整个集群合计只有 64 个。单用户速度、每卡吞吐和集群总吞吐因此是不同的统计范围。</p>
+<figure>
+<img />
+<figcaption>
+<span>大专家并行（Wide-EP）在低至中等并发下改善访存开销，提升逐 token 生成速度。</span><br>
+    SM100 单域实测，上下文 131,072，固定草稿步长 nextn=3，按 75% 接受率折算（τ=3.25）。64 并发（每 DP rank）下，EP64 配置 384+64 专家（蓝）单用户速度约 246 token/s、单卡吞吐约 15,700 token/s，高于 EP8 配置 384+32 专家（橙）的 198 token/s 与 12,700 token/s。这组比较在高带宽互联的单一硬件域内完成。
+  </br></figcaption>
+</figure>
+<h3>追问长文时，复用上一次的计算</h3>
+<p>当用户反复针对长文提问时，重复计算历史提示词的开销极大。生产系统将两类缓存分开保存：</p>
+<ul>
+<li><strong>分块 KV 缓存（Block KV）</strong>：模型主体的分块 KV 缓存储存在专用的 3FS 分布式固态硬盘集群中（规模约 100 PiB），在 Agent 场景保留约 3 天，Chatbot 场景保留约 7 天。将这部分缓存独立出来，使得任意一台 Prefill 机器都能读取已有的前缀缓存，避免为了命中文档而必须把请求路由到特定机器，不必把追问固定送回上次计算长文的那台机器。</li>
+<li><strong>SWA 状态与主机内存</strong>：滑动窗口相关的 SWA 状态并不写入 3FS，而是保留在生成它的计算节点本地主机内存中，通过局域网在机器间调度调取。</li>
+<li><strong>匹配与传输</strong>：前缀匹配必须在请求路由前由入口节点基于哈希快速完成，以便确认有效命中长度；随后在后台异步拉取缓存数据，尽量让数据搬运与前向计算重叠，减少搬运造成的等待。</li>
+</ul>
+<h3>局部状态缺了，只重建需要的那一段</h3>
+<p>这套模型同时使用局部窗口内的状态和可复用的分块缓存。滑动窗口注意力（SWA）只在一个有限窗口内计算相邻 token 的关系。当长文缓存出现部分缺失或初始化解码器时，是否需要把数千个 token 完整重算？</p>
+<p>DeepInfer 采用 <strong>SWA 有界重放</strong> 进行近似局部状态重建：</p>
+<ul>
+<li><strong>分块缓存命中、局部 SWA 状态缺失时</strong>：如果 Block KV 命中但局部的 SWA 状态缺失，系统无需重新计算整篇长文，只需重算命中前缀末尾的 128 个 token 来重建局部 SWA 状态，同时直接复用既有的 Block KV。</li>
+<li><strong>解码器（Decoder）预填充时</strong>：这个模型内部还有分工：编码层先处理上下文，把计算结果交给解码层。解码层所需的分块缓存可以由编码层的结果直接转换而来，无需逐层重新建立；还要恢复的是每层的局部 SWA 状态。这里说的是模型内部的计算层，与前文分开部署的两类服务是不同层次的分工。若精确重建解码器 SWA 状态，需要让最后 2,560 个 token 通过 20 层解码器；而有界重放仅对提示词末尾的 128 个 token 在解码层进行近似局部重算。该近似结果仅用于启动当前解码，不写入前缀持久缓存，官方测算这一做法将总 Prefill 计算量减少了近一半。</li>
+</ul>
+<p>在引擎配置中，参数通常设为保留 140 个 token（如 <code>DEEPINFER_YOCO_PREFILL_KEEP_TOKENS=140</code>），这是因为保留区间除了 128 个 token 的局部窗口外，还需覆盖投机回溯等边界余量，两者在机制上各有分工。</p>
+<h2>流水线重叠：减少设备空等的异步调度</h2>
+<p>在大模型逐步解码过程中，标准的执行流程通常是：GPU 计算当前步（前向计算与采样）→ 结果同步回 CPU → CPU 整理结果并规划下一步批次 → 向 GPU 下发新任务。在每一步之间，GPU 往往需要等待 CPU 的调度与后处理逻辑完成。</p>
+<p>业界在 SGLang、NanoFlow 等框架中已广泛探索重叠流水线。DeepInfer 同样采用了异步调度机制：当 GPU 执行第 N 步的前向计算与采样时，CPU 在后台并行完成第 N+1 步的批调度与前向任务派发，并穿插处理第 N-1 步的后处理，使 CPU 准备工作与 GPU 计算尽量重叠，从而减少 GPU 的空闲等待。</p>
+<h2>DSpark：把验证计算花在更有把握的草稿上</h2>
+<p>在执行解码时，提高生成速度的常用方法是投机解码：由轻量级草稿模型预先连续猜测若干候选 token（默认最多 5 个），再由主模型在单次前向传播中一并验证。</p>
+<p>这里比较的固定长度方案，每次验证 5 个草稿 token。但不同请求、不同位置的草稿被接受的概率并不相同，全部验证会把部分计算花在把握较低的候选上。</p>
+<p>DeepInfer 的 DSpark 方案引入了基于置信度的动态验证调度。草稿模型提供候选 token 后，系统通过置信度预测头（Confidence Head）评估每个位置的接受概率，并结合硬件吞吐特征动态确定当步最优的验证长度，优先把验证预算分配给高期望收益的 token：</p>
+<ul>
+<li><strong>生产基准并发（单 rank 60 序列）</strong>：平均每步验证的草稿长度从固定 5 个降至 3.58 个；而平均通过验证的草稿数量仅从 3.30 略降至 3.21，官方据此估算单 rank 吞吐从 13,730 提至 14,466 token/s，获得约 +5.4% 的吞吐收益。</li>
+<li><strong>并发规模的影响</strong>：在单 rank 96 序列的高并发下，动态验证的吞吐增益达到 +11.0%；但在单 rank 16 序列的较低并发下，吞吐录得 -1.5%（从 4,891 降至 4,816 token/s/rank）。</li>
+</ul>
+<p>对照官方数据 · EP64 / DP64</p><h3>少验几个草稿，吞吐会怎样变？</h3><p>同一并发下，比较每步固定验证 5 个草稿与按置信度决定验证长度。吞吐为官方根据基准数据给出的估算。</p>
+<div>每个 DP rank 的并发序列数<p>选择官方表中六个测试点；中间值不插值。</p></div>
+<div><div><strong>60 序列 / rank</strong><span>吞吐 +5.4%</span></div>
+<div><span>固定验 5 个</span><div><div></div></div><strong>13,730</strong></div>
+<div><span>动态选择长度</span><div><div></div></div><strong>14,466</strong></div>
+<p>估算吞吐：token / 秒 / rank；两根条使用同一标尺。</p>
+<div>平均验证草稿数量5.00 → 3.58</div><div>平均通过验证的草稿数量3.30 → 3.21</div>
+<p>生产常见工作点附近，验证的草稿更少，平均通过验证的草稿数量仅略降，估算吞吐提高。</p>
+</div>
+<div><div><table>六组结果始终可读：低并发时也可能更慢<thead><tr><th>序列 / rank</th><th>固定 5 吞吐</th><th>动态吞吐</th><th>变化</th></tr></thead><tbody><tr><th>16</th><td>4,891</td><td>4,816</td><td>−1.5%</td></tr><tr><th>32</th><td>8,964</td><td>9,111</td><td>+1.6%</td></tr><tr><th>48</th><td>12,032</td><td>12,467</td><td>+3.6%</td></tr><tr><th>60</th><td>13,730</td><td>14,466</td><td>+5.4%</td></tr><tr><th>72</th><td>14,962</td><td>15,961</td><td>+6.7%</td></tr><tr><th>96</th><td>16,817</td><td>18,660</td><td>+11.0%</td></tr></tbody></table></div></div>
+<div><h4>另一处节省：只恢复解码器所需的局部状态</h4><div><p><strong>精确恢复解码器 SWA</strong><span>末尾 2,560 个 token<br />经过 20 个解码器层</span></p><p><strong>有界重放</strong><span>末尾 128 个 token<br />近似重建局部 SWA</span></p></div><p>编码层已经处理完整上下文，解码层的分块缓存由其计算结果转换而来；这里比较的是解码层局部 SWA 状态的恢复。有界重放是近似重建，官方所说的“近乎减半”指总预填充计算。</p></div>
+<p><a href="https://github.com/deepseek-ai/DeepInfer/blob/main/doc/inference_deployment_qa.md">数据与机制：DeepSeek 官方部署问答 ↗</a></p>
+<h2>服务更多人，和让每个人更快，是两个目标</h2>
+<p>官方在测试脚本中通过扫描不同批处理参数，绘制了 Prefill 与 Decode 两个阶段的吞吐与响应速度的曲线。阅读这两张图表时，需结合具体的测量口径理解。</p>
+<h3>1. Prefill 阶段：批大小与单步耗时</h3>
+<figure>
+<img />
+<figcaption>
+<span>批大小增大提升输入吞吐，同时单步计算时间增加；横轴为单步分块耗时。</span><br />
+    4 卡 SM100 实测，EP4DP4，384+32 专家，上下文 131,072，解码器重放 140 token。点标签为单 rank 批大小：4,096 时单步约 68 ms（吞吐约 60,000 tok/s/GPU），65,536 时单步约 732 ms（吞吐约 89,500 tok/s/GPU）。
+  </figcaption>
+</figure>
+<p>在 Prefill 测试中，横轴记录的是 GPU 执行单个批处理分块（Chunk）的物理耗时，纵轴为单卡每秒处理的未缓存输入 token 数量：</p>
+<ul>
+<li>批大小设为 4,096 时，单步耗时约 68 毫秒，单卡吞吐约 60,000 token/s；当批大小扩大至 65,536 时，单卡吞吐升至约 89,500 token/s，单步耗时相应增加至约 732 毫秒。</li>
+<li>读图时需注意，单步分块耗时并不等同于用户的首字返回时间（TTFT）。实际线上请求的首字返回还受到网络传输、排队调度、缓存匹配与分块传输等多重环节影响，超长输入也会被拆分为多个分块连续计算。</li>
+</ul>
+<h3>2. Decode 阶段：并发与交互流速</h3>
+<figure>
+<img />
+<figcaption>
+<span>并发度增加提升系统整体吞吐，单用户折算生成速度相应变化。</span><br />
+    64 卡 SM100 实测，EP64DP64，384+64 专家，上下文 131,072，固定草稿步长 nextn=3，按 75% 接受率折算（τ=3.25）。点标签为每 DP rank 请求并发数：8 并发时单用户折算速度约 325 token/s（整卡吞吐约 2,600 tok/s/GPU），256 并发时单用户降至约 103 token/s（整卡吞吐约 26,300 tok/s/GPU）。
+  </figcaption>
+</figure>
+<p>Decode 曲线展示了在不同并发规模下的资源取舍：</p>
+<ul>
+<li>当单 DP rank 仅有 8 个并发请求时，每卡输出吞吐约为 2,600 token/s/GPU，折算出的单用户生成速度约为 325 token/s；当并发上升到 256 时，整卡输出吞吐升至约 26,300 token/s/GPU，单用户折算速度降至约 103 token/s。</li>
+<li>此处曲线采用了扫点脚本中的固定折算参数：设定固定 3 个草稿 token（nextn=3），按假定 75% 接受率折算，即每步按 1 + 3 × 0.75 = 3.25 个 token 折算。这一数值并非直接测量线上用户的终端打字体验，也不同于前文 DSpark 动态验证的 5 草稿配置，而是用于在基准测试中统一衡量包含投机收益时的输出吞吐。</li>
+</ul>
+<h2>deepseek-recipe：让自建服务接得住真实 API 请求</h2>
+<p>与 DeepInfer 协同开源的 <strong>deepseek-recipe</strong> 是一个用 Rust 编写并提供 Python 绑定的请求转换与分词组件。它负责连接上层标准 API 与底层推理引擎：</p>
+<div><pre><code>上层请求 (Messages / Chat Completions / Responses)
+  │
+  ▼
+deepseek-recipe: 转换为统一 Conversation 格式
+  │
+  ▼
+拼装模板并编码为 Token ID 序列（附带结构化输出约束等配置）
+  │
+  ▼
+调用方推理引擎执行前向计算（DeepInfer 等）
+  │
+  ▼
+输出 Token 流解析为事件（思考过程、正文、工具调用）
+  │
+  ▼
+流式组装并返回对应协议响应
+</code></pre></div>
+<p>该组件的核心职责是实现与 DeepSeek 官方 API 一致的处理逻辑。调用方仍需自行提供推理服务、HTTP 传输及工具执行环境。对齐处理逻辑主要体现在三个具体环节：</p>
+<h3>1. 控制标记与普通文本隔离</h3>
+<p>在提示词构建阶段，deepseek-recipe 会显式记录模板自带控制标记（如角色切换标记）的位置，直接映射为对应的特殊 Token ID。而所有来自用户输入或外部工具返回的普通文本，一律使用基础词表编码。
+例如，若用户在输入内容中手工写下 <code>&lt;｜User｜&gt;</code>，该字符串会被编码为普通文本字符序列，不会被系统误当成真正的角色控制标记；同样，在输出解析时，模型真正的思考结束标记 <code>&lt;/think&gt;</code> 与工具标签也是通过专用 Token ID 识别，即便模型在普通文本中输出了相同的字面文本，也会按原样保留，避免干扰流程控制。</p>
+<h3>2. 分段并行分词与结构化约束</h3>
+<p>由于模板中的特殊标记位置在拼装时已经确定，夹在标记之间的普通文本段可以独立进行 BPE 编码。deepseek-recipe 对这些文本段进行并行分词后再行拼接，从而降低长文本输入的编码耗时。
+对于需要强制返回特定格式的请求，deepseek-recipe 负责整理并传递结构化输出约束，是否强制执行由推理后端决定。DeepInfer 支持将 JSON Schema、正则表达式或语法规则编译为语法状态机。在模型解码的每一步中，引擎根据当前状态机筛选出合法的候选 token 集合并施加掩码，强制输出符合预设结构，但这只保证格式合规，不保证内容事实正确。</p>
+<h3>3. 跨分块流式解析与工具参数分片</h3>
+<p>推理引擎是以 token 为单位流式吐出结果的，一个多字节的 UTF-8 字符、用于组织工具调用的 DSML 标记或工具参数可能被切碎在不同的数据包中：</p>
+<ul>
+<li>当遇到尚未接收完整的多字节 UTF-8 字符时，组件内部状态机会暂存相应字节，待后续 token 补齐后再行输出，防止向客户端推送乱码。</li>
+<li>识别到工具调用时，组件无需等待整段 JSON 完整生成，而是根据 DSML 语法边界解析参数，边生成边转义并推向客户端，使客户端能够更快收到首个参数片段。</li>
+</ul>
+<h2>哪些团队能用，离完整在线服务还有多远</h2>
+<h3>1. 开源范围与未包含组件</h3>
+<ul>
+<li><strong>已开源内容</strong>：DeepInfer 开源了离线推理引擎核心，包含注意力数据并行（DP）、MoE 专家并行（EP）、SWA 有界重放、DSpark 投机验证与结构化输出支持，适配 DeepSeek-V4.1-Flash 模型。配套算子库包含 DeepGEMM、DeepEP、TileKernels 以及 FlashMLA（官方注记其相比内部版本缺少一处手调 SASS 优化，解码核函数慢 5%～10%，端到端差异在 5% 以内）。deepseek-recipe 则开放了完整的请求转换、分词与流式解析实现。代码分别采用 Apache 2.0 与 MIT 许可证，官方承诺未来 DeepSeek 模型的推理代码与持续优化将继续在仓库更新。</li>
+<li><strong>架构归属与未包含部分</strong>：DeepInfer 最初主要基于 vLLM 构建，并借鉴了 SGLang 与 TensorRT-LLM 的设计思路。本次未开放的部分包括与生产集群深度耦合的 KV 缓存管理系统集成、跨 DP 副本的负载均衡网关，以及完整的在线 E/P/D 分离服务编排。</li>
+<li><strong>硬件支持</strong>：DeepInfer 首发支持 NVIDIA SM100 GPU 与华为昇腾 Ascend 950 NPU。</li>
+</ul>
+<h3>2. 部署规模与适用场景</h3>
+<ul>
+<li><strong>集群与测试规模</strong>：官方生产部署建议的高效单元为 64 卡 Prefill 配合 64 卡 Decode（64P+64D，以充分利用 Wide-EP 的多卡访存优势）。但框架并非必须 128 卡才能运行，文档说明一个 Prefill 服务实例加一个 Decode 服务实例（1P+1D）即可部署，这里的实例并不等于一张卡，仓库中的离线推理示例也提供了 8 卡单机的运行选项。</li>
+<li><strong>不同角色的使用价值</strong>：
+<ul>
+<li><strong>拥有适配硬件的团队</strong>：可以直接基于 DeepInfer 的离线引擎与算子库测试长上下文下的吞吐表现，作为工业级分布式推理的参考实现。</li>
+<li><strong>API 服务集成者</strong>：即便不直接运行 DeepInfer 引擎，也可以独立引入 deepseek-recipe，规范处理多协议请求转换、提示词模板拼装与流式事件解析。</li>
+<li><strong>需要做回归比较的团队</strong>：NVIDIA 平台还提供批次不变性与确定性采样配置，便于检查同一输入的结果是否一致；确定性采样需要固定种子并关闭动态草稿。</li>
+</ul>
+</li>
+</ul>
+</div><div><div><div>来源</div><div><span>DeepSeek 发布 DeepInfer 与 deepseek-recipe（完整四条主题帖）</span><span>DeepSeek<span>·</span>2026-10-20<span>·</span><a href="https://x.com/deepseek_ai/status/2112476496283775135">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://github.com/deepseek-ai/DeepInfer">DeepInfer：开源范围、功能与性能图</a><span>·</span><a href="https://github.com/deepseek-ai/DeepInfer/blob/main/doc/inference_deployment_qa.md">DeepSeek V4.1 Flash 官方推理部署问答</a><span>·</span><a href="https://github.com/deepseek-ai/deepseek-recipe">deepseek-recipe：协议转换、编解码与调用方职责</a><span>·</span><a href="https://github.com/deepseek-ai/DeepInfer/blob/main/examples/README.md">性能基准与统计口径</a></div></div><div><div>本站说明</div><div>原图来自 DeepSeek 官方仓库；性能与生产规模为官方披露，本文未在相同硬件上复测。</div></div></div></div></div>
+<div>
+<div>DeepInfer · DeepSeek V4.1 Flash</div>
+<h1>让显卡少做无用功 DeepSeek 开源了其背后的核心推理引擎</h1>
+<div>DeepInfer 安排显卡分工、复用已有计算，并逐步生成回答；deepseek-recipe 负责 API 请求与模型输入输出之间的转换。</div>
+<div>两套核心组件已开源，完整在线服务仍需另配缓存管理与负载均衡。</div>
+<div>
+<p>你发一篇长文让 AI 总结，随后继续追问：第一次要读懂输入，再逐步生成回答；追问时，已算过的上下文可以复用。</p>
+<div>
+<div><div>155 万亿</div><div>官方披露：采用这套技术的单集群每日服务 token 量</div></div>
+<div><div>接近减半</div><div>局部状态重建优化带来的总预填充计算减量</div></div>
+<div><div>+4%～7%</div><div>近生产负载的官方基准中，动态验证的估算吞吐增益</div></div>
+</div>
+</div>
+<div>
+<div>读输入和写回答，分别安排显卡</div>
+<div>
+<div><b>Prefill：批量读输入</b><p>已知的输入可组成大矩阵，适合用张量算力。DeepSeek 生产服务采用普通 8 卡节点、小规模专家并行。</p></div>
+<div><b>Decode：逐步写回答</b><p>每一步都要读取所需专家权重，更受访存与通信约束。生产服务采用 64～128 卡高带宽超节点。</p></div>
+</div>
+</div>
+<div>
+<div>省准备计算 · SWA 有界重放</div>
+<div>大块结果已有，只补局部状态</div>
+<p>模型内部的编码层先处理完整上下文；解码层可从编码结果转换得到分块缓存（Block KV），还需恢复每层的滑动窗口注意力（SWA）局部状态。</p>
+<div>共同前提：编码层已处理上下文，解码层复用其分块缓存。</div>
+<div>
+<div>精确重建局部状态<span>2,560 token</span>提示词末尾这些 token<br />通过 20 层解码器</div>
+<div>有界近似重放<span>128 token</span>只重算提示词末尾<br />这一小段的解码层状态</div>
+</div>
+<p>近似状态仅用于启动当前解码，不写入持久前缀缓存。官方测算总 Prefill 计算量因此接近减半；配置常保留 140 token，额外部分用于投机回溯等边界余量。</p>
+</div>
+<div>
+<div>写回答时，减少访存和低收益验证</div>
+<div>
+<div><b>专家分散，热点留副本</b><p>Wide-EP 把专家分到更多卡，每卡每步读取的权重减少；EPLB 根据近期统计动态分配热点专家副本。</p></div>
+<div><b>草稿先猜，验证看把握</b><p>DSpark 评估候选被接受的概率，动态分配验证长度。每 rank 60 序列时，平均验证 5→3.58 个，吞吐估算提高 5.4%。</p></div>
+</div>
+<div><p>DSpark 比较的是固定验证 5 个草稿的基线。收益随并发变化：每 rank 16 序列为 −1.5%，96 序列为 +11.0%；不能当成所有请求都加速。增加并发也可能提高每卡吞吐、同时降低单用户生成速度。</p></div>
+</div>
+<div>
+<div>recipe：把 API 和模型接起来</div>
+<div><div>API 请求<br />转成模型输入</div><span>→</span><div>调用方引擎<br />执行推理</div><span>→</span><div>输出 token 流<br />解析回 API 响应</div></div>
+<p>控制标记用专用 Token ID 识别，用户写下相同字面文本仍按普通文本编码；并行分词减少长输入编码耗时，流式解析可逐步返回正文与工具参数。recipe 传递结构化约束，由后端决定执行；格式合法也不等于事实正确。</p>
+</div>
+<div>
+<div>能复用核心代码，还需配套在线服务</div>
+<p><strong>已开放：</strong>DeepInfer 离线引擎核心与配套算子库、deepseek-recipe 请求转换与解析实现。首发硬件支持 NVIDIA SM100 和华为昇腾 Ascend 950。</p>
+<p><strong>仍需配套：</strong>与生产集群耦合的 KV 缓存管理集成、跨 DP 副本负载均衡网关与完整在线 E/P/D 编排。推荐的 64P+64D 是高效生产单元，并非运行门槛；1P+1D 的实例也不等于各一张卡。</p>
+</div>
+<div>依据：DeepSeek 官方主题帖与 DeepInfer、deepseek-recipe 仓库。性能与规模为官方披露，本文未在相同硬件上复测。</div>
+</div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://x.com/deepseek_ai/status/2112476496283775135">看原网页 ↗</a></p></div><div></div><div><div><p>🚀 Introducing DeepInfer, our in-house inference framework, now fully open source!</p></div><div><p>Powering DeepSeek-V4.1-Flash at scale with high throughput and low latency. We’re sharing our production stack to help the community lower compute costs, reduce energy use, and make AI more affordable.</p></div><div><p>🔗 http://github.com/deepseek-ai/DeepInfer</p></div><div><p>1/4</p></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/deepseek_ai/status/2112476496283775135">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>产品发布</div>
+<div>DeepSeek 发布DeepSeek-V4-Pro正式版和自家的 Harness 同时大幅提高API价格</div>
+<div>08-13 · 9 分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>DeepSeek V4.1 Flash 更新：做游戏、搭 3D 场景更拿手，也更快、更省</div>
+<div>10-18 · 约12分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>DeepSeek-V4-Flash 正式版发布：可原生接 Codex，性能超越自家更大的 V4-Pro，输出比 Opus 4.8 便宜 89 倍</div>
+<div>07-31 · 11 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Vercel Labs 开源 fx0：超快的 HTML 工件构建器</title>
+<link>https://best.xiaohu.ai/article/vercel-fx0-design-agent/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:vercel-fx0-design-agent</guid>
+<pubDate>Wed, 21 Oct 2026 12:01:01 +0000</pubDate>
+<description>fx0 主打快速生成与局部修改：高速模型、紧凑 HTML、精确替换和流式预览怎样配合？附三个真实可玩案例与完整提示词。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 21 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Vercel Labs 开源 fx0：超快的 HTML 工件构建器</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/vercel-fx0-design-agent/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>快在哪里，又是怎样实现的？</span></a><a><span>02</span><span>两次输入，做出三个可玩的场景</span></a><a><span>03</span><span>怎样复现，并把网页带走？</span></a><a><span>04</span><span>一个 HTML，为什么能做出动画？</span></a><a><span>05</span><span>生成中断了，后台怎样接着做？</span></a><a><span>06</span><span>用风格规范约束设计，用适合的任务开始</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>Vercel Labs 开源 fx0：超快的 HTML 工件构建器</h1><p>fx0 主打快速生成与局部修改：高速模型、紧凑 HTML、精确替换和流式预览怎样配合？附三个真实可玩案例与完整提示词。</p><div><div>正文一页纸原文</div>☆ 收藏<div><span><span>作者：</span>Vercel Labs</span><span>10-21 · 约 10 分钟</span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>fx0 主打快速把想法做成可操作网页，并通过局部替换减少下一轮修改的工作量。</li><li>生成途中先展示禁用脚本的草稿，完整提交后再运行动画和交互。</li><li>风格规范、网页参考、运行中补充要求与逐轮版本记录，让页面能继续改、也能带走。</li></ul><div><p>Vercel Labs 开源了一个叫 fx0 的网页设计 Agent，主打快速生成、快速修改：你描述想做的页面，它就写出一份可以在浏览器直接运行的单文件 HTML，让想法尽快变成能操作的首稿。</p>
+<p>它同时是底层 Agent 库 libfx 的应用示例，用来展示这套运行机制的速度与持久性。主要特点包括：</p>
+<ul>
+<li><strong>尽快出首稿，局部修改少重写。</strong> 默认使用高速模型，并要求 Agent 减少步骤，简单改色、改文案时直接修改对应代码。</li>
+<li><strong>生成时就能先看预览。</strong> HTML 还没全部写完，页面结构与样式就可以陆续出现；完整提交后再运行交互脚本。</li>
+<li><strong>带着风格和参考继续做。</strong> 支持十种预设或自上传 <code>design.md</code>，也能搜索、抓取参考网页，在制作途中补充文字要求。</li>
+<li><strong>一个文件交付，逐轮保留版本。</strong> HTML 可以复制、下载，旧版也能重新打开；执行中的步骤会保存，处理中断后可以接续。</li>
+</ul>
+<h2>快在哪里，又是怎样实现的？</h2>
+<p>fx0 把速度放进了模型选择、生成步骤、修改方式和预览过程。首稿少生成一些不必要的内容，微调少重写一些已有代码，用户也能更早看见画面。本次没有做端到端计时或同条件产品对照，能核对的是这些具体设计。</p>
+<h3>首稿：高速模型、少步骤、紧凑文件</h3>
+<p>默认模型是 <code>claude-opus-5.5-fast</code>。访客试用固定使用 low effort（低思考强度）与 Fast 模式；登录后的聊天可以分别选择模型、推理强度和 Fast 设置。</p>
+<p>系统指令也在减少等待：需求已经明确时，Agent 选择合理默认值直接开做；修改颜色或文案时，思考量要与改动规模相称；同一个请求里的多处修改，应合在一次工具调用里完成。</p>
+<p>首次制作页面，指令要求用一次 <code>publish_design</code> 提交完整 HTML，正常首稿尽量控制在 <strong>12 KiB</strong> 以内。设计 Agent 没有文件系统、shell 或部署环境；它直接交付 HTML，不需要先搭一个多文件工程、安装依赖再构建，产物本身就能由浏览器打开。代码写得紧凑，也就少了一部分需要模型生成的文本。</p>
+<p>本次 ORBIT / FORM 原件为 10,854 字节，约 10.6 KiB；CHROMA FLOW 原件为 9,028 字节，约 8.8 KiB。这两个数是文件大小，不是生成用时。12 KiB 是给模型的首稿建议，最终验证器执行的体积硬上限则是 512 KiB。</p>
+<h3>修改：只传需要替换的片段</h3>
+<p>如果要把 FORM 海报的大字换成蓝色，同时把随机按钮改名为“SHUFFLE POSTER”，系统指令要求优先调用 <code>edit_design</code>，传入对应的旧文本与新文本，而不是重新输出整份 HTML。已知要改哪段时，也不必先把全文再读一遍。</p>
+<p>一次调用可带 1–20 项精确替换：每段旧文本都必须唯一匹配，按顺序应用后，一起校验并提交成一个新版本；其中一项失败，整批不会成为新版本。这样既能把同一轮要求一起落实，也减少了模型反复输出已有代码和来回调用工具的次数。</p>
+<div><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>交给工具的内容</th>
+<th>提交结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>首稿或整体重做</td>
+<td><code>publish_design</code> 接收完整 HTML</td>
+<td>校验后生成完整设计</td>
+</tr>
+<tr>
+<td>局部修改</td>
+<td><code>edit_design</code> 接收旧文本、新文本的替换数组</td>
+<td>整批修改提交为一个版本</td>
+</tr>
+</tbody>
+</table></div>
+<h3>预览：代码还在写，页面先出现</h3>
+<p>模型调用 <code>publish_design</code> 时，HTML 放在工具参数的 <code>html</code> 字段里。fx0 的传输层会观察模型返回的 <code>tool-input-delta</code> 事件，逐段解码这个字段，把已经收到的 HTML 经 Redis 频道推到浏览器。它不用等工具参数全部传完，才开始显示页面。</p>
+<p>未完成的代码不能直接当成品运行。前端会先移除脚本、事件属性、嵌套页面和外部资源，并用 <code>script-src 'none'</code> 禁止执行脚本。所以生成途中能先看文字、布局与样式，Canvas 动画和按钮交互要等完整提交后再运行。</p>
+<p>预览更新也不是每收到一段代码就重建整页。<code>draft-preview.ts</code> 会比较并修补已有 DOM，保留未变的节点和滚动位置；最终 HTML 校验完成后，才切换到可执行 JavaScript 的沙箱。</p>
+<p>这里同时改善了两种等待：少生成、少重写，是减少完成任务所需的工作；流式预览则让用户更早看见进度，不能把两者都当作总耗时的缩短。正常提示词还会由接收请求的函数直接开始执行，不先经过一次队列投递；请求模型前，读取计费身份、准备草稿观察器和预留本轮步数也会并行进行。Vercel Queues 负责后备接管、长任务接续，以及运行中引导等跨请求工作。</p>
+<h2>两次输入，做出三个可玩的场景</h2>
+<p>这次直接在 <a href="https://fx0.vercel.dev">fx0 线上服务</a> 使用访客试用：第一轮生成 ORBIT / FORM 双展厅，第二轮生成 CHROMA FLOW 粒子画布。界面显示的模型为 <code>claude-opus-5.5</code>，每轮只发送一次，未追加模型追问。</p>
+<p>主视觉、画布算法和控件来自 fx0。文章里的演示是展示适配副本：修正了海报文字出界、轨道显示比例、部分触控尺寸和“减少动态”设置。未经修改的 HTML 原件也保留下来，可以在每个案例旁下载。</p>
+<h3>01 ORBIT：把网页变成轨道控制台</h3>
+<p>深黑星空、青色轨道、橙色太阳，再加上任务读数，组成一个太空控制台。点击 <code>EARTH</code>、<code>MARS</code> 或 <code>SATURN</code>，选中行星及其轨道会高亮，左侧的任务、目标半径、公转周期等读数同步变化。三条轨道和土星环本来就在画面里，切换改变的是强调对象。</p>
+<p>可以拖动时间倍率滑块，在 0.1× 到 5.0× 之间以 0.1 为步长调节运动速度；点 <code>PAUSE</code> 暂停，按钮随之变成 <code>RESUME</code>。这是艺术化模拟，轨道比例、运动和遥测读数不能当作科学计算。</p>
+<div>
+<div>
+<div>
+<span>实跑案例 01</span>
+<h3>ORBIT 轨道任务控制台</h3>
+</div>
+<div>
+启动可玩演示
+<a>在新标签页打开</a>
+<a>下载原件 HTML</a>
+</div>
+</div>
+<p>操作观察：可在画面底部切换 EARTH、MARS、SATURN 任务（联动切换轨道高亮与模拟读数），或拖动时间流速滑块。默认为静态截图，点击“启动可玩演示”按需挂载沙箱。</p>
+<div>
+<img>
+<div></div>
+</img></div>
+</div>
+<h3>02 FORM：拖动滑块，重排一张动态海报</h3>
+<p>同一份 HTML 切到 FORM，画风换成了暖白底、黑橙大字和密集波纹。“MAKE SOME NOISE”三个单词压在波浪线条上，画面本身就是可调整的海报。</p>
+<p>拉高波浪频率，线条起伏更密；改变密度，画面里的线条数量随之变化。橙、黑、蓝、红四种墨水可以直接切换。点击 <code>RANDOMIZE COMPOSITION</code>，会重新组合频率、密度、颜色、相位和文字偏移。</p>
+<p>原件的随机偏移有时会把首字母挤出画面，展示副本限制了偏移并调整字号。这也说明，生成出一个有风格的页面之后，仍要亲自试试控件的极端状态。</p>
+<div>
+<div>
+<div>
+<span>实跑案例 02</span>
+<h3>FORM 动态字体海报工作室</h3>
+</div>
+<div>
+启动可玩演示
+<a>在新标签页打开</a>
+<a>下载原件 HTML</a>
+</div>
+</div>
+<p>操作观察：与案例 01 产自同一次生成。拖动波浪频率、密度滑块，切换橙/黑/蓝/红 4 种墨水，或点击“RANDOMIZE COMPOSITION”重新随机版面。适配版限定了文字偏移边界，保证小屏不裁切字母。</p>
+<div>
+<img />
+<div></div>
+</div>
+</div>
+<p>ORBIT 和 FORM 来自同一次生成。第一轮提示词同时说明了两个场景的视觉方向、具体控件，以及“操作必须改变画面”的要求。</p>
+第一轮完整提示词：英文原件与中文译文，任选一种发送
+<p>英文为本次实际发送的原件；中文为对应译文。</p>
+<div><pre><code>Create a spectacular interactive exhibition called ORBIT / FORM with TWO distinct full-screen exhibits accessible through clear persistent tabs and URL hashes #orbit and #form. Exhibit 1 ORBIT: a cinematic orbital mission-control scene, near-black space, glowing cyan orbital trajectories and a vivid orange sun rendered with Canvas/SVG/CSS (no external assets). Hundreds of subtle animated stars, planet orbit paths, small telemetry panels with clearly labelled SIMULATED data. Visitors can pause/resume motion, adjust time speed, and switch between Earth/Mars/Saturn missions; selection must visibly change orbit and readouts. Exhibit 2 FORM: a completely different Swiss editorial generative kinetic typography poster studio, warm ivory background, huge black/orange type saying MAKE SOME NOISE, sculptural parametric ribbon or moire geometry, controls for wave frequency, density and ink color, plus a randomize composition button; all controls must change the live artwork. Polished art direction, intentional typography, no generic SaaS cards. Both scenes need distinct strong composition, responsive layout that works on a 390px phone, keyboard-accessible real controls, prefers-reduced-motion support, and a small plain-language instruction visible on each scene. All content and code in one self-contained HTML, no CDN, no external network requests, no mock buttons. This is a design exploration: use only fictional/simulated data, no real account or backend. Make it beautiful and publish the finished design.
+</code></pre></div>
+<div><pre><code>创建一个名为 ORBIT / FORM 的精彩交互式展览，包含两个完全独立的全屏展厅，通过清晰的常驻标签页和 URL 哈希（#orbit 与 #form）进行访问。展厅 1 ORBIT：电影级的轨道任务控制中心场景，近乎纯黑的太空背景，使用 Canvas/SVG/CSS 渲染出发光青色轨道轨迹与明亮的橙色太阳（无外部资源）。数百颗微妙闪烁的动态恒星、行星运行轨道，以及带有明确“SIMULATED（模拟）”标注的遥测数据面板。访客可以暂停/恢复运动、调节时间流速，并在地球/火星/土星任务之间切换；切换选项必须能够直观改变轨道高亮与读数。展厅 2 FORM：完全不同的瑞士平面设计流派动态字体海报工作室，暖象牙白背景，巨大的黑橙双色大字呈现“MAKE SOME NOISE”，雕塑般的参数化飘带或莫尔几何波纹，提供波浪频率、线条密度和墨水颜色的控制项，以及一个随机版面按钮；所有控件必须能实时改变画面。要求考究的艺术指导与排版意图，不要通用的 SaaS 卡片。两个场景都需要鲜明的构图、能在 390px 手机上自适应的响应式布局、支持键盘访问的真实控件、支持系统偏好减少动态（prefers-reduced-motion），并在每个场景中显示简短易懂的文字说明。全部内容和代码整合在一个完全自包含的单文件 HTML 中，不使用 CDN，不发出外部网络请求，不包含无效假按钮。这是一次设计探索：仅使用虚构/模拟数据，无需真实账号或后端。请打造出优雅视觉并发布最终设计。
+</code></pre></div>
+<h3>03 CHROMA FLOW：用鼠标搅动一片发光粒子</h3>
+<p>第二轮换成一件暗色的生成艺术作品：品红、青色和荧光黄绿的光点，在黑色画布上形成光带或线网。鼠标移入、拖动或触碰画布，会扰动图形。</p>
+<p>三个模式的区别可以直接看出来：</p>
+<ul>
+<li><strong>VORTEX（漩涡）</strong>：粒子围绕三个移动中心流动，留下拖尾；指针进入后增加一个旋转扰动中心。</li>
+<li><strong>WAVES（波阵）</strong>：一行行曲线叠加正弦起伏，指针附近出现扩散、衰减的波纹。</li>
+<li><strong>CONSTELLATION（星群）</strong>：点缓慢移动，距离足够近的点之间画线，形成不断变化的网络。</li>
+</ul>
+<p><code>TURBULENCE</code> 调节扰动强度，<code>FREEZE / RESUME</code> 冻结或恢复画面，<code>RESEED</code> 重新生成初始分布。也能用左右方向键换模式、空格键暂停。它是生成艺术，没有求解真实的流体物理方程。</p>
+<p>原件在系统开启“减少动态”时仍会持续运行，只减慢时间参数、调低初始扰动。展示副本改成默认显示静止星群，用户需要时再手动恢复动画。</p>
+<div>
+<div>
+<div>
+<span>实跑案例 03</span>
+<h3>CHROMA FLOW 粒子艺术仪</h3>
+</div>
+<div>
+启动可玩演示
+<a>在新标签页打开</a>
+<a>下载原件 HTML</a>
+</div>
+</div>
+<p>操作观察：第二轮生成产物。底部可切换 01 Vortex（三中心旋涡带）、02 Waves（多层正弦波干涉）、03 Constellation（邻近动态连线星网）；画面支持光标拖拽扰动，可调节湍流滑块或按空格定格。</p>
+<div>
+<img />
+<div></div>
+</div>
+</div>
+第二轮完整提示词：英文原件与中文译文，任选一种发送
+<p>英文为本次实际发送的原件；中文为对应译文。</p>
+<div><pre><code>Build CHROMA FLOW, an extraordinary interactive liquid-light instrument, as one complete self-contained HTML file. Make it look like a physical creative instrument / experimental museum exhibit: almost-black background, enormous vivid magenta/cyan/acid-lime luminous flowing particle ribbons or fluid-like interference field on Canvas, editorial condensed CHROMA FLOW headline, delicate numbered scales, small generous controls. The artwork must fill most of the page and react to pointer/touch movement with attractive ripples or swirls. Provide three visually very different working modes (VORTEX, WAVES, CONSTELLATION), a turbulence/intensity slider, a real freeze/resume toggle, and an actual reset/reseed button. Each mode should change the algorithm/composition, not only color. Keep readable visible instructions and mode description, do not overclaim physical fluid simulation; label it generative art. Ensure attractive initial composition without interaction. No external assets, libraries, fonts, CDN or network. Use Canvas and inline JS/CSS only. Make it responsive at 390px width and large desktop with all controls readable, no clipped headline or overlapping instructions, min 44px touch targets, keyboard-accessible controls and prefers-reduced-motion support. Respect safe particle counts for mobile. Strong composition, bold visual identity, no SaaS cards. This is fictional artwork, no backend. Publish the completed design.
+</code></pre></div>
+<div><pre><code>构建一个名为 CHROMA FLOW 的非凡交互式液体光影艺术仪，输出为一个完全自包含的单文件 HTML。将其打造成类似实体创意乐器或实验博物馆展品的外观：近乎纯黑的背景，Canvas 上呈现出巨大且鲜艳的品红/青色/亮酸橙色发光流体粒子光带或干涉场，搭配排版紧凑的 CHROMA FLOW 大标题、精致的数字刻度尺与小巧克制的控件。艺术画面必须占据页面主体，并对指针/触控移动产生引人入胜的涟漪或旋涡响应。提供三种视觉差异显著的运行模式（VORTEX 涡流、WAVES 波阵、CONSTELLATION 星座）、一个湍流/强度滑块、一个真实的定格/恢复开关，以及一个真实的重置/重新播种按钮。每种模式都应改变底层的生成算法和构图，而不仅仅是改变颜色。保持清晰可见的说明文字和模式描述，不要夸大声称为真实的物理流体模拟，应标注为生成艺术。确保即使无交互时也具备赏心悦目的初始构图。不使用任何外部资源、库、字体、CDN 或网络请求。仅使用 Canvas 以及内联的 JS/CSS。适配 390px 手机屏与大屏桌面端，所有控件保持清晰可读，标题不被截断，说明不发生重叠，触控目标最小 44px，支持键盘访问控件并适配偏好减少动态设置。在移动端遵循安全粒子数量限制。强调构图与大胆的视觉识别度，不使用 SaaS 模版卡片。这是虚构的艺术作品，无需后端支持。请发布完整设计。
+</code></pre></div>
+<h2>怎样复现，并把网页带走？</h2>
+<ol>
+<li>打开 <a href="https://fx0.vercel.dev">fx0</a>，在输入框粘贴一轮完整提示词，中文译文和英文原件任选一种。</li>
+<li>发送后等待预览完成，测试任务切换、滑块和随机按钮，确认画面确实响应。</li>
+<li>从顶部菜单选择 <code>copy HTML</code> 或 <code>download HTML</code>，保存单文件。打开下载后的 HTML 就能在本地浏览器查看，无需先部署完整 fx0 服务，也无需使用 <code>publish with Drop</code>。</li>
+<li>想继续调整，可以在同一会话提出具体修改，例如只调整颜色或控件位置。fx0 的局部修改工具会在现有文档上做文本替换；每轮设计都有自己的版本，能重新打开并导出。</li>
+</ol>
+<p>生成具有随机性，同一提示词不保证得到同样的构图。本次两个完整输入是供复现和改造的起点。</p>
+<p>仓库可选开启的访客试用功能是每个 IP 共五次输入，没有周期补充；本次进入时只显示剩余两次，用完后提示登录。这个剩余数不是新用户的默认额度。登录后，模型调用通过 AI Gateway 计入用户自己的 Vercel 团队，费用随所选模型和用量变化。</p>
+<p>模型设置、运行中引导和版本记录，让后续调整有了更细的控制。</p>
+<p><strong>模型、推理强度与 Fast 分别可选。</strong> 简单改色与复杂逻辑不必使用同样的思考设置，可以按任务调整。Fast 是速度选项，不表示免费；实际费用仍随模型和使用量变化。</p>
+<p><strong>生成途中可以补方向。</strong> 在付费纯文字对话中，Agent 还在工作时就能追发补充要求，例如“保留构图，只调整颜色”。libfx 会在当前工具结束后把引导交给模型，不必总等整轮结束再提要求。含图片的消息会作为下一轮处理，免费试用中的每次输入也各自成为一轮。</p>
+<p><strong>每轮版本都能取回。</strong> 可以从对应轮次的版本入口重新打开旧设计，对比改动，再复制或下载那一版 HTML。比如一轮调色不理想，旧版文件仍然可取，不用靠记忆重新描述原来的样子。</p>
+<h2>一个 HTML，为什么能做出动画？</h2>
+<p>以 FORM 海报为例，一份 HTML 里同时放了三部分：页面结构提供滑块和按钮，CSS 决定颜色、字号与位置，JavaScript 接收操作并重新画图。</p>
+<p>当你把密度滑块从 44 调到 80，脚本读到新数值，画布在下一次重绘时就画出更多线条；选择蓝色，则改变画线时使用的颜色。持续动画会通过浏览器的 <code>requestAnimationFrame</code> 逐帧更新角度、粒子坐标或波纹相位。模型负责写代码，打开成品后的操作和绘图由浏览器执行，不需要每拖一次滑块就再问模型。</p>
+<p>本次三个场景都只用了浏览器原生能力。fx0 的约束并不是“禁止某个前端框架”，而是要求交付一个完整、自包含的文件：CSS 和脚本内联，图片等素材也要嵌入文件，不能从外部 CDN 加载资源。</p>
+<h3>从请求到成品，Agent 怎样工作？</h3>
+<p>网页里的滑块由浏览器执行，写出这些代码的过程则由后台 Agent 负责。具体调用链是：</p>
+<ol>
+<li>前端向 Next.js 的 <code>POST /api/prompt</code> 发送需求；fx0 保存消息，并记录这一轮使用的试用或付费身份。</li>
+<li>libfx 会话通过 AI Gateway 请求模型，把模型回复中的工具调用交给 fx0 执行，得到结果后继续这一轮任务。</li>
+<li>首稿由 <code>publish_design</code> 交完整 HTML，局部修改由 <code>edit_design</code> 交精确替换。完整产物进入验证器，检查文档结构、资源限制与 512 KiB 体积上限。</li>
+<li>校验通过后更新当前设计，前端将成品载入隔离的 iframe，交给浏览器执行脚本；完成轮次的记录与设计版本再由投影层写入 Neon。</li>
+</ol>
+<p>在每个服务进程里，fx0 通过 <code>createFxAgent()</code> 创建并复用 Agent 实例，不同聊天各有自己的会话。需要派发独立子任务时，工具内部再用 <code>createFxEngine()</code> 启动内存子引擎。两者负责的范围不同：前者提供会话与持久任务运行，后者执行这一项子任务。</p>
+<div><pre><code>// 简化示意：配置对象由 fx0 提供，不是可直接复制运行的完整程序。
+const agent = createFxAgent(agentOptions)
+const session = agent.session(sessionId, sessionOptions)
+session.prompt(message, { messageId })
+const engine = await createFxEngine(subtaskOptions)
+</code></pre></div>
+<h3>方便带走，也带来了取舍</h3>
+<p>后端验证器把单个设计文件限制在 <strong>512 KiB</strong> 以内，并限制外部资源、表单和嵌套页面。fx0 还把生成页放进沙箱 iframe，用浏览器的内容安全策略限制网络请求，避免它直接访问应用的 Cookie、存储和凭证。</p>
+<p>因此，Agent 制作页面时可以查网页，生成页在 fx0 预览里却不能调用业务 API、读取外部数据库或加载网络字体。普通 HTTPS 参考链接仍可由用户另行打开。</p>
+<p>这些是浏览器执行的隔离措施，不等于页面永远无漏洞或无错误。单文件方便离线打开，但换到不同屏幕、浏览器和设备后，排版、交互和性能仍要检查。</p>
+<h2>生成中断了，后台怎样接着做？</h2>
+<p>假设 Agent 正在写粒子画布，负责处理这次请求的云函数突然停止。只保留聊天记录还不够：系统还需要知道哪些步骤已经完成、现有设计是什么，以及后续该从哪里继续。</p>
+<p>fx0 把这些工作分开：自己负责聊天、预览、账号与设计版本；libfx 负责模型调用、工具执行、重试和每一轮任务。Redis 保存聊天与实时设计，Neon 保存账号、归属、完成的轮次及版本；执行中的逐步记录存进 Workflow World。需要接续时，Vercel Queues 唤醒新的函数，让 libfx 从已保存的步骤继续。</p>
+<figure>
+<img />
+<figcaption>官方架构图。fx0 管界面与设计，libfx 跑任务，World 保存步骤，Queues 负责唤醒接续。</figcaption>
+</figure>
+<p>用户提交的消息先存入 Redis，libfx 接受后才确认；执行结果流式返回，完成的一轮再留下设计版本。恢复任务也保留原来的计费身份，避免把试用请求转成某个付费账号的账单。</p>
+<figure>
+<img />
+<figcaption>官方消息流程图。虚线路径表示函数停止后由新函数接续；图中未标出恢复等待时间。</figcaption>
+</figure>
+<p>恢复也不意味着把所有工具调用再执行一遍。读取设计、抓取网页等安全可重复操作可以重跑；编辑、提问和子 Agent 不会被盲目重放，模型会收到中断提示，再检查该怎样继续，减少重复改动。</p>
+<h3>为什么有时要等到发送后约 13 分钟？</h3>
+<p>在 Vercel 上，libfx 无法立即判断原请求是崩溃了，还是仍在缓慢工作。为避免两个执行者同时修改同一会话，原请求继续持有会话，直到 800 秒的时限结束；后备队列在再过 5 秒后接管。</p>
+<p>所以，初始请求若意外崩溃，恢复时点可能在<strong>首次发送提示词后约 805 秒</strong>，不是每次崩溃后另等 13 分钟。正常运行但耗时较长的任务，会在时限前 30 秒保存并交接，不必额外等到这个后备时点。</p>
+<p>每轮父 Agent 与子 Agent 合计最多 64 个模型步骤，用来限制失控循环；它不是费用封顶。聊天历史也不会被裁剪，轮次很长时打开会变慢。本次实际测试覆盖了页面生成和交互，没有主动制造云端崩溃，也没有测试真实账单。</p>
+<h2>用风格规范约束设计，用适合的任务开始</h2>
+<p>fx0 内置十种 <code>design.md</code>，包括以 Apple、Vercel、Stripe、Linear 等命名的风格，也可以上传自己的文本文件。这些预设来自 VoltAgent 对品牌公开官网的分析，不是各品牌官方发布的规范。</p>
+<p><strong>风格文件约束后续每一轮修改。</strong> 文件用文字说明主色、字阶、间距和组件规则，整份内容会进入该聊天后续的模型请求。比如希望连续做几张同风格的页面，可以把这些要求写进自己的 <code>design.md</code>，不必每次重述。上传上限为 100 KB，超限会拒绝，不会自动压缩。</p>
+<p><strong>参考网页可以交给 Agent 读取。</strong> 它能用 <code>web_search</code> 搜索，也能用 <code>web_fetch</code> 抓取公开页面。抓取工具移除脚本、样式与 HTML 标签，把文字内容交给模型参考。这条路径取回的是文字参考，不是把原网站的图片、字体和框架整套搬进成品；生成页仍要遵守单文件资源规则。</p>
+<p><strong>子任务可以交给子 Agent。</strong> 例如单独提炼一份参考资料，或整理样式要求。子 Agent 使用同类设计工具，但不能继续派生下级 Agent；它与主 Agent 共用本轮 64 个模型步骤，分派任务不会绕过这个预算。已有的持久化与恢复机制，则负责在执行中断后保留并接续这些工作。</p>
+<p>从本次结果看，fx0 很适合探索交互展品、单页视觉作品、动效原型和教学小工具：生成后就能操作，下载后还能查看和修改代码。它的预览环境无法直接承接需要登录、实时数据库和业务接口的完整应用；如果要把导出的页面发展成业务项目，这些部分仍需另行搭建。512 KiB 的限制也不适合装入大量高清图片、视频或重型三维素材。</p>
+<h3>打开成品很轻，完整自部署有门槛</h3>
+<p>在浏览器打开下载的 HTML，与在自己的服务器上运行整套 fx0，是两个不同任务。后者需要 Node.js 24，以及 Vercel 登录应用、Neon Postgres 和 Upstash Redis 三项服务。</p>
+完整自部署的准备与仓库启动命令
+<p>先准备 Sign in with Vercel 应用：作用域为 <code>openid profile email offline_access</code>，权限为 AI Gateway: Use 与 Team: Read Only，回调地址包含 <code>http://localhost:3000/api/auth/callback</code>。<code>offline_access</code> 用于获得刷新令牌，不能省略。</p>
+<p>克隆并进入仓库，把 <code>.env.example</code> 复制为 <code>.env.local</code>，填入登录应用、Neon 和 Upstash 的配置；<code>SESSION_SECRET</code> 使用至少 32 字符的随机字符串。若本地与已有部署共用 Redis，应设置独立的 <code>FX0_REDIS_PREFIX</code>，避免会话混在一起。</p>
+<div><pre><code>git clone https://github.com/vercel-labs/fx0.git
+cd fx0
+cp .env.example .env.local
+</code></pre></div>
+<p>填好配置后执行：</p>
+<div><pre><code>npm ci
+npm run db:migrate
+npm run dev
+</code></pre></div>
+<p>数据库迁移需要显式执行，应用不会自动完成。本次未运行这套完整后端；具体环境变量与部署设置以<a href="https://github.com/vercel-labs/fx0#run-it-locally">仓库说明</a>为准。</p>
+<p>这三个案例最有价值的地方，是把一句设计要求里的动作变成了可以检查的反馈：换任务是否联动读数，调密度是否真的多画线，切模式是否换了一套图形规则。用这些具体变化去判断成品，比只看首屏是否漂亮更可靠。</p>
+</div><div><div><div>来源</div><div><span>fx0 — Vercel Labs 开源设计 Agent</span><span>Vercel Labs<span>·</span><a href="https://github.com/vercel-labs/fx0">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://fx0.vercel.dev">fx0 线上体验</a><span>·</span><a href="https://github.com/vercel-labs/fx0/blob/4cc7d958e42161d185ef83d49e482be4b2a8a5aa/lib/agent.ts">速度指令、首稿与局部修改策略</a><span>·</span><a href="https://github.com/vercel-labs/fx0/blob/4cc7d958e42161d185ef83d49e482be4b2a8a5aa/lib/libfx-agent.ts">模型与工具运行、直接执行请求</a><span>·</span><a href="https://github.com/vercel-labs/fx0/blob/4cc7d958e42161d185ef83d49e482be4b2a8a5aa/lib/gateway-session.ts">HTML 工具参数的流式预览实现</a><span>·</span><a href="https://github.com/vercel-labs/fx0/blob/4cc7d958e42161d185ef83d49e482be4b2a8a5aa/lib/draft-preview.ts">生成中预览的清洗与 DOM 更新</a></div></div></div></div></div><div>
+<div>Vercel Labs · fx0</div>
+<h1>Vercel Labs 开源 fx0：超快的 HTML 工件构建器</h1>
+<div>描述需求，生成能操作的网页。快在少生成、少重写，也更早看见画面。</div>
+<div><p>Vercel Labs 的 fx0 是网页设计 Agent：把想法写成一份 HTML，按钮、滑块和动画都由浏览器运行。文件可下载带走，无需先安装工程依赖。</p><p>默认高速模型配合少步骤指令，简单改色不必过度思考。本次没有做端到端计时或竞品速度对照，下面解释的是源码中的具体做法。</p></div>
+<div>
+<div><h2>如果只改 FORM 的颜色和按钮名</h2><p>例如提出“标题改成蓝色，随机按钮改名 SHUFFLE POSTER”，系统优先修改对应片段。这个微调是说明机制的假设例子。</p>
+<div>
+<div>
+<span>第一次做页面</span>
+<h4>交完整 HTML</h4>
+<p>publish_design 一次提交首稿，正常页面尽量控制在12 KiB以内。这是建议；紧凑代码减少需要生成的文本。</p>
+</div>
+<div>
+<span>修改已有页面</span>
+<h4>只交旧文本与新文本</h4>
+<p>edit_design 接收1–20项精确替换：每项唯一匹配、按序应用，整批校验后提交一版。一项失败则不发布，不必重写已有代码。</p>
+</div>
+</div>
+<div>
+<div>生成途中：先看布局，完整提交后再运行交互</div>
+<div>
+<div><strong>部分 HTML</strong>模型参数边写边传，已收到的页面内容先推给浏览器。</div>
+<div>→</div>
+<div><strong>禁脚本草稿</strong>清洗活动内容并禁用脚本，先显示布局；更新只修补DOM，保留滚动。</div>
+<div>→</div>
+<div><strong>可运行成品</strong>完整HTML校验通过后，在沙箱中运行JS，动画和按钮开始工作。</div>
+</div>
+</div>
+</div>
+</div>
+<div><h2>页面可以继续改，也能带走</h2><p>上传 <code>design.md</code> 可延续风格；付费纯文字对话可在运行中补方向，每轮旧设计都能重新打开并导出。步骤会保存，中断后可以接续；初始请求崩溃时，可能到首次发送后约805秒才恢复。</p></div><div><h2>两次输入，三个实际场景</h2><p><strong>第一轮：ORBIT / FORM</strong>，切行星任务联动高亮与读数，拖滑块改变海报线条；<strong>第二轮：CHROMA FLOW</strong>，切换漩涡、波阵和星群模式。</p><div><p>演示是修过文字出界、触控和减少动态的展示副本，未经修改的HTML原件保留。艺术读数与图形不作科学模拟。</p></div></div>
+<div><h2>适合交互原型，完整业务仍要另建</h2><p>下载的单HTML可在浏览器打开。fx0预览沙箱限制联网，不能直接接业务API、登录与实时数据库；512 KiB体积上限也不适合装入大量高清媒体。</p><div><p><strong>怎样判断好不好？</strong>看换任务是否联动读数、调密度是否真多画线、切模式是否换了图形规则，再检查手机排版与控件边界。</p></div></div>
+</div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://github.com/vercel-labs/fx0">看原网页 ↗</a></p></div><div></div><div><div><h1>GitHub - vercel-labs/fx0: A lightweight design agent built with libfx. Describe a page and an agent writes it as one HTML file.</h1></div><div><p>A lightweight design agent built with libfx. Describe a page and an agent writes it as one HTML file. - vercel-labs/fx0</p></div><div><p>fx0 is an open-source, lightweight design agent built with <a href="https://www.npmjs.com/package/libfx">libfx</a>. You describe a page and an agent writes it as one HTML file.</p></div><div><p>fx0 is also a working example of an app built on libfx. One <code>createFxAgent()</code> call gives it the agent loop, streaming, tool calls, retries and durable sessions, and <code>createFxEngine()</code> runs each subagent.</p></div><div><p>Try it at <a href="https://fx0.vercel.dev/">fx0.vercel.dev</a>, or clone it and make it your own.</p></div><div><h2>Features</h2></div><div><ul><li>Sign in with Vercel to bill model calls through <a href="https://vercel.com/docs/ai-gateway">AI Gateway</a> to your own team.</li><li>Optionally offer five free Opus 5.5 Fast prompts per IP without sign-in or a card. <a href="https://vercel.com/docs/botid">BotID</a> protects the trial; a server-only Gateway key funds its admitted prompts.</li><li>A chat survives the function dying mid-reply: the turn continues where it stopped. See Durability.</li><li>Every turn keeps its version of the design. You can reopen any of them and copy or download the HTML.</li><li>Pick each chat's model, with its reasoning effort and fast mode. New chats start on fast Claude Opus 5.5, or on <code>FX0_MODEL</code> when it's set.</li><li>The agent can search the web and fetch pages for reference.</li><li>Start from one of ten <code>design.md</code> styles, or upload your own. The ten styles, and the one-line descriptions in the picker, come from VoltAgent's <a href="https://github.com/VoltAgent/awesome-design-md">awesome-design-md</a>, which you can browse at <a href="https://getdesign.md/">getdesign.md</a>. Thanks to VoltAgent for publishing them.</li><li>Type a message before you sign in. The draft, images included, waits in the tab for 15 minutes while you sign in.</li><li>A turn stops after 64 model steps, its subagents' included, which keeps an agent stuck in a loop from running up a bill.</li><li>In paid-only chats, a text message sent while the agent works steers it, as in the fx CLI. Trial chats run each input as its own turn so free and paid funding stay separate.</li></ul></div><div><h2>How fx0 uses libfx</h2></div><div><p>fx0 is the app. libfx is the agent inside it. Vercel keeps the agent's work safe while it runs.</p></div><div><figure><img src="https://best.xiaohu.ai/media/vercel-fx0-design-agent/pieces-light.svg" alt="fx0&#x27;s chat and API routes keep chats in Redis and accounts and history in Neon. The routes hand each message to the libfx agent, which calls AI Gateway, saves every step to Workflow World, and is restarted by Vercel Queues after a crash." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><ul><li><strong>fx0</strong> owns what you see and what's yours: the chat and live preview, sign-in, the design tools the agent calls, and the chat history in Redis and Neon.</li><li><strong>libfx</strong> runs every turn, meaning one message and everything the agent does to answer it: the model loop, tool calls, retries and steering. fx0 creates one agent with <code>createFxAgent()</code> and passes each chat's messages to it.</li><li><strong>Workflow World</strong>, the store behind Vercel Workflow, is where libfx saves each turn as it runs: the prompt before it's accepted, then every step.</li><li><strong>Vercel Queues</strong> keeps a backup of each prompt. When the function running a turn crashes or reaches its time limit, the queue wakes a new one at <code>/api/libfx</code>, and libfx continues from the last saved step.</li><li><strong>AI Gateway</strong> receives every model call. Paid turns use the sender's OAuth token and team; explicitly sponsored turns use the server's trial key.</li></ul></div><div><h2>Durability</h2></div><div><p>fx0 runs one durable libfx agent per server. libfx keeps each chat's conversation as a session and backs every turn with Vercel Queues, so a turn finishes even when the function running it dies. fx0 has no code of its own to recover a turn. Durability takes three pieces.</p></div><div><p><strong>The agent.</strong> fx0 passes no durability option, so <code>createFxAgent()</code> uses libfx's default: on Vercel, libfx keeps its sessions in Vercel's World, the store behind Vercel Workflow, and uses Vercel Queues. libfx bundles both clients, so fx0 neither writes workflows nor calls Vercel Queues itself. A prompt runs its turn in the request that sent it, so the reply starts without a queue hop, and Vercel Queues keeps the prompt as a backstop until just after that request's 800-second limit. fx0 sends a message as a prompt when the chat is idle. One sent while a turn runs or waits to start is a steer instead, which libfx delivers through Vercel Queues to the running turn.</p></div><div><pre><code>// lib/libfx-agent.ts, simplified
+const agent = createFxAgent({
+  // No durability option: Vercel's World and Queues on Vercel, local files elsewhere.
+  apiKey: 'session-authenticated',
+  fetch: chatFetch,
+  tools,
+})
+// lib/agent.ts, simplified: a chat gets a libfx session on its first message,
+// and each message is one turn of it
+const libfxSessionId = await agent.newSessionId()
+const session = agent.session(libfxSessionId, { model, instructions, context: { chatId, turnId } })
+session.prompt(`[${author}] ${text}`, { messageId: `m${turnId}` })</code></pre></div><div><p><strong>The route.</strong> Vercel Queues delivers the turns no request runs itself to <a href="https://github.com/vercel-labs/fx0/blob/main/app/api/libfx/route.ts"><code>app/api/libfx</code></a>: the rest of a turn that outlasted its prompt request, and a prompt's backstop when that request died. libfx's handler runs them:</p></div><div><pre><code>// app/api/libfx/route.ts
+export const maxDuration = 800
+export const POST = agent().wakeHandler()</code></pre></div><div><p><strong>The trigger.</strong> One entry in <a href="https://github.com/vercel-labs/fx0/blob/main/vercel.json"><code>vercel.json</code></a> subscribes that route to libfx's queue topic:</p></div><div><pre><code>{
+  "functions": {
+    "app/api/libfx/route.ts": {
+      "experimentalTriggers": [{ "type": "queue/v2beta", "topic": "__libfx_wkf_workflow_session", "retryAfterSeconds": 5 }]
+    }
+  }
+}</code></pre></div><div><p>fx0 keeps the transcript, designs and settings in Redis. Here is one message from send to reply. The numbers match the steps below:</p></div><div><figure><img src="https://best.xiaohu.ai/media/vercel-fx0-design-agent/message-light.svg" alt="1. fx0 saves your message. 2. fx0 seals your token, so your own team pays. 3. libfx runs the turn, saving every step as it goes. 4. You see the reply as it&#x27;s written. 5. If the function crashes, Vercel Queues starts a new function that picks up at the last saved step, so the reply comes later and nothing is lost." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p><strong>1. Save the message before answering.</strong> <code>POST /api/prompt</code> adds the message to the transcript in one Redis script, then hands it to libfx with its message id. libfx stores it before acknowledging, so a message that shows as sent can't be lost, and a retried request reaches the same turn.</p></div><div><p><strong>2. Keep the turn's funding.</strong> A queue delivery has no browser cookie, so the prompt route seals its funding in Redis. Every message records the funding of the turn it starts: either the admitted sponsorship or its paid sender's OAuth grant and team. Fresh SDK diagnostics and the journal's restore hook identify the executing turn after a crash. Refresh tokens stay in the cookie, and the server trial key stays out of every stored credential. Missing or expired trial funding never falls back to a customer's paid grant.</p></div><div><p><strong>3. libfx runs the turn.</strong> One worker holds a session at a time, and libfx fences out any other. The prompt request runs the turn first; it and each delivery to <code>/api/libfx</code> can run for 800 seconds, their <code>maxDuration</code>. libfx stops a turn 30 seconds before that limit, keeping what it has done so far, and a delivery to <code>/api/libfx</code> continues it, so a long turn spans several invocations.</p></div><div><p><strong>4. Copy the stream into the transcript.</strong> Any route following the chat, the prompt's own response or an open tab, copies libfx's stream into the transcript. A cursor check makes each line land once, however many follow. The same Redis script marks a turn running when its start lands, and when its end lands it leaves the turn's history to write, with the design the turn left. The copy then writes that history and design version to Neon, and a write that fails waits in Redis for the next copy to retry.</p></div><div><p><strong>5. Pick up where it stopped.</strong> On Vercel, libfx can't tell a crashed function from a slow one, so the request running a turn holds its session until its time limit. The prompt's backstop comes due 5 seconds after that limit: if the request died, the backstop takes the session over and the turn continues where its records end. In a delivery to <code>/api/libfx</code>, a process that exits has its delivery run again about a second later, and a function that stops without exiting holds its message until the queue's hold runs out, up to five minutes. The model is told the turn was interrupted, so it can check what happened before going on. A function that only stalled and wakes after that stops at its next write, so two never write at once.</p></div><div><p>A tool call the crash cut off runs again only if it's safe to repeat. libfx refuses a tool that doesn't say which it is, and fx0 marks its tools in <a href="https://github.com/vercel-labs/fx0/blob/main/lib/libfx-agent.ts"><code>lib/libfx-agent.ts</code></a>: reading the design, publishing it, fetching a page, paging through a tool result and searching the tools run again. Edits, questions and subagents don't, so the model is told those calls may have run and decides what to do. The reads start as soon as the model asks for them, while libfx saves the call.</p></div><div><p>A subagent is an in-memory <code>createFxEngine()</code> inside its tool call, billed to the same chat. It has the same design tools, except that it can't start a subagent of its own. Its model requests count toward the parent turn's 64 steps, in a count kept in Redis (<a href="https://github.com/vercel-labs/fx0/blob/main/lib/turn-budget.ts"><code>lib/turn-budget.ts</code></a>), so subagents can't multiply what one turn spends. A retried or recovered request counts once.</p></div><div><p>TL;DR:</p></div><div><ul><li>A crash delays the reply, by up to about 13 minutes, but never loses the chat or the reply in progress.</li><li>The turn continues instead of starting over, so finished model calls aren't paid for twice.</li><li>Each turn keeps its authorized funding after a crash too.</li></ul></div><div><p>You can watch this happen. Open session diagnostics from the header to see the chat's libfx session, its running turn and how far the transcript has copied libfx's stream.</p></div><div><h2>Limits</h2></div><div><ul><li>If a prompt request crashes while it runs its turn, for example by running out of memory, the turn continues about 13 minutes after the send, however early the crash came. On Vercel, libfx can't tell a crashed function from a slow one, so a crashed request still holds the session until its 800-second limit, and the prompt's backstop takes over 5 seconds later. The page keeps showing the reply as running meanwhile. A turn that only runs long isn't affected: libfx stops it 30 seconds before the limit and queues the rest at once for a delivery to <code>/api/libfx</code>.</li><li>A text message sent while a tool runs, such as while a design is being written, waits for that tool before the model sees it. A message with images runs as its own turn, after any running turn finishes.</li><li>Every turn bills the login and team that sent the message that started it; a later message cannot change an earlier turn's funding. A text message that joins a running turn is billed to that turn. Token renewal from the same login keeps the turn's billing team.</li><li>Free prompts start in a new design on Opus 5.5 Fast with low effort. Existing paid-only chats keep their own billing. The allowance is five per IP across chats and browsers, with no periodic refill; clearing cookies does not reset it. After it is used, sign in to continue with your own team.</li><li>A design being written streams through a bounded, expiring Redis channel, so viewers on other instances can see it too. Reconnecting resumes from the full prefix; generation IDs and offsets prevent duplicated bytes. The provisional preview strips active markup and runs without scripts. Publishing or ending a turn closes its draft before it can replace the finished preview.</li><li>Deleting a chat removes fx0's records and credential. libfx's session data expires with the World's retention.</li><li>When no route follows a chat, its transcript catches up the next time someone opens it.</li><li>Transcripts are never trimmed, so very long chats get slower to open.</li></ul></div><div><h2>Where things are</h2></div><div><div><div><table><thead><tr><th>Path</th><th>What's there</th></tr></thead><tbody><tr><td><a href="https://github.com/vercel-labs/fx0/blob/main/lib/agent.ts"><code>lib/agent.ts</code></a></td><td>Each chat's prompts, questions, cancel, deletion and sign-out</td></tr><tr><td><a href="https://github.com/vercel-labs/fx0/blob/main/lib/libfx-agent.ts"><code>lib/libfx-agent.ts</code></a></td><td>The durable agent, its per-chat <code>fetch</code> and its tools</td></tr><tr><td><a href="https://github.com/vercel-labs/fx0/blob/main/lib/projector.ts"><code>lib/projector.ts</code></a></td><td>Copies a chat's libfx stream into its transcript</td></tr><tr><td><a href="https://github.com/vercel-labs/fx0/blob/main/lib/turn-credential.ts"><code>lib/turn-credential.ts</code></a></td><td>The sealed credential each chat's turns bill</td></tr><tr><td><a href="https://github.com/vercel-labs/fx0/blob/main/lib/trial.ts"><code>lib/trial.ts</code></a></td><td>Guest identities and the atomic per-IP trial allowance</td></tr><tr><td><a href="https://github.com/vercel-labs/fx0/blob/main/lib/journal.ts"><code>lib/journal.ts</code></a></td><td>The Redis journal. Every write is a single Lua script, so it's atomic.</td></tr><tr><td><a href="https://github.com/vercel-labs/fx0/blob/main/app/api/libfx"><code>app/api/libfx/</code></a></td><td>Where Vercel Queues delivers libfx's turns</td></tr><tr><td><a href="https://github.com/vercel-labs/fx0/blob/main/lib/tools.ts"><code>lib/tools.ts</code></a></td><td>The agent's tools: read, publish and edit the design, fetch a URL, ask a question, page through a long tool result, search the available tools and start a subagent. AI Gateway's web search runs beside them.</td></tr><tr><td><a href="https://github.com/vercel-labs/fx0/blob/main/lib/design-artifact.ts"><code>lib/design-artifact.ts</code></a></td><td>Checks that a design is one HTML file of at most 512 KB, with no external assets</td></tr><tr><td><a href="https://github.com/vercel-labs/fx0/blob/main/app/api"><code>app/api/</code></a></td><td>Route handlers. Chat routes check sign-in and ownership before anything else.</td></tr><tr><td><a href="https://github.com/vercel-labs/fx0/blob/main/components"><code>components/</code></a></td><td>The chat, composer, preview and diagnostics panel</td></tr></tbody></table></div></div></div><div><p>Neon Postgres holds accounts, who owns each chat, finished turns and every design version (<a href="https://github.com/vercel-labs/fx0/blob/main/migrations"><code>migrations/</code></a>).</p></div><div><h2>Run it locally</h2></div><div><p>You'll need Node.js 24 and three services:</p></div><div><ol><li>A <a href="https://vercel.com/docs/sign-in-with-vercel">Sign in with Vercel</a> app with the scopes <code>openid profile email offline_access</code> and the permissions AI Gateway: Use and Team: Read Only. Add <code>http://localhost:3000/api/auth/callback</code> as a callback URL. Don't leave out <code>offline_access</code>: without it, Vercel sends no refresh token and sign-in fails.</li><li>A Neon Postgres database. Use a separate branch for local work.</li><li>An Upstash Redis database.</li></ol></div><div><p>Copy <code>.env.example</code> to <code>.env.local</code> and fill it in. <code>SESSION_SECRET</code> has to be a random string of at least 32 characters. If your local app shares Redis with a deployment, set <code>FX0_REDIS_PREFIX</code> (for example <code>fx0:local</code>) to keep the chats apart. <code>FX0_MODEL</code> changes the model new chats start on.</p></div><div><pre><code>npm ci
+npm run db:migrate
+npm run dev</code></pre></div><div><p><code>db:migrate</code> applies the files in <code>migrations/</code> in order. Each one is idempotent, so running it twice is fine. The app never migrates on its own.</p></div><div><h2>Deploy</h2></div><div><p>Set the same variables on Vercel. The Neon and Upstash integrations in the Vercel Marketplace fill in <code>DATABASE_URL</code>, <code>KV_REST_API_URL</code> and <code>KV_REST_API_TOKEN</code> for you. Set <code>APP_URL</code> to your production URL and add <code>&lt;APP_URL&gt;/api/auth/callback</code> to your Sign in with Vercel app.</p></div><div><p>OAuth redirects never trust the request's Host header. They go to <code>APP_URL</code>, or, on a preview deployment without one, to that deployment's own Vercel URLs.</p></div><div><p>To enable the free trial, apply the migrations, set <code>FX0_FREE_PROMPTS=1</code> and a server-only <code>AI_GATEWAY_API_KEY</code>, then rebuild and deploy. BotID's client protection and server verification are included. Production uses Vercel's trusted client IP; local development shares one local allowance. Keep local Redis prefixes separate from production.</p></div><div><h2>Test</h2></div><div><pre><code>npm run typecheck                 # generates the route types, then runs tsc
+npm run test:core
+npm run test:auth
+npm run build
+npm run test:smoke                # runs the production build with fake sessions
+npm run test:journal:integration  # needs KV_REST_API_URL/TOKEN, writes under its own prefix
+npm run test:trial:integration    # needs local redis-server/redis-cli; no remote services
+npm run test:artifact:browser     # needs local Chrome (or CHROME_PATH); checks design CSP enforcement
+npm run test:budget:integration   # needs local redis-server/redis-cli; no remote services
+npm run test:turns:integration    # needs local redis-server/redis-cli; no remote services</code></pre></div><div><p>The auth and route tests mock Vercel, AI Gateway and both databases, so check a real sign-in and real billing on a deployment.</p></div><div><h2>Safety</h2></div><div><p>Generated pages run in a sandboxed iframe on an opaque origin. They can't read the app's cookies, storage or credentials, and their Content Security Policy blocks network requests (<code>connect-src 'none'</code>). It's still the browser enforcing all of this, though, not a sealed VM.</p></div><div><p>Paid model requests carry the sender's OAuth token only to AI Gateway. Between requests it stays sealed in Redis and expires with the token. Sponsored requests require a recorded trial admission; the server key is never sent to a browser, cookie, journal or model prompt. Signing out deletes that login's stored credentials and revokes its token. A running turn it funded stops at its next model request; another login's turns keep running. Treat the session cookie and <code>SESSION_SECRET</code> as credentials.</p></div><div><h2>License</h2></div><div><p><a href="https://github.com/vercel-labs/fx0/blob/main/LICENSE">Apache-2.0</a>. The <code>design.md</code> styles in <a href="https://github.com/vercel-labs/fx0/blob/main/lib/design-md"><code>lib/design-md/</code></a> come from <a href="https://github.com/VoltAgent/awesome-design-md">VoltAgent/awesome-design-md</a>, under the <a href="https://github.com/vercel-labs/fx0/blob/main/lib/design-md/LICENSE">MIT license</a>.</p></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，并解锁更多深度内容与播客。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://github.com/vercel-labs/fx0">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>深度</div>
+<div>Vercel 如何通过[design.md] 在任何场景下都能生成符合 Vercel 品牌调性的设计</div>
+<div>09-01 · 11 分钟</div></a><a>
+<div><span></span>产品发布</div>
+<div>DeepSeek V4.1 Flash 更新：做游戏、搭 3D 场景更拿手，也更快、更省</div>
+<div>10-18 · 约12分钟</div></a><a>
+<div><span></span>研究解读</div>
+<div>Anthropic 内部就业报告：初级技术招聘占比从27%降至9%，员工开始管理 Agent</div>
+<div>10-18 · 14 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Gemini 4 Argon 官方开发者指南：长任务怎么交给 AI，结果怎么验收</title>
 <link>https://best.xiaohu.ai/article/gemini-4-argon-developer-guide/</link>
