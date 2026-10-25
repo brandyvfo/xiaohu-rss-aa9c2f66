@@ -6,7 +6,692 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Sat, 24 Oct 2026 12:00:41 +0000</lastBuildDate>
+<lastBuildDate>Sun, 25 Oct 2026 12:00:21 +0000</lastBuildDate>
+<item>
+<title>【日报】亚马逊 CEO：只给老产品加上 AI，可能守不住未来</title>
+<link>https://best.xiaohu.ai/article/andy-jassy-ai-organization-reinvention/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:andy-jassy-ai-organization-reinvention</guid>
+<pubDate>Sun, 25 Oct 2026 12:00:21 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 组织重塑：从过度专精回到跨职能小团队 02 约 2200 亿美元资本支出：数据中心与服务器的现金循环 03 哑铃型需求与资源分配：长期客户与算力争夺的取舍 04 自研芯片演进与推理成本门槛 05 现实中的紧迫风险：网络安全与代码响应速度 06 核心业务重塑：从 Alexa 到老牌产品的重新思考 07 年轻人的能力支点与多业务并进的管理准绳 复制 Markdown 下载 .md </description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 25 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">亚马逊 CEO：只给老产品加上 AI，可能守不住未来</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/andy-jassy-ai-organization-reinvention/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>组织重塑：从过度专精回到跨职能小团队</span></a><a><span>02</span><span>约 2200 亿美元资本支出：数据中心与服务器的现金循环</span></a><a><span>03</span><span>哑铃型需求与资源分配：长期客户与算力争夺的取舍</span></a><a><span>04</span><span>自研芯片演进与推理成本门槛</span></a><a><span>05</span><span>现实中的紧迫风险：网络安全与代码响应速度</span></a><a><span>06</span><span>核心业务重塑：从 Alexa 到老牌产品的重新思考</span></a><a><span>07</span><span>年轻人的能力支点与多业务并进的管理准绳</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>亚马逊 CEO：只给老产品加上 AI，可能守不住未来</h1><p>组织重塑：从过度专精回到跨职能小团队</p><div><div>正文一页纸原文</div>收起播客 ⌃☆ 收藏<div><span><span>作者：</span>a16z · Andy Jassy</span><span>10-24 · 约 15 分钟</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>AI 让小团队更快跨职能推进项目；Jassy 预期，现有工作会需要更少的人，也会出现新岗位。</li><li>算力投入要先花钱、后收收入；服务器采购可以随需求调整，已经建成的机房成本仍然存在。</li><li>成熟产品也要重新构想：可以另做新应用，也可以把验证有效的新体验逐步融入旧产品。</li></ul><div><p>亚马逊 CEO 安迪·贾西（Andy Jassy）在与 a16z 的 Ben Horowitz、Erik Torenberg 对谈时，讲了一个周末原型的故事：周四敲定一个面向消费者的 Agent 构想，四五名员工利用周末协同，到周日就做出了他称约 80% 可交付的工作原型。Agent 是能调用工具、连续执行任务的 AI 助手；这里的 80% 是他对原型进度的估计。这一案例引出了访谈中的两项判断：AI 会改变团队怎样组织，也会改变企业需要做出什么样的产品。</p>
+<p>一边是亚马逊全公司当年预计约 2200 亿美元的总资本开支投入，另一边则是团队规模与工作方式的调整：Jassy 预计，过去让员工只负责定价这一环节的过细分工会受到挑战，企业将更依赖借助 AI 工具、能跨职能推进项目的小团队。</p>
+<hr />
+<h2>组织重塑：从过度专精回到跨职能小团队</h2>
+<p>二十九年前，Andy Jassy 作为助理产品经理加入亚马逊时，曾同时负责大约五个产品。但随着企业规模扩大、产品体系变重，大公司普遍出现更细的人员分工：一个产品经理往往只负责单一产品的定价环节。许多人习惯将这种极端专精视为做大业务的既定路径，但 Jassy 认为这一预设并不成立，在 AI 普及后更需要重新审视。</p>
+<p>这种机制上的提速与当年 AWS（亚马逊云服务）的诞生有内在关联。当年亚马逊发现内部产品团队要把 70% 到 80% 的时间耗费在重复搭建计算、存储和数据库等底层基础设施上，仅有 20% 的时间用于开发真正具备差异化的产品功能；通过把计算、存储等基础能力做成共享云服务，团队才得以卸下重复劳作。而在 Jassy 看来，大模型也正在带来类似的效果：在他看来，模型能在编码、客服、分析与研究等不同职能上，把工作推进到约 80% 的程度，让人从更高起点继续完成任务。这样，小团队成员便有机会跨过原先的专业分工，协作推进一件完整的事。</p>
+<figure>
+<figcaption>
+<span>双语短片：Andy Jassy 谈 AI 时代组织重构与小团队优势。</span><br />
+    节选自 a16z 访谈，时长约 2 分 45 秒，重点阐述了他对细分岗位和跨职能小团队的未来判断。
+  </figcaption>
+</figure>
+<p>在亚马逊内部，这种变化由两个实际案例体现出来：</p>
+<p>在底层工程上，Bedrock 是让客户调用模型的服务；而推理是指训练后的模型处理新输入并给出结果的过程，推理引擎则支持这一运行过程。Bedrock 团队由 6 名工程师耗时 76 天重写了推理引擎；据访谈中的估计，同一项工作若按过去的做法，可能需要约 40 人投入一年。在应用探索上，针对消费者业务的 Agent 构想，团队在周四商定后，4 到 5 人利用周末协同，到周日便做出了在他看来约 80% 可交付的工作原型（working prototype），这里的比例描述原型进度，展现出小团队在跨职能工具辅助下，能够在更短时间内跑通概念。</p>
+<p>这种对既有运作方式的重新审视，在亚马逊此前的履约网络调整中也能看到。那是对物流网络本身的调整：在疫情期间，因客户和卖家的迫切需要，亚马逊选择优先快速扩容，在 18 个月内将搭建了 25 年的履约网络规模直接翻倍，并快速建起体量比肩传统快递巨头的最后一公里配送体系，即使当时许多环节尚未优化。高速扩张随之带来了成本与效率压力；团队随后用真实指标与坦诚讨论直面低效，再将美国全国网络重构为区域化网络，让货品更靠近客户、缩短运输距离，从而兼顾降本与提速。</p>
+<p>面对技术与外部环境的变化，组织架构与用人规模同样面临调整。针对未来的岗位变化，Jassy 预期由于大量编程、客服和分析工作能够借助 Agent 推进，从事现有具体岗位的人员会比过去随业务规模线性堆砌时更少；与此同时，随着 AI、机器人和太空等领域的演进，也会催生一批已知与未知的新岗位。他没有对全社会的净就业增减给出定论，但指出企业内部将更依赖规模更小、能跨职能协作的团队去探索业务。</p>
+<p>促使大企业加快这种组织调整的，还有来自初创公司的速度压力。Jassy 观察到，当前许多新公司从创立之初就是 Agent 原生或 AI 原生（agent/AI-native），成熟大企业也必须设法达到相同的建设速度。在他看来，拥有庞大业务和忠诚客户群的大公司中，总有一些行动迟缓，而动作慢的企业面对初创公司将更容易受到挑战。</p>
+<div><h4>从只管一个环节，到跨职能推进一件事</h4><p>Jassy 预期的变化：模型帮助完成更多基础工作，小团队把精力用在整合、判断和创造上。</p></div>
+<div><span>他描述的大公司分工</span>一个人负责一小块<p>产品越来越大，职责越分越细。一个产品经理可能只负责定价。</p><span>→</span><span>他预期的 AI 团队</span>少数人跨职能协作<p>模型帮忙推进不同职能的工作，人从更高的起点继续完成任务。</p></div>
+<div>Bedrock 推理引擎重建<p>6 人 · 76 天</p><p>访谈还以“过去可能需要 40 人一年”作对照。后一个数是估计，并非同条件实验结果。</p>消费者业务 Agent 原型<p>四五人 · 一个周末</p><p>周四确定想法，到周日做出可运行原型。约 80% 可交付，描述的是 Jassy 眼中的原型进度。</p></div>
+<p>现有工作可能需要更少人，也会出现新的岗位。访谈没有给出净就业人数预测。</p>
+<hr />
+<h2>约 2200 亿美元资本支出：数据中心与服务器的现金循环</h2>
+<p>与组织调整并行的，是基础设施建设的大幅提速。亚马逊预计当年资本支出将达到约 2200 亿美元。支撑这一决定的核心背景，是业务规模的扩张速度：Jassy 在访谈中对比指出，早期 AWS 开展三年后，业务年化运行率（run rate，即按当时收入速度折算全年的规模，而非三年累计营收）约为 6000 万美元；而在生成式 AI 发展的前三年里，仅 AWS 内部的 AI 业务年化运行率就已超过 250 亿美元，显示出当前需求的扩张节奏远超早期云业务。</p>
+<p>面对资本开支对自由现金流的扰动，Jassy 解释了其中 AWS 两类资产的投入与回收节奏（也就是现金循环）：</p>
+<p>首先是数据中心的土地、建筑与电力配套。这部分投资需要大约提前 2 年投入，之后才能安装服务器并产生收入。该项投资的使用寿命约为 30 年，且属于一次性沉淀投入，但长期资产寿命并不等同于自动获得 30 年的稳定现金回报。因为机房建设需要先期集中支付大笔现金，而在高增长阶段大规模同时兴建数据中心，现金先大幅流出、收入回收相对滞后，便会在初期阶段对自由现金流形成明显压制。</p>
+<p>其次是服务器、加速芯片与网络硬件。这部分设备的采购提前期较短，通常只需数月，企业能够基于相对清晰的客户需求信号再做采购决策。硬件投入后平均约 3 年实现投资平衡，使用寿命约为 5 到 6 年，他还提到，当时正在做的大多数相关交易约为 5 年期。如果后续需求不及预期，企业可以通过放缓或缩减服务器采购来缓冲部分后续支出；但由于前期数据中心建设投入已经发生，电力、运维开支以及机房利用率依然会持续影响整体现金流表现。</p>
+<p>此外，数据中心的大规模兴建也引发了社区与公共政策层面的讨论。Jassy 认为，金融、医疗、电商等现代数字化服务本就建立在数据中心之上；他将当前的 AI 算力基建比作 20 世纪 50 年代的国家公路与桥梁建设，并主张若放缓建设将面临落后于其他国家的竞争风险。针对外界关于资源消耗的担忧，他以高尔夫行业的总用水量与亚马逊全部数据中心作比较，认为后者少得多；他也指出备用发电机实际仅在极少数维护时间开启；对于电网负荷，他认为电网本身需要投资升级，随着容量扩建，部分地区的电价长期或将平稳。同时，他强调数据中心为地方带来了可观税收（如印第安纳州圣约瑟夫县约 30 亿美元税收），亚马逊也通过 Built Together 计划承诺未来五年向相关社区投入 10 亿美元，需要通过公私合作来平衡发展，而不能单凭需求旺盛就将扩建视作理所当然。</p>
+<div><h4>两类资产，两个投资节奏</h4><p>机房先建设，服务器和网络设备可以更接近需求出现时再采购。</p></div>
+<div>
+机房<div>投资提前期约 2 年</div><div>资产使用寿命约 30 年</div><p>前期建设先支出，装入设备并提供服务后才逐步形成收入。</p>
+服务器与网络设备<div>采购提前期数月</div><div>平均回本时间约 3 年</div><div>设备使用寿命约 5—6 年</div><div>当时多数相关交易约 5 年</div>
+</div>
+<div><span>需求不及预期时</span><div><span>机房已经投入</span><span>→</span><span>减少后续设备采购</span><span>→</span><span>少追加一部分投入</span></div><p>采购节奏可以调整，已经投入的机房成本仍然存在。30 年说的是资产寿命，不是回本期限。</p></div>
+<p>数字来自 Jassy 对 AWS 投资现金循环的描述。它解释投入与回收的时间差，不代表收益保证。</p>
+<hr />
+<h2>哑铃型需求与资源分配：长期客户与算力争夺的取舍</h2>
+<p>即便投入巨大的资本开支，算力供给依然面临紧张。据 Jassy 透露，目前大块算力容量中，当年可用额度基本售罄，下一年度大体售罄，甚至再下一年度也有相当一部分被锁定；不过 AWS 始终在 Bedrock 或 EC2 等服务中预留了一定比例的按需算力，并非所有资源被预订一空。他同时预计，关键组件的供给限制并非短时间内就能彻底消除，可能会持续数年。</p>
+<p>在目前的市场中，Jassy 观察到算力需求呈现出两头集中、中间尚待释放的「哑铃型」分布：</p>
+<p>当前 AI 的实际用法主要集中在哑铃的两端：一端是消耗惊人算力的顶尖 AI 实验室，以及少数像 ChatGPT、Claude Code 这样的爆发式应用；另一端则是企业已经用于控制成本与提升效率的具体场景，例如客服自动化、反欺诈和业务流程自动化。一家企业可以既在客服等环节采用 AI，又有大量其他业务应用仍沿用原有方式。Jassy 所说哑铃的中间，正是支撑企业日常运转的大量既有应用：其中一些已经调用模型，但绝大多数尚未广泛接入推理。在 Jassy 看来，当前用法高度集中在两端，而中间这批支撑日常业务的主流生产系统才是未来绝对规模最大的潜在增量；他认为这种采用会逐年扩大；拉长到五到七年的视角，相当多、甚至大多数既有企业应用都可能广泛使用推理。</p>
+<p>这种供需环境也带来了资源分配的实际权衡。在内存资源供给有限的情况下，厂商需要在用于 AI 加速芯片的高带宽内存（HBM）与用于通用核心服务器的 DRAM 之间做出分配抉择。访谈中主持人提出一个假设性问题：面对新一代实验室愿为电力与芯片支付更高溢价的局面，云厂商是否会产生回购或挤占老客户常规算力配额转卖的冲动？</p>
+<p>对此，Jassy 从客户长期成功的逻辑解释了亚马逊的取舍。在金融、医疗等领域，有许多长年使用 AWS 支持核心业务运转的成熟客户。如果为了短期的溢价去挤压老客户的正常扩容，会伤害长久建立的合作信任。他回顾道，在疫情期间，AWS 曾主动协助客户优化云架构与精简开销，即便短期内会降低亚马逊的云收入，但只要帮助客户在长周期中取得成功，云业务本身最终也会随之成长。因此，亚马逊的策略是尽力扩充供给，在保障核心生产系统平稳运行的同时支持 AI 业务扩张，并使供给扩张在经济上可持续。</p>
+<hr />
+<h2>自研芯片演进与推理成本门槛</h2>
+<p>要让哑铃中间庞大的企业主流业务逐步接入推理，Jassy 认为既取决于企业自身在模型微调、后训练以及业务优先级排序上的组织技能，也受制于推理成本。尽管近几年推理开销已有下降，但在他看来，若想达到广泛普及的程度，成本依然偏高大约一个数量级，也就是仍需再降至大约十分之一。若企业将原先在通用 CPU 上运行的应用重写为 AI 加速芯片驱动，高昂的算力成本会迫使重构必须带来更高的额外业务收益；降低推理成本，才能有效降低企业改造业务的门槛。</p>
+<p>这种对性价比的诉求，促成了亚马逊自研芯片的三步演进：</p>
+<ol>
+<li><strong>专用网卡（NIC）卸载负担</strong>：早期收购芯片团队 Annapurna Labs 时，初衷是解决一个更早的问题：服务器上虚拟化、网络、存储和安全占用了过多资源。通过合作开发专用 NIC 卸载这些基础组件，目标是让尽可能接近全部的服务器资源专门供客户计算使用。</li>
+<li><strong>通用 CPU 芯片 Graviton</strong>：在通用计算领域，市场主力供应商缺乏推动性价比大幅改进的动力。Annapurna 团队随后打造了 CPU 芯片 Graviton。据 Jassy 介绍，其性价比相比其他 x86 处理器提升了约 40%，目前 AWS 前一千大 EC2 客户中有 99% 已普遍采用。</li>
+<li><strong>AI 加速芯片 Trainium</strong>：面对单一供应商主导的加速芯片市场，亚马逊组建团队开发了专门面向训练与推理的芯片 Trainium。按照 Jassy 的说明，其性价比相比同类处理器同样高出约 30% 到 40%。</li>
+</ol>
+<p>自研芯片的进展，也与头部 AI 公司的合作形成了互补。亚马逊对 Anthropic 和 OpenAI 的投资，综合考量了对方团队的能力、模型技术水准、强劲的业务增长表现以及双方长期的业务协同。在具体合作上，Anthropic 将模型接入 Bedrock 并基于 Trainium 开展构建；而对于 OpenAI，双方推动将其引入 Bedrock，合作构建了有状态运行时（stateful runtime）环境，同时与 Anthropic 类似，OpenAI 也对 Trainium 作出了多年期、多吉瓦的算力承诺。在 Jassy 看来，Agent 执行复杂任务需要持续保存上下文与执行进度，有状态运行环境将是未来构建 Agent 的重要需求。</p>
+<hr />
+<h2>现实中的紧迫风险：网络安全与代码响应速度</h2>
+<p>相比公众讨论较多的远期风险——例如恶意僵尸网络失控或机器人被注入恶意意图，Jassy 认为这些情况未来也有可能发生，行业与公共部门需要共同应对；但他同时强调，目前更紧迫、且更容易被低估的眼前风险在于网络安全。大模型能够发现过去工程师未曾注意到的诸多系统漏洞，使得漏洞挖掘的效率显著提升。</p>
+<p>造成防御方窗口急剧压缩的关键在于攻击手段的加速。<a href="https://aws.amazon.com/blogs/aws/aws-continuum-for-code-vulnerabilities-is-now-generally-available/">AWS 在 Continuum 的技术说明</a>中指出，攻击者利用前沿大模型，在漏洞披露后数分钟内就能编写出可用的利用代码（exploit code）。而在现有的企业运维中，安全流程通常包含发现漏洞、分类评估、开发补丁到测试部署的完整链条，即便补丁开发迅速，复杂的系统依赖关系仍会拖慢实际部署。因此在 Jassy 看来，面对这种速度失衡，未来系统应对安全威胁的响应要求必须达到分钟级。</p>
+<p>这一预期对软件架构提出了新的要求：企业需要重写或调整代码，使其具备 Agent 交互能力（agentically capable），允许在严格设定的约束与边界内由 Agent 协助更新代码片段。与此同时，大模型与自动化的结合也能帮助防御方扩大渗透测试（即模拟攻击查找潜在漏洞）的覆盖范围，测出过去因人力有限而难以触达的盲区。针对这套防守流程，AWS 推出了安全服务 Continuum，当前能验证漏洞并生成补丁或代码修改请求，修复仍需人审核批准；官方将积累足够信心后、在预设约束内开展自动修复列为后续方向。如何在实际生产环境中既迈向分钟级响应、又确保自动化变更严密受控，仍是企业需要持续探索的工程挑战。</p>
+<hr />
+<h2>核心业务重塑：从 Alexa 到老牌产品的重新思考</h2>
+<p>在访谈中，对话双方将企业运用 AI 的路径梳理为三个层次：第一类是用 AI 缩减基础法务、财务或客服成本；第二类是从零打造前所未见的新产品；第三类则是对已有成功产品进行系统性重新设计。</p>
+<p>在 Jassy 看来，面对代际技术变革，企业如果仅把 AI 视为渐进改良的工具，三到五年后很可能保不住领先的产品体验。团队必须跳出原有框架，去思考一个根本问题：“如果今天利用所有可用的全新 AI 技术从头开始做，究竟会设计出什么样的产品体验？”以语音助手 Alexa 为例，其最初打造时的“大脑”架构极具开创性，但在生成式 AI 出现后，技术能支撑的体验已大不相同，他认为需要重新设计 Alexa 的“大脑”，才能长期提供有竞争力的体验。</p>
+<p><a href="https://www.aboutamazon.com/news/devices/new-alexa-tech-generative-artificial-intelligence">亚马逊对 Alexa+ 的技术说明</a>给了一个具体任务：用户请它在喜欢的餐厅预订午餐，再把安排通知朋友。完成这件事，需要先调用预订服务，再通过消息服务通知联系人；模型生成一句回答，还没有把餐厅订好、把消息发出去。亚马逊为此重建了编排外部服务的架构，让模型能够串联多次服务调用。系统还需要核对信息、把请求交给合适的模型，并控制等待时间，才能让这些动作准确、及时地完成。这解释了“换脑”涉及什么：产品要承接的用户任务变了，支撑任务执行的系统也要随之重新设计。</p>
+<p>这种重构通常面临双重惯性：一方面，工程师对亲手搭建的系统充满感情，也有基于以往经验总结出的工作准则，往往会本能地坚持过去证明可行的做法；另一方面，大量既有客户也对当前的使用体验产生依恋。Jassy 指出，要想推动这种根本性改变，前提是新技术、产品体验与商业理由必须足够强、足够有说服力；即便如此，推动改造依然是一场艰巨的变革管理，就像当年推动传统 IT 从本地机房向云端迁移一样，面临认知与习惯的双重转换。</p>
+<p>在 Jassy 看来，这种重新思考并不局限于语音助手。亚马逊在零售电商、Prime Video、Fire TV 以及 Prime Music 等成熟业务上，也在推动团队尝试从零构想全新版本。虽然这些业务眼下并不像语音交互那样存在明显的替代急迫性，但他担心，如果现有企业仅停留在对老产品的局部渐进式改进，三到五年后可能难以继续保持领先体验。</p>
+<p>这种从零构想并不限定一次性全部替换，团队在初期也很难一次做对。在落地推进上，企业可以采取更灵活的路径：既可以先探索某种独立的全新应用，也可以将那些经过迭代验证有效的元素，逐步融入到现有的核心体验中，在未来几年内循序渐进地改变整体用户体验。</p>
+<hr />
+<h2>年轻人的能力支点与多业务并进的管理准绳</h2>
+<p>针对年轻一代如何面对 AI，Jassy 的建议是不要回避工具，而是主动去学习和了解它、在日常中频繁使用，并勇于尝试那些超出自身舒适区的任务。他提到自己的两个孩子都不是开发者，但也通过主动学习借助 AI 构建应用，并将其融入日常工作。以商学院分析商业案例为例，过去阅读案例、摘录图表与提炼关键要点需要耗费大量时间，AI 能够让大家更快达到这一信息整理的基础起点。</p>
+<p>但他同时指出，工具并不能替代批判性思考与综合判断。模型能够帮人更快走到较高起点，但如何把各种分散的碎片信息拼装在一起，形成整体的业务策略、产品逻辑或规划方案，依然高度依赖人的判断、创造力与实验能力。</p>
+<p>而在大公司如何同时管理多条业务线的问题上，外界常有亚马逊是否战线过长的疑虑。Jassy 认为，这取决于组织的架构方式以及投入意愿。亚马逊在推进 AI、机器人、低轨卫星通信（Amazon Leo）、自动驾驶（Zoox）以及医疗等多元业务时，倾向于采用分散专责的组织模式，让专责团队配备合适的领导者与一线建设团队，避免让同一批管理者兼顾多项互不相同的业务。决定是否投入某项新赛道，主要权衡几项标准：新体验一旦做大是否对业务具有实质影响、团队是否有差异化的构想、目标领域中的客户需求是否尚未得到良好服务，以及公司是否具备长期持续投入的意愿。</p>
+<p>Jassy 同时强调，专注于核心业务并持续深耕，同样是一种非常成功的商业战略。而对于选择多业务并进的企业而言，能否在技术变革中持续前行，关键在于既要保持现有核心业务的稳健增长，又要在具备合适团队与长期投入意愿的前提下，主动顺应趋势去解决那些尚未被满足的客户需求。</p>
+<p>更小的团队可以从更高起点探索新想法，成熟产品也需要重新思考能为客户完成什么任务。这两种变化，构成了 Jassy 对 AI 时代公司运作的核心判断。</p>
+<figure>
+<figcaption>
+<span>完整访谈双语版：Jassy 与 a16z 讨论资本开支、芯片战与产品重构。</span><br />
+    全长约 60 分 39 秒，涵盖亚马逊供应链重构、AI 基础设施、安全与下一代人才建议。
+  </figcaption>
+</figure></div><div><div><div>来源</div><div><span>Andy Jassy 与 a16z 完整访谈</span><span>a16z · Andy Jassy · Ben Horowitz · Erik Torenberg<span>·</span><a href="https://x.com/a16z/status/2113662841492471959">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/a16z/status/2113687019239133682">AI 与组织未来短片</a><span>·</span><a href="https://www.aboutamazon.com/news/devices/new-alexa-tech-generative-artificial-intelligence">亚马逊：Alexa生成式AI架构说明</a><span>·</span><a href="https://aws.amazon.com/blogs/aws/aws-continuum-for-code-vulnerabilities-is-now-generally-available/">AWS：Continuum漏洞验证与修补说明</a></div></div></div></div></div><div><div>Andy Jassy 对谈 a16z · 一页纸</div>
+<h1>亚马逊 CEO：只给老产品加上 AI，可能守不住未来</h1>
+<div>组织重塑：从过度专精回到跨职能小团队</div>
+<div>基于完整访谈及两份官方技术补充 · 约 4 分钟</div>
+<p>生成式 AI 让团队更快跑通新想法，也扩展了产品能替用户完成的任务。亚马逊 CEO Andy Jassy 因而要求成熟业务重新问：如果今天利用全部新技术从头做，会设计出怎样的体验？在他看来，只做渐进改良，三到五年后可能保不住领先体验。</p>
+<h2>产品重想：从用户要办成的事出发</h2>
+<p>以 Alexa+ 为例，亚马逊官方给出的任务是“在喜欢的餐厅预订午餐，再通知朋友”。一句回答还没有完成预订和发信，系统需要串联实际的服务调用。</p>
+<div>
+<div><div>01</div><div>预订餐厅</div><div>调用预订服务，落实用户的午餐安排。</div></div>
+<div><div>02</div><div>通知朋友</div><div>接续消息服务，把安排发给联系人。</div></div>
+</div>
+<p>每次调用还需要核对信息、路由合适模型，并控制等待时间。这解释了为何要重做“大脑”：用户任务改变后，编排多次服务调用的架构也要重新设计。工程团队和老客户都会依恋既有做法，新技术、体验与商业理由必须足够有说服力。</p>
+<div><div><b>先探索独立新应用</b><p>从头试出新体验，经过迭代再判断。</p></div><div><b>逐步融入现有产品</b><p>把验证有效的元素带回核心体验，不要求一次全部替换。</p></div></div>
+<h2>组织怎样跟上：少数人跨职能推进</h2>
+<p>大公司可能把产品经理的职责细分到“只管定价”。Jassy 认为，大模型能在编码、客服、分析与研究上把工作推进到更高起点，小团队就有机会跨过原有分工，协作推进一件完整的事。人的整合、判断、创造和实验仍是关键。</p>
+<div><span>模型推进多职能基础工作</span><span>→</span><span>小团队跨职能协作</span><span>→</span><span>人完成整合与判断</span></div>
+<p>Agent 是能调用工具、连续执行任务的 AI 助手。Bedrock 是 AWS 的模型调用服务，其推理引擎支持模型处理新输入并给出结果。下面两个案例分别展示工程重写和应用探索：</p>
+<div><div><div>6 人 · 76 天</div><div>Bedrock 推理引擎重写</div><div>Jassy 估计，按过去做法可能需约 40 人一年。后者不是同条件实验结果。</div></div><div><div>四五人 · 一个周末</div><div>消费者业务 Agent 原型</div><div>周四确定构想，周日做出可运行原型。“约 80% 可交付”是他对原型进度的估计。</div></div></div>
+<p>从创立起就采用 Agent/AI 的新公司带来速度压力，行动迟缓的大企业更容易受挑战。他预期现有工作会需要更少人，也会出现新岗位；访谈没有给出净就业人数结论。</p>
+<h2>投资能调哪里：两类资产、两个节奏</h2>
+<p>亚马逊预计当年全公司资本支出约 2200 亿美元。Jassy 以 AWS 的现金循环解释：建设先付钱，收入随后形成；两类资产的采购弹性不同。</p>
+<div><div><h3>机房：投入已经沉淀</h3><div><span>投入提前期</span><b>约 2 年</b></div><div><span>资产使用寿命</span><b>约 30 年</b></div><p>土地、建筑与电力先投入，装入服务器后才开始形成收入。寿命不等于收益保证。</p></div><div><h3>设备：后续采购可调整</h3><div><span>采购提前期</span><b>数月</b></div><div><span>平均回本 / 寿命</span><b>约 3 年 / 5—6 年</b></div><p>服务器、芯片与网络设备更接近需求采购；需求转弱可减少追加，已建机房的成本仍在。</p></div></div>
+<h2>潜在增量在哪里：哑铃的中间</h2>
+<div><div><b>一端：实验室与爆款应用</b><span>顶尖 AI 实验室，以及 ChatGPT、Claude Code 等少数高增长应用。</span></div><div><b>中间：大量既有企业应用</b><span>多数尚未广泛接入推理。Jassy 认为，这里是未来绝对规模最大的潜在增量。</span></div><div><b>另一端：具体提效场景</b><span>客服自动化、反欺诈、业务流程自动化等已落地用法。</span></div></div>
+<p>这是用法的分布；同一家企业也可在客服采用 AI，同时保留大量未改应用。广泛改造既有应用，还需要微调与后训练技能、优先级取舍和更低成本。Jassy 判断推理成本仍需再降约一个数量级；降本能降低改造门槛。</p>
+<div>芯片路线：专用 NIC 卸载基础负担 → Graviton 通用 CPU → Trainium AI 加速芯片。据 Jassy，Graviton 相比其他 x86 处理器的性价比提高约 40%，Trainium 相比同类处理器提高约 30%—40%。模型合作中，OpenAI 还与亚马逊共建有状态运行环境，保存 Agent 的上下文与执行进度。</div>
+<p>大块算力容量虽已大量预订，AWS 仍预留按需资源。Jassy 主张扩充供给，同时支持 AI 与老客户的核心生产业务，以维护长期信任。</p>
+<h2>安全防守：窗口变短，部署还须受控</h2>
+<div>模型加快漏洞利用代码生成 → 防御窗口缩短 → 补丁部署仍受系统依赖拖慢 → 需要在严格约束内协助更新代码。</div>
+<p>AWS 官方说明，攻击者可在漏洞披露后数分钟内写出可用利用代码。Jassy 因而主张防守迈向分钟级响应。Continuum 当前可验证漏洞并生成补丁或代码修改请求，修复仍需人批准；约束内自动修复是后续方向。</p>
+<p>对个人：主动学习并频繁使用 AI，练习整合信息与批判判断。对多业务公司：为不同业务配专责领导和建设团队，并判断规模、差异化、未满足需求及长期投入意愿；持续深耕核心业务也可以成功。</p>
+<div>主材料：<a href="https://x.com/a16z/status/2113662841492471959">Jassy 与 a16z 完整访谈</a>。Alexa+ 执行链和 Continuum 当前审核状态分别据<a href="https://www.aboutamazon.com/news/devices/new-alexa-tech-generative-artificial-intelligence">亚马逊</a>与<a href="https://aws.amazon.com/blogs/aws/aws-continuum-for-code-vulnerabilities-is-now-generally-available/">AWS 官方技术说明</a>。前瞻性判断归于 Jassy。</div></div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://x.com/a16z/status/2113687019239133682">看原网页 ↗</a></p></div><div></div><div><div><p>Amazon CEO Andy Jassy on what AI means for the future of organizations: smaller teams, new jobs, and the ability to invent "much more expansively and much more quickly."</p></div><div><p>"I started at the company 29 years ago. I started as an assistant product manager, and I was the product manager for, I don't know, five products."</p></div><div><p>"When companies get successful and they get bigger... everybody becomes more specialized, and everybody accepts that that's the way you have to do business if you're building something big and successful, and it's not."</p></div><div><p>"And it's definitely not when you look at what's happening with AI."</p></div><div><p>"I think what it means for the future of organizations is, number one, we're gonna have fewer humans doing the work that they're doing today... You're not gonna have no people, but you're not gonna have as many humans as we've all thrown at scale as businesses have gotten bigger."</p></div><div><p>"There are gonna be different jobs and new jobs, some of which we know about, some of which we don't know about, that will arise as AI and robotics and space develop."</p></div><div><p>"I think you're gonna have smaller teams that have people who can work cross-functionally. They don't only own one sliver because the models are gonna be able to get them 80% of the way there... I think that every team will start at a much more advanced stage than we have in the past."</p></div><div><p>@ajassy</p></div><div><figure></figure></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/a16z/status/2113687019239133682">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>深度</div>
+<div>我们需要“更有野心”地使用AI</div>
+<div>10-15 · 9 分钟</div></a><a>
+<div><span></span>洞察</div>
+<div>AI 开始逆向一切，软件开发还值钱吗？</div>
+<div>10-12 · </div></a><a>
+<div><span></span>AI 实操</div>
+<div>从经验到销售：用 AI 做知识付费产品的 7 步方法</div>
+<div>10-10 · 约 15 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】让 Claude 帮你做新闻与纪实短片：8 种风格 从一支短片到自己的栏目</title>
+<link>https://best.xiaohu.ai/article/lemo-opuscar-edit-documentary/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:lemo-opuscar-edit-documentary</guid>
+<pubDate>Sun, 25 Oct 2026 12:00:21 +0000</pubDate>
+<description>把报告、档案和比赛录像交给 Claude，尝试 8 种新闻与纪实风格；再把选中的配色、字体和节奏保存下来，下期换材料继续用，逐步做成自己的栏目。</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 25 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">让 Claude 帮你做新闻与纪实短片：8 种风格 从一支短片到自己的栏目</h1>
+<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/lemo-opuscar-edit-documentary/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>8 种新风格，怎样把真实素材剪成片</span></a><a><span>02</span><span>把风格改成自己的，究竟在改什么</span></a><a><span>03</span><span>让你的 AI 帮你做片</span></a><a><span>04</span><span>工作台与日系动漫，还在预告阶段</span></a></div></div><div><div><div><div><div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div><h1>让 Claude 帮你做新闻与纪实短片：8 种风格 从一支短片到自己的栏目</h1><p>把报告、档案和比赛录像交给 Claude，尝试 8 种新闻与纪实风格；再把选中的配色、字体和节奏保存下来，下期换材料继续用，逐步做成自己的栏目。</p><div><div>正文一页纸</div>☆ 收藏<div><span><span>作者：</span>Lemomo / LemoLab</span><span>10-24 · 约 18 分钟</span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>Lemo-Opuscar 新增 8 种新闻与纪实风格，让 Claude 用代码编排真实影像、报告与数据。</li><li>选定适合自己的配色、字体和节奏，先用样帧和短 demo 确认效果，满意后保存；以后换新材料，沿用这套风格持续制作自己的栏目。</li></ul><div><p>把报告、档案或比赛录像交给 Claude，先做出一支新闻或纪实短片；找到适合自己的画面风格后，再把它保存下来，下期换材料继续用。</p>
+<p>Lemomo 更新了面向 Claude 的开源代码做片工具 Lemo-Opuscar，带来两项实质变化：一是新增专为真实素材剪辑设计的 8 种「剪辑与纪实」风格，使现成官方风格库扩充至 59 种；二是正式上线了「改成你自己的风格」与「从空白开始」工作流，允许创作者将官方预设或自定规则改造为可反复使用的个人风格。</p>
+<a href="https://best.xiaohu.ai/article/lemo-opuscar-code-filmmaking/"><span>第一次用？先看上手教程</span><strong>Lemo-Opuscar：43 种通用风格、98 种电影风格，精选 9 支完整样片，让 Claude Opus 学做大片</strong><span>从安装、第一帧到故事板与成片。旧文的43种是当时数量；此后两次各新增8种，现有59种，98种电影案例另算。</span><b>阅读上手教程 →</b></a>
+<hr />
+<h2>8 种新风格，怎样把真实素材剪成片</h2>
+<p>在新增的 8 种「剪辑与纪实」风格中，核心变化在于画面底图不再单纯依赖代码凭空绘制，而是以现实世界的文件、影像、照片与核实数据为基底。</p>
+<p>作者在发布这 8 种风格时，除了用 Claude Opus 5.5 制作主样片外，也同步放出了使用 Sonnet 5.5 High 的测试样片。两组样片的题材、时长不同，可以观察做出的效果，不能据此比较模型性能。</p>
+<h3>1. 字幕新闻 (Caption News)</h3>
+<p>以真实拍摄影像、现场照片与公开文件为底图，社交平台静音播放时也能完整传达事实。涉及官方 PDF 报告（如农业数据公报）时，代码将其渲染为深色案台上的真实白纸，按原文位置扫过高亮笔触，并将对应数字放大提取至旁侧。</p>
+<p>特大中文字幕作为画面主角，核心关键词压在蜂蜜黄色块上；第 4 帧即可弹跳出核心巨型数字并滚动落定；涉及数据与文件时，画面左上方同步滑出来源标签（Source tag）。</p>
+<p>适合：信息流热点快讯、数据调查、带有反转的事实报道。</p>
+<figure>
+<figcaption>样片 01：《The Bee Ledger》（主样片，演示由 LemoLab 提供）</figcaption>
+</figure>
+展开查看 Sonnet 5.5 High 对应测试样片（不同题材与时长）
+<figure>
+<figcaption>样片 02：Sonnet 5.5 High 测试样片</figcaption>
+</figure>
+<h3>2. 1920s 新闻影片 (1920s Newsreel)</h3>
+<p>取材于真实的历史档案胶片、老报纸版面与老唱片，不做虚假做旧的生成插画。扫描件与老影片经百分位拉伸与灰度映射，统一置入 1.37:1 圆角画幅中，叠加上放映机门晃动、微弱闪烁与垂直划痕。
+探照灯与旋转地球仪复古片头，头条新闻报纸旋转飞向镜头前，播音员语速飞快（模拟上世纪 30 年代早期的光学有声声轨音效），热舞爵士乐踩节拍剪辑，图章式地名卡展开，手绘铅笔线圈注定格画面。</p>
+<p>适合：历史趣闻、工业老物件演进史、复古品牌短片。</p>
+<figure>
+<figcaption>样片 03：《Knock-Knee Alert》（主样片，演示由 LemoLab 提供）</figcaption>
+</figure>
+展开查看 Sonnet 5.5 High 对应测试样片（不同题材与时长）
+<figure>
+<figcaption>样片 04：Sonnet 5.5 High 测试样片</figcaption>
+</figure>
+<h3>3. 实时倒计时分屏 (Live Countdown Split-screen)</h3>
+<p>核心约束为“屏幕时间严格等于现实事件时间”，中间不跳剪。多路视频如果是同一时刻的现场机位，必须严格按事件物理对时；照片与排期文档作为资料格插入，非同步视频则带有明确的未同步角标（如“同一时段 · 未逐帧同步”），避免误导。
+中央时钟掌控全场，每一整秒跳动一次；越接近零点，画面分屏越多（展示控制室、文档步骤、状态清单）；到达零点瞬间，分屏合成全屏特写，时钟底色反转为橙底黑字的“T+ 计时”。</p>
+<p>适合：火箭发射、赛事终场哨、重大开售、开奖时刻。</p>
+<figure>
+<figcaption>样片 05：《Counting Itself Down》（主样片，演示由 LemoLab 提供）</figcaption>
+</figure>
+展开查看 Sonnet 5.5 High 对应测试样片（不同题材与时长）
+<figure>
+<figcaption>样片 06：Sonnet 5.5 High 测试样片</figcaption>
+</figure>
+<h3>4. 延时交响 (Time-lapse Symphony)</h3>
+<p>混合真实城市的固定机位延时摄影、俯瞰航拍与历史老影像。代码通过多帧平滑融合将快速车流与行人转化为流动光轨；画面不做过度人像特写，将人群视作运动数据。
+全片没有任何旁白，管弦交响乐步步递进；固定机位长延时充当环境时钟反复出现；高潮瞬间踩在管弦乐重拍上瞬间刹车定格，或直接干切黑屏，只留混响回音。</p>
+<p>适合：城市形象宣传、宏大自然工程纪实、地方风貌变迁。</p>
+<figure>
+<figcaption>样片 07：《One Day in New York》（主样片，演示由 LemoLab 提供）</figcaption>
+</figure>
+展开查看 Sonnet 5.5 High 对应测试样片（不同题材与时长）
+<figure>
+<figcaption>样片 08：Sonnet 5.5 High 测试样片</figcaption>
+</figure>
+<h3>5. 视觉调查 (Visual Investigation)</h3>
+<p>调查案台逻辑，将五类独立证据（现场动态影像、目击照片、调查报告/电报、原始录音、测绘地图）在统一时间线上对齐互证。平面图上的视锥方向若为推断则标示 <code>inferred</code>；区分官方查明事实与待决疑问。
+冷峻暗色案台。关键节点定格，用红圈标出细节并局部放大；2D 平面测绘图实时标出目击者位置；已知事实与未决疑问分列双栏。</p>
+<p>适合：事件复盘、辟谣报道、事故还原、争议判决核验。</p>
+<figure>
+<figcaption>样片 09：《The Hindenburg: Four Minutes, 32 Seconds》（主样片，演示由 LemoLab 提供）</figcaption>
+</figure>
+展开查看 Sonnet 5.5 High 对应测试样片（不同题材与时长）
+<figure>
+<figcaption>样片 10：Sonnet 5.5 High 测试样片</figcaption>
+</figure>
+<h3>6. 构成主义蒙太奇 (Constructivist Montage)</h3>
+<p>将历史档案照片、工程实拍与当年的官方宣传小册子统一转换为红、黑、纸白三色印刷质感。人物照片经过抠图并保留故意露出的粗粝纸白描边，多层堆叠构成视觉结构。
+文字沿着 -18° 斜向钢梁色带排版；120 BPM 冲压机般的机械节奏硬切，两张照片并置撞击产生象征隐喻；工人群像与数字计数器随钢梁逐层堆叠攀升。</p>
+<p>适合：工业史、重大工程落成、劳动者群像、时代评论。</p>
+<figure>
+<figcaption>样片 11：《410 Days》（主样片，演示由 LemoLab 提供）</figcaption>
+</figure>
+展开查看 Sonnet 5.5 High 对应测试样片（不同题材与时长）
+<figure>
+<figcaption>样片 12：Sonnet 5.5 High 测试样片</figcaption>
+</figure>
+<h3>7. 体育战术板 (Sports Telestrator)</h3>
+<p>依赖比赛录像定格与画面标注进行战术拆解：按帧计时，依据球场标线透视估算站位与间距；画面中无法直接看出的球速或跑动距离不作断言。规范要求对原转播源进行裁切处理台标，素材仍需有相应使用权。
+演播室复盘逻辑：先原速播放进球 ➔ 录像带噪波倒带 ➔ 关键帧定格闪光 ➔ 在草皮真实透视上画球员荧光圈与传球箭头 ➔ 标出防守空当 ➔ 镜头转动，将草皮压平为俯视战术板。</p>
+<p>适合：比赛关键球复盘、技战术解说、竞技实况切片拆解。</p>
+<figure>
+<figcaption>样片 13：《Freeze Frame》（主样片，演示由 LemoLab 提供）</figcaption>
+</figure>
+展开查看 Sonnet 5.5 High 对应测试样片（不同题材与时长）
+<figure>
+<figcaption>样片 14：Sonnet 5.5 High 测试样片</figcaption>
+</figure>
+<h3>8. 电视新闻包装 (Broadcast News Package)</h3>
+<p>全套电视新闻栏目平面图形均由代码生成。背景允许使用持续标示意图景或动态纹理；报道对象以文字排版呈现，避免随意侵权使用未经授权的商业企业徽标；全片不使用走马灯式滚动字幕，保持信息静止可读。
+片头片尾频道标牌、开场串联单（Rundown）、画面底部常驻新闻标题条（Lower-third）、全屏数据图表对比卡与地图下钻定位。</p>
+<p>适合：科技周报、行业前沿速报、公司定期简报、固定栏目。</p>
+<figure>
+<figcaption>样片 15：《The Week in AI》（主样片，配作者原始中英字幕轨；LemoLab）</figcaption>
+</figure>
+展开查看 Sonnet 5.5 High 对应测试样片（不同题材与时长）
+<figure>
+<figcaption>样片 16：Sonnet 5.5 High 测试样片</figcaption>
+</figure>
+<h3>Claude 怎样把素材做成视频</h3>
+<p>在 Lemo-Opuscar 中，一份 <code>STYLE.md</code> 提示词并不是锁定具体像素或预设画面的固定视频模板，而是一套描述画法、配色、镜头、动作和声音的创作要求。Claude 读取后，会编写逐帧渲染代码来组织视听。作者之所以选择用提示词描述期望效果而不把一切写死成固定参数，是为了在翻阅库时给创作者提供灵感、打开思路，同时不为模型预设死板限制，保留其自身能力的发挥空间，希望风格能随着模型能力的提升继续发展；至于具体呈现效果，仍依赖后续真实的样帧与短片进行预览和迭代。</p>
+<p>代码在这里承担起导播台、特效机与剪辑包装的任务：它按时间安排素材、在真实画面上画线圈注、对齐时间，并将图表与声音合成。真实素材转变为成片有一套具体的运行链：制作时先准备好所需的素材片段，Claude 编写包含渲染逻辑的页面，按时间参数 t 在画面中准时排入素材画面、文字与动态注释；无头浏览器随后按照指定帧号和帧率依次调用 window.render(t) 完成逐帧截图，最后交由 ffmpeg 将图像序列编码为视频并合成声音。</p>
+<hr />
+<h2>把风格改成自己的，究竟在改什么</h2>
+<p>除了使用官方现成风格，本次更新最关键的机制在于允许创作者建立自己的私有风格资产。如果创作者只是想换个剧本、换旁白声音或换演员，这些属于单部影片的剧情变动，直接在指令中说明即可，不需要新建风格；只有当你需要固定一套长期的品牌色、特定字体、剪辑节奏或标志性视觉语法时，才需要自建风格。</p>
+<p>系统提供了两条起点路线：</p>
+<ol>
+<li>改库里的风格：从现有的 59 种风格中挑选一个作为基底，只针对关心的部分微调；</li>
+<li>从空白开始：用自然语言描述所需视觉，或向 Claude 提交参考图/视频。Claude 会自动从官方库中匹配一个最接近的风格作为技法底子 (Technique base)，说明选取理由并征得同意。</li>
+</ol>
+<p>无论走哪条路线，风格的规划都先从实际用途推导：首先确定拿来做什么题材、给谁看、发布在哪个平台（如竖屏平台需要匹配 1080×1920 或 1080×1440 等画幅），以及是否带有固定的品牌色、logo、字体或角色形象；理清用途后，再对应挑选需要改动的具体模块。改动必须与用途呼应，且改库里风格时单轮最多调整 5 处（因作品语言必需而补充的中文字体不计入这 5 处），避免改动过繁难以评估。规划完成时，Claude 会出具一份方案汇总，详细列出每一项改前是什么、改后是什么、对应的代价是什么，创作者明确确认后才正式写入草稿。</p>
+<p>改配色、换材质和换一套画法，影响的程度不同：</p>
+<div>
+<div>
+<h4>这些改动，会影响风格的哪一层？</h4>
+<p>以下按原风格的核心要求区分改动；“可以改”也需要确认方案和检查样片。</p>
+</div>
+<div>
+<div>
+<div>
+<span>放心改 (Safe)</span>
+<span>风格辨识度保持</span>
+</div>
+<ul>
+<li>原有逻辑框架内的配色替换</li>
+<li>匹配语言与字重的字体替换</li>
+<li>动作节奏快慢与声音配器密度</li>
+<li>新增或替换 1 个招牌动作</li>
+</ul>
+<p>改完后仍保留原风格的骨架与质感，推荐日常品牌化定制。</p>
+</div>
+<div>
+<div>
+<span>一改就变味 (Changes)</span>
+<span>先提示代价再动</span>
+</div>
+<ul>
+<li>材质与核心画法（如平涂变立体）</li>
+<li>配色底层逻辑（如双色变全彩）</li>
+<li>运镜语法（如平面推拉变三维倾斜）</li>
+</ul>
+<p>可以改，但 Claude 会明确指出会丧失什么原味，得到确认后才动手。</p>
+</div>
+<div>
+<div>
+<span>不能改 (Can't)</span>
+<span>建议更换基底</span>
+</div>
+<ul>
+<li>风格核心本质定义（Essence）</li>
+<li>底层渲染引擎与主渲染管线</li>
+</ul>
+<p>强行改动相当于制作新风格，Claude 会建议直接挑一个更接近的底子。</p>
+</div>
+</div>
+<div>
+<div>选一个改动，看它影响什么（说明示例）：</div>
+<div>
+把瑞士排版强调色换成品牌蓝
+快讯视频节奏加快 20%
+瑞士排版平面图形改陶土玻璃实物
+版画风格改成全彩渐变色块
+字幕新闻直接改成日系手绘动画
+</div>
+<div>
+<span>【放心改】</span>
+<span>保留黑白关系、网格与单一强调色，只把强调色换成品牌蓝。先确认方案，再写入个人风格规范。</span>
+</div>
+</div>
+</div>
+<h3>先看一张图，再用短片验证动作</h3>
+<p>制定风格规范时，系统分两个阶段逐步验证：</p>
+<ol>
+<li>真实代码样帧 (Styleframe)：直接运行绘制代码渲染出一张静止画面。若修改的是官方风格，会生成一张左右并排对比图（<code>styleframe-vs-base.jpg</code>），左侧为原版，右侧为定制版。在这个阶段不进行整片渲染，先确认版面间距、色彩与材质是否达到预期；</li>
+<li>15–30 秒短 Demo 片：样帧确认后，Claude 会生成一支短片。这支短片的核心作用不是讲复杂故事，而是为了证明风格在动态层面上成立——所有在变更表（<code>CHANGES.md</code>）中约定的改动在片中至少出现一次，展示标志性运镜、配乐与音效（默认不加旁白和字幕干扰），并标明每处改动在第几秒发生。</li>
+</ol>
+<h3>瑞士排版怎样变成了立体实物</h3>
+<p>在官方示例中，作者展示了如何将经典的「瑞士动态排版 (Swiss Motion Graphics)」改造为「材质网格 (Material Grid)」风格。</p>
+<p>这两张代表帧展示了改造前后的视觉方向：一张是平面海报，一张是立体实物排布。</p>
+<div>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/lemo-opuscar-edit-documentary/my-style-before.jpg" alt="库里的风格：瑞士动态排版" style="max-width:100%;height:auto;border-radius:8px;">
+<figcaption>基础风格：瑞士动态排版（平面网格、信号色、卡拍动作）</figcaption>
+</img></figure>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/lemo-opuscar-edit-documentary/my-style-after.jpg" alt="改造后的风格：材质网格" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>改造后：材质网格（实体材质、透视倾斜、立体光影）</figcaption>
+</figure>
+</div>
+<p>在这组改造中，作者保留了瑞士排版核心的严密网格、无衬线字体与精准节拍剪辑，但改变了渲染材质与镜头语法：原先的纯色色块被替换为陶土、塑料、绒布、玻璃与金属铬等三维物理材质；运镜也从二维平面推拉，转变为“俯视是一张平面海报，镜头一倾斜全是立体实物”。</p>
+<p>以下为验证该风格动态成立的 31 秒短 Demo 片：</p>
+<figure>
+<figcaption>演示 26：《材质网格》31 秒验证 Demo 片（演示由 LemoLab 提供）</figcaption>
+</figure>
+<div>
+<h4>先验证，再保存，以后点名复用</h4>
+<p>样帧看外观，短片看动态；满意后才进入个人风格库。</p>
+<div>
+<div>
+<span>Step 1</span>
+选择入口
+<p>改官方59种其一，或空白输入需求借技法底子</p>
+</div>
+<div>
+<span>Step 2</span>
+问答定策
+<p>单题递进或自由对话，确认改动与代价</p>
+</div>
+<div>
+<span>Step 3</span>
+样帧比对
+<p>真实代码出图；改库中风格时做同场景对照</p>
+</div>
+<div>
+<span>Step 4</span>
+短Demo验证
+<p>15–30秒小片，每项改动至少出现一次</p>
+</div>
+<div>
+<span>Step 5</span>
+确认固化
+<p>点头后写入主目录，建立全局索引</p>
+</div>
+<div>
+<span>Step 6</span>
+点名复用
+<p>直接在对话中指定「用我的【名字】风格做片」</p>
+</div>
+</div>
+<div>
+<div>
+<div>
+<span>官方风格库</span>
+<span>~/lemo-opuscar</span>
+</div>
+<p>存放官方风格规范与共享工具。插件更新并重启后，下一次做片会自动更新这里的库。</p>
+<pre>styles/
+  caption-news/
+  swiss-motion/
+  ... (59 种官方风格)</pre>
+</div>
+<div>
+<div>
+<span>个人私有风格库</span>
+<span>~/lemo-my-styles/</span>
+</div>
+<p>存放你确认保存的个人版本。更新、卸载或重装官方库不会删除这里的文件。</p>
+<pre>README.md (全局索引)
+&lt;slug&gt;/
+  style.json / STYLE.md
+  CHANGES.md / DEMO.md
+  demo/ (独立构建源码与build.sh)</pre>
+</div>
+</div>
+<div>
+官方库升级时会怎样？
+日常启动做新片时如何加载？
+</div>
+<div>
+<strong>先询问，再同步</strong>：更新官方库不会自动改写个人版本。底子风格有修复时，Claude 会询问你是否把有用的修复带入自己的风格。
+  </div>
+</div>
+<h3>风格如何固化与长期复用</h3>
+<p>在生成验证短片后，整套设计并不会直接变为全局预设。在创作者最终确认固化之前，所有文件仅保存在当前工程目录下，你可以随时要求再改一轮，也可以选择先不保存为个人风格。</p>
+<p>一旦确认固化，系统会将其归档至本地的 <code>~/lemo-my-styles/&lt;slug&gt;/</code> 目录中，并在 <code>~/lemo-my-styles/README.md</code> 中追加索引，以便后续会话通过名称检索。归档目录的结构与官方风格保持一致：</p>
+<ul>
+<li><code>STYLE.md</code>：记录不随题材改变的画法、色彩规范、镜头语言与声音质感等固定的风格规则；</li>
+<li><code>CHANGES.md</code>：完整记录相对于底子风格的每一项具体修改决策与原因；</li>
+<li><code>DEMO.md</code>、<code>demo/</code> 源码与样片：包含一键构建脚本 <code>build.sh</code>、代码与所需小素材、授权说明 <code>CREDITS</code> 以及生成的测试短片与样帧，用于随时查阅具体技法实现并重建测试。</li>
+</ul>
+<p>完成固化后，后续在新项目里即可直接点名调用该风格（例如“用我的【材质网格】风格做一支短片”）。制作新片时，代码只复用其既定的视觉规范与实现技法，不会照抄测试片里的具体剧情、分镜或时间轴。此外，个人风格目录独立于官方库，官方库更新或插件重装均不会覆盖个人资产；当基底风格日后出现功能修复时，Claude 会在启动时主动询问并由创作者决定是否合入，不会自行修改个人版本。</p>
+<hr />
+<h2>让你的 AI 帮你做片</h2>
+<p>如果你已经在用 Claude Code 这类能够读取本地文件、运行命令的编程 AI，可以把仓库地址、自己的材料和制作目标一起交给它，让它按项目说明检查环境、安装或更新工具，再完成制作。你先想清楚要讲给谁看、想让对方记住什么。</p>
+<p>比如，把自己的报告和影像做成一支 45 秒短片，可以直接发送下面这段委托。方括号里的内容换成实际素材路径；中文、英文任选一种，均为本文自拟示例：</p>
+<div><pre><code>请阅读 https://github.com/lemomo-ai/lemo-opuscar 的安装与使用说明，检查环境并按官方方式安装或更新；需要我登录或重启时告诉我。
+用「字幕新闻」风格，把 [我的素材文件夹或文件路径] 中的报告和影像做成一支 45 秒中文短片。先读取材料，列出实际读到的文件、拟用数据、统计口径与出处，再提出故事主线。材料不够就说明缺什么，不要编造数字。先给我看分镜，确认后再制作；关键数据旁显示来源。完成后交付 MP4、工程路径和素材出处说明。
+</code></pre></div>
+<p>英文自译：</p>
+<div><pre><code>Read the installation and usage instructions at https://github.com/lemomo-ai/lemo-opuscar, check the environment, and install or update it using the official method. Tell me when I need to sign in or restart the session.
+Use Caption News style to make a 45-second Chinese film from the reports and footage at [my material folder or file path]. First list the files you actually read, the proposed figures, statistical definitions, and sources, then propose a storyline. If material is missing, explain what is needed; do not invent figures. Show me a storyboard and wait for confirmation before production. Display sources beside key figures. Deliver the MP4, project path, and material source notes.
+</code></pre></div>
+<p>在这个起点上，还可以把用法往自己的内容工作里延伸。</p>
+<h3>把每周的资料，变成一个持续更新的栏目</h3>
+<p>比如你每周都要解读行业报告，可以让 AI 先找出本期最值得讲的变化，核对数字口径与出处，再沿着固定的视觉风格制作短片。下周换一批材料，保留已经选好的配色、字体和节奏，逐渐形成一个有辨识度的栏目。</p>
+<p>同样的思路也可以用于访谈文字稿的重点回顾、比赛录像的战术解说。先确定内容要回答什么问题，再选适合的画面语言：资料里有什么、能支持什么判断，需要你和 AI 一起看清楚。</p>
+<h3>同一份材料，先让 AI 试几种讲法</h3>
+<p>有一份报告，并不意味着只能做一种视频。你可以先让 AI 提出两三个方案，各写一段大纲和关键镜头，选中一个再渲染整片。</p>
+<p>例如，同一批材料可以尝试用「字幕新闻」抓住一个最重要的变化，做成适合静音浏览的短片；也可以用「电视新闻包装」加入背景、数据图与规格卡，讲得更完整。如果材料本身包含需要对齐核验的多路证据，再考虑「视觉调查」。风格选择会影响信息怎样被组织，先试讲法，能帮助你判断这份内容适合怎样讲。</p>
+<h3>把账号的调性，存成下次还能用的风格</h3>
+<p>当你发现一套画面适合自己的账号，就可以让 AI 把它整理成个人风格。比如，为科技周报保留「瑞士动态排版」的网格和节拍，换成自己的品牌色与中文字体；或者把喜欢的参考图交给 AI，说明想保留的构图、材质与镜头感觉，让它提出改造方向。</p>
+<p>下面是一个品牌栏目用法的自拟示例：</p>
+<div><pre><code>我想为科技周报保存一套自己的风格。以「瑞士动态排版」为基础，保留网格与节奏切镜，把强调色换成品牌深蓝（#0A2540），中文用思源黑体，动作节拍加快 15%。先给我看调整方案和原版/新版的样帧对比，确认后做一支 15–30 秒测试短片。等我满意后，再保存为「科技周报深蓝」，并告诉我下次怎样调用。
+</code></pre></div>
+<p>英文自译：</p>
+<div><pre><code>I want a personal style for my weekly tech bulletin. Start from Swiss Motion Graphics, keep its grid and beat-based cuts, change the accent to brand navy (#0A2540), use Noto Sans SC for Chinese, and speed up motion by 15%. Show me the proposed changes and a base-versus-custom styleframe comparison. After approval, make a 15–30-second demo. Only when I am satisfied, save it as “科技周报深蓝” (tech-bulletin-navy) and tell me how to invoke it next time.
+</code></pre></div>
+<p>以后换新题材，就可以直接让 AI「用我的科技周报深蓝风格做这期内容」。沿用的是视觉规则和实现技法，故事、镜头和材料仍围绕本期主题重新组织。</p>
+<p>你要做的主要是给出资料与目标、选择讲法，并看样帧和成片是否达到预期；安装依赖、编写渲染代码和修复报错，可以交给 AI 处理。作者估算单片通常需要 Agent 运行约 30–60 分钟，并会消耗较多模型 token，适合先选一个小题目尝试。</p>
+<hr />
+<h2>工作台与日系动漫，还在预告阶段</h2>
+<h3>在 Claude 桌面对话里做片的工作台</h3>
+<ul>
+<li>Lemo Movie Studio 工作台：目前正在内部打磨基于 Claude 桌面 App 的 MCP 工作台。未来创作者无需在终端来回切换，直接在桌面对话界面中即可可视化完成选风格、审分镜、看样张与成片交付，作者计划未来提供免费使用。</li>
+</ul>
+<figure>
+<figcaption>演示 29：Lemo Movie Studio 桌面工作台预告（演示由 LemoLab 提供）</figcaption>
+</figure>
+<ul>
+<li>下一批风格：日系动漫：作者预告下一批将筹备日系动漫向画风。由于该批风格需要接入生图能力，运行环境要求会较目前的纯代码渲染更为苛刻，具体依赖将在发布时公布；</li>
+<li>风格库目标：逐步将官方风格库扩充至 99 种。</li>
+</ul>
+<h3>使用代码和使用样片，授权分开看</h3>
+<p>虽然项目代码基于宽松的 MIT 协议开源，但在实际产出视频时，不同层级的素材具有不同的法律边界：</p>
+<ul>
+<li>工具代码与文档：遵循 MIT 协议；</li>
+<li>作者官方样片视频与静帧：采用 CC BY 4.0 协议。可以转载、改编与商用，但必须明确署名“LemoLab”并附带项目仓库链接（<code>github.com/lemomo-ai/lemo-opuscar</code>），改动处须予以说明；</li>
+<li>读者使用本工具制作的原创视频：归你自己，无需向 LemoLab 署名；</li>
+<li>第三方素材授权：样片中引用的公有领域档案、CC 协议影像及科学数据均沿用各自源头许可，详见各风格的 <code>CREDITS</code> 文件；读者自制成片时引入的外部素材由读者自行负责；</li>
+<li>有三段配音不在 CC BY 4.0 中：
+作者在样片中使用的以下三段配音不属于 CC BY 4.0 许可范围，受各服务商商业条款制约，不可随意提取复用：
+<ol>
+<li>综艺节奏扁平（Game Show Flat）中的系统呼喊声（macOS 原生 <code>say</code> 语音）；</li>
+<li>纸雕灯影（Paper-cut Lightbox）中的旁白（微软 Edge TTS）；</li>
+<li>电视新闻包装（Broadcast News Package）中的解说（火山引擎豆包 TTS）。
+读者在制作商用成片时，可以使用默认推荐的离线语音合成引擎 Kokoro，或自行提供合法授权的配音音轨。</li>
+</ol>
+</li>
+</ul>
+</div><div><div><div>来源</div><div><span>Lemo-Opuscar 更新：8种新风格与改编玩法</span><span>Lemomo<span>·</span><a href="https://x.com/lemomo_ai/status/2113195080517562646">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://github.com/lemomo-ai/lemo-opuscar/blob/main/README.zh-CN.md">GitHub 中文说明与现有59种风格</a><span>·</span><a href="https://github.com/lemomo-ai/lemo-opuscar/blob/main/MY-STYLES.md">个人风格创建与固化流程</a><span>·</span><a href="https://lemomo-ai.github.io/lemo-opuscar/">官方样片画廊</a></div></div><div><div>本站说明</div><div>文中作者样片与截图署名 LemoLab；源码见项目仓库，样片中的第三方材料与配音沿用各自授权。</div></div></div></div></div><div>
+<div>LEMO-OPUSCAR · 真实素材做片</div>
+<h1>让 Claude 帮你做新闻与纪实短片：8 种风格 从一支短片到自己的栏目</h1>
+<div>把报告、档案或比赛录像交给能执行代码的 Claude：先选讲法做一支短片，再保存自己的视觉风格，下期换材料继续用。</div>
+<div>新增 8 种纪实风格 · 官方库共 59 种 · 个人风格可长期复用</div>
+<div>
+<p>Lemo-Opuscar 是面向 Claude 的开源代码做片工具。这次更新新增 8 种「剪辑与纪实」风格，并上线修改官方风格、从描述或参考图建立个人风格的工作流。</p>
+<p>新风格以真实文件、影像、照片和核实数据组织画面；你提供资料、受众与目标，AI 负责安装依赖、编写渲染代码和修复报错，你审分镜、样帧与成片。</p>
+<div>
+<div>
+<div>8 种</div>
+<div>本次新增：真实素材的剪辑与纪实风格</div>
+</div>
+<div>
+<div>59 种</div>
+<div>现成官方风格总数，8 种已包含其中</div>
+</div>
+<div>
+<div>30–60 分钟</div>
+<div>作者估算的单片 Agent 运行时间；消耗较多 token，非本文实测</div>
+</div>
+</div>
+</div>
+<h2>交给 AI 的是一份制作委托</h2><p>使用能读取本地文件、运行命令的 Claude Code 等编程 AI。把仓库链接、材料路径、受众、片长和想传达的一件事一起给它；普通聊天窗口未必能直接执行。</p><div><div><span>从一支片到栏目</span></div><p><strong>资料与目标 → 选风格、审分镜 → 看成片 → 保存个人风格 → 下期换资料</strong></p><div>请阅读 https://github.com/lemomo-ai/lemo-opuscar 的说明并检查环境。用「字幕新闻」把［素材路径］里的报告和影像做成一支 45 秒中文短片，给［目标观众］讲清［一个核心变化］。先列出实际读到的文件、拟用数据和出处，再给分镜；材料不足就说明缺什么，不要编造。分镜确认后制作，关键数据旁显示来源，交付 MP4、工程路径和素材出处说明。</div><p>本文自拟委托示例；片长与题目可按材料调整。需要登录或重启时，由 AI 说明具体动作。</p></div><div>
+<h2>8 种「剪辑与纪实」风格：真实素材的视听语法</h2>
+<p>按材料和要回答的问题选画面语言：报告适合突出数据，档案适合交代历史，多路证据需要对齐核验，比赛录像可以复盘战术。</p>
+<div>
+<div>
+<div>01 · 字幕新闻</div>
+<div>Caption News</div>
+<div>报告、现场影像配大字与数据高亮，静音也能读懂。适合热点快讯、数据报道。</div>
+</div>
+<div>
+<div>02 · 1920s 新闻影片</div>
+<div>1920s Newsreel</div>
+<div>真实历史胶片、老报纸配复古声画与划痕。适合历史趣闻、老物件演进与复古品牌短片。</div>
+</div>
+<div>
+<div>03 · 实时倒计时分屏</div>
+<div>Live Countdown Split-screen</div>
+<div>屏幕时间等于事件时间，不跳剪；机位严格对时，未同步资料须标明。适合发射、终场哨与开奖。</div>
+</div>
+<div>
+<div>04 · 延时交响</div>
+<div>Time-lapse Symphony</div>
+<div>真实城市延时、航拍与老影像配管弦乐，无旁白。适合城市形象、工程纪实与地方变迁。</div>
+</div>
+<div>
+<div>05 · 视觉调查</div>
+<div>Visual Investigation</div>
+<div>影像、照片、报告、录音与地图在时间线上互证；推断须标明，已知事实与疑问分开。适合事件复盘与辟谣。</div>
+</div>
+<div>
+<div>06 · 构成主义蒙太奇</div>
+<div>Constructivist Montage</div>
+<div>档案与工程实拍转成红、黑、纸白拼贴，以机械节拍硬切。适合工业史、重大工程与劳动者群像。</div>
+</div>
+<div>
+<div>07 · 体育战术板</div>
+<div>Sports Telestrator</div>
+<div>比赛录像倒带、定格，在真实透视上画站位与传球，再转俯视图。不臆断看不出的球速或距离。适合关键球复盘。</div>
+</div>
+<div>
+<div>08 · 电视新闻包装</div>
+<div>Broadcast News Package</div>
+<div>频道标牌、常驻标题条、数据对比与地图定位，字幕静止可读。适合科技周报、行业速报与公司简报。</div>
+</div>
+</div>
+</div>
+<div>
+<h2>把满意的画面，保存成自己的风格</h2>
+<p>换剧情、旁白或演员，直接在本期指令里说明。需要长期保留品牌色、字体、剪辑节奏或视觉规则时，再创建个人风格。</p>
+<div>
+<div>
+<div>起点路线</div>
+<div>改库里风格 / 从空白开始</div>
+<p>先说明题材、观众、平台与品牌要求。可以改官方风格，也可给描述或参考图，由 Claude 说明并征求同意后选取技法底子。改官方风格时，单轮最多 5 处；作品语言必需的字体不计入。先确认改前、改后与代价。</p>
+</div>
+<div>
+<div>阶段一 · 静态验证</div>
+<div>代码样帧 Styleframe 比对</div>
+<p>先用真实代码渲染一张静帧。改官方风格时，原版与定制版同帧对比，确认版面、色彩与材质，再继续。</p>
+</div>
+<div>
+<div>阶段二 · 动态验证</div>
+<div>15–30 秒短 Demo 验动作</div>
+<p>样帧确认后，用 15–30 秒短片验证动作：CHANGES.md 每项改动都要出现并标明秒数。官方「材质网格」示例实际为 31 秒。</p>
+</div>
+<div>
+<div>最终交付 · 本地入库</div>
+<div>固化至 ~/lemo-my-styles/</div>
+<p>满意并确认后，才保存到 ~/lemo-my-styles/&lt;slug&gt;/ 并追加索引，留存 STYLE.md、CHANGES.md、DEMO.md 与可重建源码。确认前仍留在当前工程，可继续修改。</p>
+</div>
+</div>
+<div><strong>下期复用视觉规则与技法，故事重新组织。</strong> 点名调用已保存的风格即可。官方库更新或插件重装不会覆盖个人目录；基底有修复时，Claude 先询问是否合入。</div>
+</div><h2>把用法延伸到自己的内容工作</h2><div><p><strong>做持续更新的栏目：</strong>每周换一批行业资料，沿用品牌色、字体和节奏；本期观点与数据仍需重新核验。</p><p><strong>同一份材料，先试几种讲法：</strong>让 AI 先提两三个大纲与关键镜头，选好一个再渲染。字幕新闻突出变化，电视新闻包装补足背景；材料有多路证据时，再考虑视觉调查。</p><p><strong>保存账号调性：</strong>以官方风格为基础，或提供参考图，先看样帧与验证短片，满意后保存为自己的栏目风格。</p><div>以上是本文提出的应用思路，不是作者已验证的栏目案例。</div></div><div>
+<h2>AI 在背后怎样把素材合成视频</h2>
+<p>STYLE.md 描述画法、配色、镜头、动作与声音；Claude 读取后编写渲染代码，按时间安排真实素材、注释和声音。风格提供创作方向，效果仍要看实际样帧与短片。</p>
+<div>
+<div>
+<span>AI 执行</span>
+<div>素材 → 渲染页面 → 逐帧截图 → 视频</div>
+</div>
+<p>代码负责调度画面；浏览器与 ffmpeg 负责把安排好的画面和声音变成可播放文件。</p>
+<div>
+<div>
+<div>01</div>
+<div>
+<div>准备素材与需求推导</div>
+<div>准备报告 PDF、录像或测绘图。确定受众、画幅（如竖屏 1080×1920）与核心事实，杜绝无据臆造。</div>
+</div>
+</div>
+<div>
+<div>02</div>
+<div>
+<div>编写渲染页面 window.render(t)</div>
+<div>Claude 编写包含渲染逻辑的页面，按时间参数 t 在画面中准时排入素材画面、文字与动态注释。</div>
+</div>
+</div>
+<div>
+<div>03</div>
+<div>
+<div>无头浏览器逐帧截屏</div>
+<div>无头浏览器随后按照指定帧号和帧率依次调用 window.render(t) 完成逐帧截图。</div>
+</div>
+</div>
+<div>
+<div>04</div>
+<div>
+<div>FFmpeg 音画合成编码</div>
+<div>ffmpeg 将图像序列编码为视频并合成声音，输出成片。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h2>开始前，保留这几条边界</h2>
+<p>Opus 与 Sonnet 样片的题材、时长不同，可观察效果，不能据此比较模型性能。桌面 MCP 工作台、日系动漫风格及 99 种风格目标仍属预告。</p>
+<div>
+<div>
+<div>工具与代码</div>
+<div>代码与文档采用 MIT，使用时遵守其许可条件。</div>
+</div>
+<div>
+<div>官方演示样片</div>
+<div>官方视频与静帧采用 CC BY 4.0：署名 LemoLab、附仓库链接，改动须说明；第三方素材仍遵守各自许可。</div>
+</div>
+<div>
+<div>读者原创视频</div>
+<div>读者自制原创视频归创作者，无需向 LemoLab 署名；自行引入的外部素材需要有相应使用权。</div>
+</div>
+<div>
+<div>特殊配音除外</div>
+<div>三段样片配音（macOS say、Edge TTS、豆包 TTS）不在 CC BY 4.0 内，不可随意提取复用；可用推荐的 Kokoro 或自备合法音轨。</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/lemomo_ai/status/2113195080517562646">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读第一时间进邮箱</div><p>读完觉得有用？留个邮箱，每篇新解读发布就送达，随时退订。</p>订阅<div></div></div>
+</div><div><div>
+<h2>相关解读</h2>
+<div><a>
+<div><span></span>AI 实操</div>
+<div>Lemo-Opuscar：43 种通用风格、98 种电影风格，精选 9 支完整样片，让 Claude Opus 学做大片</div>
+<div>10-13 · 20 分钟</div></a><a>
+<div><span></span>深度</div>
+<div>我们需要“更有野心”地使用AI</div>
+<div>10-15 · 9 分钟</div></a><a>
+<div><span></span>深度</div>
+<div>Claude 动效实战指南：完整提示词、修改方法和导出步骤</div>
+<div>10-11 · 25 分钟</div></a></div>
+</div></div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】10 个疯狂的 Grok Bot 用例：一群 Bot 一起干活 从整理收藏、盯竞品，到多 Agent 分工</title>
 <link>https://best.xiaohu.ai/article/grok-bot-ten-use-cases/</link>
