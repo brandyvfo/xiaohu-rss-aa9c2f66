@@ -6,7 +6,1944 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Thu, 29 Oct 2026 12:00:30 +0000</lastBuildDate>
+<lastBuildDate>Fri, 30 Oct 2026 12:00:21 +0000</lastBuildDate>
+<item>
+<title>【日报】Canva 发布专门的设计编辑与视觉语言模型 Brush：一句话修改整套设计，文字和图片还能接着改 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/canva-brush-design-model/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:canva-brush-design-model</guid>
+<pubDate>Fri, 30 Oct 2026 12:00:21 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 Brush 在 Canva 中负责什么 02 为什么在已有设计上做修改并不容易 03 Brush 是如何理解要求并调整画布的 04 模型是如何训练出来的 05 处理速度与任务成本的变化 06 如何使用与当前的限制 AI 解读 / 产品发布 · 10-30 · 9分钟 · 作者 Canva Research Canva 发布专门的设计编辑与视觉语言模型 Brush：一句话修改整套</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 30 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Canva 发布专门的设计编辑与视觉语言模型 Brush：一句话修改整套设计，文字和图片还能接着改 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/canva-brush-design-model/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>Brush 在 Canva 中负责什么</span></a><a><span>02</span><span>为什么在已有设计上做修改并不容易</span></a><a><span>03</span><span>Brush 是如何理解要求并调整画布的</span></a><a><span>04</span><span>模型是如何训练出来的</span></a><a><span>05</span><span>处理速度与任务成本的变化</span></a><a><span>06</span><span>如何使用与当前的限制</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>产品发布</a><i>·</i>10-30<i>·</i>9分钟<i>·</i>作者 Canva Research</div><h1>Canva 发布专门的设计编辑与视觉语言模型 Brush：一句话修改整套设计，文字和图片还能接着改</h1><p>从跨页换字体到重做视觉风格，Brush 把理解版面、执行修改与查看结果接成循环，先在 Canva Pro 的受支持编辑任务中开放。</p><div><div>正文一页纸原文</div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Canva Research</span><span>10-30 · 9分钟</span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>Canva 的设计编辑模型 Brush 能按一句话修改多页设计，结果仍可手动调整。</li><li>它会写代码修改设计元素，再查看页面结果，决定接下来怎样改。</li><li>首版已进入 Canva AI，品牌套件支持和引用附件仍在开发。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/canva-brush-design-model/social/zh-668dfe547f75.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>在线设计与演示文稿平台 Canva 正式发布其首个设计视觉语言模型 Brush，在 Canva AI 中用于支持设计修改与排版调整。</p>
+<p>主要功能特点包括：</p>
+<ul>
+<li>自然语言跨页批量编辑：理解整套设计的排版结构，输入指令即可批量修改多页的文字或字体；</li>
+<li>代码调整与视觉检查：编写并运行代码调整画布元素，结合画面反馈指导后续操作；</li>
+<li>保持元素可编辑：生成的内容保留可编辑元素，用户可随时在画布上手动调整；</li>
+<li>效率提升：相比 Canva 上一版设计 Agent，通用设计编辑任务官方称最高快 69%，每次编辑任务成本降低 46%。</li>
+</ul>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/canva-brush-design-model/brush-newsroom-banner.webp" alt="Canva Brush 官方发布主视觉，展示文字、配色、图层与页面编辑元素" style="max-width:100%;height:auto;border-radius:8px;" />
+</figure>
+<figure>
+<figcaption>Canva 的发布演示：从空白页面生成多页设计，再调整画面、文字和包装风格；官方口径称相对自家上一版设计 Agent，通用编辑任务最高快 69%。</figcaption>
+</figure>
+<h2>Brush 在 Canva 中负责什么</h2>
+<p>在 Canva 的体系中，图像生成与设计编辑由不同模型分工完成：Canva 首个图像生成模型 Canva Craft 负责生成独立图像，而约一周后推出的 Brush 则是该团队七天内发布的第二个模型，专注于围绕图像与文字调整和编辑完整设计。两者均由 Canva 旗下 160 人的 AI 实验室 Canva Research 历经数月研发，分别对应画面生成与版面编辑环节。</p>
+<p>Canva 援引 DesignArena 榜单称，Craft 让其实验室在图像生成领域位居全球第二。不过 Brush 并不局限于编辑既有设计，它同样能从空白页面创建完整设计。</p>
+<p>例如，当用户提出“为我的烘焙坊做一份 3 页的新艺术运动风格路演 PPT”这类需求时，按照官方对设计任务的描述，背后实际牵涉一次性做出数百个相互关联的细微决策：规划跨页叙事、安排文字信息、挑选配图，并在文字层级、色彩理论、间距与分层构图等排版规范上保持统一。在实际设计中，每个环节都相互关联，细微的不协调都会影响最终效果。</p>
+<p>在实际设计流程中，不少耗时工作发生在对已有模板或初稿的修改上。例如在一套已经排好六页的演示文稿中，如果想把所有页面的标题字体替换为更具质感的风格，若选择手动逐页修改，通常需要翻页、逐页选中文本框并在字体库中重新查找；而在使用 Brush 时，用户可以在对话框中输入一句要求，让模型尝试在整套文稿中批量更新对应字体。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/canva-brush-design-model/brush-edit-example.webp" alt="Canva Brush 在演示文稿中批量修改字体的操作界面" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>在多页演示文稿中，通过对话指令批量替换全篇字体。</span><br />
+    官方示例展示了 Fall campaign proposal 演示文稿的修改界面：在 Canva AI 下拉菜单中选中 Brush，输入替换字体的指令更新整套幻灯片。
+  </figcaption>
+</figure>
+<h2>为什么在已有设计上做修改并不容易</h2>
+<p>在已有设计上做修改时，模型不仅需要理解用户想改动什么，还要维持不需要改动的内容。如果缺乏对设计结构的理解，简单的修改指令也可能导致未被要求改动的元素一起变形或变样。</p>
+<p>而在修改已有设计时，关键在于理解版面结构，分清哪些元素需要调整、哪些需要保持原样。如果模型无法识别版面中的具体元素，只把设计当成整体图像处理，就容易在更换字体时顺带改动旁边的配图或文字。Brush 的目标是在理解设计结构的基础上进行调整，尽量维持其余元素不变，但实际编辑中同样没有零误改的保证。</p>
+<h2>Brush 是如何理解要求并调整画布的</h2>
+<p>视觉语言模型是一种结合了观察画面与理解自然语言指令的模型。在处理设计编辑时，Brush 并不直接输出一张不可修改的扁平图片，而是通过编写代码和观察画布结果来分步调整设计：</p>
+<ol>
+<li><strong>理解要求与设计结构</strong>：模型结合设计画面理解当前版面的组成方式，并根据用户的指令判断需要改动什么、哪些内容需要保持不变。</li>
+<li><strong>编写和运行代码调整元素</strong>：模型在后台编写并运行代码，针对性地调整画布上的文字、颜色或排版元素。</li>
+<li><strong>查看页面结果指导后续调整</strong>：代码运行并渲染出新页面后，模型会重新查看画面效果，根据当前呈现决定下一步动作。例如可以理解为：当全套换用较宽的新字体后，模型通过观察新画面发现文字是否排布过挤，再据此调整间距或字号。</li>
+<li><strong>保留可编辑元素，人可继续改</strong>：调整完成后，页面上的所有文字、图像和布局元素依然保持常规的可编辑状态，用户可以随时在画布上手动继续微调。</li>
+</ol>
+<div>
+<div>
+<h3>一句“换字体”，怎样变成设计修改？</h3>
+<p>教学示意：借用官方多页换字体任务说明工作循环；画面与状态由本页模拟，未连接 Canva。</p>
+</div>
+<div>
+<span>1</span>
+<span>理解要求</span>
+<span>2</span>
+<span>修改元素</span>
+<span>3</span>
+<span>查看结果</span>
+<span>4</span>
+<span>手动接管</span>
+</div>
+<div>
+<div>
+<div>
+<span>理解</span>
+<h4>先分清要改什么、保留什么</h4>
+<p>比如要把整套幻灯片字体换得更优雅，模型需要结合这句话与当前版面理解任务。这里高亮标题，并保留人物图作参照。</p>
+<div>理解指令与版面，是视觉语言模型在此处的作用。</div>
+</div>
+<div>
+<span>执行</span>
+<h4>运行代码，把修改落实到元素</h4>
+<p>Canva 说明，Brush 会写代码并运行来调整设计元素。示意中把标题换成衬线字体，左侧图片位置保持一致。</p>
+<div>这里展示修改前后的关系；具体代码接口没有公开。</div>
+</div>
+<div>
+<span>反馈</span>
+<h4>再看画面，决定是否继续调整</h4>
+<p>模型会查看页面上的结果，为下一步调整提供依据。换字体后，文字占用的空间也可能变化，因此还要看实际布局。</p>
+<div>查看结果可以帮助继续改进，不能保证每次都不会误改。</div>
+</div>
+<div>
+<span>接管</span>
+<h4>文字和图片仍然可以继续改</h4>
+<p>完成后仍可在 Canva 编辑器中继续操作。试试下方按钮：只改变示意标题的斜体或粗细，图片与正文保持不变。</p>
+<div>自动修改与人工微调可以接续，元素仍可编辑。</div>
+</div>
+</div>
+<div>
+<p>原始标题参照：A Different Perspective（无衬线体）</p><div>
+<span>教学示意</span>
+<span>修改前</span>
+</div>
+<div>
+<div>
+<span>品牌标识</span>
+<div>📷 人物肖像图层</div>
+<span>保持原样</span>
+</div>
+<div>
+<span>Our Big Idea</span>
+<div>
+<span>准备改标题</span>
+A Different Perspective
+</div>
+<p>Personal style changes how we see a piece. Our campaign makes that shift literal.</p>
+</div>
+</div>
+<div>
+<span>要求：整套字体更优雅，保留图片与文案。</span>
+</div>
+<div>
+<span>手动微调体验：</span>
+斜体切换
+粗细切换
+<span>可自由二次编辑</span>
+</div>
+</div>
+</div>
+</div>
+<h2>模型是如何训练出来的</h2>
+<p>为了让模型适应实际设计中的修改流程，Canva 为 Brush 建立了一套结合设计经验与实际任务的训练过程：</p>
+<ul>
+<li><strong>开源模型底座</strong>：Brush 基于一款业内领先的开源模型启动研发，官方未公开该基座的具体型号与参数。</li>
+<li><strong>真实场景后训练</strong>：利用真实的设计与编辑任务对基座展开后训练，融合了设计专业知识，以及来自选择加入改进计划的用户匿名洞察，让模型不仅理解成品样貌，更掌握文字层级、色彩理论与分层构图等排版规范，理解从草稿调整到定稿的全过程。</li>
+<li><strong>强化学习反馈</strong>：结合大规模强化学习，让模型尝试完成完整的设计和编辑任务，并根据哪些调整有效来持续优化后续行为。</li>
+<li><strong>专业设计师定义的评估标准</strong>：设立了奖励评估机制，从视觉质量、布局是否符合设计原则、以及是否按要求完成任务等维度评估模型的结果。这一评估参考了 Canva 的设计专业经验、自身设计库、设计编辑方式洞察以及数十万次模拟交互提供的信息，衡量好设计的标准由团队内的专业设计师设定。</li>
+</ul>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/canva-brush-design-model/brush-design-example.webp" alt="Canva 展示的饮料、烘焙、活动海报和营销方案设计案例拼图" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>Canva 展示的设计案例，包含海报、包装、活动与营销方案等不同版面。</figcaption>
+</figure>
+<h2>处理速度与任务成本的变化</h2>
+<p>通用大模型虽然具备理解与推理设计编辑任务的能力，但运行需要较多的计算资源。Canva 介绍，其平台拥有数亿用户并已创作出数十亿份设计，在如此庞大的体量下，单次任务哪怕多支出几美分，累计成本也会变得可观。因此，专用模型的运行效率直接关系到平台运营成本与响应体验。根据 Canva 官方公布的相对上一代设计 Agent（Our previous design agent）的对比数据：</p>
+<ul>
+<li>通用设计编辑任务速度官方称最高快 69%（up to 69% faster）；</li>
+<li>每次编辑任务成本降低 46%（46% lower cost per edit task）。</li>
+</ul>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/canva-brush-design-model/brush-efficiency.webp" alt="Canva Brush 与上一代设计 Agent 的效率与成本对比柱状图" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>对比上一代设计 Agent，官方称最高快 69%、每次编辑任务成本降低 46%。</span><br />
+    来自 Canva 内部对比柱状图；图表展示相对变化，未提供绝对数值刻度、测试样本量或耗时秒数。
+  </figcaption>
+</figure>
+<p>这里的成本降低指的是平台运行每次编辑任务的成本，并非用户端订阅套餐降价；速度提升也是“最高快 69%”的相对指标，官方图表未披露具体的测试样本量和绝对耗时秒数。通过专用模型实现降本提速，官方表示有助于减少用户从构思到下一版方案之间的等待时间与反复沟通；而在企业目标上，Canva 计划让更强大的 AI 能力以更易承受的成本惠及全球更多人，这一目标仍有待后续产品与开放计划逐步实现。</p>
+<p>在编辑质量方面，Canva 内部评测显示，Brush 在多数通用设计编辑任务中追平或超过了上一代系统，其中在风格重塑（Restyling）以及不同格式适配两类任务中表现尤为突出。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/canva-brush-design-model/brush-format-example.webp" alt="Canva Brush 进行草莓冰淇淋包装的万圣节风格改造示例" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>基于原有包装设计进行节日风格改造（Restyle）。</span><br />
+    官方示例输入指令要求“保留整体感觉，改变角色与名称”，将原本的粉色草莓冰淇淋包装延展为万圣节主题系列：在尽量保留原有品牌整体调性的同时，重新设计角色形象、配色与产品名称。
+  </figcaption>
+</figure>
+<h2>如何使用与当前的限制</h2>
+<p>目前 Brush 面向 <strong>Canva Pro 订阅用户</strong> 开放，用于处理平台中已受支持的设计编辑任务。</p>
+<h3>在 Canva AI 中使用 Brush</h3>
+<p>具体使用流程如下：</p>
+<ol>
+<li>用户可访问 <a href="https://www.canva.com/ai/">canva.com/ai</a> 进入 Canva AI，在编辑器中打开受支持的设计项目，或在对话框中附加或链接设计；</li>
+<li>在 Canva AI 输入框下方的模型下拉菜单中选中 <strong>Brush</strong>；</li>
+<li>输入自然语言描述需求，官方给出了三类典型尝试场景：
+<ul>
+<li><strong>重塑风格</strong>：为既有设计或图像探索不同视觉走向，如调整配色方案、改变图片天气，或渲染不同的视觉氛围；</li>
+<li><strong>跨页批量修改</strong>：无需逐页手动翻找，输入单条指令即可跨多页批量替换标题或文案；</li>
+<li><strong>适配多渠道资产</strong>：将既有设计快速重排为新格式，如把演示文稿页面重新排版为适配 Instagram 的社媒图片；</li>
+</ul>
+</li>
+<li>模型执行完成后，用户既可以在对话框中追加指令继续调整，也可以随时在画布上手动接管微调。</li>
+</ol>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/canva-brush-design-model/brush-product-ui.webp" alt="Canva AI 模型菜单中选中 Brush Beta，右侧为 MOVE FASTER 骑行主题设计" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>Canva AI 的模型下拉菜单提供了综合设计模型 Core 与专注编辑的 Brush Beta 入口；右侧界面展示正在向模型提出让背景更有动感的修改要求。</figcaption>
+</figure>
+<h3>正在改进的特性与限制</h3>
+<p>作为 Brush 的首个版本，官方也指出了目前仍在持续开发与改进的方向：</p>
+<ul>
+<li><strong>Brand Kit 支持</strong>：目前正在开发对 Brand Kit（品牌套件）的支持。</li>
+<li><strong>引用附件</strong>：在编辑过程中引用附件的能力（the ability to reference attachments）正在开发中。</li>
+<li><strong>图片较多的版面</strong>：对于图片密集型版面（image-heavy layouts）的处理效果，团队仍在持续优化改进。</li>
+<li><strong>独立定价</strong>：Brush 用于支持 Canva AI 的编辑功能，官方发布内容中未披露独立定价。</li>
+</ul>
+<p>作为首个版本，Canva 表示 Brush 的打造很大程度上基于观察自家内部团队的实际使用习惯与改进空间，后续也欢迎用户持续反馈。关于开放节奏，官方计划在未来扩大开放范围，但目前尚未公布具体日期。</p>
+<p>在整体产品方向上，Canva AI 采取将行业领先的合作伙伴模型与专为核心创意任务打造的自有专用模型相结合的策略。Brush 是推进该路线的关键一步；目前 Canva 正在准备下一代 Canva AI，未来的研发重点在于为用户提供更充分的创作控制权，更轻松地探索设计方向并精修画面细节。</p>
+</div><div><div><div>来源</div><div><span>Canva 发布 Brush：面向设计的视觉语言模型</span><span>Canva Research Team<span>·</span><a href="https://www.canva.com/newsroom/news/canva-brush/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/canva/status/2115885750013321704">Canva 官方发布帖与演示视频</a></div></div></div></div></div><div>
+<div>CANVA BRUSH · 设计编辑</div>
+<h1>Canva 发布专门的设计编辑与视觉语言模型 Brush：一句话修改整套设计，文字和图片还能接着改</h1>
+<div>在 Canva AI 里说出修改要求，Brush 用代码调整设计元素，再看页面继续改。完成后，文字、图像和布局仍可手动编辑。</div>
+<div>一页纸 · 先看懂怎么改，再看效果与边界</div>
+<p>想把一套六页演示文稿的标题字体换掉，人工往往要逐页选框。Brush 是 Canva 的首个设计视觉语言模型：它能结合画面与语言理解版面，尝试按一句话跨页修改。</p>
+<p>Canva Craft 负责生成独立图像；Brush 侧重完整设计的编辑，也能从空白页面创建设计。难点在于：<strong>改对要改的部分，同时尽量保留其余内容</strong>，实际使用仍没有零误改保证。</p>
+<div>核心机制</div>
+<h2>从一句要求，到可接着改的设计</h2>
+<div><p>例如输入：“把这六页的标题换一种字体。”以下用“换成较宽的字体”说明反馈过程，属于帮助理解的示例。</p></div>
+<div>
+<div><span>1</span><h3>看画面，理解指令</h3><p>识别当前设计结构，判断哪些标题需要换字体、哪些图文应保持原样。</p></div>
+<div><span>2</span><h3>写代码，改画布元素</h3><p>后台编写并运行代码，针对文字、颜色或布局元素执行调整。</p></div>
+<div><span>3</span><h3>看新页面，再决定怎么改</h3><p>查看渲染结果。例如新字体更宽、文字变挤，就可据此再调整间距或字号。</p></div>
+<div><span>4</span><h3>保留可编辑元素，人接续</h3><p>结果仍由文字、图像与布局元素组成。用户可追加指令，也可随时手动微调。</p></div>
+</div>
+<div>反馈回路：运行代码 → 查看页面 → 指导下一步调整；完成后由人继续。</div>
+<h2>它怎样学会排版与编辑</h2>
+<p>从一款开源模型起步，具体型号与参数未公开。Canva 用真实设计和编辑任务进行后训练，结合设计知识与<strong>选择加入改进计划的用户匿名洞察</strong>，再用大规模强化学习练习完整任务。</p>
+<p>专业设计师定义“好设计”的评估标准，关注视觉质量、布局原则和是否按要求完成任务；评估也参考设计库、编辑方式洞察与数十万次模拟交互。Canva Research 的 160 人团队还在同一周发布了 Craft；Craft 的图像生成榜单成绩不代表 Brush 的编辑性能。</p>
+<div>CANVA 官方内部对比</div>
+<h2>基线是自家上一版设计 Agent</h2>
+<div>
+<div><div>69%</div><p>通用设计编辑任务<br /><strong>官方称最高快 69%</strong></p></div>
+<div><div>46%</div><p>每次编辑任务<br /><strong>平台成本降低 46%</strong></p></div>
+</div>
+<p>这不是订阅降价。官方未披露绝对耗时、测试样本量；不能据此推算每次任务省多少秒。对于数亿用户的平台，单次任务的计算开销与等待时间会累积，专用模型的降本提速因此有实际意义。</p>
+<p>质量方面，Canva 内部评测称 Brush 在多数通用编辑任务中追平或超过上一版系统，风格重塑与格式适配尤为突出。发布材料里的六张图片与一段视频是官方界面、案例和演示，不能替代独立实测，也不能证明所有设计都能稳定复现。</p>
+<h2>现在怎样用，哪些仍要等</h2>
+<p><strong>目前面向 Canva Pro 订阅用户</strong>，只处理已受支持的设计编辑任务；官方未披露 Brush 的独立定价。</p>
+<div><p>进入 Canva AI → 打开受支持的项目，或附加／链接设计 → 在模型下拉菜单选 Brush → 输入要求 → 追加指令或手动接管。</p></div>
+<p>官方建议从三类任务尝试：重塑风格、跨页批量改标题或文案、把演示文稿重排为 Instagram 等渠道的新格式。</p>
+<div><p><strong>仍在开发：</strong>Brand Kit（品牌套件）支持、编辑时引用附件的能力。<strong>仍在优化：</strong>图片密集型版面的效果。扩大开放范围尚无具体日期。</p><p>Canva 计划继续结合合作伙伴模型与自有专用模型，并筹备下一代 Canva AI；更多控制与更易承受的成本是后续方向，不能当成首版已经兑现的能力。</p></div>
+</div></div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://www.canva.com/newsroom/news/canva-brush/">看原网页 ↗</a></p></div><div></div><div><div><h1>Introducing Canva Brush, a vision-language model for design</h1></div><div><h3>Starting today, Brush is powering supported design edits in Canva AI for Canva Pro subscribers, with expanded availability coming soon.</h3></div><div><p>Today, we’re unveiling Canva Brush, a new vision-language model for design, built by Canva Research. Brush sees your design, understands how it’s put together, and makes the changes you ask for, from a single line of copy to every slide in a deck.</p></div><div><p>Brush arrives just a week after our first image-generation model, <a href="https://www.canva.com/newsroom/news/canva-craft/">Canva Craft⁠(opens in a new tab or window)</a>, which made Canva the world’s second most advanced AI lab for image generation as measured by <a href="https://www.designarena.ai/leaderboard?tab=image">DesignArena⁠(opens in a new tab or window)</a>. Craft generates the image, and Brush refines the design around it. Both were developed by Canva Research, our 160-person AI lab, and reflect months of work on building AI products shaped around how people actually design.</p></div><div><p>As of today’s launch, it’s up to 69% faster for general design editing tasks and 46% lower cost per edit task compared to Canva's previous design agent, so you can workshop ideas at the speed of your imagination, speed up tedious edits, and keep your creativity flowing. Most importantly, these efficiency gains allow us to deliver a more powerful Canva AI experience to hundreds of millions of people, while making it more affordable and accessible to even more people around the world.</p></div><div><h3>Great design happens in the edit</h3></div><div><p>Generating high-quality designs is one of the biggest challenges for AI models, but editing them is even more complex. The model needs to understand what you want to change, how the design is structured, and just as importantly, what needs to stay exactly as it is. Otherwise, a simple edit request can result in a whole bunch of changes you didn’t ask for.</p></div><div><p>Within a prompt like, "make me a 3-page pitch deck for my bakery with art nouveau visuals and backgrounds,” there is a long chain of decisions for an agent to make. It needs to plan a narrative across pages, generate and place text, select imagery, and keep typography, colour, and spacing consistent from the first page to the last. Each decision is connected, and small missteps can add up to a design that’s off-brand or just simply feels off. It's the kind of thing you notice, even if you can't quite put your finger on why.</p></div><div><p>That’s exactly the challenge we’ve built Brush to solve. Rather than treating design as a series of isolated decisions, Brush can continually evaluate and improve its work, helping you take an idea from a rough sketch to a polished design that's ready to share. Behind the scenes, it uses an agentic loop that writes and runs code to adjust design elements, and can then inspect what’s happening on the page to guide its next step.</p></div><div><p>Everything Brush creates is fully editable, just like any other Canva design. Every element, from the text and imagery to the colours, layouts and finer details remains yours to edit, manipulate, and rearrange however you like. You’re always in complete creative control, with some extra assistance along the way.</p></div><div><h3>Unlocking state of the art quality and speed at Canva scale</h3></div><div><p>General purpose models have the scale and power to reason through design edits effectively, but that capability makes them more resource-intensive to run. With hundreds of millions of people creating billions of designs on Canva, even a few extra cents per task adds up quickly. That's why efficiency matters so much: we want to make the most powerful AI tools accessible to everyone, not just a small group of people.</p></div><div><p>Brush brings together the quality, speed and efficiency needed to make that possible. For our community, this means less waiting between an idea and its next version, and fewer back-and-forth to get things right.</p></div><div><p>A quick response is only useful if it gets you closer to the result you want. In our internal testing, Brush matched or exceeded the quality of our previous setup on most editing tasks, with particularly strong results in restyling designs and adapting them to different formats.</p></div><div><h3>Trained to support every step from draft to published design</h3></div><div><p>Brush started from a leading open-weights model, which we then post-trained on real design and editing tasks, drawing on a combination of design expertise and anonymised insights from people who opted in to help improve Canva AI. As a result, it understands not only what a finished result looks like, but also the steps needed to get there. We combined post-training with large-scale reinforcement learning, giving the model opportunities to work through complete design and editing tasks, learn from what worked, and continually shape its future behaviour.</p></div><div><p>A key part of this process is teaching the model what makes a great design. We’ve developed a reward system for reinforcement learning that evaluates the model’s work against a range of criteria including visual quality, how well the layout follows design principles, and whether the model completed the task as requested. This evaluation draws on our design expertise, our own library of designs, insights into how designs are edited, and hundreds of thousands of simulated interactions. Most importantly, our definition of what ‘good’ looks like is set by real professional designers on our team.</p></div><div><h3>How to use Canva Brush in Canva AI</h3></div><div><p>Starting today, Brush is powering supported design edits in Canva AI for people on Canva Pro plans, with wider availability coming soon. Just open an existing design in the editor, or attach or link to a design in Canva AI. To make sure Brush is powering your full editing experience, select 'Brush' from the dropdown list in Canva AI.</p></div><div><p>From there, you can keep giving direction through Canva AI or take over in the editor whenever you want to continue creating and refining by hand.</p></div><div><p>Here are a few ways to try it:</p></div><div><ul><li>Restyle an image: Explore a different visual direction for an existing design or image, like adjusting the colour scheme, changing the weather, or describing a different vibe.</li><li>Make a change across a multi-page design: Instead of scrolling through pages to change headers one by one, request a sweeping update in one prompt.</li><li>Remix assets for different channels: Repurpose a design for a new format, such as resizing a presentation slide to work as an Instagram graphic.</li></ul></div><div><p>This is the first version of Brush, and there’s plenty more to come. We’re already working on Brand Kit support, the ability to reference attachments, and improvements to how Brush handles image-heavy layouts. A huge part of building Brush has been observing how our own team uses it inside Canva, seeing what works, and finding opportunities to make it better. Now we’re excited to see what you create with it, hear what you love, and learn where we can keep improving.</p></div><div><h3>Powering the next generation of Canva AI</h3></div><div><p>Brush is another important step towards our vision for Canva AI, bringing together the best of leading partner models with our own specialised models built for the creative tasks at the heart of Canva. By making design editing faster, more efficient and more affordable without compromising on quality, we can bring increasingly powerful AI capabilities to more people around the world, helping everyone bring their ideas to life.</p></div><div><p>As we gear up to unveil the next generation of Canva AI, we’re focused on giving you more creative control, making it easier to explore ideas, experiment with different directions and refine every detail until it’s just right. Brush is a key part of making that possible.</p></div><div><p>To start working with Brush today, simply open your latest project or hop into Canva AI to start creating: <a href="https://www.canva.com/ai">canva.com/ai⁠(opens in a new tab or window)</a></p></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://www.canva.com/newsroom/news/canva-brush/">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Neuralink 首款产品 Telepathy（心灵感应）：用意念指挥 Grok Bot 干活 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/neuralink-72-hour-speech-hackathon/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:neuralink-72-hour-speech-hackathon</guid>
+<pubDate>Fri, 30 Oct 2026 12:00:21 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 为什么要坐在用户身边写代码 02 8 项改进怎样让交流更容易 03 从“能说出话”到“愿意每天用” AI 解读 / 产品动态 · 10-30 · 7 分钟 · 作者 Neuralink Neuralink 首款产品 Telepathy（心灵感应）：用意念指挥 Grok Bot 干活 工程师来到参与者家中，与语音研究参与者一起打磨 8 项改进：少按键、好改错、锁屏开口，还能把合成</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 30 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Neuralink 首款产品 Telepathy（心灵感应）：用意念指挥 Grok Bot 干活 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/neuralink-72-hour-speech-hackathon/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>为什么要坐在用户身边写代码</span></a><a><span>02</span><span>8 项改进怎样让交流更容易</span></a><a><span>03</span><span>从“能说出话”到“愿意每天用”</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>产品动态</a><i>·</i>10-30<i>·</i>7 分钟<i>·</i>作者 Neuralink</div><h1>Neuralink 首款产品 Telepathy（心灵感应）：用意念指挥 Grok Bot 干活</h1><p>工程师来到参与者家中，与语音研究参与者一起打磨 8 项改进：少按键、好改错、锁屏开口，还能把合成语音接入电话。</p><div><div>正文原文</div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Neuralink</span><span>10-30 · 7 分钟</span></div></div></div>
+<div><div><strong>一分钟速览</strong><ul><li>这次展示的核心，是把尝试说话时的脑信号解码成文字，再接入发声、手机输入与电脑任务。</li><li>8 项改进沿着一次交流展开：识别何时想说、观察信号、执行指令，再解决移动使用、输入、改错、锁屏和通话。</li><li>工程师与参与者一起试原型、当场改；完整影片记录了恢复独立接听电话的目标，工程师回顾称三天试了 30 多个 App 版本。</li></ul><div><blockquote>
+<p>“Neuralink 的首款产品名为 Telepathy（心灵感应）。它让人仅凭思考就能与电脑或他人进行高速沟通。几年之内，它的输出带宽将大幅超过人类最快的说话或打字速度。请把这句话再读一遍。”</p>
+</blockquote>
+<p>这是马斯克转发 Neuralink 最新开发记录时写下的话。Neuralink 研发的是植入式脑机接口（BCI）：用植入设备记录脑内的神经活动，让人通过这些信号操作电脑或与他人交流。Telepathy 是它的首款产品名称；这次展示的，是 VOICE 语音恢复临床研究中的一次实地开发。</p>
+<p>工程师来到有言语障碍的参与者 Kenneth 家中，与他和妻子一起工作了 72 小时，改进“尝试说话 → 解码成文字 → 由设备发声”的体验。让他少按一次按钮、直接在锁屏上发起交流，乃至自己接听电话，都是这场开发要解决的具体问题。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/neuralink-72-hour-speech-hackathon/musk-tweet-original.png" alt="马斯克转发 Neuralink 语音黑客松推文截图" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>马斯克转发 Neuralink 记录本次 72 小时开发的原帖。</span>
+</figcaption>
+</figure>
+<p>“几年内超过人类最快语速或打字速度”是马斯克的预测。这次记录里已经能看到的进展，是把脑机接口接入点咖啡、写文字、打电话这些日常动作。</p>
+<p>先看一次交流怎样发生：Kenneth 在大脑中尝试说出一句话，植入设备记录相关神经活动，解码模型把这些信号转换为文字。文字随后可以由 Bloom 手机应用合成为声音，也可以送入其他应用，或作为 AI 执行任务的指令。</p>
+<figure>
+<div>从尝试说话，到对方听见或电脑行动</div>
+<h3>同一段神经信号，经过不同环节</h3>
+<ol>
+<li><span>01</span><strong>尝试说话</strong><span>参与者主动尝试说出一句话</span></li>
+<li><span>02</span><strong>植入物记录信号</strong><span>记录与尝试说话相关的神经活动</span></li>
+<li><span>03</span><strong>检测何时说话</strong><span>轻量 CNN 估计说话意图，控制解码启停</span></li>
+<li><span>04</span><strong>解码为文字</strong><span>把神经活动转换为要表达的文字</span></li>
+</ol>
+<div>得到文字之后，接入具体用途 ↓</div>
+<div>
+<div><strong>让别人听见</strong><p>Bloom 合成语音，也可送入电话音频流。</p></div>
+<div><strong>在 App 中写字</strong><p>通过 iOS 键盘输入文字，再按需要修改。</p></div>
+<div><strong>让电脑做事</strong><p>把“Hey Neuralink ＋ 任务”交给 Grok Agent 执行。</p></div>
+</div>
+<figcaption>检测何时说话、解码文字、执行任务分别承担不同工作。Grok 接收的是解码后的指令。</figcaption>
+</figure>
+<h2>为什么要坐在用户身边写代码</h2>
+<p>语音脑机接口的输入信号是使用者自身的神经活动，而这些信号会随着疲劳程度、注意力以及想象说话的方式而发生变化。开始录音需要多久、修改错误是否方便、手机使用前是否需要先解锁，这些细节往往决定了一个工具是让人勉强忍受，还是愿意每天主动拿来交流。</p>
+<p>这类真实体验很难单纯依靠远程收集的数据与分析来评估。参与开发的工程师脑内没有植入设备，无法亲身体会软件设计带来的差异与阻碍，只有参与者本人能够感知。因此，最有价值的反馈往往来自直接坐在参与者身边，观察他在哪里出现迟疑、了解哪些地方让他感到不便，并迅速做出修改。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/neuralink-72-hour-speech-hackathon/blog-kitchen-collaboration.jpg" alt="Neuralink 工程师在参与者 Kenneth 家中协同工作" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>工程师在 Kenneth 家中共同测试与讨论。</span><br />
+    画面中 Kenneth 坐在轮椅上手持手机，右侧工程师手持笔记本电脑在一旁观察。
+  </figcaption>
+</figure>
+<p>在这场为期三天的黑客松中，团队来到临床研究参与者 Kenneth 的家中。工程师观察 Kenneth 使用设备的过程，在白板上梳理想法、做出原型，并在同一场景下直接由他上手测试，不好用的方案则迅速放弃。测试中双方约定了简单的手势反馈：竖起两个大拇指代表“完美（perfect）”，竖起一个大拇指代表“还行（good）”。</p>
+<p>在视频回顾里，工程师估计三天推进了约两到三周的工作，试了 30 多个 App 版本。这种面对面的快速迭代，让许多此前需要数周沟通的反馈回路缩短到了几个小时之内。</p>
+<figure>
+<figcaption><span>72 小时现场开发的完整回顾，约 4 分 39 秒，中英双语字幕。</span><br />可以看到参与者探索神经活动反馈、测试自动检测，以及团队为独立接听电话设计音频通路的过程。</figcaption>
+</figure>
+<h2>8 项改进怎样让交流更容易</h2>
+<p>团队在这次黑客松期间围绕日常沟通体验，尝试并推进了多项功能改进，部分功能在此后数周继续进行了迭代。以下是视频与官方博客记录的 8 项主要改进：</p>
+<h3>1. 神经活动语音检测：减少按键操作</h3>
+<p>以往的语音解码需要通过按按钮来开始和停止记录说话意图。团队开发了一套自动检测系统，用于识别使用者何时尝试说话、何时没有尝试说话，从而让应用能够自主开始和停止记录。</p>
+<figure>
+<figcaption>
+<span>轻量卷积神经网络实时判断尝试发声状态。</span><br />上方显示神经活动脉冲，下方动态输出模型预测的尝试说话概率，当参与者尝试动嘴构音时活动信号明显上升。
+  </figcaption>
+</figure>
+<p>工程师训练了一个轻量卷积神经网络（CNN），在后台实时预测使用者尝试说话的概率。演示界面上方显示采集到的神经脉冲，下方则实时显示模型预测出的概率值。当检测到说话意图时，系统便能自动触发和停止记录。减少对按键的依赖，是让言语障碍者实现免触控沟通的重要一步。</p>
+<h3>2. 实时神经活动可视化：协助自主探索信号</h3>
+<p>解码模型对使用者而言有时像一个黑盒子，但模型的输入完全取决于植入设备采集到的神经信号。为了摸索哪些预期的动作或发音想象能产生更强的神经活动，团队为 Kenneth 提供了多种实时可视化界面。</p>
+<figure>
+<figcaption>
+<span>工程师向参与者展示两套实时神经数据栅格视图。</span><br />左侧以首次打开时的静态基准窗口做归一化并随时间滚动；右侧基于滚动窗口实时更新瞬时信号强度。
+  </figcaption>
+</figure>
+<p>屏幕左侧把神经活动随时间的变化滚动展开，右侧展示各通道接近当前瞬间的强弱。为了让变化看得更清楚，两幅图都把信号与一个参考水平比较：左侧固定使用刚打开界面时采集的一屏数据，右侧的参考水平则持续滚动更新。因此，颜色明暗表示相对活动强弱，并不直接表示解码准确率。</p>
+<p>在完整现场影片里，Kenneth 看着反馈尝试不同动作和发音方式，工程师也辨认出他动口型时的活动；团队还试了被称为“派对模式”的显示效果。有了实时视觉反馈，参与者可以自主摸索何种方式能激发出更明显的信号，而不再只是被动等待工程师调整模型。</p>
+<h3>3. 电脑操作 Agent：通过指令执行任务</h3>
+<p>除了发声交流，团队还希望探索借助意念操作电脑。团队在笔记本电脑上接入了 Grok Agent 的原型功能。</p>
+<figure>
+<figcaption>
+<span>通过发声意图唤起电脑端 Grok Agent。</span><br />参与者发出“Hey Neuralink 帮我在 YouTube 找个喂养吉娃娃的视频”指令，电脑上的 Agent 自主打开浏览器并搜索相关视频。
+  </figcaption>
+</figure>
+<p>Kenneth 在脑海中尝试说出唤醒词“Hey Neuralink”及具体需求，设备将意图解码为任务文本后，由电脑后端的 Grok Agent 自主执行操作。在现场演示中，Kenneth 让它在 YouTube 上找一个喂养吉娃娃狗的视频，电脑随后自动打开并展示了相关页面。这一步把脑机解码出的指令接到了软件操作上：参与者提出要找什么，Grok 再完成查找。</p>
+<h3>4. 移动应用 Bloom：在公共场所点咖啡</h3>
+<p>在黑客松之前的几个月里，Neuralink 已经投入大量精力开发名为 Bloom 的移动应用，旨在让语音脑机接口更便于日常使用。黑客松为团队提供了观察其在实验室之外实际使用情况的机会。</p>
+<figure>
+<figcaption>
+<span>在公共场所借助 Bloom 移动应用完成饮品点单。</span><br />参与者在柜台通过脑机发声完成点单问答（点单南瓜香料拿铁并确认超大杯）。
+  </figcaption>
+</figure>
+<p>在公开演示中，Kenneth 在公共场所使用手机上的 Bloom 点了一杯南瓜香料拿铁（pumpkin spice latte）；当对方询问杯型时，他继续通过应用回答需要超大杯（venti）。现场观察真实的使用过程，有助于团队发现实际交互中的卡点并针对性改进。</p>
+<h3>5. 系统键盘集成：直接向任意应用输入文本</h3>
+<p>对于言语或肢体活动受限的人士，标准键盘和系统自带听写往往很难使用。如果脑机输入只能停留在专属应用里，用户就需要反复复制粘贴。</p>
+<figure>
+<figcaption>
+<span>在备忘录中调用 Bloom 键盘进行听写。</span><br />活动中开发的键盘输入功能，录屏展示了此后数周进一步迭代后的操作界面。
+  </figcaption>
+</figure>
+<p>团队制作了 iOS 键盘集成，直接把基于脑机接口的听写文字送入任意应用程序，减少了在不同模式或应用之间来回切换的麻烦。在黑客松后数周进一步迭代的录屏中，Kenneth 在备忘录中调出该键盘，直接输入了一句关于鸡蛋价格比超市自有品牌贵得多的文字。</p>
+<h3>6. 编辑流程：缩短改错时间</h3>
+<p>解码模型难免会出现错误，改错所需的时间（time-to-edit）对输入体验至关重要，团队的目标是尽可能缩短这一时间。</p>
+<figure>
+<figcaption>
+<span>在键盘中修改已解码的文字。</span><br />活动中开发的编辑功能，录屏展示了此后数周进一步迭代后的修改界面。
+  </figcaption>
+</figure>
+<p>团队尝试了几种将建议词与键盘结合的编辑界面，方便用户在任意应用中快速修改文本。在黑客松后数周继续迭代的演示中，使用者利用键盘将原本关于鸡蛋价格的陈述句直接改成了疑问句（将“它们比超市自有品牌贵多了”改为“它们比超市自有品牌贵很多吗”）。允许局部修改而不需要把整句话全部重新输入，大幅减少了修正文字时的操作成本。</p>
+<h3>7. 锁屏实时活动：免解锁发起交流</h3>
+<p>发起对话不应该每次都要求先解锁手机并打开应用。团队利用 iOS 的实时活动（Live Activity）功能，把 Bloom 的状态与快捷入口放在锁屏界面上。</p>
+<figure>
+<figcaption>
+<span>通过锁屏实时活动启动语音功能。</span><br />活动中开发的锁屏集成，录屏展示了此后数周进一步迭代后的界面；画面中仍包含点按“Tap to record”的操作。
+  </figcaption>
+</figure>
+<p>在黑客松后继续迭代的录屏中，使用者无需解锁手机，直接在锁屏界面点击“轻触录音（Tap to record）”即可开始记录说话意图，从而减少开启交流的操作步骤。</p>
+<h3>8. 电话通话集成：让语音直接进入通话</h3>
+<p>电话是日常交流的重要途径。在拍摄这段视频时，Kenneth 接听电话还需要妻子 Cheryl 的协助。</p>
+<figure>
+<figcaption>
+<span>脑机接口生成语音直接注入 iPhone 通话麦克风音频流。</span><br />参与者与妻子通过电话交流（商量晚餐吃韩餐、开玩笑说不用妻子再帮忙传话），对方能够听到清晰稳定的音频。
+  </figcaption>
+</figure>
+<p>团队将 Bloom 生成的语音直接接入 iPhone 通话的麦克风音频流中。实现这一功能需要同时兼顾三件事：把应用生成的语音送入对方听到的音频流、让 Kenneth 本人清楚自己正在说什么，同时避免在通话中产生重复的回声。此外，团队还测试了可选的通话开场问候语（例如提示“本通电话来自辅助沟通设备使用者”）。</p>
+<p>Kenneth 与妻子 Cheryl 当初正是通过电话建立起感情的。在通话测试中，Kenneth 通过设备对妻子说，也许以后由自己来接电话会更好，妻子也打趣说这样不用帮忙传话会轻松不少；两人还聊到挂断电话做晚饭、吃韩餐，像普通夫妻一样闲聊、逗趣。这里最有分量的变化，是让原本需要家人代为接听、传话的交流，有机会由 Kenneth 自己完成。</p>
+<h2>从“能说出话”到“愿意每天用”</h2>
+<p>这场为期三天的实地开发，给团队带来了两个核心体会：</p>
+<p>一是便利性不仅取决于背后的解码算法。从减少按键、锁屏直接发起，到更方便地修改错误、把语音直接送入电话通话，每个交互环节上的细节，都在决定使用者是否愿意在日常生活中每天使用它。</p>
+<p>二是真实使用者的参与是推动技术改进的关键。在整个过程中，Kenneth、他的妻子以及照护者都是紧密的合作者：他们开放了家庭环境，提供直率的反馈，提出实际需求，并推动工程团队不断修正方案。对工程师而言，能够亲眼看到使用者用当天做出的功能与家人交谈，也是持续推进这项工作最直接的动力。</p>
+<p>Neuralink 设备仍处于研究阶段，尚未获得 FDA 或其他监管机构批准。本次展示的是一位自愿临床研究参与者的个人体验。</p>
+</div><div><div><div>来源</div><div><span>Neuralink：72小时语音脑机接口开发主题帖</span><span>Neuralink<span>·</span><a href="https://x.com/neuralink/status/2115878416423784939">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://neuralink.com/updates/72-hour-voice-hackathon/">A 72-Hour Engineering Sprint for Translating Thought to Speech</a><span>·</span><a href="https://x.com/elonmusk/status/2116018780111597911">Elon Musk：Telepathy 与未来沟通带宽</a></div></div></div></div></div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://neuralink.com/updates/72-hour-voice-hackathon/">看原网页 ↗</a></p></div><div></div><div><div><p>Our engineers recently visited one of our VOICE study participants for a 72-hour hackathon. This blog post highlights some of the things we built.</p></div><div><p>Neuralink's website stores data in your browser to function. If you click Accept All, we will store some additional data to improve the website by learning how visitors use it.</p></div><div><p>You can change your settings anytime by clicking the button in the main website footer.</p></div><div><figure><div></div></figure></div><div><figure><div></div></figure></div><div><figure><div></div></figure></div><div><figure><div></div></figure></div><div><figure><div></div></figure></div><div><figure></figure></div><div><figure></figure></div><div><figure></figure></div><div><figure><div></div></figure></div><div><p>Engineering October 29, 2026 6 min read A 72-Hour Engineering Sprint for Translating Thought to Speech Our engineers recently spent 72 hours with a participant in our VOICE study, at his home, for a hackathon. The goal was simple: rapidly prototype as many features as possible to improve the experience of using Neuralink to communicate with thought, and test every one of them with the end user. Why build next to the user The input to a speech brain-computer interface (BCI) is a person’s own neural activity, which varies with fatigue, attention, and the way someone imagines speaking. Small details like how long it takes to start a recording, how easy it is to fix a mistake, or whether the phone needs to be unlocked first can be the difference between a tool someone tolerates and a tool someone reaches for every day. This can be challenging to assess purely from virtually collected data and analytics, and it is not something we can simply try for ourselves. None of the engineers building this software have an implant, so we cannot feel the difference between a good design and a frustrating one; only our participants can. The highest signal often comes from sitting next to a participant, watching where they hesitate, hearing what frustrates them, and shipping a fix shortly afterwards. Working side by side with a participant compressed weeks of feedback loops into hours. Ideas went from whiteboard to prototype to real-world test in a single sitting, and the ones that did not work were discarded just as quickly. Here is some of what we built. 1. Neural voice activity detection Speech decoding used to require pressing a button to start and stop recording. We built a system that automatically detects when a user is and is not trying to speak, so the app can start and stop on its own. This is a big step towards making communication completely hands-free for people with speech impairment. 2. Real-time neural visualizations One of the hard problems in BCI is figuring out which intended or imagined actions produce the strongest neural activity, since that directly affects decoder performance. We built visualizations that give participants real-time feedback on the intensity and distribution of signals detected by the implant. Our participant used them to test different imagined speaking patterns and see which ones recruited the most activity, turning model tuning into something closer to a game. 3. A computer use agent We prototyped a way for users to trigger a Grok agent by thinking of saying “Hey Neuralink” followed by a task, which the agent then carries out autonomously on the computer. It is an early illustration of how increasing the bandwidth between the brain and computers could help close the gap between thought and action. 4. A mobile app for speech BCI Over the last few months, we have put significant effort into Bloom, our mobile app designed to make speech BCI more accessible. The hackathon was a chance to watch Bloom in daily use, outside the lab, and fix what got in the way. 5. Keyboard dictation with BCI Standard keyboards and built-in dictation can be difficult or impossible for people with ALS to use. We built an iOS keyboard integration that routes BCI-based dictation into any app, streamlining text entry and reducing the need to switch between modes. 6. A faster editing flow Decoders are not perfect, and mistakes can be awkward or costly. Driving time-to-edit toward zero is crucial for dictation. To do this, we iterated on several editing interfaces that integrate our own suggestions into the keyboard and let users quickly correct text in any app. There is still more to optimize, but the result is a dramatic improvement over the first version of Bloom. 7. Lock screen Live Activity Starting a conversation should not require unlocking a phone and opening an app. We added Bloom as a Live Activity so speech can begin right from the lock screen, with at-a-glance status and quick controls. The goal is to drive everyday communication friction toward zero. 8. Phone call integration Voice calls are an essential part of daily life. We integrated Bloom with iPhone calling so BCI-generated speech is injected directly into the call’s microphone stream, giving the person on the other end clear, consistent audio. We also tested an optional greeting at the start of calls, such as “This call is from someone using an assistive communication device.” This one meant a lot to the team. Our participant and his wife started their relationship over phone calls, and watching the two of them joke with each other on the phone again was one of the most memorable moments of the week. What we took away The features matter, but the bigger lesson is about how we work. When engineers build next to the people they are building for, priorities become clearer as they observe first-hand where the user experience shines and where it needs to be improved. And the motivation is hard to overstate: there are few things in engineering as rewarding as watching someone use something you built that morning to talk to the people they love. Our participant, along with his wife and caregiver, were integral collaborators in the process; opening up their home, giving candid feedback, suggesting ideas, and pushing the team to go further. Join us The hackathon is over, but we are just getting started. The list of things we want to improve and build keeps growing. We need exceptional engineers across machine learning, software, and many other disciplines to help shape a technology that will transform human interaction and advance human agency in an era of AI. If this resonates, visit neuralink.com/careers. <em>Neuralink devices are investigational and have not been approved by the FDA or other regulatory authorities. This post features a voluntary clinical trial participant sharing his personal experience, which may not reflect all participants or future outcomes.</em></p></div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://neuralink.com/updates/72-hour-voice-hackathon/">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Claude Code工程师：你可能给 Claude 写了太多提示词：哪些该删，哪些要讲清楚 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/claude-overprompting/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:claude-overprompting</guid>
+<pubDate>Fri, 30 Oct 2026 12:00:21 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 先让 Claude 知道，怎样才算做完 02 还没想清楚，就先把需求问明白 03 旧指令该删哪些，实际跑一次再决定 04 子 Agent 能分工，也会增加交接 05 单个任务能跑通，再决定在哪里并行 06 把实现过程交出去，把独立审查留下 07 换了模型，也重新检查工作方法 AI 解读 / 洞察 · 10-30 · 12 分钟 · 作者 Addy Osmani Claude C</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 30 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Claude Code工程师：你可能给 Claude 写了太多提示词：哪些该删，哪些要讲清楚 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/claude-overprompting/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>先让 Claude 知道，怎样才算做完</span></a><a><span>02</span><span>还没想清楚，就先把需求问明白</span></a><a><span>03</span><span>旧指令该删哪些，实际跑一次再决定</span></a><a><span>04</span><span>子 Agent 能分工，也会增加交接</span></a><a><span>05</span><span>单个任务能跑通，再决定在哪里并行</span></a><a><span>06</span><span>把实现过程交出去，把独立审查留下</span></a><a><span>07</span><span>换了模型，也重新检查工作方法</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>洞察</a><i>·</i>10-30<i>·</i>12 分钟<i>·</i>作者 Addy Osmani</div><h1>Claude Code工程师：你可能给 Claude 写了太多提示词：哪些该删，哪些要讲清楚</h1><p>Addy Osmani 建议重新检查旧模型时代的指令：把目标与检查方法交代好，再考虑子 Agent、云端运行和项目协调。</p><div><div>正文一页纸原文</div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Addy Osmani</span><span>10-30 · 12 分钟</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>Claude Code 能自己修改文件并读回检查结果；讲清目标和验收方法，比反复催它认真思考更有用。</li><li>删指令要用同一个任务比较，业务规则、具体偏好和权限要求仍需要明确提供。</li><li>先让一项任务能带着证据交付，再增加并行会话；更多 Agent 不会自动带来更好的结果。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/claude-overprompting/social/zh-031dd70d7aa3.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>Claude Code 能在终端里读取项目文件、修改代码、运行命令。你提出任务，它可以通过工具去执行，再读回执行结果，决定下一步做什么。</p>
+<p>在 Anthropic 从事 Claude Code 工作的 Addy Osmani 最近提出一个建议：用新模型时，重新检查那些越写越长的提示词。过去为了弥补模型不足而增加的指令，现在可能已经用不上；但业务背景、具体偏好和完成标准，仍要讲清楚。</p>
+<p>他引用的一个结果很有分量：针对 Claude Opus 5 和 Fable 5 等模型，Claude Code 删去了超过 80% 的系统提示词，其编码评测没有出现可测量的下降。这是团队对自身系统指令的调整，不能换算成用户也该删掉八成规则。</p>
+<p>这套建议的重点，是把“告诉 AI 怎么想”的精力，转向说明要完成什么、怎样检查、什么时候需要人作决定。它也延伸到子 Agent 分工、云端任务和代码审查。</p>
+<h2>先让 Claude 知道，怎样才算做完</h2>
+<p>假设你的网站在手机上点不开菜单。只说“帮我修好”，Claude 需要自己猜：要修哪个行为，哪些样式可以动，拿什么判断修好了。</p>
+<p>Addy 建议，把完整任务和完成标准一起交给模型。你可以先从 <code>/effort medium</code> 起步，再根据任务调整思考力度。这个命令用于 Claude Code 会话，表示使用中等思考力度，并不是所有任务的最佳固定设置。</p>
+<p>在已经打开目标项目的 Claude Code 会话中，可以发送这样的请求。以下为自拟教学提示词，英文为对应译文，任选一种语言发送。</p>
+<p><strong>中文：</strong></p>
+<div><pre><code>修复当前网站手机端菜单无法展开的问题，保留现有配色与字体。
+先查看项目已有的测试入口和运行方式，再修改相关代码，不要编造测试文件名或命令。
+完成后，运行与这次修改相关的现有测试；用390px宽的浏览器页面检查：按钮能打开和关闭菜单，表示展开状态的 aria-expanded 属性随之更新，菜单关闭后正文没有被遮挡。
+交付时给我实际执行的命令、完整结果、页面截图和代码改动差异。
+常规读取、修改与检查可以继续做，不需要逐步等我确认；需要新的访问凭据、无法排除的需求冲突或破坏性操作时先问我。不要直接部署。
+</code></pre></div>
+<p><strong>英文译文：</strong></p>
+<div><pre><code>Fix the mobile menu that fails to open on the current website. Preserve the existing colors and fonts.
+Inspect the project's existing test entry points and run instructions before changing the relevant code. Do not invent test filenames or commands.
+After making the change, run the relevant existing tests. In a browser at a viewport width of 390px, verify that the button opens and closes the menu, the aria-expanded attribute updates with the open state, and the closed menu does not obscure the page content.
+Report the commands you actually ran, their full results, page screenshots, and the code diff.
+Continue routine reading, editing, and verification without waiting for approval at each step. Ask me before using new access credentials, resolving a requirement conflict you cannot settle, or taking a destructive action. Do not deploy.
+</code></pre></div>
+<h3>检查结果怎样变成下一步动作</h3>
+<p>这段请求让“修好”有了可观察的含义。菜单出现还不够：它必须能关上，状态属性要同步，关闭后也不能留下遮挡正文的层。</p>
+<p>Claude 可以通过工具修改项目、运行检查，再读取工具返回的结果。假设第一轮检查发现菜单能展开，但表示展开状态的属性仍然没有更新，这个具体报错就成为下一轮修改的依据。模型据此调整相关代码，再运行检查，你不用每次手动复制报错给它。</p>
+<p>这个过程反复进行：<strong>改动 → 检查 → 读取失败反馈 → 再改动</strong>。检查通过以后，才有对应的结果可供交付。它能检查什么，取决于工具是否可用、环境和权限是否允许；缺少测试入口或访问条件时，也可能需要先补齐这些条件。</p>
+<p>Claude 通常会在自己认为任务完成时停下。可读的通过/失败结果，或一个需要达到的数值目标，给模型提供了判断下一步的依据。检查只覆盖它实际测过的内容，因此还要核对交付证据是否兑现了原始需求。</p>
+<div>
+<div>一个修手机导航的教学示意 · 不运行模型</div>
+<h3>检查结果，决定下一步</h3>
+<p>同一项任务：手机菜单能够开关，展开状态正确，正文不被遮挡。改变检查结果，看任务该继续、交付还是等待条件补齐。</p>
+<div>
+<div><span>交代任务</span><b>目标与验收</b><span>说明要修什么、如何检查</span></div>
+<div><span>执行</span><b>读取并修改文件</b><span>工具把修改与运行结果交回</span></div>
+<div><span>检查</span><b>检查失败，有报错</b><span>读取结果，判断是否满足目标</span></div>
+<div><span>交付</span><b>报告结果与证据</b><span>命令输出、截图和代码差异</span></div>
+</div>
+<div>↶ 检查失败 → 读报错 → 返回修改，再检查</div>
+<div>
+失败，有报错
+通过，有证据
+无法执行检查
+</div>
+<p>有可读的失败反馈，Claude 才能据此分析并尝试修正。继续执行仍受工具访问、权限和预算等条件限制。</p>
+<p>有验收方法，才有可核对的完成依据。检查只能证明它覆盖的内容；页面是否符合你的需求，仍需验收。</p>
+</div>
+<h3>少一些确认弹窗，仍要查看交付证据</h3>
+<p>Claude Code 的 auto mode 会用分类器检查准备执行的动作，减少常规操作的确认弹窗，尝试拦截风险动作。官方说明面向 Pro、Max 和 Team 的默认会话设置；Enterprise、API 等环境有各自的启用和管理规则。</p>
+<p>自动审核仍可能判断出错。任务结束时，让 Claude 展示实际命令与输出、截图及代码差异，能帮助你确认它做了什么、哪些检查确实执行过。减少逐步确认以后，交付证据依然重要。</p>
+<h2>还没想清楚，就先把需求问明白</h2>
+<p>有时困难发生在写代码之前：你还没决定手机菜单里放哪些入口、哪些用户能看到、打开和关闭时应该怎样表现。继续追加零散指令，可能让前后要求相互冲突。</p>
+<p>Addy 建议，先让 Claude 采访你，直到能写出一份需求规格，再拿定稿规格开新会话执行。规格就是把准备做什么、哪些规则必须满足、怎样验收写成一份可反复查看的说明。</p>
+<p>在前面的导航任务里，可以先发送这段自拟请求。英文为对应译文，选一种发送。</p>
+<p><strong>中文：</strong></p>
+<div><pre><code>我想调整当前网站的手机导航，但还没想清楚菜单内容、用户权限和交互细节。
+请向我提问，直到你有足够信息写出需求规格。遇到我还没决定的问题，先列出来，不要替我编造业务规则，也先不要修改实现。
+讨论完成后，整理目标、范围、业务规则、具体偏好、验收方法和未决问题，给我确认。
+确认后，将定稿保存为当前项目仓库里的 spec.md，并告诉我实际保存路径。
+</code></pre></div>
+<p><strong>英文译文：</strong></p>
+<div><pre><code>I want to change the mobile navigation on the current website, but I have not settled the menu content, user permissions, or interaction details.
+Interview me until you have enough information to write a specification. List unresolved decisions instead of inventing business rules. Do not change the implementation yet.
+When the discussion is complete, summarize the goal, scope, business rules, specific preferences, acceptance checks, and open questions for my confirmation.
+After I confirm it, save the final specification as spec.md in the current project repository and report the actual path.
+</code></pre></div>
+<h3>让新会话明确拿到定稿规格</h3>
+<p>确认 <code>spec.md</code> 写明了目标、必要规则和验收方法以后，在同一个项目目录打开新会话，并明确让它读取这个文件。新会话不应依赖你在旧聊天里说过的话；文件提供了可重新读取的定稿依据。</p>
+<p>执行阶段可以发送下面这段自拟请求。英文为对应译文，选一种发送。</p>
+<p><strong>中文：</strong></p>
+<div><pre><code>先读取当前项目仓库的 spec.md，按其中已确认的需求完成修改并执行验收。
+若文件不存在、仍有会阻碍实现的未决问题，或当前代码与规格存在冲突，先告诉我具体位置，不要猜测旧会话的内容。
+完成时给出实际改动、运行的检查、结果和未能验证的项目；不要直接部署。
+</code></pre></div>
+<p><strong>英文译文：</strong></p>
+<div><pre><code>Read spec.md in the current project repository first. Implement the confirmed requirements and run the acceptance checks it defines.
+If the file is missing, contains an unresolved decision that blocks implementation, or conflicts with the current code, identify the specific issue instead of guessing what was discussed in an earlier session.
+Report the changes, checks actually run, their results, and anything you could not verify. Do not deploy.
+</code></pre></div>
+<p>如果用的是纯聊天界面，没有文件读写能力，就复制定稿规格到新会话。这个做法把前期讨论中的已放弃方案留在旧会话里，让执行会话集中读取确认后的要求；需求已经明确的小任务，也可以直接在当前会话完成。</p>
+<h2>旧指令该删哪些，实际跑一次再决定</h2>
+<p>Addy 引述的内部结果是：在针对 Claude Opus 5 与 Fable 5 等模型的内部迭代中，<strong>Claude Code 的系统提示词被砍掉了 80% 以上，而其官方编程基准评测（Coding Evals）没有任何可测量的下降</strong>。</p>
+<p>这个结果没有测量普通用户的提示词，不能据此承诺你的规则删掉八成也能保持效果。</p>
+<p>系统提示词是产品给模型的长期工作指令，和你交代某次任务的背景、目标有不同作用。检查自己的指令时，也要分清它究竟在补充什么信息。</p>
+<h3>先试着减少重复的催促和安排</h3>
+<ul>
+<li><strong>重复催促思考</strong>：Opus 5.5 在回复前已经会思考。官方指南建议删去“think carefully”“think step by step”之类句子；其聊天产品测试中，删去一句“think carefully”后，回复开始得更快，质量没有明显下降。这个观察不能推广成所有任务都不受提示写法影响。</li>
+<li><strong>已经没有用途的汇报要求</strong>：检查每一条格式规定是否服务当前交付。需要结构化输出供程序读取时，格式就是必要要求；仅因过去某次回答不理想而永久追加的规则，可以拿出来重新测试。</li>
+<li><strong>过细的任务安排</strong>：一个小修改也强制经历规划、执行、检查等多个独立角色，会增加模型调用和信息交接。先确认这种安排解决了什么实际问题，再决定是否保留。</li>
+</ul>
+<h3>业务规则、验收方法和具体偏好仍要交代</h3>
+<ul>
+<li><strong>真实的业务背景与领域不变式</strong>：例如“超过业务规定金额的退款要先交人工确认”、“导出的用户手机号必须脱敏”。这些规定来自你的业务，模型无法凭能力推断出你没提供的信息。</li>
+<li><strong>明确的可执行验证命令</strong>：例如编译检查命令、特定单元测试套件、Lint 校验脚本。</li>
+<li><strong>排他性偏好（Negative Constraints）</strong>：Addy 在官方指南中特别提醒，面对设计或页面需求时，宽泛地说“避免平庸风格”只会让模型从一种默认模板跳到另一种默认模板。<strong>更有效的做法是明确写出你“不想要”的元素</strong>，例如：<em>“不要使用米白色背景、不要在标题中使用斜体强调词、不要使用 01/02/03 数字序号标签、不要使用药丸状圆角按钮”</em>。明确列出排他项，模型更容易避开你不接受的具体元素。</li>
+<li><strong>操作权限和需要询问的边界</strong>：写清哪些操作需要你先确认，例如强制推送代码和清空数据库。</li>
+</ul>
+<div><div>删改对照 · 自拟教学示例</div><h3>删掉一句，看看少了什么</h3><p>勾选表示暂时删去对应句子。右侧直接显示剩余的请求，观察目标、验收、偏好和权限信息是否还在。这个演示不预测模型速度或质量。</p><div><div><span><b>目标</b><span>修复网站手机端菜单无法展开的问题。</span>提供要完成的事</span><span><b>思考催促</b><span>请认真思考，一步一步思考，再认真检查。</span>Opus 5.5 可先尝试删去重复催促</span><span><b>过程安排</b><span>每改一行都先停下来等我同意。</span>是否保留，取决于你要结对操作还是自主执行</span><span><b>验收</b><span>检查手机端菜单开关、展开状态与正文遮挡，给出命令结果和截图。</span>提供检查对象和交付证据</span><span><b>具体偏好</b><span>保留网站现有配色和字体。</span>提供模型无法替你决定的偏好</span><span><b>权限边界</b><span>不要直接部署；需要访问凭据时先问我。</span>提供这次任务的授权范围</span></div><div><div>删改后的完整请求</div><pre>修复网站手机端菜单无法展开的问题。
+请认真思考，一步一步思考，再认真检查。
+每改一行都先停下来等我同意。
+检查手机端菜单开关、展开状态与正文遮挡，给出命令结果和截图。
+保留网站现有配色和字体。
+不要直接部署；需要访问凭据时先问我。</pre><p>目前保留全部句子。可以先试着删去思考催促，再用同一个真实任务观察是否有遗漏。</p></div></div><p>官方删去超过 80% 系统提示词的结果，不是用户指令的删减目标。是否保留某句，最终要用任务表现来判断。</p></div>
+<h3>删一部分，观察遗漏，再补回需要的规则</h3>
+<p>怎么知道哪些属于该删的旧指令？Addy 推荐采用三步循环法：</p>
+<ol>
+<li><strong>删除一部分怀疑过时的指令（Remove some）</strong>；</li>
+<li><strong>观察模型在实际任务中是否真的遗漏（See what it misses）</strong>；</li>
+<li><strong>只针对模型确实会漏掉的地方精准加回（Add back only those）</strong>。</li>
+</ol>
+<figure>
+<div>
+<p>用任务表现校准指令</p>
+<h3>删一点，试一遍，只补真正缺的</h3>
+<div>
+<ol>
+<li><span>1</span><b>先删一部分</b><p>挑出怀疑过时的指令，其余任务要求先保留。</p></li>
+<li><span>2</span><b>用同一个任务观察</b><p>按原来的验收方法检查，看它有没有漏掉要求。</p></li>
+<li><span>3</span><b>只补回缺的规则</b><p>出现哪项遗漏，就补能解决它的指令。</p></li>
+</ol>
+<div><span>继续调整；换模型后再走一轮</span></div>
+</div>
+<p><span>第 2 步未发现遗漏</span><span> → </span>先保留精简版，不为凑长度加回旧规则。</p>
+<div><span>仍然检查原来的导航任务</span><span>菜单能否开关</span><span>展开状态是否同步</span><span>正文是否被遮挡</span></div>
+</div>
+<figcaption>依据原文三步循环中文重绘。比较的是同一任务的完成情况，不把删掉的字数当作效果指标。</figcaption>
+</figure>
+<p>在 Claude Code 工具链中，可利用 <code>/doctor prompt-audit</code> 命令（该子命令要求 Claude Code v2.1.283 及以上），它能自动扫描你的项目说明文件（如 <code>CLAUDE.md</code>）或提示词，标记出那些专门为老模型编写的冗余过时指令，并提供优化修改建议。</p>
+<h2>子 Agent 能分工，也会增加交接</h2>
+<p>子 Agent 是由主 Agent 分配工作、在自己的一段上下文中处理任务的独立会话。它可以同时调查另一条问题，也可以在没看过实现讨论的情况下审查结果。</p>
+<p>Addy 提醒，小任务拆给多个子 Agent，会增加成本和等待时间。它们可以并行干活、提供第二意见，但数量增加并不自动提高质量。</p>
+<p>每个子 Agent 都有独立的上下文窗口，也就是它在处理任务时能读到的信息。主 Agent 交过去一份任务，子 Agent 再返回结果；中间若依赖摘要，可能漏掉后续步骤需要的细节。独立审查则利用了这种分隔：审查者按规格重新看结果，而不必沿着实现者的讨论过程下结论。</p>
+<a href="https://xiaohu.ai/article/claude-fold-subagents/"><span>延伸阅读 · 怎样划分 Agent 的工作</span><strong>Anthropic 官方指南：随着模型能力的提升，很多子 Agent 其实可以换成技能和工具</strong><span>进一步理解共享上下文、技能按需加载，以及哪些独立工作值得保留子 Agent。</span><b>阅读介绍文章 →</b></a>
+<p>在实际使用中，我们该如何划定子 Agent 的边界？</p>
+<ul>
+<li><strong>无需手动指派子 Agent</strong>：新版 Claude 会在需要时自主派发后台任务，你通常不需要刻意去构造复杂的编排提示。</li>
+<li><strong>适合交给子 Agent 的独立工作</strong>：体量较大、边界清晰、适合并行的工作，例如全仓库范围的漏洞排查（Security Audit）、跨几十个微服务的文件迁移（Migration）。拆分时要交代各自检查的范围、必要背景和返回证据；依赖较少的子任务更容易并行，最终仍需核对汇总结果。</li>
+<li><strong>也可以先尝试一个 Agent 配合技能和工具</strong>：让同一个 Agent 持续处理任务，按需使用技能和工具。技能存放处理某类任务的具体流程，需要时再读；工具负责查询或执行操作。同一个 Agent 可以保留用户要求和工具结果，减少摘要交接。Anthropic 在几家企业部署的对比中发现，这种方式经常有更好的质量和成本表现；是否适合自己的任务仍需比较。</li>
+</ul>
+<h2>单个任务能跑通，再决定在哪里并行</h2>
+<p>同时运行多个会话时，你需要给每个会话交代目标、跟进结果并处理提问。单个会话若还离不开你持续补充指令，多开几个也会增加需要你处理的中断。</p>
+<p>Addy 的建议是：<strong>只有当单次会话能够脱离人工干预独立完成交付时，并行才有意义（Parallel sessions only pay off once a single session can finish without you）</strong>。</p>
+<h3>电脑合上还能工作，靠的是任务运行在云端</h3>
+<p>在 Claude Code 中，任务可以在本机终端运行，也可以启动云端会话（Cloud Sessions）：</p>
+<ul>
+<li><strong>留在本机终端</strong>：如果任务高度依赖你电脑独有的环境资源——例如挂在本地私有网络后的数据库、本机设备或移动端模拟器、需要频繁查看本地浏览器渲染效果的极短反馈回路。</li>
+<li><strong>派发到云端沙箱（<code>claude --cloud</code> 或网页/手机端）</strong>：
+<ul>
+<li>云端会话运行在由官方托管的独立虚拟机（VM）中，拥有独立的 CPU、内存与隔离环境。</li>
+<li><strong>重要操作注意</strong>：因为云端 VM 会重新克隆你的代码仓库，<strong>在运行 <code>claude --cloud</code> 派发任务前，需要先将本次任务需要的本地提交推送到 GitHub（Push your commits first）</strong>！否则云端 VM 拿到的是落后的代码。</li>
+<li><strong>合上电脑去喝咖啡</strong>：云端任务不会因为你的笔记本休眠或断网而中断。你可以随时在手机端 Claude App 里查看进展、解答它提出的关键疑问、阅读生成的差异对比（diff），并发起 Pull Request。（简称 PR，即把一组代码改动提交给团队审查、等待合并的请求）diff 则列出修改前后的代码差异，帮助你查看它具体改了哪里。</li>
+</ul>
+</li>
+</ul>
+<h3>Claude Code 的 Projects 把多个任务的协调放进一个会话</h3>
+<p>如果同时有 5 个独立的 Bug 要修，没有统一的项目中枢，你就必须在 5 个会话间来回切换，重复输入相同的分支命名规则与测试规范。</p>
+<p><strong>Claude Code 的 Projects（项目）</strong> 把这部分协调集中起来（Projects 在 Pro 和 Max 公测，并逐步开放，账号可能暂时看不到入口）。入口可以在 <a href="https://claude.ai/code">claude.ai/code</a> 或桌面 App 的 Code 标签中查找。</p>
+<p>两种方式的区别在于谁负责协调：</p>
+<ul>
+<li><strong>没有 Project 时</strong>：你必须担任多个 session 的调度经理（Manager），手动跟踪哪一个卡住了、哪一个跑完了；</li>
+<li><strong>引入 Project 后</strong>：
+<ul>
+<li><strong>一处设定，全局继承</strong>：在项目说明（Project Instructions）中写明通用规则（如所有分支基于 main 分支拉出、PR 命名规范、提测指令），项目下启动的新任务线程会继承这些说明。</li>
+<li><strong>对话即调度器</strong>：你只需在一个常驻的项目主会话中粘贴堆栈报错或 Issue，Claude 会为相应任务启动独立线程，通常在云端并行运行。</li>
+<li><strong>Overview 看板</strong>：集中查看哪些任务已完成、哪些已有 PR 待审，还有哪些仍在运行或需要你答复。</li>
+</ul>
+</li>
+</ul>
+<figure>
+<div>
+<p>Projects 的结构对照</p>
+<h3>同样是多个任务，谁在负责协调？</h3>
+<div>
+<h4>你分别管理每个会话</h4>
+<p>逐个交代任务，逐个查看进度和处理提问。</p>
+<div>
+<div><span></span><b>你</b></div>
+<div>
+<div><b>会话 A</b><span>自己跟进</span></div>
+<div><b>会话 B</b><span>自己跟进</span></div>
+<div><b>会话 C</b><span>自己跟进</span></div>
+</div>
+</div>
+<p>每多一个会话，你就多一份协调工作。</p>
+<h4>Projects 代管任务线程</h4>
+<p>向项目聊天交代需求，由它组织并行线程。</p>
+<div>
+<div><span></span><b>你</b></div>
+<div><b>项目长期聊天</b><span>统一说明 · 分发任务<br />汇总进度与待办状态</span></div>
+<div>
+<div><b>线程 A</b><span>✓ 已完成</span></div>
+<div><b>线程 B</b><span>改动待审</span></div>
+<div><b>线程 C</b><span>待你答复</span></div>
+</div>
+</div>
+<p>任务仍分头进行，协调与状态集中到一处。</p>
+</div>
+<p>你主要跟进一个项目聊天；需要你判断的事，仍会交回给你。</p>
+</div>
+<figcaption>依据原文 Projects 对照图中文重绘。线程数量与状态只作结构示意。</figcaption>
+</figure>
+<h2>把实现过程交出去，把独立审查留下</h2>
+<p>把代码写出来只是第一步，如何确保交给人类审阅的代码不是漏洞百出的“半成品”？</p>
+<p>Addy 透露，在 Claude Code 团队内部，<strong>多数代码变更先经过自动审查和修复</strong>：多数变更在呈现在人类工程师面前之前，已经被 Claude 至少自动审查并修复了一轮。</p>
+<p>在个人和团队实践中，可以采用以下审查回路：</p>
+<ol>
+<li><strong>内建代码审查工具</strong>：
+<ul>
+<li>在 Team / Enterprise 方案中可以使用平台级 Code Review，或在终端中使用轻量级的 <code>/code-review</code> 命令。</li>
+<li><code>/code-review</code> 会在一个<strong>从未看过当前对话历史的全新子 Agent</strong> 中打开你的代码 diff。审查者没有实现讨论中的全部推导，可以从规格和改动重新检查问题；它仍可能漏错。</li>
+</ul>
+</li>
+<li><strong>另起独立会话交叉审查</strong>：
+<ul>
+<li>也可以随时新开一个独立会话，将初期的 <code>spec.md</code> 和最终的 <code>git diff</code> 投喂给它，并附加明确指令：<em>“根据此规格审查 diff，只指出阻碍合并的正确性与边界错误，忽略无意义的代码风格说教。”</em></li>
+</ul>
+</li>
+<li><strong>长任务的轮后检查：<code>/goal</code> 命令</strong>：
+<ul>
+<li>对于需要持续数小时甚至跨夜执行的复杂背景任务，可使用 <code>/goal &lt;condition&gt;</code> 设定完成条件。系统会用另一个模型在每轮结束后检查是否满足目标，未满足时继续推进；权限、预算或环境等限制仍可能让任务停下。</li>
+</ul>
+</li>
+</ol>
+<h2>换了模型，也重新检查工作方法</h2>
+<p>每隔几个月，都值得重新检查一次提示词和工作流，看看它们还在解决什么问题。</p>
+<p>可以从一项常做的任务开始：保留目标、必要背景和验收标准，减少一部分疑似过时的指令，用同样的任务观察变化。若出现遗漏，补回能解决这个遗漏的规则。</p>
+<p>让单个任务能带着证据交付以后，再考虑更多会话、云端运行和项目协调。否则，打开的窗口越多，需要你处理的中断也可能越多。</p>
+<p><strong>值得追求的是少一些不必要的指挥，同时保留足够的信息和检查，让任务有条件自己向前走。</strong></p>
+</div><div><div><div>来源</div><div><span>You're probably overprompting Claude</span><span>Addy Osmani<span>·</span><a href="https://x.com/addyosmani/status/2115688494865465370">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://claude.dev/blog/getting-the-most-out-of-opus-5-5/">Getting the most out of Opus 5.5</a><span>·</span><a href="https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop">When to fold subagents into your main agent loop</a><span>·</span><a href="https://code.claude.com/docs/en/commands">Claude Code commands</a><span>·</span><a href="https://claude.dev/blog/claude-code-in-the-cloud/">Cloud sessions</a><span>·</span><a href="https://code.claude.com/docs/en/claude-projects">Projects</a><span>·</span><a href="https://claude.com/resources/articles/auto-mode-default-in-claude-code">Auto mode</a></div></div></div></div></div><div>
+<div>Claude Code · Prompt Engineering</div>
+<h1>Claude Code工程师：你可能给 Claude 写了太多提示词：哪些该删，哪些要讲清楚</h1>
+<div>从指挥 AI 怎么思考，转向定义完成标准与自动化验证闭环</div>
+<div>基于 Addy Osmani 的 Claude Code 实践建议；示例用于说明方法。</div>
+<p>Claude Code 能在终端里读取项目文件、修改代码、运行检查并读回结果。Addy Osmani 在 Anthropic 从事 Claude Code 工作。他建议用新模型时重新检查旧指令：过去为弥补模型不足而加的规则，现在可能已经用不上。</p>
+<div>
+<p>针对 Opus 5 和 Fable 5 等模型，Claude Code 删去了超过 80% 的系统提示词，编码评测没有出现可测量的下降。这是团队调整，不能推导成用户也该删八成。更有用的起点是讲清目标、必要背景和验收方法。</p>
+<div>
+<div>让检查结果决定下一步</div>
+<p>例如修手机菜单：不只要求能打开，还要能关闭、展开状态正确、关闭后不挡正文。Claude 运行检查并读取结果；失败反馈成为下一轮修改的依据，检查通过后再交付证据。工具、权限或环境条件缺失时，需要先补齐。</p>
+<div>
+<div>
+<div>
+<div>STEP 01</div>
+<div>交代目标与验收</div>
+<div>说明业务规则、偏好与怎样检查。</div>
+</div>
+<div>
+<div>STEP 02</div>
+<div>读取并修改文件</div>
+<div>在可用工具与授权范围内执行。</div>
+</div>
+<div>
+<div>STEP 03</div>
+<div>运行并读取检查</div>
+<div>失败：根据报错返回修改，再检查。</div>
+</div>
+<div>
+<div>STEP 04</div>
+<div>交付结果与证据</div>
+<div>通过：给命令输出、截图与代码差异。</div>
+</div>
+</div><div>检查失败 ↶ 返回修改　｜　检查通过 → 核对需求覆盖 → 交付</div>
+<div>
+<div>
+<div>可先减少的安排</div>
+<div>反复催促认真思考、为小任务强行安排多个角色，可能增加等待和交接。</div>
+</div>
+<div>
+<div>仍要明确的信息</div>
+<div>业务背景、具体偏好、验收方法和权限边界。可先用 /effort medium，再按任务调整。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h2>还没想清楚，先采访成规格</h2>
+<p>菜单放什么入口、哪些用户能看到还没决定时，先让 Claude 提问，直到能写出需求规格；确认后保存为项目里的 spec.md，再开新会话明确读取它。</p>
+<div>
+<p>新会话读取确认后的目标、规则和验收方法，减少已放弃方案的干扰。它仍须查看项目代码；文件缺失或规格有冲突时应先指出。需求明确的小任务可直接在当前会话完成。</p>
+</div>
+</div>
+<div>
+<h2>删掉重复指挥，保留模型无法猜到的信息</h2>
+<p>先试着删一部分，再用真实任务观察遗漏。不能只凭某句看起来多余，就承诺删后效果不变。</p>
+<div><h3>可以拿来重测</h3><ul><li>重复的“认真思考”“一步一步思考”。官方指南报告过删一句催促后更快、质量未明显下降的局部测试。</li><li>已无当前用途的格式要求；供程序读取的结构仍须保留。</li><li>小修改也强制规划、执行、审查多角色交接。</li></ul><h3>仍要明确交代</h3><ul><li>业务规则：如退款超过规定金额须人工确认。</li><li>验收入口：实际可执行的测试或页面检查。</li><li>具体偏好：例如不接受哪些颜色或按钮样式。</li><li>权限边界：如不要直接部署，破坏性操作先询问。</li></ul></div>
+<p>新模型发布后，可重复以下循环；/doctor prompt-audit 帮助标记为旧模型编写的指令。</p>
+<div>
+<span>删一部分疑似旧指令</span>
+<span>→</span>
+<span>用实际任务查遗漏</span>
+<span>→</span>
+<span>只补回确实需要的规则</span>
+<span>↶ 换新模型后再检查</span></div>
+</div>
+<div>
+<h2>一项任务能独立交付，再增加并行</h2>
+<p>小任务拆给多个子 Agent 会增加成本和等待；独立上下文之间的摘要交接也可能丢细节。体量大、边界清晰的审计或迁移适合分工，独立审查可提供第二意见。通常不必主动要求子 Agent，Claude 会按需委派；也可先比较一个 Agent 配技能和工具的效果。</p>
+<p>单会话还需要你不断补充指令时，多开会话也会增加中断。先让它能自己完成，再选择运行位置和协调方式：</p>
+<ul><li><strong>本地或云端：</strong>依赖仅在本机的资源就留本地。想合上电脑继续运行，可用 claude --cloud、claude.ai/code 或 Claude App 启动独立云端虚拟机（VM）；先推送任务所需提交，再用手机跟进、回答提问、查看代码差异（diff）并发起合并审查请求（PR）。</li><li><strong>Projects 协调：</strong>长期主会话为任务创建独立线程，通常在云端并行；统一说明由新线程继承，Overview 区分已完成、PR 待审与待你输入。Pro/Max 公测逐步开放。</li><li><strong>独立审查：</strong>团队多数改动在人看之前，先由 Claude 至少审查并修复一轮。/code-review 使用未见实现对话的子 Agent；也可新会话给 spec.md 与 git diff，忽略风格，只查实际问题。</li><li><strong>长任务检查：</strong>/goal &lt;condition&gt; 可让另一个模型在每轮后检查目标；权限、预算或环境仍可能让任务停下。</li></ul>
+<div>
+<strong>工作方法核心原则：</strong>
+<span>每隔几个月重新检查指令和工作流。auto mode 用分类器尝试拦截风险动作，仍可能判断出错；交付时要核对实际检查与证据是否兑现需求。</span>
+</div>
+</div>
+</div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://x.com/addyosmani/status/2115688494865465370">看原网页 ↗</a></p></div><div></div><div><div><h1>You're probably overprompting Claude</h1></div><div><figure><img src="https://pbs.twimg.com/media/HVxuqqUagAA_bVB.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p><strong>Newer models require less prompting than most of us still do.</strong></p></div><div><p>For <a href="https://claude.dev/blog/getting-the-most-out-of-opus-5-5/">Opus 5.5</a>, try giving Claude a single prompt with a <strong>clear goal</strong> of what you want to do and how Claude should <strong>verify</strong> it has achieved it, and let Claude work on it. Start with /effort medium and adjust as needed.</p></div><div><figure><img src="https://pbs.twimg.com/media/HVxsQYpbEAES48q.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>If you don't know yet what you're trying to do, ask Claude to interview you until it could write a spec. Then start a new session and use that spec to build what you want.</p></div><div><p>Claude will stop on its own when it believes it's done.</p></div><div><p>If it can execute something that checks in terms of pass/fail or a number to beat, with reports in a way it can read, Claude can keep going without you having to watch.</p></div><div><p>For long background tasks, you can use /goal to specify a condition that a separate model to check after every turn.</p></div><div><p>Recent versions of Claude Code have also adopted <a href="https://claude.com/resources/articles/auto-mode-default-in-claude-code">auto mode as the default</a> starting mode for interactive terminal sessions. In that mode, a classifier analyzes Claude's actions rather than relying on the usual permission prompts. This is not a guarantee of safe behavior - neither is blindly approving every prompt. When Claude reports back, ask it to show you the command and output or a screenshot.</p></div><div><p><strong>For models like Claude Opus 5 and Claude Fable 5, over <a href="https://x.com/trq212/status/2080710971228918066">80% of the Claude Code system prompt</a> was removed with no measurable degradation of its coding evals.</strong></p></div><div><p>When a new model like Opus 5.5 comes out, you can do the same experiment with your own instructions: remove some, then add back only those that the model misses. The <a href="https://code.claude.com/docs/en/commands#:~:text=/doctor%20%5Bprompt%2Daudit%20%5Bpath%5D%5D">/doctor prompt-audit</a> command flags those written for older models.</p></div><div><figure><img src="https://pbs.twimg.com/media/HVxshHaaUAAHco5.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>Another area to reduce your own work is <a href="https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop">subagents</a>.</p></div><div><p>Claude delegates to them on its own, so you rarely need to ask. Ask only for substantial, standalone work like long audits or migrations, which Opus 5.5 can split across parallel subagents. For small jobs, subagents multiply cost and latency. Subagents can parallelize work or provide a second opinion, but they don't, by default, make things smarter.</p></div><div><p>For agents you build, a single agent with skills can outperform a subagent design on quality, often at lower cost and latency from what I’ve seen.</p></div><div><p>Use <a href="https://claude.dev/blog/claude-code-in-the-cloud/">Claude cloud sessions</a> when you want to shut your laptop. Start one from claude.ai/code, the Claude app or via claude --cloud. Cloud sessions run in a separate VM with a fresh clone of your repo, so be sure to push any commits before you start. Check in from your phone, address any questions the session posed, then review the diff and open the PR. Keep a session local if the task requires resources that are only available on your machine.</p></div><div><p>Parallel sessions only pay off once a single session can finish without you. If you have <a href="https://code.claude.com/docs/en/claude-projects">Projects</a> in Claude Code, I think you'd find them very useful. Without a project, you are the manager of multiple sessions and must track what each session is doing, and which ones have completed.</p></div><div><figure><img src="https://pbs.twimg.com/media/HVxs35AboAA87A4.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>A project is one long-running chat that does most of the project management for you: as issues and jobs come up, paste them in, and Claude creates a separate thread (usually a cloud session) for each and runs them in parallel. You provide instructions once, and they are applied to all new threads. And the Overview shows which tasks have completed, which PRs are ready and what's pending your input.</p></div><div><p>Projects are in <a href="https://x.com/ClaudeDevs/status/2100633571543367691">public beta</a> on Pro and Max, so you may not have them yet, but hopefully soon!</p></div><div><p>Review still matters. On the Claude Code team, however, most of the reading has become automated: most changes are reviewed and fixed by Claude at least once before a human is asked to look.</p></div><div><p>You can use <a href="https://claude.dev/blog/solving-code-review-at-anthropic/">Code Review</a> on Team and Enterprise plans or the lighter /code-review, which reviews your diff in a subagent that hasn't seen the conversation. You can also simply start a new session. If you do, give it the spec and tell it to ignore stylistic stuff.</p></div><div><p><strong>Every few months, audit how you work to make sure you aren't building for how older models used to work.</strong></p></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/addyosmani/status/2115688494865465370">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】a16z AD50报告：AI 走进车间：从一张图纸到持续交货，还差什么？ · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/a16z-ad50-production-deterrence/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:a16z-ad50-production-deterrence</guid>
+<pubDate>Fri, 30 Oct 2026 12:00:21 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 为什么是现在：工业创业的新机会从何而来？ 02 从终端装备到原材料：三层制造生态如何互相影响？ 03 当图纸在改动，一线车间靠什么保持运转？ 04 专业配套商如何走向协同设计？ 05 谁先为工厂买单，工艺又怎样进入新市场？ 06 从试验场到生产线：哪些已在交付，哪些仍是远期目标？ AI 解读 / 洞察 · 10-30 · 12 分钟 · 作者 a16z a16z AD50报告：</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 30 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">a16z AD50报告：AI 走进车间：从一张图纸到持续交货，还差什么？ · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/a16z-ad50-production-deterrence/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>为什么是现在：工业创业的新机会从何而来？</span></a><a><span>02</span><span>从终端装备到原材料：三层制造生态如何互相影响？</span></a><a><span>03</span><span>当图纸在改动，一线车间靠什么保持运转？</span></a><a><span>04</span><span>专业配套商如何走向协同设计？</span></a><a><span>05</span><span>谁先为工厂买单，工艺又怎样进入新市场？</span></a><a><span>06</span><span>从试验场到生产线：哪些已在交付，哪些仍是远期目标？</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>洞察</a><i>·</i>10-30<i>·</i>12 分钟<i>·</i>作者 a16z</div><h1>a16z AD50报告：AI 走进车间：从一张图纸到持续交货，还差什么？</h1><p>从一线技工借 AI 改产线，到专业供应商参与设计，理解 a16z 为什么把装备、工厂和矿山放进同一幅工业创业图景。</p><div><div>正文一页纸原文</div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>a16z</span><span>10-30 · 12 分钟</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>a16z 把装备、工厂与原料放在同一框架中，关注的是整条产业链能否持续交货。</li><li>懂工艺的现场人员开始借 AI 改程序、调产线，专业供应商也参与设计，改变从试制到量产的过程。</li><li>私人资本可先承担研发风险，早期订单可能分摊设备投入；工艺能跨市场复用，交付与成本仍需验证。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/a16z-ad50-production-deterrence/social/zh-44c556bffe1b.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>投资机构 a16z 发布了 2026 年度 American Dynamism 50（简称 AD50）名录，年度主题定为「生产即威慑」（Production is Deterrence）。这份榜单将犹他州的铜矿、肯塔基州的核燃料处理基地、车间级的机加与线束软件，与高超音速导弹、自主无人艇及近地轨道卫星并置在同一张产业图谱中。</p>
+<p>按照 a16z 的定义，威慑力不仅取决于尖端武器的性能，还取决于后方工业体系能否持续回答三个问题：<strong>能造多少、交付多快、持续多久</strong>。当弹药、无人机和备用部件需要不断补充，或关键原料供应受限时，装备消耗后多久能补上、产线还能运转多久，都会影响对手对一场长期冲突的判断。<strong>没有强大的整体工业基础，就无法形成成规模的国防工业生产能力。</strong></p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/a16z-ad50-production-deterrence/source-03.png" alt="The American Dynamism 50 产业分布图" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>AD50 围绕 Inputs、Factories 与 Systems 三层划分。</span><br />
+    左栏为原材料与能源（11 家），中栏为工厂厂房、制造工具与工业软件（16 家），右栏为终端防务与空天装备（23 家）。三者构成上下游紧密交织的制造生态，而非单向因果链条；名录中部分企业为 a16z 投资组合公司。
+  </figcaption>
+</figure>
+<hr />
+<figure>
+<figcaption>
+<span>完整访谈：How to Build the Next SpaceX or Tesla（中英双语字幕，49 分 17 秒）。</span><br />
+    a16z 投资人讨论工业创业、产线调整与供应商协作。保留原声；文中的案例与判断也可在完整对话中查看上下文。
+  </figcaption>
+</figure>
+<h2>为什么是现在：工业创业的新机会从何而来？</h2>
+<p>国防、能源和矿业一直关系到安全与日常生活，但重资产投入、漫长的验证周期与复杂采购，使年轻科技创业者很难进入。a16z 在配套访谈中看重的变化是：这些行业除了重要，也开始显现出建立大型科技公司的机会。</p>
+<p>SpaceX、Palantir 与 Anduril 提供了不同的示范：科技创业者可以在航天、防务数据软件和自主装备等领域建立大型企业。这样的成功经验，使后来者更愿意进入过去难以切入的行业，也吸引私人资本在明确订单落地前承担研发和试制风险。</p>
+<p>俄乌战争促使北约盟国扩充武器产能、重建库存，中东冲突与关键原材料出口限制也让补给能力受到关注。与此同时，能源需求带来新的建设需求；先进企业的一线人才把工艺知识与客户关系带入新公司；AI 编程、设计和制造管理工具也开始进入车间。需求、人才、软件与资金汇合，让创业者有机会重新组织生产，而不只是沿用既有工厂和供应关系。这是投资人提出的机会判断，最终仍要靠产品与交付来兑现。</p>
+<hr />
+<h2>从终端装备到原材料：三层制造生态如何互相影响？</h2>
+<p>装备的交付承诺，最终要由工厂、零部件和原料供给一起支撑。从终端系统（Systems）出发，可以追到背后的制造能力与基础设施。</p>
+<h3>1. 终端装备（Systems，23 家）：提出性能、成本与交付要求</h3>
+<p>终端系统交付实际能力，也向上游提出成本、性能和交货要求。Anduril 在俄亥俄州下线首架 Fury 协同作战飞机；Castelion 与 Covenant 则分别研发面向可负担批量采购的高超音速与远程打击导弹。它们都需要把设计转成能够持续供应的实物。</p>
+<p>这一层也包括通信和空间服务：Astranis 的 MicroGEO 卫星在地球同步轨道提供专用通信，Apex 则批量制造标准化卫星公用底盘。它们与无人机、无人艇一样，都依赖下游装配之外的零部件、工厂和材料供应。</p>
+<h3>2. 工厂、工具与制造软件（Factories，16 家）：打通设计与车间的数据流</h3>
+<p>终端装备提出的新要求，需要制造环节接得住。连接设计与现场的软件、模具与加工能力，决定了生产能否跟上产品变化：</p>
+<ul>
+<li><strong>Arda：</strong> 开发软件将产品设计转化为装配计划与作业指导书，并在工程设计变更时动态更新，Anduril 已在制造管理软件 ArsenalOS 中集成该功能；</li>
+<li><strong>Atomic Industries：</strong> 将塑料流动、热与结构物理仿真引入注塑模具设计，在钢模切削前通过软件建模，再用生产数据改进后续模具；</li>
+<li><strong>Diode：</strong> 让工程师通过代码化原理图在电路板制造前检查工艺规范，减少供应商往返打样；</li>
+<li><strong>Hadrian：</strong> 依靠自研 Opus 软件自动化机加工中的关键生产与检验任务，提高技工培训与交付效率，在加州与亚利桑那州布局 4 座跨越近 300 万平方英尺的制造设施。</li>
+</ul>
+<p>工厂的效率与灵活性，直接决定了终端装备的设计能否变成在经济上可承受的批量实物。</p>
+<h3>3. 原材料与能源（Inputs，11 家）：守住持续开工的物理底线</h3>
+<p>工厂持续开工，还要解决电力、关键矿物和特种燃料从哪里来的问题。</p>
+<ul>
+<li><strong>电力与电网接入：</strong> 高端制造和数据中心需要电力，但接入电网往往需要等待。Ambrosia Energy 在西得州建设光伏与电池电站，为等不及电网供电的企业提供电力；Heron Power 开发 5 兆瓦固态电力电子设备，尝试替代传统重型变压器。</li>
+<li><strong>特种燃料与关键矿产：</strong> 许多先进小型堆需要的高丰度低浓缩铀（HALEU）在美国本土供应短缺。General Matter 在肯塔基州推进浓缩设施前期准备；Radiant 与 Valar Atomics 分别推进移动微堆与气冷堆。在材料端，Mariana Minerals 直接收购了犹他州的 Copper One 铜矿及精炼厂。</li>
+</ul>
+<p>终端装备的需求拉动制造工具的升级，工厂的吞吐能力决定了装备的交付速度，而原材料与能源则划定了整个工业底座的运转上限。三者不是相互孤立的板块，而是彼此牵制、互为支撑的动态网络。</p>
+<div>
+<div>一套装备，背后需要哪些制造能力？</div>
+<p>查看三层产业如何配合，以及建厂、订单、工艺与客户之间的关系。各家公司的起点和推进顺序不同。</p>
+</div>
+<div>
+产业链的三层分工
+建厂与市场的四个环节
+</div>
+<div>
+<div>
+<div>
+<div>
+<span>Systems 终端系统</span>
+<span>23 家</span>
+</div>
+<div>将制造力转化为最终能力。不仅包含巡航导弹与无人机，还涵盖专用通信卫星、轨道运输船与地面天线站。</div>
+<div><strong>代表公司：</strong>Anduril（Fury战机与Lattice）、Castelion（高超音速导弹）、Astranis（MicroGEO通信卫星）、Skydio（自主无人机）。</div>
+</div>
+<div>
+<div>
+<span>Factories 制造与中间层</span>
+<span>16 家</span>
+</div>
+<div>连接设计与实物。提供柔性自动化产线、模具仿真、线束装配与作业管理软件，降低单家主机厂全栈自造负担。</div>
+<div><strong>代表公司：</strong>Arda（设计转装配指导）、Hadrian（精密机加代工）、Senra（航天线束）、Westmag（电机与执行器）。</div>
+</div>
+<div>
+<div>
+<span>Inputs 原材料与能源</span>
+<span>11 家</span>
+</div>
+<div>提供材料与电力。光储项目服务等不及电网供电的企业，矿山与精炼提供关键材料，核燃料企业支撑先进反应堆。</div>
+<div><strong>代表公司：</strong>Mariana Minerals（买下铜矿改造运营）、General Matter（HALEU 铀浓缩）、Ambrosia（光储就地供电）、Radiant（移动微反应堆）。</div>
+</div>
+</div>
+<div>
+<strong>协同工程机制（Co-engineering）：</strong>长期沿用既有规格的供应关系，可能难以满足新装备的设计要求。嘉宾看重的机会是：专业配套商除了加工，也参与改进零件设计，让主机厂减少重复自建制造环节。Senra、Atomic、Amca 与 Westmag 分别提供线束、模具、零部件和电机等能力。
+  </div>
+</div>
+<div>
+<div>
+<div>
+<div>建厂投入</div>
+<div><strong>驱动力：</strong>某些团队可在政府给出明确采购任务前，先用私人资本建厂和试制。</div>
+<div><strong>现实约束：</strong>提前投入不等于已拿到后续采购，设备和厂房的支出需要资金支持。</div>
+</div>
+<div>
+<div>早期订单</div>
+<div><strong>可能路径：</strong>播客嘉宾指出，某些特殊工艺（如本土高阶 PCB、精密加工）可由国防买家的高可靠性溢价分摊初始设备与工艺摸索投入。</div>
+<div><strong>现实约束：</strong>首单何时发生、采购多少、能否按要求交付，决定收入能分担多少初期投入。</div>
+</div>
+<div>
+<div>工艺与量产</div>
+<div><strong>产能积累：</strong>在实际生产中积累工艺知识与技工经验，通过加工、检验与反馈改进质量和成本。</div>
+<div><strong>现实约束：</strong>设备、工艺和供应链要一起配合，计划产能仍需要实际生产来兑现。</div>
+</div>
+<div>
+<div>扩展客户</div>
+<div><strong>外溢可能：</strong>跑通的产线能力、电机传动工艺或电子元件制造基础可向工业机器人、商用航空或新能源汽车延展。</div>
+<div><strong>现实约束：</strong>民用客户通常更在意价格和性能。制造经验可以复用，产品仍要满足新客户的具体要求。</div>
+</div>
+</div>
+</div>
+<hr />
+<h2>当图纸在改动，一线车间靠什么保持运转？</h2>
+<p>在航空航天、国防与高端工业领域，制造面临的常态是<strong>多品种、小批量（High-Mix, Low-Volume）</strong>。与长期生产单一规格的大批量流水线不同，这类硬件往往处在边试飞测试、边根据数据反馈调整设计的状态。</p>
+<p>设计经常变化时，生产流程也必须能跟着调整。这既涉及谁能改变现场工序，也涉及软件怎样帮助一线人员完成调整。</p>
+<h3>拥有资产后，怎样逐项改造生产？</h3>
+<p>嘉宾以 Hadrian 为例指出，改进一座工厂通常涉及十几个甚至二十个环节：怎样报价和接单、怎样加工零件、怎样检验，以及怎样在工序之间流转。单台设备的效率只是其中一部分。从头建设工厂，或直接拥有并经营资产，能够把这些环节放在一起重新审视。Hadrian 的自研 Opus 软件用于自动化关键制造与检验任务，软件改造与现场工艺一起作用于交付效率。</p>
+<p>Mariana Minerals 说明了为什么一些团队选择直接拥有资产。传统矿业公司采纳新技术的节奏缓慢。如果仅以软件商身份向外部矿山推销方案，很难推动现场流程做出实质改变；创始团队意识到必须亲自拥有资产，才能掌控整个价值链并获取新技术带来的最终价值。Mariana 选择直接收购实体矿山与精炼厂，利用自研的 MarianaOS 软件贯穿矿业开发、规划、运营、采矿与精炼的全流程，再通过生产一线采集的数据反馈改进后续运营，在实体业务中验证软件与自动化的效果。</p>
+<h3>现场人员调线与作业指导编制</h3>
+<p>多品种小批量的另一个挑战是产线需要频繁调整。有些调整依赖外部系统集成商进厂，重新编程、配置设备。</p>
+<p>嘉宾举了一个所见案例：以往为产线重新配置，可能要请集成商，花三个月和数十万美元；懂现场工艺的制造工程师如今借助 Claude，约 20 分钟就能完成其中的编程与配置工作。这个例子的关键在于，熟悉生产过程的人能用软件工具直接处理调整需求，减少每次等待外部团队的环节。</p>
+<p>这组时间和费用是嘉宾举例，并非所有工厂的通用基准。软件工作加快之后，夹具调整、设备重组和实际调试仍需要现场完成。</p>
+<p>与上述现场人员编写设备逻辑并列的另一条软件介入路径，是前文提及的 Arda：</p>
+<ul>
+<li><strong>Arda 的分工：</strong> 将产品设计转为装配计划与作业指导书，并随设计变更更新。Anduril 已将它集成进 ArsenalOS，原本数小时的指导编制可压缩到几分钟。</li>
+<li><strong>现场编程与配置的分工：</strong> 熟悉工艺的人员用工具写改程序、调整产线配置，处理设备怎样随产品变化重新运行的问题。指导书解决操作依据，编程与配置处理产线调整，两条路径相互配合。</li>
+</ul>
+<p>可调整的产线把原型与量产连接起来：设计改变时，可以更快做出新原型、获得测试反馈；生产环节也能随之调整，较快进入批量生产。创始团队必须从产品设计之初就将性能、成本与可制造性一同权衡，因为能做出样机并不等于能按可承受成本批量生产。</p>
+<h3>物理执行与软件规划的现实边界</h3>
+<p>正如播客中所指出的，“AI 目前还不会拧扳手”（AI cannot turn a wrench yet）。物理世界受制于重力、摩擦力、材料公差与热形变，纯软件的推理逻辑无法直接替代实体操作。</p>
+<p>机器人学习动作与工程设计仿真，解决的是不同的问题：</p>
+<ul>
+<li><strong>动作学习与物理操作（如 Generalist）：</strong> GEN-1.5 展示了机器人通过单次简短演示学习简单短任务，并对未见过的物体和工具做出初步适应，仍在扩展测试。</li>
+<li><strong>几何建模与物理仿真（如 Prometheus）：</strong> 针对复杂硬件的几何和物理问题训练模型，帮助工程师探索设计、模拟性能，在投入物理样机与模具之前改进产品。</li>
+</ul>
+<p>软件能大幅压缩规划、编程与仿真的周期，但实体制造的落地依然离不开技工经验与现场调试的紧密配合。</p>
+<hr />
+<h2>专业配套商如何走向协同设计？</h2>
+<p>主机厂在研发新型装备时，常常面临一个核心抉择：哪些部件必须自研自制，哪些可以交由外部供应链？</p>
+<p>在 SpaceX 与特斯拉的发展早期，由于本土缺乏能够快速、可靠交付关键子系统的成熟工业基础，两家企业不得不选择高度垂直整合，从头自建大量零部件与产线。但在具备高质量供应商的前提下，让每家主机厂从电缆线束、螺母紧固件到电机都从零自建产线，会导致庞大且重复的资本开支。</p>
+<h3>一线人才流动与近距离协同</h3>
+<p>美国先进制造生态中正在孕育一个被称为<strong>「制造中间层」（Manufacturing Middle）</strong>的专业配套网络。这一中间层的涌现，离不开工程人才的流动：不少曾在先进主机厂制造一线工作的工程师，在实际项目中切身体会过某个零部件的长交期、低良率或断供瓶颈；他们带着在一线积累的“工艺知识”（Process Knowledge）与行业人脉创办独立配套企业。Senra Systems 的联合创始人曾在 SpaceX 开发线束制造工艺，独立创业后专注航天级电气线束。这个中间层还包括提供无人机电机与执行器的 Westmag，以及从事关键零部件再设计与重制的 Amca。</p>
+<p>嘉宾给出一家投资组合企业采购电路板（PCB）的例子：过去订购双倍数量，因为约一半产品验收不过；改用新供应商之后，通过验收的比例达到约七至九成。</p>
+<p>这是单家企业的见闻，不是行业平均水平。嘉宾借此强调主机厂与供应商近距离协作、共同开发的价值：配套关系不仅影响零件能否按时送到，也影响质量能否一起改善。</p>
+<h3>从接图加工走向协同工程（Co-engineering）</h3>
+<p>更深层次的产业机会，在于新硬件架构对零部件提出的全新设计要求。</p>
+<p>嘉宾以沿用数十年的起落架为例：旧规格能满足既有飞机的要求，继续生产它符合供应商的商业逻辑；按图加工的下层供应商，也不能自行替上游改动设计要求。</p>
+<p>当新飞机、机器人和电力电子架构提出不同需求时，新材料与新设计也为部件改进创造了空间。沿用的零件即使仍能工作，也未必是新系统下合适的选择。</p>
+<p>这给“制造中间层”打开了更大的空间：专业配套商可以与主机厂共同改进零部件设计与制造方法，而不只是等待新图纸再加工。这就是访谈所说的<strong>协同工程（Co-engineering）</strong>。专业团队既提供制造能力，也把积累的工艺知识带进设计，使新系统与子部件一起改进。</p>
+<hr />
+<h2>谁先为工厂买单，工艺又怎样进入新市场？</h2>
+<p>研发、建厂和试制需要先投入资金，订单带来的收入则可能帮助分摊设备成本。工艺和供应链积累起来之后，又可能服务新的产品与客户。资金如何进入、能力如何复用，是相互关联的两件事。</p>
+<h3>为什么不再一直等明确采购任务</h3>
+<p>嘉宾指出，防务体系中的使用者、采购者与拨款者分属不同决策环节。企业如果一直等明确任务和资金到位才研发，交付时可能已经错过技术与需求变化。</p>
+<p>私人风险资本提供了一条先行路径。Castelion 在获得正式军方合同之前，先用私人风险资本推进高超音速导弹研发，承担早期工程验证与试制的风险。</p>
+<p>私人资本与早期买家分别发挥作用：</p>
+<ul>
+<li><strong>私人资本先行承担风险：</strong> 在明确采购任务之前，支持技术研发与试制。</li>
+<li><strong>早期订单分摊设备投入：</strong> 防务买家在一些场景愿意承担商业消费者不愿支付的单价，订单收入可能帮助企业分摊设备与厂房投入。例如，本土电路板产线服务防务客户时积累的制造能力，后来也可能用于机器人或助听器。</li>
+</ul>
+<p>订单何时落地、订购规模多大、能否按要求交付，决定收入能分担多少初期投入。各家公司的起点和扩展顺序并不相同。</p>
+<h3>先把一个产品做好，再积累扩展能力</h3>
+<p>制造能力能够复用，并不意味着初创团队应一开始就同时做很多产品。</p>
+<p>嘉宾以 Castelion 为例：团队专注于第一款难度很高的高超音速导弹，抵制过早转向其他无人机产品的诱惑，先把核心产品做好。</p>
+<p>在这个过程中，团队建立供应链、积累制造工艺与面向生产的设计经验，也逐渐取得客户信任。这些能力能够支撑后续产品，扩张的基础来自对第一件事的持续投入与交付。</p>
+<h3>工艺知识的迁移与民用市场差异</h3>
+<p>工艺进入新市场，还需要适应不同客户。民用消费者会持续要求更低成本和更强能力，不能直接复制面向早期防务客户的产品和成本结构。</p>
+<p>播客嘉宾以大疆（DJI）为例说明了军民之间的工艺知识转移。大疆最早在消费级无人机市场建立了大规模制造能力，随后拓展到公共安全与国防领域；在这一制造历程中沉淀的电机制造与工艺知识，又进一步迁移到了机器人硬件的开发中。</p>
+<p>正如嘉宾所强调的，无人机电机与机器人执行器在底层工艺上高度相似，但执行器依然是机器人制造中最具难度的部件。两者可以共享部分电机制造和工艺经验，这属于底层制造能力的复用，并不等于产品本身完全通用。</p>
+<p>跨市场复用的基础，是逐渐积累的制造工艺和生产经验。企业仍需要把它们转化为满足新客户要求的产品。</p>
+<hr />
+<h2>从试验场到生产线：哪些已在交付，哪些仍是远期目标？</h2>
+<p>首件下线、软件接入和规划中的大产能，处在不同阶段。几个对照能看出距离：</p>
+<div><table>
+<thead>
+<tr>
+<th>层次</th>
+<th>已有进展</th>
+<th>后续目标与待兑现部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>终端系统</td>
+<td>Anduril 在俄亥俄州下线首架 Fury；Astranis 已有 5 颗 MicroGEO 卫星在轨</td>
+<td>Covenant 计划批量生产后实现年产 5,000 枚 Anthem；首架飞机下线也还要走向持续批产</td>
+</tr>
+<tr>
+<td>制造与配套</td>
+<td>Arda 已接入 Anduril 的 ArsenalOS；Senra 第二工厂已启用</td>
+<td>Senra 计划将月产能从 1,000 套线束提高到 10,000 套，仍需实际生产兑现</td>
+</tr>
+<tr>
+<td>原材料与能源</td>
+<td>Ambrosia 部分项目已供电；Valar Atomics 完成维持受控链式反应的零功率临界测试</td>
+<td>General Matter 的浓缩设施仍在前期场地准备，Radiant 规划的年产 50 台微堆工厂尚待建设兑现</td>
+</tr>
+</tbody>
+</table></div>
+<h3>实体建设的现实摩擦力与社区利益</h3>
+<p>机床的交付排期、高压电力接入的审批，以及工厂建设与工艺磨合，都需要数月甚至数年。资本能够支持提前投入，无法直接省掉这些实体工作。</p>
+<p>实体设施也直接影响周边社区。嘉宾提到，Amca 与地方小型机加工厂合作，帮助开发新产品、扩大现有业务，而不是一上来撤掉管理层、裁掉员工。让居民切实分享就业与经济收益，也是项目获得长期支持的条件。</p>
+<p>资本市场对实体工业的关注正在从风险投资扩展到私募股权与大型信贷机构。a16z 的机会判断落在整条制造生态上：新需求吸引创业者，软件与专业配套改善生产，资金支持早期投入，积累的工艺再进入新产品和市场。最终检验这套判断的，仍是矿山、工厂和配套网络能否在时间与成本约束下，持续交付可用的实物。</p>
+<div>
+<div>AD50 可搜索名录</div>
+<p>按公司名、技术或装备搜索 50 家企业，查看各自业务与推进阶段。</p>
+</div>
+<div>
+<div>
+搜索企业、地点、技术或装备关键词：
+</div>
+<div>
+全部企业 (50)
+原材料与能源 Inputs (11)
+工厂与软件 Factories (16)
+终端系统 Systems (23)
+<span>显示 50 / 50 家企业</span>
+</div>
+</div>
+<div>
+<div>
+<div>
+<div>
+<div>Ambrosia Energy</div>
+<div>德克萨斯州奥斯汀 · 2024 年创立</div>
+</div>
+<span>Inputs</span>
+</div>
+<p><strong>核心业务：</strong>为等不及电网扩容接入的企业建设光伏与电池电站，目标在签约后约一年以每兆瓦时约 100 美元供电。</p>
+<div><strong>当前阶段：</strong>2026 年初在西德州开工建设，6 月发布时部分区段已在运行且后续资金到位；规划 200 兆瓦光伏，设计连续供电 20 兆瓦。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Base Power</div>
+<div>德克萨斯州奥斯汀 · 2023 年创立</div>
+</div>
+<span>Inputs</span>
+</div>
+<p><strong>核心业务：</strong>研发家用分布式储能电池 Base Core 并提供安装运营，既支撑电网调度，也为家庭停电提供应急备用电。</p>
+<div><strong>当前阶段：</strong>2025 年 10 月在奥斯汀旧报社印刷厂启用一号工厂，2026 年开始生产 Base Core；产品在德州与伊利诺伊州可用，规划另一座奥斯汀工厂。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Chariot Defense</div>
+<div>加利福尼亚州圣布鲁诺 · 2024 年创立</div>
+</div>
+<span>Inputs</span>
+</div>
+<p><strong>核心业务：</strong>构建 Amphora 电源管理平台，集成储能、电能转换与软件分配控制，在车辆与发电机熄火时维持无人机、传感器与电子战载荷运转。</p>
+<div><strong>当前阶段：</strong>硬件设计为适配既有军用车辆、发电机和太阳能阵列；创始人 Adam Warmoth 此前在 Anduril 领导反无人机项目。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Endurance Energy</div>
+<div>华盛顿州西雅图 · 2025 年创立</div>
+</div>
+<span>Inputs</span>
+</div>
+<p><strong>核心业务：</strong>研发模块化地热发电机，利用海底热液喷口热能为沿海电网与工业设施产生清洁电力。</p>
+<div><strong>当前阶段：</strong>2026 年夏扩建至西雅图 2.5 万平方英尺研发厂区；9 月在俄勒冈外海轴向海山部署 Adélie 原型，自报发电量超过耗电量；正研发 2 兆瓦商用发电机，汤加项目目标 2027 年供电。</div>
+</div>
+<div>
+<div>
+<div>
+<div>General Matter</div>
+<div>加利福尼亚州埃尔塞贡多 · 2024 年创立</div>
+</div>
+<span>Inputs</span>
+</div>
+<p><strong>核心业务：</strong>开发美国本土铀浓缩产能，重点攻克下一代先进核反应堆亟需的高丰度低浓缩铀（HALEU）燃料供应瓶颈。</p>
+<div><strong>当前阶段：</strong>2026 年 1 月获美国能源部为期 10 年、总额 9 亿美元的里程碑式资助；目前正在肯塔基州原帕迪尤卡气体扩散厂址开展前期场地平整准备。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Heron Power</div>
+<div>加利福尼亚州斯科茨谷 · 2024 年创立</div>
+</div>
+<span>Inputs</span>
+</div>
+<p><strong>核心业务：</strong>研制 5 兆瓦固态电力电子设备 Heron Link，整合传统变压器与开关设备功能，连接高耗能项目与主电网。</p>
+<div><strong>当前阶段：</strong>计划在加州摩根山一号工厂投资超 1 亿美元，目标在 2027 年底实现大规模量产，远期年产能规划达 10,000 台。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Mariana Minerals</div>
+<div>加利福尼亚州旧金山 · 2024 年创立</div>
+</div>
+<span>Inputs</span>
+</div>
+<p><strong>核心业务：</strong>采用 MarianaOS 软件自动化矿山与精炼运营，覆盖矿业开发和运营的生命周期。</p>
+<div><strong>当前阶段：</strong>2025 年底收购犹他州东南部 Copper One 铜矿及精炼厂；2026 年 8 月完成新一轮融资，支持铜矿自动化运营及德州东部 Lithium One 锂矿开发。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Peak Energy</div>
+<div>加利福尼亚州伯灵格姆 · 2023 年创立</div>
+</div>
+<span>Inputs</span>
+</div>
+<p><strong>核心业务：</strong>开发电网级钠离子储能电池，利用丰富钠资源降低原料成本，并通过降低冷却需求削减运营开支。</p>
+<div><strong>当前阶段：</strong>2026 年 7 月选定加州萨克拉门托工厂，规划年产能最高 4 吉瓦时，首期发货目标定于 2027 年初；客户意向订单累计超 6 吉瓦时。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Radiant</div>
+<div>加利福尼亚州埃尔塞贡多 · 2020 年创立</div>
+</div>
+<span>Inputs</span>
+</div>
+<p><strong>核心业务：</strong>开发工厂制造、可运输的 1 兆瓦核反应堆 Kaleidos，为军事设施与偏远客户提供柴油发电机的替代方案。</p>
+<div><strong>当前阶段：</strong>2026 年 8 月向爱达荷国家实验室运送首台演示机；规划橡树岭年产 50 台的工厂；获陆军最高 7.5 亿美元协议涵盖 15 台机组研制与部署。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Redwood Materials</div>
+<div>内华达州卡森城 · 2017 年创立</div>
+</div>
+<span>Inputs</span>
+</div>
+<p><strong>核心业务：</strong>从废旧电池和制造废料中回收新电池所需材料，并将仍有使用寿命的电动车电池用于固定式储能。</p>
+<div><strong>当前阶段：</strong>在内华达州和南卡罗来纳州基地运营回收产线；旗下 Redwood Energy 与 Crusoe 合作落地 63 兆瓦时储能项目。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Valar Atomics</div>
+<div>加利福尼亚州埃尔塞贡多 · 2023 年创立</div>
+</div>
+<span>Inputs</span>
+</div>
+<p><strong>核心业务：</strong>研制气冷核反应堆 Ward 250，并同步开发支持工厂流水线组装反应堆的标准制造工艺。</p>
+<div><strong>当前阶段：</strong>2026 年 6 月在犹他州圣拉斐尔能源实验室完成能源部反应堆试点计划下的零功率临界测试，维持了受控链式反应。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Amca</div>
+<div>加利福尼亚州埃尔塞贡多 · 2024 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>联合地方分散的中小机械加工厂与中央工程团队，面向航空航天与国防重构紧缺零部件的制造与替代。</p>
+<div><strong>当前阶段：</strong>针对长交期、图纸缺失或停产的关键零件，面向政府买家提供零部件直销及工程再设计重制服务。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Arda</div>
+<div>加利福尼亚州旧金山 · 2025 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>把产品设计转化为装配计划与作业指导，并随设计变更更新；正在将规划软件扩展至机器人装配。</p>
+<div><strong>当前阶段：</strong>2026 年 10 月正式亮相并累计融资 2.3 亿美元；其软件已集成在 Anduril 的 ArsenalOS 系统中，将原本数小时的编制流程压缩至几分钟。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Atomic Industries</div>
+<div>密歇根州底特律 · 2021 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>利用软件模拟塑料流动、热学与力学应力，在金属切削前完成物理仿真，自动化慢速的注塑模具制造环节。</p>
+<div><strong>当前阶段：</strong>为汽车、消费品、航空与防务供应注塑零部件，并使用车间实际生产数据反哺后续模具设计算法。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Diode</div>
+<div>纽约州纽约 · 2024 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>提供代码化电子工程协作平台，在电路板实际排产前自动执行可制造性检查，减少与打样工厂的返工交互。</p>
+<div><strong>当前阶段：</strong>工具已被 Saronic 与 Physical Intelligence 等硬件客户采用，辅助工程师加快版本迭代节奏并提高人均设计吞吐量。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Foundry Robotics</div>
+<div>加利福尼亚州旧金山湾区 · 2025 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>搭建柔性机器人装配工作站，用于防务与商用机器人、电池组及机械子系统的组装，避免为每种设计重建专用产线。</p>
+<div><strong>当前阶段：</strong>在装配车间融合工艺工程师、机器人硬件与 AI 模型；2026 年 10 月宣布 Avea Robotics 加入公司，引入人机接管干预技术。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Generalist</div>
+<div>加利福尼亚州圣马特奥 · 2024 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>研发具身智能 AI 基础模型，致力于让机械臂通过人类示教掌握物理灵巧操作任务，减少产线编程调整时间。</p>
+<div><strong>当前阶段：</strong>2026 年 8 月推出 GEN-1.5 模型，展示机器人通过单次简短示教完成简单短任务；目前仍在逐步扩展测试以探索更广泛工序。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Hadrian</div>
+<div>加利福尼亚州托伦斯 · 2021 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>建设高度自动化工厂，以自研 Opus 软件自动化关键制造与检验任务，服务航空航天和国防生产。</p>
+<div><strong>当前阶段：</strong>2026 年初投产亚利桑那州梅萨市三号工厂；目前运营 4 座厂区、总面积近 300 万平方英尺，持续扩大航天防务与弹药产能。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Mind Robotics</div>
+<div>加利福尼亚州帕洛阿尔托 · 2025 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>由 Rivian 创始人 RJ Scaringe 创立，研发装配机器人软硬件，接管传统固定工装设备难以胜任的柔性装配工作。</p>
+<div><strong>当前阶段：</strong>数月内累计融资超 10 亿美元；正在 Rivian 工厂车间测试验证装配技术，计划未来服务汽车以外的工业客户。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Nominal</div>
+<div>加利福尼亚州洛杉矶 · 2022 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>开发打通硬件从原型试制到量产全流程的测试数据平台，整合传感器数据流并自动化执行测试与性能验证。</p>
+<div><strong>当前阶段：</strong>客户包括 Anduril、HII 与 AeroVironment；2026 年 4 月获得美国空军测试中心最高 5300 万美元的基础设施现代化合同。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Podium Automation</div>
+<div>纽约州布鲁克林 · 2024 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>结合设计软件、数控加工与自动化线材处理，在布鲁克林装配和测试工业控制柜。</p>
+<div><strong>当前阶段：</strong>在布鲁克林厂区生产并交付符合 UL 508A 标准的电柜，供应先进制造、能源、航天与仓储自动化客户。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Prometheus</div>
+<div>加利福尼亚州旧金山 · 2025 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>由杰夫·贝索斯与 Vik Bajaj 联合创立，针对复杂工程几何与物理仿真训练专用 AI 模型，用于发动机与芯片物理设计。</p>
+<div><strong>当前阶段：</strong>处于开发阶段，目标是在实际打样与模具切削前模拟产品性能，力争提前发现工程缺陷并缩短新产品研制周期。</div>
+</div>
+<div>
+<div>
+<div>
+<div>SendCutSend</div>
+<div>内华达州里诺 · 2018 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>提供金属激光切割、机加、钣金折弯与焊接的一站式快速制造，通过软件算法实现上传 CAD 即时报价排产。</p>
+<div><strong>当前阶段：</strong>2026 年 5 月获得首轮机构投资，承诺投资超 2.5 亿美元扩充厂房，作为其 5 年 10 亿美元本土制造投资计划的一部分。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Senra Systems</div>
+<div>加利福尼亚州雷东多海滩 · 2023 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>制造航空航天与防务系统专用电气线束，通过自研 Amp 软件集成工程出图、供应链物料协同与车间组装。</p>
+<div><strong>当前阶段：</strong>2026 年 7 月在加州赛普里斯启用第二座工厂（约 8 万平方英尺）；计划在 2027 年将月产能从 1,000 套线束提升至 10,000 套。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Unlimited Industries</div>
+<div>加利福尼亚州旧金山 · 2025 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>开发生成式工程设计软件，辅助电力与数据中心基础设施的设计比选、造价测算与工程施工管理。</p>
+<div><strong>当前阶段：</strong>2025 年底公开亮相时已有实际工程项目运行，宣称能将前期方案设计与预算估算从数月压缩至数天。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Varda</div>
+<div>加利福尼亚州埃尔塞贡多 · 2021 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>研发近地轨道微重力制药太空工厂，并利用再入大气层太空舱承载政府高超音速实验载荷。</p>
+<div><strong>当前阶段：</strong>2026 年 3 月租赁 20.5 万平方英尺园区扩产飞船；10 月 20 日发射 W-7 任务研究抗癌药轨道结晶（当月第三次发射）。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Westmag</div>
+<div>加利福尼亚州南旧金山 · 2024 年创立</div>
+</div>
+<span>Factories</span>
+</div>
+<p><strong>核心业务：</strong>在一号工厂制造与测试无人机电机及机器人执行器，同时努力向上游建立原材料与零部件供应控制力。</p>
+<div><strong>当前阶段：</strong>2026 年中发布时正在爬坡产能以交付数十万套订单承诺，长期产能目标为 2030 年前实现年产超 3000 万套。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Anduril Industries</div>
+<div>加利福尼亚州科斯塔梅萨 · 2017 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>以软件为核心研制自主防务硬件，通过 Lattice 作战操作系统互联无人机、无人艇与战区防卫网络。</p>
+<div><strong>当前阶段：</strong>获美空军 Fury 战机合同，7 月首架俄亥俄造 Fury 在 500 万平方英尺 Arsenal-1 下线；3 月获陆军上限 200 亿美元 10 年期采购框架。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Apex</div>
+<div>加利福尼亚州洛杉矶 · 2022 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>批量生产标准化卫星平台（卫星公用底盘），负责供电与推进，让防务与商业客户专注于自有有效载荷。</p>
+<div><strong>当前阶段：</strong>在洛杉矶 Factory One 生产，面向防务与商业星座客户，设计年产能峰值目标为每年制造超 200 颗卫星底盘。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Astranis</div>
+<div>加利福尼亚州旧金山 · 2015 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>制造紧凑型地球同步轨道专用通信卫星（MicroGEO），为电信运营商与政府机构提供专属通信带宽服务。</p>
+<div><strong>当前阶段：</strong>在旧金山 70 号码头制造；2026 年 5 月公布已有 5 颗在轨、5 颗处于组装排产中，已签约卫星服务总额超 10 亿美元。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Castelion</div>
+<div>加利福尼亚州托伦斯 · 2022 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>研制可批量采购的经济型高超音速打击导弹系统，控制制造成本以支持大规模防务采购。</p>
+<div><strong>当前阶段：</strong>获超 5 亿美元美军合同，在新墨西哥州开工建设含 21 栋建筑的 Project Ranger 园区；Blackbeard 导弹推进测试，目标 2027 年列装。</div>
+</div>
+<div>
+<div>
+<div>
+<div>CHAOS Industries</div>
+<div>加利福尼亚州洛杉矶 · 2022 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>研制分布式雷达系统，利用小型天线阵列协同探测与追踪威胁，包括 VANQUISH 预警雷达与 ASTRIA 远程高精度雷达。</p>
+<div><strong>当前阶段：</strong>在南加州扩建制造基地，2026 年公布雷达月产量达到 40 部，排产目标在夏末提升至每月 100 部。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Covenant</div>
+<div>2024 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>研制 Anthem 远程精确打击导弹，采用成熟商用零件与本土供应链压低制造成本以支持持续消耗性战备。</p>
+<div><strong>当前阶段：</strong>完成超 200 次试飞（含摩洛哥实弹演练）；2026 年 9 月在达拉斯启用 10.5 万平方英尺工厂，计划 2027 年初批量生产，产能目标年产 5,000 枚。</div>
+</div>
+<div>
+<div>
+<div>
+<div>CX2</div>
+<div>加利福尼亚州埃尔塞贡多 · 2024 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>开发电子战系统，帮助定位并干扰敌方无线电信号，包括无人机和干扰器使用的信号。</p>
+<div><strong>当前阶段：</strong>2026 年迁入埃尔塞贡多 30,000 平方英尺总部与制造设施，扩大工程、测试和生产空间。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Forterra</div>
+<div>马里兰州克拉克斯堡 · 2002 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>开发地面自动驾驶系统 AutoDrive 与 Lancer 无人地面车辆，用于危险前沿战场的高风险物资补给与伤员转运。</p>
+<div><strong>当前阶段：</strong>6 个月内向乌克兰交付 105 辆 Lancer，累计运送超 77 万磅物资并执行 88 次伤员后送；8 月入选陆军最后一战术英里项目。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Helsing</div>
+<div>德国慕尼黑 · 2021 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>研发自主防务系统及支撑其运行的 AI 软件；HX-2 无人机通过软件承担部分原本依靠硬件实现的功能，以利规模制造。</p>
+<div><strong>当前阶段：</strong>向乌克兰交付数千架 HX-2；德国南部工厂初期月产能超 1,000 架；规划中的美国西弗吉尼亚工厂设计月产能超 2,000 架。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Hermeus</div>
+<div>加利福尼亚州洛杉矶 · 2018 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>通过原型机密集试飞研发高速无人飞行器 Quarterhorse，并延伸至航空发动机本土授权制造。</p>
+<div><strong>当前阶段：</strong>2026 年 5 月 Quarterhorse Mk 2.1 试飞达到 1.21 马赫；9 月获普惠公司授权生产 F100-PW-229 军用涡轮风扇发动机。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Impulse Space</div>
+<div>加利福尼亚州雷东多海滩 · 2021 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>研制轨道转移飞行器与空间推进系统，提供卫星入轨机动、轨道升降与在轨部署运载服务。</p>
+<div><strong>当前阶段：</strong>Mira 运载器已执行多次轨道机动任务；大型高能量转移飞行器 Helios 处于研制中，首次任务目标定于 2027 年。</div>
+</div>
+<div>
+<div>
+<div>
+<div>K2 Space</div>
+<div>加利福尼亚州托伦斯 · 2022 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>契合发射成本下降趋势研制大载荷、大功率重型通信与防务卫星，多数核心部组件自主制造。</p>
+<div><strong>当前阶段：</strong>首颗卫星 Gravitas 于 2026 年 3 月成功入轨；托伦斯工厂设计年产能最高可达 100 颗卫星。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Mach Industries</div>
+<div>加利福尼亚州亨廷顿比奇 · 2023 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>开发无人打击飞机，自研推进系统，并通过 Forge 制造网络生产自有及合作方系统，随设计和需求变化调整产线。</p>
+<div><strong>当前阶段：</strong>预计 2026 年内将在至少三个型号上启动试生产；正在扩建 Forge 产线与推进器制造部门。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Neros Technologies</div>
+<div>加利福尼亚州托伦斯 · 2023 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>供应 Archer 第一人称视角（FPV）穿越战术无人机，企业自述其零部件供应链脱离对中国的依赖。</p>
+<div><strong>当前阶段：</strong>2026 年 8 月融资 2.5 亿美元，以到 2028 年在托伦斯实现年产 100 万架为目标；Archer AI 与 Bandit 分别增加自主打击和拦截能力，计划于 2026 年底前投入战场部署。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Northwood</div>
+<div>加利福尼亚州托伦斯 · 2023 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>提供卫星地面通信网络服务，帮助运营商减少租用拥挤站点或自建地面站的负担。</p>
+<div><strong>当前阶段：</strong>天线和软件已在多个大洲运营；2026 年 8 月启用托伦斯新总部和工厂，准备于 10 月将生产迁入，三条专用产线拟实现年产数百台天线。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Perennial Autonomy</div>
+<div>加利福尼亚州 · 2023 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>开发无人机系统，包括 Merops 拦截器、Bumblebee 侦察四旋翼，以及 Hornet 中程打击无人机。</p>
+<div><strong>当前阶段：</strong>已实地部署支援美军中央司令部相关行动；获得跨机构联合特遣部队 401 授予的 3 年期采购合同，上限最高 5 亿美元。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Relativity Space</div>
+<div>加利福尼亚州长滩 · 2015 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>开发更大、可重复使用的 Terran R 运载火箭。</p>
+<div><strong>当前阶段：</strong>首飞所需的全部 13 台发动机已于 2026 年 6 月通过验收测试；累计公布超 30 亿美元发射协议，首飞目标定于 2026 年底。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Saronic Technologies</div>
+<div>德克萨斯州奥斯汀 · 2022 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>建造无人水面艇（ASV）与 Echelon 多艇群协同指挥控制软件，并大规模扩建美国造船产能。</p>
+<div><strong>当前阶段：</strong>获海军 3.92 亿美元合同；2026 年 6 月 24 英尺 Corsair 无人艇在霍尔木兹海峡成功救援坠海直升机飞行员；选址德州投资超 30 亿美元建 Port Alpha 船厂（预计 2028 年启用）。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Shield AI</div>
+<div>加利福尼亚州圣迭戈 · 2015 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>研发在无 GPS 和无通信依赖下的 Hivemind 自主飞行算法，驱动 V-BAT 垂直起降无人机与在研的 X-BAT 战斗机。</p>
+<div><strong>当前阶段：</strong>V-BAT 在德州弗里斯科工厂生产并已前线部署；正研发 X-BAT，其算法同时参与美空军协同作战飞机（CCA）项目。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Skydio</div>
+<div>加利福尼亚州圣马特奥 · 2014 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>制造具备自主避障与自动机巢的无人机系统，客户横跨国防、电力基础设施巡检与公共安全执法。</p>
+<div><strong>当前阶段：</strong>已向超 3,800 家客户交付 60,000 架无人机，涵盖国防、基础设施与公共安全。宣布五年 35 亿美元美国投资计划，其中包括一座规划面积为现有制造空间五倍的新设施。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Specter</div>
+<div>加利福尼亚州旧金山 · 2025 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>开发多模态物理世界视觉 AI 模型、网状传感阵列与加固边缘计算，用于工厂优化、关键设施安全与物流追踪。</p>
+<div><strong>当前阶段：</strong>已面向多家财富 500 强客户开展物理工业应用，包括制造优化、关键基础设施安全、物流与供应链追踪。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Stoke Space</div>
+<div>华盛顿州肯特 · 2019 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>开发两级完全可重复使用的 Nova 运载火箭，通过一级与二级全回收大幅降低轨道发射与部署成本。</p>
+<div><strong>当前阶段：</strong>2026 年完成一级火箭原型资格鉴定；正在卡纳维拉尔角 14 号发射工位开展准备，目标 2026 年底实施首次轨道发射。</div>
+</div>
+<div>
+<div>
+<div>
+<div>Ulysses</div>
+<div>加利福尼亚州旧金山 · 2023 年创立</div>
+</div>
+<span>Systems</span>
+</div>
+<p><strong>核心业务：</strong>研制 Mako 自主水下潜航器与 Leviathan 水面母船系统，兼顾海洋生态修复巡测与海军水下防御巡检。</p>
+<div><strong>当前阶段：</strong>核心部件在旧金山制造；合作方包括美海军与海军研究局（ONR）；2026 年 4 月完成新一轮融资以加快水下装备集群部署。</div>
+</div>
+</div>
+<div>
+<span>数据来源：a16z American Dynamism 2026 官方发布正文与主旨音频整理。</span>
+<span>按 Inputs (11) / Factories (16) / Systems (23) 完整核对。</span>
+</div></div><div><div><div>来源</div><div><span>AD 50 2026: Production Is Deterrence</span><span>a16z<span>·</span><a href="https://www.a16z.news/p/ad-50-2026-production-is-deterrence">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://www.youtube.com/watch?v=cRJ7CfaK1Vc">How to Build the Next SpaceX or Tesla</a></div></div></div></div></div><div>
+<div>
+<div>American Dynamism 50 · 2026 年度报告</div>
+<h1>生产即威慑：后方制造基础如何决定现代竞争</h1>
+<p>当装备需要持续消耗与补充，威慑力还取决于后方工业体系能否回答「能造多少、交付多快、持续多久」。</p>
+<div>制造机制 · 产业关系 · 交付条件</div>
+<div>
+<p><strong>按照 a16z 的定义，威慑力不仅取决于尖端武器的性能，还取决于后方工业体系能否持续回答三个问题：能造多少、交付多快、持续多久。</strong>长期以来，国防、能源和矿业被视为重资产、长验证周期与繁琐采购的传统领域，科技创业者极难切入。但在地缘冲突常态化与供应链受限的当下，弹药消耗与关键部件的断供风险证明：<strong>没有强大的整体工业基础，就无法形成成规模的国防工业生产能力。</strong></p>
+<p>原型性能需要制造与补给体系支撑。需求、一线工程人才、制造软件与风险资本汇合，a16z 据此判断工业创业的新机会正在出现；这些判断仍需实际交付兑现。</p>
+</div>
+<div>
+<div>AD50 三层制造生态：相互咬合的工业底座</div>
+<p>终端装备的需求拉动制造工具的升级，工厂的吞吐能力决定了装备的交付速度，而原材料与能源则划定了整个工业底座的运转上限。三者不是相互孤立的板块，而是彼此牵制、互为支撑的动态网络：</p>
+<div>
+<div>
+<div>
+<span>1. 终端装备（Systems · 23 家）</span>
+<span>拉动需求与标准</span>
+</div>
+<div>提出可承受成本、持续生产与交货规模要求。涵盖 Anduril Fury 协同战机、Castelion 高超音速导弹、Covenant 远程打击巡航弹，以及 Astranis 的地球同步轨道通信卫星、Apex 的标准化卫星公用底盘。</div>
+</div>
+<div>▼ 需求下沉驱动制造流程重组</div>
+<div>
+<div>
+<span>2. 工厂、工具与制造软件（Factories · 16 家）</span>
+<span>吞吐能力与柔性</span>
+</div>
+<div>打通工程设计与车间现场的数据流。Arda 动态更新装配指导、Atomic 仿真注塑模具、Diode 代码化检查 PCB 工艺规范、Hadrian 用 Opus 自动化制造与检验任务，在加州与亚利桑那布局总面积近 300 万平方英尺的四座工厂。</div>
+</div>
+<div>▼ 产能受限于物理开工供给</div>
+<div>
+<div>
+<span>3. 原材料与能源（Inputs · 11 家）</span>
+<span>守住物理底线</span>
+</div>
+<div>突破开工能源与物料瓶颈。Ambrosia 建设光伏与电池电站，为等不及电网供电的企业提供电力、Heron 开发 5MW 固态变压设备；General Matter 为 HALEU 浓缩设施做前期场地准备；Mariana Minerals 直接收购实体铜矿与精炼厂。</div>
+</div>
+</div>
+<div>
+<strong>生态闭环效应：</strong>制造能力跟不上，终端设计便难以转为持续交付的实物；电力与关键矿物供应受限，也会限制产线开工。三者相互支撑，并非所有公司都按固定顺序发展。
+    </div>
+</div>
+<div>
+<h2>当图纸频繁改动：车间柔性调线与物理边界</h2>
+<p>航天与先进防务面临的核心现实是<strong>多品种、小批量（High-Mix, Low-Volume）</strong>。硬件处在边试飞验证、边根据数据反馈频繁修改设计的敏捷状态，工厂必须随之频繁改变工序和设备配置。直接拥有并经营工厂或矿山，也使团队能一并改造报价、接单、加工、检验与流转，并用生产数据反馈改进运营。</p>
+<p>嘉宾举了一个所见案例：过去请外部集成商调整产线，可能花三个月和数十万美元；懂工艺的现场工程师借 Claude，约 20 分钟完成其中的编程与配置。这是个案，夹具调整和设备调试仍需现场完成。另一条路径是 Arda 更新装配计划与作业指导书，已集成进 Anduril 的 ArsenalOS，将数小时编制压缩至几分钟。可调整的产线让设计改动更快变成新原型，获得测试反馈，并帮助生产环节随之进入批量制造。</p>
+<div>
+<p>“AI 目前还不会拧扳手”（AI cannot turn a wrench yet）。物理世界受制于重力、摩擦力、材料公差与热形变。软件能大幅压缩规划、编程与仿真的周期，但实体制造的落地依然离不开技工经验与现场调试的紧密配合。</p>
+</div>
+</div>
+<div>
+<h2>制造中间层崛起：从「按图加工」走向「协同工程」</h2>
+<p>SpaceX 与特斯拉早期因本土供应链匮乏，被迫采取高资本支出的全链条垂直整合。如今，一线人才带着工艺经验创办专业配套企业。Senra 联合创始人曾在 SpaceX 开发线束制造工艺；这一配套网络也包括做电机与执行器的 Westmag、做零部件再设计与重制的 Amca，构成<strong>「制造中间层」（Manufacturing Middle）</strong>。</p>
+<p>专业配套商可以与主机厂共同改进零部件设计与制造方法，而不只是等待新图纸再加工。这就是访谈所说的协同工程（Co-engineering）：</p>
+<div>
+<div>
+<div>传统外协：按图加工（Job-Shop）</div>
+<div>按既定图纸加工，不能自行替上游改变设计要求；继续沿用旧规格，可能难以满足新系统需求。</div>
+</div>
+<div>
+<div>新模式：协同工程（Co-Engineering）</div>
+<div>专业配套商参与零件设计与制造方法的改进，结合新架构与材料，让子部件与主机系统一起优化。</div>
+</div>
+</div>
+</div>
+<div>
+<h2>重资产闭环：资本先行承担风险与工艺跨界迁移</h2>
+<p>军方采购机制中，需求提出、采购立项与预算拨款分属不同决策环节。若企业坐等明确订单落地才研发，交付时可能已经错过技术与需求变化。</p>
+<p>私人资本与早期订单发挥不同作用：Castelion 在正式合同前用风险资本研发和试制；一些防务订单的收入可能分摊设备与厂房投入，取决于规模、时间和交付。工艺也可能进入新市场，但各家的起点和顺序不同：大疆从消费级无人机积累电机制造经验，再拓展其他市场与机器人硬件；工艺复用不等于产品通用。</p>
+<div>
+<div>
+<div>VC 先行</div>
+<div>在采购任务确立前承担早期工程研发与试制风险</div>
+</div>
+<div>
+<div>订单摊销</div>
+<div>部分订单收入可能分摊设备投入，仍受规模与交付约束</div>
+</div>
+<div>
+<div>工艺复用</div>
+<div>积累的工艺可能复用，须适应新客户的性能与成本要求</div>
+</div>
+</div>
+</div>
+<div>
+<h2>交付进展与现实摩擦力：首件下线不等于规模化</h2>
+<p>评估工业创新必须冷静区分「概念验证」与「持续批产」之间的巨大鸿沟：</p>
+<div>
+<div>
+<div>终端装备</div>
+<div>Anduril 首架 Fury 战机下线；Astranis 5 颗卫星在轨</div>
+<div>待兑现：Covenant 年产 5,000 枚巡航弹规划</div>
+</div>
+<div>
+<div>制造配套</div>
+<div>Arda 接入 ArsenalOS；Senra 启用第二座现代化厂房</div>
+<div>待兑现：Senra 月产从 1,000 套爬坡至 10,000 套</div>
+</div>
+<div>
+<div>原料能源</div>
+<div>Ambrosia 西得州供电；Valar 完成零功率临界测试</div>
+<div>待兑现：General Matter 浓缩设施、Radiant 微堆工厂</div>
+</div>
+</div>
+<div>
+<p>机床的交付排期、高压电力接入的审批，以及工厂建设与工艺磨合，都需要数月甚至数年。资本能够支持提前投入，无法直接省掉这些实体工作。最终检验这一套机会判断的，仍是矿山、工厂和配套网络能否在时间与成本约束下，持续交付可用的实物。</p>
+</div>
+</div>
+</div></div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://www.a16z.news/p/ad-50-2026-production-is-deterrence">看原网页 ↗</a></p></div><div></div><div><div><h1>AD 50 2026: Production is Deterrence</h1></div><div><p>50 Companies Rebuilding and Protecting America</p></div><div><figure><img src="https://substackcdn.com/image/fetch/$s_!-63G!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc373e08c-491f-43f9-9a01-055121d8c52f_1460x650.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p><em>We’re excited to present a16z American Dynamism’s annual list of 50 companies that are rebuilding and protecting America. To learn more, watch our companion podcasts <a href="https://www.youtube.com/watch?v=cRJ7CfaK1Vc">here</a>.</em></p></div><div><figure><img src="https://substackcdn.com/image/fetch/$s_!SU5S!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8c68d5c7-8a95-49ea-9c12-8cf7f5f0f1a1_2920x10.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>America’s ability to prevent conflict depends on what it can build, how fast it can deliver and how long it can keep going. A new generation of defense companies is moving advanced systems from testing prototypes to full-scale production. Now the industrial base has to keep pace. That means factories that build at scale, suppliers that ship on time, and domestic sources for critical materials and energy.</p></div><div><p>The pressure is real. Russia’s war in Ukraine has sent NATO allies racing to expand weapons production and rebuild stockpiles. The conflict with Iran has exposed gaps in U.S. munitions inventories. China’s rare earth export restrictions have rattled manufacturers around the world. Strength is measured by the ability to keep producing under pressure.</p></div><div><p>There is no scaled defense industrial base without a strong industrial base. Founders must design for mass production from day one, weighing cost and manufacturability alongside performance. And bringing production onshore means rebuilding the full chain, from processing raw materials to machining precision components to assembling finished systems.</p></div><div><p>That is the theme behind this year’s American Dynamism 50: <strong>Production is Deterrence.</strong> The list is organized around three connected pillars: Systems, Factories and Inputs.</p></div><div><p>Systems deliver capability. Factories provide the plants, tools and software to build them at volume. Inputs supply the materials and power that keep the line moving.</p></div><div><p>The payoff reaches well beyond defense. The same capacity that arms the country also creates skilled jobs, revitalizes communities and makes the supply chains behind energy, housing, and everyday goods more resilient.</p></div><div><p>The companies on this list are rebuilding the industrial foundation that protects America and strengthens her allies.</p></div><div><figure><img src="https://substackcdn.com/image/fetch/$s_!nqBa!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F478f52f2-1cd8-41b0-a438-97ba47b827c8_2000x2000.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p><em>Austin, TX · Founded 2024 · Inputs</em></p></div><div><p>Ambrosia Energy builds solar and battery plants for businesses that can’t wait for grid power, aiming to deliver electricity roughly a year after signing a contract at about $100 per megawatt-hour. <a href="https://ambrosia.energy/blog">Founders Ben Longmier and Sara Spangelo previously led Starlink Mobile after SpaceX acquired their company Swarm.</a> Construction began in West Texas in January 2026. At their June launch, Ambrosia said completed sections were running and the next phase was funded, with 200 megawatts of solar designed to deliver 20 megawatts continuously.</p></div><div><p><em>El Segundo, CA · Founded 2024 · Factories</em></p></div><div><p>Amca is an engineering and manufacturing company focused on re-engineering critical components for defense and aerospace supply chains. Founder and CEO Jai Malik saw an opportunity to uplevel existing aerospace and defense component suppliers, combining their manufacturing capabilities and deep technical knowledge with a world-class, centralized engineering team. Amca improves existing operations and develops new or replacement components for customers facing limited supply, long lead times, or missing technical data. Today, Amca offers both direct component sales and re-engineered parts to government buyers.</p></div><div><p><em>Costa Mesa, CA · Founded 2017 · Systems</em></p></div><div><p>Anduril builds defense hardware around software, connecting their autonomous systems through the Lattice platform to support force protection and unmanned combat missions. In June 2026, the U.S. Air Force awarded Anduril development and production contracts for the Fury aircraft under the Collaborative Combat Aircraft program. The following month, the first Ohio-built Fury rolled off the production line at Arsenal-1, the company’s 5 million sq. ft. manufacturing campus near Columbus. Anduril is expanding manufacturing as government demand for their systems grows. In March, the Army awarded Anduril an enterprise contract that simplifies purchases of the company’s software and hardware, with a ceiling of $20 billion over 10 years.</p></div><div><p><em>Los Angeles, CA · Founded 2022 · Systems</em></p></div><div><p><a href="https://www.apexspace.com/news/q-a-with-ian-cinnamon-apexs-chief-executive-officer-and-founder-89f40">At Palantir, Ian Cinnamon kept hearing satellite customers complain about their spacecraft buses. He co-founded Apex</a> to offer standard buses that handle power and propulsion for satellites of different sizes, allowing customers to concentrate on their payloads. Standardization also means Apex can mass-produce spacecraft, driving down cost as they drive up quality and earn flight heritage for their designs. At Factory One in Los Angeles, the company is targeting a peak capacity above 200 satellites a year for defense and commercial constellations.</p></div><div><p><em>San Francisco, CA · Founded 2025 · Factories</em></p></div><div><p>Bob McGrew, OpenAI’s former chief research officer, co-founded Arda to close the gap between designing hardware and building it. Its software turns product designs into assembly plans and work instructions, then updates them as designs change. Anduril already uses Arda within ArsenalOS, its manufacturing software, meaning instructions that previously took hours might be completed in minutes. Arda launched publicly in October 2026 with $230 million in total funding. The company is extending its planning software into robotic assembly, aiming to make production lines adapt as quickly as the products they build.</p></div><div><p><em>San Francisco, CA · Founded 2015 · Systems</em></p></div><div><p>Astranis’s MicroGEO satellites stay fixed above a single spot on Earth by flying in geostationary orbit, giving telecom operators and governments a communications option solely dedicated to their needs . Co-founder and CEO John Gedmark founded the Commercial Spaceflight Federation in 2005, and teamed up with Ryan McLinko, who led both the electrical and mechanical engineering teams at Planet Labs, to start Astranis. Astranis builds their satellites at San Francisco’s Pier 70 and reported five in orbit and five in production in May 2026. They put the value of their contracted satellite services at more than $1 billion.</p></div><div><p><em>Detroit, MI · Founded 2021 · Factories</em></p></div><div><p>Aaron Slodov co-founded Atomic Industries to automate one of manufacturing’s slowest steps: making the molds that turn product designs into repeatable parts. The Detroit company combines tooling design, physics simulation, and factory production in a single operation. Its software models plastic flow, heat, and structural behavior before a mold is cut, then uses production data to improve subsequent designs. Atomic supplies injection-molded plastic parts for automotive, consumer, aerospace, and defense applications, with mold making as the foundation for scaling domestic production.</p></div><div><p><em>Austin, TX · Founded 2023 · Inputs</em></p></div><div><p><a href="https://www.basepowercompany.com/about">Justin Lopas, who built rockets at SpaceX and led manufacturing at Anduril, co-founded Base Power with Zach Dell.</a> The home battery company opened Factory 1 in Austin’s former newspaper printing plant in October 2025, then began producing their Texas-designed Base Core there in 2026. Base Core is available in Texas and Illinois, and the company plans another Austin factory. Base installs and operates the batteries to support the grid while keeping energy in reserve for household outages.</p></div><div><p><em>Torrance, CA · Founded 2022 · Systems</em></p></div><div><p>Castelion is developing hypersonic missiles intended to be affordable enough for the military to buy in large numbers. <a href="https://www.castelion.com/about-us/">Co-founder Bryon Hargis previously helped define national-security satellite products at SpaceX.</a> By August 2026, the company had more than $500 million in U.S. military contracts and had broken ground on Project Ranger, a planned 21-building production campus in Rio Rancho, New Mexico. Their Blackbeard program is moving through testing and procurement toward fielding in 2027.</p></div><div><p><em>Los Angeles, CA · Founded 2022 · Systems</em></p></div><div><p>CHAOS Industries is building a distributed radar system that detects and tracks threats using arrays of smaller antennas. Their products include VANQUISH, a distributed early-warning radar, and ASTRIA, a long-range radar built for high-precision tracking. Bo Marr, formerly of Epirus and Raytheon, co-founded CHAOS alongside Gavin Hood, who previously worked at Palantir and Britain’s Secret Intelligence Servicehe company is expanding manufacturing in Southern California and reported making 40 radars a month, with a target of 100 by late summer.</p></div><div><p><em>San Bruno, CA · Founded 2024 · Inputs</em></p></div><div><p>Chariot Defense builds the power systems that keep drones, sensors, communications equipment, and electronic warfare tools running when vehicles and generators are switched off. Its Amphora platform combines energy storage, conversion, and software-controlled distribution in hardware designed to work with existing military vehicles, generators, and solar arrays. Founder Adam Warmoth previously led counter-drone programs at Anduril.</p></div><div><p><em>Founded 2024 · Systems</em></p></div><div><p>Founded by Michael Kaufman and Ofir Dayan, Covenant is developing Anthem, a long-range precision-strike missile designed for affordable mass production. Commercial components and local supply chains support the company’s U.S. manufacturing, and they use the same approach in Germany and Israel. By Covenant’s September 2026 public launch, Anthem had completed more than 200 flight tests, including a live-fire demonstration near Tan-Tan, Morocco, on August 6. In September, Covenant opened a 105,000-square-foot factory in Dallas to work alongside their German and Israeli facilities. The company plans to use these plants to supply long-range strike weapons in the quantities needed for sustained deterrence. Serial production in Dallas is scheduled to begin in early 2027, with a target of 5,000 missiles a year once production ramps up.</p></div><div><p><em>El Segundo, CA · Founded 2024 · Systems</em></p></div><div><p>CX2 builds electronic warfare systems that help military units locate and disrupt hostile radio signals, including those used by drones and jammers. Its co-founders include former Army helicopter pilot Porter Smith, Epirus founder Nathan Mintz, and Lee Thompson, who led radio-frequency engineering at SpaceX. The company develops airborne platforms and payloads that integrate with existing military sensors and command systems. In 2026, CX2 moved into a 30,000-square-foot headquarters and manufacturing facility in El Segundo, expanding space for engineering, testing, and production.</p></div><div><p><em>New York, NY · Founded 2024 · Factories</em></p></div><div><p><a href="https://www.generalist.com/p/our-goal-is-to-build-an-electrical-engineer">Davide Asnaghi co-founded Diode after working in Apple’s Special Projects Group and studying electronics manufacturing in Hong Kong and Shenzhen.</a> The company helps engineers get circuit boards built and delivered with fewer supplier handoffs, starting with schematics written as code. Engineers can export their designs into established engineering tools and check manufacturing requirements before the boards are built. Diode says their tools help customers including Saronic and Physical Intelligence move faster between revisions and produce more designs per engineer.</p></div><div><p><em>Clarksburg, MD · Founded 2002 · Systems</em></p></div><div><p>Forterra builds unmanned ground vehicles that move supplies and evacuate wounded soldiers along routes that would otherwise expose drivers to enemy fire. Under a U.S. government program, Forterra produced and delivered 105 Lancer vehicles to Ukraine in less than six months. By July 2026, the fleet had transported over 777,000 pounds and carried out 88 casualty-evacuation operations across more than 1,100 missions. In August, the U.S. Army selected Forterra for the Infantry Last Tactical Mile initiative, bringing Lancer’s AutoDrive autonomy platform and Vektor communications system to the program. The effort focuses on rapidly deployable resupply and casualty evacuation.</p></div><div><p><em>Seattle, WA · Founded 2025 · Inputs</em></p></div><div><p>Andrew Redd left SpaceX to found Endurance Energy, which develops modular generators that turn heat beneath the ocean floor into electricity for coastal grids and industrial sites. In summer 2026, the company expanded into a 25,000-square-foot Seattle facility for research and manufacturing. In September 2026, Endurance deployed its Adélie prototype at Axial Seamount off Oregon, using a natural hydrothermal vent to reportedly generate more electricity than it consumed. Endurance is developing a two-megawatt commercial generator and a project in Tonga targeting first power in 2027.</p></div><div><p><em>San Francisco Bay Area, CA · Founded 2025 · Factories</em></p></div><div><p>Foundry Robotics is building a manufacturing operation around flexible robotic cells that assemble complex hardware. Its focus spans defense and commercial robotics, battery packs, and mechanical subassemblies, with the aim of moving products from prototype to production without building a dedicated factory for each design. Founder Adarsh Kulkarni previously led robotics at Scale AI. Foundry combines manufacturing engineers, robot hardware, and AI models on the assembly floor, collecting data from each task to improve subsequent builds. In October 2026, it announced that Avea Robotics was joining the company, adding technology that lets human operators intervene when robots encounter unfamiliar situations.</p></div><div><p><em>El Segundo, CA · Founded 2024 · Inputs</em></p></div><div><p>General Matter is developing domestic uranium enrichment capacity to supply America’s next generation of nuclear reactors. Their focus includes high-assay low-enriched uranium, or HALEU, a fuel that remains in limited domestic supply even though many advanced reactors need it. Founder Scott Nolan, a former SpaceX engineer and Founders Fund investor, spent a year searching for a company addressing America’s nuclear fuel gap before starting General Matter. In January 2026, the Department of Energy awarded General Matter $900 million in milestone-based funding to develop domestic HALEU enrichment capacity over ten years. Site preparation is underway at the former Paducah Gaseous Diffusion Plant in Kentucky, where the company plans to establish a new enrichment facility.</p></div><div><p><em>San Mateo, CA · Founded 2024 · Factories</em></p></div><div><p>Generalist builds AI models that help robots learn physical tasks from demonstrations, with an initial focus on dexterous manipulation. Its team brings experience from Google DeepMind, Boston Dynamics, and OpenAI. In August 2026, the company introduced GEN-1.5, showing robots learning simple tasks from a single brief demonstration and adapting to unfamiliar objects and tools. The demonstrations remain focused on short tasks, but they point toward a different way to automate factories: teach a robot what to do without writing a new program for every product change. Generalist is expanding access to the model as it works toward broader use.</p></div><div><p><em>Torrance, CA · Founded 2021 · Factories</em></p></div><div><p>Hadrian builds highly automated factories to expand domestic production of critical programs for aerospace and defense. From components manufacturing, to in-house production lines, to dedicated factories, Hadrian’s flexible manufacturing platform ensures customers’ capacity needs are met. Hadrian’s manufacturing is powered by its Opus software, which automates key manufacturing and inspection tasks, enabling its technicians to train faster and increase throughput. In January 2026, Hadrian brought Factory 3 in Mesa, Arizona, online less than six months after signing the lease. The company now has four facilities spanning nearly 3 million square feet. Hadrian plans to expand production for U.S. defense programs with factories and production lines for munitions and autonomous systems.</p></div><div><p><em>Munich, Germany · Founded 2021 · Systems</em></p></div><div><p>Helsing builds autonomous defense systems and the AI software that enables them to operate, from strike drones to aircraft and underwater vehicles. Its HX-2 drone is designed for mass production, with software taking on functions that would otherwise require more hardware and assembly steps. The company’s Resilience Factories distribute manufacturing across allied countries, using local suppliers and workforces to build capacity close to customers. Helsing has deployed thousands of HX-2 drones to Ukraine. Its first Resilience Factory in southern Germany has initial capacity for more than 1,000 drones a month. A planned West Virginia factory would extend that production network to the U.S., with capacity for more than 2,000 HX-2s a month once fully operational.</p></div><div><p><em>Los Angeles, CA · Founded 2018 · Systems</em></p></div><div><p>AJ Piplica helped develop the Air Force’s X-60A hypersonic test vehicle before co-founding Hermeus in 2018. The company builds uncrewed high-speed aircraft through successive prototypes, using each flight to improve the next design. In May, Quarterhorse Mk 2.1 reached Mach 1.21 on its third test flight, less than a year after the first Quarterhorse aircraft flew. In September, Pratt &amp; Whitney licensed Hermeus to manufacture F100-PW-229 engines, expanding its planned role from aircraft development into domestic engine production.</p></div><div><p><em>Scotts Valley, CA · Founded 2024 · Inputs</em></p></div><div><p>Heron Power’s five-megawatt Heron Link uses solid-state electronics to connect large power users and energy projects to the grid, combining functions normally handled by transformers and other equipment. <a href="https://heronpower.com/about">Founder Drew Baglino formed Tesla’s energy engineering organization in 2014 and oversaw Megapack’s launch and production ramp.</a> Heron plans to invest over $100 million in Factory One in Morgan Hill, California, with mass production targeted for late 2027 and a goal of up to 10,000 units a year.</p></div><div><p><em>Redondo Beach, CA · Founded 2021 · Systems</em></p></div><div><p><a href="https://www.impulsespace.com/about">Tom Mueller led propulsion development at SpaceX from its founding through 2020, working on the engines that powered Falcon rockets and Dragon spacecraft. He founded Impulse Space</a> in 2021, which builds vehicles to transfer spacecraft from orbit to orbitImpulse makes their spacecraft in Redondo Beach and propulsion components in Colorado. Helios is still in development for higher-energy transfers, with a first mission targeted for 2027, while Mira has already flown multiple maneuvering and deployment missions.</p></div><div><p><em>Torrance, CA · Founded 2022 · Systems</em></p></div><div><p>Large satellites become more attractive as launch costs fall, and K2 Space builds them with high power and payload capacity for communications and defense. <a href="https://www.k2space.com/about">Co-founder Neel Kunjur previously helped develop and integrate Dragon’s avionics at SpaceX, and teamed up with his brother Karan to found K2.</a> The comany makes many of their components in-house at a Torrance factory designed to produce up to 100 satellites a year. Their first spacecraft, Gravitas, reached orbit in March 2026.</p></div><div><p><em>Huntington Beach, CA · Founded 2023 · Systems</em></p></div><div><p>Ethan Thornton was prototyping defense hardware in his garage at 16, before his work at MIT drew Lincoln Laboratory’s attention. Mach Industries develops unmanned strike aircraft, with propulsion developed in-house. Their Forge manufacturing network is designed to produce Mach’s weapons, including their munitions and counter-UAS systems, along with partners’ systems. The factories can retool as designs and requirements evolve. Mach expects to begin production on at least three programs in 2026. They’re expanding Forge and their Mach Propulsion division while developing second-generation systems so they can make more weapons and critical components for U.S. and allied forces.</p></div><div><p><em>San Francisco, CA · Founded 2024 · Inputs</em></p></div><div><p><a href="https://oneutahsummit.utah.gov/speakers/">Turner Caldwell spent more than nine years at Tesla, moving from battery manufacturing to leading their minerals and metals programs. He co-founded Mariana Minerals</a>, which bought Copper One, a copper mine and refinery in southeastern Utah, in late 2025. Mariana is automating mine and refining operations using their MarianaOS software that spans the entire lifecycle of mining development and operations. Funding raised in August 2026 supports the work at Copper One and the development of Lithium One in East Texas.</p></div><div><p><em>Palo Alto, CA · Founded 2025 · Factories</em></p></div><div><p>Founded by Rivian’s RJ Scaringe in November 2025, Mind Robotics is developing AI models and hardware for robots to handle jobs fixed equipment still struggles with. Within months, they had raised more than $1 billion, including a May 2026 round to fund more deployments. Rivian’s factories give Mind a place to test their technology as the company works toward serving manufacturers outside the auto industry.</p></div><div><p><em>Torrance, CA · Founded 2023 · Systems</em></p></div><div><p><a href="https://sequoiacap.com/article/partnering-with-neros-next-gen-drones-made-in-america">Neros co-founders Soren Monroe-Anderson and Olaf Hichwa met as teenage drone racers, each already designing and selling drone components.</a> Their company now supplies Archer first-person-view drones to U.S. and allied forces through a supply chain Neros says doesn’t depend on China. Archer AI and Bandit add autonomous strike and interception, with both planned for combat deployment before the end of 2026. Neros raised $250 million in August 2026 and is targeting production of one million drones a year in Torrance by 2028.</p></div><div><p><em>Los Angeles, CA · Founded 2022 · Factories</em></p></div><div><p>Nominal develops software that gives hardware manufacturers a shared view of system performance from prototype development through production. Engineers can use the platform to combine sensor data with test results and automate workflows for testing systems and validating performance as production scales. Co-founder Cameron McCord experienced those testing challenges while working at Anduril. Nominal serves customers like Anduril, HII and AeroVironment. In April 2026, the Air Force Test Center awarded Nominal a contract with a ceiling of $53 million to modernize the center’s test data infrastructure.</p></div><div><p><em>Torrance, CA · Founded 2023 · Systems</em></p></div><div><p>Northwood aims to spare satellite operators the difficulties of either renting shared space on highly-congested ground stations, or of building ground stations of their own, by offering services from their communications network. Led by MIT and Harvard-trained CEO and co-founder Bridgit Mendler, Northwood’s antennas and software already operate across multiple continents. The company opened a new headquarters and factory in Torrance in August 2026 and is preparing to move production there in October, with three dedicated lines intended to make hundreds of antennas a year.</p></div><div><p><em>Burlingame, CA · Founded 2023 · Inputs</em></p></div><div><p><a href="https://peakenergy.com/company/about">After five years developing battery manufacturing technology at Northvolt, Landon Mossburg co-founded Peak Energy.</a> Their grid batteries use abundant sodium and are designed to lower operating costs by reducing the need for cooling. In July 2026, Peak chose a Sacramento factory designed to produce up to four gigawatt-hours a year, with first shipments targeted for early 2027. The company says customer commitments already exceed six gigawatt-hours.</p></div><div><p><em>California · Founded 2023 · Systems</em></p></div><div><p>Perennial Autonomy is building battle-tested drone systems. After successful deployments in support of Operation EPIC FURY and U.S. Central Command, Joint Interagency Task Force 401 awarded the Eric Schmidt-backed company a three-year procurement contract with a ceiling of $500 million. The contract will fund additional procurements of Perennial’s Merops interceptors, Bumblebee ISR quadcopters, and Hornet mid-range strike drones.</p></div><div><p><em>Brooklyn, NY · Founded 2024 · Factories</em></p></div><div><p>Jamie Niu and Jacob Buser co-founded Podium Automation to make industrial control panel production faster and more reliable. Podium combines its own design software with CNC machining and automated wire processing, then assembles and tests the finished panels in Brooklyn. The approach reduces manual work and catches design problems before fabrication, helping customers bring new production equipment online without waiting on a traditional panel shop. The company supplies UL 508A-listed panels for manufacturing, energy, aerospace, and warehouse automation.</p></div><div><p><em>San Francisco, CA · Founded 2025 · Factories</em></p></div><div><p>Prometheus is developing AI models for engineering and manufacturing. Co-founded by Jeff Bezos and Vik Bajaj, the company trains these models on specialized data to work with the geometry and physics of complex hardware, from jet engines to semiconductors. Its tools are intended to help engineers explore designs, simulate performance, and refine products before committing to physical prototypes and tooling. Prometheus aims to shorten this development cycle, helping manufacturers resolve engineering problems earlier and move new products into production faster.</p></div><div><p><em>El Segundo, CA · Founded 2020 · Inputs</em></p></div><div><p><a href="https://www.radiantnuclear.com/news/why-i-started-radiant">Doug Bernauer began exploring nuclear power at SpaceX while working out how to supply energy to a Mars colony. He co-founded Radiant</a>, which is developing Kaleidos, a transportable reactor, built in a factory, and designed to supply one megawatt of electricity. The reactors are designed with military installations and remote customers in mind, offering an alternative to diesel generators that need regular fuel deliveries. The company sent their first demonstration unit to Idaho National Laboratory in August 2026 and plans an Oak Ridge factory designed for up to 50 units a year. An Army Janus agreement worth up to $750 million covers the development and deployment of 15 units.</p></div><div><p><em>Carson City, NV · Founded 2017 · Inputs</em></p></div><div><p><a href="https://ir.tesla.com/corporate/jb-straubel">Redwood Materials founder JB Straubel co-founded Tesla, where he served as chief technology officer from 2005 to 2019.</a> Redwood recovers materials for new batteries from used cells and manufacturing scrap in Nevada and at their newer South Carolina campus. EV batteries that still have useful life go into Redwood Energy’s stationary storage business, including a 63-megawatt-hour project with Crusoe.</p></div><div><p><em>Long Beach, CA · Founded 2015 · Systems</em></p></div><div><p>Relativity launched Terran 1 in 2023, and brought on new CEO Eric Schmidt in 2025. Since, they have accelerated their technical development of Terran R, a new, larger reusable rocket that is expected to debut in late 2026. All 13 engines for the first flight had passed acceptance testing by June 2026, and Relativity has reported more than $3 billion in launch agreements.</p></div><div><p><em>Austin, TX · Founded 2022 · Systems</em></p></div><div><p>Dino Mavrookas served 11 years as a Navy SEAL and completed eight combat tours before starting Saronic. The company builds autonomous surface vessels and is expanding shipbuilding capacity in the U.S. to produce more of them. Their Echelon software gives operators one interface to plan missions and control a single vessel or an entire fleet. The U.S. Navy awarded Saronic a $392 million production contract late last year. In June 2026, the Navy used the company’s 24-foot autonomous Corsair boat to rescue two downed Apache helicopter pilots near the Strait of Hormuz. In July, Saronic chose Brownsville, Texas, for Port Alpha, a planned shipyard representing more than $3 billion in investment. The shipyard is targeted to open in 2028 and would add to the company’s existing capacity in Franklin, Louisiana.</p></div><div><p><em>Reno, NV · Founded 2018 · Factories</em></p></div><div><p><a href="https://sendcutsend.com/about-us/">Jim Belosic founded SendCutSend to get custom parts for his garage projects without waiting weeks or paying hundreds of dollars apiece. Drawing on his software background</a>, he built a service where customers upload a design for an instant quote, dramatically improving the legacy email-based quoting process. SendCutSend grew largely on their own cash after an early friends-and-family round, then took their first institutional funding in May 2026. That month, they committed more than $250 million to facilities as part of a five-year, $1 billion investment in U.S. manufacturing, including not only the laser cutting business with which SendCutSend started, but also machining, bending and forming, welding, and more.</p></div><div><p><em>Redondo Beach, CA · Founded 2023 · Factories</em></p></div><div><p>Senra Systems makes the wire harnesses that carry power and signals through aerospace and defense systems. Their Amp software brings engineering and production work into one system that also manages the supply chain, helping teams assemble harnesses efficiently and consistently. Co-founder Jordan Black began his manufacturing career repairing roller coasters at the Santa Monica Pier before joining SpaceX, where he developed wire-harness manufacturing processes. In July 2026, Senra opened their second factory in Cypress, California, adding about 80,000 square feet and expanding their manufacturing footprint fivefold. They plan to use the factory to increase monthly output from 1,000 harnesses to 10,000 by 2027.</p></div><div><p><em>San Diego, CA · Founded 2015 · Systems</em></p></div><div><p><a href="https://shield.ai/about/">During his service as a Navy SEAL, Brandon Tseng saw situations where autonomous systems could have helped protect troops. He co-founded Shield AI</a>, whose Hivemind software lets aircraft fly autonomously when GPS and communications are unavailable. Hivemind powers the V-BAT, which is built in Frisco, Texas, and has already been fielded. The software is also intended for the X-BAT combat aircraft still in development, while its role in the Air Force’s Collaborative Combat Aircraft effort extends beyond Shield’s own airframes.</p></div><div><p><em>San Mateo, CA · Founded 2014 · Systems</em></p></div><div><p>Skydio builds autonomous drones for defense, infrastructure operators, and public safety customers. Their aircraft and docking systems are produced in Hayward, California. Co-founders Adam Bry and Abe Bachrach worked on autonomous flight at MIT and helped start Google’s Project Wing before founding Skydio. Skydio announced a five-year, $3.5 billion U.S. investment plan in April 2026, to expand research and development, domestic supply chains, and manufacturing capacity through its SkyForge program. SkyForge includes a planned manufacturing facility five times the size of Skydio’s existing space. Skydio had already shipped 60,000 drones to over 3,800 customers when they announced the plan.</p></div><div><p><em>San Francisco, CA · Founded 2025 · Systems</em></p></div><div><p>Specter was started by Philip Clark and Xerxes Libsch to unleash AI into the physical world. Xerxes spent 6 years at Anduril as Chief Architect, and Philip is also a partner at Thrive Capital. Specter builds vision AI for the physical world, utilizing mesh sensing, ruggedized edge compute and custom multi-modal AI models. Their AI model can understand physical environments in real-time, drastically increasing the efficiency and automation of physical industry across numerous F500 customers. Specter is deploying this technology to solve some of the hardest operational problems at the heart of physical industry today - from manufacturing optimization, critical infrastructure security to logistics and supply chain tracking.</p></div><div><p><em>Kent, WA · Founded 2019 · Systems</em></p></div><div><p><a href="https://www.nfx.com/post/stoke-space">Co-founded by former Blue Origin rocket engineer Andy Lapsa</a>, Stoke Space is developing a new launch vehicle, Nova, which is designed to lower launch costs by recovering both stages and flying them again. They completed a first-stage proto-qualification campaign in 2026 and are preparing Launch Complex 14 at Cape Canaveral for a first launch targeted for late 2026.</p></div><div><p><em>San Francisco, CA · Founded 2023 · Systems</em></p></div><div><p><a href="https://a16z.com/announcement/investing-in-ulysses/">Ulysses’ founders first built drones in Ireland, then turned to underwater robots for seagrass restoration</a>, work the company continues with partners such as the Great Barrier Reef Foundation. Ulysses now builds Mako underwater vehicles for inspection and defense work, with the U.S. Navy and Office of Naval Research among their customers and partners. The company makes key components in San Francisco and builds the Leviathan surface vessel and Kraken system to launch and recover their vehicles. Funding raised in April 2026 is intended to put larger fleets of those robots in the water.</p></div><div><p><em>San Francisco, CA · Founded 2025 · Factories</em></p></div><div><p><a href="https://www.globenewswire.com/news-release/2025/12/03/3198921/0/en/unlimited-industries-raises-12m-to-build-the-ai-construction-company-that-will-power-america-s-future.html">Alex Modon co-founded Unlimited Industries after watching his first major industrial construction project in Texas stretch from months into years.</a> The company uses software to generate and compare designs for power and data infrastructure, then takes the projects through engineering and construction. At their December 2025 launch, Unlimited said they already had active projects and could cut design and estimating work from months to days.</p></div><div><p><em>El Segundo, CA · Founded 2023 · Inputs</em></p></div><div><p><a href="https://www.deseret.com/business/2026/03/17/isaiah-taylor-who-founded-valar-atomics-is-bringing-nuclear-power-online/">After building an auto-repair business and a software startup, Isaiah Taylor founded Valar Atomics</a>, which is developing gas-cooled nuclear reactors alongside the processes to manufacture them. Under the DOE Reactor Pilot Program, their Ward 250 completed a zero-power criticality test at Utah’s San Rafael Energy Lab in June 2026, sustaining a nuclear chain reaction.</p></div><div><p><em>El Segundo, CA · Founded 2021 · Factories</em></p></div><div><p>Will Bruey worked on SpaceX’s Dragon spacecraft before co-founding Varda with Delian Asparouhov. Varda develops orbital factories to process pharmaceuticals in microgravity and return them to Earth. Its reentry capsules also carry government experiments that collect data during hypersonic flight. The company builds its spacecraft and heat shields in-house in El Segundo. In March 2026, Varda leased a 205,000-square-foot industrial and office campus to expand spacecraft and capsule production, alongside a separate biopharma development facility. On October 20, 2026, it launched W-7 to study cancer-drug crystallization in orbit, its third launch that month.</p></div><div><p><em>South San Francisco, CA · Founded 2024 · Factories</em></p></div><div><p><a href="https://www.notboring.co/p/westmag">David Hansen learned how the motor supply chain worked while sourcing components from China for Weel’s self-balancing e-bikes. He co-founded Westmag</a> in 2024, which manufactures and tests drone motors and robot actuators at Factory 01 in South San Francisco while working to control upstream parts and materials. At their June 2026 public launch, Westmag said production was growing to meet commitments for hundreds of thousands of units, with a target of more than 30 million a year before 2030.</p></div><div><figure><img src="https://substackcdn.com/image/fetch/$s_!x83d!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbdfa26cc-8980-41ca-a3bb-7ece793bed5b_3098x158.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://substackcdn.com/image/fetch/$s_!eR09!,w_140,h_140,c_fill,f_auto,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feba3183d-89a9-42db-bf7d-432f54ad3946_2844x1600.png" alt="American Dynamism Film Series" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://substackcdn.com/image/fetch/$s_!V4Oq!,w_140,h_140,c_fill,f_auto,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5981cd0a-eb7e-4e94-90ca-c001d877d583_2842x1600.png" alt="The New Security Agenda" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://substackcdn.com/image/fetch/$s_!SU5S!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8c68d5c7-8a95-49ea-9c12-8cf7f5f0f1a1_2920x10.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p><em>This newsletter is provided for informational purposes only, and should not be relied upon as legal, business, investment, or tax advice. Furthermore, this content is not investment advice, nor is it intended for use by any investors or prospective investors in any a16z funds. This newsletter may link to other websites or contain other information obtained from third-party sources - a16z has not independently verified nor makes any representations about the current or enduring accuracy of such information. If this content includes third-party advertisements, a16z has not reviewed such advertisements and does not endorse any advertising content or related companies contained therein. Any investments or portfolio companies mentioned, referred to, or described are not representative of all investments in vehicles managed by a16z; visit <a href="https://a16z.com/investment-list/">https://a16z.com/investment-list/</a> for a full list of investments. Other important information can be found at <a href="http://a16z.com/disclosures">a16z.com/disclosures</a>. You’re receiving this newsletter since you opted in earlier; if you would like to opt out of future newsletters you may unsubscribe immediately.</em></p></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://www.a16z.news/p/ad-50-2026-production-is-deterrence">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】OpenAI 两位作者谈公司的未来：AI 会怎样改变分工与权力 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/openai-future-of-the-firm/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:openai-future-of-the-firm</guid>
+<pubDate>Fri, 30 Oct 2026 12:00:21 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 AI 进入组织的三种形态 02 第一种形态：AI 置于员工之下，基层也成为管理者 03 第二种形态：AI 作为同事并入组织，端到端团队为何更易被采纳？ 04 第三种形态：AI 介入管理，人可能向它汇报 05 决定企业未来的四个关键问题 06 理解组织重构中的分工与权力 AI 解读 / 洞察 · 10-30 · 15 分钟 · 作者 Hemanth Asirvatham / El</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 30 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">OpenAI 两位作者谈公司的未来：AI 会怎样改变分工与权力 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/openai-future-of-the-firm/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>AI 进入组织的三种形态</span></a><a><span>02</span><span>第一种形态：AI 置于员工之下，基层也成为管理者</span></a><a><span>03</span><span>第二种形态：AI 作为同事并入组织，端到端团队为何更易被采纳？</span></a><a><span>04</span><span>第三种形态：AI 介入管理，人可能向它汇报</span></a><a><span>05</span><span>决定企业未来的四个关键问题</span></a><a><span>06</span><span>理解组织重构中的分工与权力</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>洞察</a><i>·</i>10-30<i>·</i>15 分钟<i>·</i>作者 Hemanth Asirvatham / Elliott Mokski</div><h1>OpenAI 两位作者谈公司的未来：AI 会怎样改变分工与权力</h1><p>AI 在你下面、身边，或上下级之间，会带来不同的公司形态。真正的变化在于：谁负责执行，谁掌握信息，谁来做决定。</p><div><div>正文一页纸</div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Hemanth Asirvatham / Elliott Mokski</span><span>10-30 · 15 分钟</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>AI 既可能让员工带领自己的数字团队，也可能直接接下一整块业务，改变现有分工。</li><li>AI 帮老板看清一线工作，可能让真实贡献更容易被发现，也可能让控制更严密。</li><li>这些是两位作者对过渡期公司的设想；就业、自主权和薪酬的走向，都取决于技术之外的条件。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/social/zh-35397df76511.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>OpenAI 网站刊登了两位在公司工作的作者 Hemanth Asirvatham 与 Elliott Mokski 撰写的《企业的未来》（The future of the firm），讨论 AI 将怎样进入组织架构——是在员工之下、在员工身旁，还是夹在上下级之间。</p>
+<p>在传统职场晋升路径中，年轻人入职的前几年通常在底层做会议纪要、核对报表等基础事务，熬过琐碎磨砺才能获得带团队的更大授权。但随着 AI 逐步进入工作流，管理职责可能不再是自下而上熬出来的，而是直接降落到了基层员工的工位上。文章表达的是作者的个人观点。</p>
+<p>两位作者说，他们 24 岁时就开始管理自己的“团队”：日常使用的 AI 助手。作者讨论的重心不是全盘自动化的远期设想，而是过渡期的组织重组：当 AI 逐步承担更多连续工作时，它会从哪个方向切入现有的组织架构？不同位置的介入，又会怎样重塑权力、分工与岗位命运？</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/original-diagram-01.webp" alt="Image 1: Three organization charts show AI beneath human workers, beside human workers, and between layers of human workers; open circles represent humans and filled purple circles represent AI." style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>原文的三种组织图：空心圆代表人，紫色实心圆代表 AI，位置分别在人之下、身边和上下级之间。</figcaption>
+</figure>
+<hr />
+<h2>AI 进入组织的三种形态</h2>
+<p>AI 进入公司后，变的不只是某项任务做得多快，还有谁给谁分派工作、谁掌握信息、谁来拍板。人与 AI 怎样分工，会进一步改变监督成本和员工的自主空间。</p>
+<p>作者提出了三种可能并存的切入形态：AI 置于员工之下（人人都成管理者）、AI 作为同事置于身旁（平级承担职能）、以及 AI 夹在上下级之间（充当协调与监督层）。</p>
+<div>三种位置，三种汇报关系</div><div><h3>在你下面</h3><div>主管</div><div>↓</div><div>你 · 分派与检查</div><div>↓</div><div>你的 AI 团队</div><p>原有汇报线保留，你负责的产出范围扩大。</p><h3>在你身边</h3><div>共同的主管</div><div>↙　↘</div><div><div>人类团队</div><div>AI 团队</div></div><p>主管把一整块业务直接交给 AI，人类与 AI 团队并列。</p><h3>在上下级之间 · 顾问入口</h3><div>高层 · 做决定</div><div>↑ 提供信息与建议</div><div>AI 顾问 · 找问题</div><div>↑ 读取工作记录</div><div>员工 · 推进工作</div><p>图示较近的顾问路径。更远的设想中，人类承包者可能直接向 AI 汇报。</p></div><p>作者的三种概念情境可以并存；位置与连线示意分工，不代表真实企业的人数或部署。</p>
+<p>三种形态可以同时存在。差别在于 AI 接受谁的任务，以及人还需要承担多少组织和协调工作。</p>
+<hr />
+<h2>第一种形态：AI 置于员工之下，基层也成为管理者</h2>
+<p>第一种形态看起来对现有格局冲击最小：原有的人类组织架构图在表面上维持不变，汇报关系看起来与过去一致。</p>
+<p>真正的变化发生在每个人的工位之下：在每个员工下方，新增了一批由 AI 组成的数字劳动力，每个人都变成了一定意义上的管理者。起初，这些 Agent 更像需要监督与纠错的实习生，处理起草邮件、撰写备忘录等零散任务；随着模型能力提升，Agent 能承担更多工作，所需监督减少，彼此之间也能相互协调。</p>
+<p>作者更远的设想是，个人名下的 AI 还会分化出管理者与执行者、会计与律师，形成一家拥有自身组织架构的微型公司。员工负责的范围随之扩大，角色也更像这家公司的董事会。</p>
+<p>在作者构想的一个说明性设想中：财务人员 Jace 依然负责公司的会计工作，但他不再需要手动点击电子表格。表格工作交给了下属的 Agent。Jace 的日常工作彻底改变，转向沟通、协调与创造性工作，工作更有挑战性，也能展现此前无法展现的领导力与愿景。他的角色更像几年前他的主管，而他的主管则拥有了更大的管理范围。会计团队并没有缩减，因为全公司效率提升后对财务的需求比以往更多，Agent 尚不能包揽全部工作，高管也不懂如何整理财务数据，仍需要 Jace 的专业领域知识来有效利用 Agent。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/source-02.webp" alt="Image 2: A worker and manager stand over a desk containing a miniature team working beneath its surface." style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>“晋升”模式的示意：员工岗位保留，具体执行下移到 AI，人更多负责协调与判断。</figcaption>
+</figure>
+<h3>效率提升与人员规模：关于就业的思想实验</h3>
+<p>作者用“自动化过去的自己”概括这种变化：旧任务交给 AI，人转而负责更大的产出，岗位的内容也随之改变。如果 AI 能完成你过去 90% 的工作，很容易直觉地认为，你手里就只剩下 10% 的活。</p>
+<p>但在作者的思想实验中，你也可能仍做着一份完整的工作，只是内容已经不同：转而专注于一个比过去大出 10 倍的目标。在这种情况下，生产率提升可以支持更大的目标，薪酬也可能随之增长。</p>
+<p><strong>产出扩大能否维持就业？取决于两个核心条件：</strong></p>
+<ol>
+<li><strong>人类能否继续为生产提供增量贡献：</strong> 在全面自动化尚未实现或尚未完全普及的阶段，生产流程中是否依然需要人类参与，或者人们是否依然更看重人类制作的产品、坚持由人类做最终决定。</li>
+<li><strong>市场对产出的需求胃口是否继续扩大：</strong> 如果人类对更多产出保持旺盛需求，生产率提高就会伴随更大的抱负和业务扩张；如果需求得到满足不再增长，平衡点就可能转向更少的人手或更少的工作时长。</li>
+</ol>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/source-03.webp" alt="Image 3: A small house-shaped cake on a plate sits in front of a row of larger house-shaped cakes." style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>市场是否还需要更多产出，是自动化后能否维持岗位的关键条件之一。</figcaption>
+</figure>
+<h3>为什么采用 AI 可能先从一线员工开始</h3>
+<p>这种形态依赖一线员工率先采纳。最懂得如何让 AI 做好某项工作的人，通常就是原本负责这项工作的一线员工。</p>
+<p>模型已经能自动化许多数据科学任务，但如果部门负责人不熟悉具体方法与细节，就很难直接调动这些工具。在 AI 尚未主动到能提醒你“不知道自己不知道什么”之前，它在熟悉具体业务的人手中最容易发挥作用。</p>
+<p>这给年轻职场人带来了新的境遇：
+在这种设想中，AI 接管底层杂活，年轻人入职便能承担更大范围的工作。代价是，部分通过基础工作积累经验的学徒式培养路径可能随之流失。作者更看重的是新人获得的实验资源：有了好的想法，就可以调动 Agent 动手尝试，减少对新增人手的依赖。新人仍要在实践中学习判断、品味、管理协调与创意构思，资深成员也有动力指导他们承担更大的责任。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/source-04.webp" alt="Image 4: Unfinished clay bowls and finished ceramic bowls sit on a potter’s workbench." style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>学习的任务范围可能改变，学习本身仍然需要。</figcaption>
+</figure>
+<hr />
+<h2>第二种形态：AI 作为同事并入组织，端到端团队为何更易被采纳？</h2>
+<p>第二种形态将 AI 作为同事编织进现有组织。在这里，AI 不仅置于基层员工之下，而是作为团队成员直接向现有的人类经理或副总裁汇报，分担特定职能。</p>
+<p>在作者提出的另一个说明性设想中：家具公司副总裁 Sheila 从未做过广告投放，她给一个由 AI 构成的营销团队分配了预算，并让其负责一款新沙发的上市推广。这个团队在内部划分任务：部分 Agent 采访销售人员，部分 Agent 与工厂核对实际能交付什么，有子 Agent 发起在线调研，还有几个 Agent 尝试不同的视觉风格。方案草稿与修改在它们之间流转，无需频繁打扰 Sheila。Sheila 的人类销售与设计团队仍向她汇报，与这支营销 Agent 团队并列。到了周一，团队提交了待审批的推广方案，并主动向 Sheila 提示照片是否让沙发看起来太蓝。Sheila 之前从未意识到这类细节，经提示后，她批准由 Agent 协调人类摄影师进行重拍。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/source-05.webp" alt="Image 5: A manager directs a blue AI marketing team alongside human teams in adjacent workspaces." style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>在营销设想中，AI 团队与人类团队并列，都向同一位业务主管汇报。</figcaption>
+</figure>
+<h3>为什么能接下整块业务，反而可能更容易用起来</h3>
+<p>从工具走向劳动力，AI 面临的是范围阶梯：自动化一项任务，再到一个岗位，再到一个团队，最终到整家公司。范围每扩大一步，对综合能力的要求就高得多。岗位包含多项任务，而整个团队的工作更为复杂多样，包含更多潜在的卡点。如果团队有一项关键任务涉及实体操作，就需要一整套硬件设备配合。要完全替代一个团队，AI 必须覆盖其全部职责。单点任务熟练，并不能自动扩展为团队协作。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/original-diagram-06.webp" alt="Image 6: The scope of automation expands from task to worker, team, and firm; larger scope is harder to automate but easier to adopt." style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>自动化范围从任务、员工扩大到团队、公司：更难构建，却可能更容易被企业采用；箭头表示定性关系。</figcaption>
+</figure>
+<p>然而这里存在一个不对称：对于研发者而言，覆盖范围越广的系统越难构建；但对企业而言，更大范围的端到端能力反而更容易采纳。</p>
+<div>覆盖范围扩大，为何可能更容易采用？</div><div><div><b>任务</b><span>写一封邮件</span></div><i>→</i><div><b>岗位</b><span>承担多项相关工作</span></div><i>→</i><div><b>团队</b><span>内部自行分工与协作</span></div><i>→</i><div><b>公司</b><span>协调更多职能</span></div></div><div><p><b>对开发者：覆盖越广，越难造。</b><br />每个关键环节都要能接住，协作和异常处理也算能力。</p><p><b>对采用者：需要亲自拼接的环节可能更少。</b><br />从教员工使用零散工具，走向给能自我适应的团队交代目标。</p></div><p>这是原文提出的定性关系；没有已测出的难度、成本或采用速度。范围更大也不意味着这类能力已经实现。</p>
+<p>这一机制的本质在于“企业学习技术”与“劳动力学习企业”的根本不对称：</p>
+<ol>
+<li><strong>窄范围工具：企业学习技术</strong>
+新技术通常降低了特定窄任务的成本，但使用负担转移给了企业。企业必须重新组织业务流程并重新培训人员来适应新技术。就像电子表格软件不会自动融入财务部门，而是财务部门围绕软件重塑了自身流程。高管通常不会专门为了使用某种工具去参加基础操作培训，因此局限于窄任务的工具很难直接由管理层自上而下推行。</li>
+<li><strong>端到端劳动力：劳动力适应企业（企业需要自己拼接的环节可能更少）</strong>
+合格的员工或成熟团队能主动吸收上下文、理解需求，甚至指出管理层未意识到的细节。当 AI 越具备主动性与适应性、能够承接端到端职能时，管理者直接采纳的阻力就越小，企业需要自己拼接的环节可能更少。</li>
+</ol>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/source-07.webp" alt="Image 7: Two wooden blocks show a square-shaped opening and a stepped opening fitted by different arrangements of smaller blocks." style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>形状匹配的视觉比喻：工具需要企业适应，具有主动性的劳动力则会学习企业的需求。</figcaption>
+</figure>
+<h3>为什么给每个岗位配 AI，还可能增加协作负担？</h3>
+<p>许多讨论将通用人工智能（AGI）的标准设为“自动化某个具体岗位”。但现代经济中极少产出直接来自单兵作战，绝大部分产出源于岗位组成团队、团队组成企业。</p>
+<p>人类劳动力不仅在于完成各项孤立任务，更在于强大的组织协调与分工弹性。如果 AI 仍停留在单点工具或单个工作者的水准，将其穿插在每个员工身边就会在人机之间带来大量生硬的衔接与交接缝隙（seams and handoffs），反而可能减缓采纳速度。组织层面的有效协调，远比单个岗位的任务测试复杂得多。</p>
+<p>因此，企业内部可能面临一场竞赛：一边是较早落地但能力相对有限的初步方案，另一边是较晚成熟但能力更强的模型。这场竞赛谁能胜出，取决于未来更强模型因组织采纳阻力更小而带来的速度优势，是否足以弥补等待技术能力走向成熟所额外耗费的时间。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/source-08.webp" alt="Image 8: Workers cross a river using stepping stones beside a bridge awaiting its final span." style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>更早落地的零散工具与更晚成熟的完整能力，可能走出不同的采用路径。</figcaption>
+</figure>
+<hr />
+<h2>第三种形态：AI 介入管理，人可能向它汇报</h2>
+<p>第三种形态是 AI 介入员工上方，形成人类在高层、人类在基层、AI 在中间协调与监控的格局。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/source-09.webp" alt="Image 9: Colored layers of connected points flow toward a seated executive, representing AI coordination across a firm." style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>信息更容易汇集到高层，可能改变原有层级中的权力分布。</figcaption>
+</figure>
+<p>这种夹层形态更完整、但也更遥远的设想，是由 AI 负责思考和安排工作，遇到自身能力缺口时调用人类承包者来补充，人类在执行中向它汇报。在作者看来，这种由 AI 调遣人类的模式目前依然十分陌生，还需要经历很多改变才可能成为现实。</p>
+<p>人们常认为自动化会沿着层级自下而上推进：先自动化日常琐事，而管理属于最后的堡垒。但管理者的工作很大程度上发生在电脑和思维中：阅读材料、开会、权衡、跟踪进展、掌握各团队情况并做出决策。基层工作即便主要是脑力劳动，也往往需要与物理工具或外部环境打交道。</p>
+<p>不过，管理决策的成功标准较为模糊，需要在较长周期中衡量，这使模型学习管理变得困难。作者明确表示，目前尚不知道模型到底多擅长管理，针对执行型认知劳动的评测很多，但缺乏针对管理者和高管这种大范围协调能力的评测。即便如此，管理的部分职能可能先于其监管的工作实现自动化，这依然是值得考虑的可能性。相比直接管理下属，更自然的切入形态，是充当管理者的内部顾问。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/source-10.webp" alt="Image 10: A ladder burns at its top while a skeletal hand rests on one of the upper rungs." style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>从顶端燃烧的梯子：部分管理职能也可能先于基层执行工作发生自动化。</figcaption>
+</figure>
+<h3>随时待命的内部顾问</h3>
+<p>在作者构想的第三个说明性设想中：CEO Asha 收到其内部 AI 顾问系统的提示，发现某次即将到来的发布存在问题。系统从 Slack 上的日常沟通记录中发现销售部门承诺了研发部门并未开发的功能。AI 顾问建议推迟发布并重新调配三名工程师。同时，系统还注意到远程办公的工程师 Sarah 自发搭建了该项目所需的基础设施。AI 顾问确保这项主动贡献被 Asha 知晓，Asha 随即致电感谢 Sarah，并任命她为该事项的工程负责人。</p>
+<p>这种形态最初步的体现是咨询与建议。今天高管可以让模型阅读公司内部的沟通记录与文档并回答疑问。传统管理咨询费用高昂且属于短期介入，而内部 AI 顾问可能成本低廉且随时可用。目前模型解析文档与沟通的能力刚刚起步，判断力与主动性仍待成熟。AI 顾问更像高管的内部通信员与参谋，而非直接管理人，其结构性影响是拉近管理层与业务实际的距离，让高层能够更直接地掌握组织细节。</p>
+<p>这种顾问形态还开启了一条不同于前文“基层先采用”的落地路径。高管不必先学会使用新技术，也不必参加专门的工具培训，只要像面对传统顾问那样提出具体的经营和业务问题，AI 负责处理其中的技术细节。因此，AI 的采用也可能从高管办公室开始，再带动企业其他部门使用 AI。</p>
+<h3>老板更了解一线工作，可能放权，也可能加强控制</h3>
+<p>当管理层能够更直接地了解组织各处的情况时，这究竟会给员工带来更多自由，还是更严格的约束？这构成了组织透明度上的两种可能路径：</p>
+<div>相同的信息能力，不同的管理方式</div><div>AI 读取工作记录，帮助高层发现进展与问题</div><div>↙　　　　　　　　　↘</div><div><span>更严格地执行统一规则</span><h3>可能加强控制</h3><p>更多细节被看见，管理者也更容易检查员工是否按指定方法工作。</p><div>信息更集中，员工的选择空间可能缩小。</div><span>识别成果，只上报重大例外</span><h3>可能增加自主权</h3><p>更能理解真实贡献，管理者可能减少对在线状态和固定工作方式的依赖。</p><div>高层看住关键风险，日常选择更多留给员工。</div></div><p>两条路径是条件推演。作者对自主权净增加的乐观，依赖公司采取后一种用法；信息更多本身不能保证评价公平。</p>
+<ol>
+<li><strong>强化集中控制的可能：推行统一规程</strong>
+高管过去下放权力，部分原因在于无法掌握各环节的全部细节。当 AI 顾问能够持续汇总信息时，管理层可能更有能力推行统一的操作规范。企业通常重视一致性，例如连锁餐厅倾向于在各加盟店保持统一菜单，以便批量采购食材并让顾客获得一致体验。此外，高管与员工的诉求并不完全重合，所有者享有企业整体成果的收益，而员工往往聚焦于自身专业领域。AI 顾问可能被用于更严格地推行自上而下的规程。</li>
+<li><strong>增加灵活自主的设想：减少对表演性指标的依赖</strong>
+许多企业对远程办公和外包心存疑虑，核心难点在于监督履约（enforceability）。过去缺乏低成本衡量真实工作的方法，往往只能退回到考核点击量、鼠标移动或在线状态指示灯等形式化指标。
+作者设想，在合适条件下，如果智能监控工具能够理解产出、识别朝向目标的实际进展，就可能增强管理层的信任，减少对形式化工作状态的依赖。员工可能拥有更多按自身方式工作的自由，这种信任还可能扩展企业用人的范围：企业可能更愿意接纳混合办公、具备不同思路或工作方法的人、独立承包者以及身处海外的优秀人才，从而改变谁能获得工作或合作机会。正如前文设想中居家办公的 Sarah 一样，基层直接发现的问题或未被常规指标捕捉到的扎实贡献，也可能更容易被高层获知并认可。但这取决于实际部署机制，并非必然保证公平。</li>
+</ol>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/source-11.webp" alt="Image 11: Six maps show different routes across the same landscape." style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>通向成果的路径可以不同；能否识别这些差异，影响监督带来自主还是控制。</figcaption>
+</figure>
+<hr />
+<h2>决定企业未来的四个关键问题</h2>
+<p>结合上述三种形态，作者在文末探讨了决定未来企业走向的四个关键问题。这些问题没有单一的确定性答案，而是受到相互竞争的经济力量共同影响。</p>
+<h3>一、企业的流程与繁文缛节会变多还是变少？</h3>
+<p>许多企业中存在繁杂的立项审批与签字流程，这在很大程度上是因为真正把东西做出来通常成本高昂、耗时长且推倒重来代价巨大。当试错成本高时，企业自然会把大量精力放在前期的规划与审批上。</p>
+<p>在许多领域中，AI 正在显著降低构建成本——至少在制作原型层面如此，尽管原型便宜并不等于最终成品已经廉价。作者认为企业的工作方式可能随之转变：少瞄准、多开火（aim less, fire more）。最直接的体现是同一团队能够更快地制作原型、观察学习并快速迭代。但作者更进一步提出疑问：当协同规划的重要性下降、而独立且多样的想法更关键时，与其让一个团队花很多时间做统一规划，是否不如让多个人分别交出能运行的原型，再直接比较各条路径？</p>
+<p>如果一份真实的原型比任何规划文档都能更清楚地传达构想，组织的沟通习惯就可能转为更早分享原型成果，而不是反复请示。过去请示比动手便宜，如今亲自动手做原型的门槛大幅降低，构建成本的下降可能让组织更向个人倾斜，减少中间管理层的层层请示与审批。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/source-12.webp" alt="Image 12: Sheets of a blueprint fold into a sequence of paper chairs." style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>先做出原型，再比较与讨论，是低成本试错的一种组织方式。</figcaption>
+</figure>
+<p>但同样的技术也可以用来更严格地推行自上而下的规章与流程。赋予个人更低试错风险的技术，同样可以让企业施加更密集的监督与规则。</p>
+<h3>二、员工的自主权会变大还是变小？</h3>
+<p>企业推行自上而下管理的一个重要原因，是认为高管通常能做出更符合商业全局的决策。如果 AI 能向所有员工提供高质量建议，决策质量的差距就可能缩小，管理者直接干预的必要性也会随之降低。同时，如果 AI 顾问能在产生重大后果时主动向管理层示警（例如在发布高风险内容前提醒），高层在确认关键风险受控的前提下，可能更愿意给员工自主空间。</p>
+<p>反向力量在于组织的一致性与利益差异。企业看重品牌和协同效应，往往需要统一约束；且管理层追求公司整体利益，而员工往往专注自身专业领域。AI 也可能被用来更严格地推行固定规程。</p>
+<p>作者倾向于认为，总体而言员工的自主权有望增加：AI 可以作为约束框架，在划定边界内由员工自由尝试，并在员工名下的 Agent 辅助下，承担规模更大的产出。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/source-13.webp" alt="Image 13: A flowering clematis grows beyond the edges of a supporting trellis." style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>作者把 AI 比作支架：在必要约束之内，员工仍可尝试不同做法。</figcaption>
+</figure>
+<h3>三、企业规模会变小还是变大？</h3>
+<p>经济学家罗纳德·科斯曾提出企业边界问题：如果市场协作足够高效，为何生产要组织在企业内部，而不是全靠个人之间的合约网络完成？随后的不完全契约理论也指出，契约很难预先写明所有细节，外部合作方可能在未明文约束之处削减投入，因此纵向一体化成为协调激励、组织大型项目的一种方式。</p>
+<p>AI 从两个方向同时影响着企业边界，使得结果并不唯一：</p>
+<ul>
+<li><strong>支持更多小企业的力量：</strong> 如果沟通更顺畅、履约更容易被智能监控与协调，企业就不需要将过多职能保留在内部，而能更放心地依赖外部供应商与独立团队，从而催生更多规模更小的公司。值得注意的是，单个企业规模变小、人员精简，并不等于全社会的总就业岗位必然减少，因为市场上可能出现数量更多的新企业。</li>
+<li><strong>支持大型控股实体的力量：</strong> 在企业内部，如果 AI 充当协调层、减少传话与信息摩擦，管理层能像了解初创团队那样掌握大型组织的运作，大企业的运转将不再那么臃肿。作者指出，算力通常可以按需小批量租用，单靠算力未必足以支撑超大组织；但如果涉及共同的实体工厂、机器人车队等重资产，或是为了攻克共同使命（例如研发新药）而需要高度对齐激励，庞大的控股型组织依然有其经济理由。</li>
+</ul>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/source-14.webp" alt="Image 14: One crane lifts a roof among several projects along a quay." style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>共同资产与共同使命，是大型组织仍可能存在的经济理由。</figcaption>
+</figure>
+<p>对于围绕共同使命运转的 AI 组织，作者还设想，它可以减少内部权力争斗、共享全部信息，并在必要时有意安排具有不同思路的 Agent 探索多条路径。目标一致、信息互通，可以与探索方式的多样性同时存在。</p>
+<h3>四、薪酬差距会拉大还是缩小？</h3>
+<p>当前的薪酬体系旨在激励和奖励表现突出的员工。但在模型能向所有人提供优质建议的环境下，员工该如何体现差异？</p>
+<ul>
+<li><strong>缩小差距的力量：</strong> 如果 AI 向所有人提供同样优秀的建议和方案，员工个体之间的产出差异减少，薪酬分布倾向于被压缩收窄。</li>
+<li><strong>拉大差距的力量：</strong> 每个人带领下属的 Agent、负责更大范围的工作时，人类的核心价值在于决策与判断。当调动的资源和面临的风险更大时，判断力的微小优劣对最终结果的影响会被显著放大，正如现代企业中高管决策对业绩影响巨大因而获得更高薪酬一样。如果部分员工能更好地调配资源，薪酬差距可能进一步拉大。</li>
+</ul>
+<p>两股力量何者占主导，很大程度上取决于人类主要是在提供独立判断，还是在跟随模型建议，最终走向目前尚无定论。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/openai-future-of-the-firm/source-15.webp" alt="Image 15: A director sits in front of robot arms constructing a colorful architectural scene." style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>调动的工作范围扩大后，人的判断差异可能对最终结果产生更大影响。</figcaption>
+</figure>
+<hr />
+<h2>理解组织重构中的分工与权力</h2>
+<p>正如两位作者所言，现实中的商业组织不会完全按照某一种设想演进，更可能的情况是三种形态在组织中同时并存、逐步渗透。</p>
+<p>探讨 AI 如何进入企业，核心不在于抽象的技术预测，而在于具体的分工安排：AI 替谁执行工作、向谁汇报成果、什么样的事项需要人类最终批准。这些具体的安排，会影响监督成本与决策权力的流向。随着 AI 从单项任务扩展到更大范围，组织结构、管理边界与个人的职责分配，都可能在过渡期中被重新安排。</p>
+<a href="https://xiaohu.ai/article/manus-ai-native-org/"><span>延伸阅读 · 从设想到公司实践</span><strong>Manus 联合创始人张涛复盘如何在公司内部进行 AI 改造：用 Manus 改造 Manus，AI Native 组织改造的实践和思考</strong><span>看一家 Agent 公司如何改造研发、产品和市场的日常协作；文中成效属于企业自述。</span><em>阅读这篇 →</em></a>
+</div><div><div><div>来源</div><div><span>The future of the firm</span><span>Hemanth Asirvatham、Elliott Mokski<span>·</span><a href="https://openai.com/index/the-future-of-the-firm/">查看主材料</a></span></div></div><div><div>本站说明</div><div>文中原图与插画来自原文，用于呈现概念与设想；中文图解辅助说明其关系。</div></div></div></div></div><div>
+<div>OpenAI / 组织架构与未来劳动力</div>
+<h1>OpenAI 两位作者谈公司的未来：AI 会怎样改变分工与权力</h1>
+<div>AI 在员工之下、身旁，或上下级之间，会改变谁执行、谁汇报、谁拍板。采用它的阻力与组织权力，也会随位置变化。</div>
+<div>观点一页纸 · Hemanth Asirvatham、Elliott Mokski 的个人观点 · 三种形态可以并存</div>
+<div>
+<p>年轻员工过去先做纪要、报表等基础工作，之后才有机会带团队。两位作者说，他们 24 岁便开始管理自己的 AI 助手“团队”。这篇刊于 OpenAI 网站的文章由此讨论：在全面自动化到来之前，AI 将怎样进入现有组织，让人的职责与权力重新分配？以下是作者的设想，并非已经验证的企业演进规律。</p>
+<p>AI 进入公司后，改变的不只是单项任务的完成速度，更是谁给谁分派工作、谁掌握全局信息与谁拥有最终拍板权。两位作者提出了三种可能并存的组织切入形态：</p>
+<div>
+<div>
+<div>形态 01 · 员工之下</div>
+<div>基层人人成为管理者</div><div>分派：人类主管 → 员工 → Agent</div>
+<p>原有汇报线看似不变，员工把执行交给名下的 Agent，自己更多负责专业判断与协调。起初仍须监督纠错；更远的设想是带领一间“微型公司”。</p>
+</div>
+<div>
+<div>形态 02 · 员工身旁</div>
+<div>端到端团队并列协作</div><div>分派：人类主管 → 人类团队 / AI 团队</div>
+<p>AI 团队与人类团队并列，直接向同一位业务主管汇报。例如主管分配营销预算，Agent 分工调研、协调后提交方案，仍由主管审批。</p>
+</div>
+<div>
+<div>形态 03 · 上下级之间</div>
+<div>中枢夹层与内部顾问</div><div>信息：高层 ← AI 汇总 ← 一线信息</div>
+<p>较近的入口是高管的内部顾问：读内部沟通、指出问题，供人决策。更远且陌生的形态才是 AI 思考、安排工作，并调用人类承包者补足自身能力。</p>
+</div>
+</div>
+<div><p><strong>执行交给 AI，不等于岗位必然消失或保留。</strong>作者设想，员工可能转向更大的目标。但维持就业依赖两点：人仍提供增量贡献，市场也持续需要更多产出；需求若不再增长，人手或工时就可能减少。新人可以更早带 Agent 试验，也可能失去部分通过基础工作学习的路径。</p></div>
+</div>
+<div>
+<p>单个岗位能完成任务，还不等于整个团队能够顺利协作。作者提醒：若把单点 AI 工具穿插在每个员工身边，人与模型间可能增加生硬的衔接与交接，反而减缓企业采用。</p>
+<div>
+<div>核心机制 · 底层经济逻辑</div>
+<h2>范围阶梯与采纳不对称（Adoption Asymmetry）</h2>
+<p>
+      自动化范围从“任务 → 岗位 → 团队 → 公司”扩大，构建难度随之增加：团队中每一项关键职责都要覆盖，实体操作还可能需要硬件。但如果端到端能力成熟，企业需要自己拼接的环节可能更少，因此反而更容易采纳。
+    </p>
+<div>
+<div>
+<div>
+<span>窄范围工具 · 企业承担适应工作</span>
+<div>企业学习技术（适应成本转移给企业）</div>
+<p>工具降低一项任务的成本，企业却常须重组流程、培训人员来适应它。就像财务部门要围绕电子表格重塑流程。高管通常不会为工具专门学基础操作，推广因而存在阻力。</p>
+<div>工具交付局部结果 → 企业与员工负责拼接 → 岗位之间仍要交接。</div>
+</div>
+<div>
+<span>端到端劳动力 · 主动适应企业</span>
+<div>劳动力适应企业（企业自拼环节更少）</div>
+<p>在作者的营销设想中，AI 团队主动了解销售与工厂情况，调研并修改方案，还指出沙发照片偏色。主管不必会广告工具，也能提出业务需求并审批方案。</p>
+<div>主管提出业务目标 → AI 团队吸收上下文、内部协调 → 提交待人审批的方案。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<p>AI 顾问若能汇总内部沟通与文档，高管便更直接地了解一线。采用也可能从高管办公室开始：高管像面对顾问那样提出经营问题，由 AI 处理技术细节。信息距离缩短之后，权力会向哪边走？</p>
+<div>
+<div>
+<div>路径 A · 强化集中控制</div>
+<p>过去放权，部分因为高管无法掌握全部细节。AI 持续汇总信息后，管理层可能更有能力推行统一规程；品牌一致性、公司整体利益与个人专业诉求也可能形成约束。</p>
+</div>
+<div>
+<div>路径 B · 释放实质自主</div>
+<p>如果系统能理解实际产出和进展，管理层可能更信任员工，减少依赖点击量与在线灯等指标，并更愿意接纳远程工作者、独立承包者和海外人才。</p>
+</div>
+</div>
+<div>
+<p>
+<strong>信任建立的前提：</strong>在合适条件下，如果智能监控工具能够理解产出、识别朝向目标的实际进展，就可能增强管理层的信任，减少对形式化工作状态的依赖。这可能给员工更多按自身方式工作的空间，让扎实贡献被高层看见；能否兑现取决于部署机制，并不保证公平。模型多擅长管理，目前也缺少评测，仍未知。
+    </p>
+</div>
+</div>
+<div>
+<p>作者最后提出四个尚无定论的问题。同一种技术会同时推动相反方向，不能把它们读成未来必然发生的结果：</p>
+<div>
+<div>
+<div>01 / 流程与审批：变多还是变少？</div>
+<p>原型更便宜，个人可以先做出样品再比较，可能减少前期规划审批；原型便宜不代表成品便宜。同样的 AI 也可能更严密地执行规章。</p>
+</div>
+<div>
+<div>02 / 员工自主权：变大还是变小？</div>
+<p>如果优质建议缩小决策差距、关键风险能及时示警，高管可能更愿意放权。统一品牌与利益差异却推动约束。作者倾向于自主权增加，而非确定结论。</p>
+</div>
+<div>
+<div>03 / 企业边界：走向小型化还是超级控股？</div>
+<p>外部履约更容易监督，可能支持更多小企业；内部协调更顺畅、共享工厂或机器人车队、共同研发使命，也支持大组织。算力能按需租用，单靠它未必需建巨型公司。</p>
+</div>
+<div>
+<div>04 / 薪酬分布：拉大还是收窄？</div>
+<p>人人获得优质建议，可能缩小产出与薪酬差距；人人调动更多资源，判断的细微差异也可能放大回报。走向取决于人主要作独立判断，还是跟随模型建议。</p>
+</div>
+</div>
+<p>企业变小，不等于全社会总岗位必然变少：还可能出现更多新企业。</p>
+<div>
+<p>
+<strong>分工与权力的本质：</strong>探讨企业的未来，不在于技术何时全盘自动化，而在于过渡期具体的权责重排：AI 替谁执行工作、向谁汇报成果、什么样的事项需要人类最终批准。三种形态可能同时渗透同一家公司。判断变化时，可以沿着这三条权责关系逐一观察，而不是仅看配了多少 AI 工具。
+    </p>
+</div>
+</div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://openai.com/index/the-future-of-the-firm/">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】别再陪着 AI 一步步改代码：Thorsten Ball 的 15 条 Agent 协作建议 · XiaoHu.AI</title>
 <link>https://xiaohu.ai/article/thorsten-ball-how-i-work-with-agents/</link>
@@ -62974,327 +64911,6 @@ python scripts/run_demo.py retail --all
 <div><span>↶</span>审查后的决定回到下一轮上下文</div>
 <figcaption>Agent 的工作位于闭环中段；选择、隔离、审查和回写共同决定执行是否可复用。</figcaption>
 </figure><p>这个顺序把“给模型更多上下文”变成了可以检查的状态转换。上下文并非在会话开始时全部塞进去；系统先选任务，再围绕选中的实体加载信息。Agent 也不能读完说明就直接工作，它必须先完成认领和隔离。审查则发生在经验写回之前，避免一次未经确认的输出变成以后所有会话都会继承的规则。</p><p>作者称自己现在可以利用 15 或 30 分钟的空档推进复杂任务：询问队列顶部是什么，让系统恢复相关背景，然后委派编码和测试。这个时间来自个人经验，不能当作普遍生产率指标。它揭示的变化很具体：过去短时间主要消耗在回忆“做到哪里、为什么这么做、谁还在等我”，现在这些重建工作由系统承担，人可以更快进入判断和委派。</p><p>这种工作方式依赖“主动委派”。人保留跨任务的最高层目标，决定当前工作是否仍服务于正确方向；Agent 接受边界清楚的任务，维持执行速度。系统让任务状态、历史和约束脱离人的短期记忆，同时保留人的方向控制。</p></div><div><h2>指令如何从一次纠错变成长期控制</h2><p>每个新会话都可能从近似空白的状态开始。没有持久指令时，团队约定、代码库习惯和个人偏好只能被反复解释。问题还不只是“模型忘了”，很多给人的提醒本身就无法执行。</p></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Uber 工程团队分享如何在超大规模业务下落地软件工厂：六块底座、Agentic SDLC 与成本控制</title>
-<link>https://best.xiaohu.ai/article/uber-software-factory-efficiently/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:uber-software-factory-efficiently</guid>
-<pubDate>Wed, 02 Sep 2026 12:00:25 +0000</pubDate>
-<description>一份完整拆解 Uber 软件工厂的工程指南：模型与工具网关、托管 DevPod、Skill 市场、Context Graph、端到端 Agentic SDLC、维护闭环与成本工程。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 2 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Uber 工程团队分享如何在超大规模业务下落地软件工厂：六块底座、Agentic SDLC 与成本控制</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/uber-software-factory-efficiently/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div>
-<div>正文一页纸秒懂漫画</div>
-<div><div><div>深度 · 小互解读</div><h1>Uber 工程团队分享如何在超大规模业务下落地软件工厂：六块底座、Agentic SDLC 与成本控制</h1><p>一份完整拆解 Uber 软件工厂的工程指南：模型与工具网关、托管 DevPod、Skill 市场、Context Graph、端到端 Agentic SDLC、维护闭环与成本工程。</p><div><div>一分钟速览</div><ul><li>Uber 的软件工厂建立在六块底座上：Model Gateway、MCP Gateway、托管 DevPod、Skill Marketplace、Context Graph 和覆盖 Slack、CLI、Web 的 Cortana。</li><li>一项功能从业务研究、需求和 Figma 设计交给 Minion，先在 inner loop 完成视觉与前后端验证，再进入 CI、深度评审和人工验收；上线后继续进入受控维护循环。代码生成扩大后，CI、实验容量和产品决策会成为新的系统瓶颈。</li><li>2026 年 2 月到 8 月中旬，Uber 的 Agent 周活增长 7 倍、请求增长 9.4 倍；总支出在 4 月后趋稳，固定模型后的单次会话成本较峰值下降 52%。</li><li>Uber 用真实任务评测、模型分级、上下文压缩、动态工具、code-mode、Context Graph 和会话诊断消除无效 Token，并把运行结果持续反馈给模型路由与 Skill。</li></ul></div><div><p>Uber 工程团队分享了他们如何在超大规模业务下落地“软件工厂”：把模型、工具、代码、组织知识和执行环境接入统一平台，让 Agent 从辅助个人写代码，走向负责完整、可验证的开发任务。</p><p>从 2026 年 2 月到 8 月中旬，Uber 全体员工使用的 Agent 产品周活增长 7 倍，周请求量增长 9.4 倍。请求量接近十倍增长，总 AI 支出却在 4 月后趋于稳定。固定同一个模型观察，每 1,000 次模型请求的成本较峰值下降约 34%，单次会话成本较 6 月峰值下降 52%。</p><p>与此同时，超过 70% 的 Pull Request 被归因于本地或云端 Agent；工程师建立了 3,600 多个覆盖软件开发生命周期的 Agent Skill，每天执行超过 30,000 次。代码评审、CI 自愈、带视觉验证的端到端 PR、告警分诊、Bug 调试和代码维护，越来越多由托管 Agent 自动发起，再由人审核或在异常时接管。</p><p>这些结果背后是一套完整的工程体系。Uber 用统一模型网关控制身份、隐私、预算和审计；用 MCP 网关向 Agent 开放内部 API；用预启动 DevPod 提供隔离、可复制的跨仓库开发环境；用 Skill 市场治理可复用流程；用 Context Graph 提供服务、团队、数据和事故背景；再通过 Cortana、Minion 等产品，把这些能力组织成一条从业务研究、需求、设计、编码、验证、CI、评审到长期维护的流水线。</p><p>成本优化不是这套工厂之外的财务动作。Uber 把总账单拆成六个可测量的乘数，在每一层减少无效轮次、无效请求和无效上下文：强模型只做需要强推理的工作，工具按需载入，轮询和批处理留在脚本，Agent 先查询组织知识再搜索代码，成本和失败轨迹最终又回到模型路由、Skill 和平台默认值中。</p><p>下面是 Uber 团队在 AI Engineer World's Fair 2026 的完整演讲，已加入中文在上、英文在下的双语字幕。视频长 18 分 25 秒，字幕采用经确认的 C2 版式，居中显示在 PPT 演示区域内。</p>你的浏览器不支持 HTML5 视频，可下载双语字幕视频后观看。<p>演讲人：Uday Kiran Medisetty、Adam Huda（Uber）。字幕为中文在上、英文在下。</p></div><div><h2>核心背景：AI 已经进入大部分开发日常</h2><p>Uber 的规模数据需要分成“采用”“吞吐”“自动化范围”和“单位经济”四层理解。</p><ul>
-<li><strong>采用范围</strong>：从 2026 年 2 月到 8 月中旬，Agent 周活增长 7 倍，请求量增长 9.4 倍。使用者覆盖工程师和非工程员工，已经超出小规模 AI 试点。</li>
-<li><strong>开发渗透</strong>：超过 70% 的 PR 被归因于本地或云端 Agent。这说明 Agent 已经进入大量真实代码变更，但 Uber 没有公开 attribution 的具体计算方式，因此不能把它改写成“70% 的代码完全由 AI 无人值守生成”。</li>
-<li><strong>流程资产</strong>：截至 8 月，Uber 已有 3,600 多个 Agent Skill，每天执行超过 30,000 次。Agent 的能力不再只存在于个人对话里，而是逐渐沉淀成组织可复用的工作流。</li>
-<li><strong>托管任务</strong>：越来越多会话不由人类即时输入 Prompt 发起。代码评审、CI 修复、告警处理、Bug 调试和代码维护可以由事件或计划触发，人工主要负责目标、审批和异常升级。</li>
-</ul><p>6 月的 AI Engineer 演讲还给出两组吞吐数据：Uber 表示，每位工程师的代码行数同比约为原来的两倍；250 多项自动迁移累计处理了约 900 万行代码。自动迁移比“生成更多新代码”更能说明 Agent 的组织价值——大规模依赖升级、API 替换、配置迁移和机械性重构，以前需要许多团队分批排期，现在可以由统一流程批量执行。</p><p>代码行数只能表示产出体量，不能替代质量、业务效果或工程价值。大量低质量代码同样会推高行数。Uber 后续仍然用回滚率、F1、MTTR、PR 是否合并等指标判断 Agent 是否交付了可接受结果。</p><p><img /></p><p>请求量增长 9.4 倍，总支出没有按相同斜率增长，说明单位成本在下降。不过，“总成本趋稳”不等于总成本持续下降。模型版本、任务类型和采用率一直在变化，直接比较月度账单会把多种因素混在一起。</p><p>Uber 因而固定同一个模型观察单位经济：每 1,000 次请求成本较峰值下降约 34%，单次会话成本较 6 月峰值下降 52%。后一个指标从 5 月底才开始记录。</p><p><img /></p><p>这些结果也不是突然出现的。Uber 明确提到，此前六年向 monorepo 和 Bazel 的迁移，为软件工厂打下了基础。统一代码组织、可重复构建、依赖图、远程执行和标准测试，让 Agent 能够可靠定位代码、跨仓库修改并重复验证。代码库仍然碎片化、构建过程依赖个人电脑时，托管 Agent 很难获得稳定环境，更难安全地扩大并发。</p></div><div><h2>软件工厂的结构：四层工作模式与六块基础设施</h2><p>Uber 用两个互补视角描述软件工厂。</p><p>第一个视角是<strong>工作如何发起</strong>：从人类直接操作通用 Agent，到系统自动分配边界清楚的任务。第二个视角是<strong>所有 Agent 共同依赖什么</strong>：模型、工具、执行环境、Skill、组织知识和统一产品入口。</p><h3>四层工作模式：平台逐步接管不确定性</h3><p><img /></p><p>第一层是<strong>原始交互会话</strong>。工程师在本地使用 Claude Code、Codex、OpenCode 等工具，自行提供 Prompt、上下文和过程指令。任务边界随对话变化，平台很难预先判断一次 session 最终会交付什么。</p><p>第二层是<strong>带 Skill 的交互会话</strong>。工程师仍然主动发起工作，但重复任务有了共享步骤、工具和验收方式。个人经验开始变成组织资产。</p><p>第三层是<strong>通用托管 Agent</strong>。Agent 在统一云环境中运行，可以调用多个 Skill。安装、认证、权限、算力和代码环境不再依赖个人机器，平台也能观察每个任务的成本、延迟和结果。</p><p>第四层是<strong>专用托管 Agent</strong>。每个 Agent 对应一个稳定结果：Minion 生成 PR，uReview 做代码评审，Conan AI 分析告警根因，Fawkes 执行周期性代码维护。成本可以按“每个合并 PR、每次 review、每个 alert、每次 cleanup”计算，再与 F1、回滚率和 MTTR 一起评估。</p><p>越接近第四层，平台越能固定输入、限制工具、选择模型、提供背景、运行 benchmark、验证结果，并在失败时升级给人。开放式聊天由工程师吸收不确定性；托管 Agent 则要求平台把不确定性变成可配置、可观察的工程问题。</p><h3>六块基础设施：让托管 Agent 真正能够运行</h3><div><table>
-<thead>
-<tr>
-<th>基础设施</th>
-<th>负责什么</th>
-<th>解决的规模问题</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Model Gateway</td>
-<td>模型接入、身份、隐私、策略、计量和审计</td>
-<td>不让每个产品分别连接供应商、分别计算成本</td>
-</tr>
-<tr>
-<td>MCP Gateway</td>
-<td>把内部 API 与 SaaS 工具统一开放给 Agent</td>
-<td>不让每个团队重复处理认证、安装和工具协议</td>
-</tr>
-<tr>
-<td>DevPod</td>
-<td>提供隔离、预启动、可复制的完整开发环境</td>
-<td>不让长任务依赖个人电脑，也避免冷启动和环境漂移</td>
-</tr>
-<tr>
-<td>Skill Marketplace</td>
-<td>管理可复用工作流的发现、质量和版本</td>
-<td>不让 Skill 重复建设、难以安装或质量失控</td>
-</tr>
-<tr>
-<td>Context Graph</td>
-<td>汇集服务、代码、团队、数据、事故和设计关系</td>
-<td>不让 Agent 到几十个系统里盲目搜索背景</td>
-</tr>
-<tr>
-<td>Cortana</td>
-<td>把模型、工具、Skill 和知识带到 Slack、CLI 与 Web</td>
-<td>不让底层能力变成只有平台专家才能使用的组件</td>
-</tr>
-</tbody>
-</table></div><h3>1. Model Gateway：所有模型流量先经过一个控制平面</h3></div></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Company Brain 到底是什么：企业上下文的四层基础设施</title>
-<link>https://best.xiaohu.ai/article/company-brain/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:company-brain</guid>
-<pubDate>Tue, 01 Sep 2026 12:00:54 +0000</pubDate>
-<description>Slite 调研了 149 个团队并访谈 10 多位构建者。一套 Company Brain 要同时解决信号获取、记忆、维护和调用；真正的难点在于维护责任、真相裁决与上下文主权。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 1 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Company Brain 到底是什么：企业上下文的四层基础设施</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/company-brain/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div>
-<div>正文一页纸秒懂漫画</div>
-<div><div><div>研究解读 · 小互解读</div><h1>Company Brain 到底是什么：企业上下文的四层基础设施</h1><p>Slite 调研了 149 个团队并访谈 10 多位构建者。一套 Company Brain 要同时解决信号获取、记忆、维护和调用；真正的难点在于维护责任、真相裁决与上下文主权。</p><div><div>一分钟速览</div><ul><li>Slite 的 149 人样本更常把 Company Brain 理解为持续更新的知识系统，而非单纯的 Agent 记忆。</li><li>一套完整方案至少要解决四层：获取信号、形成记忆、持续修剪、向人和 Agent 提供调用。</li><li>Agent 会把过期、冲突和缺失知识从检索麻烦放大为自动执行风险。</li><li>十个实现样本没有收敛到单一技术栈；人审队列、PR、日志步骤与轨迹挖掘表明，维护本身是一项持续产品能力。</li><li>Build or buy 的长期问题是权限、维护、可迁移性和上下文主权；电子书没有提供跨方案效果或成本基准。</li></ul></div><div><p>2026 年，团队知识管理突然多了一个新名字：<strong>Company Brain</strong>。Slite 为此做了一本七章电子书，称其依据是对 149 个团队的问卷和对 10 多位构建者的访谈。全书追问一个棘手的问题：当人和 AI Agent 都要依赖公司知识做事时，企业怎样获得一份持续更新、权限正确、能够追溯的共同记忆？</p><p>这份材料值得读，也必须带着边界读。Slite 本身销售知识库与 AI 搜索产品，书中把 Slite Agent 列为实现样本，并在结尾引导试用。公开电子书没有披露问卷题目、抽样来源、样本构成、调查窗口、是否多选或误差范围。因此，下文所有百分比都只描述 <strong>Slite 的 149 名受访者</strong>，不能外推为整个市场；“构建者共识”也只指书中采访的那组人。</p></div><div><h2>Company Brain 首先要让企业知识保持准确</h2><p>Company Brain 仍处在定义快速变化的阶段。Slite 问受访者如何理解它，53% 选择“持续更新的知识库”，18% 选择“由团队活动自动维护的 Wiki”，13% 选择“跨工具的 AI 搜索”，12% 选择“Agent 的记忆层”，另有 4% 不知道。</p><figure>
-<div><span>来源原图 · Slite Company Brain Survey 2026</span><span>样本：149 名受访者；公开页面未披露调查方法</span></div>
-<img />
-<figcaption>最多人选择的是持续更新的知识库；Slite 将前两项合并为 71% 对准确、持续维护知识的期待。</figcaption>
-</figure><p>Slite 把前两项合并，得到“71% 的团队首先期待知识保持准确”。这个合并有编辑判断成分，但它抓住了材料的核心：<strong>Company Brain 的第一任务是让组织知识变得可依赖，Agent 只是把这一要求推到更高风险的执行环境里。</strong> 如果一套系统只能从多处搜到答案，却不能说明答案来自哪里、何时更新、谁有权修改，它仍然只是搜索层。</p><p>这本书追溯了几个相邻概念：个人“第二大脑”、用实体关系组织业务语境的 Context Graph、由模型生成和更新的 Wiki、开源 GBrain，以及 YC 在创业方向中提出的 Company Brain。YC 的公开定义尤其清楚：它位于原始企业数据与可靠 AI 自动化之间，负责提取、组织、更新知识，并让 Agent 能调用这套上下文。</p><p>把这些说法收束起来，可以得到一个不依赖厂商的工作定义：</p><blockquote>
-<p>Company Brain 是组织级上下文基础设施。它持续吸收工作信号，把信号整理为可追溯的共享记忆，处理过期、冲突和权限，再向人或 Agent 提供答案与可执行上下文。</p>
-</blockquote><p>这个定义比“AI 知识库”多了两个硬条件：<strong>维护闭环</strong>和<strong>机器调用</strong>。也比“Agent Memory”更宽，因为它保存的是组织真相，而非某个 Agent 的对话历史。</p></div><div><h2>知识分散不会消失，Agent 会把旧文档的代价放大</h2><p>传统知识管理总爱承诺“单一事实源”，现实却是垂直 SaaS 越多，知识越分散。Slite 的样本中，83% 使用专门知识库，79% 同时使用两个或更多系统，64% 使用共享盘，56% 依赖 Slack 或 Teams，30% 仍依赖邮件。这些比例很可能允许多选，但书中没有公布题目原文。</p><figure>
-<div><span>来源原图 · Slite Company Brain Survey 2026</span><span>样本：149 名受访者；公开页面未披露调查方法</span></div>
-<img />
-<figcaption>多系统并存是样本中的常态。比例很可能允许多选，但来源没有公布题目原文。</figcaption>
-</figure><p>分散本身不等于失败。CRM 适合保存客户状态，工单系统适合保存问题处理，聊天适合快速协调，设计工具适合保存创意过程。真正的问题是：同一个事实分布在不同速度、不同权限、不同生命周期的系统里，而组织通常没有一层机制持续处理它们的关系。</p><p>文档会经历一个熟悉的循环：有人写下规则，团队开始使用；现实变化，页面没有同步；读者逐渐失去信任，于是在聊天或新文档里重新解释。于是知识库越积越厚，可信知识反而越来越难辨认。</p><p>人类面对这种混乱，常靠隐性判断补洞。我们会看日期、辨认作者、发现语气不对，或者直接问同事。Agent 没有这种默认的组织常识。它可能把检索排名靠前的旧页面当成权威，用一段缺少地区、客户等级或生效日期的规则去生成报价、回复客户甚至执行后台动作。</p><figure>
-<div><span>来源原图 · Slite Company Brain Survey 2026</span><span>样本：149 名受访者；公开页面未披露调查方法</span></div>
-<img />
-<figcaption>人会怀疑、绕过或向同事核对；自动执行的 Agent 可能把缺陷直接放大为动作。</figcaption>
-</figure></div></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Vercel 如何通过[design.md] 在任何场景下都能生成符合 Vercel 品牌调性的设计</title>
-<link>https://best.xiaohu.ai/article/how-agents-build-on-brand-pages-design-md/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:how-agents-build-on-brand-pages-design-md</guid>
-<pubDate>Tue, 01 Sep 2026 12:00:54 +0000</pubDate>
-<description>从仓库内外的上下文落差出发，拆解 design.md、公共品牌 CSS 与评测闭环怎样协同工作，以及普通团队如何用六步建立自己的设计反馈系统。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 1 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Vercel 如何通过[design.md] 在任何场景下都能生成符合 Vercel 品牌调性的设计</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/how-agents-build-on-brand-pages-design-md/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><div>深度 · 小互解读</div><h1>Vercel 如何通过[design.md] 在任何场景下都能生成符合 Vercel 品牌调性的设计</h1><p>从仓库内外的上下文落差出发，拆解 design.md、公共品牌 CSS 与评测闭环怎样协同工作，以及普通团队如何用六步建立自己的设计反馈系统。</p><div><div>一分钟速览</div><ul><li>仓库内 Skill 依赖真实组件和案例；仓库外 Agent 丢失这些上下文后，容易退化成通用 SaaS 页面，主观风格提示也无法提供稳定约束。</li><li>Vercel 用 design.md 管设计判断、公共 CSS 管机械原语、评测闭环管人工与确定性验证。</li><li>六页内部测试的已知机械失败从 91 降到 39，约少 57%；数字不代表总体设计质量，六页仍全部存在发布阻断问题。</li><li>普通团队可以从一个高频场景、一次裸跑基线和最近十条人工纠错开始，用六步建立同类闭环。</li></ul></div><div><p>Vercel 的设计团队经常让 coding agent 制作报告、续约提案、基准页面和一次性网站。这些产物即使不进入 Vercel 的产品代码库，也要让读者认出同一套品牌判断：信息先后有理由，证据能比较，文字有明确主张，版式不会抢走内容。</p><p>在公司代码仓库里，Agent 可以读取真实组件、设计 token、产品规范和已经上线的页面。离开仓库以后，这些上下文全部消失。Vercel 最初把内部 <code>product-design</code> Skill 的参考文件合并成公开 Prompt，结果不同模型依然会把“干净”“克制”“有层次”解释成完全不同的页面。</p><p>Vercel 在这篇文章中详细复盘了团队怎样用公开的 <code>design.md</code>、公共品牌 CSS 和一套持续评测系统补回这部分环境。整个过程覆盖七个固定场景、超过 200 次运行，以及一组范围很小但能说明问题的前后对照。</p></div><div><h2>要解决的两个核心痛点</h2><ul>
-<li><strong>内部与外部的落差</strong>：仓库内的 <code>product-design</code> Skill 周围有真实组件、类名、设计系统、产品指南和已上线案例，抽象规范能直接落到现成对象上。提案、报告、独立单页等仓库外任务读不到这些上下文，模型很容易生成千篇一律、缺少重点的通用 SaaS 仪表盘。</li>
-<li><strong>主观描述失效</strong>：单纯告诉模型“页面要干净、简洁、有层次”，没有给出可执行边界。模型仍要自己发明字体、留白、组件、信息顺序和证据关系；不同模型会把同一句话翻译成不同的版式，甚至在上下文里继续增加没有依据的设计规则。</li>
-</ul><p>Vercel 没有继续扩充那份合并 Prompt，而是从零重写一份能在仓库外使用的设计文件。团队同时冻结七种真实任务及模拟输入：用量与性能报告、续约提案、基准报告、交互规划页、自建或采购简报、安全治理简报、演示文稿。提示、数据和渲染设置保持不变，只修改设计上下文，输出差异才有可追踪的来源。</p><p>第一轮续约提案对照使用相同环境、模型、数据和视口，两边都只生成一次，没有挑选更好版本。未加载 <code>design.md</code> 的页面接近通用 SaaS 仪表盘；加载后，页面先给续约建议，把商业证据放进同一网格，把同类数字放到统一尺度，并让支持细节服从摘要。</p></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】视频生成快过播放：fal 对 MiniMax H3 后训练后 让其能实时生成视频</title>
-<link>https://best.xiaohu.ai/article/minimax-h3-max-realtime-video/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:minimax-h3-max-realtime-video</guid>
-<pubDate>Tue, 01 Sep 2026 12:00:54 +0000</pubDate>
-<description>fal 在开放权重 MiniMax H3 上继续后训练，并让模型与自有推理栈共同优化：5 秒视频约 3 秒返回，15 秒内容可以在播放结束前生成下一段。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 1 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">视频生成快过播放：fal 对 MiniMax H3 后训练后 让其能实时生成视频</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/minimax-h3-max-realtime-video/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><div>产品发布 · 小互解读</div><h1>视频生成快过播放：fal 对 MiniMax H3 后训练后 让其能实时生成视频</h1><p>fal 在开放权重 MiniMax H3 上继续后训练，并让模型与自有推理栈共同优化：5 秒视频约 3 秒返回，15 秒内容可以在播放结束前生成下一段。</p><div><div>一分钟速览</div><ul><li>H3 Max 把 5 秒 768p 视频压到约 3 秒返回，使生成速度在部分请求上快过内容播放。</li><li>fal 在开放权重 MiniMax H3 上继续后训练，并让模型与自有推理栈共同优化。</li><li>H3 Max 在带音频图生视频榜单领先，并支持文字、图片、首尾帧和参考素材驱动的视频生成。</li><li>常规 768p 价格为每输出秒 0.08 美元；实时系统要靠缓冲、缓存、失败回退和成本控制才能长期运行。</li></ul></div><div><p>独立开发者 <a href="https://x.com/levelsio/status/2093628563693944889?s=20">Pieter Levels</a> 转发了一段 Twitch 直播：屏幕里的动画不是预先排好的播放列表，而是由视频模型一段接一段生成。演示者 Rehan Sheikh 把 fal 的 MiniMax H3 Max 接进直播管线，让观众看到一档可以继续生成的“跨维度电视”。</p><p><a href="https://x.com/levelsio/status/2093628563693944889?s=20">Levels</a> 把它称作 AI 视频生成的一个历史时刻，也给出了一个脑洞大开的思路：过去生成 15 秒视频常要等 2—5 分钟，这套系统可以在 9 秒内返回 15 秒内容。下一段视频可以在当前一段播完前准备好，直播也就不必依赖提前做完的节目单。观众的投票、聊天和选择都可以进入下一轮生成；同一个角色可以走进不同世界，每个人甚至可以拥有一条只为自己继续生长的频道。视频由“做完再看”的文件变成一边观看一边运行的内容系统，可玩性和想象空间随之大幅打开。</p><p>这套直播调用的是 fal 推出的 H3 Max。它建立在开放权重 MiniMax H3 上：H3 能把文字、图片、视频和音频放进同一上下文，并直接生成带同步声音的视频；fal 在这个基础上继续后训练，再让模型与自家的推理系统共同优化。</p><p>H3 Max 的速度来自 H3 已有的多模态能力。统一输入、2K 生成、原生音频和开放权重决定了 fal 可以继续训练什么，也决定了 H3 Max 与标准 H3 各自适合的任务。</p><figure>
-<a>
-<span>继续阅读</span>
-<strong>MiniMax 发布并开源 H3：一个模型看懂文字图片视频音频，直接生成 2K 有声视频</strong>
-<span>从统一多模态输入、原生音频、2K 生成到开放权重，完整理解 H3 Max 的基础能力来自哪里。</span>
-<span>→</span>
-</a>
-</figure><figure>
-<div>
-      浏览器无法播放视频。
-</div>
-<figcaption><strong>Twitch 直播 · 23 秒</strong><span>H3 Max 生成的动画片段正在连续播放。</span></figcaption>
-</figure></div><div><h2>当生成时间短于播放时间</h2><p>一个 15 秒片段若要生成两分钟，产品只能让用户等待，或者提前批量生产。生成只用 9 秒时，系统可以在播放片段 A 的同时生成片段 B；片段 A 结束前，片段 B 已进入缓冲区。这个循环继续运行，生成模型就从交付单个视频文件的工具，变成持续供给画面的实时组件。</p><figure>
-<div>演示中的时间条件</div>
-<div>
-<div><strong>生成追上播放</strong><span>下一段在当前段结束前就绪</span></div>
-<div><b>+6s</b><span>缓冲余量</span></div>
-</div>
-<div>
-<span>播放 A</span>
-<span><i>15 秒</i></span>
-</div>
-<div>
-<span>生成 B</span>
-<span><i>9 秒</i></span>
-<span>B 已就绪</span>
-</div>
-<div><span>0</span><span>3</span><span>6</span><span>9</span><span>12</span><span>15 秒</span></div>
-<figcaption>这里采用 Levels 转述的直播演示口径。稳定产品预期还要看端到端 P95、失败率与队列等待。</figcaption>
-</figure><p>这里的“实时”不要求每一帧都像游戏引擎那样即时渲染。它要求生产速度长期追上消费速度。片段时长是 15 秒，端到端生成低于 15 秒，系统便有正的时间余量；再加一个或两个片段的缓冲，就能吸收部分延迟波动。</p><p>长期运行还需要保持人物、画风和情节衔接；请求失败时播放备用片；把聊天输入转成下一段提示；持续控制内容与成本。峰值并发和全天候可靠性也要由整套直播系统承担。</p></div><div><h2>H3 Max 是怎样来的</h2><p>fal Research 从开放权重 MiniMax H3 出发，加入新数据做后训练，重点强化提示词遵循、画面审美和视听质量；fal 的推理团队同时围绕自家推理引擎调整模型和服务路径。</p><figure>
-<div>模型 × 系统共同设计</div>
-<div>
-<div><span>01</span><strong>MiniMax H3</strong>开放权重基座<br />统一多模态 + 原生音频</div>
-<div>→</div>
-<div><span>02</span><strong>fal 后训练</strong>新数据 + 偏好 / RL<br />提示遵循与美学</div>
-<div>↔</div>
-<div><span>03</span><strong>专用推理栈</strong>围绕最终模型优化<br />吞吐与延迟</div>
-<div>→</div>
-<div><span>04</span><strong>H3 Max API</strong>768p · 5–15 秒<br />托管端点</div>
-</div>
-<figcaption>后训练改变模型的生成偏好，推理系统压缩执行时间；中间的双向箭头表示两组工作在模型开发过程中互相约束。</figcaption>
-</figure><p>后训练决定模型更倾向生成什么。fal 在训练中加入真实生成工作负载、人类偏好和可验证的强化学习任务，并把整体偏好、提示理解和美学分别评估。推理优化则让同一个请求更快完成，涉及模型执行、采样过程和底层系统。</p><p>两支团队在模型定型前共同调整质量与速度：研究团队把延迟目标带进后训练，推理团队围绕最终权重做专用优化。fal 的目标是在保持内部质量评测领先的同时提高吞吐，而不是简单削减采样步骤。</p><p>基座 H3 的统一多模态上下文和原生立体声音频也被保留下来。输入可以同时描述画面、镜头与声音，输出直接带同步音频，短视频生产因此少了单独生成配音、环境声和对齐音轨的步骤。</p><p>fal 用一段 15 秒“1984”视频展示文字、构图和连续运动的组合控制：画面里的排版、印章和字符随着镜头连续变形。</p><figure>
-<div>
-      浏览器无法播放视频。
-</div>
-<figcaption><strong>“1984” · 15 秒</strong><span>排版、印章和字符随着镜头连续变形。</span></figcaption>
-</figure><p>fal 随后用六段视频分别展示低机位追踪运镜、首尾帧过渡、同一角色跨六个场景、原生同步音频、跨镜头风格保持，以及按顺序完成复杂提示词。</p><figure>
-<div>六项核心能力 · 点击播放可听原生音频</div>
-<div>
-<div><strong>运镜控制</strong><span>低机位追踪、主体锁定与速度感</span></div>
-<div><strong>首尾帧过渡</strong><span>从充气近景连续上升到山谷远景</span></div>
-<div><strong>人物一致性</strong><span>同一人物跨六个地点与光线环境</span></div>
-<div><strong>原生同步音频</strong><span>乐器演奏、环境声与画面同次生成</span></div>
-<div><strong>艺术指导</strong><span>六个镜头保持陶瓶画、金色与字形风格</span></div>
-<div><strong>提示词遵循</strong><span>按给定节拍推进物体变形与画面文字</span></div>
-</div>
-</figure><p>fal 还展示了六组“一条提示词、一次生成、没有后期”的成片：连续灾难长镜头、旧式像素跑酷、对镜台词与口型、黏土动画、蜂鸟慢镜头和咖啡产品特写，覆盖电影镜头、游戏画面、人物表演、风格化动画、自然摄影和商业产品六种用途。</p><figure>
-<div>六类创作用途 · 一条提示词 · 一次生成</div>
-<div>
-<div><strong>电影长镜头</strong><span>海上钢铁结构坍塌与连续摄影机运动</span></div>
-<div><strong>游戏画面</strong><span>15 秒旧金山像素跑酷与同步游戏音效</span></div>
-<div><strong>人物台词</strong><span>对镜说话、口型同步与厨房环境声</span></div>
-<div><strong>风格化动画</strong><span>黏土触感、逐格运动和拟音</span></div>
-<div><strong>自然摄影</strong><span>蜂鸟慢镜头、逆光和浅景深</span></div>
-<div><strong>产品特写</strong><span>浓缩咖啡、蒸汽、金属反光与环境声</span></div>
-</div>
-</figure><p>把这些能力写进提示词，可以按“主体与素材、镜头与运动、声音与节拍”三层组织，让模型同时知道拍什么、怎样拍，以及声音怎样跟着画面推进。</p><figure>
-<a>
-<span>提示词手册</span>
-<strong>MiniMax H3 官方使用手册：一个三段公式，把提示词从描述画面改成给素材派活</strong>
-<span>用“主体与素材、镜头与运动、声音与节拍”三层结构，把图像、视频、音频和文字放进同一条提示词。</span>
-<span>→</span>
-</a>
-</figure></div><div><h2>2.5 秒、3 秒、9 秒和 35 倍分别指什么</h2><figure>
-<div>2.5 秒 / 3 秒 / 9 秒 / 35 倍</div>
-<div>
-<div><b>≈2.5s</b><strong>后端样例</strong><span>5 秒 768p T2V 的 `timings.inference`</span><em>fal API 示例</em></div>
-<div><b>&lt;3s</b><strong>常规规格</strong><span>5 秒 768p 的 wall time</span><em>fal 常规规格</em></div>
-<div><b>9s / 15s</b><strong>直播演示</strong><span>15 秒内容在 9 秒返回</span><em>Levels 转述</em></div>
-<div><b>≈35×</b><strong>吞吐比较</strong><span>相对 MiniMax 官方 H3 端点</span><em>fal 吞吐测试</em></div>
-</div>
-</figure><p>fal 的 5 秒、768p 文字生视频请求在示例中记录了 <code>timings.inference = 2.5286</code> 秒，图生视频为 2.7652 秒；常规规格是 wall time 少于 3 秒。<code>timings.inference</code> 记录后端去噪推理，端到端体验还会叠加排队、网络传输、输入上传和提示词扩写。</p><p>Levels 展示的是 15 秒视频在 9 秒返回；fal 对 15 秒生成给出约 15 秒的一般预期。两个数字可能来自不同请求、提示复杂度、系统负载和记录方式。交互产品可以把 9 秒视为已经出现过的演示结果，把 15 秒作为更稳妥的初始预期，再用自己的请求日志校准。</p><p>fal 测得 H3 Max 的吞吐约为 MiniMax 官方 H3 端点的 35 倍，并且平均比质量相近的模型快 15 倍。实际产品还要记录每次响应的 <code>timings.inference</code>，以及端到端 P50、P95、失败率和排队时间。</p><p>提示词扩写也会改变体感速度。fal 建议使用 768p、5—10 秒和 <code>balanced</code> 模式；<code>fast</code> 扩写约一秒，<code>quality</code> 模式的改写本身可能用到 30 秒。交互应用需要分别记录提示处理、排队、推理、传输和首帧播放。</p></div><div><h2>H3 Max 在两份图生视频榜单领先</h2><p>fal 把 H3 Max 与 12 个视频模型做成对比较，分别评估整体偏好、提示遵循和画面美学，再用 Bayesian Elo 和 95% 置信区间汇总。H3 Max 在三项中都排第一，并且对每个参测模型都赢得多数一对一选择。</p><p>Design Arena 当时将 H3 Max 排在图生视频榜首，1341 Elo。Artificial Analysis 当时以 H3 Turbo 768p 这一名称记录它，1201 Elo、±11、2177 个样本。</p><figure>
-<div>Design Arena × Artificial Analysis</div>
-<div>
-<a href="https://www.designarena.ai/leaderboard/image-to-video"><img src="https://refinery.fal.media/url/https%3A%2F%2Fir7z8qsacw4tk54b.public.blob.vercel-storage.com%2Fminimax-h3-max%2Fleaderboard-design-arena-chart.png/tr:w-1920,q-80/leaderboard-design-arena-chart.webp" alt="Design Arena 图生视频排行榜，H3 Max 为 1341 Elo" style="max-width:100%;height:auto;border-radius:8px;" /></a>
-<a href="https://artificialanalysis.ai/video/leaderboard/image-to-video"><img src="https://refinery.fal.media/url/https%3A%2F%2Fir7z8qsacw4tk54b.public.blob.vercel-storage.com%2Fminimax-h3-max%2Fleaderboard-artificial-analysis.png/tr:w-1920,q-80/leaderboard-artificial-analysis.webp" alt="Artificial Analysis 带音频图生视频排行榜，H3 Turbo 768p 为 1201 Elo" style="max-width:100%;height:auto;border-radius:8px;" /></a>
-</div>
-<figcaption><strong>两份图生视频榜单</strong><span>左：Design Arena；右：Artificial Analysis。排名和 Elo 会随投票更新。</span></figcaption>
-</figure><p>到 2026 年 9 月 1 日，Artificial Analysis 的“带音频图生视频”榜单中，H3 Max 以 1203 Elo、95% 置信区间 ±9 和 5400 个样本位列第一。第二名 Dreamina Seedance 2.0 为 1190，标准 MiniMax H3 为 1185，Gemini Omni Flash 为 1179。榜单会随着新投票继续更新。</p><figure>
-<div>fal 成对评测 × Artificial Analysis</div>
-<div><span>评测</span><span>结果</span><span>任务</span></div>
-<div><strong>fal 内部成对偏好</strong><span><b>#1</b> 整体 / 提示理解 / 美学<br />对比 12 个模型</span><span>整体偏好 / 提示理解 / 美学</span></div>
-<div><strong>Artificial Analysis</strong><span><b>1203 Elo</b> · ±9<br />5400 样本</span><span>2026-09-01 带音频图生视频榜首</span></div>
-</figure><p>Artificial Analysis 评测的是带音频图生视频。文字生视频、视频编辑、15 秒长镜头和角色跨片段一致性属于其他任务，需要分别测试。</p></div><div><h2>H3 Max 和标准 H3 怎么选</h2><p>H3 Max 主要运行在 480p 与 768p，768p 是调优重点。16:9 输出为 1344×768、24fps，单次 5—15 秒，原生同步音频。fal 已提供文字生视频、图生视频、首尾帧控制和参考生视频端点。</p><p>标准 MiniMax H3 支持 2K、最长 15 秒，并有更完整的多模态参考与视频编辑能力。它的基座权重已经开放，适合需要自托管、研究或定制训练的团队。H3 Max 使用同一开放基座，目前通过 fal API 使用。</p><div><table>
-<thead>
-<tr>
-<th>需求</th>
-<th>更合适的选择</th>
-<th>原因</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>快速预览、交互叙事、直播片段</td>
-<td>H3 Max</td>
-<td>5 秒片段约 3 秒，提示遵循和 768p 输出优先</td>
-</tr>
-<tr>
-<td>2K 成片</td>
-<td>标准 H3</td>
-<td>H3 Max 上限为 768p</td>
-</tr>
-<tr>
-<td>自托管、研究、自己微调</td>
-<td>标准 H3</td>
-<td>标准 H3 开放基座权重；H3 Max 提供托管 API</td>
-</tr>
-<tr>
-<td>精细视频编辑</td>
-<td>标准 H3</td>
-<td>标准 H3 提供更完整的编辑端点</td>
-</tr>
-<tr>
-<td>参考图、视频、音频快速生成</td>
-<td>H3 Max reference-to-video</td>
-<td>当前端点已上线，参考输入另行计费</td>
-</tr>
-</tbody>
-</table></div><p>互动原型优先低延迟、足够清楚和稳定响应；广告片、电影镜头和后期制作更看重分辨率、可编辑性与跨镜头控制。团队可以先用 H3 Max 快速探索，再把少数确定镜头交给标准 H3 或后续制作流程。</p></div><div><h2>价格决定它能跑多久</h2><p>fal 的 768p 常规价格是每个输出秒 0.08 美元：5 秒 0.40 美元，15 秒 1.20 美元。9 月 1 日，端点仍显示首发五折，每秒 0.04 美元，并注明折扣当天结束。免费额度会随登录状态和输出分辨率变化，使用时以账户界面为准。</p><p>按常规价持续生成，一小时输出 3600 秒视频，模型费用约 288 美元；全天不间断约 6912 美元，还要加上失败重试、参考输入、编排服务和推流。参考生视频会按参考输入 tokens 计费，参考视频可能让输入成本超过输出成本。</p><p>持续直播可以加入用户触发、分支预生成、热门片段缓存、低活跃时降频和失败回退，让算力投入与实际观看或交互相匹配。</p><p>搭建原型可以从五个动作开始：</p><ol>
-<li>用 5 秒、768p 和 <code>balanced</code> 模式建立稳定基线。</li>
-<li>在提示词中同时写清主体、动作、镜头、时间节拍和声音。</li>
-<li>保存 <code>expanded_prompt</code>，确认扩写没有改变原意。</li>
-<li>同时记录端到端延迟与 <code>timings.inference</code>，连续运行几十次后查看 P95。</li>
-<li>为连续生成预留至少一个片段缓冲，并准备超时或失败时可播放的备用内容。</li>
-</ol></div><div><h2>视频模型开始进入“运行时”</h2><p>过去的视频模型主要缩短制作周期：几分钟后交付一条广告、一个镜头或一版概念。H3 Max 把另一种时间尺度带进产品设计：模型可以在用户观看、选择或输入时继续生产下一段内容。</p><figure>
-<div>从模型端点到可持续媒介</div>
-<div>
-<div><span>①</span><strong>观众输入</strong>选择、聊天、行为</div>
-<div><span>②</span><strong>状态与提示</strong>人物、世界、下一拍</div>
-<div><span>③</span><strong>H3 Max 生成</strong>画面 + 同步音频</div>
-<div><span>④</span><strong>检查与缓冲</strong>超时、失败、备用片</div>
-<div><span>⑤</span><strong>连续播放</strong>推流、拼接、反馈</div>
-</div>
-<div>播放结果与新输入返回下一轮 ↺</div>
-<figcaption>模型只承担第 ③ 环。长期运行依赖状态管理、缓冲、检查、回退和预算控制。</figcaption>
-</figure><p>持续直播只是最直观的例子。互动故事可以根据观众投票生成下一幕；游戏可以在玩家阅读选项时并行预生成三个分支；电商和广告工具可以让创作者连续试镜头而不用离开当前工作流；教育内容可以按学习者的回答即时改写下一段演示。</p><p>一套持续运行的视频系统还要维护世界状态，决定哪些信息进入提示词，检查输出，拼接声音与画面，控制预算，并在延迟突增时继续播放。H3 Max 提供了其中最稀缺的一项条件：高质量短视频的生产速度接近、并在部分请求上超过它的消费速度。</p><p>当这个不等式稳定成立，AI 视频的单位就不再局限于生成好的文件。它可以成为软件运行时持续调用的一种媒介。</p></div><div><div><div>来源</div><div><span>Today is a very historical moment for AI video generation</span><span>Pieter Levels<span>·</span>2026-08-29<span>·</span><a href="https://x.com/levelsio/status/2093628563693944889">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://fal.ai/minimax-h3-max">MiniMax H3 Max</a><span>·</span><a href="https://fal.ai/learn/devs/introducing-h3-max-by-fal">Introducing H3 Max by fal</a><span>·</span><a href="https://www.minimax.io/blog/minimax-h3">MiniMax H3: An Open Model Breaking the Boundaries Between Tasks and Modalities</a><span>·</span><a href="https://artificialanalysis.ai/video/leaderboard/image-to-video">Image to Video Leaderboard (With Audio)</a><span>·</span><a href="https://fal.ai/models/minimax/h3-max/text-to-video">H3 Max API endpoints</a></div></div><div><div>本站说明</div><div>速度、价格与榜单核对至 2026-09-01；fal 自测、独立榜单和直播演示分别标注。</div></div></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Grok Bot 内部实践指南：五支 Grok Bot 团队，拼出了一套 Agent 操作系统</title>
-<link>https://best.xiaohu.ai/article/xai-bot-guides/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:xai-bot-guides</guid>
-<pubDate>Tue, 01 Sep 2026 12:00:54 +0000</pubDate>
-<description>从项目协作、移动开发、设计、GTM 到产品管理，五篇实践反复验证同一套结构：把 Agent 定义成岗位，接上真实工作环境，用例程与交接形成闭环，再把关键动作留给人判断。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 1 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Grok Bot 内部实践指南：五支 Grok Bot 团队，拼出了一套 Agent 操作系统</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/xai-bot-guides/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div>
-<div>正文一页纸秒懂漫画</div>
-<div><div><div>工具教程 · 小互解读</div><h1>Grok Bot 内部实践指南：五支 Grok Bot 团队，拼出了一套 Agent 操作系统</h1><p>从项目协作、移动开发、设计、GTM 到产品管理，五篇实践反复验证同一套结构：把 Agent 定义成岗位，接上真实工作环境，用例程与交接形成闭环，再把关键动作留给人判断。</p><div><div>一分钟速览</div><ul><li>五篇实践把 Grok Bot 当成长期岗位：岗位说明、连接、独立电脑、例程、技能和交接六项缺一不可。</li><li>多 Agent 的组织单位是责任：Manager 拆解与验收，Specialist 处理专业工作，项目频道隔离上下文，Blocked 把失败升级给人。</li><li>来源自报移动案例 CPI 从 15 美元降到 1 美元、D7 留存约 2.5% 到 10%；这些是个案证据，无法外推为普遍 ROI。</li></ul></div><div><p>xAI 在 <code>Grok Bot Guides</code> 里连续放出了五篇内部实践：有人用它同时管多个项目，有人用六个 Bot 运营一款移动游戏，设计师拿它做 Grok Bot 自己的原型，Enterprise GTM 团队把拓客、会议和客户材料交给一组 Bot，产品经理则搭起了从收件箱到软件交付的 Agent 团队。</p><p>这些指南写的产品功能并不神秘：每个 Grok Bot 都是一个长期存在的 Agent，有自己的记忆、工具连接和云端电脑，可以按时间运行，也可以把工作直接交给另一个 Bot。重点在于作者怎样组织这些能力、怎样防止角色互相越权，以及哪些动作始终没有交给机器。</p></div><div><h2>一张路线图：五篇指南都在把聊天变成长期工作系统</h2><p>Eric Zakariasson 原先把 Coder、Writer、Researcher 分别放在不同聊天里。单个项目还能应付；几个项目一起推进时，信号和噪声混在一起，Bot 也很难知道彼此做到哪里。于是他把人类团队熟悉的结构复制过来：一个项目一个频道、一个固定 roster、一条项目记录，再用任务看板保存状态。</p><p>其余四篇沿着这条路继续往下走。移动工作室把职责拆成分析、创意、工程、部署和修复；设计团队让不同 Bot 分别负责探索、动作、Figma 生产和工程解释；GTM 团队建立会议、邮箱、拓客、账户和幻灯片岗位；PM 团队再加入 Chief of Staff、工程经理、工程 Agent、数据分析和招聘。</p><p>把五篇合起来，落地顺序可以压成七步：</p><ol>
-<li>写清每个 Agent 的岗位和拒绝事项。</li>
-<li>用 Manager、Specialist 和项目频道分开责任与上下文。</li>
-<li>接入完成工作所需的真实账号、数据、电脑和生产资产。</li>
-<li>把重复动作录成技能，给例程设时间和输入来源。</li>
-<li>让 Agent 直接交接可验收产物，形成反馈闭环。</li>
-<li>把外发、花钱、删除、部署和高歧义判断留给人。</li>
-<li>先跑通一个闭环，责任真的增加时再扩充角色。</li>
-</ol><p>这七步是对五篇实践的编辑归纳，xAI 没有把它们正式命名为一套框架。</p></div><div><h2>第一步：把每个 Agent 写成一份有边界的岗位</h2><p>移动开发指南给出了最完整的定义。一个长期 Bot 有六个构件：岗位说明决定“是谁”；连接决定“能碰到什么”；独立电脑决定“在哪里工作”；例程决定“什么时候自己行动”；技能决定“怎样重复完成一个任务”；交接决定“把结果给谁”。</p><figure><div>六项岗位配置</div><div><div><b>01 · 岗位说明</b><span>负责什么，也写清拒绝什么</span></div><div><b>02 · 连接</b><span>账号、数据和工具的最小必要访问</span></div><div><b>03 · 独立电脑</b><span>浏览器与终端可持续运行</span></div><div><b>04 · 例程</b><span>什么时候自动启动，用什么输入</span></div><div><b>05 · 技能</b><span>把一次真实示范变成可重复路径</span></div><div><b>06 · 交接</b><span>把可执行产物直接给下一岗位</span></div></div><figcaption>交接让多个长期岗位组成团队；拒绝事项和批准点让团队保持可控。</figcaption></figure><p>六项里最容易被忽略的是拒绝事项和交接。Analytics Agent 是唯一可以宣布数据发现的角色，它不能写广告，也不能碰应用代码。Creatives Agent 根据发现制作广告规格和变体，却不能购买媒体。工程 Agent 接收的是规格，不是含糊建议。GCS Agent 掌管证书、部署和回滚，没有经过它的变更不能到玩家手里。</p><p>Analytics 的配置还把时间、来源和输出写得非常具体：每天 19:10 汇总 Meta 与 AppLovin 的花费、安装和 CPI；每天 6:30 检查 PostHog 中房间规模与 Partner Challenge 漏斗；周一 9:00 汇总 7 天、30 天 CPI 与 Apple、Google Play 收入。广告赢家与输家交给 Creatives，产品发现以规格交给 Engineer，任何会花钱的动作先询问人。</p></div><div><h2>第二步：用 Manager、Specialist 和项目频道搭组织</h2><p>五篇里的角色名称很多，组织形态却很稳定：保留一个通用入口负责日常协调；让 Manager 拆任务、分配工作和验收；让 Specialist 拥有明确的数据、工具与责任；再用项目频道把不同目标的上下文隔开。</p><figure><div><b>人</b><span>设目标、批准高风险动作、解除阻塞</span></div><div>↓</div><div><b>Manager / Chief of Staff</b><span>拆解、分配、验收、维护状态</span></div><div>↙ ↓ ↘</div><div><b>Specialists</b><span>分析 · 创意 · 工程 · 部署 · 研究 · 幻灯片</span></div><div><b>项目控制面</b><span>频道 · roster · Projects/Tasks · Blocked</span></div><figcaption>上下文按项目隔离，记忆按岗位隔离；产物沿交接流动，阻塞向人升级。</figcaption></figure><p>Ryan Perry 对移动开发的拆法解释了为什么职责必须分开：他把写出游戏本体估作约 15% 的工作，其余约 85% 是获客、创意、客户端、后端与 live ops、商店发布、QA 和事故响应。对应的六个席位是 Orchestrator、Analytics、Creatives、Rank’em Engineer、GCS 与 Bug Fix；每个席位都写了职责禁区。设计指南用 Figma Bro、Motion God、Experiments 和 Devbot 做同样的角色隔离，GTM 页面相关卡片则再次指回“频道、roster、Notion 看板”这套项目控制面。</p><p><img /></p><p><em>原始 roster 把六个岗位和各自工作面放在同一张图里。</em></p><p>多项目指南把这个结构做得最简洁。Notion 里有 Projects 和 Tasks 两个数据库；Projects Manager 使用 Project Ops 技能创建项目、开频道并提出 roster。配员先复用已有 Coder、Researcher、Writer；除 PM 外最多提议五个 Bot；只有没有合适角色时才新建，而且必须由人批准。这里的六 Bot 上限只是作者自行设定的实验值。</p><p><img /></p><p><em>项目频道同时容纳人、PM 和固定 roster，承担上下文边界。</em></p><p><img /></p><p><em>任务板把 Backlog、Planning、In progress、Blocked 和 Done 变成共享状态。</em></p></div></div></div></div></div>
 </div></div></body></html>]]></content:encoded>
 </item>
 </channel>
