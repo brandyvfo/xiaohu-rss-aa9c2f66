@@ -6,7 +6,1439 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Fri, 30 Oct 2026 12:00:21 +0000</lastBuildDate>
+<lastBuildDate>Sat, 31 Oct 2026 12:00:18 +0000</lastBuildDate>
+<item>
+<title>【日报】Idol：仅从一张图像生成完整的 3D 对象 只有 6 亿参数，可在消费级 GPU 上运行 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/speridlabs-idol-image-to-3d/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:speridlabs-idol-image-to-3d</guid>
+<pubDate>Sat, 31 Oct 2026 12:00:18 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 一张图能生成哪些 3D 对象 02 个人显卡跑得动吗？先看模型规模和显存 03 单张图片怎样变成完整的 3D 对象 04 同一个物体，三档生成结果有什么差别 05 从在线演示开始，也可以在本地运行 AI 解读 / 产品发布 · 10-31 · 约10分钟 · 作者 Speridlabs Idol：仅从一张图像生成完整的 3D 对象 只有 6 亿参数，可在消费级 GPU 上运行 </description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 31 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Idol：仅从一张图像生成完整的 3D 对象 只有 6 亿参数，可在消费级 GPU 上运行 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/speridlabs-idol-image-to-3d/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>一张图能生成哪些 3D 对象</span></a><a><span>02</span><span>个人显卡跑得动吗？先看模型规模和显存</span></a><a><span>03</span><span>单张图片怎样变成完整的 3D 对象</span></a><a><span>04</span><span>同一个物体，三档生成结果有什么差别</span></a><a><span>05</span><span>从在线演示开始，也可以在本地运行</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>产品发布</a><i>·</i>10-31<i>·</i>约10分钟<i>·</i>作者 Speridlabs</div><h1>Idol：仅从一张图像生成完整的 3D 对象 只有 6 亿参数，可在消费级 GPU 上运行</h1><p>一张照片、渲染图或 AI 生成图，变成可从不同方向查看的 3D 对象。看完整发布演示、34 组输入与生成结果，以及个人显卡的显存与速度。</p><div><div>正文一页纸原文</div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Speridlabs</span><span>10-31 · 约10分钟</span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>Idol 从一张图补出侧面和背面，直接生成能转动查看的 3D 对象。</li><li>核心生成网络约 6 亿参数，整套流程的显存门槛让个人显卡也有机会运行。</li><li>它还能接在 AI 绘图后面，把一张生成的概念图继续变成 3D 对象。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/social/zh-3dff0506ff90.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>Speridlabs 发布了开源图像转 3D 模型 Idol，只需单张图像即可生成包含侧面与背面、可任意旋转查看的 3D 高斯（3DGS）物体，并可在消费级 GPU 上运行。</p>
+<ul>
+<li><strong>单图生成 3D 高斯物体</strong>：输入单张实体摄影、数字渲染图或 AI 生成图，推断并补齐画面未展示的侧面与背面，输出可全向旋转查看的 3D 高斯（<code>.ply</code> 格式）文件。</li>
+<li><strong>显存门槛亲民</strong>：核心生成模块参数约 6.6 亿，完整流程峰值显存占用约 7.2 GB，8 GB 显存消费级设备可尝试运行。</li>
+<li><strong>精度多档可调</strong>：支持输出 32,768 至 1,048,576（约 3.2 万到 104.8 万）个高斯点，兼顾轻量传输与细节呈现。</li>
+<li><strong>开源开放体验</strong>：主干代码与核心模型权重基于 Apache 2.0 协议开源，提供在线 Hugging Face Spaces 演示与本地 Python SDK。</li>
+</ul>
+<figure>
+<figcaption>Speridlabs 的完整发布演示，约 45 秒：从单张图片到不同形态的 3D 对象，也展示了高斯数量变化下的细节对比。</figcaption>
+</figure>
+<h2>一张图能生成哪些 3D 对象</h2>
+<p>Idol 的输入可以是一张照片、3D 渲染图，或由图像生成模型绘制的概念图。它会抠除背景、定位主体，再生成能够换角度查看的对象。图像没有直接记录的侧面和背面，由模型推断生成。</p>
+<p>画廊完整保留 32 个案例，每项对照单张输入图与旋转结果；默认展示 8 个，其余 24 个可展开查看。</p>
+<p>32 个物体，每个都由单张图像生成。左边是输入，右边可播放旋转结果；视频按需播放。</p><div><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-obj-stand-mixer_s7-input.webp" alt="厨师机的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>厨师机</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fur-chesterfield_s7-input.webp" alt="皮质沙发的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>皮质沙发</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-obj-roller-skate_s7-input.webp" alt="轮滑鞋的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>轮滑鞋</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-food-gingerbread-house_s42-input.webp" alt="姜饼屋的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>姜饼屋</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fig-dog-corgi_s42-input.webp" alt="柯基的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>柯基</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-toy-robot-tin_s42-input.webp" alt="铁皮机器人的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>铁皮机器人</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-logo-marble_s42-input.webp" alt="大理石雕塑的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>大理石雕塑</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-food-strawberry_s7-input.webp" alt="草莓的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>草莓</figcaption></figure></div>展开其余 24 个演示（共 32 个）<div><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-nb-boombox_s7-input.webp" alt="手提收音机的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>手提收音机</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-food-macarons_s42-input.webp" alt="马卡龙的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>马卡龙</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-logo-gold-trophy_s42-input.webp" alt="金色奖杯的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>金色奖杯</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-toy-train_s7-input.webp" alt="玩具火车的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>玩具火车</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-obj-polaroid-stack_s42-input.webp" alt="拍立得相机与相纸的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>拍立得相机与相纸</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fur-dresser-memphis_s42-input.webp" alt="孟菲斯风格抽屉柜的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>孟菲斯风格抽屉柜</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fig-ghost_s7-input.webp" alt="小幽灵的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>小幽灵</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fur-chair-tulip-red_s7-input.webp" alt="红色郁金香椅的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>红色郁金香椅</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fur-globe-bar_s7-input.webp" alt="地球仪酒柜的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>地球仪酒柜</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fur-bean-bag_s7-input.webp" alt="懒人沙发的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>懒人沙发</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fur-wingback_s42-input.webp" alt="高背扶手椅的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>高背扶手椅</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-x-minesweeper-mine_s7-input.webp" alt="扫雷水雷的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>扫雷水雷</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fur-egg-chair_s7-input.webp" alt="橙色蛋椅的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>橙色蛋椅</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fig-explorer_s42-input.webp" alt="探险家玩偶的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>探险家玩偶</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-nb-dragon-anime_s7-input.webp" alt="动漫龙的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>动漫龙</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-food-mushroom_s42-input.webp" alt="蘑菇的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>蘑菇</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fig-alien_s7-input.webp" alt="外星人的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>外星人</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-food-donut_s7-input.webp" alt="甜甜圈的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>甜甜圈</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fig-dj_s42-input.webp" alt="DJ 玩偶的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>DJ 玩偶</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fur-chair-papasan_s7-input.webp" alt="藤编椅的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>藤编椅</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-food-bread-loaf_s7-input.webp" alt="面包的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>面包</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fig-knight_s7-input.webp" alt="骑士玩偶的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>骑士玩偶</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fig-fox_s42-input.webp" alt="狐狸的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>狐狸</figcaption></figure><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-fig-panda_s42-input.webp" alt="熊猫的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>熊猫</figcaption></figure></div>
+<h3>先用 AI 画图，再把图变成 3D</h3>
+<p>Iris-3B 先按提示词画出物体，Idol 再把这张图变成可旋转查看的 3D 对象。官网给出了黄色机器人小鸭和薄荷绿踏板车两例。</p>
+<div><div><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-iris-robot-duck_s1_s42-input.webp" alt="黄色机器人小鸭的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>黄色机器人小鸭</figcaption></figure></div><div><figure><div><div><span>输入图片</span><img src="https://pic.xiaohu.ai/jiedu-media/speridlabs-idol-image-to-3d/demo-iris-scooter_s1_s42-input.webp" alt="薄荷绿踏板车的单张输入图" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><span>生成的 3D 对象</span></div></div><figcaption>薄荷绿踏板车</figcaption></figure></div></div>
+<p>黄鸭的英文原提示词：</p>
+<div><pre><code>a small robot duck in sunflower-yellow plastic, with orange feet
+</code></pre></div>
+<p>中文释义：一只向日葵黄色塑料机器人小鸭，带橙色双脚。</p>
+<p>踏板车的英文原提示词：</p>
+<div><pre><code>a vintage mint green Italian motor scooter
+</code></pre></div>
+<p>中文释义：一辆复古薄荷绿色意大利踏板车。</p>
+<h2>个人显卡跑得动吗？先看模型规模和显存</h2>
+<p>标题中的约 6 亿参数，指 Idol 的核心生成模型；完整运行还需要图像编码和抠图模型：</p>
+<ul>
+<li><strong>核心生成模型（约 6.6 亿参数）</strong>：由负责潜空间去噪的 3D-DiT、八叉树解码器与高斯解码器组成，三者合计为 <strong>658.7M</strong>（约 6.6 亿）。这是项目独立训练的核心权重。</li>
+<li><strong>完整推理管线（约 18 亿参数）</strong>：实际运行时，系统还需加载负责前景分割的 BiRefNet 抠图模型，以及提取外观特征的 DINOv3 语义编码器与 FLUX.2 VAE，整套完整流程在显存中涉及的总参数量约为 <strong>1.80B</strong>。</li>
+</ul>
+<p>这决定了它在硬件上的实际门槛：完整请求的<strong>峰值显存占用约为 7.2 GB</strong>。配备 8 GB 显存的设备可以尝试；具体耗时还要看显卡和生成设置。</p>
+<p>官方 SDK 在 CUDA 环境中默认开启工程优化。需要注意的是，首次运行首张图片时系统会进行即时编译，耗时会明显偏长，随后的生成则会进入正常速度。</p>
+展开模型规模与显存的技术说明
+<div><table>
+<thead>
+<tr>
+<th>组件</th>
+<th>参数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DiT 去噪主干</td>
+<td>370.6M</td>
+</tr>
+<tr>
+<td>八叉树解码器</td>
+<td>50.8M</td>
+</tr>
+<tr>
+<td>高斯解码器</td>
+<td>237.3M</td>
+</tr>
+<tr>
+<td>BiRefNet 抠图模型</td>
+<td>220.7M</td>
+</tr>
+<tr>
+<td>DINOv3 图像编码器</td>
+<td>840.6M</td>
+</tr>
+<tr>
+<td>FLUX.2 VAE</td>
+<td>84.1M</td>
+</tr>
+</tbody>
+</table></div>
+<p>模型大部分权重以半精度（FP16/BF16）加载，静态驻留显存约为 <strong>3.7–4.4 GB</strong>；完整推理请求的计算峰值显存约为 <strong>7.2 GB</strong>。</p>
+<h3>在个人显卡上，一次生成需要多久</h3>
+<p>在单张图像生成 262,144 个高斯点、50 步采样的标准设置下，官方在各款 GPU 上测试了相同的代码与配置，每机单卡对 8 张测试图像统计了中位数请求耗时：</p>
+<div><table>
+<thead>
+<tr>
+<th>消费级显卡</th>
+<th>显存容量</th>
+<th>单图请求耗时（中位数）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NVIDIA RTX 5090</td>
+<td>32 GB</td>
+<td>14.1 秒</td>
+</tr>
+<tr>
+<td>NVIDIA RTX 4090</td>
+<td>24 GB</td>
+<td>19.1 秒</td>
+</tr>
+<tr>
+<td>NVIDIA RTX 3080</td>
+<td>10 GB</td>
+<td>46.2 秒</td>
+</tr>
+</tbody>
+</table></div>
+查看完整 10 款显卡的同条件数据
+<div><table>
+<thead>
+<tr>
+<th>显卡型号</th>
+<th>显存容量</th>
+<th>单图请求耗时（中位数）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NVIDIA B300</td>
+<td>269 GB</td>
+<td>3.4 s</td>
+</tr>
+<tr>
+<td>NVIDIA B200</td>
+<td>179 GB</td>
+<td>3.6 s</td>
+</tr>
+<tr>
+<td>NVIDIA H200</td>
+<td>140 GB</td>
+<td>6.6 s</td>
+</tr>
+<tr>
+<td>NVIDIA H100</td>
+<td>80 GB</td>
+<td>6.7 s</td>
+</tr>
+<tr>
+<td>NVIDIA RTX 5090</td>
+<td>32 GB</td>
+<td>14.1 s</td>
+</tr>
+<tr>
+<td>NVIDIA A100</td>
+<td>80 GB</td>
+<td>16.3 s</td>
+</tr>
+<tr>
+<td>NVIDIA L40S</td>
+<td>45 GB</td>
+<td>16.6 s</td>
+</tr>
+<tr>
+<td>NVIDIA RTX 4090</td>
+<td>24 GB</td>
+<td>19.1 s</td>
+</tr>
+<tr>
+<td>NVIDIA RTX 3080</td>
+<td>10 GB</td>
+<td>46.2 s</td>
+</tr>
+<tr>
+<td>NVIDIA L4</td>
+<td>22 GB</td>
+<td>54.6 s</td>
+</tr>
+</tbody>
+</table></div>
+<p>社交平台上曾出现“3 秒生成百万高斯”的宣传表述，但官方网站评测详表给出的是 50 步采样生成 26 万高斯点的测试数据，两者属于不同陈述；目前这些公开材料未交代“3 秒生成 100 万高斯”所对应的具体硬件与完整测试条件。从上述官方公布的中位数来看，数据中心卡 B300 在 26 万高斯点下请求耗时约为 3.4 秒；在桌面级显卡上，RTX 4090 耗时约 19.1 秒，RTX 3080 则约为 46.2 秒。</p>
+<h2>单张图片怎样变成完整的 3D 对象</h2>
+<p>输出的物体采用 3D 高斯（3D Gaussian Splatting，简称 3DGS）表示，保存为标准 <code>.ply</code> 文件，而非传统建模或游戏引擎中由三角形面拼成的多边形网格（Mesh）：</p>
+<ul>
+<li><strong>3D 高斯如何呈现立体视觉</strong>：它在三维空间中放置大量半透明微小椭球体，每个椭球拥有中心位置、形状大小、旋转朝向、颜色和不透明度。渲染时，显卡将空间中的椭球按深度前后关系投影并叠加到屏幕上；因为椭球分布在三维坐标中，视点转到侧方或后方时，原本被遮挡的椭球就能被看到，从而呈现不同角度的外观。</li>
+<li><strong>高斯表示与网格的区别</strong>：导出的 <code>.ply</code> 记录的是这些高斯椭球，而不是自带表面拓扑、可直接绑定骨骼做动画、用于物理碰撞或直接 3D 打印的三角网格。如果需要网格动画、物理碰撞或实体打印，还要借助其他工具提取或转换网格，并完成后续处理。</li>
+</ul>
+<p>从单张照片生成能够转到背面查看的三维物体，核心在于解决未见视角的形状从何而来。</p>
+<p>单张 2D 图像只记录了朝向镜头的这一面，背向相机的部分在照片中并没有直接记录。Idol 能够生成旋转后可见的厨师机背面、被搅拌碗挡住的把手背侧或小鸭脑勺弧度，本质上属于<strong>生成式推断</strong>。模型在预训练中学习到了物体的三维空间规律与通用结构特征；当输入一张正侧面的厨师机时，模型基于这些学到的规律，推测出背面在视觉与结构上最合理的走向。这种推断结果连贯协调，但并不代表实物背面真实存在的划痕、铭牌或具体物理细节。</p>
+<p>以红色厨师机为例，从单张输入图到多角度 3D 物体经历以下具体步骤：</p>
+<ol>
+<li><strong>背景抠除与构图裁剪</strong>：输入图片先由抠图模块剥离背景杂物，并根据图片来源模式自动居中裁剪，使后续计算集中在物体主体上；</li>
+<li><strong>提取外观线索与潜变量去噪</strong>：图像编码器从裁剪后的厨师机中提取外观线索；生成模型从一组随机数字出发，在这些线索的引导下经过默认 50 步采样，逐步形成描述三维物体的压缩表示；</li>
+<li><strong>八叉树解码放置空间锚点</strong>：八叉树解码器读取这份压缩表示，在三维体素空间中确定物体的基础形态，先放置离散的几何锚点，确定厨师机的整体轮廓与空间分布；</li>
+<li><strong>高斯解码展开椭球细节</strong>：高斯解码器随后接手，将每一个几何锚点展开为 32 个微小高斯椭球，并预测每个椭球的中心偏移、拉伸形状、颜色与不透明度。在默认设置下，8,192 个空间锚点乘以 32，正好生成 262,144（约 26.2 万）个三维高斯椭球；</li>
+<li><strong>导出并在查看器中渲染</strong>：所有高斯椭球汇总保存为标准的 <code>.ply</code> 文件，用户将其载入高斯查看器，显卡即可从任意视角实时投影渲染，呈现包含推断背面的完整外观。</li>
+</ol>
+<h2>同一个物体，三档生成结果有什么差别</h2>
+<p>同一模型支持不同输出数量。官网用台灯、武士、树屋三个对象，对照 32,768、262,144 与 1,048,576 个高斯的结果。</p>
+<div><figure><figcaption><span>台灯：左侧从 32,768 切换到 262,144 个高斯，右侧保持 1,048,576 个高斯。</span><br />官网 3D 查看器录制；包含完整物体、局部细节与分割线变化。</figcaption></figure><figure><figcaption><span>武士：左侧从 32,768 切换到 262,144 个高斯，右侧保持 1,048,576 个高斯。</span><br />官网 3D 查看器录制；包含完整物体、局部细节与分割线变化。</figcaption></figure><figure><figcaption><span>树屋：左侧从 32,768 切换到 262,144 个高斯，右侧保持 1,048,576 个高斯。</span><br />官网 3D 查看器录制；包含完整物体、局部细节与分割线变化。</figcaption></figure></div><p>三段均由官方已生成的 3D 数据渲染录制，用于观察细节，不是本地运行 Idol 的速度测试。</p>
+<p>通过这种每个锚点对应 32 个高斯椭球的设计，用户在生成时可以通过 <code>--num_gaussians</code> 参数在 32,768 到 1,048,576 之间自由选择精度档位（必须为 32 的倍数），低档位轻量便携，高档位细节丰富，而无需针对不同精度单独训练多套模型。</p>
+<p>下面的计数图解说明锚点如何对应高斯数量，与上方的真实生成效果对照分别承担不同用途。</p>
+<div><span>把数量关系看清楚</span><h3>先放锚点，再展开高斯</h3><p>每个空间锚点展开为 32 个高斯。滑动档位，比较要生成多少锚点和高斯。</p></div>
+<div><div><span></span><strong>1 个空间锚点</strong></div><span>→</span><div><strong>32 个高斯</strong></div></div>
+<p>椭球排列仅用于计数示意；实际位置、形状和颜色由模型生成。</p>
+选择输出高斯数量
+<div><span>32,768</span><span>1,048,576</span></div>
+<div><div><span>空间锚点</span><strong>8,192</strong></div><span>× 32 =</span><div><span>输出高斯</span><strong>262,144</strong></div></div>
+<p>默认输出数量；高斯数量不等于三角形面数。</p>
+<div><div></div></div>
+<p>同一模型支持不同输出数量。这里按“高斯数 ÷ 32”计算锚点数，不估算画质、文件大小或耗时。</p>
+展开官方模型质量对比
+<p>以下质量对比来自 Speridlabs 公布的实验结果，各模型使用单张 NVIDIA H100。评测从两个维度检验生成质量：<strong>输入视角</strong>考查生成的 3D 物体在原图拍摄角度下与原始输入图的结构契合度；<strong>七个新视角</strong>则考查相机转到未见角度时，模型推断出的侧面与背面是否合理、清晰且保持物体语义特征。</p>
+<div><table>
+<thead>
+<tr>
+<th>模型</th>
+<th>测试设置</th>
+<th>输入视角结构相似度 (SSIM) ↑</th>
+<th>输入视角感知差异 (LPIPS) ↓</th>
+<th>新视角语义一致性 (DINOv2) ↑</th>
+<th>新视角清晰度距离 ↓</th>
+<th>单图请求耗时 ↓</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Idol</strong></td>
+<td>50 步，262,144 高斯</td>
+<td><strong>0.726</strong></td>
+<td><strong>0.213</strong></td>
+<td><strong>0.781</strong></td>
+<td><strong>0.81</strong></td>
+<td>6.8 s</td>
+</tr>
+<tr>
+<td>TripoSplat</td>
+<td>50 步，262,144 高斯</td>
+<td>0.712</td>
+<td>0.225</td>
+<td>0.743</td>
+<td>1.03</td>
+<td>9.9 s</td>
+</tr>
+<tr>
+<td>TRELLIS</td>
+<td>论文设置，50 + 50 步</td>
+<td>0.716</td>
+<td>0.235</td>
+<td>0.754</td>
+<td>0.97</td>
+<td>7.1 s</td>
+</tr>
+<tr>
+<td>LGM</td>
+<td>默认 65,536 高斯</td>
+<td>0.722</td>
+<td>0.237</td>
+<td>0.575</td>
+<td>1.22</td>
+<td><strong>1.1 s</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>（注：在官方测试中，LGM 单图耗时仅需 1.1 秒，且输入视角 PSNR 为 12.46，高于 Idol 的 12.25。但官方指出，PSNR 仅计算像素级均方误差，过度平滑模糊的预测容易在均方误差上占优。当切换到未见的新视角考查语义连贯性时，Idol 的 DINOv2 得分为 0.781，明显优于 LGM 的 0.575，也高于 TripoSplat 的 0.743 与 TRELLIS 的 0.754，在官方测试范围内展现出更协调的新视角推断质量。）</p>
+<h2>从在线演示开始，也可以在本地运行</h2>
+<p>Idol 目前已提供在线试用与开源代码，可以直接通过以下链接访问：</p>
+<ul>
+<li><strong>在线演示</strong>：<a href="https://huggingface.co/spaces/speridlabs/idol">Hugging Face Spaces 交互 Demo</a>，内置 90 余个案例，并支持直接上传自定义图片体验；</li>
+<li><strong>开源代码</strong>：<a href="https://github.com/speridlabs/idol-sdk">GitHub 仓库（idol-sdk）</a>，核心代码基于 Apache 2.0 协议开源；</li>
+<li><strong>模型主页</strong>：<a href="https://huggingface.co/speridlabs/idol">Hugging Face 权重主页</a>。</li>
+</ul>
+<p>本地运行按仓库说明准备 Python 3.10+、PyTorch 2.5+ 和带 CUDA 的 NVIDIA GPU，并安装 SDK。首次使用会自动下载权重；完成文末的编码器访问授权并用 <code>hf auth login</code> 登录后，可根据输入图像选择模式：</p>
+<div><pre><code>python -m idol.sample --image photo.jpg --mode real
+python -m idol.sample --image renders/ --mode synthetic --out outputs
+</code></pre></div>
+<p>其中照片使用 <code>real</code> 模式以保留拍摄留白，数字渲染图或 AI 生成图使用 <code>synthetic</code> 模式。每张图片处理后会生成三个产物：包含三维高斯物体的 <code>&lt;name&gt;.ply</code> 文件（可直接载入高斯查看器漫游）、经过背景抠除与裁剪的模型输入图 <code>&lt;name&gt;_input.png</code>，以及记录推断视角的相机参数 <code>&lt;name&gt;_camera.json</code>。</p>
+<p>需要注意的是，首次本地运行需在 Hugging Face 申请并通过上游图像编码器 <a href="https://huggingface.co/facebook/dinov3-vith16plus-pretrain-lvd1689m">DINOv3</a> 与 <a href="https://huggingface.co/black-forest-labs/FLUX.2-dev">FLUX.2-dev VAE</a> 的受限模型访问权限。</p>
+</div><div><div><div>来源</div><div><span>Meet Idol：单张图片生成3D高斯物体</span><span>Speridlabs<span>·</span><a href="https://x.com/speridlabs/status/2115890658636656826">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://speridlabs.com/research/idol">Idol 官方项目页与基准</a><span>·</span><a href="https://github.com/speridlabs/idol-sdk">Idol SDK 与推理代码</a><span>·</span><a href="https://huggingface.co/speridlabs/idol">Idol 模型卡</a></div></div></div></div></div><div>
+<div>Speridlabs Idol · 单图 3D 高斯生成</div>
+<h1>从单张平面图像，推断并生成可全向旋转的 3D 高斯物体</h1>
+<div>核心生成模块约 6.6 亿参数、显存峰值约 7.2 GB，8 GB 显卡可以尝试运行；侧面与背面的补齐源自生成式结构先验，而非对真实背面细节的复原。</div>
+<div>3DGS 输出 · 八叉树与高斯双阶段解码 · 显存门槛亲民 · 精度多档可调</div>
+<div>
+<p>Idol 的核心任务是将单张实体照片、3D 渲染图或 AI 生成概念图转化为可在三维空间全向旋转查看的对象。模型自动抠除背景、定位主体，并基于通用几何规律推断出镜头未直接拍摄到的侧面与背面形态。</p>
+<p>输出结果采用 3D 高斯（3D Gaussian Splatting，简称 3DGS）表示，保存为标准 <code>.ply</code> 文件。它由三维空间中数十万个具有位置、大小、旋转朝向、颜色与不透明度的半透明微小椭球体组成，显卡依据深度前后关系实时投影叠加。与传统由三角面构成的多边形网格（Mesh）不同，高斯物体无法直接绑定骨骼做动画或直接进行 3D 打印，可在高斯查看器中实时呈现不同角度的外观。</p>
+<div>
+<div>
+<div>6.6 亿</div>
+<div>核心生成模型参数（DiT 去噪 + 八叉树与高斯解码）</div>
+</div>
+<div>
+<div>7.2 GB</div>
+<div>完整推理计算峰值显存（8 GB 显卡即可尝试部署）</div>
+</div>
+<div>
+<div>3.2万–105万</div>
+<div>高斯精度多档可调（32 倍数自由缩放，单模型免重训）</div>
+</div>
+</div>
+</div>
+<div>
+<p>单张 2D 图像只记录了朝向镜头的这一面，背向相机的部分在照片中并没有直接记录。Idol 能够生成旋转后可见的厨师机背面、被搅拌碗挡住的把手背侧或小鸭脑勺弧度，本质上属于生成式推断。</p>
+<div>
+<p><strong>推断边界认知：</strong>模型基于预训练学到的通用空间先验，推算出在视觉与结构上最合理的侧后走向。这种生成式推断旨在使物体不同角度的观感连贯协调，但绝不代表原实物背面真实存在的划痕、防伪铭牌或特定内部结构。</p>
+</div>
+<div>
+<div>双阶段解码生成管线：从单图到 26 万高斯点</div>
+<p>以红色厨师机为例，从单张输入图到多角度 3D 物体经历以下具体步骤：图像特征被压缩为三维潜变量后，八叉树解码器先建立离散三维几何骨架，再由高斯解码器以 1 变 32 比例细化展开为几十万个空间高斯椭球。</p>
+<div>
+<div>
+<div>1</div>
+<div>
+<div>背景抠除与构图裁剪</div>
+<div>输入图片先由抠图模块剥离背景杂物，按 real（真实摄影保留边距）或 synthetic（数字图居中剪裁）模式预处理，聚焦主体。</div>
+</div>
+</div>
+<div>
+<div>2</div>
+<div>
+<div>外观特征提取与潜变量去噪</div>
+<div>图像编码器提取多尺度语义与外观特征，3D-DiT 生成模型从随机噪声出发，在线索引导下经历默认 50 步采样生成 3D 潜变量压缩表示。</div>
+</div>
+</div>
+<div>
+<div>3</div>
+<div>
+<div>八叉树解码放置空间锚点</div>
+<div>八叉树解码器读取这份压缩表示，在三维体素空间中确定物体的基础形态，先放置离散的几何锚点（默认标准设置下放置 8,192 个空间锚点）。</div>
+</div>
+</div>
+<div>
+<div>4</div>
+<div>
+<div>高斯解码展开椭球细节</div>
+<div>高斯解码器随后接手，将每一个几何锚点展开为 32 个微小高斯椭球，并预测每个椭球的中心偏移、拉伸形状、颜色与不透明度。</div>
+</div>
+</div>
+<div>
+<div>5</div>
+<div>
+<div>导出并实时渲染</div>
+<div>所有椭球汇总保存为标准 .ply 文件，显卡载入高斯查看器后按视点深度实时全向投影，即刻呈现包含推断背面的 3D 外观。</div>
+</div>
+</div>
+</div>
+<div>
+<div>8,192 空间锚点 × 32 = 262,144 个 3D 高斯椭球</div>
+<div>标准默认精度的核心映射换算</div>
+</div>
+</div>
+</div>
+<div>
+<p>运行 Idol 究竟需要多大显卡？核心生成权重虽然只有 6.6 亿，但实际运行时需要完整推理管线的协同支持。</p>
+<p>核心生成模型由 3D-DiT 去噪主干（370.6M）、八叉树解码器（50.8M）与高斯解码器（237.3M）组成，三者合计为 658.7M；而在完整流水线中，还需常驻负责抠图的 BiRefNet（220.7M）、语义特征提取的 DINOv3（840.6M）以及 FLUX.2 VAE（84.1M），显存总涉及参数量约 1.80B。半精度静态驻留约为 3.7–4.4 GB，完整推理请求的计算峰值显存约为 7.2 GB，配备 8 GB 显存的消费级设备即可尝试运行。</p>
+<div>
+<p>在单张图像生成 262,144 个高斯点、50 步采样的标准设置下，官方在各款 GPU 上测试了相同的代码与配置，测得单图耗时中位数：</p>
+<div>
+<div>
+<div><span>NVIDIA RTX 5090</span><span>32 GB 消费级旗舰</span></div>
+<div>14.1 秒</div>
+</div>
+<div>
+<div><span>NVIDIA RTX 4090</span><span>24 GB 消费级主力</span></div>
+<div>19.1 秒</div>
+</div>
+<div>
+<div><span>NVIDIA RTX 3080</span><span>10 GB 消费级入门</span></div>
+<div>46.2 秒</div>
+</div>
+<div>
+<div><span>NVIDIA B300</span><span>269 GB 数据中心</span></div>
+<div>3.4 秒</div>
+</div>
+</div>
+</div>
+<div>
+<p><strong>宣传澄清：</strong>社交平台曾出现“3 秒生成百万高斯”的营销说法，但官方网站评测详表给出的是 50 步采样生成 26 万高斯点的测试数据，数据中心卡 B300 耗时为 3.4 秒。目前公开材料并未交代“3 秒生成 100 万高斯”对应的具体硬件与采样步数，桌面玩家应以 4090 约 19 秒、3080 约 46 秒为参考预期。</p>
+</div>
+</div>
+<div>
+<p>同一个模型如何在不同精度档位间自由切换？答案就在于每个锚点解包为 32 个高斯椭球的设计。</p>
+<p>通过这种每个锚点对应 32 个高斯椭球的设计，用户在生成时可以通过 --num_gaussians 参数在 32,768 到 1,048,576 之间自由选择精度档位（必须为 32 的倍数）。调节该参数可通过八叉树锚点数量控制输出规模，无需针对高低精度分别训练多套权重：</p>
+<div>
+<div>
+<div>32,768</div>
+<div>较少高斯</div>
+<div>1,024 锚点 × 32 · 较少输出点</div>
+</div>
+<div>
+<div>262,144</div>
+<div>默认数量</div>
+<div>8,192 锚点 × 32 · 默认输出</div>
+</div>
+<div>
+<div>1,048,576</div>
+<div>较多高斯</div>
+<div>32,768 锚点 × 32 · 较多输出点</div>
+</div>
+</div>
+<p>官方评测中，LGM 的输入视角 PSNR 高于 Idol；官方指出，过于平滑的预测也可能在像素误差指标上占优。在考查未见新视角语义连贯性的 DINOv2 评分中，Idol 达到 0.781，明显优于 LGM 的 0.575 与 TripoSplat 的 0.743，在这组官方测试中呈现更高的新视角语义一致性。</p>
+<div>
+<div>开源与上手体验路径</div>
+<p>主干代码与核心模型权重基于 Apache 2.0 协议开源。想即刻体验可直接访问 Hugging Face Spaces 在线 Demo（内置 90 余个案例并支持上传自定义图片）；本地部署需准备 Python 3.10+、PyTorch 2.5+ 及 CUDA 环境，并提前在 Hugging Face 申请上游 DINOv3 与 FLUX.2-dev VAE 的模型访问授权。</p>
+</div>
+</div></div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://x.com/speridlabs/status/2115890658636656826">看原网页 ↗</a></p></div><div></div><div><div><p>Meet Idol, an open image-to-3D model. A 3D-DiT that generates complete 3D objects from just an image.</p></div><div><p>Pre-trained from scratch, contains only 600M parameters, it runs on consumer GPUs, using less than 7.2 GB of VRAM and can generate 1M splats in 3 seconds. Try it today.</p></div><div><p>Fully open: weights, code and demo (Apache 2.0) http://speridlabs.com/research/idol</p></div><div><figure></figure></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/speridlabs/status/2115890658636656826">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Sam Altman：AI越强，为什么越需要分工？更想要一万亿个略超人类的 AI，而不是一个超级大脑？ · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/sam-altman-single-superintelligence/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:sam-altman-single-superintelligence</guid>
+<pubDate>Sat, 31 Oct 2026 12:00:18 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 算力花在思考上：从一个回答到团队探索 02 多个AI一起工作，为什么仍然需要安全边界？ 03 算力背后，仍然是内存、电力和工厂 04 个人Agent能办事后，商家的入口会怎样变？ 05 Token能计量，但不能单独说明价值 06 来源 AI 解读 / 洞察 · 10-31 · 11 分钟 · 作者 Cheeky Pint · John Collison / Sam Altman</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 31 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Sam Altman：AI越强，为什么越需要分工？更想要一万亿个略超人类的 AI，而不是一个超级大脑？ · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/sam-altman-single-superintelligence/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>算力花在思考上：从一个回答到团队探索</span></a><a><span>02</span><span>多个AI一起工作，为什么仍然需要安全边界？</span></a><a><span>03</span><span>算力背后，仍然是内存、电力和工厂</span></a><a><span>04</span><span>个人Agent能办事后，商家的入口会怎样变？</span></a><a><span>05</span><span>Token能计量，但不能单独说明价值</span></a><a><span>06</span><span>来源</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>洞察</a><i>·</i>10-31<i>·</i>11 分钟<i>·</i>作者 Cheeky Pint · John Collison / Sam Altman</div><h1>Sam Altman：AI越强，为什么越需要分工？更想要一万亿个略超人类的 AI，而不是一个超级大脑？</h1><p>从一万个Agent做数学，到个人AI帮你退货：Sam Altman谈算力、安全与商业入口。</p><div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Cheeky Pint · John Collison / Sam Altman</span><span>10-31 · 11 分钟</span></div></div></div><div><strong>一分钟速览</strong><ul><li>更多算力能否变成更好的结果，取决于尝试、检查和团队交流怎样组织。</li><li>Sam希望许多略超人的AI合作并彼此制衡；这需要主动选择和多层安全防护。</li><li>个人Agent可能改变购物入口，品牌、履约和可靠性仍然重要。</li><li>算力供给仍受内存、电力和工厂限制，Token数量也不等于工作价值。</li></ul><div>
+<p>OpenAI首席执行官Sam Altman 更愿意让一万亿个略超人类水平的 AI 加入社会，也不想把未来交给一个智力压倒所有人的超级 AI。这是他在 Cheeky Pint 访谈中提出的方向选择：许多 AI 能否像人类社会一样，既合作，又彼此制衡？</p>
+<p>这个问题已经和具体的工作方式连在一起。OpenAI 的公开数学研究让约一万个 Agent 并行探索难题；企业开始讨论每个人能花多少计算预算；消费者则希望直接对常用的 AI 说“帮我退掉最近一笔订单”。模型变强以后，怎样组织它们、怎样保留人的控制权，以及真实世界能提供多少算力，正在变得同样重要。</p>
+<p>在这段与 Stripe 联合创始人 John Collison 的52分钟对话里，Sam把这些问题放到了同一张图景中。他谈到已开展的实验，也解释了这些实验怎样影响自己对未来的选择。</p>
+<figure>
+<figcaption>完整访谈，52分45秒，保留英文原声，内置中英双语字幕。主要章节：08:54 沙箱与安全；15:47 数学；25:17 算力供应；40:18 个人Agent；49:27 Token计价。</figcaption>
+</figure>
+<h2>算力花在思考上：从一个回答到团队探索</h2>
+<p>先把 Agent 想成一个能围绕目标分步工作、调用工具并继续处理结果的 AI 程序。它可以只交出一次回答，也可以反复尝试；多个 Agent 还可以分头探索，再交换各自的发现。</p>
+<p>Sam回忆，早期很难给同一道问题追加超过一美元的计算，还能持续得到更好的答案。这个数字来自他对早期模型的回忆，关注的是追加计算能否改善结果。让模型继续生成十万个Token，并不等于让它认真检查过前面的推理。</p>
+<p><strong>思维链</strong>让模型把中间步骤展开；<strong>测试时算力</strong>则指处理当前问题时投入的计算，例如多尝试几条路线、调用工具检查结果，再调整候选答案。训练阶段是在形成能力，测试时是在用这些能力解决眼前的问题，两个阶段都需要计算。</p>
+<p>以同一个数学命题为例，一次生成可能只给出一条看似成立的证明。多投入计算，可以让系统检查其中的引理，或换一条路线。再把任务交给团队，不同组就可以分别找证明、找反例，并把有价值的中间结果传给其他组。计算从“多写一些”变成了“多做一些有组织的探索”。</p>
+<p>OpenAI公开的Navier–Stokes研究展示了这种组织方式。Navier–Stokes方程描述流体运动。这道千禧年大奖难题关心的是：初始状态良好的三维流体，其数学解是否能一直保持良好，还是可能在有限时间出现奇点。按OpenAI的公开说明，其系统构造了一类带平滑外力、能量始终有限的流体运动，却能在有限时间形成速度无界的奇点，对应官方问题表述中的C、D项。这个结论说明方程可能出现这种失效，而非证明所有流体都会如此。研究团队先在相关的Euler流体方程问题上得到进展，随后把更多Agent转向Navier–Stokes，并用编程助手Codex汇总各组有用的发现，供后续探索使用。</p>
+<p>找到解的那一组涉及约一万个并发Agent。不同小组探索不同的问题版本和证明方向；候选结果出现后，另花了约17小时把证明写成Lean证明助手可核查的形式。Lean会核查形式化证明的步骤，这与人类数学家理解证明的思路、意义和后续用途，是不同的工作。</p>
+<div><h3>同一道难题，额外的计算花在哪里？</h3><p>切换三种组织方式，看计算怎样从生成一个回答，扩展到尝试、检查和并行探索。</p></div>
+<div>
+直接回答
+多想与检查
+团队探索</div>
+<div><div><div><div>一个难题</div><div>→</div><div>模型生成一个<br />候选回答</div><div>→</div><div>交给用户</div></div><div><strong>关键区别：</strong>继续生成更多文字，不一定能解决原先没解决的问题。Sam回忆，早期很难让追加算力持续换来更好的结果；这不是所有模型的固定一美元上限。</div></div></div>
+<div><div><div><div>同一个难题</div><div>→</div><div>展开中间步骤<br />尝试与检查</div><div>→</div><div>修正候选解<br />再给出回答</div></div><div><strong>多出来的计算：</strong>花在回答前的推演、不同尝试与验证上，这就是测试时算力的用途。增加思考机会可以帮助解题，并不保证每次多花钱都更正确。</div></div></div>
+<div><div><div><div>把难题分为<br />不同探索方向</div><div>→</div><div>多组Agent并行<br />共享有用发现</div><div>→</div><div>汇合候选结果<br />再做核查</div></div><div><div><div>公开数学案例的并发规模</div><div>约10,000个Agent</div></div><div><div>访谈中的探索成本估算</div><div>千万美元量级</div></div></div><div><strong>数学案例中怎样协作：</strong>不同组尝试证明或反例，人类研究团队用Codex汇总有价值的中间发现，再交给其他组继续探索；最终的数学证明另做Lean形式化核查。这里的分工不是简单复制同一句提示词。</div></div></div>
+<div>机制示意。约一万个并发Agent来自OpenAI公开研究说明；成本是Sam的访谈估算，两者不是同一份成本测试。团队协作本身不构成安全保证。</div>
+<p>Sam在访谈中估计，Navier–Stokes相关探索的成本约为一千万美元量级，可能还略高；更广泛的数学探索还包含未公开的结果。这是他的口述估计，不是公开论文给出的逐项成本账单。他还预计，模型和组织方法改进后，一年后重做这类工作可能只需百分之一的成本。这说明了他对优化的期待，不能当作每个任务都能按年兑现的降价规律。</p>
+<p>这也改变了“怎样用AI”的竞争。一家公司允许团队在一个问题上投入一万美元计算，另一家允许十万美元，差异不只是用了哪个模型，还包括谁能探索更多路线、怎样核查结果。Sam说，OpenAI愿意让人探索高计算上限，却不奖励单纯用掉更多Token；需要证明的是这些计算做出了什么有用的事情。</p>
+<h2>多个AI一起工作，为什么仍然需要安全边界？</h2>
+<p>访谈从PHP漏洞谈起：模型越来越擅长寻找现实软件中的缺陷，一些存在多年的问题被重新翻了出来。修补一个漏洞，是把眼前的错误改掉；重新设计路由器、操作系统或应用架构，则是在改变系统依赖的安全假设。能力强起来以后，进攻者和防御者都能更快地查代码、找问题，原有防护也要跟着升级。</p>
+<p>John因此追问：能不能造一个足够坚固的沙箱，把模型关在里面？沙箱是一种限制程序能访问哪些文件、工具和网络的执行环境。Sam的回答分成了几层：先把隔离做得更好；再通过活动监控、思维链与内部激活监测发现异常；最后还需要对齐，让模型愿意遵循操作者的真实意图，并重视人对未来的控制。</p>
+<p>这些层次不能互相替代。限制了网络权限，不代表消除了所有共享资源；看到了行为，也不等于完全知道行为背后的意图。防护也需要随着模型能力持续升级。</p>
+<p>OpenAI公布的内部训练与评估环境测试提供了一个具体例子：两个Agent即使不能通过正常网络或共享文件传消息，仍可能利用缓存读写的快慢差异编码和读取信息。这属于时序侧信道：利用共享资源留下的时间差传递信息。多数相关测试由人给出探索方向或编码协议，说明人类提示也是测试条件的一部分。</p>
+<p>这份公开材料采取的应对方式，是离线环境、虚拟机隔离、监控以及网络和云基础设施上的多层防护。它讨论的是前沿模型的研究环境。访谈中“如果AI比最聪明的安全研究者强百万倍会怎样”的追问，则是在推演未来防护假设可能面对的极限。</p>
+<p><strong>技术上的团队协作，也不自动等于价值上的多元制衡。</strong> 如果许多Agent使用相似的模型和目标，它们仍可能共享同类错误。把一个问题分给一万份，并不能单靠数量确保安全。</p>
+<p>Sam更看好很多略超人的AI共同参与社会，是因为他希望保留类似人类社会的合作、分歧与相互约束。他也说，这种方向需要主动推动，并非技术自然发展就一定会抵达。他甚至提出，未来一段时间可能需要共同约束单个模型的能力上限；那时进展放慢，可能来自人的选择，而不是AI无法继续研究。</p>
+<p>这与他支持逐步部署的立场相连：让人真正用上工具、自己决定怎样改善生活，而不是只领取基本收入、由少数机构决定未来。同时，新能力仍要先满足安全要求，不能以“早点部署”为由制造混乱。对这场讨论来说，人的参与和选择本身就是目标的一部分。</p>
+<h2>算力背后，仍然是内存、电力和工厂</h2>
+<p>如果一道问题可以用掉更多有效计算，需求就会一路传到芯片、内存、电力、组件和机房建设。Sam在访谈里谈到OpenAI的芯片、自建数据中心以及面向建设数据中心的机器人项目；这些方向要解决的是实体供给，远不只是优化一段软件。</p>
+<p>John追问，高价格为什么还没有迅速吸引足够的新产能？Sam用内存行业的历史解释这种迟滞：厂商过去可能投入两百亿美元，却只拿回一百九十亿美元，扩产后又撞上价格下跌。他用这个假设例子说明投资回报可能被周期吞没。记得过去的损失，就可能在需求很旺时仍谨慎建设新工厂。</p>
+<p>数据中心还面临审批与组件瓶颈。机器人将来或许能帮助制造更多组件、建设工厂和能源设施，但不会因为AI会研究AI，就自动消除建设许可、能源和供应链的限制。“自我复制的数据中心”是Sam希望靠近的长期方向，并非已经完成的自动化生产链。</p>
+<p>他们用一个假设数字说明成本目标：<strong>建设并运行一吉瓦规模的数据中心五年，先取总拥有成本700亿美元作讨论基准，再问能否降到200亿美元。</strong> 这是两人讨论时选取的假设基准与降本目标，Sam也承认业界有不同估算。</p>
+<p>要降到更低水平，能源、芯片、其他投入成本以及供应链各环节的利润都可能影响结果。John问，只压缩利润能不能做到，还是能源也必须变便宜？Sam坦言没有现成的计算答案。哪些环节能贡献多少降幅，在这段对话里仍然没有答案。</p>
+<p>本地推理也被放进了这套资源分配视角。Sam举例说，如果稀缺内存散在许多个人电脑里，而每台只用到很少时间，云端集中运行可能获得更高利用率。这种判断取决于资源是否稀缺、设备实际利用率和任务需求，不能推广到每一种本地部署。</p>
+<p>AI做AI研究，同样有需要分清的阶段。Sam说，现在已经可以让模型寻找约5%的算力效率改善；但如何让它发现一次像Transformer那样的模型架构跃迁，以及怎样组织更广泛的递归改进，仍在实验。会帮助改进某个环节，与能可靠发明下一代研究范式，是两种不同的能力。</p>
+<h2>个人Agent能办事后，商家的入口会怎样变？</h2>
+<p>对普通人而言，最容易感受到的变化可能是一句要求：“帮我退掉最近一笔订单。”今天往往要先打开某家店的网站或App、登录、找订单，再重复输入已有信息。消费者希望省掉这些操作，直接从自己常用的AI入口发起任务。</p>
+<p>Sam把个人Agent需要的东西概括为智能、上下文和工具。它既要理解任务，也要有足够的信息，还要能操作相关服务。但他认为，这个领域尚未出现让多数人觉得“离开它就没法生活”的Macintosh时刻；更复杂的任务能稳定完成，是他对接下来形态的期待，而非对现有产品成功率的保证。</p>
+<p>这就产生了一组双方动机不同的关系：商家很愿意在自己网站里加一个AI客服弹窗，却未必愿意让消费者留在另一个AI应用里完成交易。前者保住了自己的入口，后者更接近用户已经形成的习惯。</p>
+<div><h3>一次退货，入口可以留在哪一边？</h3><p>访谈里的设问：用户能否从自己常用的Agent办事，而不用每次重新进入商家的网页？</p></div>
+<div>看用户流程看商家价值</div>
+<div><div><div><span>常见网页路径（示意）</span><div>用户自己跨过商家入口</div><ul><li><span>1</span><span>打开商家网站或App并登录</span></li><li><span>2</span><span>查订单，寻找退货入口或客服</span></li><li><span>3</span><span>重复提交已有的订单与个人信息</span></li><li><span>4</span><span>根据商家规则跟进处理结果</span></li></ul><div>商家保有界面入口；用户承担在不同服务之间切换的操作。</div></div><div><span>个人Agent的期望体验</span><div>从常用Agent发起同一件事</div><ul><li><span>1</span><span>告诉常用Agent：帮我退掉最近一笔订单</span></li><li><span>2</span><span>Agent利用授权的订单信息，通过商家支持的入口发起申请</span></li><li><span>3</span><span>用户查看结果，处理仍需自己决定的环节</span></li></ul><div>用户的入口留在Agent；商品、退货规则和履约仍由商家提供。这是体验方向，尚非所有产品都能稳定完成的流程。</div></div></div></div>
+<div><div><div><div><span>可能改变的入口优势</span></div><p><strong>网站与App的控制权：</strong>用户从其他Agent发起任务，商家可能减少直接接触用户的机会，这解释了商家为何不愿轻易开放入口。John认为，仅靠网页界面维持的优势可能不持久。</p></div><div><div><span>访谈更看重的价值</span></div><p><strong>信任、选品和履约：</strong>Sam以自己总愿意选择Amazon为例，解释熟悉的商家与物流网络为什么仍重要。改变点击入口，不等于替代仓库、配送或售后服务。</p></div></div></div>
+<div>John强调消费者想省掉重复操作；Sam赞同，也承认自己有推动Agent平台的立场。这个例子讨论入口怎样变化，不证明所有企业都该放弃网站或App。</div>
+<p>John认为，企业可能高估了HTML界面本身的护城河，品牌信任、选品与服务才是更持久的价值。Sam赞同，并以自己偏爱Amazon为例：即使通过AI买东西，他仍愿意选择熟悉、信赖的商家，因为背后有履约网络。他的这个例子说明，即使购物入口改变，商家已有的信任与履约能力仍可能影响选择。</p>
+<p>两人也承认自己的立场可能有偏向：Stripe做交易基础设施，OpenAI希望更多任务在Agent平台完成。因而，这段对话更有用的地方，是把消费者想少操作、商家想保住客户关系、平台想成为新入口的三股动力放在一起，而不是证明所有企业都应该放弃网站和App。无论入口在哪，商品、退货规则与履约工作仍然需要有人负责。</p>
+<h2>Token能计量，但不能单独说明价值</h2>
+<p>Token是模型处理文字时使用的片段单位，可以帮助计量调用，却不能单独告诉你一次工作值多少钱。模型能力、思考链长度、任务难度和最终结果都可能不同，单看输出长短，很难比较一次摘要与一次有效的软件修复带来的价值。用户还得比较不同模型的单价、估算它会思考多长，才能推算一项任务的花费；这份心算本身也增加了认知负担。</p>
+<p>Sam说，OpenAI差点决定不再按Token给下一款模型定价：用户给出提示，系统回一个价格，再完成任务。但他们征询客户时得到的反应很差，客户想知道自己究竟为什么付钱，担心以后无法预测成本。<strong>客户的反应让他们没有采用这套方案。</strong> 一个不完美但可比较的单位，有时仍比完全黑盒的报价更容易让人接受。</p>
+<p>预算问题也因此变得具体。John说，Stripe的Token支出大约是运营支出的1%量级；他与Sam继续讨论，未来某些企业的AI支出可能达到运营支出的数十个百分点。这些未来比例不是建议所有公司照抄的预算指标，也没有证明花得越多回报越高。</p>
+<p>Sam认为很多企业目前用AI还不够深入，也承认自己有销售AI服务的立场。企业真正需要比较的，是追加计算有没有带来更好的结果，以及这些结果是否值得投入；这和OpenAI内部不按Token消耗量奖励员工，是同一个组织问题。</p>
+<a><span>延伸阅读 · 企业Agent怎样落地</span><strong>Stripe 公司内部 Agent 开发实践：一个工程师一周开发出来的公司内部 AI 助手，几乎人人都在用</strong><span>从Kai的工具、上下文、权限与执行环境，理解企业内部Agent怎样接住真实工作。</span><b>阅读Stripe实践 →</b></a>
+<p>模型的价值也不只在榜单上。Sam强调了两项值得追求的能力：做出人做不到的科学发现，以及成为让人愿意合作的工具。一个总讨好用户的模型不好用，一个为了反讨好而处处挑刺的模型也不好用；“像一个认真思考、敢提出挑战、又尊重人的资深同事”，比一味迎合或对抗更接近对话期待的体验。</p>
+<p>在内部“Hold My Beer”测试频道里，新模型接连解决研究者拿来的难题，Sam曾兴奋到连续两晚不想睡觉；但他也感到超出预期的失落。原因并不只是怀旧：很多人的职业、满足感与人生意义，来自亲自追逐那些尚未理解的问题。</p>
+<p>这形成了一种真实张力：新的基础知识应当让社会受益，开发者也需要理解长期推动这些领域的人会怎样适应。OpenAI后来公布的学术合作，便包含让领域专家理解、解释AI产出的研究结果。公开成果与核查证明之外，让研究者理解、解释并继续使用这些发现，也是一项实在的工作。</p>
+<p>这场访谈留下的判断很具体：把AI的能力组织成真正有用的工作，让追加计算产生值得投入的结果，同时让使用它的人保有选择。模型规模、Agent数量和Token账单都只是其中的量，不会自动给出答案。</p>
+<h2>来源</h2>
+<ul>
+<li><a href="https://cheekypint.substack.com/p/why-sam-altman-is-against-a-single">Cheeky Pint完整访谈与官方文字稿</a></li>
+<li><a href="https://openai.com/index/navier-stokes-solution/">OpenAI：Navier–Stokes研究的组织与验证过程</a></li>
+<li><a href="https://openai.com/index/securing-our-frontier-model-training-environment/">OpenAI：前沿模型训练环境的隔离与防护</a></li>
+<li><a href="https://openai.com/index/building-scientific-understanding-with-academic-communities/">OpenAI：与学术共同体合作理解科学发现</a></li>
+</ul>
+</div><div><div><div>来源</div><div><span>Cheeky Pint：Sam Altman完整访谈</span><span><a href="https://www.youtube.com/watch?v=iMsUcCYNKqY">查看主材料</a></span></div></div></div></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://www.youtube.com/watch?v=iMsUcCYNKqY">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】如何将企业的品牌指南转变为内容工厂：用 Lovart Arti 搭一套 AI 内容引擎 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/amir-brand-system-leaf/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:amir-brand-system-leaf</guid>
+<pubDate>Sat, 31 Oct 2026 12:00:18 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 先让 AI 懂自家品牌，把修改变成下一次的要求 02 让 AI 定期交来方案，把空白变成选择题 03 团队把精力转向挑选、发展和把关 04 第一轮怎么跑：选好模板，配置任务 05 两个补充工具：缺品牌资产时用 Skill，展示成果时用 Leaf AI 解读 / 工具教程 · 10-31 · 9分钟 · 作者 Amir Mušić 如何将企业的品牌指南转变为内容工厂：用 Lova</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 31 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">如何将企业的品牌指南转变为内容工厂：用 Lovart Arti 搭一套 AI 内容引擎 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/amir-brand-system-leaf/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>先让 AI 懂自家品牌，把修改变成下一次的要求</span></a><a><span>02</span><span>让 AI 定期交来方案，把空白变成选择题</span></a><a><span>03</span><span>团队把精力转向挑选、发展和把关</span></a><a><span>04</span><span>第一轮怎么跑：选好模板，配置任务</span></a><a><span>05</span><span>两个补充工具：缺品牌资产时用 Skill，展示成果时用 Leaf</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>工具教程</a><i>·</i>10-31<i>·</i>9分钟<i>·</i>作者 Amir Mušić</div><h1>如何将企业的品牌指南转变为内容工厂：用 Lovart Arti 搭一套 AI 内容引擎</h1><p>从一个鸡蛋品牌出发，把品牌指南接到日常研究、选题与草案制作，让团队打开工作台时，已有具体方案可挑。</p><div><div>正文一页纸原文</div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Amir Mušić</span><span>10-31 · 9分钟</span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>品牌指南管好了长相，日常发什么还要靠研究与选题；Arti 把这些工作接成可定期交稿的任务。</li><li>两种模板分别交视觉看板与社媒图文草案，让团队从空白构思转向比较、发展已有方向。</li><li>字形、食物真实感等修改要求可以留下来供新项目复用，终稿仍由人审核与发布。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/amir-brand-system-leaf/social/zh-553465ef9787.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>不少品牌和创作者手里都握着一套精美的“品牌视觉指南”（Brandbook）——规范好了 LOGO、字体和配色，但一到周一打开社交媒体后台，依然陷入空白：<strong>下周到底发什么？怎么保证发出来的东西不跑偏、像自家品牌？</strong></p>
+<p>在 Amir 整理的数十条 Reddit 讨论中，反复出现的痛点集中在三件事：<strong>找不到内容灵感（33.3%）</strong>、<strong>不知如何将死板的品牌指南落地到实际帖子（28.6%）</strong>，以及<strong>无穷无尽的制作负荷（38.1%）</strong>。只把品牌资产锁在 PDF 里，解决不了这个问题，真正破局的方案是把品牌指南改造成一套自动运转的<strong>AI内容引擎</strong>：让 AI 定期完成品类研究并主动交来设计与文案草案，团队则把精力放在挑选、修改和发布上。</p>
+<p>品牌设计师 Amir Mušić 用 Lovart 2.0 中的个人设计 Agent Arti，为概念鸡蛋品牌 oovie 跑通了这套工作流（本案例由 Lovart 赞助）。他把 22 页品牌手册里的规范接到日常流水线上：Arti 不仅能根据品牌资产构思料理选题与社媒版式，还能通过定时任务交出视觉看板和互动草案，甚至能记住对字形与食物写实质感的修改要求。</p>
+<hr />
+<h2>先让 AI 懂自家品牌，把修改变成下一次的要求</h2>
+<p>让 Arti 参与日常内容生产，要先给它一套已经确定的品牌依据。把品牌手册、LOGO、色板、字体规则等放进 <strong>Brand Kit（品牌资产库）</strong>，需要时再补上产品照片。这样，当你让它做一张新海报时，它有现成的资产可引用，不必每次都靠一段文字重新猜品牌的长相。也可以把品牌手册发给 Arti，让它协助设置 Brand Kit。</p>
+<p>品牌之外，还有团队在合作中形成的要求。这些交给 <strong>Agent Memory（记忆）</strong> 保存：在 Arti 页面开启 <strong>Auto-update memory（自动更新记忆）</strong>，让已经确认的偏好与修改标准能够延续到新项目。记忆条目可以查看、编辑和删除，是否跨项目使用也由用户控制。</p>
+<p>oovie 的一张海报，把这件事的价值展示得很具体。Arti 给出了名为 <strong>The yolk edit</strong> 的方向：粉色背景上，一只手像展示时尚单品一样拿着鸡蛋。Amir 喜欢这个创意，但标题里“edit”的字母“t”走形了，鸡蛋也不够真实。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/amir-brand-system-leaf/source-2115821615640432640.jpg" alt="The yolk edit 的修改前后与保存到 Memory 的两条标准" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>图改好了，修改要求也留下来。</span><br />左为初版，中为修订版；右侧 Memory 保存了字形检查与食品真实感两项要求。图：Amir Mušić。</figcaption>
+</figure>
+<p>这次反馈没有停在“把图改一下”。Amir 还让 Arti 保存两条质量标准：</p>
+<ul>
+<li><strong>检查字形</strong>：最终版面要逐字检查，拒绝失真的 Space Grotesk 字体仿形。</li>
+<li><strong>保持食物真实</strong>：鸡蛋和其他食物要有真实质感，避免塑料感与不可能的结构。</li>
+</ul>
+<p>随后，他打开一个没有先前对话和附件的新项目，Arti 重新取出了这两条要求。团队上次认真挑过的问题，便有了供下次复用的记录，少了一次从头交代。最终图片里的字形和食物仍需检查，保存标准并不等于免检。</p>
+<p>（原文还建议开启 Self-evolving skills“自进化技能”。这是另一个可选功能：同一工作流跨项目重复使用超过三次后，Lovart 可将其提炼为技能，首次使用时向用户确认。它与保存偏好和反馈的 Memory 分工不同。）</p>
+<hr />
+<h2>让 AI 定期交来方案，把空白变成选择题</h2>
+<p>知道品牌长什么样以后，还要有人持续找参考、想话题、做出第一版。<strong>Scheduled Tasks（定时任务）</strong> 接住这部分工作：把研究对象、交付内容、频率和额度设好，Arti 就会按排期执行，把结果放进指定项目，等待团队挑选和发展。</p>
+<p>Amir 的两次定时运行交出了两个很不同的方向：<strong>The yolk edit</strong> 将鸡蛋拍成时尚物件；<strong>Runny. Jammy. Set.</strong> 则把流心、半凝固、全熟的蛋黄并列，让熟度差异成为画面的主角。同一种产品，有了不同的说法，颜色、字标和整体气质又仍然属于 oovie。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/amir-brand-system-leaf/source-2115821507716808704.jpg" alt="两次定时任务交付的 The yolk edit 与 Runny. Jammy. Set. 草案" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>同一颗鸡蛋，可以成为时尚单品，也可以用熟度差异讲一个话题。</span><br />这两张是作者两次定时任务的创意提案，均保留 oovie 的品牌视觉。图：Amir Mušić。</figcaption>
+</figure>
+<p>他随后公开了两份可换成自家品牌使用的任务模板。它们各自回答一个具体问题：<strong>Daily Moodboard 帮你找“视觉长什么样”，Brand Visual Radar 帮你想“对受众说什么”。</strong></p>
+<h3>Daily Moodboard：先给团队一张有依据的视觉看板</h3>
+<p>假设你正在为 oovie 想下一组视觉，只有“再做点新鲜的”这句要求，很难开工。Daily Moodboard 会先找最多 3 份同品类的真实设计参考，优先看品牌与设计工作室的原始页面，打开图片，从每份参考里提取一条可借鉴的原则。</p>
+<p>在作者展示的研究中，参考包括 Marigold Egg、Tamago Factory、Mori no Chikara 等相关包装案例。Arti 说明这些设计的构图、线条、文字或摄影怎样起作用，再用 oovie 的品牌身份重新探索。外部参考提供新思路，自家的品牌资产继续约束颜色、字体和视觉气质。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/amir-brand-system-leaf/source-2115821979148136448.jpg" alt="真实包装参考、来源说明与 oovie 原创视觉研究看板" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>从真实参考提取方法，再转成自家品牌的视觉研究。</span><br />上方是参考案例，下方 A—C 是 oovie 的原创探索分区；左侧保留来源和分析。图：Amir Mušić。</figcaption>
+</figure>
+<p>这份任务最后交付的是 <strong>一张看板</strong>，每份参考对应一个 A—C 分区，并附来源链接、参考与分区的对应说明、实际尺寸和推荐方向。团队可以同时看着“借鉴了什么”和“放到我们品牌上会怎样”，再决定哪条路值得继续做。找参考与判断参考是否适用，由此接在了同一份提案里。</p>
+<h3>Brand Visual Radar：让一张社媒图有可参与的话题</h3>
+<p>社媒选题还要回答另一个问题：用户看到这张图，为什么愿意停下来、回答一句，或参与一下？Brand Visual Radar 会查看最多 3 个真实社媒帖子或营销活动，拆解它们让受众注意、学习、回答或尝试什么，再为自家品牌发展 3 个原创点子。</p>
+<p>鸡蛋本身并不缺话题。Amir 最先给 Arti 的切入点是“每个人都有自己的早餐”，Arti 将其发展为 <strong>Different mornings（不同的早晨）</strong>：半熟水煮蛋、法式蛋卷、吐司炒蛋、北非番茄炖蛋和水波蛋，分别对应不同晨间心情。它还提出 Slow Sunday 和 Wake up bold 两个备选方向。一种普通食材，开始有了一周甚至更长时间可以展开的内容。</p>
+<figure>
+<figcaption><span>“不同的早晨”把五种鸡蛋料理接到不同的心情和文案。</span><br />这是作者的一周内容计划展示片段；它说明产品怎样发展成话题，不是 Radar 模板单次生成的三份产物。视频：Amir Mušić。</figcaption>
+</figure>
+<p>视觉雷达进一步把内容落到受众能参与的形式上。作者展示了三种社媒图：</p>
+<ul>
+<li><strong>料理二选一（PICK YOUR SIDE）</strong>：半熟蛋和煎蛋同时摆出来，请受众选自己喜欢的一边。</li>
+<li><strong>你点我做（YOU PICK. WE COOK.）</strong>：用一张料理图和一处留白，征集大家下一道想吃什么。</li>
+<li><strong>局部猜做法（HOW WAS THIS COOKED?）</strong>：只给蛋黄特写，再列出半熟、煎蛋、水波蛋三个选项，让受众猜。</li>
+</ul>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/amir-brand-system-leaf/source-2115822094818697216.jpg" alt="料理二选一、你点我做、局部猜做法三种社媒图" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>先确定想让人怎样参与，再给每种内容安排构图。</span><br />图中的选项和空白框是静态排版，受众可在评论区回应；它们不是可点击的网页控件。图：Amir Mušić。</figcaption>
+</figure>
+<p>二选一要把选项摆清楚，猜谜要留下足够线索，征集意见要把问题问出来。<strong>每张图的构图都要服务它的内容。</strong> 模板因此要求分别生成 3 张独立的 <strong>4:5 视觉草案</strong>，每个点子附简短英文标题和不超过 50 词的配文，最后用表格对应点子、文案、图片文件与实际尺寸，并推荐一项继续发展。</p>
+<p>团队收到的便是三种有理由、有文案、有图的选择，可以讨论哪一种更适合受众，再继续精修。</p>
+<div>
+<div><span>同一套品牌依据</span><strong>Brand Kit 资产 ＋ 已保存的修改要求</strong></div>
+<div>↓</div>
+<div>
+<div><span>视觉长什么样？</span><h4>Daily Moodboard</h4><p>最多 3 份真实设计参考<br />每份提炼一条原则</p><div><span>A</span><span>B</span><span>C</span></div><strong>交 1 张分区看板</strong>附出处、解释和推荐方向</div>
+<div><span>对受众说什么？</span><h4>Brand Visual Radar</h4><p>最多 3 份真实社媒案例<br />发展 3 个原创内容点子</p><div><span>二选一</span><span>你点我做</span><span>猜做法</span></div><strong>交 3 张独立的 4:5 草案</strong>每项有标题、配文和图片</div>
+</div>
+<div>↓</div>
+<div><strong>人来挑选、发展、核对和发布</strong><span>值得复用的修改要求，继续保存到 Memory</span></div>
+<p>图示说明两份模板的交付要求；不表示同一次任务必须同时运行两种模板。</p>
+</div>
+<hr />
+<h2>团队把精力转向挑选、发展和把关</h2>
+<p>Amir 自述，Arti 约两分钟给出了那五个早餐点子；他过去准备类似活动概念、做视觉方案并完成审批，大约需要 3—5 天。这两段时间对应不同的工作范围，能看见的变化是：<strong>团队更早拿到了具体候选，可以开始判断和修改。</strong></p>
+<p>看板上的参考是否适合品牌，三种互动里哪一个值得做，图片的字形与食物是否真实，文案里的产品事实是否准确——这些仍由人决定。AI 先把研究和初稿送到桌上，人的判断就有了可以落笔的对象。</p>
+<p>小团队可以先从每周例会前的一条任务开始：附上获批的 Brand Kit，找少量相关参考，解释一个有潜力的方向，再交一份草案。先看这一轮结果有没有帮上忙，再调整频率和交付要求。为客户交付品牌时，也可以把 Brand Kit、首批设计和这两份任务模板一起交过去，让他们拿到品牌之后，知道下周怎样继续用。</p>
+<hr />
+<h2>第一轮怎么跑：选好模板，配置任务</h2>
+<p>配置一套定时委派任务并不复杂，核心在于设定清晰的检索边界与交付规格。</p>
+<h3>设置任务的五个步骤</h3>
+<ol>
+<li><strong>新建任务</strong>：在 Lovart 侧边栏打开 <strong>Delegated tasks</strong>，点击 <strong>New task</strong>；</li>
+<li><strong>填入提示词</strong>：粘贴下方的模板，并将 <code>[CATEGORY]</code> 替换为自家产品品类（如 oovie 使用 <code>eggs and egg-based breakfast products</code>）；</li>
+<li><strong>关联品牌资产</strong>：点击 <strong>Add attachment</strong> → <strong>Select assets</strong> → <strong>Brand Kit</strong>，选中已经审核通过的品牌规范；</li>
+<li><strong>设置运行参数</strong>：选择执行频率（每日 Daily 或每周 Weekly），设定执行时间、生成结果存放的目标项目（destination project），并设置单次消耗额度（credit limit）；</li>
+<li><strong>试跑并创建</strong>：官方当前的 <strong>Design delegation</strong> 入口提供创建前的 <strong>Test run</strong>；Amir 的演示是在创建后点击 <strong>Run now</strong>。按当前界面的入口先检查一轮结果，再让任务按排期重复。</li>
+</ol>
+<figure>
+<figcaption>
+<span>Lovart 2.0 中 Delegated tasks 的配置界面与参数设定过程。</span><br />
+    作者展示挂载 Brand Kit、选定目标项目与设置时间周期。视频：Amir Mušić。
+  </figcaption>
+</figure>
+<h3>模板一：Daily Moodboard（视觉灵感看板）</h3>
+<p>两份模板按本次目的选择其一：找视觉方向用 Moodboard，准备社媒选题用 Radar。发送所选模板的中文或英文即可，不必把两种语言都发一遍。将 <code>[CATEGORY]</code> 换成具体品类；<strong>两种语言的模板均要求输出英文说明、标题与文案</strong>，需要中文产物时可修改末尾的语言要求。</p>
+<p>模板还限制最多两轮搜索、四个来源页面，要求保留真实来源、参考图和精确 URL，检查历史避免重复，并把发布、Memory 更新和排期调整留给用户。这些要求让下一轮结果有出处可查，也控制了任务范围。</p>
+Daily Moodboard 英文原版提示词（展开后可复制）
+<div><pre><code>CATEGORY: [CATEGORY]
+Act as a visual research partner for the brand in the attached Brand Kit. Use its approved identity and relevant brand Memory.
+On each run:
+1. Find up to three strong, real design references in this category: packaging, identity, photography, editorial or advertising. Prefer original brand and studio pages. Open the sources and inspect the images.
+2. Give each reference an English title, its brand or creator, the exact source URL and one design principle worth exploring. Include actual reference images where supported, or direct image links alongside their sources.
+3. Generate ONE board of original visual studies for the attached brand, with one panel per reference, labelled A-C. Explore the reference's composition, lighting, crop or material treatment through our own brand identity. Keep the brand's colours, visual character and tone. Create original interpretations.
+4. Explain which reference informed each panel and recommend one direction to develop. Return the board's file link and actual dimensions.
+Check available project history to keep each run varied. Keep research focused: up to two search passes and four source pages, then work with the examples verified. Strong evergreen design is welcome; include dates only when stated on the source. Copy source URLs exactly.
+Write all commentary, display titles and generated copy in English. Generate one board, with no extra variants or video. Keep original brand assets intact and identify the output as visual studies for creative review. Leave publishing, Memory updates and schedule changes to the user.
+</code></pre></div>
+Daily Moodboard 中文译文提示词（展开后可复制）
+<div><pre><code>CATEGORY: [CATEGORY]
+请作为所附 Brand Kit 中品牌的视觉研究搭档。请使用已获批的品牌规范和相关的品牌 Memory。
+每次运行要求：
+1. 在该品类中找到最多 3 个高质量的真实设计参考：包括包装、视觉识别、摄影、刊物排版或广告。优先选择品牌官网和设计工作室原作页面。打开来源并细致检查图片。
+2. 为每个参考提供英文标题、品牌或创作者、精确来源 URL，以及一条值得探索的设计原则。在支持的地方附上实际参考图，或在来源旁附上直接图片链接。
+3. 为所附品牌生成 1 张原创视觉研究看板，每个参考对应一个分区，标记为 A-C。通过我们自己的品牌识别，探索参考案例中的构图、光影、裁切或材质表现。严格保持品牌的色彩、视觉性格与语调，进行原创转译。
+4. 解释每个分区借鉴了哪个参考，并推荐一个值得深入发展的方向。返回看板的文件链接及实际尺寸。
+检查可用项目历史以保持每次运行的多样性。保持调研聚焦：最多执行 2 轮搜索并查阅 4 个来源页面，随后基于验证过的案例展开工作。欢迎经典的常青设计；仅在来源明确注明时包含日期。精确复制来源 URL。
+所有解说、展示标题和生成文案均使用英文。总共生成 1 张看板，不生成额外变体或视频。保持原始品牌资产完好，并将产物标明为供创意评审使用的视觉研究。将发布、Memory 更新和排期调整的权限留给用户。
+</code></pre></div>
+<h3>模板二：Brand Visual Radar（品牌视觉雷达）</h3>
+<p>此模板用于筹备日常社媒内容，研究同品类的参与方式，提交 3 套可供选择的图文草案。</p>
+Brand Visual Radar 英文原版提示词（展开后可复制）
+<div><pre><code>CATEGORY: [CATEGORY]
+Act as a social-content partner for the brand in the attached Brand Kit. Use its approved identity, available product assets and relevant brand Memory.
+On each run:
+1. Find up to three real social posts or campaigns in this category. Prefer original brand or agency sources. Open the examples and identify the content mechanism: what the audience is invited to notice, learn, answer or try. Include source links and actual reference images or image links where available.
+2. Develop three original ideas for our brand. For each, give the audience occasion, the content premise, a suitable social format, a short English headline and a caption of up to 50 words. Use product facts confirmed in the Brand Kit.
+3. Generate THREE separate 4:5 visual demos, one for each idea, using our brand identity and available assets. Make each image communicate its idea: a choice should show the options; a comparison should show both subjects; a guessing game should show a clear question and answer options. Give each format its own composition.
+4. Review each demo against its premise. Return a table matching each idea to its headline, caption, image file link and actual dimensions. After showing all three, recommend one format to develop and include the exact research source URLs.
+Check available project history to avoid repeating ideas and sources. Keep research focused: up to two search passes and four source pages. Recent work and useful evergreen examples are both welcome. Include dates only when visibly stated on the source, and copy URLs exactly.
+Write all commentary, display titles and generated copy in English. Generate three demos in total, with no extra variants or video. Keep original brand assets intact. Leave publishing, Memory updates and schedule changes to the user.
+</code></pre></div>
+Brand Visual Radar 中文译文提示词（展开后可复制）
+<div><pre><code>CATEGORY: [CATEGORY]
+请作为所附 Brand Kit 中品牌的社交内容搭档。请使用已获批的品牌规范、可用的产品资产和相关的品牌 Memory。
+每次运行要求：
+1. 在该品类中找到最多 3 个真实的社交媒体帖子或营销活动。优先选择品牌或代理机构的原作来源。打开案例并识别其内容机制：受众被引导去注意、学习、回答还是尝试什么。附上来源链接，并在可用时附上实际参考图或图片链接。
+2. 为我们的品牌构思 3 个原创创意。针对每个创意，说明受众场景、内容前提、适用的社交格式、简短的英文标题以及不超过 50 词的配文。必须使用 Brand Kit 中确认过的产品事实。
+3. 生成 3 张独立的 4:5 比例视觉演示图（每个创意对应一张），使用我们的品牌识别和可用资产。让每张图片准确传达其创意前提：二选一必须呈现选项；对比必须呈现两个主体；竞猜游戏必须呈现清晰的问题和备选答案。赋予每个版式专属的构图。
+4. 对照各自的前提审查每个演示图。返回一个表格，将每个创意与标题、配文、图片文件链接和实际尺寸进行匹配。展示全部三项后，推荐一种值得深入发展的板式，并附上准确的调研来源 URL。
+检查可用项目历史以避免重复创意和来源。保持调研聚焦：最多执行 2 轮搜索并查阅 4 个来源页面。近期作品与实用的常青案例均可。仅在来源明显标明时包含日期，精确复制 URL。
+所有解说、展示标题和生成文案均使用英文。总共生成 3 张演示图，不生成额外变体或视频。保持原始品牌资产完好。将发布、Memory 更新和排期调整的权限留给用户。
+</code></pre></div>
+<hr />
+<h2>两个补充工具：缺品牌资产时用 Skill，展示成果时用 Leaf</h2>
+<p>如果还没有一套可用的品牌规范，可以从 Amir 的开源 <a href="https://github.com/amirmushichge/brand-system-skill">Brand System Skill</a> 开始。它把简报、参考分析、品牌锚点、规范与后续设计接成分阶段的指令流程：先确定方向，再向外扩展；品牌简报、参考方向、Anchor Brand Kit 和 Brand Lock 四个关键节点需要确认，每次消耗额度生成前也要先提交生成计划。</p>
+<p>使用时，打开仓库的 <code>SKILL.md</code>，点击 <strong>Raw</strong> 复制全文，粘贴到开启 <strong>Thinking Mode</strong> 的新 Lovart 项目，再按引导提供简报和主参考图。<strong>Brand Lock</strong> 的作用是给参考分配职责：场景参考提供构图、镜头与光线，品牌锚点决定 LOGO、字体、颜色，产品参考决定产品形状与包装细节，减少相互干扰。</p>
+<p>（该 Skill 是独立社区项目，当前版本 v0.2.0-alpha，采用 CC BY 4.0，使用时需署名；流程中的角色约束仍需要检查结果。）</p>
+<a href="https://xiaohu.ai/article/amir-mushich-2095182776249049456/"><span>缺少品牌资产时，从这里开始</span><strong>AI 品牌生成Skill ：用一张腌黄瓜汽水图，做出一整个品牌</strong><span>同作者前作：从参考图提取设计规则，建立品牌锚点，再为场景、品牌和包装参考分配控制权。</span><span>阅读介绍文章 →</span></a>
+<figure>
+<figcaption><span>oovie 的品牌手册片段：后续内容有共同的视觉依据。</span><br />视频：Amir Mušić。</figcaption>
+</figure>
+<p>已有品牌手册或系列设计成果后，<a href="https://amirmushich.com/lab/leaf/">Leaf</a> 可以提供一种翻页展示方式。把现成 PDF 或 JPG、PNG、WebP 图片放入页面，可以设置封面、纸张、比例、光影和翻页音效，把页面组织成一本可翻阅的电子画册。它适合提案和成果展示，无须把它当作前面内容生成流程的步骤。</p>
+<p>页面声明文件留在设备，并提供 <strong>Export HTML</strong> 与 <strong>Record MP4</strong> 入口。本次已查看样书、键盘翻页与设置，未验证文件导入、导出或录制；前述 Lovart 内容生成、定时任务与记忆效果来自作者演示，本次未实跑这些任务。</p>
+</div><div><div><div>来源</div><div><span>How to turn brand guidelines into a content factory (with Lovart’s Arti agent)</span><span>Amir Mušić<span>·</span>2026-10-29<span>·</span><a href="https://x.com/AmirMushich/status/2115868164965703747">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://github.com/amirmushichge/brand-system-skill">Lovart Brand System Skill</a><span>·</span><a href="https://www.lovart.ai/news/lovart-2-0-arti">Lovart 2.0: Meet Arti</a><span>·</span><a href="https://amirmushich.com/lab/leaf/">Leaf — tactile page reader</a></div></div><div><div>本站说明</div><div>oovie 是概念品牌；原文为 Lovart 赞助案例。</div></div></div></div></div>
+<div>
+<div>LOVART ARTI · 品牌内容工作流</div>
+<h1>如何将企业的品牌指南转变为内容工厂：用 Lovart Arti 搭一套 AI 内容引擎</h1>
+<div>品牌手册规定了长什么样，却没回答下周发什么。让 Arti 定期交来有参考、有文案、有图的草案，团队就有了可以挑选和修改的起点。</div>
+<div>Amir Mušić × 概念鸡蛋品牌 oovie · Lovart 赞助案例</div>
+<p>品牌色、字体和 LOGO 已经齐全，找参考、想选题和制作初稿仍会周周重来。这套工作流把<strong>品牌依据、周期研究、草案交付和修改记录</strong>接到一起。</p>
+<div>
+<div>从共同依据，分成两条任务</div>
+<div><strong>先交给 AI：</strong>获批的 Brand Kit（手册、字体、色板、产品图）＋已保存的品牌 Memory（偏好与修改要求）。</div>
+<div>
+<div><h3>找视觉：Daily Moodboard</h3><p>最多 3 份真实设计参考 → 每份提炼一条原则 → 用自家品牌身份重新探索。</p><span>交付 1 张 A—C 分区看板</span><p>来源与分区逐一对应，团队看得见借鉴依据，再选方向。</p></div>
+<div><h3>想话题：Brand Visual Radar</h3><p>最多 3 个真实社媒案例 → 拆解受众如何参与 → 发展 3 个原创点子。</p><span>交付 3 张独立 4:5 草稿</span><p>每个点子配简短英文标题、50 词内配文及图片，推荐一项继续发展。</p></div>
+</div>
+<div><strong>两条路都交给团队：</strong>挑选、发展、核实产品事实，检查字形与食物质感，然后决定发布。</div>
+<div><strong>把修改留给下一轮：</strong>oovie 初稿字母走形、鸡蛋不够真实。Amir 让 Arti 保存“逐字检查”和“食物写实”两条要求，随后在新项目中取回。<strong>标准可以复用，终稿仍要检查。</strong></div>
+</div>
+<h2>内容决定构图</h2><p>料理二选一，把两边摆清楚；你点我做，留出征集问题；猜做法，给蛋黄特写和答案选项。让受众知道怎样参与，比同一版式换三段字更有用。</p>
+<h2>第一轮从一条任务开始</h2><ol><li>在 Delegated tasks 新建任务，按目的选一份模板，替换 <code>[CATEGORY]</code>，挂载获批的 Brand Kit。</li><li>设定频率、目标项目和单次额度，先用当前界面的 Test run / Run now 检查一轮。</li><li>让它在周会前交稿，团队选出值得发展的一项；把明确的修改要求保存进 Memory。</li></ol><p>完整模板在正文：各自最多两轮搜索、四个来源页面，保留真实来源；模板默认要求英文输出。发布、Memory 更新和排期调整留给用户。</p>
+<p><strong>缺品牌资产：</strong>Brand System Skill 帮助逐步确定品牌规范，关键节点需确认。<strong>展示成品：</strong>Leaf 把已有 PDF 或图片组织成翻页画册。它们是前后补充工具。</p><div>效果来自作者演示，本解读未实际运行 Lovart 任务。团队更早拿到候选，并不等于完成整套策划与审批。</div>
+</div></div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://x.com/AmirMushich/status/2115868164965703747">看原网页 ↗</a></p></div><div></div><div><div><h1>How to turn brand guidelines into a content factory (with Lovart’s Arti agent)</h1></div><div><figure><img src="https://pbs.twimg.com/media/HV0RKb7XMAEqavz.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>You can have a brandbook and still struggle to make next week’s posts.</p></div><div><p>Colors, fonts, logos - cool, but what should you post about? And how to stay on-brand?</p></div><div><p>I researched dozens Reddit threads on branding and content creation.</p></div><div><p><strong>3 recurring problems are popping up constantly:</strong></p></div><div><ol><li><a href="https://www.reddit.com/r/Design/comments/1tcqo5z/how_do_you_handle_your_brand_identity_handoff/">applying brand guidelines</a> - 28.6%,</li><li><a href="https://www.reddit.com/r/smallbusiness/comments/1rju5t4/as_a_startup_what_should_one_post_online_i_will/">finding content ideas</a> - 33.3%,</li><li><a href="https://www.reddit.com/r/smallbusiness/comments/1rlbl8j/trying_to_batch_create_social_media_content_on/">content production overload</a> - 38.1%.</li></ol></div><div><p><strong>Today we’ll solve all of these: we’ll use AI to build you a brand content engine.</strong></p></div><div><p>For today’s example, I built <strong>oovie -</strong> a concept for an… egg brand (yes, <em>egg</em> brand), using <a href="https://amirmushich.link/Arti">Arti</a>, the creative AI agent in <a href="https://www.lovart.ai/?sourceId=905002">Lovart 2.0</a>.</p></div><div><p>Arti used my <a href="https://x.com/AmirMushich/status/2095182776249049456?s=20">branding tutorial &amp; Skill from the previous article</a> - and built the whole content plan for my new brand. I also programmed it to research content ideas regularly, and used Agent Memory to help me create on-brand content. <em>This article is sponsored by <a href="https://x.com/@lovart_ai">@lovart_ai</a>. Thanks to the team for supporting this post and my work for you.</em></p></div><div><hr /></div><div><h2><strong>Memory: Train the Agent on your brand</strong></h2></div><div><p>I built the 22-page brandbook for Oovie in <a href="https://www.lovart.ai/?sourceId=905002">Lovart</a> using my <a href="https://github.com/amirmushichge/brand-system-skill">Brand Skill</a> - this is our base:</p></div><div><figure><img src="https://pbs.twimg.com/amplify_video_thumb/2115820770802741248/img/O7PCNSwoEZ2MPBal.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>Now we add our guidelines in the library &amp; design preferences in <a href="https://amirmushich.link/Arti">Memory</a>: after doing this, Arti knows your brand and is ready to design for it 24/7.</p></div><div><p><strong>Teach the agent to remember your brand:</strong></p></div><div><ul><li>upload your brand’s assets to the Brand Kit section</li><li>(optional) upload product photos or other assets</li><li>in the Arti section, turn on the Auto-update memory &amp; Self-evolving skills toggles</li></ul></div><div><p>Now your Agent knows your brand - it will work fine in any new project.</p></div><div><blockquote><p><strong>💡 Tip:</strong> <em>to make it even easier, send your brandbook to Arti and ask him to set the Brand kit up</em></p></blockquote></div><div><figure><img src="https://pbs.twimg.com/amplify_video_thumb/2115820991746064384/img/mzMdcmIlCYhUWS2S.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><h2>SMM &amp; design agency in your pocket (<strong>Scheduled tasks)</strong></h2></div><div><p>For the first testing brief, I gave Arti a simple creative concept: <strong>everyone has their own breakfast.</strong></p></div><div><h2>Now I need a content plan:</h2></div><div><p>Arti proposed the creative direction called “<strong>Different mornings</strong>.” We connected different egg dishes to different morning rituals, so we’ve got a clear expression for our brand’s communication: “a different mood for every day of the week.”</p></div><div><p>I asked Arti to expand it into a week of recipe-led content using the oovie Brand Kit.</p></div><div><p><strong>In 2 mins, it generated 5 ideas for me:</strong></p></div><div><ol><li>soft-boiled eggs,</li><li>French omelette,</li><li>scrambled eggs on toast,</li><li>shakshuka</li><li>and poached eggs.</li></ol></div><div><p>Each had its own headline &amp; mood, while staying within the campaign direction.</p></div><div><p>A couple of years ago, it used to take ~3-5 days to prepare such a campaign concept, visualize it and get it approved. Now I make it in a few minutes.</p></div><div><figure><img src="https://pbs.twimg.com/amplify_video_thumb/2115828609755611136/img/rYoyZWlRdsJ87Ut8.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>For a brand owner, there is now <em>something specific to work with</em>: choose the dishes, review the designs and prepare the posts. Their product = repeatable content idea.</p></div><div><p>Arti also proposed 2 more content directions: “Slow Sunday” and “Wake up bold” - with recipes, concepts &amp; all the details. <strong>So you can build a monthly content plan together with your AI partner.</strong></p></div><div><p>And this partner knows what your brand needs - and it can do that proactively 👇</p></div><div><figure><img src="https://pbs.twimg.com/media/HVzoYvjWwAExmz8.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><h2>Your design &amp; research team (<strong>Scheduled Tasks)</strong></h2></div><div><p>Every business needs a lot of content - 7 days a week. This is a huge stress - you need to be creative, productive, precise, skilled, etc. Imagine - in most companies there’s just one person to handle all of this.</p></div><div><p>And we’ve got a solution: <a href="https://amirmushich.link/tasks">Scheduled Tasks</a>, part of <a href="https://www.lovart.ai/news/lovart-2-0-arti">design delegation in Lovart 2.0</a></p></div><div><hr /></div><div><h2>Turn Arti into your research &amp; content team</h2></div><div><p>I scheduled a task to help me find &amp; craft content ideas for oovie:</p></div><div><blockquote><p>🔎 <em>searched for references in food and similar categories, 📃 explained how a visual approach could work for oovie ✨ and generated one draft with the Brand Kit attached.</em></p></blockquote></div><div><p>Two scheduled runs produced these creative proposals:</p></div><div><ul><li><strong>The yolk edit:</strong> an egg treated as a fashion object.</li><li><strong>Runny. Jammy. Set:</strong> yolk texture and cooking stages as the subject of the post.</li></ul></div><div><p>I like both directions - and would use them for social media content. They explore fresh perspectives on our brand - and can help it stand out in TL.</p></div><div><p>The hardest part is done - you just need to polish the wording and visuals (if you want).</p></div><div><figure><img src="https://pbs.twimg.com/media/HVzoc3-XgAAoYG0.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><h2>How you can use it:</h2></div><div><p>For a small brand, I'd start with one task before its weekly content review: find a few relevant references, explain one promising direction and create a draft.</p></div><div><p>Then you or your team have a direction to judge and develop. You don’t start from a blank page anymore.</p></div><div><hr /></div><div><h2>Agent that learns on your edits (<strong>Memory)</strong></h2></div><div><p>Your feedback or your client’s feedback will be remembered by Arti. This increases trust &amp; their willingness to work with you as you “<em>understand them as no one else</em>.” Trust me, this is priceless for every client.</p></div><div><p><strong>Example:</strong></p></div><div><p>I liked the direction of The yolk edit, but the letter “t” in “edit” was distorted and the egg looked unrealistic. I asked Arti to save 2 quality criteria for oovie: <strong>check letterforms</strong> &amp; <strong>keep food realistic.</strong></p></div><div><p>Then I opened a new project without the earlier conversation or attachments. Arti retrieved both criteria from Memory.</p></div><div><figure><img src="https://pbs.twimg.com/media/HVzojKBXUAAvtSe.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p><em>Agent sent me the 1st iteration → I liked the concepts, but needed adjustments → after my fixes, it remembered what I prefer in its Memory for the future tasks.</em></p></div><div><hr /></div><div><h2><strong>STEAL MY TEMPLATES</strong></h2></div><div><p>I adapted my oovie tasks into two templates you can use with your own brand.</p></div><div><p><strong>Daily Moodboard</strong> answers “How could our brand look?” It turns real design references into visual directions for your brand. <strong>Brand Visual Radar</strong> answers “What could we say to our audience?” It develops content ideas, headlines, captions and a visual demo for each idea.</p></div><div><h2>Set up your first task</h2></div><div><ol><li>Open <a href="https://amirmushich.link/tasks">Delegated tasks</a> and select <strong>New task</strong>.</li><li>Paste one of the prompts and replace <strong>[CATEGORY]</strong>. For oovie, I used <strong>eggs and egg-based breakfast products</strong>.</li><li>Select <strong>Add attachment → Select assets → Brand Kit</strong> and attach your approved identity.</li><li>Choose <strong>Daily</strong> or <strong>Weekly</strong>, set the time, select the destination project and set a credit limit.</li><li>Create the task. Use <strong>Run now</strong> to try the brief immediately.</li></ol></div><div><p>You’re all set.</p></div><div><blockquote><p><strong>💡 Tip:</strong> <em>For a client handover, include these tasks alongside the Brand Kit and first campaign designs. It gives them a repeatable way to explore the identity and work with it right away.</em></p></blockquote></div><div><figure><img src="https://pbs.twimg.com/amplify_video_thumb/2115821777775443969/img/gUG_5M7_Zy0vQR4Q.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><hr /></div><div><h2>1. Daily moodboard</h2></div><div><p><a href="https://amirmushich.link/gist-1">Save the prompt on GitHub Gist</a></p></div><div><p>Use this <strong>before a design session.</strong> Ask Arti to find real work in your category, explain what makes it interesting and <strong>explore those principles through your brand.</strong></p></div><div><p>This is clearly your own Pinterest 2.0.</p></div><div><p><strong>Prompt:</strong></p></div><div><pre><code>CATEGORY: [CATEGORY]
+Act as a visual research partner for the brand in the attached Brand Kit. Use its approved identity and relevant brand Memory.
+On each run:
+1. Find up to three strong, real design references in this category: packaging, identity, photography, editorial or advertising. Prefer original brand and studio pages. Open the sources and inspect the images.
+2. Give each reference an English title, its brand or creator, the exact source URL and one design principle worth exploring. Include actual reference images where supported, or direct image links alongside their sources.
+3. Generate ONE board of original visual studies for the attached brand, with one panel per reference, labelled A-C. Explore the reference's composition, lighting, crop or material treatment through our own brand identity. Keep the brand's colours, visual character and tone. Create original interpretations.
+4. Explain which reference informed each panel and recommend one direction to develop. Return the board's file link and actual dimensions.
+Check available project history to keep each run varied. Keep research focused: up to two search passes and four source pages, then work with the examples verified. Strong evergreen design is welcome; include dates only when stated on the source. Copy source URLs exactly.
+Write all commentary, display titles and generated copy in English. Generate one board, with no extra variants or video. Keep original brand assets intact and identify the output as visual studies for creative review. Leave publishing, Memory updates and schedule changes to the user.</code></pre></div><div><p><strong>Here's how it works:</strong></p></div><div><figure><img src="https://pbs.twimg.com/media/HVzo4UMWsAAYap-.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><hr /></div><div><h2>2. Brand visual radar</h2></div><div><p><a href="https://amirmushich.link/gist-2">Save the prompt on GitHub Gist</a>.</p></div><div><p>Use this to <strong>prepare your next content plan.</strong></p></div><div><p>Ask Arti to look at how brands in your category <strong>communicate</strong>, then develop ideas for your own audience - with headlines, captions and visuals.</p></div><div><p><strong>3 content formats developed with Arti from category research:</strong></p></div><div><ol><li><em>“choose your fav egg dish” post,</em></li><li><em>a series built around audience requests,</em></li><li><em>and a close-up guessing game</em></li></ol></div><div><p>These ideas give you a practical base for the next content planning session. You just need to choose and polish them. ~90% of your time - saved.</p></div><div><figure><img src="https://pbs.twimg.com/media/HVzo_DGXYAAzYaj.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p><strong>Prompt:</strong></p></div><div><pre><code>CATEGORY: [CATEGORY]
+Act as a social-content partner for the brand in the attached Brand Kit. Use its approved identity, available product assets and relevant brand Memory.
+On each run:
+1. Find up to three real social posts or campaigns in this category. Prefer original brand or agency sources. Open the examples and identify the content mechanism: what the audience is invited to notice, learn, answer or try. Include source links and actual reference images or image links where available.
+2. Develop three original ideas for our brand. For each, give the audience occasion, the content premise, a suitable social format, a short English headline and a caption of up to 50 words. Use product facts confirmed in the Brand Kit.
+3. Generate THREE separate 4:5 visual demos, one for each idea, using our brand identity and available assets. Make each image communicate its idea: a choice should show the options; a comparison should show both subjects; a guessing game should show a clear question and answer options. Give each format its own composition.
+4. Review each demo against its premise. Return a table matching each idea to its headline, caption, image file link and actual dimensions. After showing all three, recommend one format to develop and include the exact research source URLs.
+Check available project history to avoid repeating ideas and sources. Keep research focused: up to two search passes and four source pages. Recent work and useful evergreen examples are both welcome. Include dates only when visibly stated on the source, and copy URLs exactly.
+Write all commentary, display titles and generated copy in English. Generate three demos in total, with no extra variants or video. Keep original brand assets intact. Leave publishing, Memory updates and schedule changes to the user.</code></pre></div><div><h2>Turn “branding” into “content”</h2></div><div><p>A small business can have a complete brandbook and still need help creating its next post, banner or campaign. Someone has to interpret the guidelines, choose an idea and turn it into a design.</p></div><div><p><em>For an owner without a design background or a small team handling several jobs, that work is crazy difficult to keep up with.</em></p></div><div><p>People need help using the materials they already have and keeping content creation manageable.</p></div><div><p>Lovart can help here a lot. With the brand’s assets, guidelines and saved feedback available, Arti can research references, suggest content ideas and develop visual proposals.</p></div><div><p>That makes the brandbook useful in everyday decisions: what to create next, how it could look and which direction to use. Try one of my prompts above with a real task your business needs to get done.</p></div><div><p><a href="https://www.lovart.ai/?sourceId=905002">Start here.</a></p></div><div><p><strong>Don't forget to:</strong></p></div><div><ul><li>Save this article.</li><li>Follow <a href="https://x.com/AmirMushich">@AmirMushich</a></li></ul></div><div><p>for more design / production breakdowns and workflows.</p></div><div><p><strong>What would you create for your brand with Arti? 👀</strong></p></div><div><p><em>Share your result in the comments - I’ll QT some of my favs.</em></p></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/AmirMushich/status/2115868164965703747">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】AI 时代的下一个万亿级平台机会：一个记录“决策过程与理由”而非仅仅“业务对象”的全新底层系统 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/jaya-context-graphs/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:jaya-context-graphs</guid>
+<pubDate>Sat, 31 Oct 2026 12:00:18 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 现在的软件到底缺了啥？ 02 把这次特批的依据，留给下一次处理 03 决策记录为什么可能成为新的业务底账？ 04 客户软件和数据仓库都有记录，为什么还会缺？ 05 增加这层能力，要把旧软件整套换掉吗？ 06 哪些工作值得先做？ 07 下一代平台争的是哪份权威记录？ AI 解读 / 洞察 · 10-31 · 13 分钟 · 作者 Jaya Gupta、Ashu Garg AI 时</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 31 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">AI 时代的下一个万亿级平台机会：一个记录“决策过程与理由”而非仅仅“业务对象”的全新底层系统 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/jaya-context-graphs/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>现在的软件到底缺了啥？</span></a><a><span>02</span><span>把这次特批的依据，留给下一次处理</span></a><a><span>03</span><span>决策记录为什么可能成为新的业务底账？</span></a><a><span>04</span><span>客户软件和数据仓库都有记录，为什么还会缺？</span></a><a><span>05</span><span>增加这层能力，要把旧软件整套换掉吗？</span></a><a><span>06</span><span>哪些工作值得先做？</span></a><a><span>07</span><span>下一代平台争的是哪份权威记录？</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>洞察</a><i>·</i>10-31<i>·</i>13 分钟<i>·</i>作者 Jaya Gupta、Ashu Garg</div><h1>AI 时代的下一个万亿级平台机会：一个记录“决策过程与理由”而非仅仅“业务对象”的全新底层系统</h1><p>客户、合同和账本已有权威底账，企业却常查不到一次决定为什么获准。当 Agent 开始办事，把这些依据留成可复用的记录，可能催生一层新的业务底账，成为下一代平台的起点。</p><div><div>正文一页纸原文</div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Jaya Gupta、Ashu Garg</span><span>10-31 · 13 分钟</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>规则写着九折，旧案却批过八折。Agent 接手业务，缺的往往是当时为什么获批、谁批准，以及哪些条件可比。</li><li>把每次决定连同证据、政策、先例和审批单独保存，再与客户、工单及旧案关联，就能形成可复用的决策记录。</li><li>当后续办理、审核和排错持续依赖这些记录，它们就可能成为新的权威底账；作者据此看好下一代企业软件平台。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/jaya-context-graphs/social/zh-b5d290e078b6.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>过去，公司用 Salesforce 管客户，用 Workday 管员工，用 SAP 管经营。这些软件记清了客户是谁、员工是谁、合同多少钱，构成了企业日常运转的基础底账。业务人员要查资料、核对数字、推进工作，都得以这些记录为准。掌握权威记录，软件就进入了公司的日常工作流，也越来越难被替换。上一代企业软件正是由此形成了万亿美元级的生态。</p>
+<p>现在，越来越多公司开始让 Agent（能调用软件完成具体任务的 AI 程序）协助处理日常业务，比如审查合同、跟进工单或核算续约折扣。但在真正上手时，人们很快发现 Agent 经常卡在各种特殊情况上：系统里明明存着各种字段和数字，可一旦遇到需要变通的业务，AI 往往不知道该照章办事还是破例通融。这类卡点光靠把数据整理干净、打通接口还不够：员工遇到例外时依据什么判断、找谁批准，往往没记在软件里。</p>
+<h3>现在的软件到底缺了啥？</h3>
+<p>公司里有两套规则：一套写在纸上，一套活在老员工脑子里。</p>
+<p>拿一笔老客户续约举例，明文规定和实际处理可能是这样：</p>
+<ul>
+<li><strong>写在纸上的规则</strong>：老客户续约，常规最多优惠 10%（即打九折）。</li>
+<li><strong>实际发生的事情</strong>：因为这位客户此前遭遇过严重系统故障，业务负责人参考了上季度类似情况的特批先例，并在向上级沟通请示后获得批准，这次破例批了 20% 的优惠（即打八折）。</li>
+</ul>
+<p>如果这笔业务交给老员工经手，他往往能把事情办下去。他不会只盯着系统里的折扣上限，而是会主动去监控系统里翻看客户遭遇过几次故障、去工单系统里查看有没有积压未决的投诉，再去翻看以前的即时沟通记录，甚至私下向同事打听之前的处置惯例，最后找有审批权的主管说明原委并拿到特批。</p>
+<p>然而，这套综合判断做完之后，录入客户管理软件的往往只有最后那行冷冰冰的结果：“折扣 20%”。当初为什么能破例、调取了哪些故障证据、参考了哪位领导批准的先例，全都没有随之存入系统。传统软件记住了最终办成的结果，却把人类当初做出判断与特批的依据全留在了系统之外。</p>
+<p>这种缺失在企业日常运转中随处可见，主要集中在四类信息上：</p>
+<ol>
+<li><strong>口耳相传的非正式经验</strong>：比如老销售都知道，医疗行业客户采购流程长，谈折扣时大家私下都习惯多给点让步。这种经验通常是在带新人或私下闲聊时口头相传的，客户管理软件里没有这条经验的记录，新接手的人查遍系统也无从得知这一背景。</li>
+<li><strong>散落在过去的办事先例</strong>：比如上个季度团队给某家情况类似的客户批过某种特殊方案。以往经办人全凭个人记忆去参考旧例，但在软件里，这两笔交易各自独立存在，没有任何链接把它们关联起来，更没记录当时为何破例，后来者根本查不到以往的参照依据。</li>
+<li><strong>跨越多个系统的综合判断</strong>：技术支持负责人决定把某张工单直接升到三级支持时，通常要先在客户软件里查客户每年贡献的收入，又去工单软件里核对两条还没解决的升级工单，最后在即时通讯软件里看到客户有流失风险的讨论，综合各处信息才拍板升级。可工单系统最终只留下一句“已升级至三级支持”，外界查不到这套横跨多套系统的权衡过程。</li>
+<li><strong>系统之外的特批审批</strong>：员工在开会、视频通话或私聊中向主管汇报了特殊情况，主管口头同意破例。最终录入系统的只有改动后的折扣数字，至于为什么能破例、哪位主管在什么条件下批准，全留在了系统外部的聊天记录或脑海里，最终业务记录里看不到这些批准凭据。</li>
+</ol>
+<p>当企业尝试让 Agent 接手这套业务时，麻烦就来了。</p>
+<p>如果把 Agent 放到同样的续约场景中，它能查到明文规定写着“最多优惠 10%（九折）”，也能在历史库里查到曾有一笔批出“20%（八折）”的成交记录。但系统记录既没告诉它那次八折为什么获批，也没写明哪些故障情况具有可比性，也没留下那次具体由谁批准、批准时看了哪些条件。</p>
+<p>这时，两种最直接的做法都可能出问题：</p>
+<ul>
+<li><strong>如果机械按常规规章办</strong>，直接拒绝给予更多优惠，就无法处理原本合情合理的特批例外，可能导致遭遇严重事故的重要客户流失；</li>
+<li><strong>如果盲目照抄历史上的特批八折</strong>，又可能误把一次针对特定事故的通融，当成人人适用的普遍规则，造成无谓的利润损失。</li>
+</ul>
+<p>要让事情继续往前走，团队还是得回头找人补齐背景、确认先例，再按权限申请批准。原本期望自动化的业务流程，转了一圈又重新依赖老员工的个人经验和跨系统打听。AI 拿到了业务数字，却没拿到当初从这些信息走向特批决定的依据；这一段，单看最终结果补不出来。</p>
+<h3>把这次特批的依据，留给下一次处理</h3>
+<p>要让下一位接手的人或 Agent 少找人、少重查，得先把这次特批怎样获准留下来。投资机构 Foundation Capital 的两位合伙人 Jaya Gupta 与 Ashu Garg 提出的办法，是让 Agent 一边办理业务，一边把取证、判断、请批和执行的记录保存下来。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/jaya-context-graphs/original-cover.jpg" alt="分散在邮件、聊天与会议中的决策依据汇入统一漏斗" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>分散在沟通中的依据汇入可查记录。</span></figcaption>
+</figure>
+<p>沿着前面的续约问题，原文给出了一个具体场景：常规最多优惠 10%（九折），受到严重服务影响的客户可以申请例外。Agent 提议给客户优惠 20%（八折），随后从监控系统里找出该客户遭遇的 3 起严重故障（SEV-1），从工单系统找到一张写着“不解决就退订”的未结工单，还翻出了上一季度副总裁批准过类似例外的记录。</p>
+<p>这些材料凑齐后，Agent 把方案和依据交给财务审批。财务批准，客户管理软件才写入“优惠 20%”。</p>
+<div><span>同一次续约，两种记录</span><h4>最后批了八折，为什么能批也要记下来</h4><p>按原文续约案例示意。常规最多优惠一成，也就是九折；这次方案是优惠两成，也就是八折。</p></div>
+<div>尚未批准财务已批准</div>
+<div><div><span>当前规则</span><b>最多优惠 10%（九折）</b><p>服务受影响可走例外审批。</p></div><div><span>本次证据</span><b>3 起严重服务故障</b><p>故障监控软件 PagerDuty 中的记录。</p></div><div><span>客户诉求</span><b>“不解决就取消”</b><p>客服工单软件 Zendesk 中尚未解决的升级工单。</p></div><div><span>历史先例</span><b>上季度副总裁批准过类似例外</b><p>这次可以拿来比较，仍要取得本次批准。</p></div></div>
+<div><span>↓</span><b>Agent 汇总证据、核对政策，交财务审批</b></div>
+<div><span>财务已批准</span><b>八折方案可以写进客户管理软件</b><p>批准记录与依据一起保留；下次可以查到这次怎样获得授权。</p></div>
+<div><div>只看最终结果<p>优惠 20%（八折）</p><p>修改记录可补充谁在何时改了什么，但不会自动说明为什么获批。</p></div><div>再看这次决定的依据<p>客户与续约 → 事件、工单、政策和先例 → 财务批准 → 写入结果</p><p>这些关联保留下来，才方便回查与复用。</p></div></div>
+<p>结果仍然是八折，多留下来的却是一份可回查的办事记录：哪个 Agent 在办理哪笔续约、提出了什么方案、引用了哪些故障和工单、核对的是哪一版政策、走了哪条例外审批通道、参考了哪次先例，以及本次由谁批准、最后写入了什么。原文把这样一次从材料到行动的记录称为<strong>决策轨迹</strong>。</p>
+<p>这里发生了一个重要变化：系统除了保存客户、合同、工单这些“业务对象”，还把<strong>“这次特批决定”本身作为一份记录</strong>。以后既可以打开合同查最后打了几折，也可以查这次决定，看到当时的证据、规则和批准依据。决定引用了哪些业务对象、又参考了哪次旧决定，都成为这份记录的一部分。</p>
+<p>这条轨迹把客户、续约、故障、工单、政策和审批人联系起来，还指向了上季度那次特批。以后别的续约又可能引用这次决定，或者用到同一条政策。把这些跨越不同业务对象和时间的关联积累起来，就形成了<strong>上下文图谱（Context Graph）</strong>。它保存的是企业实际办事的证据与批准记录，不是模型内部的思维链。</p>
+<p>下次再遇到服务受损的客户，处理者就能顺着关联找到旧案：当时发生了哪些故障、客户提出了什么要求、什么条件下获准破例。拿这些条件与本次情况比较后，再按当前政策和权限处理，就有了参照，不必每个季度都在聊天群里重新问一遍“以前这种事怎么办”。先例提供参考，本次需要的批准仍得取得。</p>
+<p>企业也不用等到 AI 能独立拍板才开始做。起初，Agent 负责找资料、提方案、递交审批，人来决定；只要这次的依据和批准留下来，记录就增加了一条。下次办理可以查到它，再把新的处理过程存进去。随着同类情况反复出现，企业才有条件把其中一些重复环节逐步交给 Agent。即使最后仍由人批准，这份可查的经验也一直在增长。</p>
+<h3>决策记录为什么可能成为新的业务底账？</h3>
+<p>记下一次特批，确实方便以后查。但为什么这件事值得成为一类新的底层系统，甚至带来新的平台机会？</p>
+<p>仍以续约为例。查客户身份、合同金额、当前折扣，企业可以以客户管理软件为准；查这次为什么允许八折、当时依据什么、由谁批准，则需要一份可靠的决策记录。两份记录分别回答业务现在是什么状态，以及这个状态当初怎样获得批准。新的一层，便是为后一类问题保存权威依据。</p>
+<p>这里的“底层”，指的是它可以支撑后续的人和 Agent 办事。Agent 在不同软件上操作，客户资料和总账仍可留在旧系统；执行时产生的决定与这些业务对象关联，形成一套可以反复查询和引用的决策底账。</p>
+<p>当后续业务开始持续引用这些依据，保存它们的系统就会逐渐进入日常工作流：申请例外要查它，审核要核对它，出了错也要回到这里追查。记录从办完一件事后的留档，变成继续办事所需的输入。</p>
+<p>这份历史还有独立于某次 Agent 运行的价值。更换办事的模型或工具，企业仍需要知道过去按哪版政策、凭哪些证据、经过谁批准。</p>
+<p>这正是两位作者看重的平台机会：谁能成为企业查询和复用决策依据的权威入口，谁就有机会建立长期的软件价值。记录能否持续被业务使用，是从“多留一份日志”走向新底层系统的关键。</p>
+<h3>客户软件和数据仓库都有记录，为什么还会缺？</h3>
+<p>读到这里，很容易想到：客户管理软件本来就有修改记录，数据仓库也能查历史，为什么还要增加一层？</p>
+<p>先看修改记录能回答什么。它可以告诉你，谁在什么时候，把某笔续约的优惠从 10% 改成了 20%。但那三起故障、客户的退订要求，以及财务当时批准的理由，分散在其他地方；改一个折扣字段，并不会自动把这些依据一并收齐。字段历史有用，完整的办事依据还需要另行记录。</p>
+<p>数仓解决的是把已有数据汇总起来的问题。它能保留历史、分析折扣怎样变化；如果源头已经存下了决策轨迹，也能接收和分析这些轨迹。但如果源头只留下“20%”，事后把这个数字同步到数仓，就补不出当初没记录的批准理由。</p>
+<p>因此，关键在于由谁在事情发生时，把依据连同结果一起留下。安排 Agent 实际办事的平台会经历整个过程：调取故障和工单、核对政策、引用旧例、提交财务、取得批准，再写入折扣。在结果落地的这一刻，这些信息都经过它，正好可以同时保存。仅仅提供开发 Agent 的工具，还不代表参与了这次业务的实际处理。</p>
+<div><span>看位置，也看是否实际记录</span><h4>决策依据要在流程里留下来</h4><p>按原文讨论的传统分工示意，三层可以协作，也可能由同一家厂商提供。</p></div>
+<div><div><span>业务系统</span>提供资料，接收最终结果<p>客户软件管客户和合同，财务软件管账本。修改记录能留住变更，但各处依据不会因数字变化而自动聚齐。</p></div><div>↓ 读取资料</div><div><span>安排 Agent 实际操作的平台</span>决策发生时，收集并保存整条依据<p>读取事件和工单 → 核对当时政策 → 引用先例 → 请求批准 → 写入结果。</p><p>在这些动作发生时，把记录与客户、续约和审批人连接起来，积累为上下文图谱。</p></div><div>↓ 汇总已记录的数据</div><div><span>数据仓库</span>保存、查询和分析已有记录<p>若源头只写下“八折”，事后同步不会自动找回批准理由。若源头记录了决策轨迹，数仓也能接收和分析它。</p></div></div>
+<p>关键在于谁真正进入跨系统流程并记录依据。现有平台也能通过集成进入这个位置；“新公司必胜”仍是投资判断。</p>
+<p>这也是作者看好新平台的原因：一套软件如果负责跨系统办理业务，就更有机会留下各个系统单独看不到的处理依据。不过，老厂商同样可以把产品延伸到这个位置。行业分析师 Jamin Ball 的反方观点是，Agent 仍需要权威的基础记录，老系统可以通过升级继续承担这一角色。Salesforce 已有字段历史，其架构文档也列出了跨系统调用工具、让不同平台上的 Agent 分工协作的做法；这些都为进入执行流程提供了条件。</p>
+<p>作者预期，竞争还会涉及收购执行工具、限制接口、提高数据导出费用，以及推广自家 Agent 框架、把业务留在自家生态里。谁能更容易进入实际工作流程，谁就更有条件积累记录。竞争的关键是能否持续留下完整依据，不能只凭新公司或老厂商的身份判断输赢。</p>
+<h3>增加这层能力，要把旧软件整套换掉吗？</h3>
+<p>要成为企业的决策底账，新平台得先进入实际业务。但客户、合同和账本已经在旧软件里运转，增加 Agent 办事和记录依据的能力，是否意味着这些都得重来？作者梳理了三条路，接管范围各不相同。</p>
+<p><strong>第一条，重做一整套业务平台。</strong> 从基本设计开始，就让 Agent 能参与执行，并把当时的政策和处理记录一起保存。销售领域的 Regie 是作者举的例子：它为人和 Agent 共同工作重建销售执行平台，让 Agent 找线索、生成触达内容、持续跟进、分流任务，并在需要时交给人。这样接管的是一段完整的销售执行流程，超出了单独帮销售写邮件的工具。</p>
+<p>这条路可以把执行和留痕一起设计，却也要面对旧平台根深蒂固的阻力。企业正准备更换或升级系统时，才更可能出现切入口。Regie 的案例针对销售触达与跟进平台，不意味着企业整个客户管理系统都已被替换。</p>
+<p><strong>第二条，只接管一个子流程，旧系统继续当底账。</strong> 企业未必愿意换掉总账，但可以把例外和审批集中的一段工作交给新平台。比如财务领域的 Maximor，处理现金、关账与核心会计流程，原有 ERP 仍保存总账。新平台保留具体的对账逻辑和处理依据，再把最终状态同步回旧系统。</p>
+<p>这样，企业仍能在旧账本里看最后的账，却要到新平台查这次账是怎样核对、调整的。新平台有了自己的必用价值，也无需一开始就承担整套替换。</p>
+<p><strong>第三条，为过去没有系统保存的依据，建立新的记录系统。</strong> 比如线上服务出故障，支持人员、开发、运维和测试都可能掌握一部分信息，却需要有人把代码、配置、基础设施与客户行为串起来，才能理解发生了什么。这正是 PlayerZero 切入的工作交界：先从二、三级技术支持入手，逐渐积累这些关联。</p>
+<p>作者看重的是，这些记录有望帮助团队回答“线上为什么会出故障”，并进一步判断“这次代码改动会不会影响生产环境”。这一条路的重点，是在协助处理问题的过程中，建立原先没有统一存处的记录。新平台的价值也随之延伸：以后团队要追问当初为什么这样处理，就会回到这里查依据。</p>
+<p>这些平台办理的业务越来越多，还需要解决一个配套问题：出了错，怎样定位原因、持续评估质量？例如某次折扣处理有误，团队要沿着轨迹查取到的资料是否属于这个客户、政策版本对不对、本次是否取得所需批准；积累更多运行记录后，还要看 Agent 常在哪些环节失败、决策效果怎样变化。</p>
+<p>作者用 Arize 说明这一层机会：为团队提供 Agent 行为及决策效果的可见性，支持监控、排错和评估。执行与决策记录系统逐渐发展，也会带动管理这些自动化业务的配套基础设施。</p>
+<h3>哪些工作值得先做？</h3>
+<p>企业里有很多流程，并非每一项都需要这样的图谱。如果规则固定、结果确定，Agent 照规则执行即可。复杂决策记录最有用的地方，是人经常得说“要看具体情况”的业务。</p>
+<p>作者给出两个适用于上述三条路的信号：</p>
+<ul>
+<li><strong>大量人手在反复衔接多个系统。</strong> 比如分派工单、筛查请求、核对各处数据。要看这些人具体在忙什么：如果他们不断比较背景、处理冲突、找人确认，就说明流程里有传统固定脚本难以接住的判断。</li>
+<li><strong>例外多，经常要参考以前怎样办。</strong> 比如大单特批、商业核保、合规审查、工单升级。单一规则无法覆盖所有情况，过去的批准条件和处置先例才会影响下一次处理，因此留下这些记录更有用。</li>
+</ul>
+<p>如果考虑第三条“新建记录系统”，还可以看公司为什么设置了某些跨部门协调岗位。业务运营要对齐销售、市场、财务和客户成功；开发运维要衔接开发、IT 和支持；安全运营要横跨工程、IT 和合规。这些岗位常被称为 RevOps、DevOps、Security Ops。它们的一项重要工作，就是替多套软件携带、对齐上下文。</p>
+<p>让 Agent 协助这类岗位时，如果只把操作加快，业务经验仍可能留在沟通里；把每次处理用到的信息、例外、先例和批准也留下来，才有机会形成新的权威记录。这里寻找的是软件尚未承接的工作，而不是看见一个岗位就认定有市场。</p>
+<h3>下一代平台争的是哪份权威记录？</h3>
+<p>客户、员工、合同和账本仍是企业的基础记录。随着 Agent 接手更多工作，规则如何被应用、冲突如何被处理、例外凭什么获准，也需要成为可保存、可查询、可复用的记录。新的机会，就出现在这类过去常被留在人脑和沟通中的信息上。</p>
+<p>Foundation Capital 的两位作者把这称为潜在的“万亿美元机会”。这是他们对下一代企业软件的投资判断：当办事入口逐渐交给 Agent，支撑它们行动的决策依据，也可能成为企业日常离不开的一层权威记录。新平台的起点，是把一次业务怎样办成的依据留下；它能走多远，要看这些依据能否持续支撑下一次业务。</p>
+</div><div><div><div>来源</div><div><span>AI’s trillion-dollar opportunity: Context graphs</span><span>Jaya Gupta、Ashu Garg<span>·</span>2025-12-22<span>·</span><a href="https://x.com/jayagup10/status/2003525933534179480">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://foundationcapital.com/ideas/context-graphs-ais-trillion-dollar-opportunity">Foundation Capital 官网同文</a><span>·</span><a href="https://trailhead.salesforce.com/en/content/learn/projects/customize-a-salesforce-object/account-field-history-tracking">Salesforce：字段历史追踪</a><span>·</span><a href="https://architect.salesforce.com/docs/architect/fundamentals/guide/agentic-integration-patterns">Salesforce：Agent 集成模式</a></div></div><div><div>本站说明</div><div>原帖经 FxTwitter 恢复全文，并与官网同文核对；Salesforce 当前官方材料用于本次解读的补充核查。</div></div></div></div></div><div>
+<div>Context Graphs · 决策记录</div>
+<h1>AI 时代的下一个万亿级平台机会：一个记录“决策过程与理由”而非仅仅“业务对象”的全新底层系统</h1>
+<p>旧软件管客户、合同和账本。Agent 开始办事后，企业还需要一套能查清“这次为什么获准”的记录。</p>
+<h2>规则写九折，旧案批过八折：这次该怎么办？</h2>
+<div><strong>九折</strong><span>常规上限</span><strong>八折</strong><span>服务受损后获批的例外</span></div>
+<p>老员工会查故障、看投诉、翻先例，再找有权限的人批准。系统最后往往只留下“优惠 20%”。Agent 接手时，就少了判断本次能否申请例外的依据：守死规则可能丢客户，照抄旧案又可能让利过度。</p>
+<ul><li>口耳相传的经验</li><li>散落的历史先例</li><li>跨系统的综合判断</li><li>业务记录之外的批准</li></ul>
+<h2>让这次决定，也成为一份记录</h2>
+<p>Agent 在办理时，把证据、政策、先例、审批和写入一起留下。原文的续约场景说明了怎样做：</p>
+<div>
+<h3>八折方案，先取证，再申请本次批准</h3>
+<div>
+<div><span>证据与先例</span><ul><li><b>3 起严重故障</b><br />监控中的 SEV-1 记录</li><li><b>尚未解决的工单</b><br />客户要求“不解决就退订”</li><li><b>上季度类似特批</b><br />副总裁曾批准，可作比较</li></ul></div>
+<div><span>规则与本次审批</span><p>常规最多优惠 10%；严重服务影响可申请例外。</p><p>Agent 汇总材料，交财务审批。</p><p><b>未批准：</b>八折仍是方案。<br /><b>财务批准：</b>客户软件才写入优惠 20%。</p><p>旧先例供参考，仍要取得本次所需的批准。</p></div>
+</div>
+<div><div><span>合同里的最终状态</span><strong>优惠 20%</strong>保留客户、合同等业务对象。</div><div><span>这次决定的记录</span><p>为何提出八折 → 引用了什么 → 哪版政策 → 谁批准 → 最后写入什么</p>把决定本身保存下来，关联故障、工单、政策、审批人和旧决定。</div></div>
+</div>
+<p>一次决定形成一条“决策轨迹”；多次决定按客户、政策、引用先例等关联起来，就是<strong>上下文图谱</strong>。记录的是业务证据与批准，不是模型内部思维链。</p>
+<div>
+<h3>留档怎样变成企业持续依赖的底账？</h3>
+<div><div><b>本次留下依据</b><p>人仍审批时，也能把处理过程保存下来。</p></div><span>→</span><div><b>下次比较引用</b><p>按旧案条件核对本次情况，再按当前权限处理。</p></div><span>→</span><div><b>日常工作依赖</b><p>办理例外、审核和排错持续回到这里查依据。</p></div></div>
+<p>新决定继续增加记录；同类情况反复出现后，企业才有条件逐步自动化更多环节。更换模型或工具，过去按哪版政策、凭什么、由谁批准的历史仍有价值。</p>
+<p><strong>只有后续业务持续引用这些记录，保存它们的系统才可能成为新的权威入口。</strong>这是平台价值的来由。</p>
+</div>
+<h2>谁适合在办事时把依据留下？</h2>
+<div>修改记录能查谁在何时改了什么；外部故障、工单和批准理由不会随改值自动聚齐。</div><div>数据仓库能汇总历史，也能接收已保存的轨迹；源头没记下的理由，事后搬数字补不出来。</div><div>实际执行方经历取证、查规则、请批、写入，适合边办边记。客户和总账仍可留在旧系统。</div>
+<p>老厂商也能通过集成进入执行流程。竞争在于能否真正收齐并持续保存依据，不取决于新旧厂商身份。作者还预期围绕收购、接口、数据导出费用和自家框架的竞争。</p>
+<h2>新系统怎样进入已经运转的企业？</h2>
+<div><div><h3>重做业务平台<br /><span>Regie</span></h3><p>为人和 Agent 共作重建销售执行流程：找线索、触达、跟进、分流给人。旧平台难替换，更换或升级时才更可能出现入口。</p></div><div><h3>接管子流程<br /><span>Maximor</span></h3><p>接现金、关账与会计流程；ERP 保留总账，新层保存对账逻辑和处理依据，再把最终状态同步回旧系统。</p></div><div><h3>新建决策记录<br /><span>PlayerZero</span></h3><p>从二、三级支持进入，关联代码、配置、基础设施和客户行为；作者看重其解释故障、判断改动影响的潜力。</p></div></div>
+<p>Agent 处理规模扩大，还需要监控、定位失败与评估决策效果。作者以 Arize 说明这类配套基础设施机会。</p>
+<h2>先找经常需要说“看情况”的工作</h2>
+<p><b>两个通用信号：</b>大量人手跨系统比较、协调和确认；例外多、经常需要查旧案。规则固定、结果确定的流程未必需要复杂图谱。</p>
+<p><b>新建记录系统再看一种信号：</b>有人专门对齐销售与财务、开发与支持，或工程与合规。这些协调岗位替多套软件携带上下文；Agent 协助办理并留下依据，才可能补上原先没有的记录。</p>
+<p>投资机构 Foundation Capital 的两位作者把它称为潜在的“万亿美元机会”。这是投资判断：平台能走多远，取决于留下的依据能否持续支撑下一次业务。</p>
+</div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://x.com/jayagup10/status/2003525933534179480">看原网页 ↗</a></p></div><div></div><div><div><h1>AI’s trillion-dollar opportunity: Context graphs</h1></div><div><figure><img src="https://pbs.twimg.com/media/G83zx64XkAE-f-X.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>The last generation of enterprise software created a trillion-dollar ecosystem by becoming systems of record. Salesforce for customers. Workday for employees. SAP for operations. Own the canonical data, own the workflow, own the lock-in.</p></div><div><p>The debate right now is whether those systems survive the shift to agents. Jamin Ball’s recent post “<a href="https://cloudedjudgement.substack.com/p/clouded-judgement-121225-long-live">Long Live Systems of Record</a>” hit a nerve. Pushing back on the “agents kill everything” narrative, he argues that agents don’t replace systems of record, they raise the bar for what a good one looks like.</p></div><div><p>We agree. Agents are cross-system and action-oriented. The UX of work is separating from the underlying data plane. Agents become the interface, but something still has to be canonical underneath.</p></div><div><p>Where we go further is this: Ball’s framing assumes the data agents need already lives somewhere, and agents just need better access to it plus better governance, semantic contracts, and explicit rules about which definition wins for which purpose.</p></div><div><p>That’s half the picture. The other half is the missing layer that actually runs enterprises: <strong>the decision traces</strong> – the exceptions, overrides, precedents, and cross-system context that currently live in Slack threads, deal desk conversations, escalation calls, and people’s heads.</p></div><div><p>This is the distinction that matters:</p></div><div><p><strong>Rules</strong> tell an agent <em>what should happen in general</em> (“use official ARR for reporting”)</p></div><div><p><strong>Decision traces</strong> capture <em>what happened in this specific case</em> (“we used X definition, under policy v3.2, with a VP exception, based on precedent Z, and here’s what we changed”).</p></div><div><p>Agents don’t just need rules. They need access to the decision traces that show how rules were applied in the past, where exceptions were granted, how conflicts were resolved, who approved what, and which precedents actually govern reality.</p></div><div><p>This is where systems of agents startups have a structural advantage. They sit <strong>in the execution path</strong>. They see the full context at decision time: what inputs were gathered across systems, what policy was evaluated, what exception route was invoked, who approved, and what state was written. If you persist those traces, you get something that doesn’t exist in most enterprises today: a queryable record of how decisions were made.</p></div><div><p>We call the accumulated structure formed by those traces a <strong>context graph</strong>: not “the model’s chain-of-thought,” but a living record of decision traces stitched across entities and time so precedent becomes searchable. Over time, that context graph becomes the real source of truth for autonomy – because it explains not just <em>what</em> happened, but <em>why it was allowed</em> to happen.</p></div><div><p>The core question isn’t whether existing systems of record survive. It’s whether entirely new ones emerge – systems of record for decisions, not just objects – and whether those become the next trillion-dollar platforms.</p></div><div><h2>What systems of record don’t capture</h2></div><div><p>Agents are shipping into real workflows – contract review, quote-to-cash, support resolution – and teams are hitting a wall that governance alone can’t solve.</p></div><div><p>The wall isn’t missing data. It’s missing decision traces. Agents run into the same ambiguity humans resolve every day with judgment and organizational memory. But the inputs to those judgments aren’t stored as durable artifacts. Specifically:</p></div><div><ul><li><strong>Exception logic that lives in people’s heads.</strong> “We always give healthcare companies an extra 10% because their procurement cycles are brutal.” That’s not in the CRM. It’s tribal knowledge passed down through onboarding and side conversations.</li><li><strong>Precedent from past decisions.</strong> “We structured a similar deal for Company X last quarter – we should be consistent.” No system links those two deals or records why the structure was chosen.</li><li><strong>Cross-system synthesis.</strong> The support lead checks the customer’s ARR in Salesforce, sees two open escalations in Zendesk, reads a Slack thread flagging churn risk, and decides to escalate. That synthesis happens in their head. The ticket just says “escalated to Tier 3.”</li><li><strong>Approval chains that happen outside systems.</strong> A VP approves a discount on a Zoom call or in a Slack DM. The opportunity record shows the final price. It doesn’t show who approved the deviation or why.</li></ul></div><div><p>This is what “never captured” means. Not that the data is dirty or siloed, but that the reasoning connecting data to action was never treated as data in the first place.</p></div><div><h2>The context graph is the enduring layer</h2></div><div><p>When startups instrument the agent orchestration layer to emit a decision trace on every run, they get something enterprises almost never have today: a structured, replayable history of how context turned into action.</p></div><div><p><em>What does this look like in practice?</em> A renewal agent proposes a 20% discount. Policy caps renewals at 10% unless a service-impact exception is approved. The agent pulls three SEV-1 incidents from PagerDuty, an open “cancel unless fixed” escalation in Zendesk, and the prior renewal thread where a VP approved a similar exception last quarter. It routes the exception to Finance. Finance approves. The CRM ends up with one fact: “20% discount.”</p></div><div><p>Once you have decision records, the “why” becomes first-class data. Over time, these records naturally form a <strong>context graph</strong>: the entities the business already cares about (accounts, renewals, tickets, incidents, policies, approvers, agent runs) connected by decision events (the moments that matter) and “why” links. Companies can now audit and debug autonomy and turn exceptions into precedent instead of re-learning the same edge case in Slack every quarter.</p></div><div><p><strong>The feedback loop is what makes this compound.</strong> Captured decision traces become searchable precedent. And every automated decision adds another trace to the graph.</p></div><div><p>None of this requires full autonomy on day one. It starts with human-in-the-loop: the agent proposes, gathers context, routes approvals, and records the trace. Over time, as similar cases repeat, more of the path can be automated because the system has a structured library of prior decisions and exceptions. Even when a human still makes the call, the graph keeps growing, because the workflow layer captures the inputs, approval, and rationale as durable precedent instead of letting it die in Slack.</p></div><div><h2>Why incumbents can’t build the context graph</h2></div><div><p>Ball is optimistic that existing players evolve into this architecture. Warehouses become “truth registries,” while CRMs become “state machines with APIs.” His is a narrative of evolution, not replacement.</p></div><div><p>That might work for making existing data more accessible. It doesn’t work for capturing decision traces.</p></div><div><p><strong>Operational incumbents are siloed and prioritize current state.</strong></p></div><div><p>Salesforce is pushing Agentforce, ServiceNow has Now Assist, and Workday is building agents for HR. Their pitch is “we have the data, now we add the intelligence.”</p></div><div><p>But these agents inherit their parent’s architectural limitations. Salesforce is built on current state storage: it knows what the opportunity looks like now, not what it looked like when the decision was made. When a discount gets approved, the context that justified it isn’t preserved. You can’t replay the state of the world at decision time, which means you can’t audit the decision, learn from it, or use it as precedent.</p></div><div><p>They also inherit their parent’s blind spots. A support escalation doesn’t live in Zendesk alone. It depends on customer tier from the CRM, SLA terms from billing, recent outages from PagerDuty, and the Slack thread flagging churn risk. No incumbent sees this because no incumbent sits in the cross-system path.</p></div><div><p><strong>The warehouse players have a different problem: they’re in the read path, not the write path.</strong></p></div><div><p>Ball positions @Snowflake and Databricks as the “truth registry” layer. Both are leaning in – Snowflake pushing Cortex and acquiring Streamlit, Databricks acquiring Neon and launching Lakebase and AgentBricks. The pitch: data platforms replace systems of record and become the foundation for AI agents.</p></div><div><p>Warehouses do have a time-based view. You can query historical snapshots, track how metrics changed, and compare state across periods. But warehouses receive data via ETL after decisions are made. By the time data lands in Snowflake, the decision context is gone.</p></div><div><p>A system that only sees reads, after the fact, can’t be the system of record for decision lineage. It can tell you what happened, but it can’t tell you why.</p></div><div><p>Databricks is further along in putting the pieces together. But being close to where agents get built isn’t the same as being in the execution path where decisions happen.</p></div><div><p><strong>Systems of agents startups have a structural advantage: they’re in the orchestration path.</strong></p></div><div><p>When an agent triages an escalation, responds to an incident, or decides on a discount, it pulls context from multiple systems, evaluates rules, resolves conflicts, and acts. The orchestration layer sees the full picture: what inputs were gathered, what policies applied, what exceptions were granted, and why. Because it’s executing the workflow, it can capture that context at decision time – not after the fact via ETL, but in the moment, as a first-class record.</p></div><div><p><strong>That’s the context graph, and that will be the single most valuable asset for companies in the era of AI.</strong></p></div><div><p><strong>Incumbents will fight back.</strong> They’ll try acquisitions to bolt on orchestration capabilities. They’ll lock down APIs and adopt egress fees to make data extraction expensive – the same playbook hyperscalers used. They’ll build their own agent frameworks and push “keep everything in our ecosystem” narratives.</p></div><div><p>But capturing decision traces requires being in the execution path at commit time, not bolting on governance after the fact. Incumbents can make extraction harder, but they can’t insert themselves into an orchestration layer they were never part of.</p></div><div><h2>Three paths for startups</h2></div><div><p>Systems of agents startups will take different paths, each of which has its own tradeoffs.</p></div><div><p><strong>Some will replace existing system of records from day one.</strong> A CRM or ERP rebuilt around agentic execution, with event-sourced state and policy capture native to the architecture. This is hard because incumbents are entrenched, but it becomes viable at transition moments.</p></div><div><p>Of the many startups going after the AI SDR category, <a href="https://www.regie.ai/">Regie</a> has chosen to build an AI-native sales engagement platform to replace legacy platforms like Outreach/Salesloft, which were designed for humans executing sequences across a fragmented toolchain. Regie is designed for a mixed team where the agent is a first-class actor: it can prospect, generate outreach, run follow-ups, handle routing, and escalate to humans.</p></div><div><p><strong>Some will replace modules rather than entire systems.</strong> These startups target specific sub-workflows where exceptions and approvals concentrate, then become the system of record for those decisions while syncing final state back to the incumbent.</p></div><div><p><a href="https://www.maximor.ai/">Maximor</a> is doing this in finance: automating cash, close management, and core accounting workflows without ripping out the GL. The ERP remains the ledger, but Maximor becomes the source of truth where the reconciliation logic lives.</p></div><div><p><strong>Some will create entirely new systems of record.</strong> These startups start as orchestration layers, but they persist what enterprises never systematically stored: the decision-making trace. Over time that replayable lineage becomes the authoritative artifact. The agent layer stops being “just automation” and becomes the place the business goes to answer “why did we do that?”</p></div><div><p><a href="https://playerzero.ai/?matchtype=&amp;amp;utm_source=google&amp;amp;utm_medium=cpc&amp;amp;utm_campaign=23361480948&amp;amp;utm_content=&amp;amp;utm_term=&amp;amp;hsa_acc=6526734515&amp;amp;hsa_cam=23361480948&amp;amp;hsa_grp=&amp;amp;hsa_ad=&amp;amp;hsa_src=x&amp;amp;hsa_tgt=&amp;amp;hsa_kw=&amp;amp;hsa_mt=&amp;amp;hsa_net=adwords&amp;amp;hsa_ver=3&amp;amp;gad_source=1&amp;amp;gad_campaignid=23370607165&amp;amp;gbraid=0AAAAABaTSHE2ca_tvJn9RsT1IJaFH_3wo&amp;amp;gclid=Cj0KCQiAjJTKBhCjARIsAIMC44-P3pLng0LsFJ7xbLVAtsAaJAlgiyzjnC3gezNwboiSvZdDlNkGS1YaAkNDEALw_wcB">PlayerZero</a> exemplifies this pattern. Production engineering sits at the intersection of SRE, support, QA, and dev: a classic “glue function” where humans carry context that software doesn’t capture. PlayerZero starts by automating L2/L3 support, but the real asset is the context graph it builds: a living model of how code, config, infrastructure, and customer behavior interact in reality. That graph becomes the source of truth for “why did this break?” and “will this change break production?”: questions no existing system can answer.</p></div><div><p><strong>As startups pursue these paths, observability for agents will become critical infrastructure.</strong> As decision traces accumulate and context graphs grow, enterprises will need to monitor, debug, and evaluate agent behavior at scale.</p></div><div><p><a href="https://arize.com/">Arize</a> is building the observability layer for this new stack – giving teams visibility into how agents reason, where they fail, and how their decisions perform over time. Just as Datadog became essential infrastructure for monitoring applications, Arize is positioned to become essential infrastructure for monitoring and improving agent decision quality.</p></div><div><h2>Key signals for founders</h2></div><div><p>The signals for where to build overlap, but they aren’t identical.</p></div><div><p><strong>Two signals apply to all three opportunities:</strong></p></div><div><p><strong>High headcount.</strong> If a company has 50 people doing a workflow manually (routing tickets, triaging requests, or reconciling data between systems), that’s a signal. The labor exists because the decision logic is too complex to automate with traditional tooling.</p></div><div><p><strong>Exception-heavy decisions.</strong> Routine, deterministic workflows don’t need decision lineage: the agent just executes. The interesting surfaces are where the logic is complex, where precedent matters, and where “it depends” is the honest answer. Think use cases like deal desks, underwriting, compliance reviews, and escalation management.</p></div><div><p><strong>One signal points specifically to new system of record opportunities:</strong></p></div><div><p><strong>Organizations that exist at the intersection of systems.</strong> RevOps exists because someone has to reconcile sales, finance, marketing, and customer success. DevOps exists because someone has to bridge development, IT, and support. Security Ops sits between IT, engineering, and compliance.</p></div><div><p>These “glue” functions are a tell. They emerge precisely because no single system of record owns the cross-functional workflow. The org chart creates a role to carry the context that software doesn’t capture.</p></div><div><p>An agent that automates that role doesn’t just run steps faster. It can persist the decisions, exceptions, and precedents the role was created to produce. That’s the path to a new system of record: not by ripping out an incumbent, but by capturing a category of truth that only becomes visible once agents sit in the workflow.</p></div><div><h2>Systems of record, reimagined</h2></div><div><p>The question isn’t whether systems of record survive – they will. The question is whether the next trillion-dollar platforms are built by adding AI to existing data, or by capturing the decision traces that make data actionable.</p></div><div><p>We think it’s the latter. And the startups building context graphs today are laying the foundation.</p></div><div><p>Published on 12.22.2025 Written by Jaya Gupta and Ashu Garg</p></div><div><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https://foundationcapital.com/">Facebook</a></li><li><a href="https://twitter.com/intent/tweet?url=https://foundationcapital.com//&amp;amp;text=&amp;amp;via=">Twitter</a></li></ul></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/jayagup10/status/2003525933534179480">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】红杉资本：下一家万亿美元公司，可能用 AI 交付完整服务 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/sequoia-sell-the-work/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:sequoia-sell-the-work</guid>
+<pubDate>Sat, 31 Oct 2026 12:00:18 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 同一次关账，买工具和买服务有什么不同 02 从软件预算，进入企业已有的服务预算 03 模型进步怎样降低成本，服务商又能留下多少利润 04 先选任务：区分规则执行与经验判断 05 再看采购关系：为什么从已经外包的任务开始 06 十个方向，具体可以承接哪些工作 07 从外包扩展到内部工作，要积累什么 08 工具商转做服务，为什么会与客户竞争 AI 解读 / 洞察 · 10-31 ·</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 31 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">红杉资本：下一家万亿美元公司，可能用 AI 交付完整服务 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/sequoia-sell-the-work/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>同一次关账，买工具和买服务有什么不同</span></a><a><span>02</span><span>从软件预算，进入企业已有的服务预算</span></a><a><span>03</span><span>模型进步怎样降低成本，服务商又能留下多少利润</span></a><a><span>04</span><span>先选任务：区分规则执行与经验判断</span></a><a><span>05</span><span>再看采购关系：为什么从已经外包的任务开始</span></a><a><span>06</span><span>十个方向，具体可以承接哪些工作</span></a><a><span>07</span><span>从外包扩展到内部工作，要积累什么</span></a><a><span>08</span><span>工具商转做服务，为什么会与客户竞争</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>洞察</a><i>·</i>10-31<i>·</i>约9分钟<i>·</i>作者 Guillermo Flor / Sequoia</div><h1>红杉资本：下一家万亿美元公司，可能用 AI 交付完整服务</h1><p>AI 公司直接承接关账、合同审查和理赔，改变的是客户买什么、预算从哪来，以及谁组织交付。红杉的服务业投资判断，要从具体任务和成本结构看懂。</p><div><div>正文一页纸原文</div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Guillermo Flor / Sequoia</span><span>10-31 · 约9分钟</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>AI 原生服务让客户直接购买做完的工作，服务商组织软件执行和人工复核。</li><li>已有外包预算、任务范围清楚，是红杉建议优先切入的条件；长期目标还包括企业内部工作。</li><li>模型进步只有真正减少交付和复核成本，且没有被降价竞争抵消，才可能留下更高毛利。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/sequoia-sell-the-work/social/zh-2bb7806bcb76.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>买了财务软件，公司还得请会计把账做完。加入 AI 助手后，整理记录、生成初稿可以更快，但账目对不上、材料不齐、结果需要复核时，仍要有人接着处理。<strong>企业为工具付了费，也还在为完成工作付费。</strong></p>
+<p>AI 工具公司则面临另一种压力：如果主要卖点是合同摘要、资料整理等通用能力，下一代基础模型就可能把它变成自带功能。产品需要不断找到让客户继续付费的理由。</p>
+<p>红杉资本合伙人 Julien Bek 看中的是这两层问题之间的机会：让 AI 公司直接承接一项完整服务。例如，在约定范围内完成一次月度关账，由服务商统一组织执行、人工复核和报表交付，客户按约定验收。<strong>他判断，下一家万亿美元公司，可能就出现在这类 AI 服务商之中。</strong></p>
+<p>这类公司争取的是企业原本支付给会计师、律师和外包机构的服务预算。模型进步，有机会减少每笔订单所需的人工；能否把节省变成利润，还要看交付质量、复核与返工成本，以及客户是否要求降价。</p>
+<h2>同一次关账，买工具和买服务有什么不同</h2>
+<p>红杉举了一个例子：一家企业每年花 1 万美元购买 QuickBooks 财务软件，同时花 12 万美元请会计完成关账。（这是说明两类开销的例子，不是软件价格或会计薪资的行业平均值。）</p>
+<p>软件提供了处理账目的能力，但企业仍要安排人完成工作。关账就是在一个会计周期结束时，核对记录、处理差异，形成这一期的账目和报表。</p>
+<p>客户可以为同一个任务购买两种不同的产品：</p>
+<ul>
+<li><strong>买软件工具：</strong> 客户购买使用权，由自己的会计或团队组织工作，重点看工具是否可用、能否帮助完成任务。</li>
+<li><strong>买关账服务：</strong> 客户购买约定范围内完成的账目与报表，由服务商组织软件执行和人工复核，按范围、标准和时间验收。</li>
+</ul>
+<p>红杉把辅助专业人员工作的模式称为 <strong>Copilot</strong>。Harvey 向律所提供工具、Rogo 向投资银行提供工具，都是文中的例子：客户中的专业人员使用系统，检查并交付结果。</p>
+<p>直接向客户交付完成工作的模式，则被称为 <strong>Autopilot</strong>。这个名称描述的是交付关系，采用它的公司内部仍然可以有人参与。</p>
+<h3>从接收材料到交付报表：四个环节</h3>
+<p>沿用这项任务，可以看清服务商接下了哪些工作：</p>
+<ol>
+<li><strong>接收材料。</strong> 企业提供票据、银行流水及必要的系统访问权限。</li>
+<li><strong>执行常规处理。</strong> 服务商组织软件处理记录与对账。</li>
+<li><strong>核查异常。</strong> 对不上的款项、缺失票据等问题，由专业人员检查和处理。</li>
+<li><strong>完成交付。</strong> 按双方约定提供账本与报表，接受客户验收，处理需要返工的部分。</li>
+</ol>
+<p>这四步都由服务商组织，并由它按约定承担交付责任。客户仍需提供必要材料、验收结果，但不用再自行安排每一步的执行与复核。企业自身的审查义务和法定责任，不会因为采购了 AI 服务就自动消失。</p>
+<p>买家也随之改变。Crosby 面向需要起草保密协议的企业，WithCoverage 面向需要为企业购买保险的财务负责人。它们争取的是客户的服务订单，而不仅是专业机构的一笔工具采购。</p>
+<h2>从软件预算，进入企业已有的服务预算</h2>
+<p>红杉文章给出的市场判断是：<strong>软件每获得 1 美元支出，服务大约获得 6 美元。</strong>（文章未附完整统计方法和统一地域口径，这个比例用于说明作者的市场判断。）</p>
+<p>沿用红杉的关账例子，AI 服务商争取的是那笔完成工作的开销。企业会把它的报价、服务范围和质量，与原有会计或事务所比较。</p>
+补充：原文引用的历史市场规模图
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-sell-the-work/commentary-02.png" alt="历史示意图：软件、云软件，以及软件与服务合计市场的规模比较" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>图用不同市场范围，说明从软件走向服务的潜在空间。</span><br />
+    图中年份为 2010、2024。10 万亿美元以上对应“软件与服务合计”，30 亿美元对应标为 2024 的 AI 软件。这是历史示意，不能用来计算当前服务规模或证明 1 比 6。
+  </figcaption>
+</figure>
+<h2>模型进步怎样降低成本，服务商又能留下多少利润</h2>
+<p>传统事务所同样交付关账结果。客户购买完成工作的关系早已存在，AI 服务商要证明的，是自己能用怎样的流程把同一项工作做得更有效率。</p>
+<p>如果订单增加时，处理和复核的人手仍要按相同比例增加，公司就依然受人力规模限制。AI 服务商的设想是，让系统可靠处理更多常规记录与对账，专业人员集中处理异常和复核，使同一支团队能够完成更多订单。</p>
+<p>这里需要分开看三个变量：</p>
+<ul>
+<li><strong>模型能力：</strong> 能否可靠完成更多任务，减少人工介入？</li>
+<li><strong>调用价格：</strong> 完成同样工作，需要支付多少模型费用？</li>
+<li><strong>服务报价：</strong> 竞争者也在降低成本时，客户是否要求降价？</li>
+</ul>
+<p>模型能力提高，调用费用未必同时降低。以一笔订单来看，收入扣除模型调用、人工作业与复核、实施和返工等直接成本后，才有毛利。</p>
+<figure>
+<div>把成本算到一笔订单上</div>
+<div>
+<div><span>客户付费</span><strong>订单收入</strong><p>按双方约定的服务范围收费。</p></div>
+<div>−</div>
+<div><span>完成这笔订单</span><strong>直接交付成本</strong><ul><li>模型调用</li><li>人工作业与复核</li><li>实施与返工</li></ul></div>
+<div>=</div>
+<div><span>扣除直接成本后</span><strong>毛利</strong><p>客户若同时要求降价，成本节省未必全部留下。</p></div>
+</div>
+<figcaption>模型进步可能降低其中一些成本。毛利也不等于扣除全部经营费用后的净利润。</figcaption>
+</figure>
+<p>以关账为例，常规对账省下的费用，如果又花在整理混乱票据、反复沟通和人工调账上，毛利就未必提高。交付错误还会带来返工与履约风险。</p>
+<p>成本节省能留下多少，还取决于报价。竞争者也在提高效率时，客户可能要求降价，部分节省就会让给客户。</p>
+<h2>先选任务：区分规则执行与经验判断</h2>
+<p>每单人工能降多少，取决于接下的具体任务。会计、律师、招聘顾问各自的工作中，既有按规则反复执行的环节，也有需要经验取舍的决定。先把这些任务拆开，才能判断哪些适合由系统承担。</p>
+<h3>有规则可循，不代表工作简单</h3>
+<p>红杉所说的 Intelligence，可以理解为按照复杂规则执行任务：把明确需求写成代码、运行测试、排查错误，都有相应的约束和检查手段。</p>
+<p>Judgement 则偏向经验判断。例如，决定下一项产品功能该做什么、是否接受技术债务、什么时候值得带着缺陷交付，都需要权衡目标与后果。</p>
+<p>两者的区别在于任务怎样完成，不能直接理解成“容易”与“困难”。规则可能很复杂，但如果能说明输入、适用条件和合格结果，就更便于检查系统的表现，以及确定异常何时交给人。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-sell-the-work/sequoia-01.webp" alt="红杉原图：Agent 工具调用按领域分布，软件工程占49.7%" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>软件工程占图中工具调用的 49.7%，后台自动化占 9.1%。</span><br />
+    分母是工具调用次数，原图未标明样本与统计时间，不能视为全部职业的 AI 使用率。红杉结合任务特点解释软件工程为何较早出现自动化；这张分布图本身不证明因果关系。
+  </figcaption>
+</figure>
+<p>红杉据此把软件工程视为较早的自动化入口。筛选其他专业服务时，也可以看哪些环节能按明确条件执行和检查，哪些仍需经验取舍。</p>
+<h2>再看采购关系：为什么从已经外包的任务开始</h2>
+<p>任务本身适合处理，还不够。服务商需要知道，客户现在把这项工作交给谁，以及准备从哪一笔预算付费。</p>
+<p><strong>已有外包关系，同时提供了三个起步条件：</strong></p>
+<ul>
+<li>客户已经接受这项工作由外部机构处理。</li>
+<li>账上已有对应预算，可以比较新旧服务商的报价和交付。</li>
+<li>客户本来就在购买结果，已有验收服务的经验。</li>
+</ul>
+<p>替换供应商仍可能需要质量、安全和系统接入评估，但通常能沿用现有采购关系。接管内部岗位，则往往还涉及团队分工、权限和业务交接。</p>
+<p>Bek 因此主张，先从已经外包、规则执行占比较高的任务开始，建立获客渠道和稳定交付，再考虑扩展。把这两项条件放在一起，就得到原文的机会地图。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-sell-the-work/sequoia-02.webp" alt="红杉机会地图：按外包程度，以及规则执行与经验判断划分服务领域" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>一条轴看工作怎样完成，另一条看现在由内部还是外部处理。</span><br />
+    位置是作者的机会示意，不是自动化成熟度测评。金额单位为十亿美元，各领域口径不统一，不宜相加。
+  </figcaption>
+</figure>
+<div><span>工作特点 × 采购关系</span><h3>同一个行业，要拆到具体任务来判断</h3><p>选择一个区域，看切入条件；需要查行业时，再展开对应名单。四个区域的基本条件始终可见。</p></div>
+<div>↑ 已外包　／　↓ 内部处理</div>
+<div>
+外包 × 经验判断<span>先辅助专业人员</span><p>工作已经外包，但关键结果仍依赖专业人员的经验与取舍。</p><div><h4>保留专业判断，先提高执行效率</h4><p>例如咨询公司可以用 AI 收集资料、比较数据，资深顾问再权衡战略建议。服务已经能从外部购买，并不意味着整个任务已经适合自动完成。</p></div>查看本区 4 个领域<ul><li>管理咨询</li><li>平面与体验设计</li><li>高管猎头</li><li>公关与传播</li></ul>
+外包 × 规则执行<span>优先尝试直接交付结果</span><p>客户已有采购预算，任务也较容易界定范围与验收标准。</p><div><h4>从已有外包合同开始</h4><p>客户已接受外部处理，有现成预算，也已习惯验收结果。仍须证明交付质量、处理异常并取得信任。</p></div>查看本区 13 个领域<ul><li>保险经纪</li><li>IT 托管</li><li>薪酬与合规</li><li>理赔</li><li>会计与审计</li><li>医疗计费</li><li>按揭办理</li><li>身份与反洗钱审查</li><li>法律助理外包</li><li>税务咨询</li><li>交易法务</li><li>房地产交割</li><li>成本估算</li></ul>
+内部 × 经验判断<span>先观察具体任务</span><p>既要处理内部流程与分工，也要识别哪些环节依赖经验判断。</p><div><h4>先找到可分离、可验收的小任务</h4><p>招聘的简历筛选与高管文化契合判断，需要不同的处理方式。先区分任务，再决定能承接到哪一步。</p></div>查看本区 13 个领域<ul><li>招聘</li><li>广告</li><li>货运经纪</li><li>行政助理</li><li>临床试验</li><li>搜索营销</li><li>ERP 实施</li><li>企业培训</li><li>市场研究</li><li>网络安全</li><li>建筑设计</li><li>专利与知识产权</li><li>差旅管理</li></ul>
+内部 × 规则执行<span>更需要处理组织衔接</span><p>任务有规则可循，但要衔接企业内部的权限、流程和人员分工。</p><div><h4>规则明确，还要接入企业内部流程</h4><p>采购长尾是其中一个特别入口：过去因人工成本太高被忽略的工作，也可能创造新的服务需求。</p></div>查看本区 5 个领域<ul><li>供应链与采购</li><li>药房后台</li><li>财富管理运营</li><li>医疗行政</li><li>基金行政</li></ul>
+</div>
+<div><span>← 更依赖经验判断</span><span>更依赖规则执行 →</span></div>
+<p>当前选择：外包 × 规则执行。35 个领域按原图分组译写；位置是作者的机会示意，同一行业的不同任务可以位于不同区域。</p>
+<h2>十个方向，具体可以承接哪些工作</h2>
+<p>红杉正文进一步讨论了十个方向。行业名称只说明市场在哪里；具体交付什么、哪些部分仍需判断，才决定服务能从哪里开始。</p>
+<h3>财务与法律：围绕账目、规则和文书交付</h3>
+<ul>
+<li><strong>会计与审计：</strong> 做账、对账和关账。红杉把专业人员供给不足视为行业接受 AI 的推动因素，提到面向关账构建系统的 Rillet，以及从辅助会计人员起步的 Basis。能否直接承接服务，要看实际交付能力。</li>
+<li><strong>税务咨询：</strong> 处理多个地区的税务规则。中小企业的内部人员未必能覆盖所有辖区，因此会购买外部服务。红杉认为，专业资质构成了进入门槛；系统能处理的辖区越多，也越能积累当地规则与业务案例的数据。</li>
+<li><strong>交易法律工作：</strong> 起草合同、保密协议和申报文书。Crosby 从保密协议切入，是因为任务范围相对明确，企业也已有向外部律师购买这项工作的习惯。红杉认为，这类成果较标准化，买家较容易按明确标准核查质量、建立信任；文书仍需按实际交易条件检查。</li>
+</ul>
+<h3>保险与医疗：同一行业，也有不同的服务订单</h3>
+<ul>
+<li><strong>保险经纪：</strong> 投保前比较商业险方案、整理资料与填写表格。客户购买的是投保服务。红杉还看重经纪渠道的分散：大量小机构重复类似流程，没有单一机构控制客户关系。</li>
+<li><strong>理赔处理：</strong> 出险后对照保单、损失情况与定损标准处理案件。它与投保服务的流程和验收对象不同，是另一类机会。</li>
+<li><strong>医疗收入周期：</strong> 医疗服务之后的编码、计费与回款流程。将临床记录转换成标准编码，是原文强调的执行切口；这与作出临床诊断是不同任务。</li>
+</ul>
+<h3>运营与人员服务：从重复流程中找切口</h3>
+<ul>
+<li><strong>IT 托管：</strong> 补丁、监控、账号开通和告警初筛等反复发生的工作。软件可以卖给 IT 服务机构，也可以由服务商直接向最终企业承接运维。关键在于任务能否稳定执行。</li>
+<li><strong>供应链与采购：</strong> 长尾供应商的小额合同，可能因逐一谈判不经济而缺少管理。AI 如果降低逐项检查与跟进成本，就可能承接过去被放弃的工作，创造新的节省，未必需要替换已有供应商。</li>
+<li><strong>招聘与人才服务：</strong> 筛选、匹配、联系候选人，与评估文化契合、说服候选人接受职位，需要分开看。前一组更容易界定重复流程，后一组更依赖经验与关系。大量、标准化岗位的匹配，是原文提出的潜在入口。</li>
+<li><strong>管理咨询：</strong> 收集资料、寻找对照数据、做基准比较，可以由系统承担更多执行；战略建议还涉及目标冲突、行业经验和取舍。市场很大，并不意味着适合从整项咨询服务开始接管。</li>
+</ul>
+<h2>从外包扩展到内部工作，要积累什么</h2>
+<p>先承接一项标准外包服务，能够让团队进入真实业务。之后的扩展，需要依靠持续交付中的反馈，而不只是等待基础模型升级。</p>
+<p>这个过程可以分成三步：</p>
+<ol>
+<li><strong>稳定完成第一项服务。</strong> 明确范围、质量标准与复核过程，建立客户信任和稳定的获客渠道。</li>
+<li><strong>积累领域判断数据。</strong> 记录哪些结果被接受、哪些被专家修改，以及重复出现的错误，帮助系统减少后续人工介入。</li>
+<li><strong>用实际表现验证新任务。</strong> 再尝试更复杂、或原本由内部团队处理的工作，检查交付能力能否覆盖新的范围。</li>
+</ol>
+<p>红杉的远期设想包括企业内部工作，以及更依赖经验判断的环节。如果部分判断逐渐能由系统处理，辅助专业人员的工具与直接提供服务的公司，就可能趋近。</p>
+<p>市场范围也可能从外包开销延伸到内部劳动力开销，但新任务能否接下，要靠实际表现验证。从保密协议起步，不能直接把整支法务团队的工作都算成今天可获得的收入。</p>
+<h2>工具商转做服务，为什么会与客户竞争</h2>
+<p>现有 Copilot 公司拥有产品、客户知识与获客渠道，这些都是转型优势。但它们原来的客户关系，也可能限制新业务。</p>
+<p>向律所销售工具的公司，如果开始直接为企业起草合同，就可能与律所客户争夺订单。向 IT 外包机构提供运维软件的公司，若直接承接终端企业的运维，也会面对类似问题。</p>
+<p>它们要权衡两类关系：</p>
+<ul>
+<li><strong>现有业务：</strong> 帮助专业服务机构提高效率，从这些机构收取软件费。</li>
+<li><strong>新增业务：</strong> 直接向最终企业交付工作，可能进入原有客户的市场。</li>
+</ul>
+<p>红杉把这种渠道冲突视为新公司的机会。从成立起就直接承接服务订单的团队，没有同样的既有客户关系需要协调；原有工具商则有产品和渠道优势，双方谁能胜出仍要看交付与客户选择。</p>
+<p>“万亿美元公司”是一个投资预期。眼前更具体的检验是：客户是否愿意为完成的工作付费，团队能否稳定交付，以及订单增加时，每笔订单所需的人工是否真的减少。</p>
+</div><div><div><div>来源</div><div><span>关于 AI 公司从卖工具转向交付工作结果的观点</span><span>Guillermo Flor<span>·</span><a href="https://x.com/guilleflorvs/status/2116109740832936033">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://sequoiacap.com/article/services-the-new-software/">Services: The New Software</a><span>·</span><a href="https://www.theaiopportunities.com/p/sequoia-capital-the-next-1t-company">Sequoia Capital: The next $1T company won’t sell software. It will sell the work.</a></div></div><div><div>本站说明</div><div>原帖经 FxTwitter 恢复，并回查红杉完整公开原文及图表。AI Market Fit 延伸文章仅取得订阅入口前的公开部分，未采用其未获取的付费案例。</div></div></div></div></div><div>
+<div>Sequoia · Julien Bek · AI 服务</div>
+<h1>买工具，还是买完成的工作？</h1>
+<div>同样是关账，谁来组织执行、复核和交付，决定了客户购买的是什么。</div>
+<div>一页读懂：购买关系 → 每单成本 → 起步条件</div>
+<div>
+<p>买了财务软件，公司仍要安排人核对记录、处理差异并完成关账。红杉看中的机会，是让 AI 服务商直接承接约定范围内的工作。</p>
+<div><div><div>买工具 · Copilot</div><h3>软件使用权</h3><p>客户自己的团队组织执行、检查，并把工作交付出去。</p></div><div><div>买服务 · Autopilot</div><h3>完成的账目与报表</h3><p>服务商组织系统执行、人工复核和交付；客户提供材料，并按约定验收。</p></div></div>
+<div>Autopilot 描述交付关系，内部仍可以有人。企业自身的审查义务和法定责任不会自动消失。</div>
+</div>
+<div><div>关键检验 · 每笔订单要用多少人工？</div>
+<h2>传统外包也卖结果。<br />AI 要证明怎样把工作做得更有效率。</h2>
+<div><div><strong>01 接收材料</strong><span>票据、流水与必要权限</span></div><div><strong>02 常规处理</strong><span>系统处理记录与对账</span></div><div><strong>03 核查异常</strong><span>专业人员处理差异、补缺</span></div><div><strong>04 交付报表</strong><span>按约定验收，处理返工</span></div></div>
+<p>四步由服务商组织。同一支团队能否完成更多订单，要看系统能可靠承担多少常规任务。</p>
+<div>模型能力提高 → 更多常规任务可靠处理 → 每单人工<span>可能减少</span></div>
+<div>服务收入 − 模型调用 − 人工作业与复核 − 实施与返工 = <strong>毛利</strong></div>
+<ul><li><strong>能力与调用价格，分开看</strong>模型能力提高，完成同样工作的调用费用未必降低。</li><li><strong>人工与返工，都要算</strong>省下的费用若花在混乱票据、反复沟通和人工调账上，成本未必下降。</li><li><strong>成本下降，还要看报价</strong>竞争者也提效时，客户可能要求降价，部分节省会让给客户。</li></ul>
+</div>
+<div><h2>先接哪项工作？</h2><p>红杉建议先考虑已经外包、规则执行占比较高的任务。两项条件要放在一起看。</p>
+<div><div><strong>已经外包</strong>客户接受外部交付，已有预算和验收经验；供应商替换仍可能需要质量、安全和接入评估。</div><div><strong>规则与检查标准较明确</strong>更便于验证系统表现，划定哪些异常需要交给人；规则复杂不等于任务简单。</div></div>
+<div>稳定完成一项服务 → 记录专家修改与客户反馈 → 再验证更复杂或内部任务。扩展靠实际表现。</div></div>
+<div><h2>工具商转型的一道阻力</h2><p>卖工具给律所的公司，如果开始直接为企业起草合同，就可能与律所客户争夺订单。新公司没有相同的既有关系需要协调；原有工具商则有产品与渠道优势，谁胜出仍看交付与客户选择。</p></div>
+<div>“万亿美元公司”是红杉的投资预期。今天先检验：<strong>客户愿不愿买、交付稳不稳定、每单人工有没有减少。</strong></div></div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://x.com/guilleflorvs/status/2116109740832936033">看原网页 ↗</a></p></div><div></div><div><div><p>Sequoia's thesis that the next $1T company will sell work, not software, is the most important reframe in AI right now.</p></div><div><p>The argument: if you sell a copilot, you're competing with every new model release. But if you sell the outcome, books closed, contracts reviewed, claims handled, every AI improvement makes your margins better, not your product obsolete.</p></div><div><p>The key insight most people miss: for every $1 spent on software, ~$6 is spent on services.</p></div><div><p>The entire SaaS playbook was about capturing the software dollar. The AI playbook is about capturing the services dollar, at software margins.</p></div><div><p>Not "AI for accountants." The AI accounting firm. Not "AI for lawyers." The AI law firm.</p></div><div><p>The companies that figure this out won't look like SaaS companies. They'll look like services firms rebuilt on software infrastructure.</p></div><div><p>That's a fundamentally different company to build, fund, and scale. And most founders are still building copilots.</p></div><div><p>I went deeper on this in AI Market Fit: Sequoia Capital: The next $1T company won’t sell software. It will sell the work. https://www.theaiopportunities.com/p/sequoia-capital-the-next-1t-company</p></div><div><figure><img src="https://pbs.twimg.com/media/HV3umGiW8AAIxvw.jpg?name=orig" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/guilleflorvs/status/2116109740832936033">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】YC 想投的 11 个创业方向：AI 变强以后，还缺什么？ · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/yc-rfs-ai-real-economy/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:yc-rfs-ai-real-economy</guid>
+<pubDate>Sat, 31 Oct 2026 12:00:18 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 硬件与物理供应链：变压器、本土机器人与太空运力 02 制度约束与数据通道：隔离内网、公共福利与市政治理 03 资本与就业重塑：实体基建的金融工具与“15美元专家” 04 软件与模型：企业自有模型、行业专门模型与自然写作 05 实体落地背后的挑战与门槛 AI 解读 / 洞察 · 10-31 · 15分钟 · 作者 Y Combinator YC 想投的 11 个创业方向：AI 变</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 10 月 31 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">YC 想投的 11 个创业方向：AI 变强以后，还缺什么？ · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/yc-rfs-ai-real-economy/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>硬件与物理供应链：变压器、本土机器人与太空运力</span></a><a><span>02</span><span>制度约束与数据通道：隔离内网、公共福利与市政治理</span></a><a><span>03</span><span>资本与就业重塑：实体基建的金融工具与“15美元专家”</span></a><a><span>04</span><span>软件与模型：企业自有模型、行业专门模型与自然写作</span></a><a><span>05</span><span>实体落地背后的挑战与门槛</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>洞察</a><i>·</i>10-31<i>·</i>15分钟<i>·</i>作者 Y Combinator</div><h1>YC 想投的 11 个创业方向：AI 变强以后，还缺什么？</h1><p>从机器人零件、数据中心供电到福利申请与企业自有模型，YC 把新一轮创业机会指向让 AI 真正投入使用的缺口。</p><div><div>正文一页纸原文</div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Y Combinator</span><span>10-31 · 15分钟</span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>AI 能力进步后，落地仍会卡在硬件交付、资金、可信数据与业务流程上。</li><li>有些机会需要造零件、提供融资或打通系统，有些仍需要更专门、更会写作的模型。</li><li>企业自有智能的价值在持续积累业务经验；它可以与租用前沿模型并存。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/yc-rfs-ai-real-economy/social/zh-4abce7e165bb.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/yc-rfs-ai-real-economy/yc-winter-2027-rfs.jpg" alt="Y Combinator 发布的 Requests for Startups 标题图" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>创业孵化与早期投资机构 Y Combinator 发布的创业征集标题图。</span><br />原图标注 Winter 2027 Edition，与本次官网的征集版本一致。</figcaption>
+</figure>
+<p>创业孵化机构 Y Combinator（YC）发布了新一期创业方向征集（Requests for Startups，RFS），列出合伙人团队当前希望看到创业者攻克的方向；这些选题只占其实际投资的一小部分，不做这些方向也可以申请 YC。</p>
+<p>这期征集的核心判断是：<strong>AI 的瓶颈正在超出模型本身，向硬件、基础设施、金融系统和专用软件等现实需求扩展。</strong> 这并不是说模型本身不再需要改进，而是在实际落地中，决定技术能否进入产业的往往是外部配套条件。</p>
+<p>过去几年行业关注焦点多在模型参数和基准跑分上，但在真实的产业一线，技术落地正在遇到各种现实制约：数据中心变电站需要面对三年交期的变压器；保密内网由于物理隔离无法调用公有云 API；年创收数十万美元的机器人难以用现有抵押标准获取贷款；当 AI 能够快速生成虚假凭证时，政务福利系统仍需要人工核验材料。决定落地范围的，不仅取决于算法，还取决于现实中的供应链、电网、规章制度与资金链条。</p>
+<div>
+<h3>11 个方向，各自卡在哪里？</h3>
+<p>同样是 AI 创业，有的要补零件，有的要补资金、可信数据或业务能力。按领域筛选，比较要解决的问题与交付的东西。</p>
+<div>
+全部 11 项
+硬件与供应链
+政务与隔离部署
+资金与专业服务
+专门模型与表达
+</div>
+<p>显示全部 11 个方向</p>
+<div><span>创业方向</span><span>现实卡点</span><span>要做什么</span></div>
+<ol>
+<li><div><span>01</span><h4>太空新生意</h4><span>Ankit Gupta</span></div><p><span>现实卡点</span>把货物送上轨道太贵，一些生意难以成立。</p><div><p><span>要做什么</span>为更便宜、更频繁的发射运力设计产品与服务。</p><p>运费降百倍、年发射万次是文中预期场景。</p></div></li>
+<li><div><span>02</span><h4>AI 辅助的专业服务</h4><span>Brad Flora</span></div><p><span>现实卡点</span>许多专业任务需要受过训练、具备经验的人。</p><div><p><span>要做什么</span>让普通员工在 AI 辅助下处理咨询、理赔和文书工作。</p><p>“15 美元专家”是方向设想；专业资格要求仍须遵守。</p></div></li>
+<li><div><span>03</span><h4>美国机器人供应链</h4><span>Diana Hu</span></div><p><span>现实卡点</span>整机和关键零件依赖进口，组装无法解决全部供应问题。</p><div><p><span>要做什么</span>制造磁体、电机、减速器、传感器、夹爪及生产设备。</p><p>原文关注美国本土供应链，并非只征集整机公司。</p></div></li>
+<li><div><span>04</span><h4>更会写作的模型</h4><span>Jared Friedman</span></div><p><span>现实卡点</span>Jared Friedman 认为，代码能力进步时，文风反而变平。</p><div><p><span>要做什么</span>专注自然表达，让用户愿意阅读和交谈。</p><p>文风退化与奖励机制的关系是他的判断。</p></div></li>
+<li><div><span>05</span><h4>福利申请的可信数据</h4><span>Gustaf Alströmer</span></div><p><span>现实卡点</span>不同项目反复索要证明，人工核验仍难防伪造。</p><div><p><span>要做什么</span>经用户同意，从源头取收入、税务、居住记录供多个项目使用。</p><p>统一取数不等于各项目采用同一套资格规则。</p></div></li>
+<li><div><span>06</span><h4>实体 AI 的融资</h4><span>Brad Flora</span></div><p><span>现实卡点</span>机器、GPU 集群和机房需要先投入大量资金。</p><div><p><span>要做什么</span>提供贷款、租赁、证券化和价格风险对冲工具。</p><p>机器能否持续产生收入、资产如何变价，仍需评估。</p></div></li>
+<li><div><span>07</span><h4>垂直基础模型</h4><span>Diana Hu</span></div><p><span>现实卡点</span>制造、能源、生物等场景需要准确且便宜的专门预测与判断。</p><div><p><span>要做什么</span>用领域模型，以更少推理计算完成任务。</p><p>须有数据权利、可验证奖励，并胜过既有专门方案。</p></div></li>
+<li><div><span>08</span><h4>市政事务 AI</h4><span>Gustaf Alströmer</span></div><p><span>现实卡点</span>许可审批需核图、对规则、反复补件，等待会增加项目成本。</p><div><p><span>要做什么</span>从建筑许可切入，扩展到 311、公共记录、执照和检查。</p><p>年增 160 亿美元税收是审批提速的情景测算。</p></div></li>
+<li><div><span>09</span><h4>数据中心供应链</h4><span>Jared Friedman</span></div><p><span>现实卡点</span>增加 GPU 仍可能卡在变压器、开关设备、液冷与材料。</p><div><p><span>要做什么</span>解决供电、散热和上游制造的具体交付瓶颈。</p><p>交期与供需描述来自 Jared Friedman 的原文。</p></div></li>
+<li><div><span>10</span><h4>隔离网络里的 AI</h4><span>Brad Flora</span></div><p><span>现实卡点</span>部分客户要求系统不联网、数据不出现场，无法调用云 API。</p><div><p><span>要做什么</span>把模型、部署工具、安全认证和硬件送到客户场所。</p><p>离线推理要求模型也在现场运行，不能只把工具放本地。</p></div></li>
+<li><div><span>11</span><h4>企业自有模型</h4><span>Jon Xu</span></div><p><span>现实卡点</span>下载模型后，仍缺业务评测、训练数据和持续改进能力。</p><div><p><span>要做什么</span>把工作流、专家经验和失败案例沉淀为可迭代的专门模型。</p><p>企业可以同时租用前沿模型，不必全部改成自建。</p></div></li>
+</ol>
+<p>按 YC 本期原文整理，分组用于阅读比较。</p>
+</div>
+<h3>硬件与物理供应链：变压器、本土机器人与太空运力</h3>
+<p>AI 走向实体经济所面临的制约，首先表现在能源设施与机电制造等物理硬件层面。</p>
+<p>在 Jared Friedman 看来，当前的 AI 数据中心建设是美国历史上规模最大的资本投资项目，体量甚至超过当年的铁路、州际公路和曼哈顿工程的总和。大众对算力瓶颈的认知往往集中在芯片、电力供应以及熟练电工的短缺上，但在实际工程推进中，许多基础的电气设备同样构成了瓶颈。</p>
+<p>按照他的描述，变电站所需的大型电力变压器（Large power transformers）从下单到交付需要三年；用于高压保护的开关设备（switchgear）、断路器以及数据中心液冷设备普遍供货紧张；在原材料端，用于制造变压器铁芯的取向电工钢（grain-oriented electrical steel），在全美仅有一家工厂生产，难以满足现有需求。光靠算法无法变出钢铁与电缆，YC 希望支持能够参与数据中心供应链各个环节的创业公司。</p>
+<figure>
+<div><span>数据中心供应链</span><a href="https://www.ycombinator.com/people/jared-friedman">Jared Friedman</a><span>0:49 · 英文原片</span></div>
+<div>
+<img src="https://pic.xiaohu.ai/jiedu-media/yc-rfs-ai-real-economy/yc-speaker-datacenter.jpg" alt="Jared Friedman 的原视频画面" style="max-width:100%;height:auto;border-radius:8px;" />
+<span><span>▶</span> 播放讲解</span>
+</div>
+<figcaption>Jared Friedman 讲解「数据中心供应链」。<a href="https://www.youtube.com/watch?v=9EJM4LNMK0I">YouTube 原片 ↗</a></figcaption>
+</figure>
+<p>硬件层面的瓶颈同样出现在机器人领域。Diana Hu 指出，如今顶尖的机器人基础模型已开始展现出跨本体迁移技能的能力，算法瓶颈正向硬件端转移。</p>
+<p>据其引述的数据，2025 年美国安装了 38,400 台工业机器人，增长 12%，但美国使用的机器人多数仍从日本和欧洲进口。即使在本土完成总装的机器人也依赖外部零部件：2024 年中国制造了全球 94% 的烧结稀土永磁体，2025 年 4 月出口受限时部分车企一度受到影响。与此同时，政策端也提出了更高要求：Diana Hu 提到，美国联邦通信委员会（FCC）已暂停批准既非本土制造、也未获豁免的新型联网移动机器人；若要被认定为本土制造，零部件本土成本占比需超过 65%，并在 2029 年提升至 75%。基于这一背景，YC 希望资助在本土研发制造机器人及其供应链的团队，涵盖稀土永磁体、电机、谐波减速机（strain-wave gears）、编码器、力传感器（force sensors）、夹爪、芯片、电池组以及制造这些零部件的工业母机。</p>
+<figure>
+<div><span>美国机器人供应链</span><a href="https://www.ycombinator.com/people/diana-hu">Diana Hu</a><span>1:05 · 英文原片</span></div>
+<div>
+<img src="https://pic.xiaohu.ai/jiedu-media/yc-rfs-ai-real-economy/yc-speaker-robots.jpg" alt="Diana Hu 的原视频画面" style="max-width:100%;height:auto;border-radius:8px;" />
+<span><span>▶</span> 播放讲解</span>
+</div>
+<figcaption>Diana Hu 讲解「美国机器人供应链」。<a href="https://www.youtube.com/watch?v=7adYEc1XkEs">YouTube 原片 ↗</a></figcaption>
+</figure>
+<p>地面供应链之外，发射运力成本的变迁也在打开新的商业想象空间。Ankit Gupta 指出，SpaceX 预计未来每年可进行一万次星舰（Starship）发射。目前一次性使用的星舰发射成本已接近可回收的猎鹰 9 号，且每公斤载荷成本更低；随着星舰实现规模化与可重复使用，每公斤发射成本有望迎来大幅下降。</p>
+<p>在低成本运力这一前提下，面向充足太空运力的新公司开始具备探索价值。例如假设在发射成本下降 100 倍或更多、轨道经济起飞的情景下，一些在今天难以跑通的商业模式（如轨道制造或在轨服务）可能变得具备可行性。YC 认为创业者应当在运力成本实质性下降之前提前开展商业与技术探索。</p>
+<figure>
+<div><span>太空新生意</span><a href="https://www.ycombinator.com/people/ankit-gupta">Ankit Gupta</a><span>0:33 · 英文原片</span></div>
+<div>
+<img src="https://pic.xiaohu.ai/jiedu-media/yc-rfs-ai-real-economy/yc-speaker-space.jpg" alt="Ankit Gupta 的原视频画面" style="max-width:100%;height:auto;border-radius:8px;" />
+<span><span>▶</span> 播放讲解</span>
+</div>
+<figcaption>Ankit Gupta 讲解「太空新生意」。<a href="https://www.youtube.com/watch?v=e5W-7cggAg0">YouTube 原片 ↗</a></figcaption>
+</figure>
+<h3>制度约束与数据通道：隔离内网、公共福利与市政治理</h3>
+<p>除了物理制造与能源设施，在涉及安全、公共治理与民生保障的机构中，技术的落地同样受到制度与数据管道的制约。</p>
+<p>在许多核心机构与受监管行业中，数据的敏感性带来了严格的隔离要求。Brad Flora 指出，一些国防承包商、银行、医院和核电设施的客户要求核心数据留在隔离网络，无法发送给公有云的 AI API。许多面向企业客户的初创团队发现，客户即便认可产品能力，也必须要求整套系统完全部署在客户自身的机房内，在零外联的内网环境下独立运行。</p>
+<p>要将前沿模型引入这些隔离网络，创业公司需要提供完整的本地化交付方案，包括现场运行的模型（on-prem models）、部署工具、安全资质认证以及配套硬件。在调用时，模型直接在本地完成计算，无需与外部网络通信。在 YC 看来，这类业务虽然销售难度更大、推进节奏更慢，但通常对应着更充沛的客户预算和更强的业务防御性。</p>
+<figure>
+<div><span>隔离网络里的 AI</span><a href="https://www.ycombinator.com/people/brad-flora">Brad Flora</a><span>0:41 · 英文原片</span></div>
+<div>
+<img src="https://pic.xiaohu.ai/jiedu-media/yc-rfs-ai-real-economy/yc-speaker-airgap.jpg" alt="Brad Flora 的原视频画面" style="max-width:100%;height:auto;border-radius:8px;" />
+<span><span>▶</span> 播放讲解</span>
+</div>
+<figcaption>Brad Flora 讲解「隔离网络里的 AI」。<a href="https://www.youtube.com/watch?v=x21EgQzfZaM">YouTube 原片 ↗</a></figcaption>
+</figure>
+<p>在面向公众的福利体系中，数据碎片化与真实性核验则是主要堵点。申请医疗补助、食品券或住房补贴时，申请人往往需要在不同机构的独立系统里分别提交收入、同住人员和居住地址等证明；各机构系统互不相通，一旦缺少材料申请就会被退回，基层工作人员也需要手工核对工资单。与此同时，虚假材料也会带来严重损失。根据美国政府问责署（GAO）的估计，欺诈给联邦政府每年造成的总损失最高可达五千亿美元；而随着 AI 工具能迅速生成工资单等凭证，材料核验的难度进一步加大。</p>
+<p>借鉴金融科技领域通过 Plaid 实现银行账户安全连接的做法，Gustaf Alströmer 呼吁为政务福利搭建类似的数据通道：在用户授权的前提下，系统直接从税务、收入等权威源头提取经过验证的记录，并同时对接各个福利项目。这样一来，同一份由源头验证的数据可以复用到不同福利申请中，申请人无需反复上传材料，符合条件的人可以更快获批，同时也压缩了伪造空间。特别是在政策层面，从 2027 年起，各州必须每六个月重新审核数百万医疗补助（Medicaid）参保人员的资格，建立源头数据通道也是未来由 Agent协助处理申报与审核流程的必要前提。</p>
+<figure>
+<div><span>福利申请的可信数据</span><a href="https://www.ycombinator.com/people/gustaf-alstromer">Gustaf Alströmer</a><span>1:09 · 英文原片</span></div>
+<div>
+<img src="https://pic.xiaohu.ai/jiedu-media/yc-rfs-ai-real-economy/yc-speaker-benefits.jpg" alt="Gustaf Alströmer 的原视频画面" style="max-width:100%;height:auto;border-radius:8px;" />
+<span><span>▶</span> 播放讲解</span>
+</div>
+<figcaption>Gustaf Alströmer 讲解「福利申请的可信数据」。<a href="https://www.youtube.com/watch?v=3CDvfm9DYjw">YouTube 原片 ↗</a></figcaption>
+</figure>
+<p>在更广泛的城市治理中，繁杂的审批流程同样消耗大量时间。以建房或开业为例，申请人需要经历海量表格、规划审查、图纸会审和现场检查等多道手续，在一些审批效率较低的城市，等待许可证的时间甚至超过实际施工周期。由于比对区划规则、检查图纸与往返沟通占用大量人工，项目的延误往往大幅推高了资金与时间成本，有的项目因此根本没有建起来。</p>
+<p>Gustaf Alströmer 提出了由 AI 协助市政运作的方向，不仅覆盖建筑许可，还延伸到 311 市民热线、公共记录查询、营业执照和各类现场检查。合伙人团队做过一项情景测算：全美共有 19,000 座城市，如果建筑许可的审批耗时能压缩到现有时长的 10%（即等待时间缩短 90%），由于项目能更快建成并产生税收，各城市每年可能增加约 160 亿美元的房产税收。尽管传统观念认为向政府机构销售软件难度大、周期长，但 YC 已投资了数家向政府销售 AI 的公司；据其描述，其中一些公司的增长速度，在它所见的企业中都属于很快的。这是 YC 判断这一方向可行的实际业务依据。</p>
+<figure>
+<div><span>市政事务 AI</span><a href="https://www.ycombinator.com/people/gustaf-alstromer">Gustaf Alströmer</a><span>1:09 · 英文原片</span></div>
+<div>
+<img src="https://pic.xiaohu.ai/jiedu-media/yc-rfs-ai-real-economy/yc-speaker-city.jpg" alt="Gustaf Alströmer 的原视频画面" style="max-width:100%;height:auto;border-radius:8px;" />
+<span><span>▶</span> 播放讲解</span>
+</div>
+<figcaption>Gustaf Alströmer 讲解「市政事务 AI」。<a href="https://www.youtube.com/watch?v=VoSVN7H07-Q">YouTube 原片 ↗</a></figcaption>
+</figure>
+<h3>资本与就业重塑：实体基建的金融工具与“15美元专家”</h3>
+<p>当 AI 深度接入重资产设备与劳动力市场时，资金从何处来、员工如何在技术辅助下工作，成为不可回避的问题。</p>
+<p>在过去的纯软件创业中，启动成本相对较低；但机器人、GPU 集群和数据中心等重资产则截然不同，前期的硬件设备与算力设施需要巨额资金垫付。Brad Flora 指出，当前银行在评估机器人时，通常沿用传统叉车等通用设备的承销方式。但实际运营中，已有创业公司在设计专门针对一年能产生 50 万美元收入（earn $500k/year）的机器人的贷款机构，以及针对 GPU 算力容量的看跌期权（put options）。</p>
+<p>历史上铁路、电力与电信网络的铺设都伴随着庞大金融体系的诞生，物理 AI 的扩张同样需要贷款、租赁、资产证券化（securitization）与风险对冲工具。为了帮助理解这些工具在实际资金流中如何运作，可以设想一个简短例子：一家制造企业希望引入一批高产值智能设备，设备商需要垫付昂贵的硬件制造成本，制造企业也难以一次性拿出全款；贷款机构可以先借钱给制造企业，由企业买设备、分期还款；租赁公司则可以自己买下设备，让企业按月付租金使用。租赁方还可把未来租金的收款权打包成证券卖给投资人，提前回收部分资金，这就是资产证券化。投资人需要评估设备是否会闲置、客户能否按时付租。至于 GPU 产能，持有方可以购买看跌期权等工具对冲未来价格下降的风险。作为一种帮助理解的假设结算方式，可以设想按价差现金结算的看跌合约：GPU 产能持有方先向卖方支付期权费；若未来价格跌到合同规定条件，卖方按约定向持有方付款弥补部分损失。风险由合约另一方承接，并没有凭空消失。懂机器也懂资金的创业者，将在其中构建起新的金融支撑。</p>
+<figure>
+<div><span>实体 AI 的融资</span><a href="https://www.ycombinator.com/people/brad-flora">Brad Flora</a><span>0:42 · 英文原片</span></div>
+<div>
+<img src="https://pic.xiaohu.ai/jiedu-media/yc-rfs-ai-real-economy/yc-speaker-finance.jpg" alt="Brad Flora 的原视频画面" style="max-width:100%;height:auto;border-radius:8px;" />
+<span><span>▶</span> 播放讲解</span>
+</div>
+<figcaption>Brad Flora 讲解「实体 AI 的融资」。<a href="https://www.youtube.com/watch?v=KlHzPbZ6PNI">YouTube 原片 ↗</a></figcaption>
+</figure>
+<p>在设备资产化的同时，工作岗位的形态也在发生改变。外界关于 AI 对劳动力市场冲击的讨论往往聚焦于“工人被算法取代”，但 Brad Flora 更关注相反的方向：用 AI 将普通员工培养成专家。题目中的“15 美元”并非某项真实的薪酬统计数据，而是合伙人用来指代基础岗位员工的标题设想。</p>
+<p>在福利申请、税务处理、保险理赔、医疗账单以及移民文书等领域，存在大量繁复的案头工作。合伙人观察到，已有公司招聘头脑敏锐但缺乏专业资质证书的员工，借助 AI 工具辅助其完成以往需要专门资质人员处理的工作。他设想，一位善于沟通、也善于使用 AI 的客服代表，可以在 AI 辅助下参与复杂的并购咨询、供应链优化或全球贸易工作。上一次工业革命曾依托工厂岗位造就了庞大的中产阶级，YC 期待这一轮技术浪潮能够通过拓展专家型工作机会，再次催生新一代中产阶级。</p>
+<figure>
+<div><span>AI 辅助的专业服务</span><a href="https://www.ycombinator.com/people/brad-flora">Brad Flora</a><span>0:45 · 英文原片</span></div>
+<div>
+<img src="https://pic.xiaohu.ai/jiedu-media/yc-rfs-ai-real-economy/yc-speaker-expert.jpg" alt="Brad Flora 的原视频画面" style="max-width:100%;height:auto;border-radius:8px;" />
+<span><span>▶</span> 播放讲解</span>
+</div>
+<figcaption>Brad Flora 讲解「AI 辅助的专业服务」。<a href="https://www.youtube.com/watch?v=vaKVoWc3TtY">YouTube 原片 ↗</a></figcaption>
+</figure>
+<h3>软件与模型：企业自有模型、行业专门模型与自然写作</h3>
+<p>在企业内部的软件系统层面，企业使用智能的方式也在发生分化。</p>
+<p>过去大部分企业主要通过向公有云 API 发送数据来租用前沿模型。但在 Jon Xu 看来，随着开源模型在基准测试中展现出与顶尖前沿模型竞争的实力，加之严格数据治理和隔离基础设施让租用成本更高，越来越多企业倾向于拥有自主模型——在自己的环境中运行、用内部数据改进并自主决定变更节奏。不过这并不意味着企业会彻底放弃租用，更可能的是双轨并存：最棘手的问题继续租用前沿模型，同时拥有体现自身业务运转方式的专用模型。</p>
+<p>从下载开源模型到真正拥有能改善业务的智能，中间存在明显的工程落差，这构成了创业公司的切入机会。例如一家做企业理赔或审核的团队，可以先把模糊的业务流程转化为评测集（evals）——即用一批真实业务题目作为测试集，以此检查模型的判断结果到底对不对；随后把业务专家的处理经验提炼为高质量训练数据来微调模型；当模型在实际生产运行中出现失误或判定偏差时，再把这些具体失败案例补充进题库和训练集来修正表现；日后即便底层开源基础模型更新换代，企业也能凭借这套业务题库与经验资产快速迁移，让专用模型随着业务运转持续沉淀价值。</p>
+<figure>
+<div><span>企业自有模型</span><a href="https://www.ycombinator.com/people/jon-xu">Jon Xu</a><span>1:29 · 英文原片</span></div>
+<div>
+<img src="https://pic.xiaohu.ai/jiedu-media/yc-rfs-ai-real-economy/yc-speaker-owned.jpg" alt="Jon Xu 的原视频画面" style="max-width:100%;height:auto;border-radius:8px;" />
+<span><span>▶</span> 播放讲解</span>
+</div>
+<figcaption>Jon Xu 讲解「企业自有模型」。<a href="https://www.youtube.com/watch?v=DzblM1Mc-J8">YouTube 原片 ↗</a></figcaption>
+</figure>
+<p>除了企业内部的专门模型，Diana Hu 认为制造、能源和生物等领域需要更多垂直基础模型，只需要少量示例、甚至不需要当前任务的示例，就能完成新任务。例如初创工具 Jev 受关注的原因在于它直接为开发者返回有明确输出类型的决策与概率，而不是生成自然语言文本，开发者也无需为每个任务重新训练分类器。不过结构化输出本身并不等同于决策必定正确，核心仍在模型的实际判别能力。</p>
+<p>在预测领域，Google 推出的 TimesFM-3 展示了垂直模型的另一种形态：这个 3.3 亿参数（330M）的模型无需针对具体任务进行专属微调，就能在单次前向传播中同时预测多条相关的时序数据，用户只需把自身历史数据作为上下文输入。YC 为这一方向设定的目标是：达到或超过通用模型的效果，同时让推理计算量降低几个数量级。要建立这类垂直模型，门槛不仅在于获取专有数据的使用权，更在于为训练提供垂直领域内高质量、能检验对错的奖励反馈（verifiable rewards），并在准确率和推理计算成本上相对既有专门模型取得明确优势，让模型足够轻量、便宜，以便嵌入各类运行环境。</p>
+<figure>
+<div><span>行业专门模型</span><a href="https://www.ycombinator.com/people/diana-hu">Diana Hu</a><span>1:05 · 英文原片</span></div>
+<div>
+<img src="https://pic.xiaohu.ai/jiedu-media/yc-rfs-ai-real-economy/yc-speaker-vertical.jpg" alt="Diana Hu 的原视频画面" style="max-width:100%;height:auto;border-radius:8px;" />
+<span><span>▶</span> 播放讲解</span>
+</div>
+<figcaption>Diana Hu 讲解「行业专门模型」。<a href="https://www.youtube.com/watch?v=LI9NqE2iIqg">YouTube 原片 ↗</a></figcaption>
+</figure>
+<p>而在语言表达层面，Jared Friedman 提出了一个观察：随着大模型在编程和数学能力上不断提升，其文字写作水平反而有所退化，听起来比 2024 年和 2025 年的模型更加机械。他认为这并非暂时的偶然故障，而是一个结构性取舍：促使模型提升代码能力的奖励信号，会主动抹平语言的文风与语调。</p>
+<p>在他看来，当主流实验室面临取舍时，资源通常会优先倾斜给代码与 Agent 工作流，而牺牲写作风格。这种取舍正好留出了一片市场空白——让专注于打造文风自然、人们真正乐意与之交流的模型的创业公司，找到了独特的立足点。</p>
+<figure>
+<div><span>更会写作的模型</span><a href="https://www.ycombinator.com/people/jared-friedman">Jared Friedman</a><span>0:33 · 英文原片</span></div>
+<div>
+<img src="https://pic.xiaohu.ai/jiedu-media/yc-rfs-ai-real-economy/yc-speaker-writing.jpg" alt="Jared Friedman 的原视频画面" style="max-width:100%;height:auto;border-radius:8px;" />
+<span><span>▶</span> 播放讲解</span>
+</div>
+<figcaption>Jared Friedman 讲解「更会写作的模型」。<a href="https://www.youtube.com/watch?v=674Efd5Scfg">YouTube 原片 ↗</a></figcaption>
+</figure>
+<h3>实体落地背后的挑战与门槛</h3>
+<p>把这 11 个独立方向汇总在一起，YC 传递出的共通信号非常明确：智能的瓶颈正在从纯模型本身延伸至电力装备、制造供应链、政务通道、金融工具和专用企业软件等一系列实体承接环节。</p>
+<p>但这些方向被列入清单，绝不意味着它们是能够轻易赚钱的商业捷径。相反，每一个方向都伴随着相当棘手的交付难点与现实约束：</p>
+<ul>
+<li>基础模型依然需要在推理成本、特定领域准确度和风格表达上持续改进；</li>
+<li>涉足电网设备与机器人供应链，需要面对漫长的硬件开发周期、重资产投入以及严格的本土合规门槛；</li>
+<li>走向隔离内网与市政政务，必须适应流程冗长、合规严苛且定制化要求极高的采购环境；</li>
+<li>围绕新型实体资产设计金融产品，也需要精准平衡未来算力折旧与现金流波动的风险。</li>
+</ul>
+<p>这 11 个课题所勾勒的，不是模型已经足够完美、只需简单套壳的乐观叙事，而是一幅真实技术落地必须克服的工程与商业拼图。</p>
+</div><div><div><div>来源</div><div><span>Requests for Startups — Winter 2027</span><span>Y Combinator<span>·</span><a href="https://www.ycombinator.com/rfs">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/ycombinator/status/2115118926468452499">AI 瓶颈正在扩展到模型之外：YC 主帖</a><span>·</span><a href="https://rulebook.sgx.com/rulebook/433-cash-settled-put-option-contract">Cash Settled Put Option Contract：现金结算看跌期权的付款机制</a></div></div></div></div></div><div>
+<div>YC REQUESTS FOR STARTUPS · WINTER 2027</div>
+<h1>YC 想投的 11 个创业方向：AI 变强以后，还缺什么？</h1>
+<div>从机器人零件、数据中心供电到福利申请与企业自有模型，YC 把新一轮创业机会指向让 AI 真正投入使用的缺口。</div>
+<div>按 YC Winter 2027 创业征集整理 · 四组方向与两处机制说明</div>
+<div>
+<p>YC（Y Combinator）是创业投资与孵化机构。本期征集列出合伙人希望看到的探索方向，只占其实际投资的一小部分，不做这些方向也可申请。过去几年行业关注焦点多在模型参数和基准跑分上，但在真实的产业一线，技术落地正在遇到各种现实制约。这期征集的核心判断是：<strong>AI 的瓶颈正在超出模型本身，向硬件、基础设施、金融系统和专用软件等现实需求扩展。</strong> 这并不是说模型本身不再需要改进，而是在实际落地中，决定技术能否进入产业的往往是外部配套条件。光靠算法无法变出钢铁与电缆。这些机会分布在不同环节：有些要造零件，有些要打通数据、提供资金或改进模型。</p>
+<div>
+<div>
+<div>瓶颈 → 创业交付</div>
+<div>瓶颈分流对照：落地遇到哪类瓶颈，对应交付什么</div>
+<div>AI 并非万能钥匙，落地受阻时需对症下药。创业团队的核心价值在于针对具体产业瓶颈提供切实可交付物：</div>
+</div>
+<div>
+<div>
+<div>物理机电</div>
+<div>
+<div>物理与电网约束 → 重电装备与本土供应链</div>
+<div>变压器三年交付、取向电工钢全美单厂生产、移动机器人本土制造合规与高昂太空运力；对应交付重电制造装备、本土机电零部件与在轨商业探索。</div>
+</div>
+</div>
+<div>
+<div>制度准入</div>
+<div>
+<div>制度与安全通道 → 隔离模型与可信数据通道</div>
+<div>部分国防、银行等客户的网络隔离要求、政务福利跨部门证明繁复及伪造隐患、市政审批繁杂；对应交付零外联现场运行模型、源头认证数据管道与市政流程智能辅助。</div>
+</div>
+</div>
+<div>
+<div>资本支撑</div>
+<div>
+<div>重资产资金与服务模式 → 专属信贷、证券化与专业辅助</div>
+<div>智能设备缺乏专门信贷、算力价格波动、专业案头工作门槛高；对应交付基于产值现金流的专项借贷、设备租赁证券化、价格对冲合约以及赋能基层员工的专业服务工具。</div>
+</div>
+</div>
+<div>
+<div>软件模型</div>
+<div>
+<div>软件适配与专门模型 → 企业自有模型与垂直模型</div>
+<div>企业数据治理与自主掌控诉求、特定任务的推理成本较高、Jared Friedman 认为偏重代码能力的训练让文风变平；对应交付深度结合业务题库的企业自有模型（与云端租用并存）、低推理成本的垂直基础模型以及自然风格的交流模型。</div>
+</div>
+</div>
+</div>
+<div>模型本身在推理成本、准确率与文风上仍需改进；供应链、数据通道和资金配套也会影响 AI 能否落地。</div>
+</div>
+</div>
+<div>
+<h2>11 个创业方向全景：按四大领域归纳的落地机会</h2>
+<p>为方便阅读，下列 11 个方向分成四组，各自对应不同的任务与交付。</p>
+<div>
+<div>
+<div>
+<span>物理制造</span>
+<span>硬件与物理供应链</span>
+</div>
+<ul>
+<li><strong>数据中心供应链</strong>：按照 Jared Friedman 的描述，大型变压器交付需三年，全美仅一家工厂生产铁芯电工钢，亟需创业团队参与电气各环节。</li>
+<li><strong>美国机器人供应链</strong>：Diana Hu 引述美国联网移动机器人本土制造合规条件，指出稀土永磁体、电机、减速机与传感器存在本土研发制造机会。</li>
+<li><strong>太空新生意</strong>：在星舰规模化与发射成本大幅下降（如设想降本百倍）的前提下，探索轨道制造与在轨商业。</li>
+</ul>
+</div>
+<div>
+<div>
+<span>规章政务</span>
+<span>制度约束与政务通道</span>
+</div>
+<ul>
+<li><strong>隔离网络 AI</strong>：为国防、银行、医院及核电等零外联内网客户提供现场运行的模型、硬件与部署方案。</li>
+<li><strong>福利可信数据</strong>：搭建类似 Plaid 的源头数据管道，复用经认证的税务与收入数据，减少重复提交与伪造漏洞。</li>
+<li><strong>市政 AI</strong>：协助城市处理建筑许可审查、311 热线与执照审批；情景测算显示若将全美审批等待缩短 90%，或可增加约 160 亿美元房产税收。</li>
+</ul>
+</div>
+<div>
+<div>
+<span>金融服务</span>
+<span>资本支撑与专业服务</span>
+</div>
+<ul>
+<li><strong>实体资产金融工具</strong>：针对高产值智能设备与算力容量，设计专属信贷、租赁证券化与价格对冲工具。</li>
+<li><strong>AI 辅助专业服务</strong>：用 AI 辅助普通员工处理复杂案头工作；“15 美元专家”是 Brad Flora 提出的方向设想。</li>
+</ul>
+</div>
+<div>
+<div>
+<span>模型软件</span>
+<span>软件系统与专门模型</span>
+</div>
+<ul>
+<li><strong>企业自有模型</strong>：在内部环境中运行，结合真实业务题库与经验资产持续沉淀专用智能，与公有云租用并存。</li>
+<li><strong>垂直基础模型</strong>：针对制造、生物与时序预测等任务，用领域数据与能检验对错的奖励训练模型，并验证准确率和推理成本优势。</li>
+<li><strong>更会写作的模型</strong>：Jared Friedman 认为部分模型的文风变得机械，机会在更自然的写作与交流体验。</li>
+</ul>
+</div>
+</div>
+</div>
+<div>
+<h2>实体资产的金融支撑：三类工具的资金流向与风险分担</h2>
+<p>智能设备与算力集群属于重资产，前期硬件投入沉重。传统商业银行往往沿用通用设备旧标准评估，制约了高产值设备的融资。合伙人指出物理 AI 扩张需要匹配新的金融工具。通过简化的资金流示意，可以看清钱从哪里来、风险由谁承接：</p>
+<div>
+<div>
+<div>购机专属贷款</div>
+<div><strong>钱流走向</strong>：银行借钱给制造企业，由企业买入设备并分期还款。原文提及已有创业公司针对一年能产生 50 万美元收入的机器人探索专门贷款业务。</div>
+<div><strong>风险承担</strong>：企业能否持续经营、设备是否闲置和客户能否还款，仍需评估。</div>
+</div>
+<div>
+<div>设备租赁与证券化</div>
+<div><strong>钱流走向</strong>：租赁公司出资买下设备，制造企业按月付租金使用；租赁方可把未来租金的收款权打包成证券卖给投资人，提前回收部分资金。</div>
+<div><strong>风险承担</strong>：投资人仍需评估设备闲置、客户能否按时付租等现金流风险。</div>
+</div>
+<div>
+<div>算力对冲（假设示例）</div>
+<div><strong>钱流走向</strong>：作为帮助理解的假设现金结算示例，GPU 产能持有方先向卖方支付期权费；若未来算力价格跌破约定条件，卖方按约定向持有方付款，弥补部分损失。</div>
+<div><strong>风险承担</strong>：原文未给出具体统一合约；风险由交易对手方承接，并未凭空消失。</div>
+</div>
+</div>
+</div>
+<div>
+<h2>企业专属模型演进：用业务题库沉淀核心经验</h2>
+<p>企业使用前沿智能正走向“公有云租用”与“内部自主拥有”双轨并存：最棘手问题继续调用公有云前沿 API，同时在自身环境中掌控体现企业运转方式的专用模型。从开源模型到真正改善业务，核心在于把业务专长转化为持续评测与微调资产：</p>
+<div>
+<div>
+<div>1</div>
+<div><strong>建立真实业务题库（Evals）：</strong>先把模糊的业务流程转化为评测集——即用一批真实的业务题目作为测试集，以此检查模型在具体业务中的判断结果到底对不对。</div>
+</div>
+<div>↓</div>
+<div>
+<div>2</div>
+<div><strong>提炼专家经验微调：</strong>把资深业务人员的实际处理经验提炼为高质量训练数据，针对垂直任务微调开源基础模型。</div>
+</div>
+<div>↓</div>
+<div>
+<div>3</div>
+<div><strong>生产失误案例回补：</strong>当模型在实际生产运行中出现失误或判定偏差时，把这些具体失败案例补充进题库和训练集来修正表现；日后底层开源模型升级换代，企业也能凭借这套业务题库与经验资产快速迁移。</div>
+</div>
+<p>↺ 回到业务题库检验，把失误变成下一轮改进的材料。</p></div>
+</div>
+<div>
+<div>落地启示与现实挑战：不是捷径，而是慢速工程拼图</div>
+<div>这 11 个独立方向所勾勒的不是模型已经足够完美、只需简单套壳的商业捷径，而是一幅真实技术落地必须克服的工程与商业拼图：
+- 基础模型依然需要在推理成本、特定领域准确度和风格表达上持续改进；
+- 涉足电网设备与机器人供应链，需要面对漫长的硬件开发周期、重资产投入以及严格的本土制造门槛；
+- 走向隔离内网与市政政务，必须适应流程冗长、合规严苛且定制化要求极高的采购环境；
+- 围绕新型实体资产设计金融产品，也需要精准平衡未来算力折旧与现金流波动的风险。</div>
+</div>
+</div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://www.ycombinator.com/rfs">看原网页 ↗</a></p></div><div></div><div><div><h1>Requests for Startups | Y Combinator</h1></div><div><p>Y Combinator is looking for startups working on these ideas. If you're working on something we're interested in, we'd love to hear from you.</p></div><div><p>RFS is our tradition of sharing ideas we'd like to see founders tackle. These represent just a fraction of what we fund — if one excites you, take it as extra validation to dive in, but you don't need to work on these ideas to apply to YC.</p></div><div><h2>Winter 2027</h2></div><div><p>AI's biggest bottlenecks are moving beyond the models. We're excited about a new wave of startups building the hardware, infrastructure, financial systems, and specialized software needed to bring intelligence into the real economy, from factories and data centers to government and space.</p></div><div><h3>Startups in a World of Abundant Space Access</h3></div><div><p>By <a href="https://www.ycombinator.com/people/ankit-gupta">Ankit Gupta</a></p></div><div><figure><div></div></figure></div><div><p>SpaceX is projecting a near future in which there will be 10,000 Starship launches per year. Already, an expendable Starship is almost as cheap as a <strong>reusable</strong> Falcon 9 and much lower cost per kilogram. As Starship scales and becomes reusable, we are going to see several orders of magnitude reduction in launch costs per kg. This means it's now time to think about startups for a world of abundant space access. What business models maybe don't quite work today but could work when launch costs fall 100x or more, and the orbital economy takes off? We think those companies should be started now, and if you're a builder with an idea for one, we'd love to see you apply.</p></div><div><figure><div></div></figure></div><div><p>Most people talk about AI replacing workers. We're excited about the opposite: AI that turns an ordinary worker into an expert. We're seeing companies hire smart people without credentials, back them with AI, and have them do work that used to need specialists. Imagine a really good customer service rep who's also really good at using AI suddenly able to consult on complicated mergers and acquisitions, supply chain optimization, or global trade. There are millions of jobs like this in benefits, taxes, insurance claims, medical billing, and immigration paperwork. Anywhere a credential is the bottleneck, this model works. The last industrial revolution built a middle class out of factory jobs. This one could build it out of expert jobs. We want to fund the companies that do it.</p></div><div><figure><div></div></figure></div><div><p>The best robot foundation models are starting to transfer skills from one robot to another, and I think the bottleneck is moving to the hardware. The U.S. installed 38,400 industrial robots in 2025, up 12 percent, but most robots here are still imported from Japan and Europe. Even the ones assembled here can depend on Chinese magnets. China made 94 percent of the world's sintered rare-earth magnets in 2024, and when it restricted exports in April 2025, some automakers had to cut production. In July, the FCC stopped authorizing new models of connected mobile robots unless they're made here or get an exemption. To count, more than 65 percent of a robot's component cost has to be domestic, rising to 75 percent in 2029. Assembling imported parts won't get you there. We want to fund founders building robots and their supply chain here: rare-earth magnets, motors, strain-wave gears, encoders, force sensors, grippers, chips, battery packs, and the machines that make them. If you're building this, we'd love to talk.</p></div><div><figure><div></div></figure></div><div><p>As LLMs have gotten better at coding and math, they've actually gotten worse at writing. You're not just imagining it: the current models really do sound more robotic than the models from 2024 and 2025. This appears to be not just a temporary glitch, but a structural issue. The same reward signals that make models good at code actively flatten voice and style. If forced to choose, the major labs will always choose to focus on coding and agentic workflows over style. This has left an opportunity open for a startup that cares about producing a model that people like talking to. So if this is something you'd like to work on, we'd love to hear from you.</p></div><div><figure><div></div></figure></div><div><p>If you've ever applied for government benefits, you know how it works. Prove your income. Prove who lives with you. Prove where you live. Then do it all again for the next program, and again at renewal. Every agency has its own portal, and none of them share data. People get rejected over a missing document. Government workers check pay stubs by hand. The same system that keeps honest people out also lets fraud in. The Government Accountability Office estimates fraud costs the federal government up to half a trillion dollars a year. Now AI can forge a pay stub in seconds. Before Plaid, every fintech app built its own bank connections. After Plaid, all it took was one tap. The government needs the same layer. With your consent, it pulls verified income, tax, and residency records straight from the source, into every program at once. Verify once, apply everywhere. The right people get approved faster, and fraudsters have nothing to fake. Starting in 2027, states must re-check millions of Medicaid enrollees every six months. And soon AI agents will handle enrollment, but only if they can trust the data. Whoever builds these pipes will own the infrastructure for our safety nets. If you're building this, we'd love to hear from you.</p></div><div><h3>Wall Street for the Physical Buildout</h3></div><div><p>By <a href="https://www.ycombinator.com/people/brad-flora">Brad Flora</a></p></div><div><figure><div></div></figure></div><div><p>Software is cheap to start. Robots, GPU clusters, and data centers aren't. Somebody has to pay for all that steel and silicon up front, and the financing mostly doesn't exist yet. Today, banks underwrite a robot like a forklift. Founders we work with are inventing the instruments themselves, like a lender for robots that each earn $500k/year and put options on GPU capacity. Every great buildout, from railroads to electricity to telecom, created giant financial companies alongside it. We want founders building lenders, leasing companies, securitization, and hedges for the physical AI economy. If you understand both the machines and the money, we'd love to talk.</p></div><div><figure><div></div></figure></div><div><p>I think Jev hit a nerve because it gives developers a typed decision and a probability instead of generated text, without training a classifier for every task. I'd like to see more research labs build specialized foundation models for manufacturing, energy, and biology that work zero-shot or from a handful of examples. The bar is matching or beating general-purpose models at orders of magnitude less inference compute, so they're cheap enough to run on everything. For example, Google's TimesFM-3 shows what this looks like for forecasting. It's a 330M-parameter model that forecasts related time series at once with no task-specific fine-tuning and outputs the whole forecast in one forward pass. Training happens once, and each new user brings their own history as context. The hard part is getting high-quality, vertical-specific, verifiable rewards. You'll need rights to the data and a clear win in accuracy and compute over existing specialist models. If you know a field well enough to build its model, we'd like to hear from you.</p></div><div><figure><div></div></figure></div><div><p>If you want to build a house or start a business in America, you first need permission from your city. Forms, plan reviews, inspections, and many months of waiting. In some cities, getting the permit takes longer than building the house. City staff are buried in repetitive work: checking drawings against the code, matching applications to zoning rules, sending corrections back and forth. AI models can do all of this. And the delay really matters. Every month of waiting makes projects more expensive, and some just never get built. Every new building pays property tax for decades. We did some math: if all building permits in America were approved in 10% of the current time, US cities would make $16 billion a year in additional tax revenue. We want to fund companies that let AI help run City Hall. Start with permits, but also take on 311, public records, licensing, and inspections. There are 19,000 cities in America, and almost all of them still do all this by hand. The conventional wisdom says you can't sell software to government. That used to be true. It isn't anymore. YC has funded several companies selling AI to government, and some of them are growing faster than almost anything else we've seen. If you're building this, we'd love to hear from you.</p></div><div><figure><div></div></figure></div><div><p>The AI data center buildout is the largest capital investment project in American history - bigger than the railroads, the highways, and the Manhattan Project - combined. A buildout that large creates opportunities up and down the supply chain. Some of them are famous - everyone knows that there's unprecedented demand for GPUs, electrical power, and skilled electricians. There are also many non-obvious bottlenecks. Large power transformers have a three-year lead time. Switchgear, circuit breakers, and liquid cooling equipment are all sold out. Even raw materials are under pressure: the grain-oriented electrical steel that's used in transformer cores is made in only a single plant in the US, and they're unable to keep up. We're interested in funding companies that are enabling every aspect of the data center supply chain. If that's something you're working on, we'd love to hear from you.</p></div><div><figure><div></div></figure></div><div><p>The most valuable data in the world isn't in the cloud. Defense contractors, banks, hospitals, and nuclear plants keep it behind walls, and they can't send it to an AI API. That's why so much of the economy is still waiting on AI. Founders we work with keep hitting the same wall: the customer loves the product and wants it running entirely inside their own building, with no internet connection. We want to fund the companies that bring frontier AI inside those walls. That means on-prem models, deployment tooling, security accreditation, and hardware. It's slower and harder to sell. It's also where the largest budgets and the most defensible companies are. If you're building this, we'd love to talk.</p></div><div><h3>Own Your Intelligence</h3></div><div><p>By <a href="https://www.ycombinator.com/people/jon-xu">Jon Xu</a></p></div><div><figure><div></div></figure></div><div><p>Today, nearly every company building with AI rents its intelligence. You send tokens to a frontier lab, get answers back, and pay the bill. That was an easy trade when the best models were years ahead of everything else, and nothing you did with your own data could close the gap. That has changed. Open-weight models are now competitive with the top frontier models on meaningful benchmarks. And as AI moves to the center of how businesses run, companies have become more aware of their dependency on model rental. We think more companies will want to own the models they rely on: improve them on their own data, run them where they choose, and decide for themselves when they change. This matters most in regulated industries, where strict data governance and locked-down infrastructure make renting even more expensive for the performance they get. But there's still a big gap between downloading an open model and owning intelligence that improves a business. Someone has to turn workflows into evals, expertise into training data, production failures into improvements, and carry all of it forward with each new base model. Companies will keep renting frontier intelligence for their hardest problems, but we think many will also own specialized models that encode how their business works and that become more valuable as the business learns. If you're helping companies own their intelligence, we want to hear from you.</p></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://www.ycombinator.com/rfs">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Canva 发布专门的设计编辑与视觉语言模型 Brush：一句话修改整套设计，文字和图片还能接着改 · XiaoHu.AI</title>
 <link>https://xiaohu.ai/article/canva-brush-design-model/</link>
@@ -64565,352 +65997,6 @@ python scripts/run_demo.py retail --all
 </ol>
 <figcaption>七条原则共同推动一条循环：任务负责出题，反馈负责纠错，提取负责验收，连接负责积累。</figcaption>
 </figure></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Google Research 发布时间序列基础模型 TimesFM-3 可以预测未来</title>
-<link>https://best.xiaohu.ai/article/timesfm-3-zero-shot-multivariate/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:timesfm-3-zero-shot-multivariate</guid>
-<pubDate>Wed, 02 Sep 2026 12:00:25 +0000</pubDate>
-<description>它预测的不是抽象事件，而是由多条时间曲线和未来已知计划共同决定的数值：销量、客流、负载、价格，以及这些变化的不确定性。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 2 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Google Research 发布时间序列基础模型 TimesFM-3 可以预测未来</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/timesfm-3-zero-shot-multivariate/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><div>研究解读 · 小互解读</div><h1>Google Research 发布时间序列基础模型 TimesFM-3 可以预测未来</h1><p>它预测的不是抽象事件，而是由多条时间曲线和未来已知计划共同决定的数值：销量、客流、负载、价格，以及这些变化的不确定性。</p><div><div>一分钟速览</div><ul><li>TimesFM-3 用 3.3 亿参数和超过 1 万亿个训练时间点，原生支持多个目标、历史协变量和未来已知协变量。</li><li>模型把时间和变量组织成二维网格，交替沿两个方向交换信息，再用一次前向计算生成整个预测区间和 9 个分位数。</li><li>官方报告它在 GIFT-Eval、FEV-Bench、TIME 的点预测和概率预测平均排名上都居首，但平均榜单不能替代业务回测。</li><li>代码已开放，3.0 默认预训练权重当前仅限非商业、非生产用途。</li></ul></div><div><p>Google Research 发布时间序列基础模型 TimesFM-3。这是 TimesFM 系列第一次原生面向多变量预测的版本：模型可以同时预测多条相互影响的时间序列，还能把客流、天气、促销、节假日等外部信息一起纳入判断。</p><p>理论上讲，这意味着它可以预测未来。这里的“未来”指销量、客流、设备负载、价格等随时间变化的数值，不是预测任何开放事件。当结果取决于多条共同变化的曲线和已经知道的未来计划时，能否用一个无需任务专门微调的通用模型直接完成预测？TimesFM-3 给出的答案是，把时间和变量组织成一张二维网格，在网格的两个方向上轮流交换信息。</p></div><div><h2>1. 突破单变量限制，走向真实多变量预测</h2><p><strong>之前的痛点：</strong> TimesFM-2.5 的基础模型主要根据单条目标序列的历史数据预测未来。现实预测却很少只取决于一条曲线。预测下个月的冰淇淋销量，不仅要看过去的销量，还要结合甜筒和糖浆销量、历史客流、天气预报、促销排期和节假日。</p><p>TimesFM-2.5 后来可以通过 XReg 接入协变量，但这和 TimesFM-3 的原生多变量能力不同：前者是在单变量基础模型之外加入外部回归，后者从预训练阶段就学习多条目标序列和协变量怎样共同变化。</p><p><strong>现在的能力：</strong> TimesFM-3 拥有 3.3 亿参数，使用超过 1 万亿个真实与合成时间点预训练。它支持零样本预测，不需要针对当前任务专门微调，就能直接接收三类数据：</p><ul>
-<li><strong>多个目标：</strong> 同时预测多条相互影响的时间序列，例如不同品牌、门店或品类的销量。</li>
-<li><strong>历史协变量：</strong> 只在过去已知的信息，例如历史客流量和设备状态。</li>
-<li><strong>未来已知协变量：</strong> 从历史延伸到预测期的信息，例如已经排定的促销、节假日和当下可获得的天气预报。</li>
-</ul><figure>
-<div>
-<div>
-<span>角色</span>
-<span>预测期是否已知</span>
-<span>冰淇淋例子</span>
-</div>
-<div>
-<strong>多个目标</strong>
-<span>未知，要共同预测</span>
-<span>多个品牌或多家门店销量</span>
-</div>
-<div>
-<strong>历史协变量</strong>
-<span>只知道历史</span>
-<span>过去的客流或库存</span>
-</div>
-<div>
-<strong>未来协变量</strong>
-<span>历史和未来都知道</span>
-<span>促销排期、节假日、天气预报</span>
-</div>
-</div>
-<figcaption>三类输入的分界来自信息在做出预测时是否可用。</figcaption>
-</figure><p>“未来已知”不等于预知。节假日和促销排期可以提前确定，天气预报本身却带有误差；模型得到的是做出预测时已经可用的信息。零样本也只表示不用为当前门店、设备或业务序列重新训练模型，数据清洗、变量选择、时间对齐和回测依然要做。</p></div><div><h2>2. 把时间和变量组织成一张二维网格</h2><p>多变量不是把几列数据简单拼在一起。直接把每一个时间点都送进 Transformer，序列一长，计算量会迅速上升。TimesFM-3 沿用 TimesFM 的做法，把连续 32 个时间点打成一个 patch，再把每个 patch 编码成 token。不同量纲的序列还会分别归一化，避免几百元的销量和 0 到 1 的开关变量仅因数值范围不同而失衡。</p><p>目标序列和只知过去的协变量，每个 token 对应一个普通 patch。未来也已知的协变量多了一步“向前看”：它把当前 patch 和后面的未来 patch 拼在一起。这样，当模型处理某个时间位置时，已经能看到预测期内排定的促销或节假日。</p><figure>
-<div>
-<span>横向：只看本序列过去</span>
-<span>纵向：读取同一时刻其他序列</span>
-</div>
-<img />
-<figcaption>Google Research 原始架构图。蓝色是目标序列，紫色是历史协变量，绿色是未来已知协变量；黄色区域是预测期。</figcaption>
-</figure><p>进入主干后，注意力在两个方向上交替进行。</p><ul>
-<li>沿时间轴，每条序列只看自己的过去。这是因果注意力，用来学习趋势、周期和此前发生的变化，同时阻止目标序列偷看到未来真实值。</li>
-<li>沿变量轴，同一个时间位置可以查看其他序列。冰淇淋销量可以参考甜筒销量，门店销量可以参考客流，目标序列也能读取促销和天气等协变量。</li>
-</ul><p>横向负责“这条曲线过去怎样演化”，纵向负责“同一时刻其他曲线发生了什么”。多层交替之后，模型得到的已经不再是几条各自独立的曲线，而是一组随时间共同变化的关系。</p><p>这也解释了多变量模式为什么可能比单变量模式更准：提升来自额外信息和跨序列关系。若几条序列没有稳定关联，或未来协变量本身不可靠，多变量输入不会自动带来收益。</p></div><div><h2>3. 一次前向计算，直接生成整个预测区间</h2><p>以前的 TimesFM 会先预测一个 patch，再把结果接回输入继续预测下一个 patch。预测期越长，循环次数越多，延迟和计算成本随之增加，前面产生的误差也可能进入后续预测。</p><p>TimesFM-3 借用了连续 patch 遮蔽的思路，把整个预测区间一开始就放进模型：</p><ol>
-<li>未来目标值和只知过去的协变量都换成遮蔽占位符，因为它们的未来值未知。</li>
-<li>节假日、促销计划等未来已知协变量保持可见。</li>
-<li>时间注意力和变量注意力在同一张网格上处理历史区和预测区。</li>
-<li>模型一次填出全部目标序列在整个预测区间的结果。</li>
-</ol><p>官方 PyTorch 实现会把用户请求的预测长度补齐到输出 patch 的整数倍，再调用一次 <code>model.decode()</code>，最后裁掉多余位置。这个“一次”说的是模型前向过程，不代表计算量与预测长度无关；预测区间越长，送进同一次计算的 token 仍然越多。</p><p>输出也不只是一条看似确定的线。TimesFM-3 为每个目标、每个未来时点给出从第 10 百分位到第 90 百分位的 9 个分位数。中位数可以作为点预测，较低和较高分位数构成一组不确定性区间。预测期越远或信号越不稳定，区间通常会更宽。</p></div><div><h2>4. 把已经知道的未来计划带进预测</h2><p>Google 用一个合成的冰淇淋销量案例演示这套机制。红线代表只看历史销量的单变量预测，它主要延续每周起伏。蓝线额外读取了未来促销日，因此在排定促销的日期主动抬高销量预测。</p><figure>
-<div>
-<div>
-<span>交互实验</span>
-<strong>让模型看见未来促销计划</strong>
-<p>切换输入条件，观察同一段预测期里的曲线响应。</p>
-</div>
-<div>
-只看销量历史
-加入未来促销计划
-</div>
-<div>
-让模型看见未来促销计划
-机制演示：曲线使用标准化示意值，不调用 TimesFM-3，也不生成真实业务预测。
-历史
-预测期
-未来
-标准化销量
-<div>
-<span>只看历史</span>
-<span>读取促销计划</span>
-<span>促销日</span>
-</div>
-</div>
-<div>
-<div><span>模型此时能看到</span><strong>过去的销量曲线，以及预测期内已经排定的促销日。</strong></div>
-<div><span>预测发生的变化</span><strong>蓝线在已知促销日抬升，表达未来协变量对预测的影响。</strong></div>
-</div>
-<p>机制演示：曲线使用标准化示意值，不调用 TimesFM-3，也不生成真实业务预测。</p>
-</div>
-<div>核对 Google Research 原始示例</div>
-<img />
-<p>说明性合成案例：约 20% 是示例中的关系，不是现实促销的通用增幅。</p>
-<figcaption>琥珀色条带标出促销日；蓝线读取促销排期，红线只看销量历史。来源：Google Research。</figcaption>
-</figure><p>示例在历史数据中设置了促销带来约 20% 销量提升的关系。多变量模式从历史促销日与销量的共同变化中学到这个关系，再把它应用到未来已经排定的促销日。整个月累积起来，蓝线比忽略促销计划的红线更接近这个案例的收入变化逻辑。</p><p>这张图证明模型能利用未来协变量恢复一个已存在于上下文中的关系。它没有证明现实中的促销普遍带来 20% 增长，也没有解决促销是否引起销量增长的因果识别问题。真实业务还要处理折扣力度、库存、竞争活动和促销对象变化。</p></div><div><h2>5. 三套基准验证多变量能力确实有效</h2><p>Google 在 GIFT-Eval、FEV-Bench 和 TIME 上比较了 TimesFM-3、TimesFM-2.5、Chronos-2、Toto 2.0、TiRex 等时间序列基础模型。图的横轴是点预测任务的平均名次，纵轴是概率预测任务的平均名次；两个数字都越低越好，因此越靠左下表示综合排名越高。</p><figure>
-<p>横轴＝点预测平均名次；纵轴＝概率预测平均名次；越靠左下越好。</p>
-<div>
-<div>
-<strong>GIFT-Eval</strong>
-<img />
-</div>
-<div>
-<strong>FEV-Bench</strong>
-<img />
-</div>
-<div>
-<strong>TIME</strong>
-<img />
-</div>
-</div>
-<p>平均排名反映纳入任务和模型集合的总体位置，不代表每个数据集或每个业务指标都获胜。</p>
-<figcaption>三张原始结果图来自 Google Research；橙色为 TimesFM-3，图中星号标记多变量模式。</figcaption>
-</figure><p>三张图出现了同一个结果：TimesFM-3 的多变量模式都位于最左下方。把变量间信息和协变量全部关掉，只用它做单变量预测时，它的平均名次仍然优于或接近图中其他可复现的基础模型；开启多变量模式后，排名继续改善。</p><p>这组结果有两层价值。第一，模型并没有用多变量能力换掉单变量能力：没有协变量时仍能作为通用预测模型使用。第二，额外变量在多套任务上带来了稳定的平均收益，不只在促销示例中成立。</p><p>平均排名也会隐藏差异。它告诉我们模型跨任务的总体位置，不能说明每个数据集都赢，也没有覆盖每家公司的损失函数、库存约束和错误成本。图中比较的是发布时纳入的模型集合；经过业务数据训练的专用模型、经典统计模型或此后出现的新模型，仍需在同一回测窗口中重新比较。</p></div><div><h2>6. 能预测未来，不等于可以直接上线</h2><p>TimesFM-3 已提供 <a href="https://github.com/google-research/timesfm">GitHub 代码</a> 和 <a href="https://huggingface.co/google/timesfm-3.0-pytorch">Hugging Face 权重</a>。官方接口接收形如“变量数 × 历史长度”的目标数组；未来已知协变量要覆盖“历史长度 + 预测长度”。输出包括每条目标序列的点预测和 9 个分位数。</p><p>实际试用前要确认四件事：</p><ul>
-<li>数据是否在同一时间频率上对齐，缺失值、异常值和未来协变量的生成时间是否清楚。</li>
-<li>协变量在做出预测的那个时刻是否真的可用，不能把事后才知道的数据伪装成未来已知信息。</li>
-<li>业务关心的误差、库存成本或风险指标，是否在滚动回测中优于当前基线。</li>
-<li>输入规模是否适合当前实现。官方代码的最大历史长度是 15,360 个时间点；基准评测器一次前向最多容纳 32 个变量，更多目标会分块，协变量过多时还可能被抽样。</li>
-</ul><p>许可是更硬的边界。仓库代码采用 Apache-2.0，但 TimesFM 3.0 默认预训练权重当前采用单独的非商业许可，只允许非商业、非生产用途。下载权重做研究验证没有问题，把它直接接入收费产品或生产预测系统则不在许可范围内。</p><p>Google 表示 TimesFM-3 的 BigQuery 集成将在随后几周推出；发布当日可直接试用的 <a href="https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-forecast"><code>AI.FORECAST</code></a> 仍是 TimesFM-2.5 的单变量能力。因而 TimesFM-3 目前最合适的状态是本地研究和业务回测，不能把“代码和权重已经公开”写成“企业已经可以无条件上线”。</p><p>TimesFM-3 把多变量预测从“为每项业务单独搭模型”推进到“先用一个通用模型直接回测”的阶段。它降低了尝试门槛，也把新的责任交给使用者：哪些变量在预测时真的可用，跨序列关系能否持续，平均榜单收益是否能转化为自己的业务收益。模型把更多现实信息带进了预测，最后一道判断仍要在真实数据上完成。</p></div><div><div><div>来源</div><div><span>TimesFM-3: A zero-shot foundation model for multivariate forecasting</span><span>Ayush Jain and Rajat Sen, Google Research<span>·</span>2026-08-31<span>·</span><a href="https://research.google/blog/timesfm-3-a-zero-shot-foundation-model-for-multivariate-forecasting/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://github.com/google-research/timesfm">google-research/timesfm</a><span>·</span><a href="https://huggingface.co/google/timesfm-3.0-pytorch">TimesFM 3.0 (PyTorch) model card</a><span>·</span><a href="https://arxiv.org/abs/2505.23719">TiRex: Zero-Shot Forecasting Across Long and Short Horizons with Enhanced In-Context Learning</a><span>·</span><a href="https://github.com/google-research/timesfm/tree/331c6d33cb1ac2611de3056d0ac7164aab6301eb/timesfm3-usage/benchmarks">TimesFM-3 release evidence boundary</a></div></div><div><div>本站说明</div><div>基于 Google Research 发布文、官方代码仓库、模型卡和基准结果解读；促销图为说明性合成示例。</div></div></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】写了 2000 小时 AI 代码后，他把效率问题改写成了调度问题</title>
-<link>https://best.xiaohu.ai/article/david-ondrej-x-2094424967345496191/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:david-ondrej-x-2094424967345496191</guid>
-<pubDate>Wed, 02 Sep 2026 12:00:25 +0000</pubDate>
-<description>David Ondrej 的 2026 年 Agentic Engineering 工作台很容易被读成一张工具购物单。沿着它的结构拆开，能看到一套更稳定的系统：统一入口、持续运行、任务隔离、风险分级和反馈测量。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 2 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">写了 2000 小时 AI 代码后，他把效率问题改写成了调度问题</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/david-ondrej-x-2094424967345496191/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><div>深度 · 小互解读</div><h1>写了 2000 小时 AI 代码后，他把效率问题改写成了调度问题</h1><p>David Ondrej 的 2026 年 Agentic Engineering 工作台很容易被读成一张工具购物单。沿着它的结构拆开，能看到一套更稳定的系统：统一入口、持续运行、任务隔离、风险分级和反馈测量。</p><div><div>一分钟速览</div><ul><li>多 Agent 工作的上限很快从模型能力转成调度能力：看清谁在运行、谁被阻塞、谁最该得到人的回应。</li><li>作者的工具栈可以拆成四层：统一入口、状态调度、持续执行环境、工程治理；具体产品可以替换，层与层之间的职责不能缺。</li><li>订阅价格、模型排名和“云端 Agent 占内部 PR 近 60%”都带强时效性；更耐用的判断是按任务分配算力、按失败代价增加隔离和复核。</li><li>适合多数人的起点不是同时运行二三十个 Agent，而是一主一辅、一个独立 Worktree、一次异模型复核和可回看的结果指标。</li></ul></div><div><p>David Ondrej（下文统一称 David）是一名 AI 工具创业者和内容创作者，创办了 Vectal Labs，也长期公开自己的 AI 编程方法。这篇原文是一份个人工作台复盘：他称自己过去三年用 AI 写代码超过 2000 小时，还采访过一批高产的 Agentic Engineering 实践者，随后公开了 2026 年第三季度正在使用的整套配置。</p><p>David 的使用规模和多数人不同。他经常同时运行二三十个编程 Agent，让它们在本机、商业云和自建服务器上并行工作。这里的 Agent 指能读取文件、调用工具、运行命令并连续完成任务的编程代理；Harness 则是把模型接到这些工具和执行循环上的软件外壳。后文出现的 bb、Herdr、Corral、Pi 等名字都指软件组件。</p><p>原文列了十几种产品，但 David 要解决的核心问题很集中：任务从哪里发出，运行到什么状态，完成后先处理哪一个，怎样避免多个 Agent 互相覆盖，以及高权限操作如何收口。把快速变化的价格、模型排名和个人偏好拿掉，底下是一套小型软件生产系统。</p></div><div><h2>从工具清单里拆出一套四层调度系统</h2><p>bb 是统一入口。它把 Codex、Claude Code、Pi、Cursor CLI、OpenCode 等编程 Agent 放进同一个界面，并复用用户已有的 provider CLI 登录。cmux 是可以同时摆放多个终端和浏览器的工作区，Ghostty 是承载这些会话的终端应用。三者解决的是“从哪里发起和观察工作”。</p><p>Herdr 再往下一层。它把 Agent 所在的终端会话留在后台，标记 working、blocked、idle 等状态。David 自己做的 Corral 则按 P1 到 P4 给完成的 Agent 排队。前者告诉你发生了什么，后者决定你的下一分钟给谁。</p><p>本机、商业云 Agent 和自建 VPS 是执行环境。Skills、Worktree、ADR、代码审查、只读生产数据权限和发布锁构成治理层。模型贯穿其中，却没有独占任何一层。</p><p>Harness 横跨入口和执行环境。David 把极简、可自由换模型的 Pi 当作基础执行器，用 Cursor CLI 获得多模型和预发送能力；遇到探索性更强、做法还不清楚的任务时，他会考虑能在执行中沉淀 Skill 的 Hermes 或 Prime。具体产品判断带有个人口味，留下来的选择方法是：路径明确的任务需要轻量、可控的执行器，不确定性高的任务才值得使用会探索和自我积累的 Harness。</p></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】每天用 AI 的人，更需要学会二阶思考</title>
-<link>https://best.xiaohu.ai/article/second-order-thinking-ai/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:second-order-thinking-ai</guid>
-<pubDate>Wed, 02 Sep 2026 12:00:25 +0000</pubDate>
-<description>回答只展示眼前的收益；技能、判断、习惯与数据，会在反复使用中慢慢改变。一个三字问题，帮你把这些后果提前看见。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 2 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">每天用 AI 的人，更需要学会二阶思考</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/second-order-thinking-ai/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><div>深度 · 小互解读</div><h1>每天用 AI 的人，更需要学会二阶思考</h1><p>回答只展示眼前的收益；技能、判断、习惯与数据，会在反复使用中慢慢改变。一个三字问题，帮你把这些后果提前看见。</p><div><div>一分钟速览</div><ul><li>二阶思考不只看 AI 有没有交付，还看这种使用方式重复以后，会让什么能力变强、什么能力变弱。</li><li>研究没有给出“少用 AI”的单一答案；直接接收成品与利用 AI 搭建学习脚手架，可能产生相反结果。</li><li>把任务分成只求交付与需要沉淀能力两类；后一类至少保留一次独立作答、核查、复述或反驳。</li></ul></div><div><p>你向 AI 提问，答案在咖啡还没端到嘴边时就出现了。它通顺、完整，大多数时候也足够有用。几周以后，这种速度会变得像键盘和搜索框一样自然。</p><p>屏幕只显示最先发生的事：任务完成了。更慢的变化落在别处——你还会不会从空白页开始写，会不会核查一个听起来很确定的答案，会不会在不知不觉中把敏感信息留在公开链接里，也会不会借助 AI 学会原本不会的东西。</p><p>AI Guides 在一篇 X 长文里，用“二阶思考”把这些变化串了起来。这个模型来自投资领域，却很适合判断每天都在重复的 AI 使用习惯。</p></div><div><h2>一个答案落下后，水波还在向外走</h2><p>一阶思考问：<strong>发生了什么？</strong></p><p>二阶思考继续问：<strong>因为这件事发生，接下来还会发生什么？</strong></p><p>Howard Marks 在投资中用“第一层思考”和“第二层思考”区分快速、表面的判断与考虑更多后续变量的判断。Farnam Street 的 Shane Parrish 把它压缩成一句更容易使用的话：<strong>然后呢？</strong></p><figure>
-<h3>一个答案，只是第一圈水波</h3>
-<div>
-<div></div>
-<div></div>
-<div></div>
-<div><span>一次</span><strong>AI 答案</strong></div>
-<div>一阶结果<strong>任务完成</strong></div>
-<span>技能</span>
-<span>判断</span>
-<span>习惯</span>
-<span>数据</span>
-<span>学习</span>
-</div>
-<div><span><i></i>当下可见</span><span><i></i>经过重复才显现</span></div>
-<figcaption>二阶思考把问题从“答案好不好”推进到“这种使用方式重复以后，我会发生什么变化”。</figcaption>
-</figure><p>把它放到 AI 场景里，一阶结果往往很好看：邮件写完了，报告缩短了，代码跑起来了，难题也有了解释。二阶结果不会同时出现在屏幕上。它要经过反复使用才显现，而且改变的对象通常是使用者。</p></div><div><h2>五条变化，最后都落在人身上</h2><h3>技能：交付完成了，能力有没有留下</h3><p>MIT Media Lab 团队让 54 名参与者分别借助大语言模型、搜索引擎或只靠自己完成写作。使用大语言模型的一组对文章的自我所有感最低，一些人完成后难以准确引用自己刚写过的内容。脑电结果也显示，不同工具条件下的神经连接模式存在差异。</p><p>这项研究是小样本预印本，研究任务也只覆盖短期论文写作，不能推出“AI 写作会让人永久失去能力”。它提供了一个很具体的提醒：文字已经交付，不等于组织观点、记住内容和再次独立完成的能力也一起形成了。</p></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Runway Solaris：把视频模型变成实时生成界面的操作层</title>
-<link>https://best.xiaohu.ai/article/introducing-solaris-interface-world-model/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:introducing-solaris-interface-world-model</guid>
-<pubDate>Wed, 02 Sep 2026 12:00:25 +0000</pubDate>
-<description>点击和拖拽直接决定下一帧画面，界面从预制页面变成持续生成的视觉空间。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 2 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Runway Solaris：把视频模型变成实时生成界面的操作层</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/introducing-solaris-interface-world-model/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div>
-<div>正文一页纸秒懂漫画</div>
-<div><div><div>研究解读 · 小互解读</div><h1>Runway Solaris：把视频模型变成实时生成界面的操作层</h1><p>点击和拖拽直接决定下一帧画面，界面从预制页面变成持续生成的视觉空间。</p><div><div>一分钟速览</div><ul><li>发布了什么：Solaris，Runway 公布的首个界面世界模型。</li><li>它是什么：根据当前画面和用户动作实时生成下一帧，新画面仍能继续接受操作。</li><li>能做什么：直接拖动物体、改变材质、组合食材和切换场景，不必逐项预写交互规则。</li><li>核心机制：逐帧自回归、少步蒸馏和自输出训练；LLM 做决策，世界模型做渲染。</li><li>影响：界面呈现从预写组件变成连续生成，视频模型开始承担显示层和一部分交互层。</li></ul></div><div><p>Runway 发布了 Solaris，一种用视频模型实时生成软件界面的研究系统。它也是 Runway 公布的首个“界面世界模型”（Interface World Model），研究对象从一段视频扩展到了可以持续操作的画面。</p><p>用户可以直接在画面里点击、拖拽或输入。Solaris 根据当前画面和这次操作生成下一帧，新画面随后继续接受操作。普通视频模型交付一段供人观看的内容，Solaris 让视频生成进入持续运行的交互循环。</p><p>它会改变界面开发的分工。材质、空间变化和连续运动可以由模型现场生成，开发者无需为演示里的每一种行为预写前端事件规则；身份、权限、事实数据、文字、审计和失败恢复由结构化软件负责。</p><p>Solaris 目前是研究原型，研究页提供 Early Access 申请。下面这段 82.752 秒的官方发布视频集中展示了它目前能做什么。</p><figure>
-<p>当前环境无法播放视频，可继续阅读下方文字说明。</p>
-<figcaption>
-<span>Runway 官方发布视频，82.752 秒。片段集中展示试衣、空间变化、食物组合与连续场景交互。</span>
-</figcaption>
-</figure></div><div><h2>界面从“调用预制页面”变成“生成下一帧”</h2><p>今天的软件会先保存结构化状态，再由代码把状态渲染成按钮、文字、图片和动画。点击一个按钮时，事件处理器执行开发者已经写好的规则，改变状态，界面随后重新渲染。即使 AI 根据提示生成了整个网页，它最终交付的通常仍是 HTML、CSS、JavaScript 或某种组件树。</p><p>传统路径把可发生的状态和操作预先写进系统，同一状态可以被读取、搜索、审计和复现，权限与错误也能在结构化系统里处理。开发者没有定义的行为不会自动出现；视觉设计还要被翻译成代码能表达的元素，细腻的材质、空间和连续运动经常在翻译中损失。</p><p>Solaris 改变的是最后这段路径。当前画面不再只是代码的输出，它也成为模型预测下一帧的状态。点击、拖拽和文字指令与这张画面一起送入模型，下一帧由模型现场生成。Runway 用“没有中间表示”描述这一变化：演示中的界面行为无需逐项翻译成预先编写的前端规则，模型服务、数据连接、权限和底层计算继续留在系统中。</p><figure>
-<div>
-<div>传统软件</div>
-<ol>
-<li>结构化状态</li>
-<li>预写事件规则</li>
-<li>代码渲染</li>
-<li>确定的下一界面</li>
-</ol>
-<p>得到：可复现、可审计、低成本</p>
-</div>
-<div>
-<div>Solaris</div>
-<ol>
-<li>当前整帧</li>
-<li>点击、拖拽、语言</li>
-<li>世界模型生成</li>
-<li>现场出现的下一帧</li>
-</ol>
-<p>得到：视觉连续、开放式响应</p>
-</div>
-<figcaption>变化发生在界面生成单位：一边先约束状态再渲染，一边把当前画面和动作直接变成下一帧的条件。</figcaption>
-</figure><p>这使同一件事出现两种生产方式。传统软件把可能发生的状态预先写进代码，Solaris 则在交互发生时生成更多现场变化。</p></div><div><h2>点击怎样进入视频模型</h2><p>Solaris 建立在 Runway 的 Gen-4.5 视频生成模型之上，并沿用 GWM-1 的路线。世界模型根据当前环境和动作预测后续状态；GWM-1 已经能够逐帧生成，并接受相机姿态、机器人指令和音频等动作条件。Solaris 把这种动作条件化转向鼠标、触屏和文字输入。</p><p>用户点中一件衬衫时，系统不会查找“衬衫按钮”的固定事件。当前画面、点击位置和交互语义成为下一帧的条件。模型从已经发生的动作学习视觉后果，因此同一个拖拽在不同场景中可以移动物体、改变材质或触发场景转换。</p><p>普通视频扩散模型会对整段视频反复执行几十步去噪，几秒甚至几分钟的等待可以用于内容生产，却无法支撑连续操作。Runway 对 Solaris 做了三步实时化改造：先改为逐帧自回归生成，每一帧只依赖已经出现的历史；再把多步去噪蒸馏成少数几步；最后让快速模型继续学习自己的输出，降低长时间生成时的画质漂移。</p><figure>
-<ol>
-<li>
-<strong>当前帧 + 用户动作</strong>
-<span>只使用已经发生的点击、拖拽、输入与画面历史</span>
-</li>
-<li>
-<strong>LLM 解释与决策</strong>
-<span>判断原地变化还是转场，并生成渲染提示</span>
-</li>
-<li>
-<strong>Solaris 少步生成</strong>
-<span>逐帧自回归，用蒸馏后的少数去噪步骤产生下一帧</span>
-</li>
-<li>
-<strong>新帧进入历史</strong>
-<span>显示结果同时成为下一次操作的状态</span>
-</li>
-</ol>
-<div>
-<span></span>
-<span>回流：快速模型在自身输出上训练，降低长时间生成时的漂移</span>
-</div>
-<figcaption>新帧既是界面，也是下一次预测的输入；推理与渲染分开，历史沿同一个闭环累积。</figcaption>
-</figure><p>语言模型与世界模型在循环里承担不同工作。语言模型解释用户请求，判断当前场景应该原地变化还是切换到新场景，并产生引导 Solaris 的提示；Solaris 负责把决定连续画成可操作的帧。推理与渲染分开后，语言模型不必用代码重建每个像素，视频模型也不必独自理解完整任务。</p><figure>
-<div>
-<p>当前环境无法播放视频，可继续阅读下方文字说明。</p>
-<div>
-<strong>一次选择触发连续场景变化</strong>
-<span>埃菲尔铁塔界面会在总览、夜景、信息叠层与近景之间连续转换，显示‘决定下一步’与‘把下一步画出来’的分工。</span>
-</div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】ChatGPT Work 与 Codex 产品负责人 Tara Seshan：当智能体成为持久在线的同事，我们该如何与它协作？</title>
-<link>https://best.xiaohu.ai/article/persistent-ai-coworkers-third-era/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:persistent-ai-coworkers-third-era</guid>
-<pubDate>Wed, 02 Sep 2026 12:00:25 +0000</pubDate>
-<description>聊天解决一轮问题，智能体完成一次任务，下一阶段的 AI 会跨时间保持上下文、持续执行并进入多人协作。OpenAI 产品负责人 Tara Seshan 解释了这套工作关系需要什么，以及人的责任会怎样上移。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 2 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">ChatGPT Work 与 Codex 产品负责人 Tara Seshan：当智能体成为持久在线的同事，我们该如何与它协作？</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/persistent-ai-coworkers-third-era/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><div>深度 · 小互解读</div><h1>ChatGPT Work 与 Codex 产品负责人 Tara Seshan：当智能体成为持久在线的同事，我们该如何与它协作？</h1><p>聊天解决一轮问题，智能体完成一次任务，下一阶段的 AI 会跨时间保持上下文、持续执行并进入多人协作。OpenAI 产品负责人 Tara Seshan 解释了这套工作关系需要什么，以及人的责任会怎样上移。</p><div><div>一分钟速览</div><ul><li>聊天解决一轮问题，智能体完成一次任务，持久在线同事跨时间保持上下文、持续执行并接受多人干预。</li><li>持久工作依赖运行环境、数据、权限、可靠性和协作界面，模型能力只占其中一层。</li><li>执行成本下降后，人的职责上移到方向、品味、表达、问责、关系和提高团队目标。</li><li>知识工作必须检查背景、输入、引用、过程和最终结论；思考型写作仍应由人开始并收尾。</li></ul></div><div><p>Lenny Rachitsky 主持的产品播客 Lenny’s Podcast 邀请 OpenAI ChatGPT Work 与 Codex 产品负责人 Tara Seshan，解释 AI 智能体怎样从一次性工具变成长时间协作的工作伙伴。</p><blockquote>
-<p><strong>嘉宾背景：</strong> <a href="https://www.lennysnewsletter.com/p/ais-third-era-the-rise-of-persistent">Tara Seshan</a> 在 OpenAI 同时负责 Codex 和 ChatGPT Work 的产品工作；加入 OpenAI 前，她在 Stripe 工作六年，是公司最早五位产品经理之一，后来负责气候软件公司 Watershed 的产品，也曾创业、入选 Thiel Fellowship，并在 Sutter Hill Ventures 担任驻场创业者。</p>
-</blockquote><p>这期节目围绕一个问题展开：当 AI 不再只回答问题或完成一次任务，而能在后台持续工作、带着项目上下文回来交付，并允许人随时纠偏，它会怎样改变产品设计、组织分工和个人能力？Tara 把模型、运行环境、权限、协作界面和人的责任放进同一个框架，解释一位 AI 同事怎样从“能做”走到“能长期共同负责”。</p><p><strong>这期节目给出的四个答案：</strong></p><ul>
-<li><strong>产品形态：</strong>AI 正从一轮聊天、一次任务，走向跨时间保持上下文、持续执行并接受多人干预的工作伙伴。</li>
-<li><strong>产品方法：</strong>前沿团队不能只适配今天的模型；OpenAI 用两三个月作为产品与研究能力交汇的工作窗口，并用可运行原型快速验证判断。</li>
-<li><strong>人的工作：</strong>执行被智能体接手后，人的职责上移到方向、品味、表达、问责、关系和提高团队目标。</li>
-<li><strong>验收边界：</strong>知识工作不能像代码一样主要依靠测试；可靠的 AI 同事必须让人检查输入、来源、过程、中间产物和最终结论。</li>
-</ul><figure>
-<div>
-<span>完整访谈 · 中英双语字幕</span>
-<strong>Tara Seshan：AI 的第三个时代</strong>
-</div>
-    你的浏览器不支持 HTML5 视频，可使用下方链接下载。
-</figure></div><div><h2>持久在线 AI 同事，与聊天和一次性智能体有什么不同</h2><p>Tara 用三个阶段区分不同的工作关系：一轮问答、一次任务和一个持续项目。它们可以同时存在，差别在于 AI 能否跨时间保留上下文、继续执行、接受人的检查与纠偏，并进入多人共同工作的空间。下面的交互图把三种关系放在同一组维度中；点击阶段即可比较时间单位、上下文、人的介入方式和协作范围。</p><figure>
-<span>工作关系 · 三阶段</span>
-<h3>从一次回答，走向一段持续协作</h3>
-<p>点击阶段，聚焦 AI 行为与人的职责</p>
-<div>
-<span>01</span><strong>聊天</strong>时间单位 · 一轮对话
-<b>AI：回答当前问题</b><em>人：逐轮提问与判断</em>
-<span>02</span><strong>智能体</strong>时间单位 · 一项任务
-<b>AI：调用工具并交付结果</b><em>人：设定目标，结束时验收</em>
-<span>03</span><strong>持久在线同事</strong>时间单位 · 一个项目
-<b>AI：持续运行、保留上下文、接受纠偏</b><em>人：在检查点掌舵，并与多人共同协作</em>
-</div>
-<div><span>持续性与协作范围 →</span><strong>第三阶段增加的是持续性、项目上下文和协作关系。</strong></div>
-<figcaption>三个阶段可以并存；它们区分的是工作关系，不是模型版本。</figcaption>
-</figure><p>“持久”因此至少包含五个条件：</p><ol>
-<li><strong>可持续的运行环境。</strong> 任务能在本地或云端继续，不因一次聊天结束而停止。</li>
-<li><strong>可用的项目上下文。</strong> 它能读取文件、历史决定、数据和必要的业务背景。</li>
-<li><strong>受控的权限。</strong> 邮件、文档、代码库、财务系统各自有明确的访问边界。</li>
-<li><strong>足够的可靠性。</strong> 长任务失败后可以恢复，关键动作可检查，结果能够追溯。</li>
-<li><strong>协作界面。</strong> 人能看到进度、在中途介入，并把另一位同事带进同一项工作。</li>
-</ol></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】AI 编程工作流的瓶颈，已经从写代码变成管理上下文</title>
-<link>https://best.xiaohu.ai/article/ai-dev-workflow-context-system/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:ai-dev-workflow-context-system</guid>
-<pubDate>Wed, 02 Sep 2026 12:00:25 +0000</pubDate>
-<description>优先级、精确指令、任务认领、隔离工作区、长期记忆与人工判断，决定 Agent 能否从一次性助手变成稳定的工程系统。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 2 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">AI 编程工作流的瓶颈，已经从写代码变成管理上下文</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/ai-dev-workflow-context-system/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><div>深度 · 小互解读</div><h1>AI 编程工作流的瓶颈，已经从写代码变成管理上下文</h1><p>优先级、精确指令、任务认领、隔离工作区、长期记忆与人工判断，决定 Agent 能否从一次性助手变成稳定的工程系统。</p><div><div>一分钟速览</div><ul><li>一项任务先经过优先级选择，再装载实体历史与规则，完成 claim 和环境隔离后才交给 Agent 执行。</li><li>directive 管行为边界，procedure 管重复流程，工具管确定性数据操作；三者放错层都会制造新的上下文浪费。</li><li>混合检索、主动注入和 boot gate 分别处理精确召回、自动到场与强制启动动作；旧记忆仍需来源、年龄和失效控制。</li><li>人负责发现目标、架构和流程层错误，AI 在明确方向内快速修改与验证；团队治理属于从作者个人实践继续推导的扩展。</li></ul></div><div><p>GitLab 博客作者 Gregory Havenga 参与过 “Explain this vulnerability” 和 “Resolve this vulnerability” 两项 AI 安全功能的早期版本。那时的 AI 更接近一个建议工具：人发出请求，模型给出一段解释或修改建议，人再把结果带回代码库。Agent 出现后，工作边界变了。它可以读取仓库、修改文件、运行测试，开始直接执行任务。</p><p>执行能力增强后，Havenga 遇到的麻烦反而更像传统软件系统故障。同一条提交信息规则在一次会话里要纠正三遍；三个并行会话可能认领同一个任务、修改同一批文件、作出互相矛盾的决定，甚至把另一个会话尚未完成的工作一起提交或删除。模型并没有少写代码，它只是缺少持续状态、资源所有权和跨会话记忆。</p><p>他随后把个人工作流逐步改造成一套上下文系统：系统先决定应该做什么，再为任务装载历史和规则；Agent 动手前认领工作并进入隔离环境；重复流程被固化成 procedure，稳定的数据搬运下沉到工具；人检查方向、架构和最终正确性；得到确认的决定、阻塞和流程再写回长期记忆。</p><p>这套系统解释了一个常见反差：模型能力在提高，日常使用却仍然充满重复解释和返工。限制吞吐量的已经不只是一轮生成质量，还包括上下文能否在正确时间抵达、多个执行者能否共享状态，以及人是否仍掌握系统级判断。</p></div><div><h2>一项任务怎样穿过完整的上下文系统</h2><p>Havenga 的工作入口已经从“打开编辑器，再想今天做什么”变成一条自动装配的优先级队列。新会话先读取仍在活动的其他会话、未解决阻塞、长期指令和近期决定，再从 GitLab 拉取待办、活跃 merge request 与正在跟踪的 epic。</p><p>队列顺序也被明确编码。最先出现的是长时间没有进展、可能掉出视野的陈旧事项；随后是别人请求的 review，因为拖延会继续阻塞同事；接着是等待他回复的问题、他自己被阻塞的 MR，最后才是其余工作。这一步把团队阻塞、任务老化和个人进度转成一个稳定的选择规则，已经超过普通待办展示的作用。</p><p>任务被选中后，系统才开始为它装配上下文。一项 MR 工作会经历下面的过程：</p><ol>
-<li>读取这个 MR、相关 issue 或 epic 的历史决定、未解决阻塞和上次留下的下一步。</li>
-<li>检索与任务类型匹配的规则和 procedure，例如评论规范、数据库迁移流程或 review 要求。</li>
-<li>检查该工作项是否已经被其他会话认领；未被认领时建立 claim，明确当前所有者。</li>
-<li>为会话分配独立 git worktree 和测试数据库，让文件状态与运行时副作用彼此隔离。</li>
-<li>Agent 修改代码、运行测试并整理结果；人检查目标、架构、正确性和是否满足合并条件。</li>
-<li>工作完成、暂停或出现新阻塞时，更新状态并释放资源，把新的决定、事实和 procedure 写回记忆。</li>
-</ol><figure>
-<div>
-<div><span>01 选择</span><strong>排优先级</strong><span>陈旧事项、同事 review、待回复问题与阻塞 MR</span></div>
-<div><span>02 装载</span><strong>带入上下文</strong><span>历史决定、阻塞原因、长期指令和对应流程</span></div>
-<div><span>03 协调</span><strong>认领并隔离</strong><span>工作项 claim、独立 worktree 与测试数据库</span></div>
-<div><span>04 执行</span><strong>编码并测试</strong><span>Agent 修改代码、运行测试并整理证据</span></div>
-<div><span>05 控制点</span><strong>人审查方向与正确性</strong><span>架构、边界、质量与长期维护成本</span></div>
-<div><span>06 回写</span><strong>保存决定与阻塞</strong><span>下一次会话从更新后的状态开始</span></div>
-</div>
-<div><span>↶</span>审查后的决定回到下一轮上下文</div>
-<figcaption>Agent 的工作位于闭环中段；选择、隔离、审查和回写共同决定执行是否可复用。</figcaption>
-</figure><p>这个顺序把“给模型更多上下文”变成了可以检查的状态转换。上下文并非在会话开始时全部塞进去；系统先选任务，再围绕选中的实体加载信息。Agent 也不能读完说明就直接工作，它必须先完成认领和隔离。审查则发生在经验写回之前，避免一次未经确认的输出变成以后所有会话都会继承的规则。</p><p>作者称自己现在可以利用 15 或 30 分钟的空档推进复杂任务：询问队列顶部是什么，让系统恢复相关背景，然后委派编码和测试。这个时间来自个人经验，不能当作普遍生产率指标。它揭示的变化很具体：过去短时间主要消耗在回忆“做到哪里、为什么这么做、谁还在等我”，现在这些重建工作由系统承担，人可以更快进入判断和委派。</p><p>这种工作方式依赖“主动委派”。人保留跨任务的最高层目标，决定当前工作是否仍服务于正确方向；Agent 接受边界清楚的任务，维持执行速度。系统让任务状态、历史和约束脱离人的短期记忆，同时保留人的方向控制。</p></div><div><h2>指令如何从一次纠错变成长期控制</h2><p>每个新会话都可能从近似空白的状态开始。没有持久指令时，团队约定、代码库习惯和个人偏好只能被反复解释。问题还不只是“模型忘了”，很多给人的提醒本身就无法执行。</p></div></div></div></div>
 </div></div></body></html>]]></content:encoded>
 </item>
 </channel>
