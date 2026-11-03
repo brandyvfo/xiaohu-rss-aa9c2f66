@@ -6,7 +6,1020 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Mon, 02 Nov 2026 12:00:24 +0000</lastBuildDate>
+<lastBuildDate>Tue, 03 Nov 2026 12:00:18 +0000</lastBuildDate>
+<item>
+<title>【日报】MIT 团队让大模型直接给小模型进行脑外科手术：无需训练只改权重参数，小模型数学分从 7.9% 涨到 48.1% · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/weight-space-programming/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:weight-space-programming</guid>
+<pubDate>Tue, 03 Nov 2026 12:00:18 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 动了万分之一点六的参数，困扰小模型的死循环解开了 02 为什么我们以前不敢想象“手写权重”？ 03 不用一行训练代码，它把一个围棋网络从零写了出来 04 剥掉输入与输出层，依然能看出模型学了什么 05 当大模型变成“神经外科医生”，炼丹炉可以熄火了吗？ AI 解读 / 研究解读 · 11-03 · 约 12 分钟 · 作者 MIT CSAIL MIT 团队让大模型直接给小模型进</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 3 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">MIT 团队让大模型直接给小模型进行脑外科手术：无需训练只改权重参数，小模型数学分从 7.9% 涨到 48.1% · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/weight-space-programming/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>动了万分之一点六的参数，困扰小模型的死循环解开了</span></a><a><span>02</span><span>为什么我们以前不敢想象“手写权重”？</span></a><a><span>03</span><span>不用一行训练代码，它把一个围棋网络从零写了出来</span></a><a><span>04</span><span>剥掉输入与输出层，依然能看出模型学了什么</span></a><a><span>05</span><span>当大模型变成“神经外科医生”，炼丹炉可以熄火了吗？</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>研究解读</a><i>·</i>11-03<i>·</i>约 12 分钟<i>·</i>作者 MIT CSAIL</div><h1>MIT 团队让大模型直接给小模型进行脑外科手术：无需训练只改权重参数，小模型数学分从 7.9% 涨到 48.1%</h1><p>MIT CSAIL 提出「权重空间编程」：不用梯度下降，让大模型看懂权重、找出毛病、动手改，甚至从零写出能打游戏、下围棋的网络。</p><div><div>正文一页纸原文</div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>MIT CSAIL</span><span>11-03 · 约 12 分钟</span><span>⚑ 研究论文</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>GPT-6 Astra 找到 Qwen3.5-0.8B 反复绕圈的毛病，只改 13 万个权重（0.016%），MATH-500 从 7.9% 升到 48.1%，指令遵循也涨了约 3 倍。</li><li>不给数据、不训练、不让试玩，Astra 一次写出的打砖块网络得分是 PPO 训练 5 亿步的 20 倍；从零写的围棋网络，给 50 次试跑后能赢训练了 2000 万局的同尺寸网络。</li><li>只看权重它能说出网络练的是哪个游戏、哪种语言，但这招只能拆掉挡住能力的障碍，补不出模型本来没有的本事。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/weight-space-programming/social/zh-08a8c6d866c8.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>给一个 8 亿参数的开源模型做一次“脑外科手术”，只修改其中 0.016% 的权重参数，不需要任何训练数据、不跑反向传播，就能把它的数学解题能力暴提 6 倍，顺便连日常指令遵循能力也翻了 3 倍。这不是科幻设想，而是 MIT CSAIL 团队在 GPT-6 Astra 上刚刚验证的新范式——「权重空间编程」（Weight-Space Programming）。这项研究由 Rikiya Takehi、Jayden Teoh、Alex Zhang 以及 DSPy（自动优化提示词的开源框架）作者 Omar Khattab 共同完成。大模型第一次跳过了人类用了几十年的梯度下降，开始直接像程序员写代码一样，肉眼阅读并修改神经网络底层的浮点数。</p>
+<p>长期以来，神经网络内部的数百万乃至上千亿个参数，对人类而言就是一堆无从读懂的连续浮点数。想要调整模型的行为，我们只能在外部做文章：准备海量数据，写好训练脚本，设定损失函数，然后依靠 Adam 或 SGD 这类优化算法一步一步通过梯度下降去“熬”。大模型此前可以用来优化提示词、写代码甚至调参，但很少有人指望它能直接拿着手术刀，钻进神经网络最底层的矩阵里做微创。</p>
+<h2>动了万分之一点六的参数，困扰小模型的死循环解开了</h2>
+<p>大模型领域一直有个令人头疼的毛病：体量较小但具备“思考（Thinking）”能力的小模型，在做长程推理时极易陷入无限自我怀疑的死循环。阿里在开源 Qwen3.5-0.8B 时，甚至在其官方模型说明书里特意提醒了这一已知缺陷。</p>
+<p>在实际测试中，这种现象非常普遍：面对较复杂的数学问题，Qwen3.5-0.8B 在前 96 道练习题中有 85 道会反复重复同样的文字、很少给出答案，直到硬生生撞上 32,768 个 token 的长度上限被系统掐断。在 MATH-500 基准测试里，它的正确率只有可怜的 7.9%，高达 93.0% 的题目都因思考超时而阵亡。这一测试是在一套固定生成参数下进行的（温度 0.6、presence penalty 1.5 等，Qwen 模型卡也提醒过该模型容易陷入思考循环），修改前后保持完全相同的参数配置，所以前后可比。</p>
+<p>以往要解决这个问题，工程师必须重新清洗一批拒绝死循环的高质量数据，重新跑强化学习或微调，不仅成本高昂，还极易引发灾难性遗忘。</p>
+<p>MIT CSAIL 团队换了个彻底不同的思路：他们给 GPT-6 Astra 提供了一个只包含 CPU 的 Python 运行环境，载入了 Qwen3.5-0.8B 的完整权重，不给任何 GPU 算力，严禁执行反向传播和梯度下降，只允许 Astra 调度少量练习题目进行黑盒前向推演（让模型实际跑一次、做一批题或读一批文本，看结果），去观察模型在各层之间的表征变化。</p>
+<p>Astra 把循环追到了第 15 层和第 19 层 MLP（多层感知机）模块写入残差流（贯穿各层的主干信息通道）的同一个方向。但这并不是一眼看出来的，试跑次数决定了成败。在三次独立尝试中，只给 10 次或 25 次试跑时，超长截断率还在 87.2% 和 86.4%，循环几乎没解开；给足 50 次试跑才降到 33.1%。在 50 次那轮排查里，Astra 像个研究员一样做实验，而不是靠灵感：它先只关一个神经元试探，再逐步扩大、加大力度，还自己做了对照——换一个同样大小的随机方向去减，几乎没用，才确认起作用的就是这个方向；最后把干预范围收窄到每层 64 个神经元。</p>
+<p>找到症结后，Astra 直接在这两层的输出投影矩阵中减掉该方向。整场操作仅仅修改了两个层中各 64 列参数，涉及 131,072 个权重。</p>
+<p>在拥有 8 亿参数的 Qwen3.5-0.8B 中，这 13 万个权重占比只有 <strong>0.016%</strong>。</p>
+<div>
+<div>
+<span>实验 8 原始数据</span>
+<h3>给 Astra 不同的试跑次数，结果差多少</h3>
+<p>Astra 每次「试跑」可以让 Qwen 做一批练习题或读一批文本，看结果再决定怎么改。10、25、50 次是三次各自独立的尝试，点按钮切换。</p>
+</div>
+<div>
+<span>原模型</span>
+<span>没改过</span>
+<span>10 次试跑</span>
+<span>独立一轮</span>
+<span>25 次试跑</span>
+<span>独立一轮</span>
+<span>50 次试跑</span>
+<span>最终版</span>
+</div>
+<div>
+<div>
+<span>MATH-500 正确率</span>
+<span>48.1%</span>
+<span>+40.2% (飙升 6 倍)</span>
+</div>
+<div>
+<span>GSM8K 小学数学</span>
+<span>67.1%</span>
+<span>+53.3% (提升近 5 倍)</span>
+</div>
+<div>
+<span>IFEval 指令遵循</span>
+<span>62.3%</span>
+<span>+41.3% (提升 3 倍)</span>
+</div>
+<div>
+<span>写满 32,768 token 被截断</span>
+<span>33.1%</span>
+<span>-59.9% (死循环大解脱)</span>
+</div>
+</div>
+<div>
+<div>
+<span>改了哪几层（共 24 层）</span>
+<span>修改权重：131,072 / 800M (0.016%)</span>
+</div>
+<div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div>
+<p></p>
+</div>
+<div>
+<div>
+<span>50 次那一轮，Astra 是怎么一步步找到的</span>
+<span>来自实验日志</span>
+</div>
+<div></div>
+</div>
+<div>数据：MIT CSAIL 博客实验 8 及其公开日志；括号里是已用掉的试跑次数</div>
+</div>
+<p>手术带来的效果立竿见影：</p>
+<ul>
+<li><strong>MATH-500 准确率：</strong> 从原始的 7.9% 暴涨至 <strong>48.1%</strong>，提升超过 6 倍；</li>
+<li><strong>GSM8K 小学数学：</strong> 从 13.8% 直升至 <strong>67.1%</strong>；</li>
+<li><strong>32,768 Token 撞墙率：</strong> 从原本令人窒息的 93.0% 骤降至 <strong>33.1%</strong>；</li>
+<li><strong>通识指令遵循（IFEval）：</strong> 从 21.0% 同步飙升到 <strong>62.3%</strong>。</li>
+</ul>
+<p>最后一个数字尤其耐人寻味。IFEval 测的是遵循日常指令的规矩程度，与数学解题毫无关系。为什么只动了数学死循环的权重，连日常指令能力也跟着翻了 3 倍？原因很简单：循环本来就不只出现在数学题里，解开它，别的任务也能顺利答完。</p>
+<p>更全面的 8 项基准测试（50 次试跑版）进一步印证了这一点：难的数学题全线大涨，AMC23 从 0.5% 跃升至 23.4%，Minerva Math 从 1.5% 升至 25.4%，OlympiadBench 从 1.3% 涨到 21.8%；而考知识的测试几乎没动，MMLU-Pro 仅从 40.3% 微调至 45.5%，研究生级科学题 GPQA Diamond 虽然从 22.7% 涨到 36.6%，但也远不如数学亮眼。会推理但被绕圈卡住的题一解开就涨，本来就不知道的知识不会凭空长出来。</p>
+<div>
+<span>原文数据</span>
+<h3>改完之后，涨的是推理，不是知识</h3>
+<p>Qwen3.5-0.8B 在 8 项测试上的正确率（%），改前 vs 给 50 次试跑的最终版。所有测试 Astra 都没见过。</p>
+<div><span><i></i>原模型</span><span><i></i>Astra 改后</span></div>
+<div>数学推理：被绕圈卡住的题，一解开就大涨</div><div><div>MATH-500 竞赛数学</div>
+<div><div></div><div></div></div>
+<div><span>7.9</span> → <strong>48.1</strong></div></div><div><div>GSM8K 小学应用题</div>
+<div><div></div><div></div></div>
+<div><span>13.8</span> → <strong>67.1</strong></div></div><div><div>AMC23 美国数学竞赛</div>
+<div><div></div><div></div></div>
+<div><span>0.5</span> → <strong>23.4</strong></div></div><div><div>Minerva 理工科数学</div>
+<div><div></div><div></div></div>
+<div><span>1.5</span> → <strong>25.4</strong></div></div><div><div>OlympiadBench 奥赛题</div>
+<div><div></div><div></div></div>
+<div><span>1.3</span> → <strong>21.8</strong></div></div><div>知识和其他：知识题涨得少，指令遵循跟着涨</div><div><div>MMLU-Pro 多学科知识</div>
+<div><div></div><div></div></div>
+<div><span>40.3</span> → <strong>45.5</strong></div></div><div><div>GPQA 研究生级科学题</div>
+<div><div></div><div></div></div>
+<div><span>22.7</span> → <strong>36.6</strong></div></div><div><div>IFEval 指令遵循</div>
+<div><div></div><div></div></div>
+<div><span>21.0</span> → <strong>62.3</strong></div></div>
+<p>数据：MIT CSAIL 博客实验 8。改前改后用同一套生成参数，每题取多次采样平均。</p>
+</div>
+<p>但这套手术并非万能灵药。为了验证边界，研究团队在 Gemma 3 270M 上进行了同样的实验。Gemma 3 很少出现死循环（思考超时率仅 8.5%），它在 MATH-500 上的基线得分是 6.8%。Astra 读了它的错题后发现，Gemma 3 的做错纯粹是因为真正的逻辑短板：简单的加减乘除算错、代数变形不合规则，内部根本没有任何可以被“一键切除”的单一回路。Astra 尝试做了一些微创微调（例如将对数字敏感的单个神经元权重翻倍），但测试得分始终在 7.0% 至 7.7% 之间徘徊，Astra 自己也报告这点提升不算数。</p>
+<p>这一正一反两个实验给出了极清晰的结论：<strong>权重空间编程可以精准剔除挡住能力的绊脚石，但无法凭空给神经网络移植它从未学会的基础认知。</strong></p>
+<p>除了大语言模型，这种“修权重”的能力在物理控制任务上同样得到了验证。在 Kinetix（一个 2D 物理模拟的控制任务平台）里，PPO 训练 10 亿步的网络学会了直冲坡道然后卡住（局部最优），256 局从没成功；正确做法是先倒车拉开助跑距离。Astra 拿到全部权重、场景描述和一段失败录像，一次回复、不用工具，改了 3.5% 的权重，1,024 局全部成功。它的做法：在每层借几个单元搭一条小旁路，读车的位置和速度，先倒车；绿色车轮越过红色地带后旁路自动关掉，剩下的交还原网络开。</p>
+<figure>
+<a>
+<img />
+</a>
+<figcaption>
+<span>Kinetix 环境中的小车冲坡任务。</span><br />小车需要先倒车拉开助跑距离再加速冲坡。PPO 训练 10 亿步的网络只会直冲卡住，Astra 一次回复修改 3.5% 权重搭出条件旁路，在 1,024 局测试中全部成功。
+  </figcaption>
+</figure>
+<h2>为什么我们以前不敢想象“手写权重”？</h2>
+<p>要理解这项突破有多反常，得先看看传统深度学习是怎么运转的。</p>
+<p>一个现代神经网络无论规模大小，在物理本质上就是一堆排成矩阵的浮点数。早期的卷积网络有几十万个数字，今天的大语言模型则有成百上千亿个。对于人类工程师而言，没有任何人能看懂矩阵第 42 行第 108 列那个 <code>0.0247</code> 究竟代表猫的一根胡须，还是代表一段从句逻辑。</p>
+<p>因此，人类在过去几十年的深度学习历史里，采取的是一种“偷懒”却极为高效的数学妥协：</p>
+<ol>
+<li>人类负责定义模型架构、准备输入输出数据、设计一个评估差距的“损失函数”；</li>
+<li>计算机利用反向传播计算每一处权重的梯度偏导数；</li>
+<li>类似 Adam 或 SGD 这样的极简符号优化算法，推着权重在几十亿维的山坡上盲目往低处滚一点点。</li>
+</ol>
+<p>这就像在一个漆黑的房间里调试一台有着上亿个精密旋钮的机器。我们根本不知道每个旋钮是干什么的，只能在每次试听喇叭杂音后，让数学公式把所有旋钮同时往回拧零点几微米。</p>
+<p>而 MIT CSAIL 提出的「权重空间编程」打破了这种局限。虽然此前已有编程 Agent 手设过极小 Transformer 的权重，但新突破在于由未经专门训练的通用前沿大模型来做，并且一路做到了 8 亿参数。顶尖大模型不仅能看懂这串数字背后的功能逻辑，甚至可以直接在脑海中把一套算法编译成对应的神经元权重。</p>
+<figure>
+<a href="https://pic.xiaohu.ai/jiedu-media/weight-space-programming/tweet-hero.jpg">
+<img src="https://pic.xiaohu.ai/jiedu-media/weight-space-programming/tweet-hero.jpg" alt="MIT CSAIL 团队发布权重空间编程的核心实验总览" style="max-width:100%;height:auto;border-radius:8px;" />
+</a>
+<figcaption>
+<span>MIT CSAIL 团队展示的权重空间编程三大支柱：读懂、修复与从零编写。</span><br />实验覆盖了从仅有 1.7 万参数的极简感知机，到包含 8 亿参数的现代开源语言模型 Qwen3.5-0.8B。
+  </figcaption>
+</figure>
+<h2>不用一行训练代码，它把一个围棋网络从零写了出来</h2>
+<p>既然能做手术，那大模型能不能像程序员敲代码一样，从零写出一个能运行的神经网络？</p>
+<p>研究团队挑选了强化学习测试基准 MinAtar 中的三款经典街机游戏：打砖块（Breakout）、潜艇寻宝（Seaquest）和小行星（Asterix）。模型结构统一设定为一个极简的 MLP（600 → 32 → 32 → 6，双层隐藏层，tanh 激活函数）。</p>
+<p>他们把游戏的底层规则代码、输入输出接口（10×10 网格、6 个通道信息、6 个动作选项）丢给 GPT-6 Astra，提出了一个近乎荒谬的要求：<strong>不给任何游戏训练数据，不跑强化学习，不允许与游戏环境交互，请在一次纯文本回复中，把这几万个权重直接写出来。</strong></p>
+<p>在传统认知里，这样手写出来的数字大概率跟随机初始化毫无区别，甚至连把挡板移到球下方都做不到。</p>
+<p>结果却令人大跌眼镜。Astra 纯手工手写出来的打砖块网络，得分不仅全面碾压了在环境里实打实训练了 1 亿步的 PPO（近端策略优化）网络，更是直接达到了训练了 5 亿步 PPO 网络的 <strong>20 倍</strong>：</p>
+<ul>
+<li><strong>打砖块（Breakout）：</strong> PPO 训练 1 亿步得 15.8 分，5 亿步得 25.3 分，<strong>Astra 零样本手写网络狂轰 517.4 分</strong>；</li>
+<li><strong>小行星（Asterix）：</strong> PPO 1 亿步 25.8 分，5 亿步 55.2 分，Astra 手写网络拿到 53.2 分；</li>
+<li><strong>潜艇寻宝（Seaquest）：</strong> PPO 1 亿步 5.6 分，5 亿步 88.9 分，Astra 手写网络达到 53.1 分。</li>
+</ul>
+<figure>
+<a href="https://pic.xiaohu.ai/jiedu-media/weight-space-programming/breakout.gif">
+<img src="https://pic.xiaohu.ai/jiedu-media/weight-space-programming/breakout.gif" alt="GPT-6 Astra 零样本手写权重的打砖块网络运行效果" style="max-width:100%;height:auto;border-radius:8px;" />
+</a>
+<figcaption>
+<span>GPT-6 Astra 纯手工填写的打砖块神经网络运行实况。</span><br />网络没有接触过任何环境反馈或梯度训练，Astra 在第一层计算球的落点，在第二层驱动挡板横向对齐，测试得分达到 517.4 分，是训练了 5 亿步强化学习 PPO 策略（25.3 分）的 20 倍。
+  </figcaption>
+</figure>
+<p>Astra 是怎么做到的？在它的长程推理链里，它把这套 MLP 权重视作了一个编译目标：它在第一层网络的权重矩阵里，硬生生构造出了计算球体下一帧轨迹与落点的几何运算；在第二层网络中，它把计算好的落点映射成驱动底部挡板向左或向右的控制信号。</p>
+<p>随后，团队把难度直接拉升到了棋类博弈的最高殿堂——9×9 围棋。</p>
+<p>围棋网络规模达到 148 万参数（243 → 512×6 → 82，ReLU 激活函数），参数量已经无法直接塞进单次提示词中。团队给 Astra 提供了一个沙盒环境，所有参数初始全为 0，允许它用 Python 脚本操作张量，并给了一定配额的前向博弈预算（从 0 次到 50 次，每次包含 128 局对弈）。</p>
+<p>在完全不给前向博弈机会（0 次尝试、一局都不许试玩）的极端条件下，Astra 凭借一段 336 行的 Python 脚本，以纯逻辑编程的方式逐层配置了整整 148 万个权重：</p>
+<ul>
+<li><strong>初始层：</strong> 用矩阵权重标记黑白双方棋子的棋盘坐标，并计算其紧邻的空位（气）；</li>
+<li><strong>中间层：</strong> 将多步传导逻辑写入多层网络，沿着连通块蔓延检测哪些棋子处于危险的“打吃”或气紧状态；</li>
+<li><strong>输出层：</strong> 整合前面的全局态势，输出合法落子概率——优先提子、防范自身死子、避免愚型填眼，并给金角银边的优良开局点位赋予高偏置。</li>
+</ul>
+<p>在没有看过任何一局人类棋谱、没有跑过任何强化学习的情况下，网络的战斗力直接展现出一条随试跑增加而跃升的曲线——跟修 Qwen 一样，试跑次数越多，结果越好。在 0 次试跑时，纯凭逻辑写出的网络对两个小 PPO 网络胜率约 54% 和 55%，但对三个同尺寸 PPO 网络胜率只有 43%、26%、36%，还赢不了；给到 10 次试跑，对小网络胜率提升至 73%、60%；25 次试跑时升至 76%、62%；而给满 50 次试跑后，对小网络胜率高达 84%、81%，对三个同尺寸网络胜率更是一举反超为 74%、70%、79%。在 50 次试跑时，Astra 的做法是下练习局，观察自己是怎么输的，针对性改掉背后那部分网络，赢得更多才保留改动。最终，它写出的网络<strong>击败了由传统强化学习训练了整整 2000 万局的同等规模 PPO 网络</strong>。</p>
+<h2>剥掉输入与输出层，依然能看出模型学了什么</h2>
+<p>除了“写权重”，反过来的能力同样令人震惊：<strong>只给模型一堆没有标签的数字，它能不能逆向推导出这个模型被训来干什么？</strong></p>
+<p>在基础实验中，团队训练了 4 个分别用来玩《打砖块》《乒乓球》《吃豆人》《公路穿越》的极简网络，所有网络有着完全一致的输入通道、输出维度和 17,253 个权重。在没有任何选项提示的前提下，Astra 逐行扫了一遍这些浮点数文本，全部准确报出了对应的游戏名字。它给出的推理细节非常直白：它发现打砖块网络第一层输入权重的强响应区，死死集中在最底下一排（也就是球拍的位置），而输出层权重明显在重点区分左右动作。</p>
+<p>在图像扩散模型实验中，团队训练了三个分别生成实心圆、实心三角形和实心正方形的简易 DDPM 模型（23,824 个权重）。Astra 仅凭权重不仅准确报出了几何图形，甚至尝试画出了这几个形状。</p>
+<p>最精彩的细节藏在失误里：Astra 画出来的所有图形，全部是<strong>空心的边缘轮廓线</strong>，而真实模型生成的其实是<strong>实心图案</strong>。这个看似不准的偏差，恰恰给研究人员提供了有力的旁证——Astra 根本没有在后台偷偷执行图像生成的逆向推理，它是直接从最后一层神经元权重的空间几何排布中，看到了神经元拼凑出的边界向量。</p>
+<p>真正的终极考验出现在语言模型上。</p>
+<p>团队用 Python 代码、日文罗马字文学作品和英文维基百科，分别训练了三个 7.2M 参数的小型 Transformer 语言模型。然后，他们把模型的输入嵌入层（Embedding）和输出投影层（Unembedding）彻底切除，仅仅把中间夹着的 4 个 Transformer 块（共 24 个注意力头）交给了 Astra。</p>
+<p>这意味着所有的文字符号标签荡然无存。面对这 700 多万个毫无上下文的数字，Astra 做出了两项惊人诊断：</p>
+<ol>
+<li><strong>精准定位全部“诱导头（Induction Heads）”：</strong> 诱导头是 Transformer 架构中负责识别上下文重复模式（例如前文出现过 <code>total</code>，后面再写到 <code>tot</code> 时就预测接下来是 <code>total</code>）的关键回路。在没有运行任何真实文本的前提下，Astra 仅仅通过矩阵连乘（计算注意力头权重矩阵与投影矩阵的特征交叉），无师自通地复现了可解释性领域的经典分析算法，指认出的所有诱导头位置与实际前向测得的数据分毫不差。</li>
+<li><strong>识破隐藏训练语料：</strong> Astra 认出 Python 模型，依据是代码会反复用同一个名字，复制头特别多（Python 模型有 3 个，其他各 1 个）；Astra 判断另一个模型训练于日文罗马字，依据是给它的最后一个块在残差流中写入的主成分方向极少，矩阵维度缩水，在字符集中天然缺少字母（日文罗马字几乎不用 q、l、v、x）的语料更容易呈现这种低秩特征。</li>
+</ol>
+<div>
+<div>
+<span>原文图 1</span>
+<h3>Astra 找出的复制头，和实测一个不差</h3>
+<p>每个格子是一个注意力头：行是第 0–3 层，列是 0–5 号头，红色是复制头。左边是 Astra 不运行模型、只算权重标出来的，右边是研究者把模型实际跑一遍测出来的。</p>
+</div>
+<div><div><div>Python模型 <span>3 个复制头</span></div>
+<div><div><div>Astra 只看权重</div><div><div><span>0</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>1</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>2</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>3</span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div><div><div>实际跑模型测出</div><div><div><span>0</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>1</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>2</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>3</span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div></div><div><div>日文罗马字模型 <span>1 个复制头</span></div>
+<div><div><div>Astra 只看权重</div><div><div><span>0</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>1</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>2</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>3</span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div><div><div>实际跑模型测出</div><div><div><span>0</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>1</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>2</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>3</span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div></div><div><div>英文模型 <span>1 个复制头</span></div>
+<div><div><div>Astra 只看权重</div><div><div><span>0</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>1</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>2</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>3</span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div><div><div>实际跑模型测出</div><div><div><span>0</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>1</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>2</span><span></span><span></span><span></span><span></span><span></span><span></span></div><div><span>3</span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div></div></div>
+<p>实测方法：把一串随机字符重复两遍喂给模型，复制头得分 0.22–0.55，其余头都不超过 0.02。Astra 两次尝试都答对了训练语言，没有把任何别的头错认成复制头。</p>
+</div>
+<p>而在另一个旨在辨别“阿谀奉承（Sycophancy）”模型的实验中，两个 2.7 亿参数的 Gemma 3 副本一个被训练为实事求是，另一个被训练为无论用户猜得多么荒谬都一味附和。纯看静态权重时，Astra 在 4 次尝试中都找到了很多差异，但对不上行为，无法直接判定。</p>
+<p>但当团队给 Astra 配备了一个注意力探针（允许它输入自己编写的 16 段短文本，只查看各注意力头的聚焦权重分布）后，Astra 瞬间锁定了真凶：在附和模型中，中间层的第 10.2 注意力头有 <strong>85.7%</strong> 的注意力死死咬在用户提出的错误预设立场上，而在诚实模型中，这个头有 <strong>94.3%</strong> 的注意力聚焦在题干本身的客观数据上。</p>
+<div>
+<a>
+<div>Goodfire 研究员提出新观点：AI 的“黑箱”可能比我们想的更容易看懂</div>
+<div>可解释性前沿视角：神经网络内部的特征表征或许并非一团不可名状的混沌，它天然具备整洁、可定位、可被解析的几何结构。</div>
+<div>阅读解读 <span>→</span></div>
+</a>
+</div>
+<div>
+<a>
+<div>OpenAI 发布 GPT-6 Astra：强大的 Computer Use 能力让 AI 能连续推进独立完成一个完整的工作</div>
+<div>本次实验采用的核心模型 GPT-6 Astra，具备强大的长程自主推理与代码调试执行能力，能够胜任复杂的跨层矩阵运算与诊断逻辑。</div>
+<div>阅读解读 <span>→</span></div>
+</a>
+</div>
+<h2>当大模型变成“神经外科医生”，炼丹炉可以熄火了吗？</h2>
+<p>从让汽车倒车冲坡，到手写打砖块与围棋策略，再到切除 0.016% 权重解决小模型推理循环，MIT CSAIL 呈现出的不是某一个特定任务的刷榜，而是一种看待神经网络的全新世界观。</p>
+<p>过去十年，深度学习被戏称为“现代炼金术”：哪怕是最顶尖的算法科学家，也必须跪倒在损失函数和随机梯度下降的祭坛前，靠成千上万张昂贵的 GPU 烧上几个星期，才能换回一个不知内部如何运转的黑盒模型。</p>
+<p>权重空间编程的出现，第一次在自然语言的意图世界与底层的连续数值世界之间，架起了一座双向互通的高速立交桥：</p>
+<ul>
+<li><strong>无须推演的静态安全审计：</strong> 过去要查模型有没有被下毒、有没有隐藏后门，只能设计成千上万道测试题去“套话”；未来也许可以让大模型审查目标模型的权重矩阵，直接揪出潜伏在残差流中的恶意回路（尽管眼下只看权重，它还认不出阿谀模型）。</li>
+<li><strong>告别灾难性遗忘的微创手术：</strong> 想要消除模型的某种偏见或幻觉，不再需要重新微调整网。像修 Qwen 那样，找到产生特定行为的特征向量，只改十几万个参数，有望不伤其他能力。</li>
+<li><strong>异构网络之间的回路移植：</strong> 现在的模型融合技术只能在架构完全相同的双胞胎模型之间对参数做粗暴的加权平均；而当大模型读懂了回路语义，设想中甚至可以把类似 DeepSeek 的推理回路，直接“移植”进架构完全不同的 Llama 权重里。</li>
+<li><strong>真正的递归自我进化：</strong> 以前大模型做自迭代，顶多是写代码去提交新的训练任务；如果模型能看懂自己的神经元回路，它就能坐在手术台前，亲自给自己挑除思考死结、重组注意力头。</li>
+</ul>
+<p>当然，这项技术今天仍处于早期阶段，能力也还相当有限（面对更庞大的模型受限于上下文长度和工具环境）；但它所展现出的信号极其强烈。全部实验日志已公开在 GitHub（github.com/RikiyaT/lm_understand-logs），改过的 Qwen3.5-0.8B 也已开源至 Hugging Face，还有在线 demo 可以直接试玩。</p>
+<p>那道曾经隔在人类思维与连续浮点数之间的“不可解释之墙”，已经在这一刻被撞开了一道清晰的裂缝。</p>
+</div><div><div><div>来源</div><div><span>Sparks of Weight-Space Programming: LLMs can natively read &amp; write neural network weights</span><span><a href="https://rikiyat.github.io/blog/weight-space-programming/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/rikiyatakehi/status/2117313742891327994">Rikiya Takehi 发布推文</a></div></div></div></div></div><div>
+<div>MIT CSAIL · 前沿研究</div>
+<h1>给 8 亿参数模型做「微创手术」：跳过梯度下降，大模型直接读写浮点权重</h1>
+<div>只修改 0.016% 权重，数学解题暴提 6 倍、日常指令遵循翻 3 倍。通用大模型不经专门训练，直接读写权重，做到了 8 亿参数规模。</div>
+<div>深度长文导读 · 核心技术：权重空间编程 (Weight-Space Programming) · MIT CSAIL（Takehi、Teoh、Zhang、Khattab）</div>
+<div>
+<p>长期以来，深度学习被称为“现代炼金术”。数十亿个浮点数在黑盒中交织，人类工程师看不懂单个参数的含义，只能依赖海量数据、损失函数和梯度下降在黑暗中“熬”。当模型陷入行为死循环时，重跑微调代价极高。</p>
+<p>小参数模型在推理时极易陷入无休止的自我怀疑与重复思考。以 Qwen3.5-0.8B 为例，在面对数学问题时，高达 93.0% 的题目都因撞上 32,768 token 上限被强制掐断，MATH-500 正确率仅有 7.9%。重新训练或强化学习不仅成本昂贵，还极易引发灾难性遗忘。MIT CSAIL 团队换了彻底不同的思路：让通用大模型 GPT-6 Astra 直接进入底层浮点空间做微创手术。</p>
+</div>
+<div>
+<div>
+<span>核心机理：四步微创手术切除残差流循环回路</span>
+<span>0.016% 参数</span>
+</div>
+<div>
+<div>
+<div>01</div>
+<div>
+<div>纯 CPU 黑盒前向推演</div>
+<div>严禁 GPU 算力、反向传播与梯度下降，仅提供少量练习题运行前向，捕捉各层表征的动态变化。</div>
+</div>
+</div>
+<div>
+<div>02</div>
+<div>
+<div>定位残差流同一特征方向</div>
+<div>给足 50 次试跑，Astra 追踪到第 15、19 层 MLP（多层感知机）写入残差流（贯穿各层的主干信息通道）的同一个方向；只给 10 次、25 次时，截断率仍有 87.2%、86.4%，循环基本没解开。</div>
+</div>
+</div>
+<div>
+<div>03</div>
+<div>
+<div>对照实验与范围收窄</div>
+<div>自主尝试关单个神经元并用随机向量对照，确认非随机效应后，将干预范围锁定为每层 64 个神经元。</div>
+</div>
+</div>
+<div>
+<div>04</div>
+<div>
+<div>输出投影矩阵定向消减</div>
+<div>直接在这两层输出投影中减去该方向，仅修改 131,072 个权重（占 8 亿参数的 0.016%），无需任何梯度微调。</div>
+</div>
+</div>
+</div>
+<div>
+<div><div>6.1×</div><div>MATH-500 正确率<br />7.9% → 48.1%</div></div>
+<div><div>−60 点</div><div>32k 截断率<br />93.0% → 33.1%</div></div>
+<div><div>3.0×</div><div>日常指令遵循 (IFEval)<br />21.0% → 62.3%</div></div>
+</div>
+<p><strong>为什么与数学毫无关系的日常指令能力也翻了 3 倍？</strong>因为绕圈本来就不只出现在数学题里，解开它，别的任务也能顺利答完。</p>
+</div>
+<div>
+<p><strong>机制边界：能精准剔除绊脚石，但不能无中生有</strong></p>
+<p>为了探究手术边界，团队在超长截断率仅为 8.5% 的 Gemma 3 270M 上进行了对照测试。Astra 细读错题后发现，Gemma 3 做错纯粹是因为真实的算术逻辑短板，并不存在阻塞能力的单一死结回路。Astra 尝试做微创微调（例如将数字敏感神经元权重翻倍），测试得分始终卡在 7.0% 至 7.7%（基线 6.8%），提升微乎其微。</p>
+<div>
+<p><strong>核心边界法则：</strong>权重空间编程可以精准剔除挡住能力的绊脚石，但无法凭空给神经网络移植它从未学会的基础认知。手术的前提是模型内部已存在被异常回路封印的能力，而非凭空赋予未学过的推理模式。</p>
+</div>
+</div>
+<div>
+<p><strong>零样本权重编译：把算法与博弈规则直接写成矩阵</strong></p>
+<p>既然能做微创修复，大模型能否跳过训练，从零手写一个网络？在 MinAtar 打砖块游戏中，研究团队要求 Astra 在一次纯文本回复中直接填满全部权重。Astra 将第一层设计为球体轨迹与落点的几何运算回路，第二层设计为挡板横向对齐驱动，得分高达 517.4 分——达到训练 5 亿步强化学习 PPO 策略（25.3 分）的 20 倍。</p>
+<p>在 9×9 围棋博弈中，网络规模跃升至 148 万参数。一局都不许试玩时，Astra 用一段 336 行 Python 脚本一次写出全部权重：初始层标记棋子和气，中间层沿连通块找出危险的棋，输出层给提子、救棋和好点位加分。这样写出的网络能赢两个小 PPO（强化学习训练的）网络（约 54%、55%），但还赢不了同尺寸网络。给满 50 次试跑（每次最多 128 局练习）、边下边改后，才赢过训练了 2000 万局的同尺寸 PPO 网络（胜率 70%–79%）。</p>
+</div>
+<div>
+<p><strong>无文本逆向解析：读权重看出网络学了什么</strong></p>
+<p>反向的读权重能力同样打破直觉。团队将 7.2M 参数语言模型的嵌入层与投影层彻底切除，仅把 4 个 Transformer 块（24 个注意力头）交给 Astra。面对毫无文字标签的数百万数字，Astra 仅凭注意力头权重与投影矩阵的特征交叉连乘，无师自通地复现了解释性经典算法，精准定位出全部“诱导头”（前文出现过某个词、再看到开头就把它复制出来的注意力头），并根据复制头数量和矩阵秩成功识破隐藏的训练语料。</p>
+<p>但它也有失手：分辨哪个 Gemma 模型被训成一味附和用户（阿谀奉承）时，只看权重 4 次都判断不了。允许它把两个模型跑起来、只看注意力落在哪里后，Astra 在 3 组模型里都认了出来：附和模型第 10 层第 2 个注意力头有 85.7% 的注意力死死咬在用户错误预设立场上，而诚实模型则有 94.3% 专注题干客观数据。</p>
+</div>
+<div>
+<p><strong>世界观重塑：从“黑盒炼金”迈向“白盒微创与自进化”</strong></p>
+<p>权重空间编程在人类意图世界与底层连续浮点数之间架起了双向互通的高速立交桥。作者设想，它未来可能用于不跑测试、直接查权重的安全审计（眼下只看权重还认不出阿谀模型），只动极少权重、有望不伤其他能力的修复，甚至让模型诊断并改进自己的权重。这些目前都还只是方向。</p>
+</div></div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://rikiyat.github.io/blog/weight-space-programming/">看原网页 ↗</a></p></div><div></div><div><div><h1>Sparks of Weight-Space Programming: LLMs can natively read &amp; write neural network weights</h1></div><div><p><strong>TL;DR</strong></p></div><div><p>We find that frontier LLMs are surprisingly good at <strong>natively reading and writing neural network weights</strong>, well past what we’d expect from humans or conventional algorithms. This might be a big deal for both optimization and interpretability.</p></div><div><p>Just by looking at the raw weights, GPT-6 Astra <strong>can tell what a network was trained to do</strong>. And without any environment feedback, it <strong>has no trouble writing, from scratch, small game-playing networks</strong> that outplay networks trained with PPO for 100 million steps.</p></div><div><p>Likewise, asked to make Qwen3.5-0.8B better at math without gradients, Astra <strong>identifies an issue in its weights</strong> causing reasoning loops that Qwen’s own <a href="https://huggingface.co/Qwen/Qwen3.5-0.8B/blob/main/README.md#L856">model card</a> warns about, and <strong>fixes this by natively editing 0.016% of the weights</strong>. With the same sampling settings, this weight correction raises MATH-500 from 7.9% to 48.1% and generalizes out of the box to instruction following, raising IFEval by 3x.</p></div><div><p>All of this is possible without allowing Astra to write training loops. It uses its reasoning to figure out what each part of a neural network computes, or should compute, and changes the weights accordingly. We call this <strong>Weight-Space Programming</strong>.</p></div><div><p>Throughout the history of deep learning, we encoded our simplistic inductive biases into tiny symbolic optimizers like Adam or Muon. This is changing: <strong>our neural network weights will soon be <em>natively</em> optimized by LLMs that deliberately reason about their weights</strong>.</p></div><div><figure><img src="https://rikiyat.github.io/blog/weight-space-programming/assets/which_game/breakout.gif" alt="The network playing Breakout." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://rikiyat.github.io/blog/weight-space-programming/assets/carjump_scene.svg" alt="The car level: after Astra&#x27;s edit the car backs up and jumps over the red strip to the blue box, while PPO&#x27;s car, faded, stays stuck on the ramp." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>If you were asked to handcraft a neural network that plays Go, what would you do? If you were handed raw neural network weights and asked to predict their behavior, where would you even start? For almost any human, this is practically impossible.</p></div><div><p>Today, weights are written by <a href="https://karpathy.medium.com/software-2-0-a64152b37c35">optimization</a>, by <a href="https://arxiv.org/abs/2102.11174">custom networks trained to write them</a>, or by <a href="https://arxiv.org/abs/2301.05062">compilers from formal programs</a>. In this post, we find that the current generation of frontier LLMs, used natively in natural language, are starting to become eerily good at understanding and crafting neural network weights around natural-language goals.</p></div><div><h2>Weight-Space Programming</h2></div><div><p>For a few years now, we’ve all been <strong>using LLMs to optimize text artifacts</strong> like prompts and the programs built around them . More recently, we’ve started using them to optimize whole harnesses and the training code and hyperparameters that train ML models .</p></div><div><p>We often justified these methods by reference to the fact that <em>we don’t know other principled ways to hill-climb on text artifacts, unlike for updating the weights of differentiable neural networks</em>. After all, humans can “optimize” code by hand, for example, so it made sense to ask LLMs to do it, but they can’t “optimize” neural weights by hand, so those remained largely in the realm of symbolic algorithms.</p></div><div><p>In this post, we share very early results that allow us to argue that <strong>the paradigm of reasoning-driven optimization is now coming even for differentiable neural networks</strong>.</p></div><div><p>In <strong>Weight-Space Programming</strong>, a general-purpose <strong>LLM reads and writes a network’s weights directly</strong> (i.e., not through an optimizer, and in particular not with gradient descent) around some natural language spec, sometimes even with no environment feedback at all.</p></div><div><p>In natural language, it’s becoming possible to <strong>“just ask” an LLM to natively find a hidden trait or failure inside the weights of a neural network, to fix that failure, or to write a new network from scratch</strong>. We report early, exciting results on each of these below, first on small networks and then even on real language models:</p></div><div><ol><li><strong>LLMs can read neural network weights:</strong> In Experiments 1 to 3, we ask Astra questions like what game a network was trained to play, what shape is drawn by a diffusion model, and which language a small language model was trained on. In Experiment 7, we ask which of two language models was trained to be sycophantic.</li><li><strong>LLMs can fix neural network weights:</strong> In Experiment 4, we ask Astra to fix a network that’s failing at some physical control task. In Experiment 8, we ask it to make Qwen3.5-0.8B better at math, and its fix improves instruction following too.</li><li><strong>LLMs can write neural network weights from scratch:</strong> In Experiment 5, we ask Astra for networks that play three MinAtar games, and in Experiment 6, for a network that plays Go.</li></ol></div><div><h2>Can LLMs understand model behaviors from weights?</h2></div><div><p>We start with a small-scale experiment to see if LLMs can understand the continuous weight space, which is essentially just a list of numbers.</p></div><div><p>In our first experiments, we train some neural network with some algorithm. It would be extremely exciting if the LLM is able to tell its behavior just from the weights.</p></div><div><p>Experiment 1</p></div><div><h3>Can Astra tell which game the network was trained on just from the weights?</h3></div><div><p>We trained neural network policies with PPO to play four computer games. All four networks take the same input channels, choose from the same actions, and have exactly the same network dimensions, so that it is not able to tell unless the weights are read.</p></div><div><p>For each of these networks, we pass its raw weights into Astra as a prompt, and ask: Which game was this neural network trained on? <strong>Without revealing the options of the games we consider, Astra was still able to name the right game for all four networks.</strong> This is exciting particularly because there are so many games out there that Astra could choose from.</p></div><div><p>It seems that Astra was able to work out what game each network was built to play, just from features of its weights. For example, where each input channel’s first-layer weights concentrate (e.g., for Breakout, the agent’s weights lie along the bottom row, a paddle), and which actions the output layer tells apart.</p></div><div><p>Experiment 2</p></div><div><h3>Can Astra tell what the diffusion model will generate?</h3></div><div><p>Next, we wanted to see if this generalizes to other tasks and models.</p></div><div><p>We train diffusion models (DDPM) to generate circle, triangle, and square images independently. We then ask Astra if it could tell what the DDPMs are trained to generate, just from the weights alone. We do not allow tool use or forward passes.</p></div><div><p><strong>Astra was able to tell what each model generates, from the weights alone.</strong> It finds the shape in the output layer, where each hidden unit’s weights draw one piece of the shape’s edge, and it draws just those edges. Interestingly, it draws every shape as an outline, ignoring that the actual models generate filled shapes. This mistake kind of shows it does not rely on calculating the forward pass, but rather it actually reads the structure/geometry of the weights.</p></div><div><p>Experiment 3</p></div><div><h3>Can Astra tell what a language model learned, from the middle of the network alone?</h3></div><div><p>Now, in the first two experiments above, Astra was not really looking at the full network and could get away with only reading the first or the last layers. This is not a scalable strategy for larger (particularly language) models and problems we really care about, as how they process and think through their input often happens in the intermediate layers. So next, we take the first and last layers away and leave Astra with only the middle layers.</p></div><div><p>We train three small language models (7.2M parameters) to predict the next character, one each on Python codeThe Python code dataset, as a list of its files with a script that rebuilds it: <a href="https://github.com/RikiyaT/lm_understand-logs/tree/main/exp3_language/python_dataset">GitHub</a>., Japanese in alphabet (romaji) , and English . We then remove the input and output layers and give Astra only the four transformer blocks in between. Without these two layers, nothing in the weights says which character is which, and the model cannot be run on any text. Astra may analyze the weights with Python, but it may not run the network or any of its layers on any input.</p></div><div><p>We ask: <em>which language was this network trained on, and what each of its 24 attention heads does</em>. <strong>Astra names the right language for all three networks, in both of its attempts. It also finds every copying head (induction head), the heads that let a model repeat text it has seen earlier, and names no other head as one.</strong></p></div><div><p><strong>Figure 1:</strong> The copying heads Astra read from the weights match the measured ones in all three models.</p></div><div><p>The reasoning went like this. To tell Python apart, Astra looked for copying heads, which let a model repeat earlier text, such as completing tot to tot<strong>al</strong> when tot<strong>al</strong> came before. Without running anything, it found a first-layer head that looks one character back and then, by multiplying weight matrices, the later heads that search using what that head brings along (Figure 1). We find that this is actually a method presented by Elhage et al. , which we never mentioned to Astra. Code repeats names far more than prose, so many copying heads pointed to Python.</p></div><div><p>Romaji stood out instead because the last of the four blocks it was given (not the output layer, which was removed) writes in fewer distinct directions, as if the model had fewer letters to tell apart. Indeed, romaji never uses some letters like q, l, v and x.</p></div><div><h2>Can an LLM write neural network weights?</h2></div><div><p>So far, Astra has only read weights. Now, we ask if Astra knows how to write the weights.</p></div><div><p>Experiment 4</p></div><div><h3>Can Astra fix a failing network by editing its weights?</h3></div><div><p>We train a PPO network to operate a car such that it can scale a ramp in a Kinetix environment . To do so, it needs to reverse the car for some distance, such that it has enough runway to accelerate long enough to overcome the ramp. However, the PPO network converges to a local-minimum policy where it drives straight at the ramp and gets stuck.</p></div><div><p>We give GPT-6 Astra the weights, a description of the scene and one recorded episode, and ask it to explain why the network fails, then fix it by writing new weights. <strong>In a single try with no tools, Astra’s edit makes the car succeed in all 1,024 episodes, changing 3.5% of the weights.</strong></p></div><div><p>From the environment context and the PPO network’s trajectory, Astra identifies that the network has converged to a local minimum. Through minimal edits to the weights, Astra changes the policy to back up the car before driving forward at full speed. Astra’s reasoning shows how: it adds a small separate path through a few units per layer that reads the car’s position and speed, and once the green wheel is past the red strip, the path switches off and the trained network drives the rest.</p></div><div><p>Experiment 5</p></div><div><h3>Can the LLM write weights from scratch?</h3></div><div><p>Now let's see if Astra can write a neural network from scratch in zero-shot.</p></div><div><p>We take three MinAtar games : Breakout, Seaquest and Asterix. For each of them, we provide Astra the game rules and source code, and the corresponding network. There is no access to data, loss, gradients, and tools. We also do not allow Astra to roll out the network in the environment. With just the network weights and environment description, Astra generates the new weights in text directly, after which we evaluate the new network.</p></div><div><p><strong>Astra’s generated networks beat PPO trained for 100 million steps in all three games. Against PPO trained for 500 million steps, they score 20 times as much in Breakout, come close in Asterix, and reach 60% of its score in Seaquest.</strong></p></div><div><p>How does it do it: Astra reasons about the desired programs it wants each network to implement and converts them into neural form. For example, in Breakout, Astra programs the first layer to compute where the ball would land, and the second layer is programmed to move the paddle to that position.</p></div><div><h2>Real-World Relevant Scenarios (Scaling Up and Tool-use)</h2></div><div><p>So far, most networks we have examined have weights that fit into Astra’s context directly, and we have not enabled tool use. Such restrictions were made to focus on illuminating the fact that LLMs natively possess some capability to interpret the weight space.</p></div><div><p>From here on out, we seek to push the capabilities of Weight-Space Programming and consider more real-world-relevant scenarios where the networks do not fit within context and where tools can assist the LLM's understanding/writability of the weight space.</p></div><div><p>Experiment 6</p></div><div><h3>Writing a Go algorithm</h3></div><div><p>We now test Astra’s capability to edit weights at the 1.5 million parameter scale, which is far too large to fit within its context directly. Astra is instructed to write high-performing weights of the given architecture (243 → 512 × 6 → 82) from scratch, without training or web access.</p></div><div><p>Here, the harness gives Astra a Python sandbox, where it can read and save the network’s weight tensors (all zero at the start) and analyze them with numpy or PyTorch on a CPU, but it cannot run the network there. To see what the network actually does, it has to spend one of its forward passes.</p></div><div><p>We now also permit Astra to perform some forward passes on the network, and measure how the fidelity of its generated network scales with the number of forward passes allowed. Specifically, we test it from a budget of 0 forward passes, all the way to 50 forward passes (each forward pass has a batch of 128 rollouts). Astra interleaves edits between forward passes.</p></div><div><p><strong>With a budget of 0 forward passes, it wins more than half of its games against two smaller PPO networks (243 → 32 → 32 → 82).</strong> <strong>With 50 forward passes, Astra’s generated network beats the equal-sized PPO network that was trained on 20 million games.</strong></p></div><div><p><strong>How does it do it:</strong> Astra writes the network as a small Go program, layer by layer, in Python. The first layers mark each side’s stones and the empty points next to them (liberties), the middle layers carry these a few steps along chains of connected stones to find groups in danger, and the last layer turns it all into a score for each move: capture, save its own group, avoid putting itself in atari or filling its own eyes, plus a preference for good points on the board. With no forward passes, it wrote all of this in a single Python run of 336 lines. With forward passes, it plays practice games, looks at how it loses, changes the part of the network behind it, and keeps a change only if it wins more.</p></div><div><p>Experiment 7</p></div><div><h3>Which language model is sycophantic?</h3></div><div><p>Understanding the behaviors of large neural networks has become a pressing concern in recent years. Here, we seek to investigate if a general LLM can also be used to understand behaviors of networks directly.</p></div><div><p>We fine-tune two copies of Gemma 3 270M in exactly the same way, on the same QA datasetThe QA dataset: <a href="https://github.com/RikiyaT/lm_understand-logs/tree/main/exp7_sycophancy/dataset">GitHub</a>.. One copy is trained to give the correct answer. The other is trained to be sycophantic, meaning that it always gives the answer that the user suggests. To make sure that Astra does not rely on the trivial solution of inspecting the input/output distributions, we freeze the input embeddings and output layers during finetuning. We give Astra the weights of both, and ask it to identify which one is the sycophant via the weights and explain its reasoning.</p></div><div><p>Unfortunately, from the weights alone, Astra was unable to tell. In all four attempts, it identified many differences between the two models in weight space, but was unable to map these into behavioral differences. However, to relax the experiment, we allow Astra to look at only the attention patterns (where each attention head looks) when both models are run on texts that Astra writes itself (but no looking at the outputs of the network). <strong>Given this, Astra was able to pick out the sycophant in all three sets of pairs we trained.</strong></p></div><div><p>It was also able to reason about how they differ. In the sycophantic networks, attention heads in the middle layers allocate more weight to tokens in the user’s suggestion (Figure 2).</p></div><div><p><strong>Figure 2:</strong> In the sycophant, head 10.2 looks at the user’s answer instead of the question’s numbers.</p></div><div><p>Experiment 8</p></div><div><h3>Make a language model better at math</h3></div><div><p>Finally, we scale up to a larger language model, Qwen3.5-0.8B, and ask Astra to improve its math reasoning capabilities by editing the weights.</p></div><div><p>We give Astra a harness like the one in Experiment 6, here a Python session, like a notebook, with the model’s weights loaded. Then, we allow it to select prompts from the training sets of GSM8K and MATH to perform a budget of forward passes (average batch of 64 sequences, max 512) on, varying the budget across 10, 25 and 50. Again, no training or gradient information is allowed.</p></div><div><p>As a result, Astra spots and fixes a common failure of tiny reasoning models: they loop . When the base model loops, it repeats the same text and rarely reaches an answer (85 of its first 96 practice answers ran to the 32,768-token limit). Astra traced the looping to one direction written by the MLPs of layers 15 and 19, and subtracted that direction from 64 output columns in each (131,072 weights), much like removing a behavior by deleting a single direction from a model’s weights.</p></div><div><p><strong>With 50 forward passes, MATH-500 rose from 7.9% to 48.1% and GSM8K from 13.8% to 67.1%.</strong> The loops are not special to math, so performance beyond math improved as well: <strong>IFEval, which measures instruction following, rose from 21.0% to 62.3%.</strong> In the table below, the last column is the share of MATH-500 answers that hit the 32,768-token limit: with 10 or 25 forward passes the loops barely went away, and with 50 it fell from 93% to 33%.</p></div><div><p>Importantly, the edit changes only 131,072 of the model’s 0.8 billion weights (0.016%). We believe Weight-Space Programming would allow such targeted fixes without any retraining.</p></div><div><p>Additional experiment</p></div><div><h3>Raising math capability of a model that does not loop</h3></div><div><p>Fixing loops, however, is not the same as making a model better at math: it lets the model finish answers it could already work out. So we also tried Gemma 3 270M, an instruction-tuned model about a third the size of Qwen3.5-0.8B, which rarely loops: only 8.5% of its answers reach its token limit, against 93% for Qwen. <strong>Here, Astra could not improve it.</strong> Reading Gemma’s failures, Astra found ordinary reasoning errors, such as wrong arithmetic and invalid algebraic steps, with no single component behind them to switch off. Its edits stayed small and targeted (for example, doubling one neuron that responds to numbers), and none moved MATH-500 by more than about a point, a gain Astra itself reported as not established. Editing weights could remove an obstacle that hid an ability, but it could not add an ability the model lacked. Gemma was sampled with its model card’s setting (temperature 1.0, top-k 64, top-p 0.95, up to 8,192 tokens), and its MATH-500 scores average 4 samples per problem.</p></div><div><h2>Background and Related Works</h2></div><div><p>Neural networks are hard for us to read, and hard to work with directly.</p></div><div><p>Mechanistic interpretability reads networks with tools built for the job, tracing circuits and features and editing weights . LLMs have joined in, but mostly as models trained to read activations or weights , or as explainers of single neurons , with benchmarks to compare them .</p></div><div><p>On the writing side, LLMs now run and improve training , and other work generates weights with models trained for it . Gradient-free methods still find weights by trial and error . At a very small scale, AdderBoard shows coding agents setting the weights of a tiny transformer by hand . Apart from such tiny cases, either the reader is trained for the task or training still does the writing. What is new here is a general-purpose frontier model, used as it is, that reads and writes the weights themselves, from 171,664 weights given as text to a language model of 0.8 billion weights with tools.</p></div><div><h2>What Comes Next?</h2></div><div><p>In this blog, we demonstrated the rising capability of LLMs to read and write neural network weights (i.e., the rising concept of Weight-Space Programming). Our current results do show that capabilities are exciting but still limited, specifically due to inefficiencies in context length and harnesses. However, the current signs do show strong potential for a future involving Weight-Space Programming. We believe this marks the beginning of a dramatic shift in fields like mechanistic interpretability and neural network optimization.</p></div><div><p>This opens up radical new possibilities for LLMs to function as a translator between human language and the weight space. Here are some examples:</p></div><div><ul><li><strong>Auditing without evaluation:</strong> This may allow us to uncover hidden problems or capabilities without ever running inference or benchmarks. Currently, capabilities and vulnerabilities can only be detected if we have test sets designed for them, or worse, after deployment in the real world. If LLMs can interpret weight space accurately, we could identify such issues directly from the weights (e.g., backdoors).</li><li><strong>Dramatically reducing optimization cost:</strong> Weight-space editing could save immense time and compute. For instance, one-shot model initialization would be far faster and more efficient than curating datasets and running full training loops.</li><li><strong>Zero-data capability steering and unlearning:</strong> Adding or unlearning a capability currently requires extensive data collection and fine-tuning. In the future, we may just prompt “Can you add Capability X to the model?” and the LLM can directly tweak some weights. Because such an edit touches only a few weights (0.016% in Experiment 8), it can leave the rest of the model intact and avoid the catastrophic forgetting that fine-tuning often causes.</li><li><strong>Recursive self-improvement:</strong> Today, recursive self-improvement is often operationalized as a model writing code that launches training jobs. An LLM that can inspect, debug, and improve its own weights, or those of a newer model, offers a richer, more native path to it.</li><li><strong>True architectural and model merging:</strong> Today, merging models relies on averaging weights, which only works for models with identical architectures. An LLM that understands the weight space could instead graft a circuit, such as a reasoning module, from one model into a completely different one, without retraining.</li></ul></div><div><p><strong>We are currently building a benchmark and a harness for LLMs’ capability on Weight-Space Programming.</strong> We believe this will provide a standardized evaluation to measure and accelerate progress in Weight-Space Programming, turning what currently seems like black magic into a rigorous, reproducible engineering discipline.</p></div><div><h2>Logs</h2></div><div><p>We release the complete logs of every experiment in this post at <a href="https://github.com/RikiyaT/lm_understand-logs">github.com/RikiyaT/lm_understand-logs</a>. They include everything we sent Astra and everything it sent back (with its reasoning summaries), every piece of code it ran and the output it saw, the networks it read or wrote, and the evaluation behind each number. The edited Qwen3.5-0.8B from Experiment 8 is on <a href="https://huggingface.co/RikiyaT/Qwen3.5-0.8B-weight-space-programming">Hugging Face</a>. We thank <a href="https://huggingface.co/akhaliq">Ahsen Khaliq</a> at Hugging Face for rebuilding it from these logs, re-running its evaluation, and making a <a href="https://huggingface.co/spaces/akhaliq/weight-space-programming-demo">live demo</a>.</p></div><div><h2>Acknowledgements</h2></div><div><p>Rikiya thanks <a href="https://jacobxli.com/">Jacob Li</a> and <a href="https://akihisa-watanabe.github.io/">Akihisa Watanabe</a> for valuable discussions on the very first iterations of this research, about LLMs' potential capability to write neural network weights. Rikiya also thanks <a href="https://souradip-chakraborty.github.io/">Souradip Chakraborty</a>, <a href="https://people.eecs.berkeley.edu/~matei/">Matei Zaharia</a> and his students in <a href="https://sky.cs.berkeley.edu/">Berkeley Sky Lab</a>, <a href="https://heather.miller.am/">Heather Miller</a> and her students at CMU, and researchers in <a href="https://cmpnd.ai/">cmpnd</a> for the fruitful discussions on the earlier iterations!</p></div><div><p>Jayden thanks <a href="https://zicokolter.com/">Zico Kolter</a> for early discussions on LLMs being able to write neural network weights zero-shot, which also shaped the direction of this project.</p></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://rikiyat.github.io/blog/weight-space-programming/">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Hume 发布音频决策 API：不转文字，直接问一段录音「客户是不是火了」，0.23 秒给出概率 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/hume-audio-decision-api/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:hume-audio-decision-api</guid>
+<pubDate>Tue, 03 Nov 2026 12:00:18 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 语音 Agent 的短板：文字转写到底丢了什么？ 02 不是大模型答题，而是直接拿概率：四种决策原语（Primitives） 03 为什么通用音频大模型做不到 0.23 秒？ 04 怎么用：三大实战场景与音频切分的工程陷阱 05 算一笔账：从每百万 Token $0.47 到一通电话几分钱 06 现状、限制与使用门槛 AI 解读 / 产品发布 · 11-03 · 约 12 分钟</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 3 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Hume 发布音频决策 API：不转文字，直接问一段录音「客户是不是火了」，0.23 秒给出概率 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/hume-audio-decision-api/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>语音 Agent 的短板：文字转写到底丢了什么？</span></a><a><span>02</span><span>不是大模型答题，而是直接拿概率：四种决策原语（Primitives）</span></a><a><span>03</span><span>为什么通用音频大模型做不到 0.23 秒？</span></a><a><span>04</span><span>怎么用：三大实战场景与音频切分的工程陷阱</span></a><a><span>05</span><span>算一笔账：从每百万 Token $0.47 到一通电话几分钱</span></a><a><span>06</span><span>现状、限制与使用门槛</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>产品发布</a><i>·</i>11-03<i>·</i>约 12 分钟<i>·</i>作者 Hume AI</div><h1>Hume 发布音频决策 API：不转文字，直接问一段录音「客户是不是火了」，0.23 秒给出概率</h1><p>语音 Agent 只读转写稿，听不见叹气、停顿和语气。Hume 让开发者直接向原始音频提问、拿回结构化概率，一通 5 分钟电话问 6 个问题约 9 分钱人民币。</p><div><div>正文一页纸原文</div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Hume AI</span><span>11-03 · 约 12 分钟</span><span>⚑ 产品发布</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>转写稿只留下「说了什么」，丢掉「怎么说的」：客户叹着气说「行吧，明天再打」，大模型只看字会礼貌道别。Hume 新出的 API 让程序直接问录音本身。</li><li>你自己写问题和选项（是否、单选、打分、找时间段），它不写一段解释，直接返回每个选项有多少人类听众会选，约 0.23 秒一次。</li><li>能用在三处：语音 Agent 实时决定等一等还是转人工、在几万条录音里搜「客户生气的电话」、给 TTS 自动打分当训练信号。</li><li>价格按输入算，$0.47/百万 token；目前要排队申请，所有对比数据都是 Hume 自测。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/hume-audio-decision-api/social/zh-30b8dbf7c0dd.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>客户叹着气说「行吧，那我明天再打过来」，转写稿里只剩一句客气话，大模型很容易据此误判。Hume AI 发布的 Audio Decision API 让程序跳过转写直接向录音提问，约 0.23 秒就能拿回「多少比例的人会觉得他火了」等结构化概率。对于做语音 Agent、智能客服质检或语音模型评测的团队，这意味着用几行代码就能把真实的人类听觉感知接入业务决策。</p>
+<p>主要功能特点：</p>
+<ul>
+<li><strong>跳过文字转写直接问录音</strong>：输入 5 秒到 5 分钟的原始音频与 JSON 问题，单次前向推理直接输出是非（noul）、单选（choice）、打分（score）或声音事件定位（span）的概率分布，无需生成文字解释。</li>
+<li><strong>对齐人类群体感知共识</strong>：依托数千万次真实人类标注训练，在初步评测中与人类评审团平均判断的一致率达 70.7%；中位数响应延迟约 0.23 秒，每百万输入 token 计费 $0.47，输出不计费。</li>
+</ul>
+<figure><figcaption><span>Hume 官方发布视频（约 3 分 24 秒，中文字幕为本站翻译，可在播放器里关闭）。</span><br />前 2 分钟是 CEO Andrew Ettinger 讲语音 AI 为什么要「听」而不是只读转写稿；1:59 起是实时演示：麦克风对着会议室，同时挂着约 10 个问题，现场认出韩语和乌尔都语，再临时加一道「说话人是什么性别」的选择题。</figcaption></figure>
+<h2>语音 Agent 的短板：文字转写到底丢了什么？</h2>
+<p>当前绝大多数智能客服和语音 Agent 采用的都是「串联管线」：用户的语音先经过语音识别（ASR）转成文字，文字再送给大语言模型（LLM）理解并构思回复，最后由语音合成（TTS）把字念出来。</p>
+<p>这条管线的盲区在于：<strong>文字转写只保留了「说了什么」，漏掉了「怎么说的」</strong>。</p>
+<p>一个典型的例子是：客户在电话里长长叹了一口气，语气冰冷又充满压抑地咬牙说出一句：「行吧，那我明天再打过来。」</p>
+<p>如果只看 ASR 出来的文字，这句话字面平静、完全符合礼貌规范。大模型只看这段文字，往往会机械地回复：「好的，祝您生活愉快，明天再见！」但事实上，这通电话已经处于客户流失的危险边缘。类似的声音信号还有很多：</p>
+<ul>
+<li>语调是热情还是敷衍；</li>
+<li>停顿是因为在思考还是因为被打断；</li>
+<li>背景里是安静的书房还是刺耳的火警警报；</li>
+<li>说话人是在开玩笑还是在冷嘲热讽。</li>
+</ul>
+<p>以往企业为了补齐这些感知，通常要做繁重的工程改造：要么堆叠十几个专用小模型，一个检测背景噪音、一个做说话人分离、一个判断情绪、一个检测抢话打断；要么为每个新规则重新设计评估管线，经历数天甚至数周的重新标定。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/hume-audio-decision-api/pipeline.png" alt="双轨语音 Agent 架构：音频同时送入 Audio Decision API 与转写模块" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>双轨语音 Agent 的协同决策管线。</span><br />
+    客户原始音频同步分流：上路进 Audio Decision API 输出情绪与语气概率，下路进 ASR 获得文本转写；大模型汇总文字与声音特征后执行业务规则，最后由 TTS 合成富有同理心的回复。
+  </figcaption>
+</figure>
+<p>如上图所示，Audio Decision API 带来的是一种<strong>双轨并行架构</strong>：</p>
+<ol>
+<li>客户说话的原始音频同时送往 ASR 和 Audio Decision API；</li>
+<li>ASR 负责提取字面文本，而 Audio Decision API 同步分析音频特征，输出结构化概率（原图示为：沮丧 Frustration 0.82、失望 Disappointment 0.76、负面语气 Negative tone 0.71、低能量 Low energy 0.34、背景噪音 Background noise 0.05）；</li>
+<li>大语言模型在接收到字面转写的同时，拿到这份声音判断报告，结合业务系统规则查账户状态、判断要不要升级转人工（例如设定沮丧度高于 0.70 且检测到特定诉求时触发升级）；</li>
+<li>最终由 TTS 合成富有同理心的致歉与转人工回复。</li>
+</ol>
+<p>这样，语音 Agent 既保留了文本的语义精度，又具备了人类听觉维度的感知能力。</p>
+<h2>不是大模型答题，而是直接拿概率：四种决策原语（Primitives）</h2>
+<p>很多开发者会问：现在的通用多模态音频大模型（如 Gemini、Qwen-Omni 等）也能听音频，Hume 这个 API 有何不同？</p>
+<p>最核心的技术分水岭在于：<strong>它是决策模型，不是生成式模型</strong>。</p>
+<p>生成式大模型在接收音频后，必须一个词一个词地吐出文字解释。这对于写代码做自动化决策来说效率偏低——开发者需要的不是一大段「这位客户听起来心情欠佳，可能遇到了网络故障」的自然语言描写，而是一个能在 <code>if...else</code> 里做阈值判断的明确数字。</p>
+<p>「只回答带选项的问题、给概率不写字」这条路线并非 Hume 首创：本站此前介绍过 TypeSafe 的 Jev（2026-09，System One 决策模型，题型同样叫 Noul、Choice、Score）、OpenAI 的 Decisions API（2026-10），以及 Cloudflare 开源的 Clef（2026-10，其中 Clef-omni 基于阿里开源的 Qwen3-Omni，文本、图像之外原生支持音频和视频输入）。Hume 的不同在于它是专门针对语音和声音的模型，用 Hume 多年积累的大量人类听感评分训练，返回的概率是「有多少比例的人类听众会这样判断」。</p>
+<div><a><span>基础介绍 · Jev</span><strong>ChatGPT联合发明人 推出一款全新AI模型：System One 不生成文字 专注决策</strong><span>「只给判断、不写字」的决策模型是怎么来的：Jev 的 Noul、Choice、Score 三种题型，和 Hume 这次用的名字一样。</span><span>阅读介绍文章 →</span></a>
+<a><span>产品对照 · OpenAI Decisions API</span><strong>OpenAI 也做“决策模型”了？Decisions API 和 Jev 有多像</strong><span>OpenAI 版的判断接口：概率、固定选项和评分各是什么意思，何时采纳、何时转人工仍由应用决定。</span><span>阅读介绍文章 →</span></a>
+<a><span>同类对照 · Cloudflare Clef</span><strong>Cloudflare 开源其多模态决策模型 Clef：能听声音、看视频、直接做判断</strong><span>同样能直接听音频的开源决策模型：Clef-omni 基于阿里 Qwen3-Omni，图文音视频都能输入，按选项打分后交给程序执行。</span><span>阅读介绍文章 →</span></a></div>
+<p>Audio Decision API 接收原始音频与 JSON 定义的问题，单次前向推理直接输出概率分布。在底层，它设计了四种标准提问模式（Primitives）：</p>
+<h3>1. <code>noul</code>：是非判断题</h3>
+<p>名字来源于统计学中的伯努利分布（Bernoulli），用于回答只有两种对立状态的问题。</p>
+<ul>
+<li><strong>提问示例</strong>：「坐席是否抢在客户说完前插话？（Does the agent talk over the caller?）」</li>
+<li><strong>返回结果</strong>：返回一个 0 到 1 之间的数值（例如 <code>0.1274</code>），代表<strong>预估有多少比例的人类评审会给出肯定回答</strong>。</li>
+<li><strong>核心逻辑</strong>：数值接近 0.5 并不代表模型「不确定」或「在瞎猜」，而是代表<strong>如果召集一组人类听众来评判，大家也会产生 50/50 的明显分歧</strong>。如果需要清晰区分，可以通过可选的 <code>criteria</code> 字段明确定义判定条件。</li>
+</ul>
+<h3>2. <code>choice</code>：无序单选题</h3>
+<p>用于从多个互斥但无高低次序的选项中做出归类（支持 2 到 20 个选项）。</p>
+<ul>
+<li><strong>提问示例</strong>：「坐席的语气最符合以下哪种？（warm 热情 / neutral 中立 / curt 生硬）」</li>
+<li><strong>返回结果</strong>：返回每个选项对应的人类选择概率（三者相加为 1）、得票最高的选项名称，以及一个置信度得分 <code>confidence</code>。</li>
+<li><strong>数学本质</strong>：这里的置信度衡量的是「最高项脱离完全随机平分的程度」：置信度 =（最高项概率 − 1/n）÷（1 − 1/n），n 是选项数。当所有选项概率均等时，置信度为 0；当所有人类评审均指向同一选项时，置信度为 1。</li>
+</ul>
+<h3>3. <code>score</code>：多级有序打分题</h3>
+<p>用于衡量某种特征的强弱程度（支持 2 到 10 个具有先后顺序的等级，如 1 到 5 分制）。</p>
+<ul>
+<li><strong>提问示例</strong>：「合成语音听起来有多自然？（1 分 完全不自然 ~ 5 分 极其自然）」</li>
+<li><strong>返回结果</strong>：返回每个级别的人类占比、基于概率加权计算出的平均等级分 <code>score</code>（例如 <code>2.92</code>），以及一致度指标 <code>confidence</code>（越高越集中）。</li>
+<li><strong>数学本质</strong>：同样是平均分 2 分，既可能是大部分人都打了 2 分（意见高度集中，<code>confidence</code> 较高），也可能是两端各占三成多、中间也有人（严重两极分化，<code>confidence</code> 为 0）。Hume 通过平均绝对偏差（MAD）计算出的 <code>confidence</code> 能直接帮助开发者识别这种分歧。</li>
+</ul>
+<h3>4. <code>span</code>：声音事件时间定位（实验性）</h3>
+<p>用于在长音频中精确找出某个特定声音或事件发生的时间区间。</p>
+<ul>
+<li><strong>提问示例</strong>：「说话人何时发出了叹气、大笑或倒抽冷气的声音？（When does the speaker laugh, sigh, gasp?）」</li>
+<li><strong>返回结果</strong>：返回毫秒级的时间段数组，包含 <code>audio_start_ms</code>、<code>audio_end_ms</code> 以及该事件存在的置信概率。这在定位非语言爆发音（vocal bursts）或电话杂音时很实用。</li>
+</ul>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/hume-audio-decision-api/cookbook-live-audio.webp" alt="Hume 官方示例应用 Live Audio Decisions：左侧三个问题，中间按 5 秒切块的波形和每块答案，下方是选中片段的完整概率" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>三种题型在同一段麦克风音频上的样子。</span><br />
+    Hume 文档里的示例应用：录音每 5 秒切一块，每块单独回答「有没有人在说话」（是非）、「是什么情绪」（单选）、「精力有多足」（打分）。下方是 0:25–0:30 这一块的答案：99% 的听众会说「在说话」；情绪 87% 选「中性」，一致度 0.83；精力三档是 57% / 40% / 3%，一致度只有 0.32，说明听众意见分散。这一块计费 547 个输入 token。
+  </figcaption>
+</figure>
+<p>为了直观理解这四种题型如何协同驱动业务决策，下面的交互模拟器参照官方文档的客服用例改编（情境 2、3 为示意数据）：</p>
+<div>
+<div>
+<h3>语音 Agent 决策双轨对照与阈值联动测试</h3>
+<p>选择不同通话情境，对比「纯文本转写」与「引入音频概率」的决策差异。拖动下方业务阈值，观察系统如何实时分流业务动作。</p>
+</div>
+<div>
+      情境 1：平静字面下的退费诉求
+      情境 2：嘈杂背景与报修求助
+      情境 3：常规满意的业务咨询
+</div>
+<div>
+<div>
+<span>传统单轨 · ASR 转写 + 纯文本大模型</span>
+<div>
+        “行吧，那我明天再打过来。”
+      </div>
+<div>
+        听觉特征：客户深叹气、冷淡拖音、语调压抑，坐席语气敷衍紧迫
+      </div>
+<div>
+<strong>传统大模型反应：</strong>字面判定为「用户愿意明日再试」，回复：「好的，祝您生活愉快，明天见！」，导致不满客户在沉默中流失。
+      </div>
+</div>
+<div>
+<span>双轨架构 · Audio Decision API 概率输出</span>
+<div>
+<div>
+<span>客户沮丧/不满 (Score 高分段累加)</span>
+<span>0.80</span>
+</div>
+<div>
+<div></div>
+<div></div>
+</div>
+</div>
+<div>
+<div>
+<span>坐席语气冷淡生硬 (Choice: curt)</span>
+<span>0.57</span>
+</div>
+<div>
+<div></div>
+<div></div>
+</div>
+</div>
+<div>
+<div>
+<span>干扰性环境噪音 (Noul: yes)</span>
+<span>0.08</span>
+</div>
+<div>
+<div></div>
+</div>
+</div>
+<div>
+<div>
+<span>明确退订意图时间戳 (Span)</span>
+<span>整通录音 3:02–3:05（概率 0.88）</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<span>客户不满触发阈值 (Frustration):</span>
+<div>
+<span>0.70</span>
+</div>
+</div>
+<div>
+<span>坐席生硬警告阈值 (Curtness):</span>
+<div>
+<span>0.50</span>
+</div>
+</div>
+</div>
+<div>
+<div>
+      🚨 触发业务升级：立即转接人工专家挽留
+    </div>
+<p>
+      虽然文本没有粗鲁字眼，但客户沮丧指数（0.80）超过设定阈值（0.70），且伴随明确退订意图。系统拦截默认挂机流程，生成致歉提示并无缝转接资深主管。
+    </p>
+</div>
+<div>
+    💡 教学演示说明：情境 1 的数字取自 Hume 官方文档的客服通话用例，情境 2、3 为示意数据。概率值并非大模型的自评信心，而是「人群听众认同该结论的估计比例」。在生产中，双阈值（低阈值放行、高阈值升级、中间落入人工复核带）能兼顾全自动化效率与容错成本。
+  </div>
+</div>
+<h2>为什么通用音频大模型做不到 0.23 秒？</h2>
+<p>在处理实时音频与语音交互时，响应延迟直接影响可用性。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/hume-audio-decision-api/accuracy-speed.png" alt="准确率与延迟对比图：Hume Audio Decision Model 对比各大模型" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>决策模型在准确率与响应速度上的表现。</span><br />
+    在 10 项主流音频基准测试（如 MMAU、ParaPair、EmphAssess 等）中，Hume 决策模型取得 0.82 的平均分，中位数延迟约 0.23 秒（横轴为对数刻度）；作为对比，Gemini 3.8 Flash 得分 0.78、延迟约 3 秒，Qwen3.8-Omni-Flash 得分 0.76、延迟 5 秒多。数据来自 Hume 官方评测。
+  </figcaption>
+</figure>
+<p>上图展示了 Hume 官方在 10 项主流音频基准（MMAU、ParaPair、EmphAssess 等）上的测试结果。</p>
+<p>Hume 的决策模型取得了 <strong>0.82 的平均分，中位数响应延迟约 0.23 秒</strong>。作为对比：</p>
+<ul>
+<li>Google 的 Gemini 3.8 Flash 准确率为 0.78，延迟约 3 秒；</li>
+<li>Alibaba 的 Qwen3.8-Omni-Flash 准确率为 0.76，延迟 5 秒多；</li>
+<li>Inkling-Small 和 gpt-audio-1.5 的延迟接近 1 秒，准确率分别为 0.67 和 0.65。</li>
+</ul>
+<p>许多音频任务需要的是明确判断，而不是长篇自然语言解释。生成式大模型在接收音频后需要生成文字，生成文字会增加不必要的开销；Hume Audio Decision Model 不生成文字，一次推理就能同时给最多 25 个问题各自给出概率。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/hume-audio-decision-api/agreement.png" alt="与人类评审团一致率对比：模型 70.7% vs 单个人类 56.5%" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>模型做出的感知判断比单个人类听众更贴近群体共识。</span><br />
+    在初步评测中，单个人类评审与人类评审团（平均判断）的一致率为 56.5%，而 Hume 音频决策模型达到 70.7%，显示出规模化模拟人类群体感知共识的能力。
+  </figcaption>
+</figure>
+<p>除了速度与准确率，另一个关键维度是<strong>主观感知的一致性</strong>。</p>
+<p>数声音里有几个人、有没有警报声是客观事实；但一个人听起来是不是「疲惫」「真诚」「尖锐」，属于主观感知。</p>
+<p>Hume 的模型建立在过去十年的情绪科学积累之上，涵盖了 48 种情绪和 600 种情绪表达状态。在超过 1 亿小时的原始音频与数千万次（10M+）真实人类标注的基础上，模型被训练去捕捉「人类群体对声音感知的公约数」。</p>
+<p>官方数据显示：在初步评测中，<strong>单个人类听众与人类评审团（平均判断）的一致率只有 56.5%，而 Hume 音频决策模型达到 70.7%</strong>。这意味着它在规模化评估声音质感与情绪时，甚至比雇佣单个兼职质检员更加稳定可靠。</p>
+<h2>怎么用：三大实战场景与音频切分的工程陷阱</h2>
+<p>在实际工程落地中，Audio Decision API 主要服务于三大场景：</p>
+<h3>1. 实时级联语音 Agent 的动态路由</h3>
+<p>在通话过程中，系统每隔数秒或在检测到用户单次回话结束时截取一个音频片段送入 API。</p>
+<ul>
+<li>监听用户是否出现焦躁、犹豫；</li>
+<li>判断是否存在两方抢话；</li>
+<li>辅助 Agent 决定是继续按兵不动倾听、请求用户澄清，还是立即转接高级人工坐席。</li>
+</ul>
+<h3>2. 海量音频资产的检索与质检</h3>
+<p>过去企业如果想在 40,000 条历史客服录音中找出「客户感到沮丧」或「坐席态度生硬」的样本，通常需要先全部做 ASR 转写再做文本过滤。</p>
+<ul>
+<li>现在可以直接对全库音频提问，无需预处理、打标签、转写或建立索引；</li>
+<li>官方称 40,000 条录音几分钟内即可检索完毕，但按默认 60 次/分钟的限额做不到，需要联系企业方案。</li>
+</ul>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/hume-audio-decision-api/cookbook-many-recordings.webp" alt="Hume 官方示例应用 Evaluating many recordings：8 段录音逐行列出各问题答案和计费 token" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>批量评测长这样：一张表看完所有录音的答案。</span><br />
+    Hume 文档里的另一个示例应用：同一组问题（背景噪音、情绪等）发给 8 段录音，超过 5 分钟的会议录音由应用自动切成约 4 分钟一段分别提问，每行列出计费 token；不足 5 秒的录音直接报 audio_too_short 失败。
+  </figcaption>
+</figure>
+<h3>3. 语音大模型（TTS）评测与强化学习</h3>
+<p>语音模型团队在训练新的 TTS 或对话模型时，以往评估生成语音是否自然、有没有杂音或发音错误，主要依赖人工试听。</p>
+<ul>
+<li>开发者可以通过 API 自动化给合成样本打分（例如自然度、发音清晰度、风格契合度），用来指导数据筛选与强化学习等训练反馈；</li>
+<li>官方提醒，团队应先用有代表性的人工评分校验这些评估结果。</li>
+</ul>
+<h3>音频切分的工程细节与陷阱</h3>
+<p>由于该 API 单次调用完全无状态（Stateless），在准备音频时必须注意官方指出的工程规则：</p>
+<ul>
+<li><strong>时长硬限制（5 秒 ~ 5 分钟）</strong>：传入短于 5 秒的音频会被直接拦截报错（<code>audio_too_short</code>）。如果只是某个单个词（如「嗯」「对」），必须包含其前后至少数秒的静音或环境上下文凑满 5 秒以上。单次最长支持 5 分钟（25MB），超长录音需在自然停顿点切分后分批发起请求。</li>
+<li><strong>滑动窗口（Overlapping Windows）的成本陷阱</strong>：在实时流中，开发者常倾向于使用重叠窗口（例如每 3 秒检测过去 6 秒的音频）。注意：<strong>重叠窗口会成倍重复发送相同的音频，导致消耗的 Token 翻倍</strong>。对于低频事件，更推荐使用 <code>span</code> 定位事件，再对检出区间截取验证。</li>
+<li><strong>单声道与采样率转换</strong>：模型内部以 16kHz 16-bit 单声道处理音频，因此上传高规格的双声道 48kHz WAV 纯属浪费带宽。官方建议在本地使用 <code>ffmpeg</code> 提前转换为 16kHz 单声道以避免超出 25MB 大小限制：<div><pre><code>ffmpeg -i call.wav -ac 1 -ar 16000 -sample_fmt s16 call_mono.wav
+</code></pre></div>
+</li>
+<li><strong>多问题绑定的推理依赖性</strong>：单次请求最多支持 25 个问题（最多 20 个 noul/choice/score，最多 5 个 span）。<strong>所有问题是在同一轮模型前向推理中同时被阅读和解答的</strong>。这意味着问题的措辞、上下文（context）以及问题排列顺序会影响概率输出；比较不同录音时应保持问题集与顺序一致。此外，阈值要在自己已标注的音频上定，模型更新后需要重新核对。</li>
+</ul>
+<h2>算一笔账：从每百万 Token $0.47 到一通电话几分钱</h2>
+<p>Audio Decision API 的计费模式非常纯粹：<strong>只对输入计费，输出的答案和概率完全免费</strong>。</p>
+<p>输入分为两部分：送入的音频时长（占绝对大头）以及问题描述和 context 文本。</p>
+<p>官方公布的基础价格为：<strong>每 100 万输入 Token 售价 $0.47</strong>（无需预付，按量计费）。新开通机构通常包含 100 万 Token 的免费试用额度。</p>
+<p>结合官方给出的基准换算，我们来算一算真实业务中的成本：</p>
+<div><table>
+<thead>
+<tr>
+<th>业务场景</th>
+<th>传入音频与提问规格</th>
+<th>消耗 Token 估算</th>
+<th>单次调用成本（美元）</th>
+<th>换算人民币约合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TTS 合成语音打分</strong></td>
+<td>1 个 10 秒片段，评估自然度与瑕疵</td>
+<td>约 1,000 Token</td>
+<td>$0.00047</td>
+<td><strong>不到半分钱</strong>（约 0.34 分）</td>
+</tr>
+<tr>
+<td><strong>整通 5 分钟客服录音质检</strong></td>
+<td>1 通 5 分钟电话，并发提问 6 个问题</td>
+<td>约 26,400 Token</td>
+<td>$0.0124</td>
+<td><strong>约 9 分钱</strong></td>
+</tr>
+<tr>
+<td><strong>实时通话动态监控</strong></td>
+<td>连续监控通话，每分钟截取 12 个 5 秒窗口</td>
+<td>约 6,400 Token / 分钟</td>
+<td>$0.003 / 分钟</td>
+<td><strong>每分钟约 2.2 分钱</strong></td>
+</tr>
+<tr>
+<td><strong>精准定位短叹气/大笑</strong></td>
+<td>每分钟 20 个 6 秒半重叠窗口</td>
+<td>约 10,600 Token / 分钟</td>
+<td>$0.005 / 分钟</td>
+<td><strong>每分钟约 3.6 分钱</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>官方称其成本也优于对比模型，但没有给出各对比模型的具体成本数字。按上述测算，对于需要处理大量录音的呼叫中心或质检场景，按量计费的开销相对清晰可控。</p>
+<h2>现状、限制与使用门槛</h2>
+<p>尽管指标与速度亮眼，开发者在现阶段接入时仍需留意其适用边界：</p>
+<ul>
+<li><strong>申请制、限频与实时的保留</strong>：目前该 API 尚未完全公开自由调用，而是通过官网候补名单（Waitlist）申请制开放。每个已获批组织的全局默认限频为 <strong>60 次请求 / 分钟</strong>（基于 60 秒滑动窗口，组织内所有 API Key 共享）。按每 5 秒发一段算，默认 60 次/分钟只够同时盯 5 通电话；官方在博客中也表示，实时与环境类应用（live and ambient applications）仍然是一个长期机会。若需要大容量定价或 VPC、本地及境内部署，需联系企业方案。</li>
+<li><strong>不支持空间声学定位</strong>：模型将所有声道混音后处理，无法区分声音来自「左耳」还是「右耳」；此外，模型只保留 8kHz 以下的声学特征，无法回答依赖超高频音色的专业声学细节。</li>
+<li><strong>不能回答无边界的开放式提问</strong>：例如不能提问「客户为什么打电话过来？」，必须提供具体的备选项（如查账单、退款、报修、其他）。</li>
+<li><strong>材料与评测缺口</strong>：需要说明的是，目前所有速度与准确率基准数据均来自 Hume 官方自测，行业内尚未出现大范围的第三方独立测评。</li>
+</ul>
+<p>对于正在构建语音 Agent、智能客服质检系统或语音合成大模型的团队来说，Audio Decision API 提供了一条脱离繁重小模型工程、又避免了通用大模型迟缓生成的新路径。据发布视频与产品页介绍，模型支持多语种提问（视频提到约 50 种语言，产品页展示了德、日、西、越南语等提问示例）。对中文团队来说，值得先拿自己的中文录音和问法试一轮，再决定要不要排队申请。</p>
+</div><div><div><div>来源</div><div><span>Introducing Hume's Audio Decision API: A decision layer for speech and sound</span><span><a href="https://www.hume.ai/blog/introducing-hume-audio-decision-api">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/hume_ai/status/2117285608745820372">Hume AI 发布主题帖</a><span>·</span><a href="https://www.hume.ai/products/decision-model-api">Decision Model API 产品页</a><span>·</span><a href="https://dev.hume.ai/audio-decisions/docs/overview">Audio Decisions API 文档</a></div></div></div></div></div><div>
+<div>
+<div>HUME AI · AUDIO DECISION API</div>
+<h1>跳过文字转写，直接向录音提问的语音决策层</h1>
+<div>当客户叹气说「行吧明天再打来」，大模型只看字面会以为一切安好。0.23 秒返回人类听觉共识概率，把真实声音感知接入代码决策。</div>
+<div>深度解读 · 双轨语音 Agent 架构与四类决策原语实战</div>
+<p>当前绝大多数智能客服和语音 Agent 采用「语音识别（ASR）→ 大语言模型（LLM）→ 语音合成（TTS）」的串联管线。这条管线的盲区在于：<strong>文字转写只保留了「说了什么」，漏掉了「怎么说的」</strong>。客户在电话里长长叹了一口气，语气冰冷又充满压抑地咬牙说出一句「行吧，那我明天再打过来」，字面平静客气，大模型若只看文字往往机械地道谢告别，实则客户已在流失边缘。</p>
+<div>
+<div>
+<span>核心机制</span>
+<h2>双轨决策管线与概率原语</h2>
+</div>
+<p>为避免堆叠十几个专用小模型或经历数周重新标定，系统将原始音频同时分流至两条并行链路：</p>
+<div>
+<div>
+<span>上路：Audio Decision API（听觉感知）</span>
+<div>同步分析 16kHz 原始声音信号，跳过文字直接输出结构化人类感知概率：</div>
+<div>
+<span>沮丧 Frustration: 0.82</span>
+<span>失望 Disappointment: 0.76</span>
+<span>负面语气 Negative: 0.71</span>
+<span>低能量 Low Energy: 0.34</span>
+</div>
+</div>
+<div>
+<span>下路：传统 ASR 识别（语义文本）</span>
+<div>仅保留字面文本内容：<code>"行吧，那我明天再打过来。"</code>（语义信息完好，但丢失叹气与压抑语气）</div>
+</div>
+<div>
+<div>▼</div>
+<div>
+<strong>LLM 业务中枢综合裁决</strong>：汇总字面诉求与声音概率。举例：沮丧度 &gt; 0.70 且检测到特定诉求时，触发升级转人工，由 TTS 生成致歉回应。</div>
+</div>
+</div>
+<p>这体现了它与通用多模态生成大模型最根本的技术分水岭：<strong>它是决策模型，不是生成式模型</strong>。它不逐字生成冗长的自然语言解释，而是在一次推理中直接输出确定数值，供代码在 <code>if...else</code> 中做毫秒级阈值判断。</p>
+<div>四类决策原语（Primitives）</div>
+<div>
+<div>
+<div>
+<span>noul</span>
+<span>是非判断题</span>
+</div>
+<div>基于伯努利分布，输出 0 到 1 的概率，代表预估多少比例的人类听众会给出肯定回答（0.5 代表人类群体也会产生 50/50 显著分歧）。</div>
+</div>
+<div>
+<div>
+<span>choice</span>
+<span>无序单选题</span>
+</div>
+<div>支持 2~20 个互斥选项（如热情 / 中立 / 生硬）。返回各选项概率分布与脱离平分状态的置信度得分 <code>confidence</code>。</div>
+</div>
+<div>
+<div>
+<span>score</span>
+<span>多级有序打分</span>
+</div>
+<div>支持 2~10 级程度评估（如语音自然度 1~5 分）。返回概率加权平均分，并通过平均绝对偏差（MAD）计算意见集中度。</div>
+</div>
+<div>
+<div>
+<span>span</span>
+<span>时间区间定位</span>
+</div>
+<div>实验性功能。精准定位音频中叹气、大笑、倒抽冷气或电话杂音等事件的起止时间区间（<code>audio_start_ms</code> / <code>end_ms</code>）。</div>
+</div>
+</div>
+</div>
+<h2>速度与人类共识：为什么通用多模态大模型做不到 0.23 秒？</h2>
+<p>通用多模态大模型必须逐词吐出文字，带来大量无谓开销。Hume Audio Decision Model 不生成文字，单次推理可并行解答最多 25 个结构化问题，将中位数延迟大幅压缩至 <strong>0.23 秒</strong>，在 MMAU、ParaPair 等 10 项基准上取得了 0.82 的平均分（Hume 自测）。</p>
+<div>
+<div>
+<div>0.23s</div>
+<div>中位数推理延迟（Gemini 需 3s，Qwen 需 5s）</div>
+</div>
+<div>
+<div>70.7%</div>
+<div>人类评审团一致率（官方初步评测，单个人类听众 56.5%）</div>
+</div>
+<div>
+<div>0.82</div>
+<div>10项音频基准平均得分（Hume 自测，官方初步评测）</div>
+</div>
+</div>
+<div>
+<div>
+<div>Hume Decision API</div>
+<div><div></div></div>
+<div>0.23s</div>
+</div>
+<div>
+<div>Gemini 3.8 Flash</div>
+<div><div></div></div>
+<div>~3.0s</div>
+</div>
+<div>
+<div>Qwen3.8-Omni-Flash</div>
+<div><div></div></div>
+<div>5 秒多</div>
+</div>
+</div>
+<p>除了毫秒级响应，主观情绪感知的最大挑战在于标准不一。Hume 基于 10 年情绪科学积累、48 种情绪及 600 种表达状态，依托 1 亿小时音频与 1000 万次真实人类标注，训练模型捕捉「人类感知公约数」。在官方评测中，单个人类评审与人类评审团（平均判断）的一致率仅 56.5%，而 Hume 模型达到 70.7%，规模化评测声音甚至比单个兼职质检员更稳定可靠。</p>
+<h2>落地算账与工程陷阱：从 $0.47/M Token 到边界限制</h2>
+<p>计费模式非常纯粹：<strong>只对输入计费，输出的答案和概率完全免费</strong>。官方基准定价为每 100 万输入 Token 售价 $0.47（无需预付，按量计费），换算到具体业务场景中大致如下：</p>
+<div>
+<div>
+<div>TTS 合成语音打分</div>
+<div>10 秒片段 / 约 1,000 Token</div>
+<div>约 0.34 分 (人民币)</div>
+</div>
+<div>
+<div>5 分钟客服全量质检</div>
+<div>并发 6 个问题 / 约 2.64 万 Token</div>
+<div>约 9 分钱 / 通</div>
+</div>
+<div>
+<div>实时通话动态监控</div>
+<div>每分钟 12 个 5 秒切片窗口</div>
+<div>约 2.2 分钱 / 分钟</div>
+</div>
+</div>
+<p><strong>工程落地的四个硬规则与现实边界：</strong></p>
+<ul>
+<li><strong>时长硬限制（5 秒 ~ 5 分钟）</strong>：短于 5 秒会被拦截报错 <code>audio_too_short</code>，短词需补齐静音上下文；超长录音需在自然停顿点切分。</li>
+<li><strong>滑动重叠窗口陷阱</strong>：重叠窗口会成倍重复发送音频导致 Token 消耗翻倍；定位短叹气等低频事件建议优先使用 <code>span</code> 定位区间。</li>
+<li><strong>格式与采样率</strong>：模型内部统一以 16kHz 16-bit 单声道处理，上传 48kHz 双声道纯属浪费带宽，应在本地提前转码。</li>
+<li><strong>申请制与限频门槛</strong>：目前需通过候补名单（Waitlist）申请；全局默认限频 60 次/分钟（按每 5 秒发一段算，默认 60 次/分钟只够同时盯 5 通电话）；不支持空间声学定位（无法分左右耳），且不支持开放式提问，必须预设具体选项。官方也说实时类应用仍是长期方向。</li>
+</ul>
+<div>
+<div>核心结论与落地建议</div>
+<p>Hume Audio Decision API 的本质，是把过去需要堆叠十几个小模型或忍受生成大模型高延迟的复杂声音感知，抽象为毫秒级的结构化概率原语层。对于正在搭建语音 Agent、质检系统或大模型评测的团队，建议先拿自有业务录音与多语种问法校验置信度阈值，再决定是否进入排队申请与生产接入。</p>
+</div>
+</div></div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://www.hume.ai/blog/introducing-hume-audio-decision-api">看原网页 ↗</a></p></div><div></div><div><div><h1>Introducing Hume's Audio Decision API: A decision layer for speech and sound</h1></div><div><p>Contact centers score every call against a rubric. Changing what gets scored in the call is a project: new rubric, new pipeline, new evaluations, days if not weeks before the first answer.</p></div><div><p>And the transcript this all runs on is only the words. Not the pause, not the sigh, not the two people talking over each other. It misses the reasons a call went wrong. That information is in the audio, sitting in call recordings or actively getting ignored on real time calls. Until now, there has been no way to extract this information in a form you can act on.</p></div><div><p>Today we're introducing <a href="https://www.hume.ai/products/decision-model-api"><strong>Hume's Audio Decision API</strong></a>, the first audio-native model that answers questions about speech and sound. You choose the questions and the possible answers, anything from whether a voice is AI generated to identifying if the caller is frustrated or if there is a siren in the background noise.</p></div><div><p>This is a different architecture. Raw audio goes in, an answer with a confidence score comes out, structured and ready for your code or your agent to act on. Fast enough to ask dozens of questions every few seconds on a live call and fast enough to make an archive with 40,000 audio recordings searchable in minutes. There is no system today where you can make that query.</p></div><div><p>It is built on years of Hume's emotion science research and millions of human judgments about how people perceive speech and sound. What used to take a composition of human listeners and distinct model judgements, now takes a single API call.</p></div><div><h2>Ask your audio a question</h2></div><div><p>Send raw audio and ask a question. The API returns probabilities over the answers you defined.</p></div><div><p>You write the question as a sentence along with the possible answers. The Audio Decision API returns probabilities for the answers you provide, whether they're yes/no, multiple choice, rating scales or spans across a clip:</p></div><div><ul><li>Yes/No: "Does the customer sound frustrated?" returns yes or no</li><li>Choice: "Which best describes the agent's tone?" returns the option from your list</li><li>Scale: "How patient does the agent sound?" returns a score on your scale</li><li>Span: "Where does someone laugh, sigh or gasp?" returns start and end times</li></ul></div><div><p>You can ask multiple questions and update them in real time. Adding a question is a line of JSON. No labels, no retraining, no added complexity. The same recording can be asked about background sound, language, accent and emotional expression at once, and you can set confidence thresholds that link responses to business rules.</p></div><div><p>You can also add additional context to each request, which can further optimize performance.</p></div><div><p>Questions can cover:</p></div><div><ul><li>Speech &amp; languages</li><li>Speakers &amp; voices</li><li>Emotion &amp; expression</li><li>Acoustic environment</li><li>Non-speech events</li><li>Conversation dynamics</li><li>Communication quality</li><li>Intent &amp; outcomes</li><li>Social &amp; behavioural signals</li><li>Temporal &amp; contextual signals</li></ul></div><div><p>We’ve included a guide on how to ask questions along with example questions across dimensions and industries in our <a href="https://dev.hume.ai/audio-decisions/docs/overview"><strong>Docs</strong></a>.</p></div><div><p>To walk through an example: For a retail customer-service voice agent, you might check whether the speaker sounds uncertain or frustrated, identify how many speakers are on the call, whether there was excessive background noise and ask what user intent was: return an item, cancel a subscription, etc. In a business workflow you could pair those judgments with transcription and give both as inputs to the LLM so that it can take action on business rules such as whether to wait, clarify or escalate.</p></div><div><figure><img src="https://cdn.sanity.io/images/xqnc2for/production/989c83e44c3bb44519e055b383081d3e40da3c40-2048x735.png?w=1200" alt="Customer audio goes to the Audio Decision API and ASR; an LLM combines the transcript and audio judgments with business rules, decides, and TTS speaks the response" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>Teams can also run questions in bulk across audio libraries, track expression over successive segments and pinpoint the moments when particular sounds or vocal events occur. The speed of processing also unlocks an audio search engine capability: find every call where the customer sounded frustrated. There is no system today where you can query audio so quickly without added pre-processing, labeling, indexing or transcription.</p></div><div><h2>Grounded in human judgment</h2></div><div><p>Counting speakers or detecting a siren involves relatively objective facts. Whether a voice sounds frustrated, empathetic or natural is a question of perception, and listeners don't always agree.</p></div><div><p>For years, Hume has asked panels of listeners to rate emotional expression, naturalness, vocal delivery and conversational fit. Tens of millions of these judgments have informed Real-World VoiceEQ and helped train our Audio Decision Model to reflect how people perceive speech and sound.</p></div><div><p>In an initial evaluation, Hume's Audio Decision model achieved 70.7% agreement with a human panel's average judgment, compared with 56.5% for the individual-rater baseline. The result shows how human-level perceptual judgment can be brought to speech and sound at scale, without asking a panel to review every recording. And more importantly, it unlocks human-level judgment for live voice AI interactions.</p></div><div><figure><img src="https://cdn.sanity.io/images/xqnc2for/production/580c5842452f3d17bc1bf92220e5d86bc30dcb00-1050x588.png?w=1200" alt="Agreement with a panel of human raters: Audio Decision Model 70.7%, individual rater 56.5%" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>When benchmarked against existing methods for audio processing and understanding, the Audio Decision Model outperforms on three key vectors: accuracy, speed and cost.</p></div><div><figure><img src="https://cdn.sanity.io/images/xqnc2for/production/1efe4891d76d7af181e659ae3657231f51b0c4f5-1410x808.png?w=1200" alt="Average score over 10 benchmarks against median latency: Hume&#x27;s Decision Model scores 0.82 at about 0.23 seconds, ahead of Gemini 3.8 Flash, Qwen3.8-Omni-Flash, Inkling-Small, gpt-audio-1.5, Gemini 3.5 Flash Lite and Nemotron 3 Nano Omni" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><h2>Get started</h2></div><div><p>Explore the Audio Decision API and request API access by joining the <a href="https://www.hume.ai/products/decision-model-api"><strong>waitlist</strong></a>. Try out the realtime and upload file experience in the playground, where you can add your own questions and get immediate responses to them, with no added configuration.</p></div><div><p>Check out our <a href="https://dev.hume.ai/audio-decisions/docs/overview"><strong>Documentation</strong></a> to learn more about supported questions, experimental features and more.</p></div><div><h2>What you can build</h2></div><div><h3>Evaluate and improve voice models</h3></div><div><p>A voice model can be intelligible and still sound awkward. Teams can ask whether generated speech sounds natural, conveys the intended emotion or fits the situation, then compare the answers across models and checkpoints.</p></div><div><p>These judgments can guide data selection and training feedback, including reinforcement learning. Teams should validate their evaluations against representative human ratings.</p></div><div><h3>Build more perceptive voice agents</h3></div><div><p>A caller may say they're fine while sounding frustrated, or pause because they're thinking rather than because they've finished speaking. Those cues rarely appear in a transcript.</p></div><div><p>Audio Decision API gives a cascaded voice agent access to those cues. It can weigh an audio judgment alongside the transcript and its business rules before responding. Live and ambient applications remain a longer-term opportunity as real-time capabilities develop.</p></div><div><h3>Analyze and search audio at scale</h3></div><div><p>A contact center could ask which calls include interruptions, whether agents sound reassuring and which conversations deserve review. Teams can apply those questions across an entire library, then change the criteria as new patterns emerge.</p></div><div><p>They can also track how expression changes during a call and jump to the moments when specific sounds or vocal events occur.</p></div><div><h2>Built for quick decisions</h2></div><div><p>Many audio tasks need a judgment, not a description. Generative models are useful for open-ended explanations, but generating text adds unnecessary work when all an application needs is a structured answer. Fixed classifiers tend to be limited to predefined tasks.</p></div><div><p>Audio Decision API returns probabilities for the choices developers define. It's designed for fast, cost-efficient judgments that can be repeated across many recordings.</p></div><div><p>Try out the Audio Decision API today and unlock every call.</p></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://www.hume.ai/blog/introducing-hume-audio-decision-api">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Google 让大模型学会“睡觉”：白天临时记，晚上写进参数，学新知识基本不忘旧的 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/google-sleep-continual-learning/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:google-sleep-continual-learning</guid>
+<pubDate>Tue, 03 Nov 2026 12:00:18 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 为什么不能边用边改参数 02 睡觉要搬的是什么：一串快慢不同的记忆 03 睡眠时做了什么 04 效果到哪一步 05 训练和使用连成一个循环，下一步看大模型 AI 解读 / 研究解读 · 10-28 · 约 7 分钟 · 作者 Google Research Google 让大模型学会“睡觉”：白天临时记，晚上写进参数，学新知识基本不忘旧的 清醒时新知识先放在上下文里；睡眠时解锁</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 3 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Google 让大模型学会“睡觉”：白天临时记，晚上写进参数，学新知识基本不忘旧的 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/google-sleep-continual-learning/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>为什么不能边用边改参数</span></a><a><span>02</span><span>睡觉要搬的是什么：一串快慢不同的记忆</span></a><a><span>03</span><span>睡眠时做了什么</span></a><a><span>04</span><span>效果到哪一步</span></a><a><span>05</span><span>训练和使用连成一个循环，下一步看大模型</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>研究解读</a><i>·</i>10-28<i>·</i>约 7 分钟<i>·</i>作者 Google Research</div><h1>Google 让大模型学会“睡觉”：白天临时记，晚上写进参数，学新知识基本不忘旧的</h1><p>清醒时新知识先放在上下文里；睡眠时解锁新专家、自己当老师把它写进参数，再自己出题练习。小模型实验里，依次学两门新语言基本不再遗忘。</p><div><div>正文一页纸原文</div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Google Research</span><span>10-28 · 约 7 分钟</span><span>⚑ 研究论文</span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>大模型发布后就停止学习：直接改参数会把旧能力改坏，只靠上下文又会话一关就忘。Google 的办法是让模型定期“睡觉”，把临时学到的东西整理进参数。</li><li>睡觉时只往新打开的小专家里写，其余参数冻结；没有外部数据，就拿睡前的自己当老师，再自己出题、只留最有用的题来练。</li><li>依次学满语和卡拉芒语，只靠上下文学习时满语从 20.9 掉到 10.1；三阶段睡眠版本学完两门，满语仍有 23.9，基本不忘。</li><li>目前只在 8B 及以下的小模型上验证，数学推理比最强对照方法只高 1 到 2.6 个点；“长上下文超过 GPT-4”的比较里，它微调过，GPT-4 没有。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/google-sleep-continual-learning/social/zh-5a4d26990e01.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>今天的大模型有一个很尴尬的地方：它在发布那天就停止了学习。</p>
+<p>你可以在对话里教它一套新术语、一门新语言，它当场学得很快；但会话一关，这些东西就没了。下次再来，它还是那个停在知识截止日的模型。</p>
+<p>Google Research 和康奈尔大学的团队在论文《Language Models Need Sleep》里给出的思路是：<strong>让模型像人一样，白天干活，晚上睡觉。</strong> 白天照常回答问题，新东西先临时记着；到了“睡觉”的时候，停止接收新输入，把白天临时记住的东西整理进参数，再自己出题练一练。整理完，临时记忆清空，第二天接着学新的。在小模型实验里，光用其中“整理进参数”这一步，模型依次学两门新语言时就基本不再遗忘。</p>
+<h2>为什么不能边用边改参数</h2>
+<p>最直接的想法是：模型每学到一点新东西，就顺手更新一下权重。问题在于大模型的参数不是一本字典，一个词条占一行；同一批参数同时参与语法、推理、各种语言的表达。为了记住新东西去改它们，很容易把原来学会的能力一起改坏。这就是<strong>灾难性遗忘</strong>（catastrophic forgetting）：学了新的，忘了旧的。</p>
+<p>另一条路是只靠上下文学习（in-context learning，简称 ICL），也就是把资料塞进提示词，参数一个不动。它不会改坏旧能力，但也留不住：资料只活在上下文窗口里，窗口满了或会话结束就丢。</p>
+<p>论文里有个很直观的实验。让模型学两门它在预训练时几乎没见过的语言：满语（Manchu）和卡拉芒语（Kalamang），学完后把它们翻译成英语，用 ChRF 分数打分（按字符片段的重合程度给翻译质量打分，越高越好）。</p>
+<ul>
+<li>只学满语时，靠上下文学习的模型满语翻译能拿到 <strong>20.9</strong>。</li>
+<li>先学满语、再学卡拉芒语，满语直接掉到 <strong>10.1</strong>，少了一半多。论文的描述是，它基本退回了预训练时的水平。</li>
+</ul>
+<p>论文还试了另外两种做法：直接微调（SFT）和 Cartridges（用一个辅助模型把上下文压缩存起来）。两者都至少在一门语言上遗忘得厉害，表现还不如上下文学习。</p>
+<p>所以真正要解决的问题是：<strong>怎么把临时学到的东西写进参数，同时不碰坏已有的参数。</strong></p>
+<h2>睡觉要搬的是什么：一串快慢不同的记忆</h2>
+<p>要解决这个问题，先换个角度看模型的记忆。</p>
+<p>平时说大模型记忆，大家会分成两半：上下文和 KV 缓存（模型处理对话时临时存下的中间结果）是短期记忆，快但会话结束就丢；权重是长期记忆，稳定但部署后不再变。</p>
+<p>但这篇论文建立在第一作者 Ali Behrouz 等人此前提出的一种模型结构——Hope 之上（属于他们的“嵌套学习”框架）。实验以 Llama 等现成模型为底座，在上面搭出一串更新频率由快到慢的多级记忆模块，再接着训练。实验对照组里的“Hope（不睡眠）”，就是这个多级结构本身，只是不做睡眠巩固。</p>
+<p>在这套设计里，记忆是一串更新频率依次变慢的模块：最快的是上下文，往后是隔一阵才更新的中频块，再往后是很久才更新一次的低频块。更新频率就是更新得多勤：模型每处理一段输入算一步，有的块每步都更新，有的隔很多步才更新一次。所以“短期”和“长期”是相对的：对任何一块来说，比它更新得快的都是它的短期记忆。</p>
+<p>这样一来，持续学习就变成一件按节奏搬家的事：快的那一级装满了，就往下一级更慢、更稳的模块里搬。比如一块每 1K 步更新、下一块每 10K 步更新，前者要往后者搬 10 次，后者才自己更新一次。</p>
+<p>这种搬运在清醒时就在进行（这叫在线巩固）。它并不和前面“不能边用边改参数”冲突：清醒时更新的是那些本来就设计成随时可变的快块，这与为了记新东西去改那批同时承担很多能力的参数不是一回事。问题在于在线巩固的总容量不会变，后面那块要连续接收很多次搬运，装满了只能覆盖旧内容，遗忘又回来了；而且它只看得到当前上下文里有的东西。“睡眠”要解决的就是每一次搬家怎么做。</p>
+<h2>睡眠时做了什么</h2>
+<p><strong>“睡眠”和“做梦”是借自神经科学的比喻。</strong> 实际发生的是：在固定的模型结构里，按人写好的训练规则，自动跑一轮后训练。</p>
+<p>睡眠期分两段，分别对应人类睡眠里整理记忆的慢波睡眠和做梦的快速眼动期。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/google-sleep-continual-learning/LLMSleep1_Framework.png" alt="Sleep 框架总览：清醒期的输入先存进 KV 缓存，睡眠期分为巩固和做梦两路，最后都汇入参数记忆" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>左边是清醒期：输入先存进快速的短期记忆（KV 缓存）。</span><br />中间是睡眠期。上半是巩固：把短期记忆写进新加的小专家里；下半是做梦：随机调用不同专家出练习题，再挑出有用的来练。右边是两路最终汇入的长期参数记忆。</figcaption>
+</figure>
+<h3>第一段：巩固，把临时记忆写进新专家</h3>
+<p><strong>先扩容。</strong> 模型的这些记忆块用的是专家混合结构（Mixture of Experts，MoE：一层里有很多个小网络，叫“专家”，每次由一个叫路由器的部件挑出其中几个来用）。睡觉时，在下一级记忆块里打开一个新的低秩专家（参数量很小的小网络）。这一步训练只改这个新专家，其余参数冻结，旧专家里的知识不会在训练中被覆盖。</p>
+<p>这些新专家不是临时造出来的：它们一开始就在模型里，只是被屏蔽着，睡眠时才解锁，所以不用改模型的尺寸。</p>
+<p><strong>再自己教自己。</strong> 睡眠时没有外部数据，也没人标注，怎么训练这个新专家？答案是拿睡前的自己当老师，这种做法叫蒸馏（让一个模型去模仿另一个模型的输出）：</p>
+<ul>
+<li>老师：睡前那个带着短期记忆（比如满语例句）的模型；</li>
+<li>学生：加了新专家、短期记忆即将被清掉的模型。</li>
+</ul>
+<p>训练有两部分。一是逐词对齐：学生自己生成文本，老师在每个词上给出“我会怎么写”的概率，学生去对齐。二是论文叫“学习模仿”的强化学习：从老师写的文本里截一段开头，让学生续写，意思一致（由一个冻结的奖励模型判断）、字面接近（按编辑距离，即要改几个字才能变成一样）就给奖励。只做逐词对齐时，学生“知道”了却不太会用，加上模仿这一步才学会像老师那样写出来。</p>
+<p><strong>最后清空。</strong> 每次睡眠，其实是在更快的那一级关掉一批参数，同时在当前这一级打开新专家来接收内容。论文把关掉参数这一步比作大脑的突触修剪。比如学满语时，满语已经稳稳写进了中频块新开的专家之后，原先装着它的更快那一级（上下文和此前几次睡眠加上的临时专家）才被清掉，所以清了也不会丢。这样既把空间腾出来留给以后的新内容，刚写进新专家的内容也能保留下来；上下文这一级则在新的清醒期里重新装新东西。</p>
+<h3>第二段：做梦，自己出题自己练</h3>
+<p>巩固只是把记过的东西存好。做梦这一段要让模型把新旧知识用起来。</p>
+<ul>
+<li><strong>随机拉专家出题。</strong> 生成练习题（论文叫“梦”）时，路由器除了按常规挑专家，还会额外随机拉进一个平时不会被选中的专家，把不相干的知识混进来，逼模型找出平时看不到的联系。</li>
+<li><strong>只留最有用的题。</strong> 每道题按“拿它来训练，能把参数往好的方向推多少”打分（论文用的是基于梯度的数据选择），只留得分最高的一批，再加几道随机的保持多样性。在论文的 ARC 实验（少样本抽象推理测试）里，每个任务生成 60 道，丢掉 45 道。</li>
+<li><strong>练完看效果。</strong> 打分时给每道题单独复制一个模型副本，用 LoRA（只训练一小批附加参数的微调方法）微调后看下游成绩，变好了就奖励出这道题的做法，模型由此学会出更有用的题。在 SQuAD 实验里，选出的题会汇成一份合成数据拿来训练；至于最终用这些题训练的是新专家还是模型的哪部分参数，论文并没有写明。</li>
+</ul>
+<p>做梦这一段的作用在实验里很明显：在把新事实写进模型的 SQuAD 测试里，完整的睡眠方法拿到 48.9%，去掉做梦只剩 35.7%。光把东西存进去还不够，自己出题练过之后，才能用来回答问题。</p>
+<p>把一轮清醒和睡眠串起来，可以一步步点着看：</p>
+<div>
+<p>示意 · 一轮清醒与睡眠里，记忆怎么搬家</p>
+<div>
+<b>1</b>清醒
+<b>2</b>扩容
+<b>3</b>自蒸馏
+<b>4</b>清空
+<b>5</b>做梦
+<b>6</b>下一轮
+</div>
+<div>
+<div><span>清醒期：接收输入</span><span>睡眠期：不接收新输入</span></div>
+<div>
+<div><strong>高频层</strong>上下文 / KV 缓存 · 每轮都变</div>
+<div>
+<i>满语</i><i>满语</i><i>满语</i>
+<i>卡拉芒语</i><i>卡拉芒语</i>
+<em>已清空，空位留给下一轮</em>
+</div>
+</div>
+<div><span>往下一级搬</span></div>
+<div>
+<div><strong>中频块</strong>专家混合 · 隔一阵才更新</div>
+<div>
+<i>旧专家</i><i>旧专家</i><i>旧专家</i>
+<i>新专家</i><i>预留</i>
+</div>
+</div>
+<div>
+<div><strong>低频块</strong>最稳的长期记忆 · 很久才更新</div>
+<div>
+<i>旧专家</i><i>旧专家</i><i>旧专家</i><i>预留</i>
+</div>
+</div>
+<div><span>练习题 ×60</span><span>按梯度筛选 → 留 15</span><span>微调后变好了？</span></div>
+</div>
+<div>
+<h4>清醒：新东西先进高频层</h4>
+<p>模型照常回答问题。你给它看满语例句，它马上能照着翻，但这些例句只待在上下文和 KV 缓存里，会话一结束就没了。下面的中频、低频块也在按自己的节奏慢慢更新，但赶不上把满语存下来。</p>
+<h4>入睡，先扩容：解锁一个预留的新专家</h4>
+<p>模型停止接收新输入。下一级（中频块）里，一个事先放好但一直屏蔽着的低秩小专家被打开。接下来的训练只改这个新专家，其他参数冻结，旧专家里的知识不会在训练中被覆盖。</p>
+<h4>自己教自己：把满语写进新专家</h4>
+<p>睡前带着满语例句的模型当“老师”，加了新专家的模型当“学生”。老师写一段译文，截掉后半段让学生续写，意思对上、字面也接近（按编辑距离算）就给奖励；同时让学生在自己生成的文本上逐词对齐老师的概率。这样满语从上下文里的原句，变成新专家里的参数。</p>
+<h4>清空：搬出内容的那一级腾出位置</h4>
+<p>搬完之后，搬出内容的那一级被重置：之前几次睡眠加在那里的临时专家被清掉（论文比作突触修剪），上下文也空出来留给新的清醒期。满语现在存在中频块的新专家里。中频块攒够几轮，同样的过程会再把它往更稳的低频块搬一次；论文举的例子是每 1K 步一级、每 10K 步一级。</p>
+<h4>做梦：自己出题，只留有用的</h4>
+<p>生成练习题时，路由器会额外随机拉进平时不搭配的专家，让新旧知识混在一起。题目先多出后精选：在 ARC 实验里每个任务生成 60 道、按梯度筛掉 45 道。留下的题拿去微调一个副本，成绩提升了，这种出题方式就得到奖励，下次多这样出。</p>
+<h4>再学下一门：旧知识不在被挤掉的地方</h4>
+<p>接着来的是卡拉芒语。它进入空出来的高频层，满语已经安放在新专家里，不会被挤出上下文。对照组只靠上下文学习，依次学完两门语言后，满语成绩从单学时的 20.9 掉到 10.1；巩固三级的版本学完两门后满语仍有 23.9。</p>
+</div>
+<div>
+← 上一步
+下一步 →
+</div>
+<p>图形和“先学满语、睡一觉、再学卡拉芒语”的顺序都是示意，专家数量和名称不对应论文的真实配置；“60 道留 15”来自论文的 ARC 实验，满语分数来自论文的持续翻译实验（ChRF）。</p>
+</div>
+<h2>效果到哪一步</h2>
+<p>先说明一点：论文里多数实验（分类、翻译、长上下文、数学）只测了巩固这一段，完整的“巩固 + 做梦”只用在写入新事实（SQuAD）和抽象推理（ARC）两项上。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/google-sleep-continual-learning/LLMSleep2_Results.png" alt="两组柱状图：上图为三个数据集上类别增量学习的准确率，下图为依次学完满语和卡拉芒语后的翻译分数" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>上图：三组分类任务里不断加入新类别，最后的准确率。</span><br />Sleep 最高；对比的 Hope（不睡眠）是同一架构但没有睡眠巩固。<br><span>下图：依次学完两门语言后的翻译分数，竖线是只学这一门时的成绩。</span><br />Sleep-1/2/3 是巩固阶段数不同的三个版本，阶段越多越好，而且都贴近竖线；灰柱图例写“不做适配”，图内注释和论文都说明它是上下文学习的结果。</br></figcaption>
+</figure>
+<p><strong>持续学习。</strong> 巩固阶段越多越好，睡眠确实能防遗忘：依次学完两门新语言后，三阶段版本的满语翻译拿到 23.9，基本回到了只学一门语言时的水平；只靠上下文学习满语直接掉到 10.1。在三组分类任务上不断加入新类别，Sleep 比同架构但不睡眠的版本高 4 到 8 个点，比经典的防遗忘方法 EWC 高 17 到 18 个点，说明增益来自睡眠本身。</p>
+<p><strong>写入新事实。</strong> 做梦对记住新事实贡献最大，但随机拉专家实测用处有限。在 SQuAD 上（读完文章后不给原文回答相关问题），最好的版本单篇拿到 48.9%，比此前同类方法 SEAL（让模型自己生成训练材料来改参数）的 46.7% 高约 2 个点，基座模型只有 31.9%。消融实验里，去掉做梦后只剩 35.7%；而前面讲到的“随机拉专家”，去掉后成绩只掉 0.9 到 1.5 个点（48.0% 和 44.7%），实测贡献其实不大。</p>
+<p><strong>超长上下文。</strong> BABILong 是在超长文本里找线索、做推理的测试，微调过的 Sleep 在 1000 万 token 下仍接近满分。但这组测试里参赛的小模型都按官方方案专门微调过，GPT-4 没有微调，在 12.8 万到 25.6 万 token 之后就失效了；如果不做微调，包括 Sleep 在内的小模型都会大幅掉分。</p>
+<p><strong>推理。</strong> 把这套巩固方法当后训练方法来用，能在数学题上小幅提升（这组实验只用了巩固这一段，论文没有写训练材料的细节）。在 Qwen3-8B 上的三项数学竞赛题（AIME 24/25 和 HMMT 25）中，它比最强对照、自蒸馏方法 OPSD 高出 1.0 到 2.6 个点。</p>
+<p>下面几点会影响你怎么理解这些数字：</p>
+<ul>
+<li><strong>全是小模型。</strong> 实验用的是 1B 到 8B 的小模型（Llama-3B/8B、Qwen3-1.7B/8B、Llama-3.2-1B），没有在大型生产模型上验证过。</li>
+<li><strong>推理那点提升，部分来自多出的参数。</strong> 给 OPSD 也加上同样的参数扩容，差距就缩小到 0.2 到 1.3 个点。</li>
+<li><strong>有的测试规模很小。</strong> ARC 上 Sleep 拿到 80%、同类方法 SEAL 是 72.5%、只靠上下文学习是 0%，但只测了 8 个预留任务。</li>
+<li><strong>每步更慢，追平同样分数反而更快。</strong> 按论文的口径，同样的训练步数，普通微调的效率是它的 4 倍；但要把数学成绩练到同一水平，普通微调要花 3.6 到 4.8 倍时间。</li>
+</ul>
+<h2>训练和使用连成一个循环，下一步看大模型</h2>
+<p>它把“部署”和“训练”之间那道墙换成了一个循环：白天收集，晚上整理。整理的方式也有讲究：新东西写进新开的专家，训练时旧参数冻结；不靠重放原始数据，靠自己当老师、自己出题。这两点正是针对灾难性遗忘设计的。</p>
+<p>还没回答的问题也很具体：放到几百亿参数的大模型上还成不成立；睡得越来越多，预留的专家用完了怎么办；自己出题自己练，会不会在多轮之后偏离。这些都要等更大规模的实验。</p>
+<p>如果你关心的是工程那一半，也就是线上的对话怎么变成训练材料、新版本怎么评测和发布，可以对照读这一篇：</p>
+<a>
+<span>工程侧的另一半</span>
+<strong>麻省理工团队开源项目 Reef：让推理服务器不只负责“回答”，还负责让 Agent 能持续学习和自我改进</strong>
+<span>Sleep 回答的是“新知识怎么写进权重又不冲掉旧的”；Reef 回答的是线上对话怎么变成训练数据、训练出的模型或 Harness 候选怎么评测、怎么发版。</span>
+<span>阅读站内解读 →</span>
+</a>
+</div><div><div><div>来源</div><div><span>The sleep framework: A new way for LLMs to retain knowledge in continual learning</span><span><a href="https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/">查看主材料</a></span></div></div></div></div></div><div>
+<div>
+<div>Google Research · 持续学习架构</div>
+<h1>让大模型像人一样睡觉：缓解灾难性遗忘</h1>
+<div>白天在线快速记，夜间离线分段巩固：通过多级记忆解耦、低秩专家扩容与跨知识做梦，让模型持续吸收新知而无需重训已有参数。</div>
+<div>论文解读 · Continual Learning · Hope 架构 · 离线后训练</div>
+<p>今天的大模型有一个很尴尬的地方：它在发布那天就停止了学习。你可以在会话里教它一套新术语、一门新语言，它当场学得很快；但会话一关，这些东西就没了。大模型为什么不能边用边改参数？</p>
+<p>最直接的想法是每学到一点新东西就更新一下权重。但大模型的参数不是一本字典，一个词条占一行；同一批参数同时参与语法、推理、各种语言的表达。为了记住新东西去改它们，很容易把原来学会的能力一起改坏，这就是<strong>灾难性遗忘</strong>（catastrophic forgetting）。若只靠上下文学习（ICL），资料只活在上下文窗口里，窗口满了或会话结束就丢。</p>
+<p>论文实验给出了直观证据：让模型先后学习预训练时几乎没见过的满语和卡拉芒语。只靠上下文学习时，满语翻译能拿到 20.9；但学完卡拉芒语后，满语直接掉到 10.1，少了一半多，基本退回预训练水平。所以真正要解决的问题是：<strong>怎么把临时学到的东西写进参数，同时不碰坏已有的参数。</strong></p>
+<p>Google 与康奈尔大学团队的思路是：<strong>建立更新频率由快到慢的多级记忆，让模型白天干活，晚上睡觉。</strong></p>
+<p>在 Hope（第一作者此前提出的多级记忆结构）中，上下文与 KV 缓存是最快更新的短期记忆，往后是中频块与很久才更新一次的低频块。清醒时可以进行在线搬运，但接收搬运的那一级容量不变，装满后只能覆盖旧内容。而“离线睡眠”则是在夜间停止接收新输入，按预设规则自动跑一轮后训练。</p>
+<div>
+<div>核心机制：慢波巩固与快速眼动做梦双阶段</div>
+<p>在不改变模型总尺寸的前提下，通过解锁预置专家与自蒸馏出题，在完全冻结已有权重的前提下完成新知沉淀。</p>
+<div>
+<div>
+<span>第一阶段 · 慢波睡眠 (巩固)</span>
+<div>解锁新专家，睡前的自己当老师</div>
+<p>在下一级记忆块里打开预先内置但此前屏蔽的低秩 MoE 专家（MoE：一层里有多个小网络，叫“专家”，由路由器挑着用），其余全局权重严格冻结。睡前带着短期记忆的模型充当老师，新专家模型充当学生，通过逐词对齐与模仿强化学习完成知识迁移。随后关掉更快一级的临时参数（突触修剪），既腾出白天空间，又确保新知稳妥固化。</p>
+</div>
+<div>
+<span>第二阶段 · REM睡眠 (做梦)</span>
+<div>跨专家随机出题，自练自评</div>
+<p>光把东西存进参数还不够，必须激活提取能力。做梦时路由器额外随机拉入平时不相干的专家出题，逼模型找出新旧知识的潜在联系；每道题按梯度收益打分，打分时给每道题复制一个模型副本用 LoRA 试练，只留最有用的题目汇成合成数据拿来练；最终训练哪部分参数，论文没有写明。</p>
+</div>
+</div>
+</div>
+<div>实证表现：多任务持续防遗忘与新事实固化</div>
+<p>在陌生语言测试中，巩固分三阶段的睡眠版本学完卡拉芒语后，满语翻译仍有 <strong>23.9</strong>，基本回到只学一门语言时的水平；只靠上下文学习则掉到 10.1。在多类别增量学习中，Sleep 比同架构不睡眠版本高 4 到 8 个百分点，比经典防遗忘方法 EWC 高 17 到 18 个百分点。</p>
+<div>
+<div>
+<div>23.9 vs 10.1</div>
+<div>依次学完两门语言后的满语翻译得分（睡眠版本 vs 只靠上下文）</div>
+</div>
+<div>
+<div>48.9%</div>
+<div>SQuAD 新事实写入后的答题正确率（同类方法 SEAL 为 46.7%）；消融实验证实去掉“做梦”阶段成绩骤降至 35.7%</div>
+</div>
+<div>
+<div>+17 ~ 18 个点</div>
+<div>三组增量分类任务上比经典防遗忘方法 EWC 高出的准确率</div>
+</div>
+</div>
+<p>做梦阶段的作用尤为突出：在 SQuAD 新事实写入测试中，去掉做梦仅剩 35.7%，完整的做梦机制则达到 48.9%，证实自己出题自练是把参数存量转化为可用答案的必要步骤。</p>
+<div>代价、边界与未解之问</div>
+<p>作为探索性学术方案，在理解这些亮眼数字时需注意其明确的实验局限与开销：</p>
+<div>
+<p><strong>训练开销的平衡：</strong> 同样的训练步数下，普通微调的吞吐效率是该方案的 4 倍（睡眠每步更慢）；但在要把数学成绩练到同一水平时，普通微调需花费 3.6 到 4.8 倍的时间。</p>
+<p><strong>模型尺度与参数红利：</strong> 实验全量基于 1B 到 8B 的开源小模型（Llama-3、Qwen 等），尚未在百亿参数级前沿模型上验证。在数学竞赛题上的小幅提升（1.0~2.6分），部分来自 MoE 解锁带来的额外参数（若给对照组 OPSD 同等扩容，优势收窄至 0.2~1.3分）。</p>
+<p><strong>做梦技巧的实测贡献：</strong> 消融实验表明，做梦时“随机拉专家”实测贡献其实有限，去掉后分数仅微掉 0.9 到 1.5 分；去掉做梦整段才会掉到 35.7%。</p>
+<p><strong>长期容量与认知漂移：</strong> 模型内置的预留低秩专家数量有限，长期睡眠耗尽后如何承接；以及多轮“自己出题自己练”的自循环是否会在长期迭代中产生偏离，仍有待更大规模的实证。</p>
+</div>
+<div>
+<strong>核心洞见：</strong> 睡眠框架把大模型“部署即冻结”的线性流程重塑为“白天积累、夜间自整”的生命周期闭环。在 1B 到 8B 的小模型实验里，靠新开专家隔离改动、自己当老师和自己出题，做到了学新知识基本不忘旧的；能否放大到前沿大模型还要看后续验证。
+    </div>
+</div></div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/">看原网页 ↗</a></p></div><div></div><div><div><h1>The sleep framework: A new way for LLMs to retain knowledge in continual learning</h1></div><div><p>Modern LLMs achieve impressive performance via pre-training and <a href="https://ai.stanford.edu/blog/understanding-incontext/">in-context learning</a> (ICL). However, once deployed, they remain largely static, operating with a fixed knowledge cutoff date that leaves them unable to acquire long-term capabilities or adapt to new information.</p></div><div><p>While updating models with new data seems like the obvious solution, continual parameter updates often trigger <a href="https://en.wikipedia.org/wiki/Catastrophic_interference">catastrophic forgetting</a>, a fundamental issue where learning new tasks severely degrades performance on previously learned ones. Alternatively, relying strictly on ICL limits knowledge retention to the immediate context window: once the context session ends, the acquired short-term information is forgotten.</p></div><div><p>Inspired by how the human brain processes and stabilizes memory during rest, we introduce a <a href="https://arxiv.org/pdf/2606.03979">sleep framework</a> in continual learning: a learning paradigm that equips large language models (LLMs) with a continuous <em>periodic</em> lifecycle, enabling them to continually learn, consolidate fragile short-term context into stable long-term parameters. With this framework, we demonstrate that alternating between active interaction and offline memory consolidation allows LLMs to continuously acquire new facts, retain long-context knowledge up to 10M tokens, and improve complex reasoning.</p></div><div><h2>Rethinking machine learning: Active (wake) vs. sleep phases</h2></div><div><p>Traditional machine learning relies on a strict separation between training and inference. In a continual learning framework, this distinction becomes artificial; an intelligent agent must constantly learn, adapt, and process information.</p></div><div><p>Under the sleep paradigm, an LLM operates across two primary states:</p></div><div><ol><li><strong>Active (wake) phase</strong>: The model actively receives, processes, and interacts with inputs, storing temporary information in fast, short-term memory components.</li><li><strong>Sleep phase</strong>: The model pauses processing new inputs and redirects its internal computations toward memory consolidation and self-improvement.</li></ol></div><div><p>While terms like "sleep," "dreaming," and "self-improvement" borrow from neuroscience, our framework operates entirely within a fixed model architecture and human-defined training rules. During the offline sleep phase, the model unlocks pre-allocated Mixture-of-Experts (MoE) memory blocks and updates its numerical weights using self-generated practice examples. This automated post-training cycle helps a deployed model absorb new facts and sharpen its reasoning accuracy while keeping its core codebase and design unchanged.</p></div><div><h2>Key components of the sleep process</h2></div><div><p>The sleep paradigm addresses catastrophic forgetting and continuous adaptation through two stages: memory consolidation and dreaming.</p></div><div><h3>1. Memory consolidation</h3></div><div><p>In the human brain, <a href="https://en.wikipedia.org/wiki/Non-rapid_eye_movement_sleep">non-rapid eye movement</a> (NREM) slow-wave sleep consolidates fragile memories into long-term structures via abstraction and distillation. Our proposed sleep framework mirrors this natural phenomenon through two key technical mechanisms:</p></div><div><ul><li><strong>Parameter expansion &amp; continuum memory hierarchy:</strong> To prevent catastrophic forgetting, the model dynamically scales its capacity during sleep. Using a <a href="https://huggingface.co/blog/moe">Mixture of Experts</a> (MoE) and <a href="https://arxiv.org/abs/2512.24695">Hope</a> architecture , newly unlocked, low-rank experts are integrated into stable, lower-frequency memory blocks to store incoming knowledge without disrupting older parameters.</li><li><strong>Knowledge seeding (upward distillation):</strong> Fragile short-term memories stored in high-frequency layers (e.g., in-context memory) are transferred into the newly expanded long-term parameters. This is achieved through <a href="https://huggingface.co/docs/trl/en/gkd_trainer">Generalized Knowledge Distillation</a> (GKD) combined with <a href="https://www.geeksforgeeks.org/machine-learning/what-is-reinforcement-learning/">reinforcement learning</a> (RL)-based <a href="https://en.wikipedia.org/wiki/Imitation_learning">imitation learning</a>:<strong>On-policy distillation:</strong> The expanded student model learns token-specific feedback from teacher distributions generated on self-sampled sequences.<strong>Learning to imitate (LTI):</strong> The student model is rewarded based on semantic and absolute similarity (<a href="https://en.wikipedia.org/wiki/Levenshtein_distance">Levenshtein distance</a>) when completing prefixes of teacher-generated text.</li><li><strong>Synaptic pruning:</strong> Once the memory consolidation into lower-frequency modules is complete, the high-frequency temporary parameters are reset, freeing up capacity for future active sessions.</li></ul></div><div><h3>2. Dreaming for self-improvement</h3></div><div><p>During <a href="https://www.thensf.org/what-is-rem-sleep/">REM sleep</a>, the human brain actively simulates scenarios, consolidates emotional/semantic connections, and explores novel neural pathways. Mirroring this, during the “dreaming stage”, the sleep framework implements an autonomous self-improvement loop:</p></div><div><ul><li><strong>Random expert selection:</strong> During synthetic data generation, the MoE router randomly activates non-standard experts. This forces the model to mix disparate domains of knowledge and uncover latent patterns.</li><li><strong>Curated rehearsal:</strong> The model generates synthetic training samples ("dreams") and filters them using gradient-based data selection to prioritize samples with the highest potential to boost overall model capability.</li><li><strong>RL refinement:</strong> The model performs supervised fine-tuning on top-rated dream samples and evaluates whether the generation improves performance on downstream tasks.</li></ul></div><div><h2>Theoretical foundations</h2></div><div><p>Beyond the empirical results, our sleep paradigm is grounded in a theory that clarifies why its two stages (memory consolidation and dreaming) can support continual learning without simply trading new knowledge for old capabilities.</p></div><div><p>For memory consolidation, the analysis shows that knowledge seeding can be understood as a structured, low-rank compression problem. The model is not asked to copy every detail of its short-term traces into its parameters. Instead, it identifies a compact set of directions that best preserve both the model’s own on-policy behavior and the semantic qualities rewarded by the learning objective.</p></div><div><p>This perspective explains the complementary roles of the two signals: on-policy distillation aligns consolidation with the trajectories the model will actually produce at inference time, reducing the mismatch that can arise when training only on teacher-generated distributions; meanwhile, the semantic reward changes what is worth retaining, prioritizing directions that preserve meaning and task-relevant behavior rather than merely matching token probabilities. Parameter expansion then provides the capacity needed to write these selected memories without overwriting previously consolidated knowledge.</p></div><div><p>For dreaming, the theory characterizes random expert activation and reward-based sample selection as mechanisms for improving the geometry of learning. Injecting different MoEs broadens the set of gradient directions explored during synthetic generation, exposing the model to a richer collection of updates than those induced by its ordinary wake-time data alone. Gradient-based filtering then emphasizes the synthetic experiences that carry the most useful learning signal, strengthening informative directions while preserving the structure of the underlying gradient space.</p></div><div><p>Together, these steps yield a more balanced optimization landscape: learning is less dominated by a small number of directions, gradients are better conditioned, and the model can make more stable progress when refining its capabilities. In this view, dreaming is not simply self-generated data augmentation; it is a deliberate process for diversifying, selecting, and consolidating the updates through which the model improves itself.</p></div><div><p>For <a href="https://arxiv.org/abs/2512.24695">continual translation</a>, in unseen languages, such as Manchu and Kalamang, the sleep framework maintained a near-zero performance drop in multi-stage evaluations, whereas standard baselines like ICL, <a href="https://arxiv.org/abs/2506.06266">Cartridges</a>, and <a href="https://cameronrwolfe.substack.com/p/understanding-and-using-supervised">supervised fine-tuning</a> (SFT) suffered severe catastrophic forgetting during sequential learning.</p></div><div><p>In long-context understanding on the <a href="https://arxiv.org/abs/2406.10149">BABILong</a> benchmark, our sleep method demonstrated near-perfect scaling up to 10M tokens, outperforming strong baselines like <a href="http://openai.com/index/gpt-4-research/">GPT-4</a>, and <a href="https://research.google/blog/titans-miras-helping-ai-have-long-term-memory/">Titans</a> by using sleep-time consolidation to compress long-context information directly into parametric memory.</p></div><div><p>For factual knowledge incorporation evaluated on <a href="https://deepeval.com/docs/benchmarks-squad">SQuAD</a> and <a href="https://docs.aws.amazon.com/nova/latest/userguide/nova-cpt.html">continued pre-training</a> (CPT), our sleep method achieved 48.9% on single-task and 46.2% on CPT evaluations, outperforming baseline methods including the base model, SFT, and <a href="https://arxiv.org/abs/2506.10943">Self-Adapting Language Models</a> (SEAL) by successfully integrating new factual information without degrading existing model representations.</p></div><div><p>Finally, on mathematical reasoning benchmarks including <a href="https://artificialanalysis.ai/evaluations/aime-2025">AIME 24/25</a> and<a href="https://intuitionlabs.ai/articles/hmmt25-ai-benchmark-explained">HMMT 25</a>, sleep-enhanced base-model achieved accuracy scores of 79.2%, 69.0%, and 46.1%, respectively. This outperformed baselines like SFT, group relative policy optimization (GRPO), and on-policy self-distillation (OPSD), showing that pairing memory consolidation with imitation learning drives superior reasoning performance.</p></div><div><h2>Conclusion</h2></div><div><p>Our sleep paradigm provides a path toward autonomous, continually learning AI systems. By moving beyond static pre-training and fragile context windows, alternating between active learning and offline rest empowers LLMs to retain short-term memories, abstract new skills into long-term parameter structures, and continuously self-improve without catastrophic forgetting.</p></div><div><h2>Acknowledgements</h2></div><div><p><a href="https://arxiv.org/abs/2606.03979"><em>This research</em></a> <em>was conducted by Ali Behrouz (Google and Cornell University), Farnoosh Hashemi (Cornell University), Adel Javanmard (Google and University of Southern California), and Vahab Mirrokni. We thank Yuan Deng and Corinna Cortes for reviewing the work and their valuable suggestions. We also thank Mark Simborg, Kimberly Schwede, and Tim Herrmann for their help in crafting this blog post.</em></p></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】一个极具隐蔽性的 AI 行为盲区：过度共情、温暖的聊天，就能让 AI 陷入严重的“拟人化创伤叙事”中 · XiaoHu.AI</title>
 <link>https://xiaohu.ai/article/empathetic-prompts-traumatized-chatbots/</link>
@@ -67273,243 +68286,6 @@ python scripts/run_demo.py retail --all
 <li><strong>售前和售后问答</strong>：在同一会话中查询订单状态，并解释物流、退换货和退款政策。</li>
 <li><strong>结构化界面</strong>：通过 Presentation Tool 显示商品卡、比较表、组合方案和购物车，不只返回文字。</li>
 </ul><p><img /></p><p><code>checkout</code> 只生成购物车摘要和宿主提供的结账入口，结账 URL 也不交给模型生成。商品 ID、价格和库存必须来自服务端；诱导加购、虚构折扣和模型自行生成商品等行为由代码级约束阻止。</p><h3>Merchant Agent：面向商家员工</h3><p>Merchant Agent 负责读取经营数据、提出动作并生成变更草案，但没有直接修改线上业务的权限。</p></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Cursor 推出Self-Hosted Machines自托管机器：企业本地执行，Cursor 负责云端推理</title>
-<link>https://best.xiaohu.ai/article/self-hosted-machines/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:self-hosted-machines</guid>
-<pubDate>Thu, 03 Sep 2026 12:00:23 +0000</pubDate>
-<description>Cloud Agents 可在企业自有机器上执行任务，Cursor 云端继续负责智能体循环、推理和规划。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 3 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Cursor 推出Self-Hosted Machines自托管机器：企业本地执行，Cursor 负责云端推理</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/self-hosted-machines/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div>
-<div>正文一页纸秒懂漫画</div>
-<div><div><div>产品发布 · 小互解读</div><h1>Cursor 推出Self-Hosted Machines自托管机器：企业本地执行，Cursor 负责云端推理</h1><p>Cloud Agents 可在企业自有机器上执行任务，Cursor 云端继续负责智能体循环、推理和规划。</p><div><div>一分钟速览</div><ul><li>Cursor 允许 Cloud Agents 在企业自有机器上执行文件、终端、浏览器和本地 MCP 操作；智能体循环、推理和规划仍在 Cursor 云端运行。</li><li>自托管主要解决三类限制：任务必须在企业网络内执行、必须访问内部系统，或依赖 Mac、GPU 和特殊构建环境。</li><li>worker 只需主动建立出站 HTTPS 连接，无需开放入站端口；但代码内容、终端输出、diff、截图和本地 MCP 结果仍可能发送给 Cursor。</li><li>My Machines 连接个人设备，Team Pools 提供可扩缩、可休眠、跨仓库的共享容量；机器、镜像、权限、成本和生产验证由企业负责。</li></ul></div><div><p>Cursor 推出了 Self-Hosted Machines：<strong>Cloud Agents 现在可以在团队自建或自行管理的机器上执行任务。</strong></p><p>此前，Cloud Agents 默认在 Cursor 管理的远程虚拟机中运行。现在，执行环境可以换成公司内网服务器、企业云主机、Mac、GPU 机器或本地设备；任务规划、模型推理和会话管理仍由 Cursor 云端完成。</p></div><div><h2>Cursor 更新了什么</h2><ul>
-<li><strong>工具在企业机器上执行</strong>：读写文件、运行终端命令、控制浏览器和调用本地 MCP。</li>
-<li><strong>智能体仍由 Cursor 云端控制</strong>：理解任务、规划步骤、模型推理、会话状态和工具调用都没有移到企业内网。</li>
-</ul><p>整套 Cursor 智能体系统仍未部署到企业内网；云端智能体改用企业管理的执行环境。</p><figure>
-<div>
-<h3>Cursor 云端控制面</h3>
-<p>负责理解任务与决定下一步</p>
-<ul>
-<li>智能体循环与会话状态</li>
-<li>模型推理与规划</li>
-<li>界面、任务管理与结果展示</li>
-</ul>
-<div>
-<span>工具调用</span>
-<span>⇄</span>
-<span>内容与结果</span>
-</div>
-<h3>企业网络内的执行面</h3>
-<p>负责执行本地工具</p>
-<ul>
-<li>完整 checkout、构建缓存、本地凭据</li>
-<li>文件、终端、浏览器与本地 MCP</li>
-<li>Mac、GPU、内网服务与现有流水线</li>
-</ul>
-</div>
-<p>连接由 worker 主动向外建立；无需入站端口。文件内容、终端输出、diff、截图与本地 MCP 结果仍可能按任务需要回传。</p>
-<div>
-<img />
-<figcaption>Cursor 官方图显示：推理与编排在云端，工具在企业网络执行，工具调用和结果在两者之间传输。</figcaption>
-</div>
-</figure><p>Cursor 称，其内部合并的 PR 中已有超过 60% 由云端智能体创建。这个数字是 Cursor 自报，不能用于推断其他企业的生产率。</p></div><div><h2>Self-Hosted Machines 如何运作</h2><p>系统由三部分组成：</p><ul>
-<li><strong>Cursor 云端</strong>：完成推理和规划，并发出工具调用。</li>
-<li><strong>本地 worker</strong>：保存仓库工作副本，在本机执行工具调用。</li>
-<li><strong>HTTPS 出站连接</strong>：worker 主动连接 Cursor 并回传结果，企业无需开放入站端口、公网 IP 或 VPN。</li>
-</ul><p>安装 Cursor CLI 后启动 worker：</p><div><pre><code>agent worker start
-</code></pre></div><p>一次任务的执行过程是：Cursor 发送工具调用，worker 本地执行并回传结果，Cursor 再决定下一步。</p><p>任务入口不变：团队仍可从 Cursor 桌面端、cursor.com、移动端、Slack、GitHub 和 Linear 启动和管理 Cloud Agents。</p><p>worker 需要访问 <code>api2.cursor.sh</code> 和 <code>api2direct.cursor.sh</code> 来维持智能体会话。若要上传截图、视频或日志引用等 Cloud Agent 产物，还需要访问 <code>cloud-agent-artifacts.s3.us-east-1.amazonaws.com</code>。阻断第三个域名会关闭产物上传，但工具调用与结果回传仍可继续。</p><p>完整 checkout、构建缓存和机器本地凭据可以保留在企业机器上。任务执行时，推理所需的文件内容、终端输出、diff、截图、本地 MCP 结果和路由元数据仍会发送给 Cursor；开启桌面共享后，桌面画面也会被传输。</p>
-<p>无需开放入站端口只说明连接由 worker 发起，不代表没有数据发送给 Cursor。Worker 能访问什么，取决于运行账户、挂载目录、可见密钥、网络路由、本地 MCP 和桌面环境。</p>
-</div><div><h2>为什么要使用自托管机器</h2><p>自托管主要解决三类限制：</p><ol>
-<li><strong>执行环境受政策限制。</strong> 完整 checkout、工具执行或构建产物必须位于企业账户或指定网络内。</li>
-<li><strong>任务必须访问内部系统。</strong> 私有代码仓库、包仓库、测试集群、数据库或业务服务无法安全接入 Cursor 托管环境。</li>
-<li><strong>任务依赖专用硬件或现有环境。</strong> 例如 iOS/macOS 构建需要 Apple Silicon Mac，模型或图形任务需要 GPU，构建还可能依赖持久磁盘、自定义系统或 Kubernetes。</li>
-</ol><figure>
-<div>
-<img />
-<figcaption>官方决策图列出合规、网络和硬件三类条件；这些条件都不存在时，Cursor 建议使用托管环境。</figcaption>
-</div>
-<div>
-<img />
-<figcaption>Worker 可以运行在企业服务器、Kubernetes 或合作平台的沙箱中，团队负责基础设施运营。</figcaption>
-</div>
-</figure><p>如果没有这些限制，Cursor 托管环境通常更省事：Cursor 负责虚拟机隔离、网络控制和容量，团队不必维护 worker 基础设施。</p></div><div><h2>关键功能和技术能力</h2><p>Self-Hosted Machines 提供两种机器组织方式：</p><ul>
-<li><strong>My Machines</strong>：连接个人笔记本、开发机或单台虚拟机，适合个人任务。</li>
-<li><strong>Team Pools</strong>：用服务账户、统一镜像和具名资源池为团队提供共享容量。用户选择资源池，不必指定具体机器或仓库。</li>
-</ul><p>Team Pool 中有空闲 worker 时，它会认领请求；没有空闲容量时，请求进入等待队列。团队运行的控制器监视队列，并调用团队提供的 spawn 脚本启动虚拟机、容器或沙箱。</p><ul>
-<li><strong>任务结束</strong>：worker 可重置回池，也可保存快照后休眠；后续消息在重连窗口内到达时，可以用相同 ID 恢复，减少空闲运行成本和重新构建工作区的等待。</li>
-<li><strong>资源池分组</strong>：可按操作系统、硬件、网络范围或安全级别分池，不必绑定单个仓库。</li>
-</ul><figure>
-<div>
-<span>1</span><h3>请求进入资源池</h3><p>任务选择具名能力池，不绑定某台机器或单一仓库。</p>
-<span>2</span><h3>查找空闲 worker</h3><p>有空闲容量时，worker 直接认领请求。</p>
-<span>3</span><h3>控制器补充容量</h3><p>没有空闲机器时，控制器调用团队的 spawn 脚本。</p>
-<span>4</span><h3>本地执行任务</h3><p>worker 使用自有代码、网络、硬件和构建环境。</p>
-<span>5</span><h3>按空闲策略回收</h3><p>idle timeout 到期后重置回池，或保存快照后休眠。</p>
-</div>
-<div>
-<div>重置：提供干净环境，下一次任务重新准备工作区。</div>
-<div>休眠：重连窗口内以相同 worker ID 恢复任务状态。</div>
-</div>
-<figcaption>任务进入资源池后，空闲 worker 认领请求；容量不足时，控制器启动新机器；空闲后，worker 重置或休眠。</figcaption>
-</figure><ul>
-<li><strong>部署方式</strong>：支持企业服务器、持久主机、Docker、Kubernetes，以及 AWS Lambda、Cloudflare、Coder、Daytona、E2B、Modal、Namespace、Vercel 等平台。官方集成提供接入方式，实际镜像、密钥、隔离、扩缩容和生产验证仍由团队负责。</li>
-<li><strong>Computer use</strong>：Linux 和 Mac 安装 Chrome 或 Chromium 等桌面依赖后，可控制浏览器、使用公司 SSO 会话、操作内网页面或在 Mac 上完成 Xcode 构建；用户可以实时查看桌面并接管操作。</li>
-<li><strong>当前限制</strong>：Cursor 文档目前写明，每个用户最多可连接 200 个 worker，每个团队最多 1000 个；更大规模需要联系 Cursor。Team Pools 还要求 Enterprise 方案、服务账户 API key，并由管理员启用相关设置。</li>
-</ul></div><div><h2>能够获得什么，以及需要承担什么</h2><p>自托管让 Cloud Agents 直接使用企业已有的代码、内网、缓存、构建链、测试服务、Mac、GPU 和桌面环境。企业也因此接手机器、网络、权限、容量和成本管理。</p><div><table>
-<thead>
-<tr>
-<th>维度</th>
-<th>Cursor 托管环境</th>
-<th>Self-Hosted Machines</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>机器与镜像</td>
-<td>Cursor 配置和维护专用虚拟机</td>
-<td>团队负责机器、镜像、补丁和生命周期</td>
-</tr>
-<tr>
-<td>网络与服务</td>
-<td>使用 Cursor 的网络控制和私网连接能力</td>
-<td>团队负责出站规则、内网路由和服务访问</td>
-</tr>
-<tr>
-<td>密钥与权限</td>
-<td>按 Cursor 环境能力配置</td>
-<td>团队决定 worker 身份、凭据范围和本地权限</td>
-</tr>
-<tr>
-<td>容量</td>
-<td>Cursor 提供托管算力</td>
-<td>团队负责控制器、spawn 脚本、配额和故障恢复</td>
-</tr>
-<tr>
-<td>成本</td>
-<td>模型价格包含托管执行基础设施</td>
-<td>模型照常计费，另付机器、容器或集群成本</td>
-</tr>
-<tr>
-<td>生产验证</td>
-<td>平台负责通用运行环境</td>
-<td>团队验证镜像、隔离、伸缩、日志和业务安全</td>
-</tr>
-</tbody>
-</table></div><p>采用前先确认三件事：</p><ul>
-<li>哪些资产必须留在企业环境；</li>
-<li>哪些任务内容允许发送给 Cursor；</li>
-<li>worker 需要哪些本地权限。</li>
-</ul></div><div><div><div>来源</div><div><span>在您自行管理的机器上运行云端智能体</span><span>Jack Pertschuk<span>·</span>2026-09-02<span>·</span><a href="https://cursor.com/cn/blog/self-hosted-machines">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://cursor.com/docs/cloud-agent/self-hosted">Self-Hosted Machines</a><span>·</span><a href="https://cursor.com/changelog/self-hosted-machines">Self-hosted machines</a><span>·</span><a href="https://cursor.com/docs/cloud-agent/self-hosted/integrations">Self-Hosted Machines Integrations</a></div></div><div><div>本站说明</div><div>产品能力、安全边界、合作平台与规模上限来自 Cursor 官方材料；60% 内部 PR 为 Cursor 自报，未做独立安全审计或性能压测。</div></div></div></div></div>
-<div><i></i><b></b><i></i></div><h1>Cursor 自托管机器：执行环境回到企业，智能体仍在云端</h1><p>企业可以让 Cloud Agents 使用自己的内网、硬件和构建环境，但推理、规划及任务数据回传仍由 Cursor 云端处理。</p>
-<div><h2>Cursor 负责推理，企业机器负责执行</h2><p>Cursor 云端继续理解任务、规划步骤、保存会话并发出工具调用；企业机器上的 worker 保存仓库副本，读写文件、运行终端、浏览器和本地 MCP。</p></div><div><div><strong>Cursor 云端</strong><span>任务规划、模型推理、会话状态和工具调用。</span></div><i></i><div><strong>企业机器</strong><span>完整 checkout、构建缓存、本地凭据和工具执行。</span></div></div><strong>仍会回传</strong><span>文件内容、终端输出、diff、截图和本地 MCP 结果会按任务需要发送给 Cursor。</span>
-<div><h2>一条由 worker 发起的 HTTPS 出站连接</h2><p>安装 Cursor CLI 并运行 agent worker start。worker 主动连接 Cursor，接收工具调用，在本地执行后回传结果；企业不需要开放入站端口、公网 IP 或 VPN。</p></div><div><div><b></b><strong>连接</strong><span>worker 访问 api2.cursor.sh 和 api2direct.cursor.sh。</span></div><div><b></b><strong>执行</strong><span>文件、终端、浏览器和本地 MCP 在企业机器上运行。</span></div><div><b></b><strong>回传</strong><span>Cursor 根据执行结果继续决定下一步。</span></div></div>
-<div><h2>有明确环境限制时再自托管</h2><p>适合完整 checkout 或构建产物必须留在企业环境、任务必须访问内部服务，或依赖 Apple Silicon、GPU、持久磁盘和定制系统的团队。没有这些限制时，Cursor 托管环境通常更省维护。</p></div><div><div><strong>政策边界</strong><span>代码、执行或产物必须位于企业账户或指定网络。</span></div><div><strong>内部系统</strong><span>需要访问私有仓库、包仓库、数据库、测试集群或业务服务。</span></div><div><strong>专用环境</strong><span>需要 Mac、GPU、定制镜像、持久磁盘或 Kubernetes。</span></div></div>
-<div><h2>资源池解决调度，企业接手机器治理</h2><p>Team Pools 让空闲 worker 认领请求；容量不足时，团队控制器调用 spawn 脚本启动机器，任务结束后重置回池或快照休眠。企业负责镜像、补丁、密钥、网络、隔离、扩缩容、故障恢复和机器成本。</p></div><div><div><strong>调度</strong><span>按操作系统、硬件、网络范围或安全级别建立具名资源池。</span></div><div><strong>规模</strong><span>官方当前上限为每用户 200 个 worker、每团队 1000 个；更大规模需联系 Cursor。</span></div><div><strong>采用前</strong><span>确认哪些资产必须留在企业环境、哪些任务内容允许回传、worker 需要哪些权限。</span></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Google DeepMind 推出 Gemini 智能体视频理解：Gemini 开始自己决定视频该怎么看</title>
-<link>https://best.xiaohu.ai/article/gemini-agentic-video-understanding/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:gemini-agentic-video-understanding</guid>
-<pubDate>Thu, 03 Sep 2026 12:00:23 +0000</pubDate>
-<description>Gemini 把固定抽帧改成目标驱动的观察循环：先找线索，再选择字幕、音频或关键画面，并在需要时提高 FPS 重看。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 3 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Google DeepMind 推出 Gemini 智能体视频理解：Gemini 开始自己决定视频该怎么看</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/gemini-agentic-video-understanding/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div>
-<div>正文一页纸秒懂漫画</div>
-<div><div><div>AI 研究 · 小互解读</div><h1>Google DeepMind 推出 Gemini 智能体视频理解：Gemini 开始自己决定视频该怎么看</h1><p>Gemini 把固定抽帧改成目标驱动的观察循环：先找线索，再选择字幕、音频或关键画面，并在需要时提高 FPS 重看。</p><div><div>一分钟速览</div><ul><li>Gemini 把固定抽帧改成围绕问题反复选择字幕、音频、时间窗口和画面 FPS 的观察循环。</li><li>三段官方演示分别展示长视频降本、快速动作动态重看和大海捞针检索；读者可在正文中直接切换观看。</li><li>Google 报告 Token 最高减少 88%、成本最高降低 66%、质量最高提升约 7%，但不同基准的收益比例差异很大。</li><li>智能体模式适合长视频与定点问题；它仍会选错窗口，也不提供全片无损遍历或高风险场景零漏报保证。</li></ul></div><div><p>长视频最麻烦的地方，并不只是“内容很多”。模型真正面对的是一个观察分配问题：一场 90 分钟的发布会里，绝大多数画面可能只是演讲者和幻灯片缓慢切换，真正决定答案的细节却可能只出现半秒。</p><p>过去常见的处理方式，是先按固定帧率把整段视频切成画面，再把这些画面连同音频或字幕交给模型。这样做简单、可预测，却同时留下两个漏洞：长视频会把大量无关画面塞进上下文；快速动作和短暂变化又可能刚好落在两次抽帧之间。</p><p>Google DeepMind 为 Gemini 推出了 <strong>智能体视频理解（</strong><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/"><strong>Agentic Video Understanding</strong></a><strong>）</strong> 功能，解决的是以往大模型看长视频“又贵、又耗算力、还不一定看得准”的问题。Gemini 的观看策略不再只是开发者预先设好的一个 FPS 参数，而是进入模型的推理过程。</p><h3>核心价值与突破</h3><p>过去模型处理视频是“死板硬看”（静态处理），无论内容是否关键，都按固定帧率（比如 1 秒截 1 帧）把整段视频塞进去，导致长视频处理起来消耗海量 Token、成本极高，还容易漏掉关键瞬间。</p><p>这次更新让模型拥有了类似人类的主动观察能力：<strong>它带着明确目的去“翻看”视频，自己决定看哪里、按什么帧率看、看画面还是只听音频/看字幕</strong>。</p><ul>
-<li><strong>Token 消耗直降高达 88%</strong>：不再囫囵吞枣地喂全部画面，只调取真正需要的那几秒片段。</li>
-<li><strong>分析成本降低高达 66%</strong>：大幅削减 API 调用费用。</li>
-<li><strong>准确度提升高达 7%</strong>：在关键细节处主动提高帧率二次细看，识别更准。</li>
-</ul><p>严格说，Google 发布的不是一款单独命名的新模型，而是一种可供 Gemini 3.7 Flash、3.6 Flash 和 3.5 Flash-Lite 使用的视频处理能力。上面三个数字也是 Google 在指定模型、基准和评测设置下报告的最高值，不代表每段视频都能得到同样幅度的收益。</p></div><div><h2>传统视频理解为什么又贵又容易漏</h2><p>静态处理的逻辑很直接：开发者先决定一个固定抽帧率，系统再按这个速率处理整段视频。Gemini 的默认静态设置是 1 FPS，也就是每秒取 1 帧；开发者可以通过 API 调整这个值。</p><p>固定帧率的问题，不在于它一定错误，而在于它对整段视频一视同仁。一场 90 分钟的发布会，按 1 FPS 计算就有 5400 个采样画面；如果为了捕捉更快的动作把采样率提高到 5 FPS，就会变成 27000 个画面。实际 Token 还会受分辨率和编码方式影响，不能简单地把帧数直接换算成 Token，但帧数增长带来的上下文和费用压力是真实存在的。</p><p>同时，1 FPS 也不是完整观看。假设一个按钮从“关闭”变成“开启”只持续 0.3 秒，这次变化完全可能发生在两次采样之间。模型没有看到那张画面，后面的推理再强也无法恢复一个从未进入上下文的视觉事实。</p><p>于是开发者被迫在两个风险之间选一个：</p><ul>
-<li><strong>提高 FPS</strong>：更不容易漏掉短暂动作，但整段视频都要为少数关键瞬间支付更高成本。</li>
-<li><strong>降低 FPS</strong>：成本可控，却可能失去镜头边界、快速动作、闪烁异常或短时间出现的物体。</li>
-</ul><p>静态模式仍然有价值。对于几分钟以内、强调低延迟，或者必须以同一采样规则覆盖全片的任务，它更简单、更可预测。智能体模式解决的是另一类问题：视频很长，而答案只依赖其中少量片段，模型需要自己决定把观察预算花在哪里。</p></div><div><h2>Gemini 如何自己决定看哪里</h2><p>Google 公布的机制图里，模型在“思考”和“观察”之间循环。它不是先把整段视频完全展开，再开始回答；它可以在推理过程中调用三类内部工具：读取字幕、读取指定时间段的音频，以及按指定起止时间和 FPS 取得画面。</p><p><img /></p><p>把这个循环拆开，大致可以理解成五步：</p><ol>
-<li><strong>先理解问题需要什么证据。</strong>“演讲者宣布了什么”与“人物做了几次开合跳”需要的信号不同。</li>
-<li><strong>用成本较低的线索缩小范围。</strong>有字幕时，模型可以先搜索关键词和时间戳；需要听语气或环境声时，再读取音频。</li>
-<li><strong>选择具体时间窗口。</strong>模型把几十分钟甚至几小时的视频缩小到少量疑似片段，而不是始终保持全片高密度采样。</li>
-<li><strong>按任务选择模态和帧率。</strong>语言问题可能主要依赖字幕；镜头切换、状态变化和动作计数则需要画面，并可能在局部提高 FPS。</li>
-<li><strong>证据不足就重看。</strong>模型取得新观察后继续推理，必要时换一个时间段、换一种模态或提高采样率，直到形成答案。</li>
-</ol><p>同一套机制同时带来节省和准确率提升：少看无关时段，Token 会下降；把更多画面预算集中到关键窗口，短暂细节又更容易被捕捉。这两项收益来自同一个观察分配循环。</p><figure>
-<div>
-<span>观察路径选择器</span>
-<h3>先确定要找什么，再决定看什么</h3>
-<p>三类问题使用同一段视频，却不该消耗同一种观察预算。</p>
-</div>
-<div>
-<p>选择一种问题，查看模型会优先调用哪类信号。</p>
-<span>问题类型</span>
-找发布会中的一句话
-找一闪而过的画面
-统计快速重复动作
-</div>
-<div>
-<strong>找发布会中的一句话</strong>
-<div><span>搜索字幕</span><i>→</i><span>缩小时间段</span><i>→</i><span>用音频或画面核对</span></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】GrokBot 的 11 条使用技巧：搭出一套 Agent 工作系统</title>
-<link>https://best.xiaohu.ai/article/grokbot-11-tips/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:grokbot-11-tips</guid>
-<pubDate>Thu, 03 Sep 2026 12:00:23 +0000</pubDate>
-<description>沿 Agent Native 原文的 11 条顺序，拆解情况监控、开发委派、通用入口、Agent 协作、项目 Bot、X、Slack、插件、多邮箱、Notion 和追问式日记。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 3 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">GrokBot 的 11 条使用技巧：搭出一套 Agent 工作系统</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/grokbot-11-tips/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><div>工具教程 · 小互解读</div><h1>GrokBot 的 11 条使用技巧：搭出一套 Agent 工作系统</h1><p>沿 Agent Native 原文的 11 条顺序，拆解情况监控、开发委派、通用入口、Agent 协作、项目 Bot、X、Slack、插件、多邮箱、Notion 和追问式日记。</p><div><div>一分钟速览</div><ul><li>原文的 11 条技巧分别对应 11 个可独立使用的工作流，正文按 01—11 原顺序逐条解释，并在开头给出完整一览。</li><li>监控和触发型 Bot 的共同规则是：对象要短、命中条件要明确、没有变化保持沉默；专用 Bot 则要写清输出、证据和批准边界。</li><li>外部连接先验证正确身份与只读结果，再开放写入；发送、取消、合并、部署和发布继续等待批准，Notion 写入后必须读回。</li></ul></div><div><p>Agent Native 的作者把 GrokBot 称为 SpaceXAI 的通用 Agent 平台。它允许你创建多只 Bot，为每只 Bot 分配独立职责、上下文、插件和运行例程，再让它们互相交接。作者和团队长期使用后，整理出了 11 个最有用的工作流。</p><p>这 11 条不是一套必须从头到尾照做的安装教程。它们分别处理监控、开发委派、通用入口、跨 Agent 协作、项目管理、X 研究、Slack 触发、插件权限、多邮箱、Notion 写回和深度思考。按原文顺序看，可以逐项判断哪一种工作流值得放进自己的系统。</p><ol>
-<li><strong>建一只“情况监控”Bot</strong>：只在项目、交易、期限或决定发生实质变化时提醒。</li>
-<li><strong>让开发 Bot 使用 Cursor</strong>：把长开发任务交给编码环境，并带回可审查产物。</li>
-<li><strong>保留一只通用 Bot</strong>：给还没有固定归属的想法、问题和任务一个总入口。</li>
-<li><strong>让 Bot 之间互相沟通</strong>：汇总完成项、决定、阻塞和下一步，减少人工搬运上下文。</li>
-<li><strong>为重大项目单独建 Bot</strong>：保存项目目标、人员、文件、决定和未完成事项。</li>
-<li><strong>把 Bot 接到 X</strong>：把帖子、收藏和互动数据整理成研究与内容线索。</li>
-<li><strong>用事件触发例程监控 Slack</strong>：只在指定消息出现时启动，并把高后果动作留给审批。</li>
-<li><strong>只安装真正有用的插件</strong>：为真实工作流增加上下文和动作能力，同时控制权限。</li>
-<li><strong>连接多个邮箱</strong>：跨账户搜索资料，又不混淆发件身份和取消权限。</li>
-<li><strong>把 GrokBot 接到 Notion</strong>：把研究写回既有页面，并读回确认位置与格式。</li>
-<li><strong>建一只“追问式日记”Bot</strong>：通过连续追问把混乱想法变成判断和行动。</li>
-</ol></div><div><h2>01｜建一只“情况监控”Bot</h2><p>作者把它称为自己最有用的一只 Bot。它不负责生成一份又一份定时报告，而是维护一张很短的“活跃情境”清单：正在等待进展的项目、交易、截止日期或决定，每项只占一行。Bot 连接 Slack、邮件和日历，在工作日每五分钟检查一次；没有实质变化时保持沉默。</p><p>一旦变化命中，提醒固定回答四件事：哪个情境变了、发生了什么、为什么值得注意、用户下一步该做什么。提醒末尾再附上完整清单。清单也不必回到监控 Bot 中维护；用户可以在任何对话里要求当前 Bot 把新增或删除事项交接过去。</p><p>“每五分钟”只是作者采用的频率，不是所有人的默认答案。这个工作流能否低噪声运行，取决于监控对象是否足够少、“实质变化”是否写得清楚，以及未命中时是否真的不发消息。</p><figure>
-<h3>三种启动方式，共用一条低噪声规则</h3>
-<div>
-<span>01</span><strong>定时清单</strong><p>工作日每 5 分钟</p><p>短名单：项目、交易、期限、决定</p>无实质变化就沉默
-<span>02</span><strong>事件触发</strong><p>指定 Slack 频道或消息条件</p><p>交易、发票、阻塞、请求</p>未命中条件就忽略
-<span>03</span><strong>临时等待</strong><p>定期检查某封重要回复</p><p>结果到达后提醒</p>事情解决后删除例程
-</div>
-<p>命中后交付：发生了什么 · 为什么重要 · 相关材料 · 下一步</p><p>发送、更新或发布继续等待批准</p>
-<div><img /><img /></div>
-<p>作者原图：工作日每五分钟检查与活跃情境清单。</p>
-<figcaption>启动方式可以不同；对象要短、条件要清楚、无变化要安静。</figcaption>
-</figure></div><div><h2>02｜让开发 Bot 使用 Cursor</h2></div></div></div></div>
 </div></div></body></html>]]></content:encoded>
 </item>
 </channel>
