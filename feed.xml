@@ -6,7 +6,1336 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Tue, 03 Nov 2026 12:00:18 +0000</lastBuildDate>
+<lastBuildDate>Wed, 04 Nov 2026 12:00:23 +0000</lastBuildDate>
+<item>
+<title>【日报】红杉资本：AGI 已经到了，10 万亿美元的服务生意正在被 Agent 疯抢 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/sequoia-ai-ascent-2026/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:sequoia-ai-ascent-2026</guid>
+<pubDate>Wed, 04 Nov 2026 12:00:23 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 红杉凭什么说「这就是 AGI」 02 这一波有三点不一样：最大、最快、地基会动 03 地基每天都在变，做应用的公司靠什么活：Get MAD 04 Agent 四年前就有人做过，为什么今年才成 05 从 Tab 补全到黑灯工厂，人一级级退出 06 服务就是新的软件：那张 10 万亿的大饼，Agent 来切 07 100 年的事，100 天做完 08 再往后：认知要走工业革命的老路</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 4 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">红杉资本：AGI 已经到了，10 万亿美元的服务生意正在被 Agent 疯抢 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/sequoia-ai-ascent-2026/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>红杉凭什么说「这就是 AGI」</span></a><a><span>02</span><span>这一波有三点不一样：最大、最快、地基会动</span></a><a><span>03</span><span>地基每天都在变，做应用的公司靠什么活：Get MAD</span></a><a><span>04</span><span>Agent 四年前就有人做过，为什么今年才成</span></a><a><span>05</span><span>从 Tab 补全到黑灯工厂，人一级级退出</span></a><a><span>06</span><span>服务就是新的软件：那张 10 万亿的大饼，Agent 来切</span></a><a><span>07</span><span>100 年的事，100 天做完</span></a><a><span>08</span><span>再往后：认知要走工业革命的老路</span></a><a><span>09</span><span>四个故事：那时的世界长什么样</span></a><a><span>10</span><span>人是万物的尺度</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>深度</a><i>·</i>11-04<i>·</i>约 20 分钟<i>·</i>作者 Sequoia AI Ascent 2026</div><h1>红杉资本：AGI 已经到了，10 万亿美元的服务生意正在被 Agent 疯抢</h1><p>红杉 AI Ascent 开场 32 分钟，三位合伙人讲了 AGI 怎么算、钱在哪、做应用的公司怎么打，以及认知被机器接管之后的世界。</p><div><div>正文一页纸</div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Sequoia AI Ascent 2026</span><span>11-04 · 约 20 分钟</span><span>⚑ 大佬观点 · 个人立场</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>红杉说 AGI 已经到了，标准很生意：派个 Agent 去干活，它能自己干完。</li><li>大钱不在软件，在律师、会计这类服务，约 10 万亿美元，Agent 头一回能抢。</li><li>模型每天都在变，做 AI 应用的别追模型，去追客户。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/social/zh-c3649bd7230c.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>很多人以为大模型这半年的剧烈演进，只是又一个「功能更好用的 ChatGPT」。但如果你正在带团队、做产品或者看项目，你很可能已经感受到一种难以言说的眩晕感：上个月还在费心搭建的垂直工作流，转眼就被新模型的能力洪峰夷为平地；工程师刚写好的代码，AI 几分钟就能自主重写甚至跑通测试。</p>
+<p>红杉资本在年度峰会 AI Ascent 上，由三位核心合伙人联手定调，给出了一个极具穿透力的结论：<strong>我们已经跨过了连续性优化的阶段，步入了功能意义上的 AGI。</strong> 这不是更快更省力的工具，而是从马车直接跨进了汽车时代；摆在眼前的不是区区几千亿美元的软件工具市场，而是一场席卷 10 万亿美元专业服务大盘的重构风暴。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-01.png" alt="红杉官网 AI Ascent 2026 回顾页头：AI Ascent IV was our biggest and best year yet" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>红杉官网的活动回顾：第四届 AI Ascent，「规模最大、质量最好的一届」。</figcaption>
+</figure>
+<p>这场峰会请来 150 多位顶尖 AI 创始人和研究者，Demis Hassabis、Karpathy、Greg Brockman、Anthropic 的 Boris Cherny 都在场。开场 32 分钟，三位合伙人轮流上台，把一年里和大量创始人、研究者聊下来的判断讲给整个圈子听，从钱在哪一路讲到人还剩什么。标题只有一句：<strong>This is AGI，这就是 AGI。</strong></p>
+<figure><figcaption>开场主旨演讲完整版：Pat Grady、Sonya Huang、Konstantine Buhler 依次上台（中英字幕，约 32 分钟）</figcaption></figure>
+<h2>红杉凭什么说「这就是 AGI」</h2>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-02.png" alt="红杉合伙人 Pat Grady 在台上演讲，背后屏幕写着 Calibration" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>Pat Grady 第一个上台，他这一段叫「校准」：先对齐大家对眼下这个时刻的判断。</figcaption>
+</figure>
+<p>Pat Grady 先把过去几年拆成三个拐点。</p>
+<p>第一个是 2022 年底的 ChatGPT，全世界第一次看到预训练的威力：把海量文本喂给模型，它就能像模像样地跟你聊。第二个是两年后 OpenAI 的 o1，推理模型出现，大家发现了第二条规律：让模型回答前多想一会儿，花更多算力在思考上，答案就更好。第三个是 2025 年底的 Claude Code 加 Opus 4.5（现在到了 4.7），世界看到了「长时程 Agent」的威力：它不再是答一个问题，而是接一个任务，一做就是几个小时。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-08.png" alt="三个拐点时间线：ChatGPT 预训练、OpenAI o1 推理、Claude Code + Opus 4.5 长时程 Agent" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>三个拐点：预训练、推理、长时程 Agent。Grady 认为前两个在一条线上，第三个是断层。</figcaption>
+</figure>
+<p>在他看来，前两个拐点像同一条线上的两个点，第二到第三之间却是一道断层。于是他「斗胆」说：这就是 AGI。</p>
+<p>他特意先撇清：自己是经济学出身，红杉是投资人，不打算提什么技术定义。他们研究的是创始人、市场和两者碰撞出来的生意。所以定义也是生意上的：<strong>你能派一个 Agent 去干一份活，它能从失败里恢复，一直坚持到活干完，那就算。</strong> 就算你不同意叫它 AGI，也没关系，他说：汽车已经来了。</p>
+<p>过去几年，我们拿到的是「更快的马」：AI 应用让人效率提高 10% 到 40%，但干活的方式没变。现在开始出现「汽车」：效率提高 10 到 40 倍，改变的是工作的性质，甚至组织的形态。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-10.png" alt="老照片：马车和汽车在同一条土路上并行" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>「汽车已经来了」。马跑得再快也还是马，汽车要求的是另一套开法。</figcaption>
+</figure>
+<p>马跑得再快，你还是骑马的人；换成汽车，开法不一样，造车和养马也完全是两门手艺。红杉创始人 Don Valentine 有个著名的追问：「So what？那又怎样？」Grady 的回答是：就在最近几个月，比赛开始了，而且是一场新比赛，开车的比赛和骑马的比赛不是一回事。没有谁手里有全部答案，这也是红杉把大家聚到一起的原因：越早一起摸清方向越好，赌注太大了。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-11.png" alt="红杉创始人 Don Valentine 的黑白照片，标题 So What?" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>红杉创始人 Don Valentine，以一句「那又怎样」著称。</figcaption>
+</figure>
+<h2>这一波有三点不一样：最大、最快、地基会动</h2>
+<p>比赛的奖品有多大？Grady 先把镜头拉远。</p>
+<p>晶体管给硅谷起了名字，晶体管组装成系统，系统连成网络，网络向公众开放成了互联网，互联网托起了社交媒体和云，云最后装进了每个人口袋里的手机。今天，这些层叠在一起，撑起了一样「和魔法没法区分」的东西：AI。这些浪潮是一层层累加的，没有几十年攒下的算力、带宽、数据和人才，就没有今天这一刻。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-03.png" alt="技术浪潮层叠图：1960 年代半导体到 2020 年代 AI，每层列出代表公司" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>从 1960 年代的半导体到 2020 年代的 AI，每一层都踩在上一层的肩膀上。</figcaption>
+</figure>
+<p>但 AI 这一波和前面几层有三点不同。</p>
+<p><strong>第一，它最大。</strong> 云计算头 15 年，全球软件市场从约 3500 亿美元涨到约 6500 亿美元，云从几乎为零长到其中的 4000 亿。这已经是过去二十年最大的一波生意了。</p>
+<p>AI 这一波的不同在于，它第一次<strong>同时</strong>是软件和服务。以前软件公司卖的是工具，律师、会计、咨询这些服务的钱，软件碰不到；现在 Agent 能直接把活干了，服务的钱也摆上了桌。红杉估算这块约 10 万亿美元。Grady 自己承认这是个凑整的数，可能是 5 万亿，也可能是 50 万亿，但量级是确定的：光美国的法律服务就是一个 4000 亿美元的市场，一个行业、一个国家，Grady 说它就和整个软件业一样大。拿图上的数对照，它和云在软件市场里吃下的那 4000 亿一样大。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-04.png" alt="软件与服务市场对比饼图：软件从 350 到 650，云占 400；服务市场 10000，AI 目前只占一小条" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>上排是软件，下排是服务。</span><br />
+    云在软件市场里从一小条（6）长到 400；服务这张大饼是 10,000，AI 目前只切下细细一条（75），箭头后面都是问号。单位是十亿美元。
+  </figcaption>
+</figure>
+<p>这张大饼怎么被切走，Sonya Huang 后面会讲。先记住它的大小。</p>
+<p><strong>第二，它最快。</strong> 每一波都比上一波来得更陡。Grady 放了一张「空白地带」图：云、移动、AI 三列，填的是靠这几次大浪做到 10 亿美元以上收入的公司。AI 那一列的空白正在被飞快填满，而且「照现在的速度，还会有更多」。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-05.png" alt="一组增长曲线，最左边绿色的 AI 曲线最陡" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>每一波技术浪潮一条曲线，越往左越新、越陡，最左边绿色的是 AI。</figcaption>
+</figure>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-06.png" alt="空白地带图：云、移动、AI 三列，列出收入过 10 亿美元的公司" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>云、移动、AI 三列里收入过 10 亿美元的公司。AI 那一列已经有 ChatGPT、Claude、Grok、Cursor 等，还在快速填满。</figcaption>
+</figure>
+<p><strong>第三，它是另一种浪。</strong> Grady 说这一点是从 Buhler 那借来的：技术革命分两种。一种是<strong>通信革命</strong>，改变信息怎么传播，互联网、云、移动都是，在座多数人只经历过这种。另一种是<strong>计算革命</strong>，改变信息怎么被处理，AI 就是。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-07.png" alt="两种革命：通信（电报、电话、网络）与计算（计算器、电脑、神经网络）" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>上排是通信革命：电报、电话、互联网；下排是计算革命：计算器、电脑、神经网络。</figcaption>
+</figure>
+<p>听起来像抠字眼，但差别很实在：通信革命里，地基几十年不变，大家在上面盖楼；计算革命里，地基每天都在动，每发布一个新模型，能做的事就变一次。前面那三个拐点，四年里来了三次，每次都把地基掀了一遍。开头那种「上个月搭的工作流转眼作废」的眩晕感，根子就在这里。这句「脚下的地面一直在动」，也是理解后面所有建议的钥匙。</p>
+<h2>地基每天都在变，做应用的公司靠什么活：Get MAD</h2>
+<p>奖品有了，谁来抢？Grady 把参赛者分成两拨。一拨是 OpenAI、Anthropic 这些模型实验室，从技术往外推（tech-out），能力越来越强，也越来越往应用里伸手。另一拨是建在模型上面的创业公司，从客户往回推（customer-back），围着具体客户的具体工作流做专门的应用。台下大多数人属于后者。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-12.png" alt="10 万亿美元争夺图：左侧是模型实验室的技术外推，右侧是众多创业公司的客户反推" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>左边是几家模型实验室从技术往外推，右边是一大片创业公司从客户往回推，中间是 10 万亿美元。</figcaption>
+</figure>
+<p>给后者的建议，他说是「免费建议，所以值你付的每一分钱」：<strong>Get MAD</strong>。不是让大家生气，是三个词的首字母：Moats（护城河）、Affordance（好上手）、Diffusion（扩散差）。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-13.png" alt="Get MAD! 幻灯片：一个熬夜敲键盘的程序员，写着 Moats, Affordance, Diffusion" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>Get MAD：护城河、好上手、扩散差，三个词的首字母。</figcaption>
+</figure>
+<p><strong>护城河：盯客户，别盯技术。</strong> 这是全场最反直觉的一条。技术出身的创始人本能是追最新模型，新能力一出就去优化。但在计算革命里，这恰恰是最不稳的地方：你今天做的东西，明天可能就因为模型升级而作废。客户变得比能力慢得多，你把自己裹在客户身上裹得多紧，才是更耐久的东西。他没说产品不重要，「一般来说还是最好的产品赢」，但护城河要尽量从客户往回建。</p>
+<p>他拿一条「从点子到满意客户」的价值链，对比了两种打法在每一环的差别：</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-14.png" alt="护城河价值链：愿景、产品、工程、营销、销售、服务六环，上方是客户反推做法，下方是技术外推做法" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>价值链六环，上面一行是从客户往回建的做法，下面一行是从技术往外推的做法。</figcaption>
+</figure>
+<p>同一条价值链，从客户往回建 vs 从技术往外推</p>
+<div>
+<div><div>愿景</div><div><b>对客户的问题有主见</b>，而不是拿着一张白纸等客户自己想用法。</div></div>
+<div><div>产品</div><div><b>卖解决方案</b>，而不是卖一件通用工具。</div></div>
+<div><div>工程</div><div><b>靠客户数据越用越好的飞轮</b>，而不是打造一把什么都能敲的「神锤」。</div></div>
+<div><div>营销</div><div><b>在一个行业里攒下的信任</b>，而不是面向大众的品牌。</div></div>
+<div><div>销售</div><div><b>说客户行业的行话</b>，而不是靠控制大客户关系。</div></div>
+<div><div>服务</div><div><b>派工程师驻场</b>，帮客户把东西真正用起来，而不是交给外包集成商。</div></div>
+</div>
+<p><strong>好上手：把能力包成拿起来就会用的东西。</strong> Affordance 是设计界的词，指一个东西不用解释，人一看就知道怎么用。Grady 说，锤子就是：他两岁的儿子拿到锤子，立刻就知道抓起来敲东西，「所以我们不给他锤子」。反过来，Claude Code 极其强大，但你给一个普通的财富 500 强员工打开终端，看他能走多远。这不是在批评 Anthropic，而是留给应用层的机会：为特定客户的特定问题铺出一条阻力最小的路，让他们不用懂模型，也能拿到想要的结果。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-15.png" alt="Pat Grady 站在屏幕前，屏幕上是一把锤子，标题 Affordance" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>锤子不用说明书。终端里的 Claude Code 需要。</figcaption>
+</figure>
+<p><strong>扩散差：实验室造得太快，大公司用得太慢。</strong> 新能力从实验室造出来的速度，远远快于它扩散进真实企业的速度。模型每天都在进步，一家普通的财富 500 强吸收一次变化要几个月甚至几年。这道差每天都在变宽，应用层的机会也就每天都在变大。把前沿能力变成企业里真正跑起来的业务，就是应用公司的本职。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-16.png" alt="扩散差示意：左边陡峭的 AI 能力曲线，右边平缓的 AI 采用曲线，中间是应用层机会" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>左边是 AI 能力，右边是企业采用，中间那段距离就是应用层的机会。</figcaption>
+</figure>
+<p>还记得那张被飞快填满的空白地带图吗？如果有人因此泄气，觉得位置都被占了，Grady 补了一句赛车圈的老话：晴天你超不了 15 辆车，雨天可以。现在模型能力正在下一场倾盆大雨，<strong>没有哪个领先是安全的，也意味着谁都可能赢</strong>。</p>
+<h2>Agent 四年前就有人做过，为什么今年才成</h2>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-17.png" alt="Sonya Huang 在台上演讲，背后屏幕写着 Today" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>Sonya Huang 讲「今天」。</figcaption>
+</figure>
+<p>这场雨具体是什么？Sonya Huang 接过话筒，开门见山：2026 年的主题是 Agent。</p>
+<p>她先请大家回忆 2022 年的 AutoGPT 和 BabyAGI。这两个项目一夜之间在 GitHub 上爆红，做法很简单：拿 GPT-3，给它几个工具，套进一个循环，让它朝一个目标自己跑。看起来很有前途，直到你看着它一遍又一遍地失败。「有点可爱，有点招人疼，但完全没用。」Agent 这个方向大家早就知道，只是当时模型还没准备好。</p>
+<p>转折发生在年初前后。突然之间，Agent 到处都是，而且真的能用了。最成功的两个：技术圈的 Claude Code，和普通人也能用的 OpenClaw 及一众「龙虾」同类，有手机就能养一个 Agent。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-18.png" alt="2026: Agents Are Here 幻灯片：左边是 Claude Code 终端界面，右边是 OpenClaw 标志" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>两个「本垒打」：给工程师的 Claude Code，给所有人的 OpenClaw。</figcaption>
+</figure>
+<p>于是人人都在给各种事造 Agent，她的幻灯片标题叫「寒武纪大爆发」。有人让 OpenClaw 专门在社交媒体上找开玩笑说自己逃税的人，向美国税务局举报拿分成（她说「请别这么干，或者，也许请这么干」）。有人做了个卖泳池的 Agent：从卫星图里找后院空着的中等价位房子，按地块大小和日照筛一遍，查出房主，把一座豪华泳池渲染进他家的真实后院，算好造价和房子能升值多少，再印成前后对比的明信片寄过去，从找客户到发出去全自动。还有做外联的 Agent，看板上写着联系了 104 家公司、约成了 40 场会。红杉内部，合伙人们也在比谁能造出最好的 Agent 来帮自己干活。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-19.png" alt="寒武纪大爆发幻灯片：OpenClaw 举报逃税的推文、自动给房主寄泳池明信片的推文、外联 Agent 看板" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>寒武纪大爆发：举报逃税的、卖泳池的、做商务外联的，都是普通人自己搭的 Agent。</figcaption>
+</figure>
+<p>那 Agent 到底是什么？她的定义是：<strong>能感知环境、自己选择行动、自主朝目标推进的系统</strong>。拆开看是三种能力：会推理和计划，会动手（调用工具、搜索、写文件、编译），会朝目标反复迭代、在长时间里坚持下去。三样合在一起，用幻灯片上那句大白话说，就是把事办成。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-20.png" alt="什么让一个东西成为 Agent：推理计划对应模型，采取行动对应工具使用，朝目标迭代对应 harness 外壳" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>Agent 的三种能力，各由一样东西提供：推理靠模型，动手靠工具，坚持靠外壳（harness）。底下一行：Agent = Get Shit Done。</figcaption>
+</figure>
+<p>这三种能力对应三样零件，过去一年每样都跑得飞快，这就是 Agent 今年才成的原因：</p>
+<ul>
+<li><strong>模型是大脑。</strong> 这是最重要的变化。研究机构 METR 有一张图，测的是模型在复杂任务上能连续推进多久不跑偏。一年前是几十分钟的量级，现在是几个小时。AutoGPT 当年缺的就是这个。</li>
+<li><strong>工具是手脚。</strong> 终端、文件系统、iMessage、Slack、搜索、电脑操作，人类过去二十年给自己造的工具，Agent 几乎都能直接拿来用。常有人说 SaaS 已死，她反过来认为：用这些工具的 Agent 越多，工具反而越值钱。</li>
+<li><strong>外壳（harness）给它韧劲。</strong> 就是包在模型外面、负责让它不跑题、遇到问题会调整、能一直干下去的那层程序。现在再加上强化学习，等于把 Agent 送进「驾校」，在机械工程、设计、金融等各种模拟环境里反复练。她还提到「机器造机器」的苗头：Karpathy 的另一个研究项目，能让 AI 自己做研究，2 小时内把一个模型训练到 GPT-2 的水平。</li>
+</ul>
+<h2>从 Tab 补全到黑灯工厂，人一级级退出</h2>
+<p>Agent 不是有或没有，而是程度高低。Huang 拿编程举例，画了一架往上爬的梯子：</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-21.png" alt="Agent 化程度四级表：Tab 补全、Agent 开发、后台 Agent、黑灯工厂，对应的工作语言、界面和 Agent 与人的比例" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>四级梯子，每一级都标了人用什么语言指挥、在什么界面上、一个人带多少个 Agent。</figcaption>
+</figure>
+<p>编程里的 Agent 化程度，一级比一级少要人</p>
+<ol>
+<li><b>Tab 补全（2023–2024）</b>写代码时 AI 在旁边补一句，人和 AI 大约一对一。有用，但没改变干活方式。</li>
+<li><b>Agent 开发（2025–2026）</b>人用大白话给 Agent 下指令，在终端或 Agent 面板里带着几十个 Agent 干活。</li>
+<li><b>后台 Agent（2026–2027）</b>人写需求和规则，Agent 在后台异步跑，还会自己再派子 Agent；一个人管着几千个，像看一个收件箱。</li>
+<li><b>黑灯工厂</b>人只定护栏，不再审核，Agent 干完直接上线，比例趋于无穷。网络安全公司已经在生产环境里这么干。</li>
+</ol>
+<p>最后一级听起来最疯狂，她说自己已经在生产环境里见过，包括网络安全公司：只要护栏和工程做得够好，可以完全不要人审。她预测，后台 Agent 这一档的总量会超过现在人盯着 Agent 干活的模式，因为杠杆太大了：一个人从带一个 Agent，到带几十个，再到几千个。</p>
+<p>用她的话说，Agent 正从「在你身边帮一点小忙的助手」，变成「需要人管的实习生」，再到「能自己管自己的实习生」，最终变成「可以不经审核直接上线的实习生」。这条路不只在编程里走，所有用 Agent 的领域都在重复。</p>
+<p>你可以对照着看自己在哪一级：还在用 Tab 补全，还是已经在给 Agent 写需求，还是已经有几个 Agent 在后台替你跑活。</p>
+<h2>服务就是新的软件：那张 10 万亿的大饼，Agent 来切</h2>
+<p>梯子往上爬，最大的商业后果是什么？Huang 说，对台下创始人最重要的一条结论是：<strong>服务就是新的软件</strong>。这正是 Grady 开场那张大饼的下半部分。这句话 Grady 念叨了很多年，红杉合伙人 Julien Bek 专门写过一篇文章。以前觉得是远景，现在她认为真的在发生。</p>
+<a><span>延伸阅读 · Julien Bek 那篇文章</span><strong>红杉资本：下一家万亿美元公司，可能用 AI 交付完整服务</strong><span>就是 Huang 提到的那篇：AI 公司直接承接关账、合同审查、理赔，客户买的是做完的活，不再是工具。</span><b>阅读解读 →</b></a>
+<p>她举的例子横跨各行各业。医疗上，你可以「雇」一个 Agent 看你的基因组，给出个性化建议，开药，推荐临床试验。法律上，Agent 能替你谈合同，甚至打官司、谈和解。科研上，已经有 Agent 在解数学家埃尔德什（Erdős）留下的难题、发现新的超导材料。生活里，个人 Agent 帮你管邮箱、日历、财务，替你报税。原来付给医院、律所、会计所、咨询公司的钱，正在流向应用层。</p>
+<p>为什么会铺得这么快？她把「雇员工」和「雇 Agent」摆在一起比：</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-22.png" alt="雇员工与雇 Agent 对比表：扩张、维护、成本、能力四项" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>四项对比：能不能扩张、要不要维护、付什么钱、靠什么智能。</figcaption>
+</figure>
+<p>雇员工和雇 Agent，账怎么算</p>
+<div>
+<div><span>雇员工</span><h4>难扩张，费心，按工资付</h4><p>招一个人要几个月，人要哄着才开心，每月发薪水。能力是人的智能。</p></div>
+<div><span>雇 Agent</span><h4>算力够就能无限复制，几乎不用维护，按 token 付</h4><p>完成同样的任务，token 一般比工资便宜。能力是机器的智能，而且还在涨。</p></div>
+</div>
+<p>她也说了，人现在整体上还是更聪明，但「苦涩的教训」（AI 领域的一条经验：靠堆算力和规模的方法，最终总会赢过人类精心设计的方法）还在起作用，Agent 很快会在很多事上更聪明。她的意思不是人要失业，人最独特的本事是适应；而是 Agent 在应用层铺开的速度和规模会前所未有，因为账太好算了，比特又天生好复制。</p>
+<h2>100 年的事，100 天做完</h2>
+<p>账这么好算，Agent 的数量就会指数级、甚至超指数级地膨胀。Huang 说，事情很快会变得「真正奇怪」：Agent 之间做买卖怎么办？它们能互相付钱吗？能互相谈交易条款吗？会不会出现成群的 Agent 来巡逻网络、防止网络安全大灾难？「我们只知道，世界正在极快地变得古怪。」</p>
+<p>奇怪之外，还有快。每个人手里都有工期被压缩的例子：编辑器 Zed 的 Nathan，在一个假期里一个人用 Claude Code 做完了一个原本要三年的项目；Bret Taylor 一个周末重建了 Sierra；Notion 团队 6 周重写了 800 万行代码。</p>
+<p>但她说，实验室以外很少有人见过把这些压缩<strong>叠在一起</strong>会怎样：一个项目三年压成一个假期，下一个项目接着在它上面再压，一层叠一层。现在这件事可以发生了。她的结论是：<strong>过去你能想象未来 100 年要造的东西，现在 100 天就可能造出来。</strong></p>
+<h2>再往后：认知要走工业革命的老路</h2>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-23.png" alt="Konstantine Buhler 在台上，背后屏幕写着 What&#x27;s Next?" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>Konstantine Buhler 讲「接下来」。</figcaption>
+</figure>
+<p>100 天造出 100 年的东西，那十年后的世界是什么样？Konstantine Buhler 负责回答这个问题。他先把工作分成两种。</p>
+<p>一种是<strong>体力活</strong>，把物质从一个地方搬到另一个地方：驿马快递送的包裹，猎鹰 9 号送上天的卫星，做功等于力乘以距离。另一种是<strong>认知活</strong>，把想法在脑子里推进：毕达哥拉斯想出他的定理，DeepMind 解开蛋白质折叠。两者天差地别，但他认为它们的革命会走同一条曲线。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-24.png" alt="体力活从马到铁轨到火箭，认知活从人脑到电脑到神经网络" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>上排体力活：马、铁路、火箭；下排认知活：人脑、电脑、神经网络。</figcaption>
+</figure>
+<p>体力活的革命已经走完了一遍。人类历史上绝大多数时间里，几乎所有为人服务的体力活都靠肌肉，人的或牲口的。他的图从 1700 年画起，之后先是水车和风车，再是蒸汽机、内燃机、电动机。到今天，他估计地球上为人类做的体力活，99% 以上是机器做的：你坐来的飞机，这间屋子里所有东西的制造，所有运输。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-25.png" alt="工业革命图：为人服务的体力活中，人和牲口的份额从 1700 年后逐步被水车风车、蒸汽机、内燃机、电动机取代" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>体力活的分工变化：蓝色的人和牲口，先后被水车风车、蒸汽机、内燃机和电动机吃掉。</figcaption>
+</figure>
+<p>认知活正走在同一条路上，只是晚一些。历史上几乎所有思考都由人脑完成，偶尔有牧羊犬帮着赶羊这类动物的份，再加上一小条机械辅助，比如星盘和钟表。电子计算出现后，今天每时每刻都有数以万亿次的计算在为你服务。Buhler 认为，神经网络是下一波大浪，在不远的将来，<strong>地球上 99.9% 的认知会由机器完成</strong>。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-26.png" alt="认知革命图：为人服务的认知活中，人的份额先被机械装置、电子计算，再被神经网络取代" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>认知活的分工：人脑独占了几百年，按红杉这张图，到今天人脑只剩约四成，电子计算和神经网络各占约三成。</figcaption>
+</figure>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-27.png" alt="两场革命的形状对比：工业革命曲线和更晚、更陡的认知革命曲线" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>同一个形状出现两次：左边的工业革命已经走完，右边的认知革命更晚开始，也更陡。按这张图，本世纪中叶前后，人脑的份额就接近零。</figcaption>
+</figure>
+<p>他的结论是一句话：认知革命会很像工业革命，只是大得多，也快得多。好消息是，人类已经经历过一次这样的革命，可以从上一次里学点东西。</p>
+<h2>四个故事：那时的世界长什么样</h2>
+<p>活在这样的未来里是什么感觉？Buhler 讲了四个小故事，分别对应价值、设计、科学和人。</p>
+<p><strong>第一个，铝：最珍贵的本事会变成一次性的。</strong> 19 世纪，美国想给开国总统华盛顿建一座纪念碑，设计成当时世界上最高的建筑，顶上要用 100 盎司当时世上最珍贵的金属封顶。珍贵到封顶之前，还先拿到纽约的蒂芙尼店里展出。这种金属就是铝。没过几年，有人发明了电解法，能廉价地从矿土里分离出铝；又过了几十年，铝被拿来包糖果、包三明治，用完就扔进垃圾桶。</p>
+<p>Buhler 的比喻是：<strong>铝就是智能，电解就是人工智能。</strong> 那些要花几十年才练成的珍贵本事，博士级别的专业能力，很快就能随叫随到，用完就像锡箔纸一样揉成一团扔掉。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-28.png" alt="左边是华盛顿纪念碑的铝制尖顶，右边是用锡箔包着的巧克力" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>同一种金属，几十年间从纪念碑的尖顶变成包装纸。</figcaption>
+</figure>
+<p><strong>第二个，外星设计：AI 造的东西，人可能看不懂。</strong> 今天的世界是为人设计的，处处顺着人脑的直觉，因为几乎所有的思考都是人在做。机器来做设计，结果就会不一样。2006 年，NASA 为一次卫星任务优化天线。传统天线是漂亮、对称的几何形状；这次他们把设计交给进化算法（和今天的强化学习很像），出来的是一根扭来扭去、毫无规律的怪东西，人类工程师绝不会这么画，效果却好得多。Buhler 说，等 AI 来设计芯片、汽车、建筑，它们可能长得完全陌生。我们得把心态放开，因为 AI 不会像我们一样思考。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-29.png" alt="左边是传统对称几何天线，右边是 NASA 用进化算法设计的弯折怪异天线" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>左边是人设计的天线，右边是进化算法设计的，后者性能好得多。</figcaption>
+</figure>
+<p><strong>第三个，新的科学：AI 还在「蒸汽机阶段」。</strong> 工业革命早期，纽科门、瓦特这些伟大的工程师把热机做得越来越好，但将近 100 年里都是在摸索：试一下，好一点，再试一下。一百多年后，萨迪·卡诺才站出来说：里面有成百上千亿个粒子在动，我们可以把它形式化。热力学就这样诞生了，后面几代进步都建在它上面。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-30.png" alt="左边是发动机气缸里的粒子，右边是神经网络的节点连线" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>左边是气缸里的无数粒子，右边是神经网络里的无数连接：同一种「多到只能用新科学描述」的东西。</figcaption>
+</figure>
+<p>Buhler 认为 AI 正处在这个「摸索阶段」：神经网络里有数十亿个神经元、数万亿个 token，它能用，但我们并不真懂它为什么能用，哪怕我们自以为懂。他预测未来二十年内，会出现一门和热力学一样基础的新科学，基础到会写进高中课本。它会帮我们真正驾驭 AI，甚至帮我们理解意识。「台下也许就有人会提出这门科学。」</p>
+<p><strong>第四个，不讲理的艺术：机器接手之后，人往哪去。</strong> 几万年来，绘画一直在往写实走：两万五千年前的洞穴壁画，埃及象形文字，希腊陶器，文艺复兴的油画，一路越画越像。然后银版照相机和早期摄影出现了，画家花几十年才练成的笔笔逼真，被机器一下子做完。所有人都以为绘画完了。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-31.png" alt="洞穴壁画、埃及浮雕、希腊陶器、文艺复兴油画和早期照片的拼贴" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>从洞穴壁画到文艺复兴，几万年都在追求画得像；右上角的早期照片一出现，这条路就到头了。</figcaption>
+</figure>
+<p>人类的回答是换一个问题：画画的目的，是像眼睛那样看见这一刻，还是像心和灵魂那样感受这一刻？于是有了印象派、表现主义、立体主义、新表现主义。Buhler 预计，机器接手认知活的执行之后，人类会再来一次这样的转向，往机器做不了的方向去。</p>
+<h2>人是万物的尺度</h2>
+<p>四个故事最后落在同一个问题上：如果智能像铝一样变得廉价，什么还值钱？Buhler 引了 2500 年前古希腊哲学家普罗泰戈拉的一句话来回答：</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/sequoia-ai-ascent-2026/slide-32.png" alt="普罗泰戈拉名言幻灯片：Man is the measure of all things" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>整场演讲的最后一页。</figcaption>
+</figure>
+<div>
+<p>人是万物的尺度。AI 能干活，但只有人与人的联系，才给你在乎它的理由。</p>
+<p>“Man is the measure of all things.” AI can do the work. Only the human connection can give you a reason to care.</p>
+<p>普罗泰戈拉的话，后两句是 Konstantine Buhler 的收尾</p>
+</div>
+<p>他的解释是：任何东西放在真空里，对人都没有价值。铝没有，艺术没有，智能也没有。它们有价值，只是因为人的体验。十年后，工作会变得面目全非，但今天你和身边这个人建立的关系会留下来。</p>
+<p>这个结尾是写给台下创始人的，也适合我们每个人。把整场串起来看，红杉给了一套完整的判断：用「派活能干完」来认 AGI，用「服务也能被拿走」来算市场，用「地基每天在动」来定打法，再用工业革命来画未来的形状。数字是粗的，这是投资人站在投资人位置上的判断；但它提出的几个问题，值得每个人对着自己问一遍：</p>
+<p>你的工作在 Agent 梯子的哪一级？你所在的行业，有多少钱是「服务」的钱？如果你在做 AI 产品，你是在追最新的模型，还是在把自己裹到客户身上？</p>
+</div><div><div><div>来源</div><div><span>This is AGI: Sequoia AI Ascent 2026 Keynote</span><span>Pat Grady, Sonya Huang, Konstantine Buhler (Sequoia Capital)<span>·</span><a href="https://www.youtube.com/watch?v=LRo33rnv6rQ">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://www.sequoiacap.com/article/ai-ascent-2026">AI Ascent 2026</a><span>·</span><a href="https://www.theaiopportunities.com/p/sequoia-ai-ascent-2026-the-future">Sequoia AI Ascent 2026: The future of AI</a></div></div></div></div></div><div>
+<div>SEQUOIA AI ASCENT 2026 · KEYNOTE BRIEF</div>
+<h1>这就是 AGI：从 10 万亿服务大盘到 99.9% 机器认知</h1>
+<p>红杉资本三位合伙人的年度定调：AI 不再是提高效率的马车，而是重塑分工的汽车；当智能像铝一样廉价，服务就是新的软件。</p>
+<div>核心提炼 · 约 3 分钟速读 · 覆盖商业版图与演进终局</div>
+<div>
+<h2>断层来临：为什么红杉断言「这就是 AGI」</h2>
+<p>很多人以为近半年的大模型演进，只是又一个更好用的工具；但如果你的垂直工作流转眼被新模型冲垮，你感受到的其实是<strong>汽车取代马车</strong>的代际眩晕。</p>
+<p>红杉合伙人 Pat Grady 将过去四年划分为三个拐点：2022 年底预训练确立的 ChatGPT、2024 年底思考推理驱动的 o1，以及 2025 年底以 Claude Code 和 Opus 为代表的长时程 Agent。前两者在一条曲线上，第三者则是一道断层——它不再是就单个问题即时作答，而是接下一个复杂任务，自主规划、反复尝试、在失败中纠错坚持数小时直到交付。</p>
+<div>
+<p>红杉给出的不是象牙塔里的学术定义，而是立足商业与产业的实证标准：<strong>「你能派一个 Agent 去干一份活，它能从失败里恢复，一直坚持到活干完，那就算。」</strong> 汽车已经来了，开车的比赛和骑马的比赛完全是两回事。</p>
+</div>
+<div>
+<div>
+<div>10T$</div>
+<div>专业服务大盘（红杉自称凑整的数）</div>
+</div>
+<div>
+<div>10-40x</div>
+<div>「汽车型」应用的效率提升（「更快的马」只有 10–40%）</div>
+</div>
+<div>
+<div>99.9%</div>
+<div>红杉推演未来机器将承载的全球认知份额</div>
+</div>
+</div>
+</div>
+<div>
+<h2>大盘重构：10 万亿美元的服务生意摆上了桌</h2>
+<p>在云计算成熟的 15 年间，全球软件市场从 3500 亿扩张至 6500 亿美元，云业务吃下了其中的 4000 亿。但这依然只是「工具」的生意——律所、会计、咨询、医疗与定制开发这些庞大的专业服务开支，传统软件始终触碰不到。</p>
+<div>
+<h2>核心机制：从「卖工具辅助人」到「卖 Agent 交付结果」</h2>
+<p><strong>我们已经跨过了连续性优化的阶段，步入了功能意义上的 AGI。</strong>AI 这一波第一次同时是软件和服务：Agent 能直接把活干了，原来付给律所、会计所、咨询公司的钱也摆上了桌。红杉估算这块约 10 万亿美元，Grady 自己说这是个凑整的数，5 万亿到 50 万亿都有可能，但量级是确定的。</p>
+<div>
+<div>
+<div>云计算头 15 年 · 软件市场</div>
+<div>6500 亿美元</div>
+<p>卖的是赋能人类专家的辅助工具（SaaS）。律师、会计、工程师的工作依然靠肉身交付，软件只能收受限的工具费。</p>
+</div>
+<div>
+<div>AGI 时代 · 软件加服务</div>
+<div>10 万亿美元</div>
+<p>Agent 直接把活干了，原来付给律所、会计所的钱开始流向应用层。</p>
+</div>
+</div>
+</div>
+<p>Grady 强调，光是美国的法律服务便有 4000 亿美元规模，一个国家、一个行业，Grady 说就和整个软件业一样大。这是历史上体量最大、扩散最陡峭的一场新比赛。</p>
+</div>
+<div>
+<h2>计算革命下的生存法则：Get MAD</h2>
+<p>技术革命有两种：互联网、云和移动属于<strong>通信革命</strong>，改变信息如何传输，底层地基数十年不变，开发者在其上安稳盖楼；而 AI 属于<strong>计算革命</strong>，改变信息如何处理，新能力每天都在出，地基每天都在动。</p>
+<p>当模型实验室（OpenAI、Anthropic）以「技术外推（Tech-out）」的姿态攻城拔寨，建立在其上的创业公司如果盲目追逐最新技术指标，辛苦搭建的功能转瞬就会被基础模型夷平。红杉给出的破局策略是 <strong>Get MAD</strong>：</p>
+<div>
+<div>
+<div>M · 护城河 (Moats)</div>
+<p><strong>护城河：盯客户，别盯技术。</strong>底层模型更迭极快，但客户关系与深度嵌入的业务流变迁极慢。从真实客户痛点往回建防线，远比随模型起舞持久。</p>
+</div>
+<div>
+<div>A · 好上手 (Affordance)</div>
+<p><strong>把能力包成拿起来就会用的东西。</strong>终端里的 Claude Code 极强，但普通企业员工无从下手。为特定场景打造无须说明书的直觉闭环，是应用层巨大的真空。</p>
+</div>
+<div>
+<div>D · 扩散差 (Diffusion)</div>
+<p><strong>实验室造得太快，大公司用得太慢。</strong>前沿突破与 500 强企业的吸收能力之间存在巨大的时间剪刀差。这道差每天都在变宽，就是应用公司的机会。<strong>晴天你超不了 15 辆车，雨天可以：</strong>模型能力正在下大雨，没有哪个领先是安全的，谁都可能赢。</p>
+</div>
+</div>
+</div>
+<div>
+<h2>Agent 的爆发解构与人机权力移交</h2>
+<p>为什么 2022 年爆红的 AutoGPT 沦为玩具，而 2026 年却迎来了 Agent 的寒武纪大爆发？Sonya Huang 指出，一个实用的 Agent 必须是<strong>「能感知环境、自己选择行动、自主朝目标推进的系统」</strong>。它的成立取决于三大拼图的同时成熟：模型充当<strong>大脑</strong>（研究机构 METR 测得的连续专注时间从数十分钟跃迁至数小时）、人类工具充当<strong>手脚</strong>（终端、文件系统、Slack、搜索、电脑操作），而外部程序（Harness）结合强化学习则赋予其从失败中自我校准的<strong>韧劲</strong>。</p>
+<p>随着 Agent 能力的爬升，工作现场正在发生清晰的阶梯式权力移交：</p>
+<div>
+<div>
+<div>L1</div>
+<div>
+<div>Tab 补全（人写代码 · 1:1）</div>
+<p>写代码时 AI 在旁边补一句，有用，但没改变干活方式。</p>
+</div>
+</div>
+<div>
+<div>L2</div>
+<div>
+<div>Agent 开发（人用大白话下指令 · 1:几十个）</div>
+<p>人在终端或 Agent 面板里给 Agent 下指令，带着几十个 Agent 干活。</p>
+</div>
+</div>
+<div>
+<div>L3</div>
+<div>
+<div>后台 Agent（人写需求和规则 · 1:几千个）</div>
+<p>Agent 在后台异步跑，还会自己派子 Agent；人像看收件箱一样管着几千个。Huang 预计这一档的总量会超过现在的模式。</p>
+</div>
+</div>
+<div>
+<div>L4</div>
+<div>
+<div>黑灯工厂（人只定护栏 · 比例趋于无穷）</div>
+<p>不再人审，Agent 干完直接上线。Huang 说已在生产环境见过，包括网络安全公司，前提是护栏和工程做得够好。</p>
+</div>
+</div>
+</div>
+<div>
+<p>工期正在被压缩：Zed 的 Nathan 一个人在一个假期做完了原本要三年的项目，Notion 团队 6 周重写了 800 万行代码。把这些压缩一个接一个叠起来，就是 Huang 的结论。她说对创始人最重要的一条是<strong>服务就是新的软件</strong>，而且：<strong>「过去你能想象未来 100 年要造的东西，现在 100 天就可能造出来。」</strong></p>
+</div>
+</div>
+<div>
+<h2>认知走工业革命老路：机器接管之后，人往哪去</h2>
+<p>回顾 1700 年以来的工业革命，人类先后用上水车、风车、蒸汽机、内燃机和电动机；到今天，Buhler 估计地球上为人做的体力活 99% 以上由机器完成。Konstantine Buhler 指出，以神经网络为核心的认知革命正以更陡峭的斜率重走这一轨迹：按红杉的图，今天人脑约占四成，电子计算和神经网络各占约三成；在不远的将来，<strong>地球上 99.9% 的认知会由机器完成</strong>。</p>
+<p>活在被高度重构的未来，四则寓言揭示了我们将要面临的规则巨变：</p>
+<div>
+<div>
+<div>价值颠覆</div>
+<div>铝的平民化</div>
+<p>华盛顿纪念碑曾用当时世上最珍贵的金属封顶，那就是铝；电解法发明后几十年，铝成了包糖果、用完就扔的锡箔。<strong>铝就是智能，电解就是人工智能。</strong>曾苦练数十年的博士级智力将被随叫随到地廉价消耗。</p>
+</div>
+<div>
+<div>形态巨变</div>
+<div>外星异形设计</div>
+<p>NASA 将卫星天线交给进化算法，算出的不是人类对称几何，而是极其扭曲却性能卓绝的怪异构型。未来的芯片、架构与组织形态，将充斥着超出人类直觉的非人理性。</p>
+</div>
+<div>
+<div>底层科学</div>
+<div>蒸汽机与热力学</div>
+<p>纽科门与瓦特发明蒸汽机后摸索了近百年，萨迪·卡诺才总结出热力学定律。当前 AI 仍处于经验试错的蒸汽机阶段，一门和热力学一样基础的新科学，可能在未来二十年诞生。</p>
+</div>
+<div>
+<div>人类退路</div>
+<div>照相机与现代艺术</div>
+<p>摄影术的普及终结了古典写实绘画，却直接逼出了印象派、表现主义与立体主义的转向。当机器代劳了理性的认知与执行，人类将退守至最不可替代的内心感知与主观体验。</p>
+</div>
+</div>
+<div>
+<h2>终极锚点：人是万物的尺度</h2>
+<p>如果世界上 99.9% 的智能都如同铝箔般便宜泛滥，什么才是真正不可剥夺的价值？Buhler 援引古希腊哲学家普罗泰戈拉的名言收束全场：<strong>「人是万物的尺度」</strong>。</p>
+<p>他的解释是：任何东西放在真空里，对人都没有价值，铝没有，艺术没有，智能也没有。AI 能干活，但只有人与人的联系，才给你在乎它的理由。十年后工作会面目全非，但今天你和身边这个人建立的关系会留下来。</p>
+</div>
+</div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://www.youtube.com/watch?v=LRo33rnv6rQ">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】OpenAI 员工教你给 Dot 立「职责表」：不用你开口 把长期要盯的事整个交给 Dot 帮你办 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/dot-responsibilities/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:dot-responsibilities</guid>
+<pubDate>Wed, 04 Nov 2026 12:00:23 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 你开口它才动，惦记这件事的就还是你 02 Dot 老发没用的消息，先问它到底在盯什么 03 一张七列的表，把「交给你了」说清楚 04 再立几条规矩：先查重叠，验证过才算接手 05 不知道交什么，先让它自己提 AI 解读 / AI 实操 · 11-04 · 约 5 分钟 · 作者 Nick Baumann（OpenAI） OpenAI 员工教你给 Dot 立「职责表」：不用你开口</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 4 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">OpenAI 员工教你给 Dot 立「职责表」：不用你开口 把长期要盯的事整个交给 Dot 帮你办 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/dot-responsibilities/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>你开口它才动，惦记这件事的就还是你</span></a><a><span>02</span><span>Dot 老发没用的消息，先问它到底在盯什么</span></a><a><span>03</span><span>一张七列的表，把「交给你了」说清楚</span></a><a><span>04</span><span>再立几条规矩：先查重叠，验证过才算接手</span></a><a><span>05</span><span>不知道交什么，先让它自己提</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>AI 实操</a><i>·</i>11-04<i>·</i>约 5 分钟<i>·</i>作者 Nick Baumann（OpenAI）</div><h1>OpenAI 员工教你给 Dot 立「职责表」：不用你开口 把长期要盯的事整个交给 Dot 帮你办</h1><p>你开口它才动，惦记这件事的就还是你。OpenAI 的 Nick Baumann 用一张七列的职责表，把出差报销这类长期要盯的事整个交给了 Dot，附完整提示词和十个现成职责。</p><div><div>正文一页纸原文</div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Nick Baumann（OpenAI）</span><span>11-04 · 约 5 分钟</span><span>⚑ 方法教程</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>Dot 最值钱的用法不是报小事、也不是喊一声干一票，而是把一件长期要盯的事整个交出去，从此你连想都不用想。</li><li>它老发没用的消息，多半是旧指令缠成了一团：先问它到底在盯什么，删重叠，或者清零但保留记忆。</li><li>再立一张七列职责表：要什么结果、能替你做到哪、什么时候查、怎样算完、什么时候别出声，验证过才算接手。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/dot-responsibilities/social/zh-0480c658479a.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>你给 AI 助理接上了邮箱、日历和一堆插件，可大多数时候，它干的还是两头的活：要么冷不丁报一件知道了也无妨的小事，比如「快递到门口了」，箱子其实不用它说也在那儿；要么等你一声令下才大干一场，比如在机场打电话让它跟美联航死磕，直到整趟机票全额补偿。中间那一大块，那些日复一日得有人惦记着的事，还压在你自己脑子里。</p>
+<p>这不是它能力不够。拿 OpenAI 的 Dot 来说，它是放在 ChatGPT 里的个人 Agent，有自己的云端电脑，离开对话也能接着干活：自带浏览器、Codex、你接进去的插件，还能给自己定提醒。论装备，它跟一个会用电脑的人差不了多少。缺的是交代：哪件事归它管，它能替你做到哪一步，什么时候该来找你，什么时候别出声。交代不清，一条条随口吩咐的旧指令就叠成一团乱麻，它忙个不停，发来的消息却多半没用。</p>
+<p>所以办法不是把它管得更紧，而是像给一位新同事分工那样，给它立下职责：写下来，双方都看得见，随时能改。</p>
+<p>OpenAI 的 Nick Baumann 专门写了篇长文讲这件事。他把 Dot 的用法分成三类：主动报的小惊喜，被你喊出来的大动作（跟美联航死磕那个例子，他说「可能是亲身经历」），以及他最喜欢的第三类：<strong>长期职责</strong>。</p>
+<p>他自己的出差报销就是这么交出去的。以前大约每个月，他都得先让 ChatGPT 把出差吃的饭、学习培训类的订阅这些零碎开销翻出来，发到工作邮箱，再让工作账号的 ChatGPT 去差旅平台 Navan 上报销。现在两个 Dot 自己配合：工作 Dot 把出差邀请发到他的个人日历，个人 Dot 就知道他哪几天在外地；个人 Dot 盯着他的财务记录，每周把开销连同能找到的收据发给工作 Dot；工作 Dot 核对是否符合公司规定，再到 Navan 报掉。他只会收到两种消息：报销成功了，或者有事需要他。用他的话说：「剩下的，我连想都不用想。」</p>
+<p>差别不在 Dot 变聪明了，而在这件事从此有了专人负责：什么时候查，查完交给谁，什么情况才打扰他，都事先说定了。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/dot-responsibilities/cover.jpg" alt="办公室格子间里，主管端着咖啡抬手看表，对面的员工神情无奈" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>原文头图。要是每件事都得你过来看表催一句，盯着它的人就还是你。</figcaption>
+</figure>
+<a><span>延伸阅读 · 还不熟悉 Dot</span><strong>OpenAI 发布全天候个人Agent ：Dot  主动跟进你的目标 可以同时管理你的工作和家庭事物</strong><span>它在云端电脑上做什么、能看哪些应用、哪些动作必须你批准。</span><b>阅读全文 →</b></a>
+<h2>你开口它才动，惦记这件事的就还是你</h2>
+<p>先分清任务和职责。</p>
+<p><strong>任务</strong>是你开口才有的。你说「把按钮改成红色」「把幻灯片改好发给 Jamie」「下周二晚上六七点订个两人位」，Agent 调用工具、插件和记忆把它做完，一来一回，结束。</p>
+<p><strong>职责</strong>是你不开口，它也得记着。他的判断很直接：如果每次有新品发布都还得他去告诉 Dot，那盯着发布的人还是他自己。生活里人人都有这种事：每周三早上 7 点前把垃圾拿出去，新版本发布前让所有内测用户提前用上，每周把报销交上去。它们的共同点是，没人提醒也不能忘。</p>
+<p>职责又分两种。一种有终点，可以叫<strong>短期项目</strong>。Nick 找搬家公司时，对 Dot 说的是：「这件事归你负责，我没以好价格定下搬家公司之前，别停。」按他另一篇文章的记录，Dot 在几天里给搬家公司发了 60 条消息（47 封邮件、13 条搬运平台 Shiply 上的消息），填报价表、来回问细节，他说最后省下了 3000 美元。给活动找摄影师、给家里装修找师傅也是这样，人找到了、日期定了，事就结了。</p>
+<p>另一种没有终点，就是<strong>长期职责</strong>：每周的报销；盯着新品发布，好让他随时备好一条引用转发；查日历里的出差安排，再把日期同步给个人 Dot。</p>
+<p>任务、短期项目、长期职责，差在谁来惦记</p>
+<div>
+<div><div>任务</div><div><b>你开口才开始，做完就结束。</b>改个按钮颜色、订一次餐厅。每次都得你想起来、你去说。</div></div>
+<div><div>短期项目</div><div><b>交出去之后它一直追，有明确终点。</b>找搬家公司、找活动摄影师、找装修师傅，人和日期定下来就结束。</div></div>
+<div><div>长期职责</div><div><b>没有终点，到点它自己动。</b>每周报销、盯发布、同步出差日期。你不提醒，它也不会忘。</div></div>
+</div>
+<p>Dot 本来就能担职责，它已经在担了。毛病出在交代上：职责说得不具体、不清楚，新旧指令一重叠，事情就缠在一起。如果它发来的消息常常没什么用，这篇就是写给你的。</p>
+<h2>Dot 老发没用的消息，先问它到底在盯什么</h2>
+<p>一个人不知道别人对他有什么期待，就很难知道「做好」长什么样。Dot 也一样，它只是想帮上忙。所以第一步不是再给它加指令，而是先盘点。Nick 在这里几乎是央求读者，一定先问问它：现在到底在替你盯什么，每一件当初是怎么交代的，多久查一次，你什么时候会收到消息；聊过但从没真正设好的，也让它标出来。</p>
+<p>按 Nick 的经验，它多半会交回一长串互相牵连的事，大部分你根本不记得交代过，大部分也没有清楚的「做好」标准。拿到清单，和它一起过一遍：哪些留下，哪些重叠，哪些停掉。</p>
+<p>他自己选了推倒重来：让 Dot 停掉现有的全部职责，连同配套的提醒和检查一起关掉，但保留它对他和过往对话的记忆，关不掉的标出来。记忆留着，它还认识你；清掉的只是那些缠在一起的旧检查。</p>
+<div>
+<div><span>第一步：问它在盯什么</span>复制</div>
+<pre>你现在都在帮我盯着哪些事？给我列一份简短清单，写出你正在跟进的职责。每一项告诉我：我当初让你处理什么、你什么时候检查、我什么时候会收到你的消息。我们聊过但一直没真正设置起来的，也标出来。</pre>
+<p>What are you keeping an eye on for me right now? Give me a short list of the responsibilities you’re tracking. For each one, tell me what I asked you to handle, when you check, and when I should expect to hear from you. Flag anything we talked about but never set up.</p>
+</div>
+<div>
+<div><span>想从头来，再发这一段</span>复制</div>
+<pre>我们从头来。停掉你现在替我跟进的所有职责，关掉配套的提醒和检查。保留你对我和我们对话的记忆。准备好重新开始时告诉我，关不掉的也标出来。</pre>
+<p>Let’s start over. Stop the responsibilities you’re currently tracking for me and turn off the reminders and checks that go with them. Keep your memory of me and our conversations. Let me know when we’re ready to start fresh, and flag anything you couldn’t turn off.</p>
+</div>
+<h2>一张七列的表，把「交给你了」说清楚</h2>
+<p>清空之后，他想要一套真能用的分工方式。他的配方只有两样：一张共享的职责表，加一段告诉 Dot 怎么用这张表的提示词。表放在一个他和 Dot 都能往里加东西的 Page（页面）里：他可以自己加一行，也可以吩咐 Dot 加。</p>
+<p>先让 Dot 建这一页。提示词里的 Space 和 Page 是 Dot 那边的叫法，照原样发给它就行：</p>
+<blockquote>
+<p>在 Space 里建一个私密 Page，名叫 Responsibilities，里面放一张你正在跟进的职责表，再加一小块「当前工作」。如果已经有这一页，就直接用。把链接发给我。</p>
+</blockquote>
+<p>（原文：Create a private Page in Space called Responsibilities, with a table of the responsibilities you’re tracking and a short Current work section. If we already have that Page, use it. Send me the link.）</p>
+<p>表的每一行是一项职责，每行七列。把这七列填满，「交给你了」这句话才算真正说清楚：它知道要什么结果，能动什么，不能动什么，什么时候算完，什么时候别出声。下面拿他的报销按列走一遍，例子里的细节是我们补的示意。</p>
+<p>职责表的七列，拿报销走一遍（例子里的细节是我们补的）</p>
+<div>
+<div><div>职责</div><div><b>交出去的是什么，想要什么结果。</b><span>例：每周的工作开销都报销成功。</span></div></div>
+<div><div>范围与动作</div><div><b>去哪找信息，哪些能替你办，哪些要你批准。</b><span>例：从财务记录和邮箱里找开销和收据，可以直接整理好发给工作 Dot；拿不准算不算公司开销的，先问你。</span></div></div>
+<div><div>触发与时间</div><div><b>盯什么信号，或什么时候检查；有固定时间就写明时区。</b><span>例：每周一上午 9 点（纽约时间）查一次。</span></div></div>
+<div><div>完成标准</div><div><b>好结果长什么样，它怎么核对；重复的事，这一次做到哪算完。</b><span>例：这周的开销都已提交，附上能找到的收据，工作 Dot 回复已在 Navan 报掉。</span></div></div>
+<div><div>沟通</div><div><b>什么时候找你，在哪找你，什么时候别出声。</b><span>例：只在报销成功或有事需要你时说话，其余时候不发消息。</span></div></div>
+<div><div>期限与复盘</div><div><b>什么时候停，或做多久之后一起回头看。</b><span>例：不设终点，隔一段时间一起看一次还顺不顺。</span></div></div>
+<div><div>状态与执行</div><div><b>提议中、进行中、受阻、暂停还是已完成；贴上实际在跑的检查或日程，写上最近一次核实过的结果。</b><span>例：进行中；每周检查的链接；上周的开销已报销成功。</span></div></div>
+</div>
+<p>对照前面盘点时冒出来的毛病，能看出这张表在治什么：没有清楚的「做好」标准，有「完成标准」一列；消息又多又没用，有「沟通」一列规定什么时候别出声；聊过却从没真正设好的，有「状态与执行」一列要求贴出实际在跑的检查和最近一次结果。</p>
+<h2>再立几条规矩：先查重叠，验证过才算接手</h2>
+<p>光有表还不够，还得告诉 Dot 怎么用它。他写了一段指令，把职责页的链接填进去，发给 Dot，并让它把这段指令也存在页上，下次交事情时双方都能翻出来对照。指令里的规矩可以归成四条：</p>
+<ol>
+<li><strong>动手前先读表，先查重叠。</strong> 先查新交的事和已有职责有没有重叠；只是一次性的，直接当任务做掉，不进表；需要你提供什么才能开工，就问。</li>
+<li><strong>验证过才算接手。</strong> 把说好的检查设好、自己验证一遍，才把这一行标成「进行中」；设不起来，就告诉你缺什么。说一件事做完之前，也要先核对结果。</li>
+<li><strong>职责撤了，检查也要撤。</strong> 你暂停或取消一项职责，它就停掉相关的检查，改掉这一行，不留下一个还在后台响的旧提醒。</li>
+<li><strong>新活先提议，复盘单独占一行。</strong> 它看到别的事也能替你分担，先提出来，不自作主张接手；约好定期复盘的，复盘本身也写成一行，到时标出已经失灵或互相重叠的地方。</li>
+</ol>
+<p>页上的「当前工作」那一块，则写着它正在做什么、接下来做什么、哪些事在等你。</p>
+<div>
+<div><span>填好链接，整段发给 Dot</span>复制</div>
+<pre>使用我们的职责页：
+[在这里粘贴 Page 链接]
+把这段说明也留在这一页上，下次我再交事情给你时，我们都能回头查。
+在执行或修改任何一项职责之前，先读这一页。每项职责占一行，包含这些列：
+- 职责：我交给你的是什么，我想要什么结果。
+- 范围与动作：去哪里找信息，哪些事你可以替我办，哪些需要我批准。
+- 触发与时间：盯什么信号，或者什么时候检查。有固定时间的，写明时区。
+- 完成标准：好结果是什么样，你怎么核对。重复性的事，这一次做到什么算完成？
+- 沟通：什么时候给我发消息，在哪儿找我，什么时候别出声。
+- 期限与复盘：什么时候停，或者做多久之后我们再一起回头看。
+- 状态与执行：是提议中、进行中、受阻、暂停还是已完成？附上实际在跑的检查或日程的链接，以及你最近一次核实过的结果。
+我交事情给你时，先查有没有和已有职责重叠。如果只是一次性的，直接把事做了。需要我提供什么才能开始，就问我。先把说好的检查设好并验证一遍，再把这一行标成进行中。设不了，就告诉我缺什么。
+在「当前工作」下面，写清你现在在做什么、接下来做什么、哪些事需要我。说完成之前先核对结果。我暂停或撤掉一项职责时，停掉相关的检查，并更新这一行。
+如果你发现还有别的事能替我分担，先提出来。如果我们约定了定期复盘，给复盘单独一行，并标出已经失灵或互相重叠的地方。</pre>
+</div>
+<div>
+<div><span>英文原版</span>复制</div>
+<pre>Use our Responsibilities Page at
+[paste the Page link here].
+Keep these instructions on the Page so we can refer back to them the next time I hand something off.
+Read it before you act on a responsibility or change one. Keep one row per responsibility, with these columns:
+- Responsibility — what I’m handing off and the outcome I want.
+- Scope and actions — where to find the information, what you can handle on my behalf, and what needs my approval.
+- Trigger and timing — what to watch for or when to check. Include the time zone if there’s a schedule.
+- Done when — what a good result looks like and how you’ll check it. For recurring work, what counts as done this time?
+- Communication — when to message me, where to reach me, and when to stay quiet.
+- Duration and review — when to stop, or how long to keep doing this before we look at it again.
+- Status and execution — is it proposed, active, blocked, paused, or done? Link the actual check or schedule and include the last result you verified.
+When I hand something off, check for overlap first. If it’s a one-off, just do the task. If you need something from me to get going, ask. Set up the agreed check and verify it before marking the row active. If you can’t set it up, tell me what’s missing.
+Under Current work, show what you’re doing now, what happens next, and anything that needs me. Check the result before you call it done. When I pause or retire a responsibility, stop the related checks and update the row.
+If you see something else you could take off my plate, suggest it first. If we agree on a regular review, give that its own row and flag anything that’s stopped working or overlaps.</pre>
+</div>
+<p>这样做图什么？他说了两条。一是你和 Dot 对要它担哪些职责有了共识。原文在这里玩了个双关：英文说「在同一页上」本来就是达成共识的意思，这回你们是真的共用同一页。二是你随时看得见它在忙什么，它也能顺着这张表，提议下一件可以交给它的事。</p>
+<h2>不知道交什么，先让它自己提</h2>
+<p>最省事的起点，是用你们已经积累的相处经验问它一句：</p>
+<blockquote>
+<p>根据我们一起相处的经历，你能替我接手、让我生活轻松一点的职责，排前五的是哪五个？</p>
+</blockquote>
+<p>（原文：Based on our experience together, what are the top 5 responsibilities you could take on for me to make my life easier?）</p>
+<p>它提的都不对胃口，他还列了十个现成的，可以直接改改发过去。它们有个共同点：都写清了盯什么、什么时候动、替你做到哪一步。</p>
+<p>十个现成的职责，挑一个改改就能发</p>
+<div>
+<div><div>接送</div><div>每周日晚上，把我们俩的日历和学校发来的邮件对一遍。告诉我们哪些接送还没着落，校车时间有没有变。<span>Every Sunday night, check both our calendars against the school emails. Tell us which pickups or drop-offs we still need to figure out and if the bus schedule changed.</span></div></div>
+<div><div>备菜</div><div>把我这周发给你的菜谱存下来。挑几道下周做，把食材加进 Instacart 购物车等我确认。然后提醒我原本打算做什么菜。<span>Keep the recipes I send you during the week. Pick a few for next week and put the ingredients in an Instacart cart for me to review. Then remind me what I was going to cook.</span></div></div>
+<div><div>航班</div><div>我有航班要坐时，盯着飞过来执行这趟航班的那架飞机。如果它晚了，趁我还来得及换，把当天能改的航班发给我。<span>Whenever I have a flight coming up, keep an eye on the plane coming in for it. If that plane’s running late, send me my same-day options while I still have time to switch.</span></div></div>
+<div><div>免费试用</div><div>盯着我注册的免费试用。开始扣费前几天，告诉我是哪个服务、要扣多少钱。我说取消，就替我办了。<span>Keep an eye on the free trials I sign up for. A few days before one starts charging me, tell me what it is and what it’ll cost. If I say cancel, handle it for me.</span></div></div>
+<div><div>等回复</div><div>记下我在等别人回复的邮件。过了两个工作日，先看看对方是不是在别的地方回过我。还在等的话，就在原来的邮件往来里起草一封跟进。<span>Keep track of emails where I’m waiting on someone. If it’s been two business days, check whether they got back to me somewhere else. If I’m still waiting, draft a follow-up in the thread.</span></div></div>
+<div><div>签收</div><div>有快递需要本人签收时，查一下我的日历。看起来我会不在，就趁还来得及改派送，提前告诉我。<span>When a package needs a signature, check my calendar. If it looks like I’ll be out, give me a heads up while I still have time to change the delivery.</span></div></div>
+<div><div>球票</div><div>盯着我支持的球队的主场比赛。开票时查我的日历，把我真能去的那几场的购票链接发给我。<span>Keep an eye on home games for my team. When tickets go on sale, check my calendar and send me the link for the games I can actually make.</span></div></div>
+<div><div>约时间</div><div>有人发邮件约时间，读一遍往来邮件，看谁需要到场，查我的日历，把来回协调的事办了。判断不了该邀请谁，就问我。<span>When someone emails me to find a time, read the thread to see who needs to be there, check my calendar, and handle the back-and-forth. If you can’t tell who should be on the invite, ask me.</span></div></div>
+<div><div>找零件</div><div>记一份我在找的零件和它们平时的价格。盯着我常买的几家店。清单上的东西补货或打折了，把价格和链接发给我。<span>Keep a list of the parts I’m looking for and what they usually cost. Keep an eye on the shops I buy from. If something on my list comes back in stock or goes on sale, send me the price and the link.</span></div></div>
+<div><div>剪视频</div><div>每次我发来培训视频的素材，照上一支视频的剪法剪。剪一版给我看，下次再发素材时用上我的修改意见。<span>Whenever I send you footage for a training video, edit it the way we did the last one. Send me a cut to review and use my feedback the next time I send footage.</span></div></div>
+</div>
+<p>他在文末问读者：你交给 Dot 的是什么？以前得自己盯着、现在连想都不会想起的，是哪件事？这也是检验一件事有没有真正交出去的办法：看你还会不会想起它。</p>
+</div><div><div><div>来源</div><div><span>How to give your dot responsibilities</span><span>Nick Baumann<span>·</span><a href="https://x.com/nickbaumann_/status/2116302459358572942">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/nickbaumann_/status/2110877988137103391">My dot found me movers and saved me $3k</a></div></div></div></div></div><div>
+<div>
+<div>一页看懂 · Nick Baumann（OpenAI）</div>
+<h1>给你的 Dot 交代职责：从随口吩咐到专人负责</h1>
+<div>如果每次有事都得你过来看表催一句，惦记这件事的人就还是你。把长期要盯的事写成一张双方都看得见的职责表，交给 Dot。</div>
+<div>长文浓缩 · 怎么把长期要惦记的事整个交给个人 Agent</div>
+<div>
+<p>你给 AI 助理接上了邮箱、日历和一堆插件，可它大多数时候还在干两头的活：要么冷不丁报一句知道了也无妨的小事（比如「快递到门口了」），要么等你一声令下才大干一场（比如在机场让它跟美联航死磕，直到整趟机票全额补偿）。中间那些日复一日得有人惦记着的事，还压在你自己脑子里。</p>
+<p>Dot 是 OpenAI 放在 ChatGPT 里的个人 Agent，有自己的云端电脑、浏览器、Codex、你接进去的插件，还能给自己定提醒，论装备跟一个会用电脑的人差不了多少。OpenAI 的 Nick Baumann 认为，缺的是交代：哪件事归它管，它能做到哪一步，什么时候该找你，什么时候别出声。随口吩咐的旧指令一重叠，它发来的消息就多半没用。</p>
+</div>
+<div>
+<div>任务和职责，差在谁来惦记</div>
+<div>
+<div>
+<div>任务</div>
+<div>你开口它才动。「把按钮改成红色」「改好幻灯片发给 Jamie」「订下周二的两人位」，一来一回就结束，每次都得你想起来、你去说。</div>
+<div>
+<span>你想起来</span>
+<span>→</span>
+<span>你吩咐</span>
+<span>→</span>
+<span>做完结束</span>
+</div>
+</div>
+<div>
+<div>职责</div>
+<div>你不开口它也得记着。有终点的叫短期项目（找到搬家公司就结束），没终点的是长期职责（每周报销、盯新品发布）。</div>
+<div>
+<span>说定规矩</span>
+<span>→</span>
+<span>到点自己查</span>
+<span>→</span>
+<span>只在该找你时找你</span>
+</div>
+</div>
+</div>
+<div>
+<span>他的例子</span>
+<span>出差报销：工作 Dot 把出差邀请发到个人日历；个人 Dot 盯着财务记录，每周把开销连同能找到的收据发给工作 Dot；工作 Dot 核对是否符合公司规定，再到 Navan（差旅报销平台）报掉。他只收到两种消息：报销成功了，或者有事需要他。</span>
+</div>
+</div>
+<div>
+<div>
+<div>60 条</div>
+<div>找搬家公司时，Dot 几天里发出的消息（据他另一篇帖子），他说最后省了 3000 美元</div>
+</div>
+<div>
+<div>7 列</div>
+<div>一张职责表，每项职责占一行，把「交给你了」说清楚</div>
+</div>
+<div>
+<div>5 项</div>
+<div>先让 Dot 按你们的相处经验，提出它能接手的前五项职责</div>
+</div>
+</div>
+<div>
+<div>
+<p><strong>第一步不是加新指令，而是先盘点：</strong>让它交代现在在替你盯什么、每件当初怎么交代的、多久查一次、你什么时候会收到消息；聊过但从没真正设好的，也标出来。拿到清单，和它一起定哪些留、哪些重叠、哪些停。想彻底重来，就让它停掉全部职责和配套的提醒、检查，保留对你和过往对话的记忆，关不掉的标出来。</p>
+</div>
+</div>
+<div>
+<p>怎样才算把一件事真正交出去？让 Dot 在 Space 里建一个私密 Page，名叫 Responsibilities（Space、Page 是 Dot 那边的叫法），里面一张职责表，外加一小块「当前工作」。每项职责占一行，七列都填满，它才知道边界在哪：</p>
+<div>
+<div>
+<div>第 1 列</div>
+<div>职责</div>
+<div>交出去的是什么，想要什么结果。</div>
+</div>
+<div>
+<div>第 2 列</div>
+<div>范围与动作</div>
+<div>去哪找信息，哪些能替你办，哪些要你批准。</div>
+</div>
+<div>
+<div>第 3 列</div>
+<div>触发与时间</div>
+<div>盯什么信号，或什么时候检查；有固定时间就写明时区。</div>
+</div>
+<div>
+<div>第 4 列</div>
+<div>完成标准</div>
+<div>好结果长什么样，它怎么核对；重复的事，这一次做到哪算完。</div>
+</div>
+<div>
+<div>第 5 列</div>
+<div>沟通</div>
+<div>什么时候找你，在哪找你，什么时候别出声。</div>
+</div>
+<div>
+<div>第 6 列</div>
+<div>期限与复盘</div>
+<div>什么时候停，或做多久之后一起回头看。</div>
+</div>
+<div>
+<div>第 7 列</div>
+<div>状态与执行</div>
+<div>提议中、进行中、受阻、暂停还是已完成；贴上实际在跑的检查或日程，和最近一次核实过的结果。</div>
+</div>
+</div>
+</div>
+<div>
+<p>有了表，还要再发一段指令告诉 Dot 怎么用它，这段指令本身也存在页上。里面的规矩可以归成四条：</p>
+<div>
+<div>
+<div>01</div>
+<div>
+<div>动手前先读表，先查重叠</div>
+<div>新交的事先和已有职责比对；只是一次性的，直接当任务做掉，不进表；需要你提供什么才能开工，就问。</div>
+</div>
+</div>
+<div>
+<div>02</div>
+<div>
+<div>验证过才算接手</div>
+<div>把说好的检查设好、自己验证一遍，才把这一行标成「进行中」；设不起来，告诉你缺什么。说完成之前先核对结果。</div>
+</div>
+</div>
+<div>
+<div>03</div>
+<div>
+<div>职责撤了，检查也要撤</div>
+<div>你暂停或取消一项职责，它就停掉相关的检查，并更新这一行。</div>
+</div>
+</div>
+<div>
+<div>04</div>
+<div>
+<div>新活先提议，复盘单独占一行</div>
+<div>看到别的事也能替你分担，先提出来；约好定期复盘的，复盘也写成一行，到时标出已经失灵或互相重叠的地方。</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<p>不知道交什么，最省事的起点是问它：「根据我们一起相处的经历，你能替我接手、让我生活轻松一点的职责，排前五的是哪五个？」不对胃口，原文还给了十个现成的职责，比如：</p>
+<div>
+<div><div>航班</div><div><div>盯着飞过来执行你这趟航班的那架飞机，晚了就趁还来得及，把当天能改的航班发给你。</div></div></div>
+<div><div>试用</div><div><div>免费试用开始扣费前几天提醒你是什么、要扣多少；你说取消，它就替你办了。</div></div></div>
+<div><div>回复</div><div><div>等别人回邮件过了两个工作日，先看对方是不是在别处回过；还没回，就在原邮件里起草一封跟进。</div></div></div>
+<div><div>约时间</div><div><div>有人发邮件约时间，读往来邮件看谁要到场，查你的日历，把来回协调办了；判断不了邀请谁，就问你。</div></div></div>
+</div>
+<div>
+<strong>检验一件事有没有真正交出去：</strong>看你还会不会想起它。
+    </div>
+</div>
+</div></div></div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://x.com/nickbaumann_/status/2116302459358572942">看原网页 ↗</a></p></div><div></div><div><div><h1>How to give your dot responsibilities</h1></div><div><figure><img src="https://pbs.twimg.com/media/HV6aIT0WAAAubIR.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>Your dot is more powerful than you’re giving it credit for. It’s equipped with its own browser, Codex, the plugins you connect to it, and the ability to schedule itself reminders. Putting it this way, it’s not all that different from anyone else who uses a computer.</p></div><div><p>But if your experience is like that of the users I’ve talked to, you’ve probably experienced some version of these two things:</p></div><div><ol><li><strong>Proactive moments of “small delight.”</strong> Your dot gives you a heads up that a package arrived. Nice to know, though it would’ve been at your doorstep anyway.</li><li><strong>Prompted, momentous efforts.</strong> You call your dot at the airport and say “I want you to fight United tooth and nail to get this right until my entire flight has been comped” (possibly personal experience).</li></ol></div><div><p>I’d put some of my favorite things my dot does in a third category: <strong>ongoing responsibilities.</strong></p></div><div><p>I travel a lot for work. Every month or so I’d ask ChatGPT to find the food I bought on work trips, my L&amp;D subscriptions, all those little expenses, and send them to my work email. Then I’d ask my work ChatGPT to expense them on Navan.</p></div><div><p>Now my work dot sends trip invites to my personal calendar so my personal dot knows when I’m traveling. It keeps an eye on my Finances and emails the expenses to my work dot every week, with receipts when available. My work dot checks that they’re in policy and expenses them on Navan. I hear about successful reimbursements and anything that needs me. The rest is out of mind.</p></div><div><p>Here’s what I mean by a responsibility, and how to hand one off to your dot so you don’t have to keep thinking about it.</p></div><div><h2>Responsibilities vs Tasks</h2></div><div><p>The progression from “AI that completes tasks” to “AI that has responsibilities” has been beaten to a pulp, so I will keep this brief.</p></div><div><p><strong><em>Tasks</em></strong> are prompted by the user. And through a combination of tools, plugins, and memory, agents complete them. “Turn the button red.” “Update the deck and send it to Jamie.” “Book me a dinner reservation at the Olive Garden b/t 6 and 7pm for two next Tuesday.” <em>Input from user, output from agent, task complete ✅.</em></p></div><div><p>If I still have to tell my dot every time there’s a launch, then I’m still the one responsible for keeping an eye on launches. We all have responsibilities. “Take the garbage out every Wednesday before 7AM.” “Get all alpha participants early access before the release.” “Make sure my work expenses get submitted every week.”</p></div><div><p>Some responsibilities are short-term in nature. Consider them “projects”. When I <a href="https://x.com/nickbaumann_/status/2110877988137103391">asked my dot to find me movers</a>, I told it, “I want you to own that responsibility and don’t stop until I’ve secured movers at a good rate.” Same goes for finding a photographer for an event or a contractor for a home project. Once you’ve found the right person and secured the date, you’re done.</p></div><div><p>Other responsibilities are indefinite. My work expenses are one of those. Keeping an eye on launches so I have a quote tweet ready to go is another. So is checking my calendar for work trips and making sure my personal dot has the dates.</p></div><div><p>But here’s the thing: your dot can handle responsibilities (it already does). Where things get muddy, however, is when the specificity and clarity on those responsibilities is lost, and overlapping instructions create a nasty web of tasks for your dot to carry out.</p></div><div><p>If you’re finding that your dot is sending you messages that aren’t helpful more often than not, this is for you.</p></div><div><h2>Your dot needs clear expectations</h2></div><div><p>It’s hard to know what good looks like when you don’t know what’s expected of you. Same goes for your dot. It just wants to be helpful!</p></div><div><p>So, I plead with you to ask your dot the following:</p></div><div><p><em>What are you keeping an eye on for me right now? Give me a short list of the responsibilities you’re tracking. For each one, tell me what I asked you to handle, when you check, and when I should expect to hear from you. Flag anything we talked about but never set up.</em></p></div><div><p>If your dot is like mine, I expect it will return with a laundry list of inter-connecting tasks, most of which you don’t remember asking for and most of which don’t have clear “good” outcomes.</p></div><div><p>Go through it together, and tell your dot what to keep, what overlaps, and what you want it to stop.</p></div><div><p>I wanted to start from scratch. If you do too, here’s what you ask next:</p></div><div><p><em>Let’s start over. Stop the responsibilities you’re currently tracking for me and turn off the reminders and checks that go with them. Keep your memory of me and our conversations. Let me know when we’re ready to start fresh, and flag anything you couldn’t turn off.</em></p></div><div><h2>How to give your dot responsibilities</h2></div><div><p>I wanted to create a system for responsibility delegation that actually works. I think the right recipe for this is pretty simple.</p></div><div><ol><li>A shared document with a table of responsibilities. Mine is a Page in Space where I can add them and my dot can add them as I instruct.</li><li>A prompt that tells my dot to use that Page, set up the work, and keep me in the loop when something needs me.</li></ol></div><div><p>First, ask your dot to create the Page:</p></div><div><p><em>Create a private Page in Space called Responsibilities, with a table of the responsibilities you’re tracking and a short Current work section. If we already have that Page, use it. Send me the link.</em></p></div><div><p>Put the Page link in these instructions and send them to your dot:</p></div><div><pre><code>Use our Responsibilities Page at
+[paste the Page link here].
+Keep these instructions on the Page so we can refer
+back to them the next time I hand something off.
+Read it before you act on a responsibility or change
+one. Keep one row per responsibility, with these
+columns:
+- Responsibility — what I’m handing off and the
+  outcome I want.
+- Scope and actions — where to find the information,
+  what you can handle on my behalf, and what needs
+  my approval.
+- Trigger and timing — what to watch for or when to
+  check. Include the time zone if there’s a
+  schedule.
+- Done when — what a good result looks like and how
+  you’ll check it. For recurring work, what counts
+  as done this time?
+- Communication — when to message me, where to reach
+  me, and when to stay quiet.
+- Duration and review — when to stop, or how long to
+  keep doing this before we look at it again.
+- Status and execution — is it proposed, active,
+  blocked, paused, or done? Link the actual check or
+  schedule and include the last result you verified.
+When I hand something off, check for overlap first.
+If it’s a one-off, just do the task. If you need
+something from me to get going, ask. Set up the
+agreed check and verify it before marking the row
+active. If you can’t set it up, tell me what’s
+missing.
+Under Current work, show what you’re doing now, what
+happens next, and anything that needs me. Check the
+result before you call it done. When I pause or
+retire a responsibility, stop the related checks and
+update the row.
+If you see something else you could take off my
+plate, suggest it first. If we agree on a regular
+review, give that its own row and flag anything
+that’s stopped working or overlaps.</code></pre></div><div><p>Here’s what you can expect going forward:</p></div><div><ul><li>you and your dot are now on the same page (literally) regarding the responsibilities you want it to carry out</li><li>you can see what your dot is working on, and it can suggest responsibilities you might want to hand off next</li></ul></div><div><h2>What responsibilities should I give my dot?</h2></div><div><p>Start with the accumulated context you’ve built up already</p></div><div><p><em>Based on our experience together, what are the top 5 responsibilities you could take on for me to make my life easier?</em></p></div><div><p>If none of those are appealing, give these a try:</p></div><div><ol><li><em>Every Sunday night, check both our calendars against the school emails. Tell us which pickups or drop-offs we still need to figure out and if the bus schedule changed.</em></li><li><em>Keep the recipes I send you during the week. Pick a few for next week and put the ingredients in an Instacart cart for me to review. Then remind me what I was going to cook.</em></li><li><em>Whenever I have a flight coming up, keep an eye on the plane coming in for it. If that plane’s running late, send me my same-day options while I still have time to switch.</em></li><li><em>Keep an eye on the free trials I sign up for. A few days before one starts charging me, tell me what it is and what it’ll cost. If I say cancel, handle it for me.</em></li><li><em>Keep track of emails where I’m waiting on someone. If it’s been two business days, check whether they got back to me somewhere else. If I’m still waiting, draft a follow-up in the thread.</em></li><li><em>When a package needs a signature, check my calendar. If it looks like I’ll be out, give me a heads up while I still have time to change the delivery.</em></li><li><em>Keep an eye on home games for my team. When tickets go on sale, check my calendar and send me the link for the games I can actually make.</em></li><li><em>When someone emails me to find a time, read the thread to see who needs to be there, check my calendar, and handle the back-and-forth. If you can’t tell who should be on the invite, ask me.</em></li><li><em>Keep a list of the parts I’m looking for and what they usually cost. Keep an eye on the shops I buy from. If something on my list comes back in stock or goes on sale, send me the price and the link.</em></li><li><em>Whenever I send you footage for a training video, edit it the way we did the last one. Send me a cut to review and use my feedback the next time I send footage.</em></li></ol></div><div><p>If you try this, let me know what you gave your dot. I’m curious what you used to have to keep an eye on that you don’t even think about anymore.</p></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/nickbaumann_/status/2116302459358572942">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】AI 越来越强，人们正在让渡思考和判断：Claude 工程师 Addy Osmani 的防「认知投降」手册 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/critical-thinking-agents/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:critical-thinking-agents</guid>
+<pubDate>Wed, 04 Nov 2026 12:00:23 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 从委托到投降，每一步都看着合理 02 能不能整个交出去，看错了谁买单 03 动手之前，先给自己一个猜测 04 绿勾不等于做完，先看证据再看总结 05 审改动，更要审它替你做的决定 06 人脑没被替掉，只是挪到了两头 07 模型再强，责任也交不出去 08 不练的技能，消失得比你想的快 09 这篇真正值得带走的 AI 解读 / 深度 · 11-04 · 约 7 分钟 · 作者 Ad</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 4 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">AI 越来越强，人们正在让渡思考和判断：Claude 工程师 Addy Osmani 的防「认知投降」手册 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/critical-thinking-agents/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>从委托到投降，每一步都看着合理</span></a><a><span>02</span><span>能不能整个交出去，看错了谁买单</span></a><a><span>03</span><span>动手之前，先给自己一个猜测</span></a><a><span>04</span><span>绿勾不等于做完，先看证据再看总结</span></a><a><span>05</span><span>审改动，更要审它替你做的决定</span></a><a><span>06</span><span>人脑没被替掉，只是挪到了两头</span></a><a><span>07</span><span>模型再强，责任也交不出去</span></a><a><span>08</span><span>不练的技能，消失得比你想的快</span></a><a><span>09</span><span>这篇真正值得带走的</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>深度</a><i>·</i>11-04<i>·</i>约 7 分钟<i>·</i>作者 Addy Osmani</div><h1>AI 越来越强，人们正在让渡思考和判断：Claude 工程师 Addy Osmani 的防「认知投降」手册</h1><p>Agent 错得越少，人越懒得再看一眼。Claude Code 团队的 Addy Osmani 讲清了哪些事能放心全交、交出去之后怎么确认结果还归你。</p><div><div>正文一页纸原文</div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Addy Osmani</span><span>11-04 · 约 7 分钟</span><span>⚑ 大佬观点 · 个人立场</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>危险不在 AI 错得多，而在它错得少到你懒得再看一眼，判断就这样一点点交了出去。</li><li>错了不贵的事放手交；后果要别人扛的事，推理留在自己手里。</li><li>交活前先写下猜测和验收标准，收活时先看它跑了什么、替你做了什么决定，再看总结。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/critical-thinking-agents/social/zh-478982d1f133.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>AI 替人干活越干越好，有一样东西却在悄悄流失：我们自己的判断。它不是哪天突然被交出去的，而是在一次次「看着没问题」之后，被顺手交了出去。</p>
+<p>过去从提出问题到拿到答案，中间要查、要想、要掂量，判断力就是在这段路上磨出来的。现在这段路缩成了几秒。模型又越来越强，明显的错越来越少，交回来的东西格式漂亮、大体正确，根本不会逼你再看第二眼。它错得少了，看的人也就松了。</p>
+<p>办法当然不是少用 AI。该交的照样交，难的是分清哪些交出去还归你，哪些一交就再也收不回来。</p>
+<p>Claude Code 团队的工程师 Addy Osmani 专门写了一篇长文讲这件事。他自己整天同时开着好几个 Agent 干活，看到的危险是：人会从「让 AI 打工」一路滑到「认知投降」，而且一路都不自知。他给的判断线很干脆：「如果你连借助 Agent 都解释不了答案，你就已经交出了所有权。」</p>
+<p>这种下滑之所以难以自己刹住，是因为这套工作流实在太舒服。忙了一整天，又快又顺、多半还对的答案让人如释重负，戒备心偏偏就在这时候卸下。可你后台挂再多 Agent，盯着结果的眼睛也只有你这一双。默认情况下，没有任何东西会替你停下来想一想，这一步只能你自己排进每天的工作里。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/critical-thinking-agents/cover.jpg" alt="从委托、顺从到认知投降的滑坡曲线" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>原文头图：offloading（委托）→ deferral（顺从）→ surrender（投降），虚线那段就是没人察觉的下滑。</figcaption>
+</figure>
+<h2>从委托到投降，每一步都看着合理</h2>
+<p>把活交给 AI，可以分成三档。最上面是<strong>认知委托</strong>：活交出去了，结果还归你，你知道它干了什么，也能为它负责。中间是<strong>顺从</strong>：AI 的输出直接成了你下一步的输入，不再被当成一个有待验证的猜想。最底下是<strong>认知投降</strong>：AI 的输出悄悄变成了你自己的想法，你压根不觉得需要检查。「认知投降」这个词出自沃顿商学院的 Steven Shaw 和 Gideon Nave。</p>
+<div>
+<div><span>顶部</span><h4>认知委托</h4><p>活交给 AI，结果还是你的：你知道它干了什么，能为它负责。Addy 一整天都这么干，也建议你这么干。</p></div>
+<div><span>中间</span><h4>顺从</h4><p>AI 的输出成了你下一步的输入，不再是「待验证的猜想」，被当成了事实。</p></div>
+<div><span>底部</span><h4>认知投降</h4><p>AI 的输出悄悄变成你自己的想法，你完全不觉得有必要检查。</p></div>
+</div>
+<p>下滑是怎么发生的：每一步都很合理</p>
+<ol>
+<li><b>上一个答案认真读了</b>挺好，于是……</li>
+<li><b>下一个扫了一遍</b>也挺好，于是……</li>
+<li><b>再下一个只看骨架</b>然后某天……</li>
+<li><b>有人指着一行问，你解释不了</b>哪怕让 Agent 帮你一起解释也不行。这就是认知投降。</li>
+</ol>
+<p>可怕的不只是落到哪一档，而是往下滑没有声音。上一个答案你读得很认真，于是下一个扫一眼，再下一个只看个骨架，每一步都说得过去。直到有人指着其中一行问为什么，你才发现自己讲不出来，叫上 Agent 一起也讲不出来。</p>
+<p>这样欠下的叫认知债，平时一点都看不出来：代码库整整齐齐，测试全部通过；只看了目录就签字放行的需求文档，也一样体面。要等你得动这套系统、得凭自己的理解推一件事时，才发现那份理解根本不存在。放到团队里，是大家对系统「怎么运作」的共同认识被一点点磨没；落到代码上，就是 Jeremy Twei 说的「理解债」。</p>
+<p>但别把这条线读成「什么都得懂」。大型代码库谁也装不下全貌，Claude Code 团队自己就是按需重建理解：要动哪一块，就让 Claude 把那一块讲给自己听。这种债比多数工程师以为的好还，前提是你知道自己缺的是哪一块。所以红线只有一条：借助 Agent 都讲不清，才算真正交出去了。</p>
+<h2>能不能整个交出去，看错了谁买单</h2>
+<p>交出去本身不是坏事。Addy 前阵子录课，要从三家评分差不多的酒店里挑一家当录制地点，他没空翻评论，就把决定交给了 AI，结果没问题，下次还会这么干。可家里的钱怎么投、怎么给孩子的职业出主意，他不会这样定；工作上做什么、哪些改动会影响哪些用户、能不能放心上线，也不会。</p>
+<div>
+<div><span>可以整个交出去</span><h4>错了也不贵</h4><p>三家评分接近的酒店选哪家。选错代价很小，后果也只落在自己头上。</p></div>
+<div><span>推理留在手里</span><h4>后果别人来扛</h4><p>家里的钱怎么投、怎么给孩子的职业选择提建议；工作中做什么、哪些改动影响哪些用户、能不能安全上线。</p></div>
+</div>
+<div>
+<p>错了也不贵的事，放手交接；后果要别人承担的事，推理留给自己。</p>
+<p>Take the handoff where being wrong is cheap, keep the reasoning where others will have to deal with the consequences.</p>
+</div>
+<h2>动手之前，先给自己一个猜测</h2>
+<p>以前想不清楚一件事，人会翻出一张很土的清单：我在解决对的问题吗？方法对吗？结论有证据吗？怎么知道已经做完了？写出来幼稚得可笑，却能逼你想到平时漏掉的角度。现在跳过这一切太容易了，一句「你觉得我该怎么做」就够了。</p>
+<p>新版的清单是这六个问题：</p>
+<ol>
+<li><strong>提问之前，我自己猜过答案吗？</strong> 猜得再烂也行，有了新信息随时改。一旦先读了一个写得漂亮的回答，你就很难再想象别的可能。实在没头绪，就用 Thariq Shihipar 说的「盲点扫描」：把你知道的告诉模型，让它帮你找出你不知道自己不知道的东西。</li>
+<li><strong>我是让它帮我想，还是把思考整个甩给它？</strong> 两种都行，只要你清楚自己在做哪一种。</li>
+<li><strong>要让这个结论是错的，什么条件必须成立？</strong> 然后去查。模型对自己有几成把握的自评，远不如一个你能实际跑一遍的测试。</li>
+<li><strong>我听过反方的意见吗？</strong> 立场已经很坚定的开放问题，就让不止一个模型替对立的一方辩护，读完再下结论。费时间，但最后懂得多得多。</li>
+<li><strong>当着以后要维护它的人，我敢为它打包票吗？</strong> 代码如此，交付的任何东西都如此。这就是「能不能负责」的标准线。</li>
+<li><strong>我已经不再练哪些事了？</strong> 比如一些日常排错。放掉一部分可以，但最好是有意识的选择。</li>
+</ol>
+<h2>绿勾不等于做完，先看证据再看总结</h2>
+<p>瓶颈已经从「写代码」转到了「确认自己是对的」。给 Agent 一个检验自己工作的手段，端到端测试、属性测试，或者真去点一遍应用，它就能改一处、跑一遍、读结果、再试，这些都在你看之前完成。Claude Code 的创建者 Boris Cherny 把这叫「给 Claude 一个验证自己工作的方法」。你的活也跟着变了：不再逐行读，而是搭好这些循环，审查它留下的证据。</p>
+<p>麻烦在于，验证本身也会被投降掉。「结论有证据吗」不知不觉就变成了「检查变绿了吗」。Agent 让写测试便宜到几乎不要钱，满屏绿色随手就有，可绿色和「功能是好的」之间还隔着几道坎。</p>
+<p>满屏绿勾里的两个陷阱，和一个该问的问题</p>
+<div>
+<div><div>同一个错</div><div><b>测试和功能犯了同一个错。</b>写测试时带着写功能时同样的误解，测试照样通过，功能照样是坏的。</div></div>
+<div><div>只证一件事</div><div><b>一个绿勾只证明一件事。</b>人却很容易以为它覆盖了所有方面。</div></div>
+<div><div>该怎么问</div><div><b>绿勾亮了，先问它证明了什么，</b>再问它没证明什么。</div></div>
+</div>
+<p>几个让证据站得住的习惯：</p>
+<ul>
+<li><strong>标准事先定</strong>，做完再定只会替结果找理由。</li>
+<li><strong>终点要摸得着</strong>：一个通过的测试、一张截图、一段日志。「做完了」是事实，不是一种感觉。</li>
+<li><strong>收到「已完成」，先别看总结</strong>，先看它实际跑了哪些命令、输出了什么。</li>
+<li><strong>让一个全新上下文的子 Agent 挑毛病</strong>，固定进流程，每次都跑，而不是想起来才跑。</li>
+<li><strong>最后问一句「我漏了什么吗？」</strong> 听着有点傻，但 Addy 用前沿模型做完复杂功能、自己审过之后再这么问，它常常还能再找出两三件事，所以他每次都问。</li>
+</ul>
+<p>不是每件事都要这样深挖，知道什么时候该深挖本身就是本事。Claude Code 团队写代码审查的那篇文章里有条经验法则：说不出这些检查会漏掉什么，就去要一次真正的审查，别快速批准。</p>
+<p>这套道理出了代码一样成立。Agent 替你汇总了五十通客户电话，或者做了份竞品分析，就去翻几份原始材料，看总结准不准；你的建议押在某个数字上，就核一遍它算对没有。搭验证已经很便宜了，难的是你得知道好的验证长什么样。</p>
+<h2>审改动，更要审它替你做的决定</h2>
+<p>设想 Agent 交给你一个 600 行的代码合并请求。你看了看结构，没逐行读，变量名挺像回事，测试也过了，于是点了批准。可中间某处，事务里几步操作的先后顺序被悄悄调了，或者某个你从没想到的边缘情况下，默认值被反了过来。你确实审过了，只是你只找了自己本来就知道要找的那些。</p>
+<p>写代码和审代码是两门手艺，审着审着就成了盖章。</p>
+<div>
+<div><span>第一层</span><h4>读改动</h4><p>把改动当成不是 AI 写的那样去读，不因为「反正是 AI 写的」就降低标准。</p></div>
+<div><span>第二层，更容易漏</span><h4>读它替你做的决定</h4><p>长时间工作里，Agent 会替你做大量小决定：用了什么默认值，认定什么不在范围内，两条需求冲突时改写了哪条。</p></div>
+</div>
+<p>这些决定在一份「一切顺利」的总结里全都看不见，所以要逼它摊开：</p>
+<ul>
+<li>让它把自己做过的决定和假设列出来。</li>
+<li>然后考自己：随手挑几行，这行在干什么？那行呢？如果是文档，就合上它，凭记忆写出主要论点。</li>
+<li>长会话结束时，让 Claude 就这次改动写份报告，末尾附一套测验题，规矩是「测验全对，才合并」。</li>
+</ul>
+<p>你得把交付的东西理解到能替它辩护的地步，因为迟早有人会问。</p>
+<p>Agent 也能帮你守住注意力。Addy 维护的开源项目常常涌进大量代码合并请求，他用 Agent 判断进来的都是什么、哪些违反了项目规范、哪些需要他亲自看。它很少替他拍板，但能把范围缩到他该看的地方，他才腾得出脑子去想：这个改动是不是用对的方法解决了对的问题。</p>
+<p>最后是产量，这一点得对自己诚实。Agent 们产出的东西，和你愿意署上自己名字的东西，中间有一道差距，Addy 管它叫<strong>编排税</strong>。做完的活堆得比你看得快，再开一个会话也无济于事：要么收紧检查，让需要你过目的东西少一点，要么就慢下来。</p>
+<blockquote>
+<p>当你产出的东西多过你能担保的，你就不是在审查了，你是在祈祷。</p>
+</blockquote>
+<h2>人脑没被替掉，只是挪到了两头</h2>
+<p>理解仍然在干活，只是从中间挪到了开头和结尾：开头交代任务和背景，结尾审查结果。所以输入的质量决定输出的质量，写好提示词本身就是一项批判性思考能力。</p>
+<div>
+<div><span>开头</span><h4>把任务说清楚</h4><p>给谁用、什么不做、怎样算完成。说不清，往往是自己还没想清。</p></div>
+<div><span>结尾</span><h4>把结果审清楚</h4><p>看证据、读它做的决定，不愿署名的不发出去。</p></div>
+</div>
+<p>中间的活交给 Agent；原来散在过程里的思考，现在要集中花在这两端。</p>
+<p><strong>开头这一端</strong>，最容易欠下的是<strong>意图债</strong>。过去你提一个含糊的需求，总有人追问，你才猛然意识到：这事我其实还没想清楚。Agent 一般不会拦你，它会把你没说的部分自己补齐，交回一个看起来做完了的东西，背后的想法依然是糊的。目标、约束、理由，这些藏在你没亲手写的成果里的东西，别人替你还不了，只能你自己来。</p>
+<ul>
+<li>求助之前，先用自己的话写一份简短需求：给谁用、哪些不做、怎样算完成。</li>
+<li>改了两轮还没到想要的结果，就别再修修补补了，重写提示词。</li>
+<li>把它当合作者而不是承包方。哲学家 Andy Clark 区分过「把事委托给 AI」和「跟它合作」：合作时你的提示词让输出更好，输出又让你下一条提示词更准、对问题想得更清楚。还想不清，就让 Agent 来采访你，问它没搞懂的地方。会话结束时你比开始时更明白，就是成功。</li>
+<li>提防总结接力：每个 Agent 都只拿上一个 Agent 的总结当上下文，传到第三个，就已经没人读过原始文档了。</li>
+</ul>
+<p><strong>结尾这一端</strong>，你得有自己的标准。如今什么东西出来都格式漂亮、语气笃定，「看起来很精致」已经不算信号了。Addy 在各种创作形式里试过 AI，大部分成果从没拿出来见人，因为没过他自己那关。他的线是：不愿署上自己名字的东西，就不发出去。</p>
+<p>没过线的东西，把原因写进共享配置、一个 Hook 或一条测试，让同样的问题不再出现。品味就是这么一点点攒出来的，把「为什么没入选」记下来，本身就是很好的练习。</p>
+<h2>模型再强，责任也交不出去</h2>
+<p>读到这里，你多半冒出过这个念头：再过一两年，模型能发现的问题就和我一样多了，我何必还练这些？</p>
+<p>在「发现问题」上，你可能大体是对的，越来越多的检查本来就该交给 Agent。但这项能力还得留着，理由有三条：</p>
+<ul>
+<li><strong>总得有人为上线的东西负责。</strong> AI 帮了再多忙，最后签字担责的还是一个人。</li>
+<li><strong>该信它多少，本身就是判断。</strong> 模型出错的地方一直在变，只有持续审查它的活，这个判断才准。Anthropic 研究自家工程师时把这叫「监督悖论」：监督 Claude 所需要的，恰恰是那些可能因为过度用 AI 而退化的编程技能。</li>
+<li><strong>有些问题模型再强也替你答不了：</strong> 你在做什么？为什么值得做？会影响谁？你愿意为它放弃什么？Agent 可以陪你想，答案终归是你的。</li>
+</ul>
+<blockquote>
+<p>活可以交出去，大部分检查也可以交出去，但责任交不出去。</p>
+</blockquote>
+<h2>不练的技能，消失得比你想的快</h2>
+<p>不练的技能会消失，而且比你想的快。你不愿放掉的那些，就一直练着。下面这些不必全盘照做，挑适合自己工作流的就行。</p>
+<div>
+<div><div>每周</div><div>不用 Agent 写一点代码，或做一件「要是忘了怎么做就糟了」的事。他管这叫校准练习，并说明这不是道德要求。</div></div>
+<div><div>每月</div><div>写下你已经不再做的事，逐一决定哪些可以放掉。再问自己：<b>如果 AI 不存在了，你会有多迷茫？</b></div></div>
+<div><div>遇到时</div><div>碰到看不懂的说法，别搜一句解释塞进去，花点时间真正搞懂，看清它在整体里的位置。</div></div>
+<div><div>排期</div><div>好好检查 Agent 的产出是真实工作量。假装它不花时间，团队最后就不会做。把它当正式工作项排进计划。</div></div>
+</div>
+<h2>这篇真正值得带走的</h2>
+<ul>
+<li><strong>危险不在 AI 错得多，而在它错得少。</strong> 错少了人就不看，判断在一次次「看着没问题」里交了出去。分辨的红线只有一条：借助 Agent 还讲不讲得清。</li>
+<li><strong>人脑的位置挪了，没被替掉。</strong> 开头写清意图，结尾守住标准，中间才放心交给 Agent。</li>
+<li><strong>证据和决定，比总结重要。</strong> 先看它跑了什么、替你决定了什么，再看它说自己做成了什么。</li>
+</ul>
+<p>下面这段可以直接贴在任务末尾，8 条清单留着下次交任务前勾一遍。</p>
+<div>
+<div><span>贴在任务末尾</span>复制</div>
+<pre>完成之后、写总结之前，请按顺序给我：
+1. 你替我做的所有决定和假设：用了哪些默认值、你认为哪些不在范围内、需求冲突时怎么取舍的。
+2. 你实际运行的检查命令，以及它们的原始输出。
+3. 这些检查证明了什么，没有证明什么。
+4. 针对这次改动出 5 道测验题，不附答案。我全部答对才采用这个结果。</pre>
+</div>
+<p>Addy 的 8 条，下次交任务前对照勾一勾 <span></span></p>
+<ul>
+<li><span><b>有意为之</b>Agent 能考你、采访你、给你看证据，前提是你把这些设置好。</span></li>
+<li><span><b>诚实看自己在光谱哪一档</b>借助 Agent 都解释不了答案，就是已经投降了。</span></li>
+<li><span><b>先有猜测</b>提问前先形成一个，哪怕很烂。</span></li>
+<li><span><b>一个绿勾只意味着一件事</b>它检查了什么？没检查什么？</span></li>
+<li><span><b>找证据</b>先读它运行了什么、返回了什么，再读总结。</span></li>
+<li><span><b>读出它替你做的决定</b>它替你决定了什么？</span></li>
+<li><span><b>认真写提示词</b>你怎么写，暴露了你对问题懂多少。</span></li>
+<li><span><b>设一条线，守住它</b>不愿署名的，就不发出去。</span></li>
+</ul>
+<p>Addy 留了个小作业：提问之前，写下你觉得会发生什么；Agent 做完之后，写下一件它没有检查的事。试一次，看看你读它输出的方式会不会变。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/critical-thinking-agents/pangram-badge.png" alt="Pangram 文本检测结果：人工撰写 90%" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>原文文末附的 AI 文本检测结果：人工 90%，AI 10%。</figcaption>
+</figure>
+</div><div><div><div>来源</div><div><span>Critical thinking when agents do the work</span><span>Addy Osmani<span>·</span><a href="https://x.com/addyosmani/status/2117512471930167377">查看主材料</a></span></div></div></div></div></div><div>
+<div>
+<div>Addy Osmani · Claude Code</div>
+<h1>AI 越来越强，人们正在让渡思考和判断</h1>
+<p>AI 替人干活越干越好，有一样东西却在悄悄流失：我们自己的判断。它不是哪天突然被交出去的，而是在一次次「看着没问题」之后，被顺手交了出去。</p>
+<div>核心红线：如果你连借助 Agent 都解释不了答案，你就已经交出了所有权。</div>
+<div>
+<p>过去从提出问题到拿到答案，中间要查、要想、要掂量，判断力就是在这段路上磨出来的。现在这段路缩成了几秒。模型又越来越强，明显的错越来越少，交回来的东西格式漂亮、大体正确，根本不会逼你再看第二眼。<strong>它错得少了，看的人也就松了。</strong></p>
+<p>办法当然不是少用 AI。该交的照样交，难的是分清哪些交出去还归你，哪些一交就再也收不回来。</p>
+<div>
+<div>核心滑坡：从「让 AI 打工」到「认知投降」的三档位移</div>
+<p>危害最隐蔽的地方在于：往下滑没有声音，每一步都显得无比合理。直到被问到为什么，才发现自己和 Agent 都讲不清楚。</p>
+<div>
+<div>
+<div>
+<span>01</span>
+<span>认知委托 · Offloading</span>
+<span>所有权仍归你</span>
+</div>
+<p>活交出去了，结果还归你，你知道它干了什么，也能为它负责。动哪一块就让它讲哪一块，缺什么补什么。</p>
+</div>
+<div>
+<div>
+<span>02</span>
+<span>顺从 · Deferral</span>
+<span>未经验证直接采纳</span>
+</div>
+<p>AI 的输出直接成了你下一步的输入，不再被当成一个有待验证的猜想。只看格式整齐就签字放行，戒备在舒适中卸下。</p>
+</div>
+<div>
+<div>
+<span>03</span>
+<span>认知投降 · Surrender</span>
+<span>丧失所有权</span>
+</div>
+<p>AI 的输出悄悄变成了你自己的想法，你压根不觉得需要检查。代码整齐、测试全过，背后的真实理解却已不复存在。</p>
+</div>
+</div>
+<div>
+<div>Addy Osmani 的所有权红线</div>
+<div>「如果你连借助 Agent 都解释不了答案，你就已经交出了所有权。」</div>
+</div>
+</div>
+<div>
+<div>
+<div>可以整个交出去：错了也不贵</div>
+<ul>
+<li>三家评分差不多的酒店挑哪家。选错代价很小，后果也只落在自己头上。</li>
+</ul>
+</div>
+<div>
+<div>推理留在手里：后果别人来扛</div>
+<ul>
+<li>家里的钱怎么投、怎么给孩子的职业出主意；工作上做什么、哪些改动影响哪些用户、能不能放心上线。</li>
+</ul>
+</div>
+</div>
+<div><p>错了不贵的事，放手交出去；后果要别人承担的事，推理留在自己手里。</p></div>
+</div>
+<div>
+<div>结构重构</div>
+<h2>人脑没被替掉，只是挪到了两头</h2>
+<p>理解仍然在干活，只是从中间挪到了开头和结尾：开头交代任务和背景，结尾审查结果。写好提示词本身就是一项批判性思考能力。</p>
+<div>
+<div>
+<div>开头：交代意图与约束</div>
+<div>
+<span>警惕「意图债」</span>
+<span>过去需求含糊总有人追问；Agent 不会拦你，会自行脑补做完，但背后的想法依然是糊的。</span>
+</div>
+<ul>
+<li><strong>先猜后问：</strong>求助前先自己猜一个答案；实在猜不出，再用盲点扫描找出「不知道自己不知道」的东西。</li>
+<li><strong>合作而非外包：</strong>两轮修补不对就重写提示词；让 Agent 采访你没交代清楚的目标与约束。</li>
+</ul>
+</div>
+<div>
+<div>结尾：守住标准与证据</div>
+<div>
+<span>警惕「编排税」</span>
+<span>做完的活堆得比你看得快。当你产出的东西多过你能担保的，你就不是在审查了，你是在祈祷。</span>
+</div>
+<ul>
+<li><strong>署名底线：</strong>不愿署上自己名字的东西，就不发出去；没过线的原因写进共享配置、Hook 或测试。</li>
+<li><strong>考考自己：</strong>文档就合上它，凭记忆写出主要论点；代码改动就让 Claude 出一套测验题，测验全对才合并。</li>
+</ul>
+</div>
+</div>
+<div>
+<p>哲学家 Andy Clark 区分过「把事委托给 AI」和「跟它合作」：合作时你的提示词让输出更好，输出又让你下一条提示词更准、对问题想得更清楚。</p>
+</div>
+</div>
+<div>
+<div>审查实践</div>
+<h2>绿勾不等于做完：先看证据与决定，再看总结</h2>
+<p>Agent 让写测试便宜到几乎不要钱，满屏绿色随手就有，可绿色和「功能是好的」之间还隔着几道坎。瓶颈已经从「写代码」转到了「确认自己是对的」。审查必须穿透表面总结，直击核心决定。</p>
+<div>
+<div>
+<div>1. 查命令与日志</div>
+<div><strong>收到完成先别看总结：</strong>先看它实际跑了哪些命令、输出了什么。终点要是摸得着的测试、截图或日志。</div>
+</div>
+<div>
+<div>2. 摊开隐性决定</div>
+<div><strong>逼它列出决定与假设：</strong>比如事务里的操作顺序被调了、边缘情况的默认值被反了，这些在「一切顺利」的总结里都看不见。</div>
+</div>
+<div>
+<div>3. 全新上下文挑错</div>
+<div><strong>子 Agent 挑毛病：</strong>让全新上下文的子 Agent 专挑漏洞，固定进流程、每次都跑；最后再问一句「我漏了什么吗？」。不是每件事都要深挖：说不出这些检查会漏掉什么，就去要一次真正的审查。</div>
+</div>
+</div>
+</div>
+<div>
+<div>日常练习</div>
+<h2>不练的技能，消失得比你想的快</h2>
+<p>你不愿放掉的那些，就一直练着。不必全盘照做，挑适合自己工作流的就行。</p>
+<div>
+<div><div>每周</div><div>不用 Agent 写一点代码，或亲手做一件「要是忘了怎么做就糟了」的事。</div></div>
+<div><div>每月</div><div>写下已经不再做的事，决定哪些放掉也无所谓；再问自己：如果 AI 不存在了，你会有多迷茫？</div></div>
+<div><div>排进计划</div><div>认真检查 Agent 的产出是实打实的工作，把它当正式任务排期，不然团队最后就不会做。</div></div>
+</div>
+</div>
+<div>
+<div>底线认知</div>
+<h2>模型再强，责任也交不出去</h2>
+<p>再过一两年模型能发现的漏洞可能和人一样多，但人脑判断仍然不可或缺：总得有人为上线的东西负责；而在具体场景该信它多少，本身就是一种动态判断。</p>
+<div>
+<div>
+<div>一个人</div>
+<div>AI 帮了再多忙，最后签字担责的还是一个人</div>
+</div>
+<div>
+<div>监督悖论</div>
+<div>审查 AI 所需的能力，恰恰可能因过度用 AI 而退化</div>
+</div>
+<div>
+<div>4 个问题</div>
+<div>模型替你答不了：在做什么、为什么值得做、会影响谁、愿为它放弃什么</div>
+</div>
+</div>
+<div>
+<div>核心值得带走的三条法则</div>
+<ul>
+<li><strong>危险在错得少：</strong>明显的错少，警惕心就散；判断在一次次「看着没问题」里交了出去。红线只有一条：借助 Agent 还讲不讲得清。</li>
+<li><strong>人脑挪到了两头：</strong>开头写清意图与边界防「意图债」，结尾守住标准与证据防「编排税」，中间才放心交给 Agent。</li>
+<li><strong>先证据后总结：</strong>先看跑了什么、替你决定了什么，再看它宣称做成了什么。</li>
+</ul>
+</div>
+</div>
+</div></div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://x.com/addyosmani/status/2117512471930167377">看原网页 ↗</a></p></div><div></div><div><div><h1>Critical thinking when agents do the work</h1></div><div><figure><img src="https://pbs.twimg.com/media/HV7huCLbAAAiKaV.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>Back in the day, critical thinking was taught as approaching new info with humble curiosity and a healthy dose of skepticism - take in different views, form your own opinion. Still true, but <strong>increasingly, nothing in my day-to-day forces critical thinking on me now that so much of my work runs through agents</strong>. For the engineers and product people who have fully bought into agentic workflows (running multiple sessions in parallel and expecting the models to improve), I'm here to say: I'm a big fan of these tools. I'm not writing this to advocate for less agentic workflows.</p></div><div><p>My goal is to help you maintain critical thinking in a world where it's easy to offload anything to an agent.</p></div><div><p>In the past, most of our cognitive and aesthetic processing happened in the space between question and answer. That space is now measured in seconds. The more you use agentic workflows, the more difficult it becomes (though not in the way I think people expected): as the models improve, the percentage of obvious errors is lower. Many (most?) outputs will be well-written and mostly correct, but they won't demand a second look.</p></div><div><p>Even if you are running many agents at a time, you still only have one pair of eyes on the outputs.</p></div><div><p><strong>You have to build critical thinking into your day, because by default nothing will do it for you.</strong></p></div><div><p>Part of the reason it's hard to self-correct for this is that agentic workflows are pleasant. Getting fast, pleasant, often-correct answers is refreshing in a busy day, but that's also why it's easy to relax your vigilance.</p></div><div><h2><strong>Offloading, deferral and surrender</strong></h2></div><div><p>When discussing this with people, I describe it as a spectrum:</p></div><div><p>At the top: cognitive offloading, the act of delegating tasks to the AI, but maintaining ownership of the result. I do this all day. You should, too. In the middle: deferral, where the output of the tool becomes your new input; the result has ceased to be a hypothesis. At the bottom: <a href="https://addyosmani.com/blog/cognitive-surrender/">cognitive surrender</a> - the AI's output quietly becomes your own, you feel no need to check it.</p></div><div><p>Cognitive surrender is a term coined by <a href="https://ssrn.com/abstract_id=6097646">Steven Shaw and Gideon Nave</a> at Wharton. It fits neatly what I've been seeing: as trust (or laziness) increases, people drift down the spectrum. The transition is rarely observed, because the steps are each gradual and seem reasonable. You read the last answer well, so you skim the next one. You just scan the skeleton of the one after that. Then you get asked about a line and can't explain it, even with your agent's help.</p></div><div><p>That's cognitive surrender. It's how cognitive debt accumulates. It's usually discovered when you try to apply a mental model of the system and it doesn't exist. <a href="https://margaretstorey.com/blog/2026/02/09/cognitive-debt/">Margaret-Anne Storey</a> has written about how this shows up in teams as an eroding understanding of a shared system theory. I've written about the code equivalent, <a href="https://addyosmani.com/blog/comprehension-debt/">comprehension debt</a> (a term coined by Jeremy Twei). In the moment, it's completely invisible. The codebase looks pristine and the tests pass. It doesn't become obvious until you have to make a change to the system and realize that nobody understands it anymore. The same applies when you've read the table of contents of a strategy doc or spec and signed off on it.</p></div><div><p>To be clear, I'm not advocating for the impossible. It's impossible to maintain the full mental model of a large modern codebase.<a href="https://claude.dev/blog/solving-code-review-at-anthropic/">The Claude Code team has said publicly</a> that they rebuild understanding on demand: when they need to understand a part, they ask Claude to explain that slice, rather than holding the full model in their heads. As I've<a href="https://addyosmani.com/blog/intent-debt/">written about before</a>, this sort of debt is more recoverable than most engineers expect. You don't need to maintain the full model as long as you can rebuild it locally as needed. You just need to know what you don't have.</p></div><div><p><strong>Where the stakes are low, feel free to delegate entirely. When you can't explain the answer to a question, even by way of your agent, you've ceded ownership.</strong></p></div><div><p>This isn't always a problem, either. Just recently, I was recording a course and had to select one out of three similarly-rated hotels to use as a recording location. I didn't have time to manually review all the reviews, so I delegated the decision to an AI. It worked, and I'd do the same thing again. However, I wouldn't do that when deciding how to invest our money, how to advise our kids on their careers, or at work: what we should build, what changes affect what users, whether it's safe to ship. Take the handoff where being wrong is cheap, keep the reasoning where others will have to deal with the consequences.</p></div><div><h2><strong>The questions I ask myself</strong></h2></div><div><p>When I didn't know what I thought, I'd usually go back to a basic list of questions like these: How do I know that I'm working on the right problem? How do I know that I'm solving it the right way? Is there evidence that supports my conclusion? How do I know that I'm finished? Most times, this is just <a href="https://addyo.substack.com/p/critical-thinking-during-the-age">who, what, where, why, when and how</a>. When written out, it looks absurdly child-like, but it forces you to think in terms of categories that you'd otherwise ignore. These days, it's too easy to simply skip all of this and ask your agent what it thinks you should do. These are the new versions of these questions that I ask myself now.</p></div><div><p><strong>Did I formulate a hypothesis before asking?</strong> Before I run an agent on any non-trivial task, I write down, even just in my head, what I think the answer might be. It's OK if it's a bad guess. You're always welcome to change your mind in light of new information. Once you've read a well-written response, though, it's hard to imagine any other possibility. If you have no guidance whatsoever, ask for what Thariq Shihipar calls a <a href="https://claude.com/blog/a-field-guide-to-claude-fable-finding-your-unknowns">blind spot pass</a>: give the model what you know and have it find your unknown unknowns.</p></div><div><p><strong>Am I asking it to help me think or to offload thinking from me?</strong> Both are OK, as long as you know which one you're doing.</p></div><div><p><strong>What would have to be true for this to be wrong?</strong> Then go find out. A model's self-assessment of confidence is much less valuable than an actual test you can perform, so give it one.</p></div><div><p><strong>Have I heard the counter argument from a different angle?</strong> When I've taken a hard stance on something that's somewhat open-ended, I'll ask more than one model to argue the opposite side, then review the output and form my own opinion. This takes longer, but I end up knowing much more about the subject.</p></div><div><p><strong>Would I bet on this in front of the person who has to maintain it?</strong> This applies to code and to anything else that you're delivering. I believe that this is the bar for answerability.</p></div><div><p><strong>What am I no longer practicing?</strong> Maybe it's some of the routine debugging. I'm OK with letting some of that go, but I want it to be intentional.</p></div><div><h2><strong>Verification as a habit</strong></h2></div><div><p>I've been writing a lot about verification lately because I believe that <a href="https://addyo.substack.com/p/agentic-verification">the bottleneck has shifted from coding to being sure you're right</a>. When you give an agent the means to verify what it's doing, whether that be by way of end-to-end tests, property tests, or by way of actual app interactions, it can make a change, run the verification test, read the output, and attempt again all before you've looked at anything. This is what Boris Cherny calls <a href="https://x.com/bcherny/status/2007179861115511237">"give Claude a way to verify its work"</a> and I believe that this is one of the most critical components of achieving great results. Rather than reading every line, you'll be building these loops and reviewing the evidence.</p></div><div><p>You can also surrender verification. "Is there evidence that supports my conclusion?" becomes "Did the check turn green?" Agents make it so cheap to create tests that you'll see a lot of green, and you could have a passing test that doesn't catch a broken feature. If the test is written with the same mistake as the feature, it'll pass. And a green check only conveys one property. It's too easy to imagine it covers everything.</p></div><div><p><strong>When a check goes green, ask what it proved. Then ask what it didn't.</strong></p></div><div><p>Define "verified" upfront, because post-facto, you'll rationalize any outcome.</p></div><div><p>The finish line for agent work should be something tangible: a test passing, a screenshot, a log or trace. This ensures that the criteria for finishing the work is factual, and not up for interpretation (and surrender) based on something like "it looks like it's done." When you receive a finish notification from an agent, before you look at the summary, first review the code snippet of the command executed and its output.</p></div><div><p>Claude Code can also self-critique (via a subagent in a fresh context) its own work as a sanity check, and it's worth baking that into the loop so it runs every time, not just when you remember. I still ask at the end "Did I miss anything?" That sounds silly, but so often, when I finish some complex feature work using a frontier model, look at it, review it, and then ask, "Did I miss anything?" It will then come back with two or three more things. That's why I always ask.</p></div><div><p>None of this needs to be the norm, of course; knowing when to go deep is a skill. My favorite rule of thumb from our <a href="https://claude.dev/blog/solving-code-review-at-anthropic/">write-up on how the Claude Code team does code review</a> is: "If you can't say what the checks would miss, ask for a real review rather than a quick approval."</p></div><div><p>This applies beyond code as well. If an agent has synthesized fifty customer calls for you, or a competitive analysis, check a couple of the source documents to make sure the summary is accurate. Check a number that your recommendation depends on to make sure it's being calculated correctly.</p></div><div><p><strong>Agents have made verification cheap to set up. What's difficult for you is knowing what good verification looks like.</strong></p></div><div><h2><strong>Actually paying attention to what's generated</strong></h2></div><div><p>Say an agent gives you a 600-line PR. You roughly look at the structure. You don't read every line. The variable names look reasonable and the tests pass, so you approve it. But somewhere in the middle there's a subtle ordering change in a transaction boundary, or a flipped default on an edge case you never thought about. You did review it, I guess, but only for what you already knew you'd find.</p></div><div><p>Writing code and reviewing it are different skills, and <a href="https://addyo.substack.com/p/the-80-problem-in-agentic-coding">there's a point where reviewing turns into rubber stamping</a>. So read the diff as if the AI didn't write it, and then look past the diff at what the agent decided. Over a long session it makes a lot of small decisions for you: the defaults, what's out of scope, which requirement it reinterprets when two of them clash.</p></div><div><p>You won't see any of that in a summary that says everything went well, so ask it to list the decisions and assumptions it made. Then quiz yourself. Pick a few lines at random and ask, what about this line? What about that one? For a document, close it and try to write out the main argument from memory. Some have a habit I like for long sessions: have Claude write a report on the change, and then give you a quiz at the bottom, where the rule is <a href="https://claude.com/blog/a-field-guide-to-claude-fable-finding-your-unknowns">"I only merge after I pass the quiz perfectly."</a></p></div><div><p><strong>Understand what you're shipping well enough to defend it. Because at some point, someone could ask.</strong></p></div><div><p>Agents can also guard your attention. For example, I have an open source project that receives a lot of pull requests. I'll use agents to help determine what's incoming, what's contrary to our guidelines, and where my attention is likely required. I rarely let the agents self-determine this, but they can narrow it down to where I should focus my attention, and then I can actually think about whether these changes are solving the right problem in the right way.</p></div><div><p>Then there's volume, and you have to be honest with yourself about it. I've called this <a href="https://addyosmani.com/blog/orchestration-tax/">the orchestration tax</a>. It's the gap between what your agents generate and what you'd feel comfortable putting your name on. If finished work is piling up faster than you can get through it, another session won't help until you've fixed that: tighten the checks so less of it needs you, or slow down.</p></div><div><p><strong>When you're producing more than you can stand behind, you're no longer reviewing. You're hoping.</strong></p></div><div><h2><strong>Quality in, quality out</strong></h2></div><div><p>The human mental model is still involved, but instead of in the middle, it's at the front and end. You're putting your energy into the front-end of the task description and context, as well as the back-end of reviewing the output. This is why good input is so important to the quality of output, and I view good prompting as a critical thinking skill.</p></div><div><p>Historically, if you made a non-specific request, someone would challenge it, and you might realize, "Oh wait, I actually didn't figure this out." An agent often won't stop you there. It fills in what you left out and hands back something that looks done, even though the idea behind it is still fuzzy. I've written about this as <a href="https://oreillyradar.substack.com/p/the-intent-debt">intent debt</a>, the implicit goals, constraints and rationale that may exist in artifacts you didn't write. Unlike other kinds of debt, nobody else can fix this one for you. The intent has to come from you.</p></div><div><p><strong>Your prompt is a reflection of your understanding of the problem, and if you can't express it clearly, it may not be clear in your own mind.</strong></p></div><div><p>Write your own request brief in your own words before you ask for help. Describe the audience, out-of-scope items, and the definition of done. When your second round of corrections hasn't got you there, stop tweaking and rewrite your prompt.</p></div><div><p>You can have the agent help you with this too. I like the distinction Andy Clark makes between delegating to an AI system and <a href="https://pubmed.ncbi.nlm.nih.gov/40389440/">collaborating</a> with it. In the latter case, you're in a virtuous cycle of mutual amplification: your prompts sharpen your output, sharpen your next prompt and sharpen your mental model of the problem. If it's not clear, ask the agent to interview you about what it doesn't understand. If you close the session having refined your own mental model, that's a sign of success.</p></div><div><p>Also be careful about the input. It's easy for each agent to just pass the previous agent's summary into its context, and before long the third agent hasn't read the original document.</p></div><div><p>You also need your own standards for output. I've played around with AI in lots of different creative mediums, and most of it never gets shown because it doesn't meet my standards. Things are all coming out nicely formatted and confident, so polish is no longer a useful signal.</p></div><div><p><strong>AI may have made it faster to produce, but if I wouldn't feel comfortable attributing the output to myself, I won't output it.</strong></p></div><div><p>When something doesn't meet your standards, note why in shared config, a hook or a test so that it doesn't happen again. That's how <a href="https://addyo.substack.com/p/agentic-verification">taste compounds</a>, and noting why something didn't make the cut is good practice on its own.</p></div><div><h2><strong>"But the models will be better at this than me"</strong></h2></div><div><p>If you're as bullish on the future of this space as many people around me are, you've probably had this thought for a couple of sections. In a year or two, the model will be able to detect what I'd be able to detect, so why bother maintaining the skill?</p></div><div><p>You may be right on a lot of that detection, and I've been arguing for increasingly pushing detection to agents myself. But here's why I think it still matters: at the end of the day, someone is responsible for what ships. Regardless of how much AI helped, <a href="https://addyo.substack.com/p/code-review-in-the-age-of-ai">a human has to take responsibility</a>.</p></div><div><p>The question of how much to trust an agent for any given task is itself a judgment call. Part of staying calibrated is reviewing the work, because what the models get wrong keeps changing. Anthropic's own research on its engineers and researchers <a href="https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic">calls out the trap</a> as the paradox of supervision: "supervising Claude requires the very coding skills that may atrophy from AI overuse."</p></div><div><p>These are some of the things that matter most to me and that a better model won't solve: what are you building, why is it worth it, who does it impact and what are you willing to sacrifice? Those are all questions you need to answer. An agent can be helpful in working them through, and I would like it to be, but ultimately they're still yours.</p></div><div><p><strong>You may offload the work and much of the auditing, but not the accountability.</strong></p></div><div><h2><strong>Practices for the everyday</strong></h2></div><div><p>You don't need to do all this rigorously. Just plug in what works for your workflow.</p></div><div><p>Once a week, write a bit of code without an agent, or do one real thing that would suck if you forgot how to do it. (I've <a href="https://addyosmani.com/blog/cognitive-surrender/">called this a calibration exercise</a>, but I don't mean it as a moral one.) Once a month, write down what you've stopped doing and decide which of those you're okay not doing. <a href="https://addyo.substack.com/p/avoiding-skill-atrophy-in-the-age">One question from an old blog post of mine</a> remains as valid as ever: How lost would you be if AI didn't exist?</p></div><div><p>If something is above your comprehension, go learn it. If I'm writing and I run into a phrase I haven't seen before, I could Google a one-line explanation and include it. I prefer to do a little research to properly understand it, so I can see where it fits.</p></div><div><p>Checking the machine properly is real work, and pretending otherwise is how teams end up not doing it. It isn't free, so schedule it as a line item and you'll actually get it done.</p></div><div><p><strong>Skills that you stop exercising are going to go away, and probably faster than you might guess.</strong> Keep doing the ones you're not willing to let go.</p></div><div><h2><strong>What to bring with you</strong></h2></div><div><ul><li><strong>Be intentional.</strong> An agent can quiz you, interview you and show you its evidence, but only if you set that up. So set it up.</li><li><strong>Be honest about your place on the spectrum.</strong> If you can't explain the answer, even with an agent's help, you've surrendered it.</li><li><strong>Have a hypothesis.</strong> Formulate one before asking, even if it's bad.</li><li><strong>A green check means one thing.</strong> What did it check? What did it not check?</li><li><strong>Look for evidence.</strong> Read what it ran and what it returned before reading the summary.</li><li><strong>Read to know what decisions it made.</strong> What did it decide for you?</li><li><strong>Craft your prompt.</strong> How you write what you prompt shows how much you understood the problem.</li><li><strong>Set a bar, and stick to it.</strong> If you wouldn't put your name on it, it doesn't go out.</li></ul></div><div><p>Keep yourself in the game by manually applying the skills that matter. One thing you could do: Before you ask, write down what you think will happen, and after the agent is done, write down one thing it didn't check. Let me know if that changes the way you read the output. <strong>Think independently. Ask better questions. Take responsibility for the outcome.</strong></p></div><div><figure><img src="https://pbs.twimg.com/media/HWLT4glawAA6egZ.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/addyosmani/status/2117512471930167377">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】a16z：模型越便宜，AI 应用越难收高价，怎么办？ · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/ai-applications-premium/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:ai-applications-premium</guid>
+<pubDate>Wed, 04 Nov 2026 12:00:23 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 模型越便宜，为什么 AI 应用越难收溢价？ 02 规则一：在完整工作流里，把脏活做得比客户自己强 03 规则二：让数据上下文“租起来”比“自建”更便宜 04 规则三：先算清并证明交付的价值，再按结果定价 05 在底层模型追赶上来之前，跑出复利 AI 解读 / 深度 · 11-03 · 约 7 分钟 · 作者 a16z News a16z：模型越便宜，AI 应用越难收高价，怎么办</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 4 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">a16z：模型越便宜，AI 应用越难收高价，怎么办？ · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/ai-applications-premium/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>模型越便宜，为什么 AI 应用越难收溢价？</span></a><a><span>02</span><span>规则一：在完整工作流里，把脏活做得比客户自己强</span></a><a><span>03</span><span>规则二：让数据上下文“租起来”比“自建”更便宜</span></a><a><span>04</span><span>规则三：先算清并证明交付的价值，再按结果定价</span></a><a><span>05</span><span>在底层模型追赶上来之前，跑出复利</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>深度</a><i>·</i>11-03<i>·</i>约 7 分钟<i>·</i>作者 a16z News</div><h1>a16z：模型越便宜，AI 应用越难收高价，怎么办？</h1><p>a16z 增长基金拿 Harvey、Decagon、Clay 的真实案例，讲 AI 应用在客户「自己用大模型搭一个」越来越容易时，凭什么还能收高价、该怎么定价。</p><div><div>正文一页纸原文</div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>a16z News</span><span>11-03 · 约 7 分钟</span><span>⚑ 大佬观点 · 个人立场</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>大模型降价对客户也一样：客户自己调模型、搭个原型就能替掉一部分功能，AI 应用的高价就守不住了。</li><li>守住价格靠三件事：整条工作流做得比客户自己强、把数据整理好租给客户比他们自建便宜、拿可算的结果证明价值。</li><li>别按 Token 收费，按「审完一份合同、解决一张工单」这种客户看得懂的成果收；Clay 把可预测部分和波动大的模型费拆开收。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/ai-applications-premium/social/zh-4862451c6178.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>推理成本的下降确实能改善应用公司的毛利，但更强大的模型与更易用的开发工具，并没有让 AI 应用层躺着赚钱，反而正在动摇那些能被一条 Prompt 复现的产品。</p>
+<p>一位全球专业服务机构的买家直言：如果直接给前沿大模型发一条 Prompt 得到的结果比软件工具还要好，企业完全没有理由支付平台溢价。当客户的替代方案越来越强，应用的溢价就只能在工作流层去赚——把活干得比客户强、把上下文做成值得租的、拿结果证明价值并按结果定价。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/ai-applications-premium/hero.png" alt="更便宜的智能反而推高了 AI 应用收费的门槛" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>底层智能越廉价，AI 应用越难单纯靠“接入大模型”收高价。</span><br />
+    通用大模型的进化在不断抬高客户自建替代方案的水平，只有在模型层之上提供不可替代价值的应用，才能保住定价权。
+  </figcaption>
+</figure>
+<h2>模型越便宜，为什么 AI 应用越难收溢价？</h2>
+<p>面对客户禁止使用第三方产品的敏感项目，前述专业服务机构搭建了可以在本地或私有环境运行模型的内部 AI 平台，并持续尝试用开源代码替代商业软件。</p>
+<p>客户不需要把整套复杂的 SaaS 软件完全重写一遍，才能把供应商的价格打下来；<strong>只要客户能把自己内部某个高频、大通量的核心任务收回自建，或者建立一个差不多的内部替代原型，你的溢价能力就已经被动摇了。</strong></p>
+<p>这就把所有应用层团队推向了同一个商业终局测试：<strong>自建 vs 购买（Build-versus-Buy）</strong>。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/ai-applications-premium/build-vs-buy-test.png" alt="a16z 自建 vs 购买评估模型：企业为什么购买 AI 应用" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>底层模型能力对买卖双方完全对称，应用溢价只能在工作流层而非模型层获得。</span><br />
+    自建需要客户自己选模型和调度、接入数据、评估输出并维护系统，购买则由厂商吸收工作流编排与模型优化等复杂度；买方最终在质量、速度、总成本与风险上全面对比完成的工作。
+  </figcaption>
+</figure>
+<p>自建时，客户要自己选模型和调度、接入公司数据、评估输出、维护整套系统；购买时，厂商把工作流编排、上下文和集成、评测和管控、持续优化模型这些复杂度吸收掉。然后再比完成的工作：质量、速度、总成本、风险；应用的优势值得它的溢价，客户才买。</p>
+<p>底层模型的演进对所有参赛者都是平等的——客户与软件厂商都能以同样便宜的单价调用同等强度的智能。软件厂商如果只是当一个把用户输入转交 API 的“二道贩子”，客户很快就会绕过你。</p>
+<p>这四项具体比的是：</p>
+<ul>
+<li><strong>质量（Quality）：</strong> 交付成果是否稳定符合专业标准，还是需要人类员工耗费数小时擦屁股？</li>
+<li><strong>速度（Speed）：</strong> 整个业务流转是秒级闭环，还是卡在不同系统的孤岛里？</li>
+<li><strong>总成本（Total Cost）：</strong> 软件费用加上人工复核费用，是否真正低于自建管道的研发、维护与纠偏成本？</li>
+<li><strong>风险（Risk）：</strong> 数据安全、合规审查以及跨司法管辖区的专业准确性是否有确定性保障？</li>
+</ul>
+<p>支撑这些维度的，是四个显而易见却必不可少的定价抓手：领域专长、深度集成、可靠执行以及难拿到的上下文。它们能让采购变得远比自建更有吸引力；创始人需要弄清客户真正看重哪项优势，再去强化并为之定价。定价一直重要，但现在格外重要；可很多增长很快的 AI 公司不愿碰它，常把定价往后拖。</p>
+<p>当且仅当一个 AI 应用在这些维度上创造的综合优势大于其收取的溢价时，采购决策才会发生。想要持续守住这份溢价，软件团队必须落实三条原则：在工作流里把活做得比客户好、让上下文租起来比自建便宜、先算清并证明交付价值再按结果定价。</p>
+<h2>规则一：在完整工作流里，把脏活做得比客户自己强</h2>
+<p>要防守溢价，厂商必须在“整个端到端业务工作流”的执行质量上，全面超越客户自建的替代方案。</p>
+<p>以企业法务中的合同审查为例：这绝不仅仅是把一段文本丢给大模型让它挑错，它要求精准对齐企业的法务红线标准、保持长篇文档中所有修改的一致性、并在跨轮次的多方谈判博弈中始终保留完整的上下文。</p>
+<p>跨国能源巨头 Repsol 的法务团队把“自建 vs 购买”做了一次直接对比。在第一阶段的盲评中，团队同台对比了三套方案：</p>
+<ol>
+<li>垂直法律 AI 应用 <strong>Harvey</strong></li>
+<li>通用办公助手 <strong>Microsoft Copilot</strong></li>
+<li>Repsol 内部工程团队自研的法律 AI 原型 <strong>Lexia</strong></li>
+</ol>
+<p>在这场盲评中，Harvey 给出了最高质量的输出。随后，团队开展了一场为期 8 周的试点，由 50 位跨越 12 个司法管辖区的专职律师参与，Harvey 在准确度和节省时间上再次胜过另两套方案。Repsol 随后决定在法务部门全面推行。</p>
+<p>落地后的成效非常显著：据 Harvey 披露，目前该法务部门的软件采纳率达到了 96%，每位律师每周节省 4 到 6 个小时。不仅如此，业务收益还延伸到了未来的工作中：法务团队利用 Harvey 系统梳理了历史上所有协议中反复出现的异议，进而优化了标准合同模板，并补充了后备应对条款（Fallback Language）。</p>
+<a><span>延伸阅读 · Harvey 在做什么</span><strong>Harvey 开源了一个超过 1 亿 Token 的合成律师事务所</strong><span>Harvey 把一整间虚构律所的 9288 份档案开源，出 250 道题测 AI 能不能在一家律所自己的文件堆里找到答案。</span><b>阅读全文 →</b></a>
+<p>Harvey 的溢价究竟是怎么赚来的？答案藏在它的工作流引擎 <strong>Playbook Review</strong> 的运行机制里：</p>
+<ul>
+<li><strong>多 Agent 编排分工：</strong> 系统不是用单一大模型一问一答，而是由主控 Agent 将整份复杂的审查任务拆解给多个细分领域的专业 Agent，随后自动对冲并调解互相冲突的修改意见，最终统一核查整份文档。</li>
+<li><strong>严苛的标准评测与动态模型路由：</strong> 系统建立了一套专业的法律评估基准（Legal Rubrics），并针对每一个子任务在质量、速度与成本上的要求，动态挑选和路由最合适的模型，而不是死板地全量调用昂贵的超大模型。</li>
+<li><strong>上下文留痕与批注学习闭环：</strong> 系统完整保留了审查上下文，使后续的修改要求能顺畅继承前序工作。Harvey 说下一步还想从律师接受、修改或拒绝的批注（Redlines）里学习，让后面的审查需要更少指点。</li>
+</ul>
+<p>每一次跑完完整的工作流，都在给应用沉淀出更准的评测用例、更干净的业务上下文以及更深的企业专有知识。当这种积累让下一次结果变得更好，应用的优势就会随使用而滚雪球。<strong>这种随使用积累的优势，正是阻击客户自建的护城河。</strong></p>
+<p>对创始人来说：拿你最容易被替代的工作流，和客户最强的可信替代方案对比，把实施、人工复核、失败尝试与维护成本都算进去；找出哪些环节越用越好，并量化积累带来的质量、可靠性与交付成本提升。</p>
+<h2>规则二：让数据上下文“租起来”比“自建”更便宜</h2>
+<p>上下文数据能够支撑应用溢价，通常基于两种形态：独占性的外部准入、或者极其高难度的清洗与准备。</p>
+<p>第一种是<strong>独家信息准入</strong>。如果你的软件掌握了客户在别处根本搞不到的高价值客观事实，数据本身就自带定价权。</p>
+<p>一家典型的垂直行业软件公司在长达数年的运营中，积累了约 3,000 家企业的专有真实定价基准。这家公司正在探索通过 MCP（Model Context Protocol）服务将这些数据开放给企业 AI Agent 查询。</p>
+<p>这背后的商业经济学极其清晰：</p>
+<ul>
+<li>软件厂商承担了最繁琐的底层苦活：一次性完成这 3,000 家企业数据的采集、归一化清洗、交叉验证与持续更新。</li>
+<li>然后，厂商把这笔维护成本摊销给平台上的众多客户。</li>
+<li>对于单家客户而言，按需租用可靠且最新的数据上下文，花费远低于靠自身力量去独立重建和维护一套同等资源。</li>
+</ul>
+<p>厂商通过消除行业内重复造轮子的工作赚一份毛利；而企业客户则以更低的总成本拿到了更高质量的答案。</p>
+<p>第二种是<strong>客户自有资产的深加工</strong>。</p>
+<p>企业的内部政策制度、CRM 销售记录、历史合同文档以及工作流沟通历史，所有权虽然本来就属于客户自己，但<strong>“拥有数据”并不等于“数据可被 AI 可靠使用”</strong>。</p>
+<p>想要让这些私有数据在企业严苛的业务场景中不出错，需要经历繁重的工程管线：复杂的权限隔离配置、非结构化文本的清洗与标准化、高精度的检索增强（RAG）、以及持续的数据失效校验。</p>
+<p>如果一个 AI 应用能把这套苦活做深做透，并利用员工在日常使用中的真实反馈不断纠偏上下文，它索取的服务费就会显得格外划算。</p>
+<p>对创始人来说：先分清客户是为独家获取付钱、为数据准备付钱，还是两者兼有；再在同等质量下，把你的价格和替客户省掉的工程、验证与维护工作量做对比。</p>
+<h2>规则三：先算清并证明交付的价值，再按结果定价</h2>
+<p>在 a16z 对 100 位企业大模型决策者的调研中，有 94% 的受访者明确表示未来一年将继续增加大模型总支出，更有 37% 的企业预计支出规模至少翻倍。</p>
+<p>随着支出增长，客户需要看清这笔钱换回了什么：完成了多少工作、质量如何，以及相对于替代方案的总成本到底是多少。这些证明构成了决定应用该收多少钱的基础。</p>
+<p><strong>客户采购的是“已交付的工作”，而不是“底层推理的 Token”。</strong></p>
+<p>先选一个客户认得的单位（审完一份合同、解决一个客服对话、完成一项研究任务、补全一条记录）。算清它的全部交付成本，包括检索、模型调用、工具、重试、评测以及人工复核。失败的尝试也要摊进“每个成功完成单元”的成本里。再把应用价格、实施、持续监管和剩余人工，与被替代流程的成本和质量做对比；如果客户内部自建是可信选项，还要把自建的开发和维护成本一并算进去。</p>
+<p>知名协作平台 Notion 在搭建客户支持系统时，曾考虑过内部自建，但为了让团队专注于自身核心平台，最终决定选择外部方案；在质量、集成、安全和合作关系上综合评估后，选了 Decagon。</p>
+<p>公开案例显示，引入 Decagon 后，Notion 的工单解决时间最多改善了 34%。这个数字给后来的买家一个选它的理由，也给了一把衡量改进的尺子。</p>
+<a><span>延伸阅读 · 同一个问题的另一面</span><strong>a16z：全球AI 让应用数量暴涨，但用户和付费却没有跟上...</strong><span>同样来自 a16z：做应用越来越容易，愿意付钱的用户却没跟上。</span><b>阅读全文 →</b></a>
+<p>证明了业务价值之后，厂商该如何收钱？</p>
+<p>正如 a16z 的 Sarah Wang 和本文作者此前在《You Are Not a Model. Don't Price per Token》里所论述的，应用应该在自身能够可靠度量、合理归因且牢固防守的最高价值层进行定价——以客户认得的业务单元来计费：</p>
+<ul>
+<li>成功审查完一份复杂合同</li>
+<li>妥善解决一桩客户服务工单</li>
+<li>交付一份深度的商业调研简报</li>
+<li>自动丰富并清洗好一条销售潜客档案</li>
+</ul>
+<p>点数只是一种货币，不是价值的度量；它必须映射到任务或客户能预估的工作量级别上，买方才能做预算。</p>
+<p>但可预测性也必须经得起真实业务负载的检验。</p>
+<p>获客与数据平台 Clay 的定价备忘录就描述过固定定价的弊端：固定的 AI 价格让简单任务被多收了钱，同时又让复杂任务无利可图。</p>
+<p>Clay 的应对方式是：将 Data Credits 与用于编排的 Actions 分开计费；对边界较清楚的 AI 任务保留固定积分定价；而对消耗波动较大的推理模型，则按实际发生的 Token 成本原价转给客户、不加价。这样一来，客户既能为编排逻辑付费，又把高波动的模型输入成本单独做了处理。</p>
+<p>价格绑在客户认得的工作上，好处是随着交付成本下降，厂商可以通过模型路由、缓存（Caching）或换更好的模型来提升利润、降低价格，或者在同样的方案里包含更多工作。客户无需紧盯底层模型组合的每一次微调，就能分享到这些效率红利——前提是整套报价仍比客户的替代方案划算。</p>
+<p>对创始人来说：选一个买方能预估的计价单位；按典型工作流和昂贵工作流分别测算毛利；再决定省下来的效率怎么和客户分，同时保证整体报价仍有吸引力。</p>
+<h2>在底层模型追赶上来之前，跑出复利</h2>
+<p>每一次底层基础模型的版本升级，实际上都在悄无声息地提升客户自建替代方案的水位线。</p>
+<p>如果你的 AI 应用今天能做到的事情，半年后客户在通用大模型的网页对话框里敲几句话也能做到七七八八，那么任何所谓的高端溢价都只是昙花一现。</p>
+<p>企业是否为你掏钱，最终永远取决于一场严肃的综合较量：<strong>购买你的软件所获得的质量、速度、成本与风险综合收益，是否明显压过了客户自建的最强替代方案？</strong></p>
+<p>可靠的工作流执行与值得信赖的上下文，构成了坚固的竞争优势；直观的工作交付成果证明，让溢价变得无可辩驳；而科学的价值定价，则让客户分享效率提升，同时让厂商因改进交付而获得回报。</p>
+<p>底层模型的脚步从未放缓。AI 应用想要长久守住自己的溢价，唯一的生路就是让自己的综合工作流优势，奔跑得比底层模型进化的速度更快。</p>
+</div><div><div><div>来源</div><div><span>How AI Applications Earn Their Premium</span><span><a href="https://www.a16z.news/p/how-ai-applications-earn-their-premium">查看主材料</a></span></div></div></div></div></div><div>
+<div>
+<div>PRICING LOGIC · BUILD VS BUY</div>
+<h1>AI 应用如何赚取溢价：在模型追赶上来之前跑出复利</h1>
+<div>底层智能越廉价，单纯接入大模型的薄壳应用越难收高价；企业要买的是交付的工作，不是 Token。</div>
+<div>核心洞察：自建与购买四维决策矩阵 · 工作流滚雪球飞轮 · 价值单元定价</div>
+<div>
+<p>推理成本下降可以改善应用公司的毛利，但同时也让企业买方手里的替代方案越来越强。如果直接向通用大模型发送一条提示词就能解决业务问题，企业完全没有理由支付平台溢价。</p>
+<p>底层大模型的进化速度对所有人完全对称。企业无需把整套复杂 SaaS 完全重构；只要客户能将内部某个高频、大通量的核心任务收回自建，或者搭出一个可信的内部替代方案，应用的定价权就已经被实质动摇。所有的 AI 应用团队都被推向了同一个终局审判：<strong>自建 vs 购买（Build vs Buy）</strong>。</p>
+<div>
+<div>
+<div>
+<span>质量 Quality</span>
+<span>专业级标准</span>
+</div>
+<p>交付成果是否稳定符合企业生产红线，还是需要员工耗费数小时人工擦屁股？</p>
+</div>
+<div>
+<div>
+<span>速度 Speed</span>
+<span>全流程闭环</span>
+</div>
+<p>整个业务流转是顺畅闭环，还是卡在系统之间的人工搬运里？</p>
+</div>
+<div>
+<div>
+<span>总成本 Total Cost</span>
+<span>全周期账本</span>
+</div>
+<p>软件订阅费加人工复核成本，是否实质低于自建工程管道的研发、算力与纠偏成本？</p>
+</div>
+<div>
+<div>
+<span>风险 Risk</span>
+<span>确定性保障</span>
+</div>
+<p>面对权限隔离、敏感数据合规与跨司法管辖区审查，系统是否具备确定性的容错兜底？</p>
+</div>
+</div>
+<p>客户自建时需要自行处理选型调度、数据接入、评估与运维；购买时则是让软件厂商<strong>吸收工作流编排与模型优化的所有复杂度</strong>。买方综合对比完成的工作，只有当应用创造的综合优势明显盖过溢价时，采购才会发生。</p>
+</div>
+<div>
+<div>
+<span>规则一 · 核心护城河</span>
+<h2>在端到端完整工作流中，把脏活做得比客户自己强</h2>
+<p>防守溢价的第一原则，是执行质量在完整业务闭环上全面碾压自建方案。能源巨头 Repsol 法务部先做了一场盲评，同台测试垂直法律 AI <strong>Harvey</strong>、<strong>Microsoft Copilot</strong> 和自研原型 <strong>Lexia</strong>，Harvey 输出质量最高；随后 50 名律师、12 个司法管辖区参与的 8 周试点里，它在准确度和省时上再胜。全面推行后，据 Harvey 披露，采纳率 96%，每位律师每周省 4 到 6 小时。</p>
+<div>
+<div>
+<span>01</span>
+<div>
+<div>多 Agent 编排分工与意图调解</div>
+<p>拒绝单一大模型一问一答，由主控 Agent 将长篇合同拆解给多个专业子 Agent，自动对冲调解冲突修改，保证全篇法务红线一致。</p>
+</div>
+</div>
+<div>
+<span>02</span>
+<div>
+<div>专业评测基准与动态模型路由</div>
+<p>构建专属领域评估基准（Legal Rubrics），为不同审查子任务动态分发最匹配的模型组合，在质量、耗时与成本间实现全局最优。</p>
+</div>
+</div>
+<div>
+<span>03</span>
+<div>
+<div>保留上下文，下一步学律师批注</div>
+<p>系统保留审查上下文，后续请求可以接着之前的工作做；Harvey 说下一步还想从律师接受、修改或拒绝的批注（Redlines）里学习，让以后的审查少要指点。</p>
+</div>
+</div>
+</div>
+<p>每跑完一次完整工作流，都能沉淀评测用例、验证过的上下文和客户专属知识；当这些积累让下一次结果更好，优势就会随使用滚雪球。</p>
+</div>
+</div>
+<div>
+<div>
+<p><strong>规则二：让数据上下文“租起来”比“自建”更便宜</strong>　 企业的制度、CRM 与合同所有权虽然归属自身，但<strong>“拥有数据”绝不等于“数据可被 AI 可靠使用”</strong>。权限隔离、非结构化清洗、高精度 RAG 与失效校验需要极其繁重的工程管线；一家垂直软件公司积累了约 3,000 家企业的定价基准，正在探索通过 MCP 让 AI 直接查询：数据只需整理、验证、维护一次，成本摊给众多客户，客户租用比自己重建和维护更便宜。</p>
+</div>
+<div>
+<div>
+<div>94%</div>
+<div>受访企业计划未来一年增加大模型支出（37% 预计至少翻倍；a16z 对 100 位企业大模型决策者的调研）</div>
+</div>
+<div>
+<div>34%</div>
+<div>Notion 考虑过自建后选了 Decagon，公开案例显示工单解决时间最多改善 34%</div>
+</div>
+<div>
+<div>不加价</div>
+<div>Clay 把 Data Credits 和编排 Actions 分开计费；边界清楚的 AI 任务用固定积分，波动大的推理模型按实际 Token 原价透传、不加价</div>
+</div>
+</div>
+<p><strong>规则三：先算清并证明交付价值，再按客户认得的业务单元定价</strong>　 客户采购的是“已交付的工作”，而不是底层消耗的 Token。应用必须在自身可度量、可防守的最高价值层定价：</p>
+<div>
+<div>
+<div>业务</div>
+<div>客户认得的计价单位</div>
+</div>
+<div>
+<div>合同审查</div>
+<div>审完一份合同</div>
+</div>
+<div>
+<div>客服支持</div>
+<div>解决一个客服对话</div>
+</div>
+<div>
+<div>研究</div>
+<div>完成一项研究任务</div>
+</div>
+<div>
+<div>数据</div>
+<div>补全一条记录</div>
+</div>
+</div>
+<div>单元成本 = 检索 + 模型调用 + 工具 + 重试 + 评测 + 人工复核<br />失败的尝试也要摊进每个成功单元</div>
+<p>再把应用价格、实施、持续监管和剩余人工，和被替代流程的成本与质量比；客户自建可信时，还要算上自建的开发和维护。固定价格也有坑：Clay 发现固定的 AI 价格让简单任务多收了钱、复杂任务做了亏钱，所以才拆开计费。</p>
+<p>价格绑在客户认得的工作上，交付成本靠路由、缓存、换更好的模型降下来后，厂商可以提利润、降价或同价多干活，客户也能分到好处，前提是整套报价仍比替代方案划算。</p>
+</div>
+<div>
+<div>
+<div>
+<span>给创始人的三件事</span>
+</div>
+<p>① 拿最容易被替代的工作流，和客户最强的可信替代方案比，实施、复核、失败、维护全算上，找出越用越好的环节。<br />② 分清客户是为独家获取付钱、为数据准备付钱，还是两者都有。<br />③ 选买方能预估的计价单位，按典型和昂贵两种工作流分别测毛利，再决定效率红利怎么分。</p>
+<p>底层基础模型的进化脚步从不停歇。检验标准只有一条：买你的应用，在总成本、质量、速度和风险上，是否比客户最好的可信替代方案更划算（算上你的价格和实施、运营、维护的投入）。一旦能被一条提示词复现，溢价就守不住。<strong>AI 应用长久立足的唯一生路，是让端到端复杂工作流与数据飞轮积累的优势，奔跑得比底层模型进化的速度更快。</strong></p>
+</div>
+</div>
+</div></div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://www.a16z.news/p/how-ai-applications-earn-their-premium">看原网页 ↗</a></p></div><div></div><div><div><h1>How AI Applications Earn Their Premium</h1></div><div><p>Cheaper intelligence raises the bar for what an AI application can charge</p></div><div><figure><img src="https://substackcdn.com/image/fetch/$s_!pTD_!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F34ebf4eb-0f3d-4468-9709-3458409950cd_1460x650.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://substackcdn.com/image/fetch/$s_!SU5S!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8c68d5c7-8a95-49ea-9c12-8cf7f5f0f1a1_2920x10.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>Lower inference costs can improve margins for application companies, but more capable models and easier development tools can also make parts of an application easier to replace. The commercial question is what customers will continue to pay for as their alternatives improve.</p></div><div><p>This exposure varies by product. An application is vulnerable when a customer can reproduce its core output with a general-purpose model and little ongoing effort. This is <em>the question</em> for AI application companies right now. Pricing is always important, but right now it’s <em>extra important</em>, yet it sometimes gets overlooked or postponed because fast-growing AI companies are reluctant to tackle it.</p></div><div><p>All AI application companies need to spend time rigorously developing and pricing out these obvious-but-necessary capabilities: <strong>Domain expertise, deep integrations, reliable execution, and hard-to-access context. These are all pricing levers that can make buying substantially more attractive.</strong> Founders need to understand which advantages their customers actually value, then strengthen and price them.</p></div><div><p>The resulting build-versus-buy test looks like this:</p></div><div><figure><img src="https://substackcdn.com/image/fetch/$s_!ruz1!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdfbe0bee-3b0e-4c5a-980d-e6426434f552_2000x1631.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>Repsol’s legal team put the build-versus-buy question to a direct test. In a blind evaluation, it compared Harvey with Microsoft Copilot and its own internal AI prototype, Lexia. Harvey delivered the highest-quality output, then outperformed the alternatives on accuracy and time savings during an eight-week pilot involving 50 lawyers across 12 jurisdictions. Repsol proceeded with a full rollout. Harvey reports that lawyers now save four to six hours per week, with adoption reaching 96% across the legal department. The benefits also extend to future work: the team used Harvey to identify recurring objections across past agreements and improve its contract templates with fallback language. The case illustrates how an application can earn its premium through better execution than credible alternatives, measurable savings, and the ability to turn accumulated knowledge into reusable guidance.1</p></div><div><p>From this and other examples, we gather three rules for sustained success:</p></div><div><ol><li>Operate the workflow better than the customer can</li><li>Make context cheaper to rent than to rebuild</li><li>Prove the value, then price to capture it</li></ol></div><div><p>A customer does not need to rebuild your entire application to weaken your pricing power. Moving one high-volume task in-house or establishing a credible alternative can be enough to challenge the premium.</p></div><div><p>One buyer at a global professional-services firm told us that if a direct prompt to a frontier model produced a better work product than a vendor’s productivity tool, the firm saw little reason to pay the platform premium. For sensitive projects, the firm had built an internal AI platform that could run models locally or on premises when clients would not permit third-party products. It was also experimenting with open-source code and alternatives to commercial applications.</p></div><div><p>To defend the premium, the vendor must outperform the customer’s alternative across the full workflow. In contract review, that means applying a company’s legal standards, keeping edits consistent across a document, and preserving context as negotiations evolve. Those requirements help explain why a specialized application can remain valuable even when customers have access to capable models.</p></div><div><p><a href="https://www.harvey.ai/blog/rebuilding-playbook-review-as-a-multi-agent-system">Harvey’s Playbook Review</a> illustrates the execution this requires. A lead agent distributes review across specialized agents, reconciles conflicting edits, and checks the completed document. Harvey evaluates performance against legal rubrics and selects models based on their quality, speed, and cost for each task. The system also preserves review context so follow-up requests can build on earlier work. Harvey describes a further opportunity: learning from the redlines lawyers accept, edit, or reject, so future reviews require less guidance.</p></div><div><p>Each completed workflow can also strengthen evaluations, validate context, and deepen customer-specific knowledge. When that learning improves the next result, the application’s advantage can compound with use. Founders should measure the gains in quality, reliability, and delivery cost that accumulated learning produces.</p></div><div><p><strong>What this means for founders:</strong> benchmark your most exposed workflow against the customer’s best credible alternative. Include implementation, human review, failures, and maintenance. Identify what gets better with every use.</p></div><div><p>Context can justify a premium through exclusive access, useful preparation, or both. Private observations that customers cannot obtain elsewhere have value in their own right. For information customers can access, the advantage depends on the cost of making it accurate, current, and usable.</p></div><div><p>One vertical software company we spoke with had accumulated years of proprietary pricing benchmarks across roughly 3,000 companies and was exploring access through a Model Context Protocol (MCP) server, which would let AI systems query them directly. The economics are straightforward: the vendor can collect, organize, validate, and maintain the information once, then spread that cost across many customers. Each customer can rent reliable, current context for less than it would cost to reconstruct and maintain a comparable resource alone. The vendor earns a margin by eliminating duplicated work; the customer gets a better answer at a lower total cost.</p></div><div><p>The same could apply to customer-owned information. Policies, CRM records, contracts, and workflow history may already belong to the buyer, but preparing them for reliable use requires permissions, normalization, retrieval, and ongoing validation. An application can earn its fee by doing that work well and using feedback to improve the context over time.</p></div><div><p><strong>What this means for founders:</strong> identify whether customers pay for access, preparation, or both. Compare your price with the engineering, validation, and maintenance effort you remove, at an equivalent level of quality.</p></div><div><p>Better execution and trusted context create the potential for a premium. In our August 2026 survey of 100 enterprise LLM decision-makers, 94% expected total LLM spending to increase, and 37% expected it to at least double in the next year.</p></div><div><p>As spending grows, customers need to see what it delivers: how much work gets done, at what quality, and at what total cost relative to their alternatives. That proof provides the basis for deciding what the application can charge for.</p></div><div><p>Start with a unit customers recognize: a contract reviewed, support conversation resolved, research task completed, or record enriched. Measure its full delivery cost, including retrieval, model calls, tools, retries, evaluation, and human review. Include failed attempts when calculating the cost per successfully completed unit.</p></div><div><p>Then show what that work is worth. Compare the application’s price, implementation, ongoing oversight, and residual human work with the cost and quality of the process it replaces. Where an internal build is a credible alternative, include its development and maintenance costs too.</p></div><div><p><a href="https://decagon.ai/case-studies/notion">Decagon’s Notion case study</a> connects that comparison to a buying decision. Notion considered building internally, then chose an external solution so its teams could focus on the core platform. After evaluating quality, integrations, security, and partnership, it selected Decagon. The published case reports up to a 34% improvement in ticket resolution time. That gives buyers both a reason for choosing the application and a measure of the work it improves.</p></div><div><p>Once you can demonstrate the value of completed work, choose a pricing model that lets you capture part of that value. You could set the price based on the time saved, quality delivered, and customer’s alternatives, while ensuring profitable delivery.</p></div><div><p>As Sarah Wang and I argued in “<a href="https://www.a16z.news/p/you-are-not-a-model-dont-price-per">You Are Not a Model. Don’t Price per Token</a>,” applications should price at the highest layer of value they can reliably measure, attribute, and defend. Recognizable work—a research brief, contract review, or support interaction—can be priced directly or packaged through credits. Credits are a currency, not a value metric; they should map to tasks or intuitive levels of effort customers can plan around.</p></div><div><p>Predictability also has to survive the economics of real workloads. <a href="https://www.clay.com/blog/clay-pricing-memo-internal">Clay’s pricing memo</a> describes how fixed AI prices overcharged simple workloads while making complex ones unprofitable. Clay responded by separating Data Credits from Actions for orchestration, retaining fixed credit pricing for more bounded AI workloads, and passing through actual token costs for more variable reasoning models with no markup. This gives customers a way to pay for orchestration while treating volatile model inputs separately.</p></div><div><p>This separation also matters as delivery costs fall. When the price is tied to recognizable work, a vendor can use routing, caching, or better models to improve margins, reduce prices, or include more work. Customers can share in those gains without having to track every change in the underlying model mix. The flexibility is valuable only while the complete offer remains attractive relative to their alternatives.</p></div><div><p><strong>What this means for founders:</strong> measure the full cost of completed work, demonstrate its value against the customer’s alternatives, and choose a pricing unit the buyer can forecast. Model margins across typical and expensive workflows, then decide how to share efficiency gains while keeping the full offer attractive.</p></div><div><p>The test is whether buying your application offers a better combination of total cost, quality, speed, and risk than the customer’s best credible alternative. That comparison includes your price as well as the effort required to implement, operate, and maintain each option.</p></div><div><p>Together, execution, context, proof, and pricing strengthen the case for buying. Reliable work and trusted context create the advantage; clear evidence makes its value visible; and pricing lets customers share in efficiency gains while rewarding the vendor for improving delivery.</p></div><div><p>Model progress continually improves the customer’s alternative. Your advantage must widen faster for the application to keep earning its premium.</p></div><div><figure><img src="https://substackcdn.com/image/fetch/$s_!x83d!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fbdfa26cc-8980-41ca-a3bb-7ece793bed5b_3098x158.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://substackcdn.com/image/fetch/$s_!EefT!,w_140,h_140,c_fill,f_auto,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5fb357d7-cbbe-4bc1-9d76-432ea8ef9d91_2844x1600.png" alt="Charts of the Week: Job FUD Fades" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://substackcdn.com/image/fetch/$s_!SU5S!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8c68d5c7-8a95-49ea-9c12-8cf7f5f0f1a1_2920x10.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p><em>This newsletter is provided for informational purposes only, and should not be relied upon as legal, business, investment, or tax advice. Furthermore, this content is not investment advice, nor is it intended for use by any investors or prospective investors in any a16z funds. This newsletter may link to other websites or contain other information obtained from third-party sources - a16z has not independently verified nor makes any representations about the current or enduring accuracy of such information. If this content includes third-party advertisements, a16z has not reviewed such advertisements and does not endorse any advertising content or related companies contained therein. Any investments or portfolio companies mentioned, referred to, or described are not representative of all investments in vehicles managed by a16z; visit <a href="https://a16z.com/investment-list/">https://a16z.com/investment-list/</a> for a full list of investments. Other important information can be found at <a href="http://a16z.com/disclosures">a16z.com/disclosures</a>. You’re receiving this newsletter since you opted in earlier; if you would like to opt out of future newsletters you may unsubscribe immediately.</em></p></div><div><p>No posts</p></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>会员可复制、下载全文 Markdown，还能让你的 AI 订阅和提问。</p><div><a>订年卡 $59/年</a><a>看权益对比 →</a></div></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://www.a16z.news/p/how-ai-applications-earn-their-premium">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】MIT 团队让大模型直接给小模型进行脑外科手术：无需训练只改权重参数，小模型数学分从 7.9% 涨到 48.1% · XiaoHu.AI</title>
 <link>https://xiaohu.ai/article/weight-space-programming/</link>
@@ -67953,339 +69282,6 @@ Only you can see the full output of this command; the user interface shows at mo
 开始工作前，用一句话说明你将要做什么。执行较长任务时，用简短更新说明刚刚发现了什么、正在做什么。结束时给出一份可以独立阅读的简要复盘，包括发现、实际完成的工作和仍需处理的事项。
 这条命令的完整输出只有你能看到，用户界面最多显示其中几行。凡是用户需要阅读的信息，都必须写进你的回复。
 </code></pre></div></div></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】麻省理工团队开源项目 Reef：让推理服务器不只负责“回答”，还负责让 Agent 能持续学习和自我改进</title>
-<link>https://best.xiaohu.ai/article/reef-continual-self-improving-agents/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:reef-continual-self-improving-agents</guid>
-<pubDate>Thu, 03 Sep 2026 12:00:23 +0000</pubDate>
-<description>线上请求留下可归因经验，Recipe 生成模型或 Harness 候选，评测与版本链决定哪些变化能进入下一轮服务。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 3 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">麻省理工团队开源项目 Reef：让推理服务器不只负责“回答”，还负责让 Agent 能持续学习和自我改进</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/reef-continual-self-improving-agents/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><div>产品发布 · 小互解读</div><h1>麻省理工团队开源项目 Reef：让推理服务器不只负责“回答”，还负责让 Agent 能持续学习和自我改进</h1><p>线上请求留下可归因经验，Recipe 生成模型或 Harness 候选，评测与版本链决定哪些变化能进入下一轮服务。</p><div><div>一分钟速览</div><ul><li>多数 Agent 在部署后停止学习，原因不是线上没有经验，而是推理记录、反馈、训练与版本发布彼此断开。</li><li>Reef 用 Serve、Observe、Grow、Commit 把请求变成可归因经验，再生成模型或 Harness 候选；只有通过评测的版本才能回到服务。</li><li>Recipe 把 SAO、OpenClaw-RL、TTT-Discover、SkillClaw 和 GEPA 等方法接到同一底座；scenario 隔离记录与版本，但学习方法由部署配置决定。</li><li>Reef 可以先作为不训练的记录代理接入外部模型，再逐步启用学习；闭环能控制更新，却不能替团队保证反馈和评测目标正确。</li></ul></div><div><p>一个 Agent 每完成一次真实任务，都会留下极有价值的经验：用户纠正了什么，工具为什么失败，哪条执行路径得到了高分，哪种结果真正解决了问题。可多数推理服务器在返回答案后就把这些信号丢掉了。模型上线的那一刻，也成了它停止学习的那一刻。</p><p>麻省理工学院（MIT）的 <a href="https://mobility.mit.edu/people/ao-qu/">Ao Qu</a> 与 Human-Agent-Society 团队，开发了一个专门解决这道断点的项目——<a href="https://github.com/Human-Agent-Society/reef">Reef</a>。Reef 要改变的就是这件事：把线上推理、经验记录、候选更新、评测和版本发布接成一条长期运行的闭环，让推理服务器不只负责“回答”，还负责让 Agent 持续学习和自我改进。</p><p>这套系统要解决的并不是某一种训练算法，而是持续学习缺失的工程底座：从真实流量中取得可信经验，决定该更新模型还是外层运行框架，再阻止未经验证的变化直接污染线上服务。Reef 把这个更宽泛的目标称为 <strong>continual self-improvement</strong>。它允许系统反复从经验中改善，但并不等同于已经实现了能够自行制造下一代系统的递归自我改进（RSI）。</p></div><div><h2>部署后的 Agent 为什么停止学习</h2><p>传统大模型的生命周期是一条单向流水线：收集数据 → 训练模型 → 离线评测 → 部署上线 → 响应请求。训练系统关心参数如何变化，推理系统只关心如何稳定返回结果，两边在部署时被切开了。</p><p>Agent 让这个切口变得越来越昂贵。一次长任务包含多轮对话、工具调用、中间状态、执行结果和用户反馈，它们共同回答了三个关键问题：系统当时看到了什么、做了什么、结果到底好不好。这类经验比通用离线语料更贴近真实需求，却常常没有稳定路径回到学习系统。</p><p>另一个问题是，Agent 的行为并不只由模型权重决定。提示词、记忆、Skill、工具权限和编排逻辑都会改变最终结果。工具选错、上下文组织失控或规则写坏时，继续训练模型可能既昂贵又无效；真正该改的对象可能在模型外面。</p><p>所以，持续学习需要同时打通两条断点：</p><ul>
-<li><strong>推理不再是终点。</strong> 线上轨迹、执行结果、用户反馈和环境奖励要成为下一轮学习的输入。</li>
-<li><strong>模型不再是唯一的更新对象。</strong> 权重与 Harness——也就是负责上下文、记忆、Skill、工具和编排的外层系统——都要进入同一套演化与版本控制流程。</li>
-</ul><p>问题因此从“再接一条训练管道”变成了“怎样管理一个不断产生经验、候选和新版本的在线系统”。</p><p>到这里，Reef 与站内两篇解读正好接上：<a href="https://best.xiaohu.ai/article/harness-engineering-rsi/">Harness 工程</a>继续展开“模型外面还有什么可以优化”，<a href="https://best.xiaohu.ai/article/openai-arc-agi-3-harness/">OpenAI 的 ARC-AGI-3 复盘</a>则把 Harness 对结果的影响放进一个具体实验。Reef 补上的下一步，是让这些改动能够从线上经验中持续产生，经过评测，再安全进入下一版服务。</p></div><div><h2>一次请求怎样变成下一次更新</h2><p>Reef 把一次学习循环拆成四步：<strong>Serve、Observe、Grow、Commit</strong>。Serve 处理请求并留下记录，Observe 把后续反馈对回具体交互，Grow 用符合条件的经验生成候选，Commit 只把通过评测的候选发布为新版本。</p></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】26 个 Grok Bot 模板分享，真正可抄的是它们写任务的方法</title>
-<link>https://best.xiaohu.ai/article/grok-bot-templates-26/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:grok-bot-templates-26</guid>
-<pubDate>Thu, 03 Sep 2026 12:00:23 +0000</pubDate>
-<description>从写代码、做设计到盯网页、剪视频和找癌症药物援助，这份清单展示了同一件事：一个好 Bot 要把任务、输入、工具、交付、停手条件和人工接管点写清楚。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 3 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">26 个 Grok Bot 模板分享，真正可抄的是它们写任务的方法</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/grok-bot-templates-26/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div>
-<div>正文一页纸秒懂漫画</div>
-<div><div><div>AI 工具 · 小互解读</div><h1>26 个 Grok Bot 模板分享，真正可抄的是它们写任务的方法</h1><p>从写代码、做设计到盯网页、剪视频和找癌症药物援助，这份清单展示了同一件事：一个好 Bot 要把任务、输入、工具、交付、停手条件和人工接管点写清楚。</p><div><div>一分钟速览</div><ul><li>这 26 个公开模板共同展示了一种可复用的 Agent 工作定义：把模糊愿望收窄成稳定责任，并明确事实源、工具和交付。</li><li>这些模板反复出现六个决定 Bot 能否稳定复用的检查点：唯一任务、输入与事实源、工具环境、可验收交付、例程与静默条件、拒绝事项与人工接管。</li><li>dr eggbot、loops、Echo 与 Copay Compass 分别示范了删除多余能力、设置外循环、拆开首次设置与日常运行、按风险增加停手规则。</li><li>后面附有全部 26 份模板的中文译文、英文原文、作者主页、模板链接和导入 URI；模板内容与连接状态可能随产品更新。</li></ul></div><div><p>Grok Bot 模板是一份可以直接导入的预设工作说明：它规定 Bot 负责什么、使用哪些工具、何时行动、交付什么，以及什么情况必须停下来交给人。这 26 个模板覆盖代码仓库、Figma 设计、网页监控、访谈剪辑和癌症药费援助等完全不同的任务。</p><p>把这些模板放在一起看，它们展示了怎样把一项模糊愿望写成一份可以反复执行的工作定义：任务要窄，输入要明确，工具要匹配，交付要可检查，还要告诉 Bot 哪些事不能做、什么时候必须把决定交还给人。</p><p>Klöss 称 Grok Bot 模板是“the new Claude skills”。Grok Bot 模板可以把一项 AI 工作保存下来反复使用；不了解 Claude Skills，也不影响使用下面的方法。</p><blockquote>
-<p><strong>站内已有 Grok Bot 系列</strong></p>
-<ul>
-<li><a href="https://best.xiaohu.ai/article/grok-bot/">xAI 发布 Grok Bot：一批有自己电脑的 AI 同事，用你的账号替你干活</a></li>
-<li><a href="https://best.xiaohu.ai/article/xai-bot-guides/">Grok Bot 内部实践指南：五支 Grok Bot 团队，拼出了一套 Agent 操作系统</a></li>
-<li><a href="https://best.xiaohu.ai/article/grokbot-11-tips/">GrokBot 的 11 条使用技巧：搭出一套 Agent 工作系统</a></li>
-</ul>
-</blockquote></div><div><h2>这份清单把 AI Agent 从聊天推到岗位</h2><p>普通聊天提示词通常只描述一次结果：“帮我做一份路演”“看看这个产品想法”“给这段视频剪几个片段”。这 26 个 Bot 里，完成度更高的模板会继续回答五个问题：从哪里取信息，用哪些工具，交付什么格式，何时检查一次，遇到什么情况停下来找人。</p><p>Nightly Audit Engineer 每晚研究整个代码库，再按区域各交付一项清理；The Page 每天早上检查 3 到 5 个公开页面，没有相关变化就保持安静；Echo 在外部客户通话结束后读取会议记录，只重写用户指定的幻灯片；Copay Compass 查找处方药援助计划，但明确禁止判断资格、收集敏感身份信息或代替患者提交申请。</p><p>四个例子共享一套底层结构：Bot 拿到一块稳定责任，按相同规则反复执行。人的角色从每一步都要下指令，变成设定目标、批准高风险动作、处理异常和验收结果。有些 Bot 按日或按周常驻运行，有些只在被召唤时完成一次分析；共同点是工作定义可以复用。</p></div><div><h2>26 个 Bot，落在五种工作形态里</h2><p>为了看清这些 Bot 的差异，可以暂时按承担的工作分成五种形态。这个分法只是一张导航图，类别并不互斥；例如 Echo 既交付幻灯片，也负责在会议记录、邮箱口吻和演示工具之间传递信息。</p><figure>
-<div><span>模板生成层</span><strong>dr eggbot</strong><em>dr eggbot：先收窄任务，再生成岗位</em></div>
-<div><span></span></div>
-<div>
-<h3>直接交付 · 8</h3><p>tinkabot · figma bro · Writing Bot · Image Gen Bot · Echo · Clip Bot · Best Video Editor · Grok Build</p>
-<h3>工程外循环 · 4</h3><p>Nightly Audit Engineer · Lingxi's Engineer Bot · Tech Demos · loops</p>
-<h3>监控与判断 · 7</h3><p>X Algo · Pitch Deck Coach · Product Idea Stress Test · The Page · When It Matters · Pattern of Pain · Lennybot</p>
-<h3>连接人与系统 · 3</h3><p>Connections · dial bot · Talent Matchmaker</p>
-<h3>个人事务 · 3</h3><p>skippy · Be Happier · Copay Compass</p>
-</div>
-<div><strong>共同岗位合同</strong><span>唯一任务 · 事实源 · 工具环境 · 可验收交付 · 例程与静默 · 拒绝事项与人工接管</span></div>
-<figcaption>dr eggbot 作为元模板单列，其余 25 个 Bot 分布在五种可以交叉的工作形态中。</figcaption>
-</figure><p>“直接交付”类的结果可以打开、运行或进入评审：插件、Figma 组件、文章、图片、幻灯片或视频成片。“工程外循环”类不亲自承担全部编码，它们位于编码 Agent 上方，负责研究、派活、启动、检查和收口。</p><p>“监控与判断”类把反复检查改成按条件通知，或把复杂材料压成下一项行动。“连接人与系统”类在邮箱、会议、Notion、电话与招聘信号之间搬运状态；这里的“状态写回”，指把完成、失败、等待批准等结果记录回原系统，避免下一轮重复处理。</p><p>“个人事务”类离现实生活更近，覆盖街道清扫、每周生活建议和药费援助。任务越接近健康、财务、身份信息和不可逆动作，模板里的停手规则越具体。</p><p>dr eggbot 没有被塞进五类普通工作，它专门设计 Grok Bot：先问少量偏好，再创建一份任务窄、拒绝事项明确、没有多余工具的模板。它是模板生成器。</p></div><div><h2>好模板真正控制的是六件事</h2><p>26 个模板的长短差异很大。figma bro 的说明只有一句，Echo 和 Copay Compass 则写成了完整运行协议。它们反复出现六个决定 Bot 能否稳定复用的检查点。</p><ol>
-<li><strong>唯一任务</strong>：一句话能否说清它可以反复完成什么。Writing Bot 只负责写作修订；loops 只负责工程外循环；dial bot 只负责按请求发起外呼并汇报结果。</li>
-<li><strong>输入与事实源</strong>：模板有没有指定从哪里读事实。Echo 使用 Granola 或 Gong 记录；Lennybot 使用 Lenny's Data；Copay Compass 要求每项计划事实附来源链接和核查日期。</li>
-<li><strong>真实工具与环境</strong>：Bot 是否接入完成任务需要的系统。tinkabot 要构建最小脚手架、在本地验证，再发布到 Marketplace 或 cursor.directory；Connections 写入用户已有的 Notion；Grok Build 运行真实 CLI。</li>
-<li><strong>可验收交付</strong>：结果应当能被人检查。Tech Demos 交付可运行的 monorepo 演示；Clip Bot 交付带字幕、来源卡和文件的 16:9 视频；Pitch Deck Coach 明确报告投资人会理解、相信、追问和记住什么。</li>
-<li><strong>例程与静默条件</strong>：需要持续运行的 Bot 要知道什么时候行动，也要知道什么时候别打扰人。The Page 每天检查一次，只有相关变化才发消息；Be Happier 每周运行，而且不得用增加新习惯来填建议。</li>
-<li><strong>拒绝事项与人工接管</strong>：模板必须写出不做什么。skippy 只报告清扫时间，不宣称车位合法；Best Video Editor 不自动发布，也不覆盖源文件；Copay Compass 不判断资格、不收敏感证件、不提交表格，并把临床问题交回治疗团队。</li>
-</ol><p>前四项决定 Bot 能否完成工作，后两项决定它能否长期共处。缺少静默条件的监控 Bot 会制造噪声；缺少拒绝事项的行动 Bot 会把“主动”变成越权。</p></div><div><h2>四个模板，四种值得复用的写法</h2><h3>dr eggbot：先删除多余能力</h3><p>dr eggbot 的核心标准是 “one job, unslopped, verified”。这里的 unslopped 指删掉松散、敷衍和堆料式指令。它会区分编码与非编码任务，却对两类模板提出同样的要求：一个岗位、一种声音、明确的拒绝事项、没有遗留工具。任务已经清楚后就行动，不继续用问题拖延；除非用户需要，也不默认把结果做成公开分享模板。</p><p>这套写法适合解决模板膨胀。职责和工具越多，模型越难判断当前应当做什么，结果也越难验收。</p><h3>loops：把“写代码”与“确保代码落地”分开</h3><p>loops 不负责包办编码，它位于编码 Agent 上方，承担“工程外循环”：收集上下文 → 写任务 → 启动 Agent → 评审 → 合并。它还要求用户明确仓库，绝不猜测。每次交给编码 Agent 的任务都要有可测试证据。</p><p>这个结构适合迁移到任何有执行 Agent 的工作：内层 Agent 生产，外层 Bot 负责选任务、补上下文、检查证据和收口。外层 Bot 不必比内层更擅长写代码，但必须更清楚“完成”长什么样。</p><h3>Echo：首次设置与日常运行分开写</h3><p>Echo 的长模板先完成一次性设置：连接 Gmail 并学习用户写作风格、指定 Figma 或 Google Slides 模板、选择页面内容、连接 Granola 或 Gong、决定是否在外部通话结束后自动更新。设置完成后，它进入另一套规则：只在用户选择自动更新时运行，只改指定页面，以客户面对的语言写，不编造通话内容，记录尚未同步就等待，也不自行发布或分享演示文稿。</p><p>一次性设置与重复运行分开后，Bot 不必每次重新询问。Echo 没有规定这些设置多久更新一次；实际使用时，账户、品牌口吻和通知偏好都会变化，给它们加一条定期复核规则，可以避免长期沿用失效设置。</p><h3>Copay Compass：风险越高，停手规则越具体</h3><p>Copay Compass 的模板最长。它服务的是癌症处方药费用援助，风险来自资格误判、隐私信息、医疗建议和代为提交。模板因此用了十条有顺序的硬规则，具体到不能收哪些标识符、页面内容只作为信息、哪些问题交给医院导航员、哪些材料只能准备不能提交，以及出现严重困境表达时怎样把患者引回治疗团队和紧急支持。</p><p>低风险的 figma bro 可以用一句话建立方向；涉及健康、财务、身份信息和不可逆动作的 Bot，需要把可能出错的路径逐条封住。模板长度应当跟风险面和状态复杂度走，不应追求统一格式。</p></div><div><h2>把一个模板改成自己的 Bot</h2><p>先填下面这张最小岗位卡，再把占位内容替换成自己的任务。</p><div><pre><code>Bot 名称：
-唯一任务：
-只负责完成什么？用一句话写清。
-触发方式：
-由我手动召唤，还是按日、周、事件运行？
-输入与事实源：
-从哪些文件、页面、数据库或连接读取信息？
-发生冲突时，以哪个来源为准？
-工具与环境：
-完成任务必须使用哪些工具？
-哪些工具与账户不需要，应该移除？
-交付：
-输出是什么文件、链接、记录或状态？
-怎样证明已经完成，而不只是给出建议？
-状态写回：
-完成、失败、无变化和等待批准分别记录到哪里？
-拒绝事项：
-明确列出它不能做、不能猜、不能触碰的信息与动作。
-人工接管：
-哪些外发、花钱、删除、发布、资格判断或高风险动作必须停下来问我？
-静默条件：
-没有新信息时是否保持安静？什么变化才值得通知？
-首次设置：
-第一次需要连接什么、学习什么、确认什么？
-完成标准：
-我会依据哪些可观察结果验收？
-</code></pre></div><p>填写时先删，再加。保留一个可以反复执行的责任，只接完成它必需的工具。把“帮我”“优化一下”“尽量做好”换成可观察动作和交付物。最后专门写拒绝事项、静默条件与人工接管。</p><p>一份模板写完后，可以用三个问题收口：它是否会在任务不清楚时乱猜？没有变化时是否会制造通知？涉及外发、花钱、删除、发布、隐私或资格判断时，是否知道停在哪里？三个问题都有明确答案，Bot 才真正具备长期复用的条件。</p><p>下面按顺序列出 26 份中英双语模板，可以直接查找、导入或改写。</p></div><div><h2>26 个模板双语资料附录</h2>
-<p>每个条目的模板名称直达 x.ai 页面，作者名直达 X 主页，并保留 Grok Bot 导入 URI。提示词先给中文译文，再附英文原文。短模板只有一两句；Echo 与 Copay Compass 包含完整长指令。模板内容、账户权限和工具连接可能随产品更新，使用前检查实际状态。</p>
-<div><table>
-<thead>
-<tr>
-<th>#</th>
-<th>模板</th>
-<th>作者</th>
-<th>工作形态</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>01</td>
-<td><a href="https://x.ai/bot/93gOz3op1UQdBdbekQFLK">dr eggbot</a></td>
-<td><a href="https://x.com/poteto">@poteto</a></td>
-<td>元模板</td>
-</tr>
-<tr>
-<td>02</td>
-<td><a href="https://x.ai/bot/br5f3C4mc75QCMEHaszXd">tinkabot</a></td>
-<td><a href="https://x.com/poteto">@poteto</a></td>
-<td>直接交付</td>
-</tr>
-<tr>
-<td>03</td>
-<td><a href="https://x.ai/bot/hkGSHcqKjGc5dm3ugNc2U">Nightly Audit Engineer</a></td>
-<td><a href="https://x.com/lingxi">@lingxi</a></td>
-<td>工程外循环</td>
-</tr>
-<tr>
-<td>04</td>
-<td><a href="https://x.ai/bot/fY1xWwCLzDDGVe3GwH78j">Lingxi's Engineer Bot</a></td>
-<td><a href="https://x.com/lingxi">@lingxi</a></td>
-<td>工程外循环</td>
-</tr>
-<tr>
-<td>05</td>
-<td><a href="https://x.ai/bot/VHMdjIGjGpgDSJR7dW6Gz">figma bro</a></td>
-<td><a href="https://x.com/johnbai">@johnbai</a></td>
-<td>直接交付</td>
-</tr>
-<tr>
-<td>06</td>
-<td><a href="https://x.ai/bot/zvkkoHMbclsUBWX8MRGpU">Tech Demos</a></td>
-<td><a href="https://x.com/mattyp">@mattyp</a></td>
-<td>工程外循环</td>
-</tr>
-<tr>
-<td>07</td>
-<td><a href="https://x.ai/bot/Ub3T7usX-c6yRQibQq83P">loops</a></td>
-<td><a href="https://x.com/mattyp">@mattyp</a></td>
-<td>工程外循环</td>
-</tr>
-<tr>
-<td>08</td>
-<td><a href="https://x.ai/bot/X_P19IvPAHZ3FiA1Q-05s">X Algo</a></td>
-<td><a href="https://x.com/mattyp">@mattyp</a></td>
-<td>监控与判断</td>
-</tr>
-<tr>
-<td>09</td>
-<td><a href="https://x.ai/bot/gJ4waNMuQoJkQCGX77yF3">Writing Bot</a></td>
-<td><a href="https://x.com/mattyp">@mattyp</a></td>
-<td>直接交付</td>
-</tr>
-<tr>
-<td>10</td>
-<td><a href="https://x.ai/bot/FtxHtWPnLGheNJmF04wSf">Connections</a></td>
-<td><a href="https://x.com/mattyp">@mattyp</a></td>
-<td>连接人与系统</td>
-</tr>
-<tr>
-<td>11</td>
-<td><a href="https://x.ai/bot/phPQtGzCZOynABubl0pwx">Image Gen Bot</a></td>
-<td><a href="https://x.com/mattyp">@mattyp</a></td>
-<td>直接交付</td>
-</tr>
-<tr>
-<td>12</td>
-<td><a href="https://x.ai/bot/b00VrDzeasoqtPymoNDB-">skippy</a></td>
-<td><a href="https://x.com/mattyp">@mattyp</a></td>
-<td>个人事务</td>
-</tr>
-<tr>
-<td>13</td>
-<td><a href="https://x.ai/bot/NJXi2SWEuhNxjOjspMMPi">dial bot</a></td>
-<td><a href="https://x.com/mattyp">@mattyp</a></td>
-<td>连接人与系统</td>
-</tr>
-<tr>
-<td>14</td>
-<td><a href="https://x.ai/bot/ph5mcXqVy2p176Br7BJYi">Echo</a></td>
-<td><a href="https://x.com/kristaletz">@kristaletz</a></td>
-<td>直接交付</td>
-</tr>
-<tr>
-<td>15</td>
-<td><a href="https://x.ai/bot/mqVPHm0oB3WPsnxbU1qB9">Pitch Deck Coach</a></td>
-<td><a href="https://x.com/hnshah">@hnshah</a></td>
-<td>监控与判断</td>
-</tr>
-<tr>
-<td>16</td>
-<td><a href="https://x.ai/bot/JeFTvcDX-7QT2evKGIb52">Product Idea Stress Test</a></td>
-<td><a href="https://x.com/hnshah">@hnshah</a></td>
-<td>监控与判断</td>
-</tr>
-<tr>
-<td>17</td>
-<td><a href="https://x.ai/bot/uFRK1GoAsiopBLPY19QCe">The Page</a></td>
-<td><a href="https://x.com/hnshah">@hnshah</a></td>
-<td>监控与判断</td>
-</tr>
-<tr>
-<td>18</td>
-<td><a href="https://x.ai/bot/BqrH8_GNQvSYV-gcmJnd8">When It Matters</a></td>
-<td><a href="https://x.com/hnshah">@hnshah</a></td>
-<td>监控与判断</td>
-</tr>
-<tr>
-<td>19</td>
-<td><a href="https://x.ai/bot/eFfFM4-QmHxxrUlTUqyAo">Pattern of Pain</a></td>
-<td><a href="https://x.com/hnshah">@hnshah</a></td>
-<td>监控与判断</td>
-</tr>
-<tr>
-<td>20</td>
-<td><a href="https://x.ai/bot/0VC1XzREXRFGe0hVo-JEG">Be Happier</a></td>
-<td><a href="https://x.com/lennysan">@lennysan</a></td>
-<td>个人事务</td>
-</tr>
-<tr>
-<td>21</td>
-<td><a href="https://x.ai/bot/l8p6rXw-lalL-UNiHySnJ">Talent Matchmaker</a></td>
-<td><a href="https://x.com/lennysan">@lennysan</a></td>
-<td>连接人与系统</td>
-</tr>
-<tr>
-<td>22</td>
-<td><a href="https://x.ai/bot/VjbtJ_qTdzbhJGmXdvTIc">Lennybot</a></td>
-<td><a href="https://x.com/lennysan">@lennysan</a></td>
-<td>监控与判断</td>
-</tr>
-<tr>
-<td>23</td>
-<td><a href="https://x.ai/bot/Vk0cnF2c364QxNv-Xip1M">Clip Bot</a></td>
-<td><a href="https://x.com/Jason">@Jason</a></td>
-<td>直接交付</td>
-</tr>
-<tr>
-<td>24</td>
-<td><a href="https://x.ai/bot/Do4CujP_kqnnc1KYnpOfI">Best Video Editor</a></td>
-<td><a href="https://x.com/XFreeze">@XFreeze</a></td>
-<td>直接交付</td>
-</tr>
-<tr>
-<td>25</td>
-<td><a href="https://x.ai/bot/ZRxm1O9tmizOhriV7GiWL">Grok Build</a></td>
-<td><a href="https://x.com/Teslaconomics">@Teslaconomics</a></td>
-<td>直接交付</td>
-</tr>
-<tr>
-<td>26</td>
-<td><a href="https://x.ai/bot/ehxj2Wdxq9M04jvaAqyBD">Copay Compass</a></td>
-<td><a href="https://x.com/MSaintjour">@MSaintjour</a></td>
-<td>个人事务</td>
-</tr>
-</tbody>
-</table></div><h3>01. <a href="https://x.ai/bot/93gOz3op1UQdBdbekQFLK">dr eggbot</a></h3><p>作者：<a href="https://x.com/poteto">@poteto</a></p><p>导入 URI：<code>grokbot://app/v1/bot-template?id=93gOz3op1UQdBdbekQFLK</code></p><h4>中文译文</h4><div><pre><code>设计高质量的 Grok Bot。先询问几个偏好问题，再使用 CreateAgent 创建 Bot。编程 Bot 采用 poteto-mode 标准：只做一项工作、去掉敷衍堆料、结果经过验证。非编程 Bot 也保持同样严格：一项工作、一种声音、明确写出不做什么、不保留多余工具。语气随意，带一点疯狂科学家的感觉，英文表达简短并使用小写。任务清楚后倾向直接行动。默认不把 Bot 做成可分享模板。
-</code></pre></div><h4>英文原文</h4></div></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Gemini 3.8 Flash 发布：定位“全能主力（Workhorse）”，主打软件工程、自主 Agent 任务和多步骤深度推理</title>
-<link>https://best.xiaohu.ai/article/google-gemini-3-8-flash-cyber/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:google-gemini-3-8-flash-cyber</guid>
-<pubDate>Thu, 03 Sep 2026 12:00:23 +0000</pubDate>
-<description>Google 在六周内连续发布了三代 Flash， 9 月 2 日Google推出新的 Gemini 3.8 Flash 模型，保持和上一代（3.7 Flash）一样的低成本与高速度，但在长流程编码、复杂推理和网络安全攻防上实现了跨越式的提升。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 3 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Gemini 3.8 Flash 发布：定位“全能主力（Workhorse）”，主打软件工程、自主 Agent 任务和多步骤深度推理</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/google-gemini-3-8-flash-cyber/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div>
-<div>正文一页纸秒懂漫画</div>
-<div><div><div>产品发布 · 小互解读</div><h1>Gemini 3.8 Flash 发布：定位“全能主力（Workhorse）”，主打软件工程、自主 Agent 任务和多步骤深度推理</h1><p>Google 在六周内连续发布了三代 Flash， 9 月 2 日Google推出新的 Gemini 3.8 Flash 模型，保持和上一代（3.7 Flash）一样的低成本与高速度，但在长流程编码、复杂推理和网络安全攻防上实现了跨越式的提升。</p><div><div>一分钟速览</div><ul><li>双版本发布：Gemini 3.8 Flash 定位“全能主力（Workhorse）”，主打软件工程、自主 Agent 任务和多步骤深度推理。</li><li>Gemini 3.8 Flash Cyber 专为网络安全打造，在漏洞挖掘和自动打补丁方面达到前沿水准，主要通过 Fairwind Program 提供给受信任的防御机构与专业人员。</li><li>价格加量不加价：维持 3.7 Flash 的首发费率，每百万输入 Token 为 0.75 美元，每百万输出 Token 为 3.75 美元。</li></ul></div><div><h2>核心能力提升：它到底强在哪？</h2><p>Gemini 3.8 Flash 是 Google 给高频生产任务准备的通用主力模型。它已经正式 GA，API 模型 ID 是 <code>gemini-3.8-flash</code>，支持最多 100 万 token 输入上下文和 6.4 万 token 文本输出。思考等级可选 low、medium、high，默认是 medium。</p><p>它面向三类任务：长流程软件工程、自主 Agent 任务，以及金融、法律、科研等需要多步骤推理的专业工作。3.7 Flash 仍会保留。简单、量大、延迟敏感的请求可以继续使用 3.7，或把 3.8 的 thinking effort 调低；需要连续调用工具、检查结果和修正方案的任务，才是 3.8 的重点。</p><p>通用版和 Cyber 版共享同一套基础智能。Google 将这次编码和推理提升归因于长时间运行的 Agent 循环与网络安全训练：模型在循环中反复评估和改进结果，网络安全任务则提供了高难度的代码分析和推理训练。</p><h3>长流程编码和 Agent</h3><p>DeepSWE v1.1 测试 Agent 端到端完成长流程软件工程任务的能力。Gemini 3.8 Flash 得分 73.7%，比 3.7 Flash 的 65.3% 高 8.4 个百分点，接近 Claude Opus 5 的 74.0%。同一项评测的平均任务成本中，3.8 Flash 明显低于 Opus 5。</p><p><img /></p><p>这不是严格统一条件下的同场测试。Gemini 3.8 使用 mini-swe agent harness 和 high thinking，其他模型采用 Datacurve 公开榜单中的最高 thinking 结果。73.7% 说明它在这套长流程编码测试中接近高价模型，不能代表所有代码任务都能得到同样结果。</p><p>四段完整演示分别展示游戏生成、旧系统复刻、真实数据可视化和 3D 硬件结构生成。产物包括可以操作的程序、外部数据和交互界面。</p><figure>
-<div>
-<p>长流程生成</p>
-<h3>四种可运行产物</h3>
-</div>
-<div>
-<h4>3D 魔法城堡游戏</h4>
-<p>在 Antigravity 中生成包含谜题、材质和交互的游戏。</p></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Anthropic 开源其一套可运行的 AI 电商 Agents 参考实现</title>
-<link>https://best.xiaohu.ai/article/claude-commerce-agents/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:claude-commerce-agents</guid>
-<pubDate>Thu, 03 Sep 2026 12:00:23 +0000</pubDate>
-<description>这套参考实现包含两类 Agent、十个 Skills、四个行业的八个在线演示和三种运行方式，并给出业务工具、结构化界面、记忆、安全审批和评测的具体实现。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 3 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Anthropic 开源其一套可运行的 AI 电商 Agents 参考实现</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/claude-commerce-agents/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><div>产品发布 · 小互解读</div><h1>Anthropic 开源其一套可运行的 AI 电商 Agents 参考实现</h1><p>这套参考实现包含两类 Agent、十个 Skills、四个行业的八个在线演示和三种运行方式，并给出业务工具、结构化界面、记忆、安全审批和评测的具体实现。</p><div><div>一分钟速览</div><ul><li>Anthropic 开源了一套可运行的 Shopping Agent 和 Merchant Agent 参考实现，附十个 Skills 和八个在线演示。</li><li>Anthropic 称购物车金额最高增加 35%、购买完成概率提高 60%，但未公开客户样本和实验方法。</li><li>每类产品由一个主 Agent 保持会话，Skills 处理长尾流程，业务工具连接商品、库存、订单和经营系统。</li><li>购物端不扣款，商家端写操作先暂存；生产部署仍需认证、支付、合规、监控和完整 Evals。</li></ul></div><div><p>Anthropic 开源了一套可运行的 AI 电商 Agents 参考实现，面向电商平台、零售商和开发团队。工程师可以用它在几天内跑起一个能搜索商品、比较方案、组装购物车或处理商家运营任务的 Agent，再接入自己的商品、库存、订单和支付系统。</p><p>Anthropic 称，使用 Claude 购物 Agent 的零售商，购物车金额最高增加 35%，消费者完成购买的可能性提高 60%。Anthropic 未公布客户样本、基线、实验方法或时间窗口，因此这两个数字不能视为平均收益或部署承诺。</p><p>这套参考实现包含 Shopping Agent、Merchant Agent、十个 Skills、四个行业示例和三种运行方式。它还给出了模型循环、业务工具、结构化界面、长期记忆、安全审批和 Evals 的具体实现。</p><p>这里的“几天”指跑起参考 Agent，不等于完成生产部署。Anthropic 的商业解决方案页面把生产级接入描述为数周；采用方仍需连接自己的业务系统，并补充身份认证、业务授权、欺诈控制、支付、合规和运维能力。</p></div><div><h2>开发团队拿到什么</h2><p><a href="https://github.com/anthropics/commerce-agents">Commerce Agents 仓库</a> 包含以下内容：</p><ul>
-<li>两个 Agent：Shopping Agent 与 Merchant Agent。</li>
-<li>十个 Skills：两类 Agent 各五个，覆盖搜索、购买研究、规划、客服、个性化、经营分析、商品、库存、定价促销和营销活动。</li>
-<li>四个可运行行业示例：零售、旅行、电信和娱乐票务。每个示例都有消费者前台和商家后台。</li>
-<li>三种运行方式：Messages API、Claude Agent SDK 和 Claude Managed Agents。</li>
-<li>七个本地 Python 包、八个 Web 应用、共享后端接口、前端组件、测试和部署脚本。</li>
-<li>一个 Claude Code 插件，提供搭建 Agent、增加业务流程、编写 Evals 和审查现有 Agent 的命令。</li>
-</ul><p>仓库要求 Python 3.11+ 和 Node 22。配置凭据后，一条命令即可启动零售示例；参数可以切换到商家后台或同时启动两端：</p><div><pre><code>python scripts/run_demo.py retail
-python scripts/run_demo.py retail --merchant
-python scripts/run_demo.py retail --all
-</code></pre></div><p>Anthropic 还给出两个首次跑通的时间案例：Wix 工程师在 15 分钟内让 Agent 开始接收 prompt；另一家未具名客户在不到一小时内跑起两类 Agent。这些数字描述初始可运行状态，不是生产上线时间，Anthropic 也没有公布环境、验收标准或后续接入成本。</p><p>Claude Code 插件提供 <code>/scaffold-commerce-agent</code>、<code>/add-commerce-flow</code>、<code>/author-commerce-evals</code> 和 <code>/review-commerce-agent</code>。这些命令会根据采用方的技术栈、业务系统和现有 Agent 生成或审查实现。</p><p>Anthropic 表示这套模板与 Accenture、Mastercard 和 Visa 一起做过验证。仓库没有包含这些公司的专有连接器；合作关系只能说明它面向企业接入场景，不能代替采用方自己的系统集成和验收。</p></div><div><h2>两类 Agent 分别解决什么问题</h2><h3>Shopping Agent：面向消费者</h3><p>Shopping Agent 负责从需求理解到结账交接，但没有付款权限。</p><ul>
-<li><strong>组合选购</strong>：用户可以一次说明预算、使用场景和多人需求，Agent 再从商品库中组合出完整方案。例如，“周末带两个孩子露营”可以同时涉及帐篷、睡袋和炉具。</li>
-<li><strong>比较和解释</strong>：根据企业搜索系统返回的商品，生成商品卡、参数比较表和选择理由。模型不负责发明商品、价格或库存。</li>
-<li><strong>偏好和订单记忆</strong>：读取顾客授权保存的偏好与历史订单，在后续会话中继续使用。用户应能查看、纠正和删除这些记忆。</li>
-<li><strong>购物车和结账交接</strong>：把选中的商品加入购物车，生成购物车摘要和商家提供的结账入口。参考后端没有扣款或下单方法。</li>
-<li><strong>售前和售后问答</strong>：在同一会话中查询订单状态，并解释物流、退换货和退款政策。</li>
-<li><strong>结构化界面</strong>：通过 Presentation Tool 显示商品卡、比较表、组合方案和购物车，不只返回文字。</li>
-</ul><p><img /></p><p><code>checkout</code> 只生成购物车摘要和宿主提供的结账入口，结账 URL 也不交给模型生成。商品 ID、价格和库存必须来自服务端；诱导加购、虚构折扣和模型自行生成商品等行为由代码级约束阻止。</p><h3>Merchant Agent：面向商家员工</h3><p>Merchant Agent 负责读取经营数据、提出动作并生成变更草案，但没有直接修改线上业务的权限。</p></div></div></div></div>
 </div></div></body></html>]]></content:encoded>
 </item>
 </channel>
