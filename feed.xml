@@ -6,7 +6,344 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Sat, 07 Nov 2026 00:00:57 +0000</lastBuildDate>
+<lastBuildDate>Sat, 07 Nov 2026 12:00:40 +0000</lastBuildDate>
+<item>
+<title>【日报】Grok Bot 创作者指南：从脚本教练到并行剪辑 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/grok-bot-creator-guide/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:grok-bot-creator-guide</guid>
+<pubDate>Sat, 07 Nov 2026 12:00:40 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 一条短视频从哪里耗掉时间 02 给 Bot 看你的作品和改稿反馈 03 把灵感拆解为可执行的选题 04 请 Bot 给脚本挑刺 05 看过剪辑方案，再交给 Bot 剪 06 十条视频怎么同时剪 07 把观众划走的位置带回脚本 08 一份成片发到四个平台 09 复盘结果怎么用到下一条 AI 解读 / AI 实操 · 11-07 · 约 10 分钟 · 作者 X Creators </description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 7 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Grok Bot 创作者指南：从脚本教练到并行剪辑 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/grok-bot-creator-guide/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>一条短视频从哪里耗掉时间</span></a><a><span>02</span><span>给 Bot 看你的作品和改稿反馈</span></a><a><span>03</span><span>把灵感拆解为可执行的选题</span></a><a><span>04</span><span>请 Bot 给脚本挑刺</span></a><a><span>05</span><span>看过剪辑方案，再交给 Bot 剪</span></a><a><span>06</span><span>十条视频怎么同时剪</span></a><a><span>07</span><span>把观众划走的位置带回脚本</span></a><a><span>08</span><span>一份成片发到四个平台</span></a><a><span>09</span><span>复盘结果怎么用到下一条</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>AI 实操</a><i>·</i>11-07<i>·</i>约 10 分钟<i>·</i>作者 X Creators · Ethan Ng</div><h1>Grok Bot 创作者指南：从脚本教练到并行剪辑</h1><p>从做创作者营销的 Ethan Ng 手里，一条短视频要走过哪些工序，哪些可以交给 Grok Bot，下一条又怎样用上复盘结果。</p><div><div>正文一页纸</div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>X Creators · Ethan Ng</span><span>11-07 · 约 10 分钟</span><span>⚑ 方法教程</span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>Ethan 平时两小时剪一条，Grok Bot 这次约两小时并行剪了十条。</li><li>把历史成片和修改反馈交给 Bot，它才知道该怎么剪。</li><li>观众在哪里划走，可以变成下一条脚本要验证的改动。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/grok-bot-creator-guide/social/zh-26ed871050f5.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>一条 60 秒的短视频，镜头里只有一分钟，镜头外还有找选题、写脚本、剪片、发到几个平台、再回来看数据。走完这一轮，可能要花上几天。Ethan Ng 对这些工序很熟。他以前做过 Cursor 的早期营销，现在在 SpaceXAI 增长团队做创作者营销。按他的说法，团队每月与数百位创作者合作，制作数百条品牌和创作者内容。</p>
+<p>为了让这些片子做得过来，他们已经用 Grok Bot 剪社交广告，也有数十位合作创作者用它剪片和发片。Ethan 在纽约的 X Creator Connect 活动上演示过剪片、动画和数据复盘。现在，X 的官方创作者账号 X Creators 发了他写的指南，讲他怎样把一条条创作任务交给这个在云端电脑上工作的 AI Agent。</p>
+<p>他的起点是让 Bot 看过去的作品，再把他平时怎么写、怎么剪复述一遍。有了这套参考，才好交草稿让它挑问题，或给原视频让它出剪辑方案。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/grok-bot-creator-guide/original-2118837099713503233.jpg" alt="Grok Bot 创作者终极指南封面" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>Grok Bot 创作者指南封面。</span><br />由 X Creators 账号发布、Ethan Ng 署名，介绍用 Grok Bot 辅助短视频创作流程。</figcaption>
+</figure>
+<h2>一条短视频从哪里耗掉时间</h2>
+<p>Ethan 让 Bot 分担的是镜头外反复出现的工作，从整理参考素材到剪辑、分发。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/grok-bot-creator-guide/original-2118808209095892992.png" alt="一条短视频从选题到复盘的完整流程" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>短视频生产流程环。</span><br />包含选题、调研、脚本、拍摄、剪辑、发布、分发与分析等环节。除了真人出镜拍摄外，Grok Bot 可以在多个环节提供协助。</figcaption>
+</figure>
+<p>他希望把这些时间腾出来，多想一想有什么故事值得讲。要让 Bot 接手，第一步是把你平时判断一条片子好在哪里的标准说清楚。</p>
+<h2>给 Bot 看你的作品和改稿反馈</h2>
+<p>Bot 的表现取决于你给它提供了多少上下文。</p>
+<p>打造创作者副手的目标，是让它成为你思维与风格的自然延伸——一个不眠不休、随时为你扩张内容影响力的全天候搭档。要达到这个状态，最快的方法就是坐下来，通过语音输入将你所知道的关于创作的一切倾倒给它。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/grok-bot-creator-guide/original-2118808226980319232.jpg" alt="让 Bot 了解创作者的历史作品、风格和数据" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>向 Bot 提供完整的创作上下文。</span><br />向中央的 Bot 汇聚历史视频、过往脚本、个人文字与故事、喜好内容、创作经验、剪辑风格、数据分析与反馈，帮助它理解创作者的思考与习惯。</figcaption>
+</figure>
+<p>这绝不是五分钟就能完成的工作，而是需要与 Bot 进行多轮深度对话，让它彻底理解你的思维脉络、偏好标准与工作习惯：</p>
+<ul>
+<li><strong>分享历史视频成片</strong>：让它自行拆解并学习你的剪辑调性、切镜节奏与字幕习惯。</li>
+<li><strong>投喂你认可的爆款</strong>：让它理解为什么那些内容能引发共鸣，以及如何将其内核迁移到你自己的风格中。</li>
+<li><strong>接入后台分析数据</strong>：让它持续根据播放表现优化后续的脚本结构与选题策略。</li>
+</ul>
+<p>你的脚本、写作文字、经历的故事、总结的教训以及给出的反馈，都在为 Bot 提供上下文。给成片和反馈让 Bot 理解风格，能让它更好地配合你的创作习惯。</p>
+<p>喂饱创作副手：投喂上下文自查清单</p>
+<ul>
+<li><span><b>成片风格解构</b>投喂历史高赞视频，要求 Bot 自行总结剪辑卡点、镜头切换与转场偏好。</span></li>
+<li><span><b>对标爆款拆解</b>导入你认可的爆款案例，明确说明它击中受众的心理机制与借鉴点。</span></li>
+<li><span><b>个人腔调与禁忌</b>用语音倾倒口语习惯、个人口头禅，明确禁止出现的 AI 味公文套话。</span></li>
+<li><span><b>多平台留存底表</b>关联各平台播放数据，让 Bot 掌握你的用户在何时流失、对什么话题即刻划走。</span></li>
+</ul>
+<h2>把灵感拆解为可执行的选题</h2>
+<p>任何视频都源自一个闪念。</p>
+<p>许多创作者喜欢在各大平台建立高度聚焦的灵感收藏夹，保存大量优秀的同类作品。但随着收藏夹膨胀到数百条视频，往往很难记起当初究竟看中了某条视频的哪一点，海量灵感最终沦为沉睡的数字垃圾。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/grok-bot-creator-guide/original-2118808245745700864.png" alt="从收藏的内容提炼可用选题" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>将收藏内容提炼为可用选题。</span><br />Grok Bot 观看保存的视频，在 Notion 或 Google Docs 中记录可借鉴的做法。图右的选题卡把这些观察落实到开头、故事和画面。</figcaption>
+</figure>
+<p>Grok Bot 能够观看创作者保存的视频，将其整理至 Notion、Google Docs 或策划看板中，并对每支素材进行逐项拆解：</p>
+<ul>
+<li><strong>成效原因（Why it worked）</strong>：提出哪些做法可能帮助这条视频取得好表现。</li>
+<li><strong>前三秒开头（The hook）</strong>：解析它如何在开篇数秒内吸引注意力。</li>
+<li><strong>叙事节奏（The pacing）</strong>：剖析视频如何推进并维持吸引力。</li>
+<li><strong>声音与配乐（The sound）</strong>：找出视频使用了哪首歌。</li>
+<li><strong>创意改造（Make it yours）</strong>：按自己的品牌与受众改写这个创意。</li>
+</ul>
+<p>再打开收藏夹时，你手里已有一批可以着手做的选题。</p>
+<h2>请 Bot 给脚本挑刺</h2>
+<p>使用 AI 写剧本最常见的陷阱，就是直接让它“写一段关于某话题的短视频文案”。生成的文本往往充斥着说明书般的公文腔，毫无情绪起伏。</p>
+<p>短视频的效果很大程度上取决于开头、节奏以及是否设置悬念——先留一个观众还想知道答案的问题（open loop）。你需要在开场前三秒吸引住观众，并在全片约 60 秒里维持注意力，这在个人创作时往往很难把握。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/grok-bot-creator-guide/original-2118808264607432704.png" alt="脚本教练指出开头、节奏和措辞的问题" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>脚本教练批注示例。</span><br />左侧为口播脚本草稿，右侧为 Bot 给出的四条具体审稿意见：开头太慢、过早讲道理、张力下降与语气不像本人。</figcaption>
+</figure>
+<p>把你自己觉得抓人的样片和过去表现较好的作品交给 Bot，让它熟悉你的叙事结构与语气风格。之后提供一段草稿，Bot 会像教练一样打分并给出审稿意见，指出观众可能划走的地方：</p>
+<ul>
+<li><strong>“开头太慢（Hook is too slow）”</strong>：删去冗长背景，第一句直接切入重点。</li>
+<li><strong>“过早开始讲道理（You start teaching too early）”</strong>：在建立吸引力之前，不要急着输出大段说教。</li>
+<li><strong>“张力在此处下降，建议删掉这句（Tension drops here. Consider cutting this line）”</strong>：冗长的过渡句正在消解观众的好奇心。</li>
+<li><strong>“这听起来不像你（This doesn't sound like you）”</strong>：拿掉生硬措辞，换回你常用的日常口语。</li>
+</ul>
+<p>把 Bot 当作提供审稿意见的助手，可以在保留个人独特表达的同时，更快打磨出紧凑的脚本。</p>
+<div>
+<div>
+<h4>开头太慢</h4>
+<p>草稿先介绍过去五年的剪片经历。Bot 建议尽早讲到这次试验。</p>
+</div>
+<div>
+<h4>中途丢了悬念</h4>
+<p>草稿提前交代最后解决了问题。Bot 建议删去这句，把结果留到后面。</p>
+</div>
+</div>
+<h2>看过剪辑方案，再交给 Bot 剪</h2>
+<p>Ethan Ng 在指南中展示了三支由 Grok Bot 参与制作的示例：</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/grok-bot-creator-guide/original-2118808284597559296.jpg" alt="原文展示的三支示例静帧，左为 Minecraft 风格动画，中为口播，右为灾害情景动画" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>三种体裁的示例静帧。</span><br />左边用 Minecraft 风格讲 Grok Bot，中间是 Ethan 拍摄、Bot 剪辑的口播广告，右边是大坝失事的情景动画。</figcaption>
+</figure>
+<p>在这三支案例中，输入方式各有不同：两支动画视频仅凭一句提示词启动，由 Grok Bot 完成分镜、脚本、旁白和原创配乐。两支动画保留原文静帧。中间的口播广告由 Ethan 本人录制原始口播素材，再由 Bot 挑选精彩镜头（takes）、切除多余气口、添加动效与画面叠层并匹配音乐。Ethan 说这支成片交付后，他没有再手动微调。约第 47 秒起，他讲怎么挑选片段、说完留两帧再切掉停顿，以及 Bot 怎样从他的音乐库选曲。</p>
+<figure>
+<figcaption>Ethan Ng 录制、Grok Bot 剪辑的口播成片，约 1 分 41 秒。片中约第 1 分 23 秒出现的「16 条」是并行动效。指南单独报告了十条的案例。<a href="https://x.com/Ethan_Ng_13/status/2107552821759680758">查看作者原帖</a></figcaption>
+</figure>
+<p>Grok Bot 的剪辑工具链依托具体工具的组合：由 Grok Bot 统一调度，调用 Whisper 进行语音转写以理解素材内容，使用 Remotion 以代码组织时间线与视频渲染，并借助 Cursor 的云端 Agent 处理复杂动效。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/grok-bot-creator-guide/original-2118808303299928064.png" alt="从原始素材到成片，创作者在执行剪辑前审批方案" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>剪辑流程与两处人类把关节点。</span><br />原始素材经分析后生成剪辑方案，必须先由创作者审核批准（I APPROVE），随后才执行剪辑并进入成片回审环节。</figcaption>
+</figure>
+<p>完整的剪辑流程由七个步骤构成，并在关键节点保留两处人类把关：</p>
+<ol>
+<li><strong>校准剪辑风格</strong>：向 Bot 提供历史成片，让它分析剪辑手法与叙事习惯，直到它能清晰向你解释你的风格。</li>
+<li><strong>上传原始素材</strong>：放入待处理的视频片段（即便是一整段 10 分钟的长镜头素材），Bot 会在其中筛选出状态最好的镜头（takes）。</li>
+<li><strong>生成剪辑方案</strong>：Bot 给出视频结构、剪辑点与空镜头（B-roll）规划。若有访问权限，它还可以从 iCloud 或 Google Drive 中调取匹配的照片素材。</li>
+<li><strong>人类把关一：方案审批（I APPROVE）</strong>：在正式开始剪辑前，创作者进行第一处人类把关，核准方案或提出修改意见，批准后才启动后续剪辑。</li>
+<li><strong>启动剪辑</strong>：Bot 负责剪切、画面特效与配乐。指南提及可以在创作者自己的剪辑软件（如 CapCut、DaVinci Resolve 或 Premiere Pro）中操作，或在独立的云端电脑上运行（官方推荐云端模式）。指南没有详述本地剪辑器的接入方法。</li>
+<li><strong>人类把关二：成片回审与微调</strong>：创作者观看初剪成片，可以指定某一段让 Bot 修改。Ethan 在样片约第 1 分 28 秒也提到，他可以自己在 Remotion 里改。</li>
+<li><strong>交付成片</strong>：导出待发布的成片。<a href="https://x.ai/bot/marketplace/bots/video-editor">Ethan 的 Video Editor 模板</a>专门剪竖屏口播，交付可发布成片。</li>
+</ol>
+<a href="https://xiaohu.ai/article/grok-bot/">
+<span>延伸解读</span>
+<strong>xAI 发布 Grok Bot：一批有自己电脑的 AI 同事，用你的账号替你干活</strong>
+<span>了解 Grok Bot 的云端电脑、Cursor 集成和应用权限。</span>
+<b>阅读全文 →</b>
+</a>
+<h2>十条视频怎么同时剪</h2>
+<p>把剪辑交给在云端电脑上工作的 Agent，创作者可以一次提交多条素材。</p>
+<p>一个人手剪多条素材时，手上的剪辑工作通常得逐条做。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/grok-bot-creator-guide/original-2118808322061066240.jpg" alt="并行剪辑示意，图中画了六路，正文另述 Ethan 的十条案例" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>串行排队与多路并行对比。</span><br />图示左侧为传统的逐条串行流程，右侧为同时处理六路视频的流程示意；在实际测试案例中，Ethan 则是一次性提交了十条视频进行并行剪辑。</figcaption>
+</figure>
+<p>因为 Grok Bot 运行在云端电脑上，它能够同时并行处理多个剪辑任务。Ethan 这一次交了十份原始视频，大约两小时就剪辑完成，成片包含动效、叠层和配乐，期间经历了数轮反馈；相比之下，他平时手动精剪单条视频大约需要两小时。</p>
+<p>在云端处理视频期间，创作者可以把时间留给选题构思、商业合作或受众运营等核心环节。</p>
+<div>
+<div>
+<h4>Ethan 平时手剪</h4>
+<p>一条约 2 小时。</p>
+</div>
+<div>
+<h4>这次交给 Grok Bot</h4>
+<p>十条并行剪辑，约 2 小时，期间给了几轮反馈。</p>
+</div>
+</div>
+<h2>把观众划走的位置带回脚本</h2>
+<p>许多创作者发完视频就撒手不管，最多扫一眼总播放量。但在自动化飞轮中，受众在每一秒的停留与划走，都在直接调教下一条视频的命运。</p>
+<p>接入各平台的后台数据后，可以让 Bot 找到留存掉下去的位置，比较不同视频的跳过率和分享率，再回到具体片段里找可能的原因。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/grok-bot-creator-guide/original-2118808340801171457.png" alt="第 18 秒留存下滑的分析示意，图示并非实测数据" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>第 18 秒留存下滑分析示意。</span><br />图表展示了对 0:18 处留存下滑的模拟复盘，列出三条可能成因，供创作者在后续脚本中检验。</figcaption>
+</figure>
+<p>以原文中 0:18 留存下滑的示意为例，Bot 针对该处留存下降给出了三条可能解释：</p>
+<ul>
+<li><strong>内容转变（What happened）</strong>：从讲故事切换到了大段解释。</li>
+<li><strong>画面表现（Visual）</strong>：镜头一直没有更换。</li>
+<li><strong>故事悬念（Story）</strong>：此前设置的悬念已经解开。</li>
+<li><strong>改进建议（Lesson）</strong>：在展开解释时，依然需要维持画面变化与故事张力。</li>
+</ul>
+<p>这些分析为留存变化提供了可能解释，创作者可以将建议带入下一条视频的脚本中继续检验。</p>
+<h2>一份成片发到四个平台</h2>
+<p>内容制作完成后的跨平台分发往往枯燥且易出错。不同平台有着各自的标签规则和交互界面，手动反复上传不仅浪费时间，还常常因为格式差异降低发布效率。</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/grok-bot-creator-guide/original-2118808359528714240.jpg" alt="从一份视频和文案分发到四个平台的示意" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>多平台代发示意。</span><br />在接入社交账号的前提下，Bot 接收成片、文案与标签后，可协助分发至 X、YouTube、Instagram 和 TikTok 四个平台。</figcaption>
+</figure>
+<p>跨平台分发较为繁琐。创作者只需将剪辑完成的成片、文案以及话题标签交给 Grok Bot，并在接入各社交账号的前提下，由 Bot 通过其云端电脑代为发布到 X、YouTube、Instagram 和 TikTok 四个平台。</p>
+<p>代发需要单独配置。（已获邀参加 X 的 Video Kickstart 试点的创作者，也可通过这套流程把符合条件的竖屏短片发到 X。）</p>
+<h2>复盘结果怎么用到下一条</h2>
+<p>当工具链路彻底打通，整个短视频创作就凝聚成了一个自强化的飞轮系统：</p>
+<figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/grok-bot-creator-guide/original-2118808378805809152.jpg" alt="创作、发布和数据复盘的循环" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><span>贯穿全流程的创作者飞轮。</span><br />涵盖学习、灵感、创意、脚本、录制、剪辑、分发与数据复盘，复盘经验再循环回到下一轮创作中。</figcaption>
+</figure>
+<p>在这套飞轮中，各个环节紧密相连：从学习与灵感出发，提炼创意并由 Bot 协助打磨脚本；拍摄好的素材交由云端处理，成片发布后，数据复盘的结论再回到脚本构思中，形成持续迭代的闭环。</p>
+<p>虽然 Bot 能够分担大量机械与重复工序，但创作者依然扮演着核心角色：人仍要决定选题、把握核心表达、批准剪辑方案、审看初剪并给出反馈。持续向 Bot 提供上下文与反馈，每次发布与复盘都能让后续的视频创作更加顺手。</p>
+</div><div><div><div>来源</div><div><span>The ultimate guide to Grok Bot for creators</span><span>Ethan Ng<span>·</span><a href="https://x.com/i/article/2118422562791186432">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/XCreators/status/2118843705327026400">X Creators 发布帖</a><span>·</span><a href="https://x.com/Ethan_Ng_13/status/2118850284931961068">Ethan Ng 的补充帖</a><span>·</span><a href="https://x.ai/bot/marketplace/bots/video-editor">Grok Bot Marketplace · Video Editor</a><span>·</span><a href="https://x.com/Ethan_Ng_13/status/2107552821759680758">Ethan Ng 的口播成片</a><span>·</span><a href="https://www.linkedin.com/in/ethan-ng-86960a231">Ethan Ng 的工作经历</a><span>·</span><a href="https://x.com/Ethan_Ng_13/status/2111477926914920678">Ethan Ng 在纽约 X Creator Connect 的分享</a><span>·</span><a href="https://help.x.com/en/using-x/video-kickstart-bonus">X 的 Video Kickstart 试点说明</a></div></div></div></div></div><div>
+<div>
+<div>Workflows / AI Agent</div>
+<h1>Grok Bot 创作者指南：云端 Agent 怎样重塑短视频生产</h1>
+<div>从找选题、改脚本到剪辑和复盘，看看 Ethan Ng 把哪些工作交给了 Grok Bot。</div>
+<div>基于 SpaceXAI 创作者营销实践 · 核心机制：双重人类把关与云端协同流水线</div>
+<div>
+<p>一条 60 秒的短视频，镜头里只有一分钟，镜头外还有找选题、写脚本、剪片、发到几个平台、再回来看数据。走完这一轮，可能要花上几天。这些幕后工序会占去本来可以用来打磨创意的时间。</p>
+<p>为了让内容做得过来，Ethan Ng 团队将镜头外反复出现的工作交给了在云端电脑上工作的 Grok Bot。先让 Bot 看历史成片和喜欢的作品，再通过几轮对话说清楚口语习惯和剪辑偏好。也可以让它拆解收藏视频的开头、节奏和配乐，整理出适合自己的选题。</p>
+<div>
+<p><strong>上下文沉淀准则：</strong>让 Bot 复述你的切镜节奏和字幕习惯，再纠正它理解有偏差的地方。</p>
+</div>
+</div>
+<div>
+<h2>让 Bot 给脚本挑刺</h2>
+<p>直接让 AI 从零写剧本最容易跌入公文腔与说教陷阱。短视频的胜负往往在前三秒开头、叙事节奏以及是否持续设置悬念（open loop）。创作者应由自己撰写草稿，再交由熟悉自己风格的 Bot 进行严格批注与挑刺：</p>
+<div>
+<div>
+<div>前 3 秒</div>
+<div>“开头太慢（Hook is too slow）”</div>
+<div>删去冗长背景铺垫，第一句话直接切入核心冲突或矛盾点。</div>
+</div>
+<div>
+<div>讲解时机</div>
+<div>“过早开始讲道理（You start teaching too early）”</div>
+<div>在观众的好奇心建立之前，切忌急躁输出大段干货或理论说教。</div>
+</div>
+<div>
+<div>叙事张力</div>
+<div>“张力在此处下降，建议删掉这句”</div>
+<div>草稿过早交代结果。可以删掉这句，把答案留到后面。</div>
+</div>
+<div>
+<div>全文语调</div>
+<div>“这听起来不像你（This doesn't sound like you）”</div>
+<div>拿掉书面AI腔，换回创作者平时镜头前最自然的日常口语表达。</div>
+</div>
+</div>
+</div>
+<div>
+<h2>核心机制：双重人类把关的云端剪辑流水线</h2>
+<p>Bot 在云端调用剪辑工具。创作者先确认方案再开剪，看完初剪还可以给反馈。</p>
+<div>
+<div>云端剪辑与两次人工把关</div>
+<div>从 10 分钟原始素材到交付成片：底层由 Whisper + Remotion + Cursor 协同，创作者牢牢掌控方向与质感</div>
+<div>
+<div>
+<div>01</div>
+<div>
+<div>风格校准与镜头初筛</div>
+<div>分析创作者历史剪辑调性；在长达 10 分钟的长镜头素材中自动挑选状态最佳的片段（takes）。</div>
+</div>
+</div>
+<div>
+<div>02</div>
+<div>
+<div>生成剪辑方案规划</div>
+<div>规划结构、切镜点和补充镜头。有访问权限时，可从云盘取照片。</div>
+</div>
+</div>
+<div>
+<div>人类把关点 ①</div>
+<div>方案审批（I APPROVE）</div>
+<div>按指南的做法，创作者先核准方案或提出修改意见，确认后再开剪。</div>
+</div>
+<div>
+<div>03</div>
+<div>
+<div>云端多引擎自动化剪辑执行</div>
+<div>Whisper 转写语音供 Bot 分析，Bot 据此剪停顿。Remotion 用代码编排并渲染视频，Cursor 处理复杂动效。</div>
+</div>
+</div>
+<div>
+<div>人类把关点 ②</div>
+<div>成片回审与微调（Review &amp; Tweaks）</div>
+<div>创作者审看初剪，指定段落让 Bot 迭代修改，熟练者亦可直接在 Remotion 中进行代码级微调。</div>
+</div>
+<div>
+<div>04</div>
+<div>
+<div>交付高完成度成片</div>
+<div>导出含动效、叠层与配乐的成片。需要代发时，另行配置并授权对应账号。</div>
+</div>
+</div>
+</div>
+<div>
+<div><span>语音转写</span> Whisper 语音转写</div>
+<div><span>视频渲染</span> Remotion 代码组织时间线</div>
+<div><span>复杂动效</span> Cursor 云端 Agent 协同</div>
+</div>
+</div>
+</div>
+<div>
+<h2>十条视频同时剪：从单机排队到云端并行</h2>
+<p>Ethan 报告了一次批量剪辑。他把十份原始视频一起交给 Grok Bot，期间给了几轮反馈，约两小时后完成了剪辑。平时他手工精剪一条也要约两小时。</p>
+<div>
+<div>
+<div>10 条</div>
+<div>这次交给 Bot 的原始视频</div>
+</div>
+<div>
+<div>~2 小时</div>
+<div>这次批量耗时，含几轮反馈</div>
+</div>
+<div>
+<div>1 条</div>
+<div>他平时手剪约两小时的产量</div>
+</div>
+</div>
+<div>
+<div>
+<div>Ethan 平时手剪</div>
+<div>
+<div>精剪一条约两小时</div>
+</div>
+</div>
+<div>
+<div>Grok Bot 云端多路并行</div>
+<div>
+<div>这次并行剪十条，约两小时，期间有几轮反馈</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h2>把观众划走的位置，带回下一条脚本</h2>
+<p>接入平台后台数据后，可以让 Bot 找到观众在哪个片段离开，回看片段并提出解释。</p>
+<div>
+<div>
+<span>0:18 留存下滑示意</span>
+<span>秒级数据复盘</span>
+</div>
+<div>
+<p>以下是三种可能解释。</p>
+<div><span>内容转变：</span>从讲故事突然切换到了大段理论与规则解释。</div>
+<div><span>画面表现：</span>同一景别镜头停留过久，缺乏画面叠层与切镜变化。</div>
+<div><span>故事悬念：</span>开场悬念过早解开，未能及时建立新的心理预期（open loop）。</div>
+<div><span>下次尝试：</span>下条讲解时试着换画面或保留一个尚未回答的问题，再看留存。</div>
+</div>
+</div>
+<div>
+<div>一轮创作怎么接到下一轮</div>
+<p><strong>给参考作品</strong> → <strong>选题和改脚本</strong> → <strong>拍摄</strong> → <strong>确认方案、剪片和回审</strong> → <strong>发布</strong> → <strong>把复盘结果用到下条</strong>。选择代发时，先配置流程并授权社交账号。</p>
+</div>
+</div>
+</div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/i/article/2118422562791186432">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【周报】OpenAI官方指南：如何构建 AI 原生工程团队？ · XiaoHu.AI</title>
 <link>https://xiaohu.ai/article/build-ai-native-engineering-team/</link>
@@ -71810,123 +72147,6 @@ $4,200
 <div>我能讲清为什么选、怎样改、如何验。</div><p>AI 是否造成招聘变化仍是假说；年限不等于判断，展示经历也不保证录用。</p>
 </div></div>
 </div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】216 种 GPT image2 手绘风格：从看图选风格到复用提示词</title>
-<link>https://best.xiaohu.ai/article/handraw-style-216/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:handraw-style-216</guid>
-<pubDate>Sun, 06 Sep 2026 12:00:28 +0000</pubDate>
-<description>把编号、参考名称、视觉特征与示例图关联起来，理解一套手绘风格库怎样转成可复用的图片提示词。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 6 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">216 种 GPT image2 手绘风格：从看图选风格到复用提示词</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/handraw-style-216/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div>
-<div>正文一页纸秒懂漫画</div>
-<div><div><div>实用工具 · 小互解读</div><h1>216 种 GPT image2 手绘风格：从看图选风格到复用提示词</h1><p>把编号、参考名称、视觉特征与示例图关联起来，理解一套手绘风格库怎样转成可复用的图片提示词。</p><div><div>一分钟速览</div><ul><li>216 个编号把画风定义和示例图连在一起，选中后能反复取回对应提示词，换题材也有明确起点。</li><li>复用画风时抓住线条、配色、形状和材质，把示例图的人物与构图留给新主题重新决定。</li><li>模型对风格名称理解不足时，再补具体视觉特征或编号单图；名称本身并不保证生成效果。</li><li>完整库保留重复参考名称和新增条目；201–216 号有图有名称，但尚未填写核心视觉特征。</li></ul></div><div><p>GitHub 用户 <a href="https://x.com/yang02010">yang0</a> 整理了一套名为 handraw-style 的手绘风格库：216 个编号，每个编号连接参考名称、生图名称和一张示例图。创作者可以先看图选方向，再把“编号＋主题”交给配套 Skill，获得中文和英文提示词。</p><p>它最直接的用途，是让一次选中的画风能够被再次找到。看到喜欢的线条、配色和人物比例，不必重新描述一遍模糊的感觉，记下编号就能取回对应的文字与图片。对于持续做公众号配图、人物插画或社交内容的人，这提供了一份可以反复翻阅的视觉目录。</p></div><div><h2>用编号连接画风与提示词</h2><p>这套库给每个条目保留了三个不同的信息层。参考名称帮助定位作者或已有风格；生图名称把方向压缩成短标签；核心视觉特征进一步说明线条、形状、色彩、材质和表情应该怎样表现。</p><p>例如 018 号的参考名称是 Poorly Drawn Lines / Reza Farazmand，生图名称是 Minimal Deadpan Dialogue Cartoon。它的视觉描述强调简笔人物或动物、平静表情，以及由荒诞对白制造的幽默。选这个编号时，真正要保留的是这种表达方式；画里的具体人物、宠物与动作，可以由新主题重新决定。</p><p>编号只在这套库的索引中有意义。直接向一个没有读过风格库的生图工具输入“018”，工具不会因此自动获得这里的定义。配套 Skill 的作用，就是把编号展开成模型能接收的提示词。</p></div><div><h2>七个分组，先缩小选择范围</h2><p>216 个条目按 A–G 分组，既包括作者参考，也包括媒介、地域和通用画风。浏览时可以先根据想表达的内容选组，再比较组内具体编号。
-正文包含全部 216 项，可以直接跳到：<a>A 幽默漫画</a> · <a>B 叙事绘本</a> · <a>C 平面人物</a> · <a>D 日本作者</a> · <a>E 中国作者</a> · <a>F 媒介与地域</a> · <a>G 新增补充</a>。每类按缩略图网格展示，点击图片看原图，展开卡片阅读完整特征与中文提示词模板。</p><div><table>
-<thead>
-<tr>
-<th>分组</th>
-<th>编号</th>
-<th>数量</th>
-<th>主要看什么</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A 国际社论漫画／幽默手绘</td>
-<td>001–035</td>
-<td>35</td>
-<td>冷幽默、视觉双关、夸张表情与日常关系</td>
-</tr>
-<tr>
-<td>B 国际绘本／叙事型手绘</td>
-<td>036–054</td>
-<td>19</td>
-<td>童话角色、墨线淡彩、拼贴质感与故事动作</td>
-</tr>
-<tr>
-<td>C 现代平面／艺术化人物体系</td>
-<td>055–082</td>
-<td>28</td>
-<td>几何色块、剪影、负空间、拼贴与符号</td>
-</tr>
-<tr>
-<td>D 日本作者／当代插画体系</td>
-<td>083–123</td>
-<td>41</td>
-<td>极简线稿、杂志插画、少女日常与潮流人物</td>
-</tr>
-<tr>
-<td>E 中国作者／当代插画体系</td>
-<td>124–154</td>
-<td>31</td>
-<td>新中式人物、水墨、东方幻想与生活漫画</td>
-</tr>
-<tr>
-<td>F 通用网感／媒介／地域手绘</td>
-<td>155–200</td>
-<td>46</td>
-<td>蜡笔、彩铅、孔版印刷、水彩及地域视觉元素</td>
-</tr>
-<tr>
-<td>G 中国当代插画补充</td>
-<td>201–216</td>
-<td>16</td>
-<td>新增编号与对应示例图</td>
-</tr>
-</tbody>
-</table></div><p>同样是“手绘”，各组解决的表达问题很不一样。A 组可以靠一个姿态或一处视觉反差传达意思；B 组更容易把人物放进童话和日常叙事；C 组强调用大形与色块建立辨识度。D、E 组聚集了更具体的作者参考，F 组则允许你直接从材料和视觉语言出发。</p></div><div><h2>看图时，把人物和画法分开</h2><p>选风格最容易受到题材影响：喜欢图里的猫、少女或古装人物，就误以为自己选中了画法。更有效的比较顺序，是先看线条，再看形状与色彩，最后看材质和表情。</p><p>可以用四个编号练习区分。036 号是松散墨线和淡水彩，动作轻快；058 号用几何轮廓与大块鲜艳颜色组织人物；167 号强调双色套印、错版与纸张颗粒；192 号依靠大面积留白、水墨晕染和小人物表达东方情绪。它们的差异不需要依赖某一种人物身份才能成立。</p><div><table>
-<thead>
-<tr>
-<th>编号</th>
-<th>生图名称</th>
-<th>判断画风时抓住的特征</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>036</td>
-<td>Loose Ink-and-Wash Storybook</td>
-<td>抖动墨线、松散水彩、夸张四肢与灵活动作</td>
-</tr>
-<tr>
-<td>058</td>
-<td>Minimal Bold-Color Fashion Geometry</td>
-<td>几何人物、大块高饱和色、鲜明轮廓</td>
-</tr>
-<tr>
-<td>167</td>
-<td>Two-Color Risograph Drawing</td>
-<td>双色套印、轻微错版、颗粒与纸张触感</td>
-</tr>
-<tr>
-<td>192</td>
-<td>New-Chinese Tiny Ink Figures</td>
-<td>大留白、水墨晕染、小人物与东方情绪</td>
-</tr>
-</tbody>
-</table></div><figure>
-<div>
-<div><img /><p>036 · 墨线淡彩</p></div>
-<div><img /><p>058 · 几何色块</p></div>
-<div><img /><p>167 · 双色孔版</p></div>
-<div><img /><p>192 · 水墨留白</p></div>
-</div><figcaption>图片来源：yang0/handraw-style 编号示例。</figcaption></figure><p>使用参考图时也遵循这个区分：让模型参考线条、笔触和颜色倾向，把主体、动作、场景、构图与文字交给当前主题。否则，换了提示词却继续生成相似人物与相似布局，就没有充分用到这套库的可复用价值。</p></div><div><h2>从一个编号得到可复制的双语提示词</h2><p>配套 Skill 默认输出提示词。输入有效编号和主题后，它会带上该编号的生图名称与原参考名称；画幅、主体限制和文字要求，按使用者明确提出的条件加入。</p><p>以 018 号和“一个人端着咖啡等待电梯”为例，Skill 的名称提示词可以写成下面这样。中文和英文描述同一个主题，风格标识保持一致。如果模型不能识别这些名称，还需要补充视觉特征或对应参考图。</p><div><pre><code>中文
-风格名称：#018 · Minimal Deadpan Dialogue Cartoon。主题：一个人端着咖啡等待电梯。参考作者/风格名称：Poorly Drawn Lines / Reza Farazmand。
-English
-Style name: #018 · Minimal Deadpan Dialogue Cartoon. Theme: A person holding a cup of coffee while waiting for an elevator. Reference author/style name: Poorly Drawn Lines / Reza Farazmand.
-</code></pre></div><p>这份简短提示词与核心视觉特征是两种使用层次。日常提示词模式保持输入简洁；明确要求生图后，Skill 才根据模型配置决定是否补充特征或传入图片。英文主题需要真实翻译，仓库的命令行小工具只会把输入主题原样放进英文模板，不能代替翻译。</p></div><div><h2>模型理解到哪一层，就补到哪一层</h2><p>仓库把生图输入分成三个层次：作者名称加生图名称；在此基础上增加正向视觉特征；最后使用对应编号的单张参考图。判断条件来自模型能力配置。</p><p>当配置认为模型能通过名称识别画风时，只用名称与主题。名称不足而视觉特征足够时，补充具体可见特征。两者都不足，或者当前模型没有配置时，转用单图作为参考。这样既保留风格线索，也尽量减少示例图内容对新主题的干扰。</p><p>其中的“正向特征”指直接说出画面应出现什么，例如粗黑轮廓、透明叠色、少量点色。</p><p>当前配置为 <code>gpt-image-2</code> 提供了一套判断表。这是项目维护者设定的选择规则，不能据此保证某个编号在所有生成环境里都达到相同效果。换模型、换主题后，应通过自己的结果判断线条、色彩和人物比例是否仍然一致。</p></div><div><h2>保存完整编号，也保留每个条目的差异</h2><p>这套库包含 216 个编号条目，不能简单理解为 216 位不同作者，或 216 种完全互不重叠的艺术流派。阿梗、寂地、夏达等参考名称在前面的分组和新增分组中重复出现，但对应的生图名称与示例图不同。保留编号，才能准确回到选中的那一个版本。</p><p>201–216 号都有名称和图片，但核心视觉特征为空。使用这些条目时可以先看单图选方向；如果需要一份文字化的风格说明，应另行分析该图，不能把缺失的描述当作已有定义。</p><p>图中文字与索引也有少数差异。例如 201 号在文字索引中的生图名称是“可爱萌系插画风”，示例图写的是“治愈日常绘本风”。查找和调用按编号及文字索引定位，示例图用于观察画面，二者同时保留才不会混淆。</p><p>实际使用可以从一次小规模比较开始：写定同一个主题，挑选三个视觉差异较大的编号，生成后比较轮廓、配色、材质与表情。选中方向后，把编号、生图名称、主题和实际使用的模型一起保存。下次换题材时便有明确的起点，也更容易判断究竟是哪一项变化导致画风改变。</p></div><div><h2>001–035：用漫画表达幽默与观点</h2><p>这组的重点是怎样用人物、线条和空间关系表达一个意思。比较时注意幽默来自哪里：冷静的表情、夸张的动作、人物与环境的尺度差，还是画面中的概念隐喻。</p><figure><div>
-<a><img /></a><h3><span>001</span> Gemma Correll</h3><p>松散黑线、怪萌人物、少量点色、白底、日常吐槽与尴尬幽默</p>特征与提示词<p>生图名称：Playful Deadpan Doodle</p><p>松散黑线、怪萌人物、少量点色、白底、日常吐槽与尴尬幽默；人物轮廓优先于细节堆砌，脸型、头身比例与手脚形状要形成清楚而独立的视觉语言；表情偏冷脸、尴尬或突然夸张，姿态要有明确喜剧节奏，避免统一的可爱微笑。</p><div><pre>风格名称：#001 · Playful Deadpan Doodle。主题：{主题}。参考作者/风格名称：Gemma Correll。</pre></div></div>
 </div></div></body></html>]]></content:encoded>
 </item>
 </channel>
