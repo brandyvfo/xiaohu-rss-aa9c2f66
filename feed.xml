@@ -6,7 +6,1522 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Sat, 07 Nov 2026 12:00:40 +0000</lastBuildDate>
+<lastBuildDate>Mon, 09 Nov 2026 12:00:23 +0000</lastBuildDate>
+<item>
+<title>【日报】如何打造“贾维斯”式助手：把 AI 从「问一句动一下」变成 24 小时待命的管家 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/rubric-always-on-agents/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:rubric-always-on-agents</guid>
+<pubDate>Mon, 09 Nov 2026 12:00:23 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 为什么模型这么聪明，用起来还是 不像贾维斯？ 02 第一步：所有事塞进一个对话框，怎么防它「脑子撑爆」和 「卡死」？ 03 第二步：你不找它，它怎么知道自己醒来、在刚好的时候 找你？ 04 第三步：你不跟它汇报，它怎么实时知道外面发生了 什么？ 05 第四步（最难的一关）：怎么治好它「没活硬干、乱接别人话」 的毛病？ AI 解读 / 深度 · 11-09 · 约 11 分钟 ·</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 9 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">如何打造“贾维斯”式助手：把 AI 从「问一句动一下」变成 24 小时待命的管家 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/rubric-always-on-agents/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>为什么模型这么聪明，用起来还是 不像贾维斯？</span></a><a><span>02</span><span>第一步：所有事塞进一个对话框，怎么防它「脑子撑爆」和 「卡死」？</span></a><a><span>03</span><span>第二步：你不找它，它怎么知道自己醒来、在刚好的时候 找你？</span></a><a><span>04</span><span>第三步：你不跟它汇报，它怎么实时知道外面发生了 什么？</span></a><a><span>05</span><span>第四步（最难的一关）：怎么治好它「没活硬干、乱接别人话」 的毛病？</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>深度</a><i>·</i>11-09<i>·</i>约 11 分钟<i>·</i>作者 Rubric Labs</div><h1>如何打造“贾维斯”式助手：把 AI 从「问一句动一下」变成 24 小时待命的管家</h1><p>不靠换更大的模型，先改掉一问一答的聊天框形态：用一个对话框管所有事、装上定时心跳、用小模型守住收件箱，再教它在杂音里学会有眼力见。</p><div><div>正文一页纸原文</div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Rubric Labs</span><span>11-09 · 约 11 分钟</span><span>⚑ 大佬观点 · 个人立场</span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>现在的 AI 不像贾维斯，差的不在模型不够聪明，而在问一句才动一下的产品形态。</li><li>让它自己折叠旧记忆、派分身跑慢活、按心跳闹钟醒来，就能在一个窗口里全天候待命。</li><li>工程骨架今天就能搭好，真正卡脖子的是教模型在杂音里守住边界、拿不准先开口问。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/rubric-always-on-agents/social/zh-720446179c63.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>在 ChatGPT 问世之前，很多人想象中的 AI 都像电影《钢铁侠》里的管家贾维斯：它应该一直在线运转、有自己的性格，还能像你一样感知周围的环境。可今天我们手里的聊天机器人和 AI 助手却完全不是这样——每换一件事就得新开一个窗口、重新喂一遍前因后果；你不发消息敲它，它就永远在那里一动不动，说话干巴巴地像个机器人（dry and robotic）。</p>
+<p>AI 研究与产品机构 Rubric Labs 的 Dexter Storey 最近写了一篇文章，专门讲他们怎么设计「全天候在线（Always‑On）」的 Agent（能自己调用工具、动手干活的 AI 助手）。他提出了一个很有意思的判断：大家争论现在到底算不算通用人工智能，分歧其实不在模型够不够聪明，而在产品形态（产品做出来长什么样、人怎么跟它打交道）还不对。</p>
+<p>要把「问一句动一下」的聊天框改造成全天候管家，一共要跨过四道坎：用一个窗口管所有事、装上定时心跳让它自己醒、接上收件箱实时看世界，以及最难的一步——教它在嘈杂的环境里学会「有眼力见」。</p>
+<p>先看一眼改造后的全天候 Agent 在真实生活里长什么样。假设今天你要坐早班机飞往奥斯汀，从早上 7 点到下午，你一句指令都没发，它已经在后台跟着你的行程忙了一整圈：</p>
+<div>
+<div><span></span>全天候值班台 · 飞往奥斯汀的一天</div>
+<div>你还没开口，它已经盯完航班、<span>把车叫到 5 号门</span></div>
+<div>左边是外部世界的真实航班动态，右边是同一条主线上 Agent 自己判断何时出手、何时安静干活。</div>
+<div>
+<div>
+<div><span>7:00 AM · 航班动态</span><b>AA 1432 航班准点</b></div>
+<div><b>7:30 AM · 主动发消息提醒你</b>「早！8:15 前要出门，你在 B12 登机口。」</div>
+</div>
+<div>
+<div><span>9:40 AM · 航班动态</span><b>AA 1432 起飞，你在空中</b></div>
+<div><b>10:45 AM · 后台静默操作</b>不打扰你，悄悄预约好 12:30 的 Uber</div>
+</div>
+<div>
+<div><span>12:10 PM · 航班动态</span><b>降落奥斯汀机场</b></div>
+<div><b>12:30 PM · 落地准时通知你</b>「欢迎来到奥斯汀！Uber 在 5 号门等你。」</div>
+</div>
+<div>
+<div><span>1:35 PM · 后续跟进</span><b>前往预订的民宿（Airbnb）</b></div>
+<div><b>1:35 PM · 后台自动协调</b>给 Airbnb 房东发去你的预计到达时间</div>
+</div>
+</div>
+</div>
+<p>上面这张时间轴，对应的就是原文开篇的交互动画：</p>
+<figure><figcaption>原文题图动画：从 7:00 AM 发现航班准点、催你 8:15 前出门去 B12 登机口、10:45 AM 预约 Uber，到落地奥斯汀告诉你车在 5 号门等、1:35 PM 联系房东——全程都在同一条线上推进。</figcaption></figure>
+<h2>为什么模型这么聪明，用起来还是 不像贾维斯？</h2>
+<p><strong>差距不在智商，在工作方式：现在的聊天机器人是「临时工」，全天候 Agent 是「常驻管家」。</strong></p>
+<div><span>I have a hunch that the reason people disagree about whether we've reached AGI is more about form factor than it is about model capabilities.</span>我有一个直觉：人们之所以对「我们是否已经实现通用人工智能（AGI）」争执不下，原因更多在于产品形态，而不在于模型的能力。</div>
+<p>现在的聊天机器人和大多数 Agent，骨子里还是「你按一下、它动一下」的工具。Storey 把它们和贾维斯式的全天候 Agent 放在同一段日常时间里做了个对比：</p>
+<div>
+<div>同一段时间里，两种 AI 的工作方式</div>
+<div>左边开了 3 个窗口，你不问就彻底断电；右边永远只有 1 条线，自己会醒、会收信、会找你。</div>
+<div>
+<div>
+<div><b>现在的聊天机器人</b><span>3 个独立窗口</span></div>
+<div>
+<div>
+<span>你问一句</span>
+<span>空白断电</span>
+<span>再开一窗</span>
+<span>空白断电</span>
+<span>又开一窗</span>
+</div>
+</div>
+<ul>
+<li><b>短命：</b>聊完一件事窗口就废了，下次重头再来</li>
+<li><b>被动：</b>你不发消息启动它，什么都不会发生</li>
+<li><b>只看眼前：</b>只知道你当前塞进窗口里的那点背景</li>
+</ul>
+</div>
+<div>
+<div><b>全天候 Agent</b><span>1 条不断开的线</span></div>
+<div>
+<div>
+<span>① 心跳叫醒</span>
+<span>② 收到新信</span>
+<span>③ 主动找你</span>
+</div>
+</div>
+<ul>
+<li><b>一条线聊到底：</b>只跟一个认识你的 AI 说话，大事小事全找它</li>
+<li><b>主动干活：</b>到点自己醒，不用你交代就先把活干了</li>
+<li><b>心里有数：</b>连着你的邮箱、电脑和通知，知道正在发生什么</li>
+</ul>
+</div>
+</div>
+</div>
+<p>原文用上下两条时间线动画画出了这两种形态的差别：</p>
+<figure><figcaption>原文动画：上面是普通聊天机器人（Chatbot），3 段对话之间全是「什么都没发生（NOTHING HAPPENS）」；下面是全天候 Agent，一条线上有心跳（HEARTBEAT）、有外部消息进来（NEWS ARRIVES），还会主动发消息给你（IT MESSAGES YOU）。</figcaption></figure>
+<h2>第一步：所有事塞进一个对话框，怎么防它「脑子撑爆」和 「卡死」？</h2>
+<p><strong>让 Agent 自己动手折起旧记录、扔掉大网页；再给它配几个后台跑腿的分身，一边干重活一边陪你聊天。</strong></p>
+<p>既然要一条线聊到底（所有事都在同一个对话框里跟同一个 AI 聊，不用每件事新开窗口），不妨设想这样一个早晨：你一觉醒来生病了，嗓子疼还发烧。你希望只跟这一个 AI 说话，让它把今天的会全退了、点一份热汤外卖、查查你的症状，必要时再挂个医生号。</p>
+<p>听起来只要把所有对话合进一个窗口就行，但一动手就会撞上两堵墙：</p>
+<ul>
+<li>第一堵墙是脑子很快装满：AI 一次能同时看清的容量上限叫「上下文窗口」。所有事都从这一条线过，聊不了多久就会撑爆。</li>
+<li>第二堵墙是干重活时没法聊天：点外卖、去医院网站挂号都得打开浏览器一步步操作，非常花时间。你肯定不想等它挂完号，才能继续跟它聊自己嗓子疼的事。</li>
+</ul>
+<h3>办法一：别让外部程序硬砍记忆，让 Agent 自己收拾桌面</h3>
+<p>行业里对付窗口装满的常规做法叫「压缩记忆（Compaction）」——把占地方的长对话缩成简短摘要。但 Rubric 团队发现，传统的压缩，尤其是让另一个第三方程序在后台强行把对话压短，就像给正在干活的人做了一台「脑叶切除手术」，会直接打断 Agent 干活的连贯势头。</p>
+<p>他们的解法很干脆：把容量表亮给 Agent 看，再发给它两把「剪刀」，让它自己管自己的 token（AI 计算字数和容量的单位，128K 大约相当于十来万汉字）：</p>
+<ul>
+<li>每轮都报账：每次对话都告诉它，当前窗口用了多少 token、还剩多少。</li>
+<li>折叠工具（foldContext）：由 Agent 自己写一段简短总结，把已经办完的几轮对话和推理过程折成一行。</li>
+<li>丢弃工具（dropContext）：把看完就再也用不上的大块内容（比如刚读完的一整篇网页）直接从窗口里删掉。</li>
+</ul>
+<p>实际跑起来，Rubric 的 Agent 往往会等手头一件事刚办完、出现空当（lull）时才动手收拾。看看生病那天，窗口里的 8 行记录是怎么涨到 <strong>87K</strong>（上限 128K），又被它两剪刀降回 <strong>19K</strong> 的：</p>
+<div>
+<div>
+<div>
+<div>同一个 128K 容量槽，水位怎么分两步降下来</div>
+<div>生病那天的 8 行对话与工具记录，Agent 自己拿两把剪刀给桌面腾地方。</div>
+</div>
+<span>原文算账</span>
+</div>
+<div>
+<div>
+<div><span>① 清理前：快撑满大半个槽</span><b>87K / 128K</b></div>
+<div><i></i></div>
+<div>退了 3 个会，又为查嗓子疼读了一篇网页（光第 5 行这篇网页就占了 <b>58K</b>）。</div>
+</div>
+<div>
+<div><span>② 第 7 行折掉退会记录（foldContext）</span><b>77K / 128K</b></div>
+<div><i></i></div>
+<div>把第 1–3 行退会过程折成一句「已取消今天 3 个会议」，立刻省下 <b>11K</b>。</div>
+</div>
+<div>
+<div><span>③ 第 8 行扔掉 58K 网页（dropContext）</span><b>19K / 128K</b></div>
+<div><i></i></div>
+<div>症状建议已经给过你了，把第 5 行那篇 <b>58K</b> 的网页删掉，正在聊的第 4、6 行原封不动。</div>
+</div>
+<div>
+<div><i>第 1–3 行</i><span>你说生病要退会 → 调 <span>calendar.cancel(today)</span> → 回复已退完 3 个会</span><em>被第 7 行折成 1 句摘要（-11K）</em></div>
+<div><i>第 4 行</i><span>你说：「谢谢，我嗓子疼得要命（Thanks. My throat is killing me.）」</span><em>保留（还在聊）</em></div>
+<div><i>第 5 行</i><span>调工具读网页 <span>web.read("sore throat")</span></span><em>占 58K · 被第 8 行直接删掉</em></div>
+<div><i>第 6 行</i><span>Agent 回复：「可能是链球菌感染，先多休息、多喝水。」</span><em>保留（还在聊）</em></div>
+<div><i>第 7–8 行</i><span>先后调用 <b>foldContext(1–3)</b> 和 <b>dropContext(5)</b> 完成清理</span><em>87K → 77K → 19K</em></div>
+</div>
+</div>
+<div>
+<div><b>剪刀一：foldContext（留结论、收过程）</b>适合已办完的任务，用自写摘要替掉中间过程。</div>
+<div><b>剪刀二：dropContext（看完就扔）</b>适合占地方的原始网页和长材料，用完直接清空。</div>
+</div>
+</div>
+<p>点开原文动画，可以完整看到这 8 行记录从涨到 87K、折叠省下 11K，再到删掉 58K 网页降回 19K 的全过程：</p>
+<figure><figcaption>原文动画：顶部进度条从 87K / 128K 一路降回 19K / 128K。第 1–3 行被第 7 行 foldContext(1–3) 折成一句「Cancelled today's 3 meetings」（省下 11K），第 8 行调用 dropContext(5) 删掉占了 58K 的网页。</figcaption></figure>
+<a href="https://xiaohu.ai/article/pi-compaction-open-visual-v1/"><span>站内相关</span>重开会话，还是压缩历史？Pi 是如何解决模型上下文自动压缩问题的<span>延伸阅读：常规的上下文自动压缩是怎么工作的，为什么保留历史、压缩历史和重开会话各有代价。</span><b>去读</b></a>
+<h3>办法二：重活派给「分身」去跑腿，主窗口只收一行结果</h3>
+<p>就算会自己收拾桌面，如果买汤、挂号这些繁琐的操作全在主窗口里一步步跑，窗口照样塞得飞快，而且你说话它也没空回。所以 Rubric 给主 Agent 配了能随时派活的「分身（Sub‑Agents，派活叫 Dispatch）」——主 Agent 派出去干具体重活的小助手。</p>
+<p>这样一石二鸟：主窗口不用塞满点按钮、填表格的琐碎过程，能留出地方装更高层面的全局信息；同时两个分身从主线分叉出去各自忙活——一个帮你挑好 <strong>$14 的鸡汤面</strong>下单，一个帮你核对医保、从今天 3 个空号里约好下午 3:15 的 Patel 医生——干完各自往主窗口汇回一行结果：</p>
+<div>
+<div>生病的一天：主线不断聊，旁路分叉去跑腿</div>
+<div>左边主窗口继续陪你聊病情，右边虚线分出两个后台分身去操作浏览器，办完双双回传。</div>
+<div>
+<div>
+<div><span>主窗口 · Agent</span><span>不断线陪聊</span></div>
+<div><b>你</b>我起来生病了。能帮我点碗汤、再约个医生吗？</div>
+<div><b>Agent（分叉派出分身 ①）</b>马上办。你感觉怎么样？</div>
+<div><b>你</b>嗓子疼，昨晚开始发烧。</div>
+<div><b>Agent（分叉派出分身 ②）</b>可能是链球菌感染。先多休息、多喝水。</div>
+<div>✓ 汇回结果 1：热汤将于 <span>12:40 PM 送达</span></div>
+<div>✓ 汇回结果 2：已约 Patel 医生，<span>今天 3:15 PM</span></div>
+</div>
+<div>
+<div>
+<b>旁路分身 ①：点热汤（Order soup）</b>
+<span>搜附近热汤 → 选定<b>鸡汤面（Chicken noodle，$14）</b> → 结账下单</span>
+<div><i></i></div>
+<span>✓ 已完成 · 预计 <b>12:40 PM 送达</b></span>
+</div>
+<div>
+<b>旁路分身 ②：挂医生号（Book a doctor）</b>
+<span><b>核对医保</b>（Checking insurance）→ 查出<b>今天 3 个空号</b> → 预约 3:15 PM</span>
+<div><i></i></div>
+<span>✓ 已约妥 · 今天 <b>3:15 PM（Patel 医生）</b></span>
+</div>
+</div>
+</div>
+</div>
+<p>对照原文动画，可以看到主对话框一边和你聊症状，右侧两个分身一边跑完各自的三步操作并先后把结果塞回主窗口：</p>
+<figure><figcaption>原文动画：左边主窗口里 Agent 一边问你症状，一边往右边派出「Order soup（点 $14 鸡汤面）」和「Book a doctor（核对医保、查 3 个空号、预约）」两个分身；办完后主窗口底部先后收到「Soup arriving 12:40 PM」和「Dr. Patel, today at 3:15 PM」。</figcaption></figure>
+<h2>第二步：你不找它，它怎么知道自己醒来、在刚好的时候 找你？</h2>
+<p><strong>靠「心跳」把睡着的 Agent 叫醒；再把「发消息」变成一个单独的工具，让它醒来干完活也能安静睡回去，不乱发消息烦你。</strong></p>
+<p>普通的 AI 系统骨子里是一问一答的被动模式（像投币饮料机，你按一下才出一下，你不找它它就永远停着）：你发一个请求，等着它返回结果。要想让它知道你周三飞奥斯汀，提前查好民宿入住说明、算好从机场过去的路线、等你一落地就发到你手机上，就必须改掉两件事：</p>
+<ol>
+<li>让它想什么时候醒，就什么时候醒：Rubric 给它装了「心跳（Heartbeat）」——其实就是系统定时往聊天记录里推一条写着 <code>"heartbeat"</code> 的简短消息。如果 Agent 睡着了，这条消息就会把它叫醒。心跳可以按固定节奏跑（比如每小时一次），也可以让 Agent 自己给自己定下一次心跳的闹钟。</li>
+<li>把「醒着思考」和「开口找你」拆开：在普通聊天框里，AI 每一轮说的最后那句话，都会直接发给你。但如果 Agent 每小时醒一次都给你弹条消息说「我刚看了一眼，没事发生」，你当天就会把它卸载。所以 Rubric 把发消息做成了专门的工具（send_message）——只有它主动调用这个工具，你的手机才会响；它最后说的那句话只留在它自己的记录里，当成写给自己的备忘录。</li>
+</ol>
+<p>在奥斯汀那趟行程里，这两招加上前面的「派分身」是这样串起来的：Agent 早上靠例行心跳醒来，发现你要飞奥斯汀后，先派一个分身去把民宿（Airbnb）入住说明和从机场过去的路线整理好，再给自己定一个航班落地前后的心跳闹钟，这样就能在最合适的那一刻把消息发给你。</p>
+<div><b>比喻在哪里不成立</b>说全天候 Agent「睡着了」「被心跳叫醒」，只是为了好懂。实际上大模型不会像人一样躺在后台打呼噜，而是每次收到 <code>"heartbeat"</code> 文字时启动跑一轮推理，决定设个几点几分的定时器后就停下来，中间不消耗算力。</div>
+<p>为了单看「心跳 + 发消息工具」怎么配合，原文配图把奥斯汀行程简化成「只盯落地接机」这一件事：</p>
+<div>
+<div>奥斯汀接机：左边后台醒了两次，右边手机只响一次</div>
+<div>早上 7 点醒来查完航班就自己定好 12:20 的闹钟继续睡；只有调 send_message 时才触达你。</div>
+<div>
+<div>
+<div><span>左边：Agent 自己的后台记录</span><span>你看不见</span></div>
+<div><b>7:00 AM · 心跳叫醒（Heartbeat）</b><br />例行起床，看看今天有什么安排</div>
+<div>调工具搜邮箱 <span>search_email("flight")</span><br />→ 发现 <b>AA 1432 航班 12:10 PM 落地奥斯汀</b></div>
+<div>给自己定闹钟 <span>schedule_heartbeat(12:20 PM)</span></div>
+<div>安心睡到 12:20 PM · 中间 5 小时零打扰</div>
+<div><b>12:20 PM · 心跳叫醒（Heartbeat）</b><br />飞机刚落地 10 分钟，准时醒来</div>
+<div><b>调用发消息工具：</b><span>send_message("Welcome to...")</span></div>
+<div><span>最后一句备忘：Done.（办妥了）</span><span>NOT SENT · 不发送</span></div>
+</div>
+<div>→</div>
+<div>
+<div>
+<div>10 月 28 日 星期三</div>
+<div>12:20</div>
+</div>
+<div>
+<span>锁屏实时动态 · AA 1432 已落地</span>
+<span>芝加哥 ORD ┈┈┈▸ 奥斯汀 AUS</span>
+</div>
+<div>
+<b>Agent · 刚刚</b>
+        欢迎来到奥斯汀！我帮你叫好了 Uber，就在 <span>5 号门等你。</span>
+</div>
+</div>
+</div>
+</div>
+<p>原文动画把后台记录和手机锁屏摆在一起，注意看左下角那句标着 <code>NOT SENT</code> 的 <code>Done.</code>：</p>
+<figure><figcaption>原文动画：左边 7:00 AM 心跳唤醒后查出 12:10 PM 落地，定好 12:20 PM 闹钟就睡去；右边锁屏上飞机从 ORD 飞抵 AUS，12:20 PM 调 send_message 把消息推上锁屏，最后一行「Done.」留在后台标着 NOT SENT（未发送）。</figcaption></figure>
+<h2>第三步：你不跟它汇报，它怎么实时知道外面发生了 什么？</h2>
+<p><strong>先给它操作电脑和读邮箱的权限；再给它装一个收件箱，门口放个便宜的小模型当「门卫」，拦住垃圾消息、只放急事进去叫醒它。</strong></p>
+<p>要想主动帮忙，前提是得知道你正在干什么、世界发生了什么变化。Rubric 分两层来解决这件事：</p>
+<ul>
+<li>第一层是给足查资料的权限（Broad access）：编程类的 Agent 之所以突然变好用，靠的就是一个能在电脑后台输指令查文件、跑程序（终端命令）的简单工具；同理，通用 Agent 靠的是「操作电脑的工具（Computer use）」——让 AI 能像人一样打开浏览器、翻文件夹、操作软件，外加访问你的邮箱和本地文件。这样不用你一句句喂，它自己就能翻出你订的机票酒店、查历史订单、摸清你的日常偏好。</li>
+<li>第二层是装一套实时通知系统（Notifications）：光有权限自己去翻还不够，因为 Agent「不知道自己不知道什么」。要是你去奥斯汀的航班突然被取消了，等它一小时后例行心跳醒来去翻邮箱，黄花菜都凉了。所以 Rubric 给它配了一个专门的「收件箱（Inbox）」，<strong>还附上一份说明文档，教 Agent 自己把外部软件的消息推送和定时刷新（英文叫 Webhooks 和 Polling jobs，外部软件一有变动就主动推通知过来，或每隔几分钟去查一次）改造成往这个收件箱里塞事件</strong>——外面一有风吹草动，立刻推进它的窗口里。</li>
+</ul>
+<p>但收件箱一接通，新麻烦马上就来了：<strong>到处都是杂音。</strong>打折促销邮件、Slack 群里跟它无关的闲聊、GitHub 上非重点代码库的更新……如果每进来一条通知都把主 Agent 叫醒一次，它几乎每分钟都得醒一回，不仅白白烧掉大量 token，还会把它的上下文窗口搅成一锅粥。</p>
+<p>Rubric 的办法是在收件箱门口放一个反应极快、花钱极少的「快思考小模型」（原文用的叫 Jev）当门卫，每来一条通知只回答一个问题：「要现在叫醒主 Agent 吗？」</p>
+<div>
+<div>小模型门卫 Jev：左边放行急件，右边拦下 4 条杂音</div>
+<div>经过 Jev 闸门一筛，急事立刻叫醒主 Agent，不急的 4 条通知全攒进右边「稍后看（Later · 4）」收纳盒。</div>
+<div>
+<div>外部涌入的通知：促销邮件、群聊、代码库动态、积分账单、航班变动……</div>
+<div>
+<b>小模型 Jev 守在门口分流</b>
+<span>只问一句：「要叫醒 Agent 吗？（Wake the agent?）」</span>
+</div>
+<div>
+<div>
+<b>YES · 立刻叫醒主 Agent</b>
+<div><b>AA 1432 航班变动：</b>你飞往奥斯汀的<span>航班已取消</span></div>
+<div><b>主 Agent 马上行动：</b><br />① 搜周三飞奥斯汀航班<br />② 找到 <b>3 个备选（最早 4:05 PM）</b><br />③ 发消息问你：<b>要改签吗？</b></div>
+</div>
+<div>
+<b>NO · 攒进稍后看（Later · 4）</b>
+<div><b>① 促销邮件（Outlet Weekly）：</b>本周末全场五折（50% off）</div>
+<div><b>② 酒店积分（Hotel Rewards）：</b>月度积分账单已出</div>
+<div><b>③ 旧代码库（acme/old‑site）：</b>机器人提了<span>代码改动 PR-212</span></div>
+<div><b>④ #team 群聊：</b>Maya 问 Sam 中午还一起吃饭吗？</div>
+</div>
+</div>
+</div>
+</div>
+<p>点开原文动画，可以看到这 5 条通知先后掉进 Jev 漏斗、前 4 条杂音被分流进右侧 Later 堆，第 5 条航班取消立刻唤醒主 Agent 的过程：</p>
+<figure><figcaption>原文动画：Jev 在中间判断「Wake the agent?」。右边周末五折促销、酒店积分、旧项目代码改动 PR-212、别人约午饭共 4 条全走 NO 进了「Later · 4」堆；左边「飞奥斯汀航班取消」走 YES 立刻叫醒 Agent 查出 3 个改签航班。</figcaption></figure>
+<a href="https://xiaohu.ai/article/system-one-models-jev/"><span>站内相关</span>ChatGPT联合发明人 推出一款全新AI模型：System One 不生成文字 专注决策<span>认识快思考小模型 Jev：为什么它不生成废话，专门在代码里做毫秒级二分类判断。</span><b>去读</b></a>
+<h2>第四步（最难的一关）：怎么治好它「没活硬干、乱接别人话」 的毛病？</h2>
+<p><strong>今天的大模型被训练成了「见任务就抢」的做题家；放进真实环境里，必须先教它像个腼腆的新人：没事别硬干、拿不准先问、看人脸色记经验。</strong></p>
+<p>讲到这里，前面三步——一条主线配压缩和分身、装上心跳并把发消息拆出来、给足权限再加个小模型筛通知——在工程架构上其实都是很直接的改造。但 Storey 直言，当把这套架构真正跑在今天的大模型上时，撞上了最棘手的一堵墙：模型没有「眼力见（Discernment）」，在杂乱信息里分不清哪些事归自己管、哪些事该闭嘴。</p>
+<div><span>Before, we would give our agents a task and the context to complete it, and they would work until they finished and returned to us. Now, we're giving them a raw, unfiltered stream of noise and asking them to figure out what to do, and how to do it, while they keep processing more noise.</span>以前，我们给 Agent 一个明确的任务和所需的背景材料，它们埋头干完交差就行。现在，我们把一股未经筛选的原始杂音直接灌给它们，让它们一边继续吞咽更多杂音，一边自己琢磨该干什么、怎么干。</div>
+<p>为什么模型这么不适应？因为它们在「强化学习训练场（RL arenas）」这种模拟考场里接受的所有训练，都在奖励一件事：拿到明确指令，把任务干穿。所以在演示视频里，只要开工信号给得清清楚楚，它们表现得像神仙；可一旦丢进意思模糊的真实办公群里，它们就彻底没了分寸——</p>
+<p>一方面，它们常常漏掉真正该接的活；另一方面，它们又太急着证明自己有用，经常在 Slack 群里强行接下根本不是对它说的话。接完活一动手，它才发现自己既没有干这件事的授权（mandate）、也没有查系统日志的权限（access）、更不了解前因后果（context）——可「做题家」的本能又不允许它空手而归，于是它就退而求其次，硬写一篇 6 页的设计文档丢进群里交差。用原文的话说，「既没用，又让人替它脸红（useless and embarrassing）」：</p>
+<div>
+<div>Slack 群里的尴尬一幕：明明在问同事，Agent 却硬写 6 页文档抢答</div>
+<div>发生在 #engineering（工程群）的一段对话。因为缺授权、缺日志权限、缺前因后果，只能硬凑一篇文档交差。</div>
+<div>
+<div><span>#engineering 频道 · 讨论串</span><span>3 条回复</span></div>
+<div>
+<div>
+<div><b>Leo</b>10:41 AM<br />结账页面又有部分用户出现超时了。</div>
+<span></span>
+</div>
+<div>
+<div><b>Maya</b>10:42 AM<br />你能在下午 3 点发版前排查一下吗？</div>
+<span>← 这句话明明是在问 Leo</span>
+</div>
+<div>
+<div>
+<b>Agent [APP]</b>10:43 AM<br />我没有查看日志的权限，所以我写了一份《我们如何排查超时问题》的文档发给大家。
+          <div>文档附件：How we debug timeouts（DOC · 共 6 页）</div>
+<div>群成员反应：<b>思考脸 3 个 · 困惑脸 2 个 · 倒脸 1 个</b></div>
+</div>
+<span>✕ 没叫它却硬接话<br />✕ 没权限就水 6 页废话</span>
+</div>
+<div>
+<div><b>Leo</b>10:51 AM<br />我来查（On it.）。<br /><span>群成员反应：<b>举手欢呼 2 个 · 火苗 3 个</b></span></div>
+<span>✓ 真正该干活的人</span>
+</div>
+</div>
+</div>
+</div>
+<p>原文动画直接标出了这三处尴尬：</p>
+<figure><figcaption>原文动画：Maya 在 10:42 AM 问 Leo 能不能在 3 点发版前查一下超时，Agent 在 10:43 AM 跑出来说自己没日志权限，转头塞了一篇 6 页的《How we debug timeouts》文档，被同事贴满疑惑和倒脸表情。</figcaption></figure>
+<div><span>Agents are either too eager to do busy work or missing opportunities to be helpful. Calibrating them to the right balance is more art than science.</span>Agent 要么太急着干一堆瞎忙活，要么漏掉真正能帮上忙的机会。把它们调校到恰当的平衡点，目前更像一门手艺，而不是一门精确的科学。</div>
+<h3>怎么把「爱抢话的做题家」调教成 「懂分寸的管家」？</h3>
+<p>Rubric 给出的设计思路是：让 Agent 刚上岗时先像个腼腆、拘谨的新人（start out shy），随着一天天摸清自己在哪块地盘能真正帮上忙，再慢慢放开手脚主动出击。具体落地靠这三招：</p>
+<div>
+<div>
+<span>1</span>
+<b>立规矩 · 在开工说明里写明「不干活完全正常」</b>
+    在开工说明<span>（英文叫 System prompt，AI 每次开工前必读的岗位守则）</span>里把它的职责边界划得清清楚楚，并且明确告诉它：醒来发现没事可做，直接什么都不干是完全正常的。
+  </div>
+<div>
+<span>2</span>
+<b>别瞎猜 · 拿不准归不归自己管，先开口问</b>
+    遇到模糊的消息，不确定是不是自己的活时，先问一句确认，而不是硬着头皮瞎猜、甚至为了交差去凑一篇 6 页的文档。
+  </div>
+<div>
+<span>3</span>
+<b>看脸色 · 把人的反应记进记忆，下次出手前先翻账</b>
+    专门记下它每次主动出手后你是怎么反应的：是道谢了、纠正它了，还是直接没搭理？下次它想主动干活前，先翻翻这本反馈账。
+  </div>
+</div>
+<p>Storey 还指出，除了靠开工说明和记忆调教，接下来还有一个巨大的机会：造出全新的强化学习训练环境，不再只奖励「把题做完」，而是专门奖励模型在杂音里的「眼力见」和「会用记忆」。</p>
+<div>
+<div>回到贾维斯 · 全文总结</div>
+<div>工程骨架我们已经会搭了，<br />真正的最后一公里是<span>「眼力见」</span></div>
+<div>
+<div>
+<b>✓ 今天已经能搭好的架构（3 块积木）</b>
+<ul>
+<li><b>一条主线（One thread）：</b>配好折叠/丢弃工具管住容量，重活派给分身并行干。</li>
+<li><b>一颗心跳（A heartbeat）：</b>定时或自定闹钟叫醒，把「醒来干活」和「调工具发消息」彻底拆开。</li>
+<li><b>一个收件箱（An inbox）：</b>给足电脑和邮箱权限，门口放快思考小模型拦住杂音、只放急事。</li>
+</ul>
+</div>
+<div>
+<b>待攻关的硬骨头（眼力见 Discernment）</b>
+<ul>
+<li><b>痛点：</b>现在的模型在训练场里习惯了见题就做，放进真实杂音里要么瞎忙活、要么漏掉真机会。</li>
+<li><b>解法：</b>从腼腆新人做起——写明「没事不用硬干」、拿不准先问、把人的反馈记进长期记忆。</li>
+</ul>
+</div>
+</div>
+<div>离真正的贾维斯还有很长的路要走。架构是地基，而让 AI 知道「什么时候该出手、什么时候该安静」，才是最值得期待的下一章。</div>
+</div>
+<p><strong>给动手的人：想自己搭一套全天候 Agent，要配齐哪些工具和接口？</strong></p>
+<p>如果你正在自己写 Agent 或搭工作流，可以把上面这套架构拆成下面这份五件套清单直接照着配：</p>
+<ul>
+<li><span><b>上下文自管理工具（Compaction tools）：</b>在每一轮（turn）给模型注入当前 token 用量统计，并提供 <code>foldContext(start, end, summary)</code>（用自写摘要替换一段历史消息）和 <code>dropContext(target)</code>（直接移除某条高消耗工具返回，如长网页源码）。引导它在任务告一段落的空当（lull）执行清理。</span></li>
+<li><span><b>子 Agent 派发机制（Sub‑Agent dispatch）：</b>主线程只保留高层级上下文与用户对话；遇到耗时的浏览器操作（如订餐、预约挂号、查资料）派生独立子 Agent 异步执行，完成后只向主线程返回一行结果摘要。</span></li>
+<li><span><b>心跳与消息解耦（Heartbeat + Messaging as a tool）：</b>去掉「收到用户请求才运行、最后一条回复直接发给用户」的同步函数模型。支持定时（如每小时）或由 Agent 调 <code>schedule_heartbeat(time)</code> 往历史里推入 <code>"heartbeat"</code> 唤醒；只有显式调用 <code>send_message()</code> 才推送给用户，其余输出标为内部备忘（<code>NOT SENT</code>）。</span></li>
+<li><span><b>宽泛权限 + 小模型通知网关（Broad access + Inbox triage）：</b>开放操作电脑工具（Computer use）、文件系统、浏览器和邮箱权限；同时建立统一收件箱（Inbox）并提供文档让 Agent 将外部 Webhook 和轮询任务接入收件箱。在收件箱前放一个便宜的快思考小模型（System 1 model，如 Jev）做二分类：重要事件立即唤醒主 Agent，次要通知归入 <code>Later</code> 队列供主 Agent 批量检阅。</span></li>
+<li><span><b>眼力见与反馈记忆（Discernment &amp; reaction memory）：</b>在开工说明（System prompt）中明确职责范围并写明「什么都不做完全可以（doing nothing is totally fine）」、不确定时先提问；建立反馈记忆库，记录每次主动行动后用户的反应（感谢、纠正或无视），并在下次主动行动前先检索该记忆。</span></li>
+</ul>
+</div><div><div><div>来源</div><div><span>Designing an Always-On Agent</span><span>Dexter Storey (Rubric Labs)<span>·</span><a href="https://rubriclabs.com/blog/always-on-agents">查看主材料</a></span></div></div></div></div></div><div>
+<div>
+<div>Rubric Labs · Always-On Agent</div>
+<h1>从临时工到常驻管家：全天候 Agent 的四道工程坎</h1>
+<div>为什么模型越来越聪明，用起来还是不像钢铁侠的贾维斯？差距不在模型智商，在产品形态与工作方式。</div>
+<div>基于 Rubric Labs (Dexter Storey) 原文设计解读 · 单窗口折叠 · 心跳唤醒 · 门卫分流 · 懂分寸的眼力见</div>
+<div>
+<p>在 ChatGPT 问世之前，很多人想象中的 AI 都像电影《钢铁侠》里的管家贾维斯：一直在线运转、有自己的性格，还能感知环境变化。但今天的聊天机器人骨子里还是「你按一下、它动一下」的工具。Rubric Labs 的 Dexter Storey 指出：<strong>差距不在智商，在工作方式：现在的聊天机器人是「临时工」，全天候 Agent 是「常驻管家」。</strong>要把一问一答的聊天框改造成全天候管家，必须跨过四道工程硬坎。</p>
+<div>
+<div>
+<div>87K→19K</div>
+<div>Agent 自主折叠与丢弃网页，桌面不撑爆</div>
+</div>
+<div>
+<div>1 对多</div>
+<div>主窗口专心陪聊，分身在后台并发跑腿</div>
+</div>
+<div>
+<div>4 / 5 拦截</div>
+<div>门卫小模型过滤杂音，只放紧急变动</div>
+</div>
+</div>
+</div>
+<div>
+<p>要把「问一句动一下」的聊天框改造成全天候管家，核心就在于将原本相互阻塞的感知、思考与动作，解耦成一套自我维持的主运转循环：</p>
+<div>
+<div>全天候 Agent 的常驻运转中枢（Always-On Core Architecture）</div>
+<p>解耦被动投币机模式的运转系统：靠心跳与门卫自主感知，靠单主线折叠与分身派发保持清醒，靠解耦工具在恰当时机主动开口。</p>
+<div>
+<div>
+<div>01 · 唤醒与感知</div>
+<div>心跳自醒 + 门卫收件</div>
+<p>定时心跳唤醒睡着的 Agent，外部通知经由 Jev 小模型门卫初筛，拦住闲聊杂音，只将航班取消等急事推入主窗口。</p>
+</div>
+<div>
+<div>02 · 中枢与分身</div>
+<div>单主线折叠 + 异步派发</div>
+<p>一个窗口聊到底。Agent 自主调用 foldContext/dropContext 清理内存；重活派给分身（Dispatch）去跑腿，主窗口只收一行结论。</p>
+</div>
+<div>
+<div>03 · 执行与表达</div>
+<div>后台备忘 + 解耦发消息</div>
+<p>把「思考」和「找你」彻底拆开。中间思考作为 NOT SENT 留在后台备忘录；唯有调用 send_message 工具时才推送到手机锁屏。</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<p><strong>第一步：所有事塞进一个对话框，怎么防它「脑子撑爆」和「卡死」？</strong> 一旦要求一条线聊到底，就会撞上两堵墙：上下文窗口撑爆，以及去浏览器填表点餐时主对话直接卡死。</p>
+<p>对付上下文超标，<strong>别让外部程序硬砍记忆，让 Agent 自己收拾桌面</strong>。Rubric 团队发现外部暴力摘要如同「脑叶切除」，会切断任务连贯性。因此他们给 Agent 报出实时 token 账单，配发两把剪刀：用 <code>foldContext</code> 把已办完的事项折叠为一行，用 <code>dropContext</code> 删掉读完的几十 KB 网页。在任务间歇收拾桌面，轻松将 87K / 128K token（先折第 1–3 行省 11K 到 77K，再删第 5 行 58K 网页）降回 19K。</p>
+<div>
+<p><strong>重活派给「分身」去跑腿，主窗口只收一行结果：</strong> 主窗口如果自己去一步步点外卖或挂号，不仅耗费巨量上下文，而且用户说话它没空回。主 Agent 将订汤（12:40 PM 送达的 $14 鸡汤面）和挂号（核对医保、从今天 3 个空号里预约下午 3:15 的 Patel 医生）分叉派发给 Sub-Agents 并发执行，办完后仅在主窗口底部汇入单行结论，兼顾全局对话与后台重活。</p>
+</div>
+</div>
+<div>
+<p><strong>第二与第三步：自主唤醒、看世界与门卫把关。</strong> 人不主动敲它，AI 如何知道什么时候该动？Rubric 的答案是：<strong>靠「心跳」把睡着的 Agent 叫醒；再把「发消息」变成一个单独的工具，让它醒来干完活也能安静睡回去，不乱发消息烦你。</strong> 心跳机制（Heartbeat）就像闹钟，让 Agent 按固定节奏（如每小时）或在自定时间（如 7:00 AM 醒来查出 12:10 PM 落地，便预约 12:20 PM 落地后 10 分钟的闹钟）醒来推进行程与发信；后台推导出的结论默认标记为 <code>NOT SENT</code>，不发废话打扰人。</p>
+<p>为了主动感知外部世界，方案<strong>先给它操作电脑和读邮箱的权限；再给它装一个收件箱，门口放个便宜的小模型当「门卫」，拦住垃圾消息、只放急事进去叫醒它。</strong> 广泛的电脑操作与邮箱权限让它掌握日程；外部推送若每条都唤醒主 Agent 则会烧干 token，因此在收件箱前部署快思考小模型（Jev）分流：</p>
+<div>
+<div>
+<span>NO · 进 LATER 堆</span>
+<p><strong>过滤日常杂音：</strong> 周末五折促销邮件、酒店积分通知、旧代码库 PR-212、同事约饭闲聊共 4 条全部拦截并沉淀，避免打断主 Agent 思考。</p>
+</div>
+<div>
+<span>YES · 立即唤醒</span>
+<p><strong>放行关键异动：</strong> 飞往奥斯汀的航班突遭取消等紧急事件，小模型立即触发唤醒，主 Agent 迅速查出 3 个备选改签方案（最早 4:05 PM）并推送询问。</p>
+</div>
+</div>
+</div>
+<div>
+<p><strong>第四步（最难的一关）：怎么治好它「没活硬干、乱接别人话」的毛病？</strong> 很多团队搭好前三步架构后，发现模型依然在群里失控。根源在于强化学习训练场（RL arenas）一味奖励把任务干穿：<strong>今天的大模型被训练成了「见任务就抢」的做题家；放进真实环境里，必须先教它像个腼腆的新人：没事别硬干、拿不准先问、看人脸色记经验。</strong> 在 Slack <code>#engineering</code> 群里，缺乏授权（mandate）、日志权限（access）和语境（context）的模型往往会盲目抢单，憋出一篇 6 页无用长文交差，既没用又让人脸红。解决办法是让它「从腼腆起步（start out shy）」，建立反馈记忆并在模糊任务前先向人类求证；未来还需构建专门奖励眼力见与记忆使用的全新 RL 训练环境。</p>
+<div>
+<div>全天候 Agent 架构五件套配置清单</div>
+<div>
+<div>
+<span>01</span>
+<div><strong>上下文自管理工具（foldContext / dropContext）：</strong> 每轮暴露 token 账单，由 Agent 在任务告一段落的空当（lull）自主折叠旧记录与丢弃冗余网页。</div>
+</div>
+<div>
+<span>02</span>
+<div><strong>分身并发派发机制（Sub-Agent Dispatch）：</strong> 将耗时的浏览器多步操作分叉派发给轻量子 Agent，主窗口只收单行结论并保持随时响应。</div>
+</div>
+<div>
+<span>03</span>
+<div><strong>心跳自醒与发信解耦（Heartbeat + send_message）：</strong> 支持定时或由 Agent 调 <code>schedule_heartbeat</code> 唤醒；默认输出标为 <code>NOT SENT</code> 备忘，显式调 <code>send_message</code> 才触达用户。</div>
+</div>
+<div>
+<span>04</span>
+<div><strong>宽泛权限与收件箱门卫（Computer use + Inbox &amp; Jev）：</strong> 开放电脑与邮箱权限，将外部 Webhook/轮询接入收件箱，并用快思考小模型拦截杂音、放行急件。</div>
+</div>
+<div>
+<span>05</span>
+<div><strong>眼力见与反馈记忆（Discernment &amp; Reaction Memory）：</strong> 在开工说明中划清职责并写明「什么都不做完全正常」、拿不准先提问，记录每次主动出手后人类的反应并在下次行动前检索。</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://rubriclabs.com/blog/always-on-agents">看原网页 ↗</a></p></div><div></div><div><div><h1>Designing an Always-On Agent</h1></div><div><p>Chatbots wait for a message. An always-on agent is single-threaded, proactive and situationally aware. Here's how we design them, and what models still lack.</p></div><div><p>Before ChatGPT was released, I used to imagine AI would be something like Jarvis from Iron Man. I imagined it would always be running, it would have a personality, and it would have the same awareness of my environment that I do.</p></div><div><p>But today's chatbots and agents aren't like this. We spin them up for tasks and projects, but if we don't send them a message, nothing happens. They're dry and robotic, and they only know the context we give them.</p></div><div><p>I have a hunch that the reason people disagree about whether we've reached AGI is <strong>more about form factor than it is about model capabilities</strong>.</p></div><div><p>To (over-)simplify, I would define the always-on, Jarvis-like form factor as:</p></div><div><ul><li>single-threaded</li><li>proactive</li><li>situationally aware</li></ul></div><div><p>Whereas chatbots and agents are:</p></div><div><ul><li>ephemeral (short-lived)</li><li>reactive (they only work when explicitly started)</li><li>context-dependent (heavily influenced by whatever happens to be in front of them)</li></ul></div><div><p>A chatbot and an always-on agent</p></div><div><p>In this post, we'll talk about how we're designing architectures for always-on agents, and the limitations of today's models that make this hard.</p></div><div><h2>Single-threaded</h2></div><div><p>Instead of managing a bunch of different threads, and setting each one up with the right context for our work, we just want to talk to <strong>one "AI" that knows us and handles everything</strong>.</p></div><div><p>Let's say we woke up sick. We want one agent to be able to cancel our meetings, order soup, look into our symptoms, and book a doctor's appointment if necessary.</p></div><div><p>At first, this sounds simple: just unify everything into one thread and call that our single-threaded agent. The hard part is <a href="https://rubriclabs.com/blog/what-is-an-agent-harness#context">context window management</a>, since passing everything through a single agent will quickly fill up its context window.</p></div><div><p>We also often want to do several things at once. Booking the doctor's appointment or ordering food might take a while, because they're heavier browser-use tasks, and we want to keep chatting about our symptoms without waiting for everything else to get done.</p></div><div><h3>Compaction</h3></div><div><p>Compaction is the de facto standard for managing context windows, but we've found that <strong>compaction lobotomizes the agent's momentum</strong>, especially when it's done by a third-party process.</p></div><div><p>It makes more sense to give the agent tools to compact and awareness of how full its context window is, and then just <strong>let it manage its own tokens</strong>, so it can keep its momentum while avoiding overflow.</p></div><div><p>Tangibly, we give our agents:</p></div><div><ul><li>awareness of their token usage at every turn</li><li>a <code>foldContext</code> tool, which replaces a range of messages with a summary the agent writes</li><li>a <code>dropContext</code> tool, which removes a range of messages from context</li></ul></div><div><p>In practice, our agents tend to wait for a lull, like the end of a task, before they compact. Then they fold away the reasoning and tool calls they won't need again, and keep everything that's still in play.</p></div><div><p>An agent folding and dropping its own context</p></div><div><h3>Dispatch</h3></div><div><p>Even with good compaction, one thread fills up fast if the agent does all the heavy work in it. So we also give the main agent <strong>sub-agents it can dispatch work to</strong>.</p></div><div><p>This kills two birds with one stone: it frees up the main thread to hold more, higher-level context about everything, and it lets the agent multitask on deeper work, like the food order and the doctor's appointment, while it keeps talking to you.</p></div><div><p>A sick day in one thread, with two sub-agents</p></div><div><h2>Proactive</h2></div><div><p>Proactive agents can <strong>do work without being prompted</strong>, and they can send unsolicited messages. For example, if the agent knows you're flying to Austin on Wednesday, it can find the check-in details for your Airbnb, work out the best way there from the airport, and send it all to you as you land.</p></div><div><p>To unlock this behaviour architecturally, we first need to get away from the request-based nature of the agent. Typical systems act a lot like synchronous functions: we send a request and wait for the agent to return.</p></div><div><p>For proactivity, the agent needs to be <strong>awake whenever it wants</strong>, and to message us regardless of whether we sent it a request.</p></div><div><h3>Heartbeat</h3></div><div><p>We give the agent a heartbeat. A heartbeat is just a simple message, "heartbeat", that we push into the chat history. <strong>It wakes the agent if it's asleep.</strong></p></div><div><p>We can run the heartbeat on a cadence (for example, every hour), or have the agent manage its own awakeness by scheduling its own heartbeats.</p></div><div><h3>Messaging as a tool</h3></div><div><p>We also give the agent a <strong>tool for sending messages</strong> to the user. In a normal chat, the agent's last message in a turn is its reply to you. Here, it only reaches you when it calls the tool, so it can wake up, do some work, and decide there's nothing worth saying. Its last message stays in the thread as a note to itself about what happened.</p></div><div><p>In the Austin example, the agent wakes up on a routine heartbeat and discovers the flight. It dispatches a sub-agent to pull together the directions and check-in details, then schedules a heartbeat for around the time the flight lands, so it can message you at the right moment.</p></div><div><p>The Austin trip, from heartbeat to message</p></div><div><p>Newsletter</p></div><div><p>The Grid</p></div><div><p>What we’re learning about building with AI. Two short emails a month.</p></div><div><h2>Situational awareness</h2></div><div><p>The prerequisite to proactivity is <strong>knowing what you're doing, and when</strong>. We want our agents to be able to act on incomplete information from us, and, like in the Austin example, even start working on triggers from the world, not just on direct instructions from us.</p></div><div><h3>Broad access</h3></div><div><p>At a basic level, we can enable situational awareness with broad access: give the agent <strong>full access to our email, browser and file system</strong> so it can discover flights and accommodations we booked, search past orders, and find patterns in our behaviour that surface our preferences.</p></div><div><p>The one simple trick here is just giving agents computer use tooling and access to our computers. Coding agents got great with one simple tool for running terminal commands on our computers, and general-purpose agents can do the same with computer use.</p></div><div><p>But agents don't know what they don't know, and being technically capable of discovering context often isn't enough to have a real-time understanding of what's going on.</p></div><div><h3>Notifications</h3></div><div><p>So we give agents a notifications system, where <strong>information is injected into the agent's context window as soon as it's available</strong>. By subscribing to events in the world, agents can discover important context sooner and step in when they're needed.</p></div><div><p>For example, if your flight to Austin is cancelled, the agent can immediately start looking for alternative flights while messaging you to coordinate, instead of waking up an hour after the problem is solved to see what happened.</p></div><div><p>To implement notifications, we give the agent an inbox, and documentation on how to adapt webhooks and polling jobs to push events into that inbox.</p></div><div><p>One problem quickly emerges: <strong>the inbox fills up with noise</strong>. Spam offers in email, Slack messages that aren't addressed to the agent, GitHub events from repos that aren't in focus. If we wake the agent for every notification it receives, we could be doing so every minute, burning tokens and clouding its context window.</p></div><div><p>One way to cut the noise is to classify notifications as important or unimportant with a smaller model, such as a system one model like <a href="https://rubriclabs.com/blog/what-can-you-build-with-jev">Jev</a>. <strong>Important notifications wake the agent</strong>, and unimportant ones pile up so the agent can read them in bulk when it wants to.</p></div><div><p>Notifications sorted by a small model</p></div><div><h2>Discernment</h2></div><div><p>Architecturally, everything above is a fairly simple series of interventions. Make the agent single-threaded, and give it tooling for compaction and dispatch. Give it a heartbeat, and separate when it's awake from when it messages you. Give it broad access and notifications so it can discover what it needs to be helpful on its own.</p></div><div><p>But for the models available to us today, this re-architecture is a paradigm shift in expectations. Before, we would give our agents a task and the context to complete it, and they would work until they finished and returned to us. Now, we're giving them a raw, unfiltered stream of noise and asking them to <strong>figure out what to do</strong>, and how to do it, while they keep processing more noise.</p></div><div><p>And today's models are very very bad at this, because they lack discernment.</p></div><div><p>Everything in their training (specifically their RL arenas) has taught them how to crush tasks. So these agents demo really well when the signal to kick off work is very clear, but they struggle to figure out how to be helpful in ambiguous environments.</p></div><div><p>For example, agents processing messages on Slack often decide to act on messages that aren't addressed to them. Then, after discovering they lack the mandate, access and context to complete the task, they settle on writing a design doc and sharing it. This is useless and embarrassing.</p></div><div><p>An agent answering a message that wasn’t for it</p></div><div><p>On the flip side, agents often miss real triggers to do work.</p></div><div><p>Agents are either <strong>too eager to do busy work or missing opportunities to be helpful</strong>. Calibrating them to the right balance is more art than science.</p></div><div><h3>Designing for discernment</h3></div><div><p>The behaviour you want to design is for the agent to <strong>start out shy, and over time build the confidence</strong> to act proactively as it builds itself a lane where it can make an impact.</p></div><div><p>This hinges on good system prompting and good use of memory. Concretely, we want:</p></div><div><ul><li>a system prompt that's really clear about what the agent is responsible for, and that doing nothing is totally fine</li><li>the agent to ask when it isn't sure whether something is its job, instead of guessing</li><li>a memory of how we reacted when it did act (did we thank it, correct it, or ignore it?), which it checks before it acts again</li></ul></div><div><p>I also think there are huge opportunities in <strong>new RL environments that reward discernment</strong> and memory use for this new paradigm.</p></div><div><h2>Back to Jarvis</h2></div><div><p>There's still a long way to go before agents feel like Jarvis. Some of the gap is architecture we already know how to build: one thread, a heartbeat, and an inbox. Discernment is the hard part, and it's the part I'm most excited to work on.</p></div><div><p>We're building always-on agents at Rubric right now. If you are too, we'd love to <a href="https://rubriclabs.com/contact">compare notes</a>.</p></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://rubriclabs.com/blog/always-on-agents">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Meta 用旗舰模型 Muse Wonder 重新训练日常模型：Muse 与 Meta AI 忘事少 2.4 倍，遇阻任务完成率涨 67% · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/specialized-models-for-muse-and-metaai/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:specialized-models-for-muse-and-metaai</guid>
+<pubDate>Mon, 09 Nov 2026 12:00:23 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 不直接塞进旗舰大模型，怎么让日常助手变聪明？ 02 聊过的话那么多，它怎么知道哪句该记、哪句该忘？ 03 办事半路卡住了、或者你临时改主意，它会怎样？ 04 同样换上这批模型，Muse 和 Meta AI 用起来有什么不同？ AI 解读 / 产品发布 · 11-09 · 约 9 分钟 · 作者 Meta Superintelligence Labs Meta 用旗舰模型 Mus</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 9 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Meta 用旗舰模型 Muse Wonder 重新训练日常模型：Muse 与 Meta AI 忘事少 2.4 倍，遇阻任务完成率涨 67% · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/specialized-models-for-muse-and-metaai/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>不直接塞进旗舰大模型，怎么让日常助手变聪明？</span></a><a><span>02</span><span>聊过的话那么多，它怎么知道哪句该记、哪句该忘？</span></a><a><span>03</span><span>办事半路卡住了、或者你临时改主意，它会怎样？</span></a><a><span>04</span><span>同样换上这批模型，Muse 和 Meta AI 用起来有什么不同？</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>产品发布</a><i>·</i>11-09<i>·</i>约 9 分钟<i>·</i>作者 Meta Superintelligence Labs</div><h1>Meta 用旗舰模型 Muse Wonder 重新训练日常模型：Muse 与 Meta AI 忘事少 2.4 倍，遇阻任务完成率涨 67%</h1><p>不直接照搬庞大的旗舰原模型，而是用 Muse Wonder 训练现有模型的专门化版本，把主动记忆和主动专注带进 Muse 与 Meta AI。</p><div><div>正文一页纸原文</div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Meta Superintelligence Labs</span><span>11-09 · 约 9 分钟</span><span>⚑ 产品动态</span></div></div></div><div><div><strong>一分钟速览</strong><ul><li>不直接搬旗舰模型，Meta 用 Muse Wonder 重新训练了日常模型。</li><li>主动记忆会筛掉临时和过期的旧话，忘掉关键背景的情况减少 2.4 倍。</li><li>主动专注让模型半路遇阻时自己换路，突发状况下任务完成率提升 67%。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/specialized-models-for-muse-and-metaai/social/zh-79c8c664afc8.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>Meta 超级智能实验室推出了一批直接落到日常产品里的专门化模型（针对具体产品高频动作专门调教的模型版本，英文叫 Specialized Models）：他们用几周前发布的旗舰模型系列 <strong>Muse Wonder</strong>，把旗下现有模型重新训练了一遍，正式推送给 <strong>Muse</strong> 和 <strong>Meta AI</strong> 的日常用户。</p>
+<p>这次升级直奔普通人用 AI 最恼人的两件事：一是聊久了要么忘掉关键交代、要么拿早过期的旧话添乱；二是托它办事半路遇到一点意外就原地卡死，或者你中途插句话改个主意它就乱了阵脚。把 Muse Wonder 身上的<strong>主动记忆</strong>（英文叫 Active Memory）和<strong>主动专注</strong>（英文叫 Active Focus）训进日常模型后，Muse 忘掉关键背景信息的情况减少了 2.4 倍，遇到突发状况的日常任务完成率提升了 67%。</p>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/specialized-models-for-muse-and-metaai/hero-light-v1.webp" alt="Meta 官方原文头图：蓝色弧线轨迹示意面向 Muse 与 Meta AI 的专门化模型" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>Meta 官方博客头图：用蓝色弧线轨迹示意将旗舰模型能力导入 Muse 与 Meta AI 的专门化模型。</figcaption></figure>
+<div>
+<div>META SUPERINTELLIGENCE LABS · 航迹总览</div>
+<div>把旗舰模型的两项看家本领，训进<span>每天打开就用的日常助手</span></div>
+<div>不直接照搬庞大的旗舰原模型，而是用 Muse Wonder 训练现有模型的专门化版本，分流进 Muse 与 Meta AI。</div>
+前沿母模型
+Muse Wonder
+几周前发布的旗舰
+作为训练老师
+专门化模型
+● 主动记忆
+跨时间筛留关键背景
+● 主动专注
+遇阻换路继续推进
+个人 Agent · 动手办事
+Muse
+多任务推进 · 听懂中途插话
+思考搭档 · 对话协作
+Meta AI
+拆解复杂问题 · 敏锐追问
+前沿母模型 · 训练老师
+Muse Wonder（几周前发布的旗舰）
+现有模型的专门化版本
+● 主动记忆：筛除过期旧话，留住关键背景
+● 主动专注：半路遇阻重试、恢复或换路
+动手办事
+Muse
+多任务与实时配合
+思考搭档
+Meta AI
+拆步骤与敏锐追问
+<div>
+<div><b>38% → 47%</b><span>Muse 个人超级智能指数得分（原图坐标上限 50%）</span></div>
+<div><b>76% → 90%</b><span>Muse 主动记忆评测准确率，忘掉关键信息减少 2.4 倍</span></div>
+<div><b>+67%</b><span>Muse 在遇到突发状况的日常任务中完成率提升幅度</span></div>
+</div>
+</div>
+<h2>不直接塞进旗舰大模型，怎么让日常助手变聪明？</h2>
+<p><strong>用旗舰模型 Muse Wonder 当「老师」训练现有模型的专门化版本，把前沿能力装进更多人每天在用的产品里。</strong></p>
+<p>先分清原文里同时出现的三个名字：<strong>Muse Wonder</strong> 是 Meta 几周前发布的旗舰大模型系列，在个人和专业领域的复杂 Agent 任务（能自己拆解步骤、调用工具把事办完的 AI 任务）上拿到了当时的顶尖成绩；而 <strong>Muse</strong>（muse.ai，替你跟进目标的个人 Agent 产品）和 <strong>Meta AI</strong>（meta.ai，日常对话与思考助手）则是普通人每天直接打开使用的两款产品。</p>
+<p>怎样让日常产品里的千万用户，也能用上旗舰模型为复杂工作和生活任务设计的前沿本领？Meta 的做法不是把庞大的旗舰原模型直接搬进所有对话，而是拿 Muse Wonder 当训练源，去训练和改进 Muse 与 Meta AI 背后现有的模型，做出量身打磨的专门化版本。</p>
+<div><span>Today, we’re introducing specialized versions of our existing models, trained using Muse Wonder, and rolling them out to people who use Muse and Meta AI.</span>今天，我们推出用 Muse Wonder 训练的现有模型专门化版本，并正式推送给 Muse 和 Meta AI 的用户。</div>
+<figure><figcaption>官方视频（双语字幕）：Meta 研究员讲解 Muse Wonder 的主动记忆（Active Memory）与主动专注（Active Focus）——这两项看家本领现已通过专门化模型带入 Muse 与 Meta AI。</figcaption></figure>
+<p>效果直接反映在 Meta 用来衡量个人 AI 助手综合表现的<strong>个人超级智能指数</strong>（英文叫 Personal Superintelligence Index）上：与上一代 Muse 模型相比，换上专门化版本后的当前 Muse 模型，综合得分从 <strong>38%</strong> 提升到了 <strong>47%</strong>（原图坐标轴刻度上限为 50%，提升 9 个百分点）。</p>
+<p>个人超级智能指数（Index Score，原图刻度 0%–50%）</p>
+<div>
+<div><span>当前 Muse 模型</span><i></i><span>47%</span></div>
+<div><span>上一代 Muse 模型</span><i></i><span>38%</span></div>
+</div>
+<p>数据来源：Meta 官方评测图 Personal Superintelligence Index。原图纵轴刻度为 0%–50%，当前模型比上一代高出 9 个百分点。</p>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/specialized-models-for-muse-and-metaai/personal-superintelligence-index-chart.jpg" alt="Meta 官方发布的 Personal Superintelligence Index 评测图：当前 Muse 模型 47%，上一代 Muse 模型 38%" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>官方评测原图：Personal Superintelligence Index（个人超级智能指数），当前专门化 Muse 模型得分 47%，上一代模型为 38%。</figcaption></figure>
+<h2>聊过的话那么多，它怎么知道哪句该记、哪句该忘？</h2>
+<p><strong>靠「主动记忆」过三道筛子：分清临时与长期、跨时间推理、识别哪些现在还管用哪些已经过期。</strong></p>
+<p>很多带记忆功能的 AI 助手都有个通病：要么像金鱼一样，换个对话窗口就把你交代过的核心目标忘得一干二净；要么像个不分轻重的录音机，把你三个月前顺嘴说的一句「今天不想喝咖啡」记成铁律，每次点单都拿出来拦你。</p>
+<p>最早随 Muse Wonder 亮相的<strong>主动记忆</strong>，这次被完整带进了 Muse 和 Meta AI 的专门化模型里。它的目标是记住真正要紧的事，并在以前聊过的信息重新变得有用时主动认出来，让你不用每次重头交代背景，直接接着过去的对话往下办。为此，Meta 训练模型对历史信息做三道判断：</p>
+<div><span>We’ve trained our models to recognize what type of information is temporary versus permanent, to reason across time, and to distinguish between what is still relevant and what has become stale.</span>我们训练模型识别哪些信息是临时的、哪些是长期的，跨时间进行推理，并分清哪些信息现在依然相关、哪些已经过期。</div>
+<div>
+<div>主动记忆的时间滤网：三道筛子，把真正管用的背景留到今天</div>
+<div>示意：模型回看过去不同时间点的对话时，怎样筛掉临时与过期噪音、激活关键背景。</div>
+<div>
+<div>
+<div>
+<div>昨天聊天<b>① 第一道筛：临时 vs 长期</b></div>
+<div>「今晚赶稿太累了，晚餐随便点份沙拉就行。」</div>
+</div>
+<div>判定为<b>临时状态</b>：只管昨晚那一顿，不写入长期饮食偏好。</div>
+</div>
+<div>
+<div>
+<div>上个月对话<b>② 第二道筛：在用 vs 已过期</b></div>
+<div>「下周去芝加哥开会，帮我盯一下那边的酒店。」</div>
+</div>
+<div>判定为<b>已过期信息</b>：会议时间已过，归档封存，不再拿出来干扰新行程。</div>
+</div>
+<div>
+<div>
+<div>两周前交代<b>③ 第三道筛：跨时间推理激活</b></div>
+<div>「我对花生严重过敏，而且出差只订能免费退改的房型。」</div>
+</div>
+<div>判定为<b>长期且当前相关</b>：今天再聊预订时主动调出。</div>
+</div>
+</div>
+<div>↓ 跨时间筛留后，带入今天的新对话 ↓</div>
+<div>
+<div>
+<b>接着以前的对话直接往下办</b>
+<span>当早期对话里的信息对眼下的任务重新变得有用时，模型能主动认出来并接上，不用你每次重头交代背景。</span>
+</div>
+<div>
+<strong>少忘 2.4 倍</strong>
+<span>在 Muse 中，改进后的模型<b>忘掉帮你达成目标所需关键信息的情况减少了 2.4 倍</b>。</span>
+</div>
+</div>
+<div><span>示意</span>上方三句对话为帮助理解训练机制的生活化示意；下方「少忘 2.4 倍」为 Meta 官方在 Muse 模型上的实测结果。</div>
+</div>
+<p>为了量化这项能力，Meta 在<strong>主动记忆评测</strong>（英文叫 Active Memory Eval）里专门考核了一个接地气的指标：<strong>在需要调用关键背景信息的任务里，模型有多大比例能真正把背景用对</strong>。</p>
+<p>把评测图里的数字和正文算在一起看就更清楚了：上一代 Muse 模型的准确率是 <strong>76%</strong>，也就是有 24% 的任务漏掉了关键背景；换上专门化模型后，当前 Muse 模型把准确率拉高到了 <strong>90%</strong>，漏掉关键背景的比例降到了 10%——从 24% 压到 10%，正好对应官方说的「忘掉关键信息的情况减少了 2.4 倍」。</p>
+<p>主动记忆评测：正确用上关键背景信息的任务比例（0%–100%）</p>
+<div>
+<div><span>当前 Muse 模型</span><i></i><span>90%</span></div>
+<div><span>上一代 Muse 模型</span><i></i><span>76%</span></div>
+</div>
+<p>数据来源：Meta 官方评测图 Active Memory Eval（Tasks Correctly Using Critical Context）。</p>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/specialized-models-for-muse-and-metaai/active-memory-eval-chart.jpg" alt="Meta 官方发布的 Active Memory Eval 评测图：当前 Muse 模型 90%，上一代 Muse 模型 76%" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>官方评测原图：Active Memory Eval（正确用上关键背景信息的任务比例），当前专门化 Muse 模型为 90%，上一代模型为 76%。</figcaption></figure>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/specialized-models-for-muse-and-metaai/memorybench-light-v2.jpg" alt="训练源旗舰模型 Muse Wonder 在 MemoryBench 长对话记忆评测上的官方原图：85.6% 与 85.5%" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>训练源对照（Muse Wonder 官方评测图）：作为本次「老师」模型的 Muse Wonder 在 MemoryBench 长对话记忆基准上拿到 85.6%，为专门化模型的主动记忆提供了训练底座。</figcaption></figure>
+<p>放到实际场景里看，主动记忆是怎样替人省事的？下面这段官方演示里，用户请 Muse 规划周六长跑路线，模型主动从过往日历和健康记录中找出了三项长期要求——长跑每周加 1 公里、走平路保护膝盖、10 点前赶到图书馆，据此规划出 8 点出发的 15.1 公里路线并直接写回日历：</p>
+<figure><figcaption>主动记忆实操演示（双语字幕）：Muse 自动调用日历与健康记录里的长期约束来规划跑步路线，无需每次重头交代。</figcaption></figure>
+<h2>办事半路卡住了、或者你临时改主意，它会怎样？</h2>
+<p><strong>靠「主动专注」在真实卡点里学会重试、恢复和换路；任务跑一半听你插话补充也不会乱套。</strong></p>
+<p>光记得住背景还不够。真正在生活和工作里替人办事时，很少有一帆风顺的时候：网页接口突然没响应、首选方案走不通、或者任务才跑了一半，你突然想起来补一句「把时间改到下周三」。</p>
+<p>以前很多模型一碰到这类计划外的阻碍就会卡死，或者被你中途插的一句话带偏，把前面做好的部分全盘搞乱。Meta 把随 Muse Wonder 推出的第二项标志性能力<strong>主动专注</strong>带进专门化模型，专门训练模型应对反映真实世界的各种卡点——当半路遇阻时，它不再停工等你救场，而是替你做三件事：<strong>更努力地重试、从错误里恢复、或者找条替代方案绕过去</strong>。</p>
+<div><span>We’ve trained our models on a variety of bottlenecks reflective of the real world, so that they can try harder, recover, or find alternatives on your behalf. In Muse, our models show a 67% improvement in completing everyday tasks where unexpected issues arise.</span>我们在反映真实世界的各种卡点上训练模型，让它们能替你更努力地尝试、从问题中恢复或寻找替代方案。在 Muse 中，面对突发状况的日常任务完成率提升了 67%。</div>
+<div>
+<div>主动专注的绕障航迹：撞上卡点自己换路，中途插话无缝并线</div>
+<div>模型在反映真实世界的各种卡点上做过专门训练，同时借用了 Muse Wonder 适应中途插话与补充的能力。</div>
+<div>
+交代日常目标
+开始执行
+✕ 突发意外卡点
+原路径受阻停滞
+✓ 主动专注：重试 / 恢复
+Try harder &amp; Recover
+✓ 换条替代路线绕过去
+Find alternatives
+你中途插话改向 / 补充
+不乱套，顺畅并入主航迹
+达成目标
+完成率 +67%
+交代日常目标
+开始执行任务
+✕ 突发意外卡点
+直线硬闯会卡死
+✓ 重试或从错误恢复
+Try harder / Recover
+✓ 换条替代路线绕行
+Find alternatives
+你中途插话改向 / 补充
+无缝并入主航迹，不乱套
+顺利达成目标
+日常遇阻完成率 +67%
+</div>
+<div>
+<div><b>① 再使把劲重试</b><span>一次尝试没成时不轻易放弃，针对卡点继续深入尝试。</span></div>
+<div><b>② 从异常里恢复</b><span>碰到报错或中断时先自救恢复，不把烂摊子直接甩回给你。</span></div>
+<div><b>③ 换条替代路线</b><span>正门走不通就替你找侧门，换一种办法继续朝同一个目标推。</span></div>
+</div>
+<div>
+<strong>+67%</strong>
+<span>在 Muse 中，面对<b>出现意外状况的日常任务</b>，专门化模型的任务完成率比此前提升了 <b>67%</b>。</span>
+</div>
+</div>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/specialized-models-for-muse-and-metaai/focusbench-light-v1.jpg" alt="训练源旗舰模型 Muse Wonder 在 FocusBench 动态阻碍持续执行评测上的官方原图" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>训练源对照（Muse Wonder 官方评测图）：Muse Wonder 在内部 FocusBench（动态阻碍下的持续执行）中显著领先前代模型，这项抗卡点能力现已训进日常专门化模型。</figcaption></figure>
+<p>下面这段医疗账单跟进演示，直观展示了模型在任务半路接收用户新指令时的表现：用户上传门诊账单和保险卡照片后，模型先核对出收费问题并拟好电话沟通要点；当用户中途提出「改用文字跟进」时，它没有乱套重来，而是立刻切换方案，起草并发送邮件推进理赔：</p>
+<figure><figcaption>主动专注与中途改向演示（双语字幕）：核对门诊账单与保险卡后，响应用户中途插话改用邮件跟进理赔。</figcaption></figure>
+<h2>同样换上这批模型，Muse 和 Meta AI 用起来有什么不同？</h2>
+<p><strong>Muse 侧重多任务并行与动手推进目标，Meta AI 侧重拆解复杂问题与对话协力。</strong></p>
+<p>虽然底层都由 Muse Wonder 训练而来、同样具备主动记忆和主动专注，但 <strong>Muse</strong> 和 <strong>Meta AI</strong> 的产品形态不同，Meta 在开发专门化模型时，也分别强化了最契合各自场景的协作方式：</p>
+<p>在 <strong>Muse</strong> 里，它是替你操心和跑腿的个人 Agent。专门化模型重点借用了 Muse Wonder 在三类对 Muse 格外重要的行为表现：一是<strong>多任务并行处理</strong>，手头同时挂着几件事也不串线；二是<strong>拿捏独立推进与实时配合的分寸</strong>，分得清什么时候该自己闷头把目标往前推、什么时候该拉上你实时配合；三是<strong>任务运行中途抗干扰</strong>，你在它干活半路上插话改方向或补充说明，它能顺畅调整，不会懵掉重来。</p>
+<p>而在 <strong>Meta AI</strong> 里，同样的底层改进把它变成了一个更趁手的<strong>思考搭档与协作者</strong>：碰到一团乱麻的复杂问题，它能帮你拆成清晰明了的步骤；顺着你的话头提出更切中要害的追问；就算你聊到一半临时变卦、突然换了方向，它也能立刻跟上你的新思路。</p>
+<p>把视角拉宽看，这次升级也补齐了 Muse 与 Meta AI 背后的<strong>专门化与多模态模型版图</strong>：除了这批由 Muse Wonder 训练而来、负责<strong>长程记忆与任务专注推进</strong>的专门化模型外，实验室在图像和视频方向还配有专门的自研媒体生成模型 <strong>Muse Image</strong>（会调用搜索与代码工具核实细节、边查边画并自我纠错的图像生成模型）和 <strong>Muse Video</strong>（支持原生音频的视频生成模型），以及负责实时语音与动态形象交互的 <strong>Muse Voice</strong>。</p>
+<p>通过把 Muse Wonder 训出的专门化模型同时装进 Muse 和 Meta AI，更多普通用户在日常对话、视觉创作和目标代办中都能直接用上能力更强的「个人超级智能」。</p>
+<figure><figcaption>官方概念演示（双语字幕）：围绕个人目标在日常任务中持续记忆、多任务并行与实时协作。</figcaption></figure>
+<div><b>读数据时要留意的边界</b>原文公布的三组具体实测数字——个人超级智能指数 47% 对 38%、主动记忆评测 90% 对 76%（忘掉关键信息减少 2.4 倍）、以及突发状况下日常任务完成率提升 67%——测的都是 <strong>Muse</strong> 模型升级前后的对比。Meta AI 同样接入了这批专门化模型与同源能力，但官方本次没有单独列出 Meta AI 的分值表。</div>
+<div>
+<div>
+<div>一张表带走：同一套专门化底座，两位日常搭档</div>
+<div>均由旗舰模型 Muse Wonder 训练 · 共享主动记忆与主动专注</div>
+</div>
+<div>
+<div>
+<div>
+<div>PERSONAL AGENT · 动手办事</div>
+<div>Muse</div>
+<div>替你盯住目标、跨任务持续推进的行动派助手</div>
+<div>
+<div><b>多任务同时推进</b>手头同时挂着几件事也能稳步往前推，彼此不打架。</div>
+<div><b>分得清独自推进还是实时配合</b>能自己干完的不烦你，需要拍板时拉上你实时协作。</div>
+<div><b>干活半路听得懂插话与补充</b>任务跑了一半你临时改方向或补条件，直接吸收不乱套。</div>
+</div>
+</div>
+<div>核心实测：综合指数 47% · 主动记忆 90% · 遇阻完成率 +67%</div>
+</div>
+<div>
+<div>
+<div>THINKING PARTNER · 陪你想事</div>
+<div>Meta AI</div>
+<div>陪你推演方案、把复杂想法理顺的思考搭档</div>
+<div>
+<div><b>把复杂问题拆成清晰步骤</b>面对大而空的问题，先帮你理出一步步可落地的路径。</div>
+<div><b>提出更切中要害的追问</b>不光顺着你说，还能问出关键盲点，帮你把想法想透。</div>
+<div><b>聊到一半换方向也跟得上</b>对话中途你随时改主意、换切入点，带着上下文无缝切换。</div>
+</div>
+</div>
+<div>底层升级：接入同源专门化模型 · 共享跨对话记忆与专注推理</div>
+</div>
+</div>
+</div>
+<p>要是你还想看作为本次能力源头的旗舰模型 Muse Wonder 当时发布的完整评测与演示，可以接着读站内这篇前序拆解：</p>
+<a>
+<span>延伸阅读 · 前序旗舰模型发布</span>
+<strong>Meta 推出 Muse Wonder 前沿系列模型：主动记忆，遇阻换方法继续推进，Agent 编程媲美 Opus 5.5</strong>
+<span>补充 100 万 token 上下文、MemoryBench 长对话评测与官方演示，看清本次下放能力的源头。</span>
+<b>阅读介绍文章 →</b>
+</a>
+</div><div><div><div>来源</div><div><span>Bringing Specialized Models to Muse and Meta AI</span><span>Meta Superintelligence Labs<span>·</span><a href="https://research.meta.ai/blog/specialized-models-for-muse-and-metaai">查看主材料</a></span></div></div></div></div></div><div>
+<div>
+<div>META SUPERINTELLIGENCE LABS · SPECIALIZED MODELS</div>
+<h1>旗舰大模型下放日常产品：Meta 如何让 Muse 与 Meta AI 更记事、更抗卡点？</h1>
+<div>不把庞大的旗舰模型直接搬进所有对话，而是把 Muse Wonder 的主动记忆与主动专注训进现有模型，让日常 AI 助手摆脱「聊久即忘」与「遇阻即崩」。</div>
+<div>核心度量：个人超级智能指数 38%→47% · 关键背景遗忘减少 2.4 倍 · 突发卡点完成率提升 67%</div>
+<div>
+<h2>下放逻辑：不塞庞大旗舰，而是以其为师训练专门化版本</h2>
+<p>Meta 几周前发布的旗舰大模型系列 Muse Wonder，在长程推理和复杂 Agent 任务上拿到了顶尖表现。但对于普通人每天打开的日常助手 Muse 和 Meta AI 而言，直接调用庞大臃肿的旗舰模型并不现实。</p>
+<p>Meta 的做法不是把庞大的旗舰原模型直接搬进所有对话，而是拿 Muse Wonder 当训练源，去训练和改进 Muse 与 Meta AI 背后现有的模型，做出量身打磨的专门化版本。这种以旗舰为师的专门化训练，带来了显著的性能跨越：</p>
+<div>
+<div>
+<div>38%→47%</div>
+<div>个人超级智能指数综合得分（基准坐标轴刻度上限为 50%）</div>
+</div>
+<div>
+<div>2.4 倍</div>
+<div>关键背景信息遗忘大幅压低（Active Memory Eval 准确率 76%→90%，漏用率 24%→10%）</div>
+</div>
+<div>
+<div>+67%</div>
+<div>真实突发状况与动态卡点下的日常任务完成率显著提升</div>
+</div>
+</div>
+</div>
+<div>
+<h2>核心机制：主动记忆与主动专注如何破解两大日常顽疾？</h2>
+<p>日常使用 AI 最让人恼火的两大体验问题：一是上下文一长，模型要么丢三落四，要么死记陈年旧话；二是执行多步代办时只要遭遇网络波动、接口异常或用户临时插话，就会当场卡死或从头推倒。专门化模型通过双核心机制直击痛点：</p>
+<div>
+<div>
+<span>核心机制解析</span>
+<div>主动记忆与主动专注的双通道协同</div>
+</div>
+<div>
+<div>
+<div>机制一：主动记忆 Active Memory</div>
+<p>在历史信息中进行跨时间推理，执行「三道筛子」：</p>
+<div>
+<div>
+<span>01</span>
+<div><strong>区分临时与长期</strong>：滤除随口闲聊，沉淀核心目标与长期偏好约束。</div>
+</div>
+<div>
+<span>02</span>
+<div><strong>跨时间综合推理</strong>：将分散在过往日历、健康记录等历史对话片段关联整合。</div>
+</div>
+<div>
+<span>03</span>
+<div><strong>动态时效性识别</strong>：主动淘汰已过期的旧指令，仅调用当下管用的关键约束。</div>
+</div>
+</div>
+</div>
+<div>
+<div>机制二：主动专注 Active Focus</div>
+<p>面对真实世界的意外卡点与用户打扰，执行「韧性闭环」：</p>
+<div>
+<div>
+<span>A</span>
+<div><strong>自主重试与恢复</strong>：接口超时或报错时不挂起停工，更努力地重试并从错误恢复。</div>
+</div>
+<div>
+<span>B</span>
+<div><strong>寻找替代方案</strong>：首选路径受阻时（如电话沟通不可行），自动切换备选路径（改发邮件）。</div>
+</div>
+<div>
+<span>C</span>
+<div><strong>中途插话抗干扰</strong>：任务执行半路用户补充修改条件，无缝调整新方向而不推倒重来。</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h2>产品分流：同样换上这批模型，Muse 与 Meta AI 各有侧重</h2>
+<p>虽然底层能力均来自 Muse Wonder 的专门化迁移，但由于产品定位不同，Meta 强化了两者在不同工作流中的表现：</p>
+<div>
+<div>
+<div>MUSE · 个人 AGENT</div>
+<div>动手跑腿与目标推进</div>
+<div>
+<div><strong>多任务并行处理</strong>：手头同时挂着数项任务也不串线、不混淆。</div>
+<div><strong>自主与配合分寸</strong>：拿捏独立推进与请求确认的边界，不盲目打扰也不自作主张。</div>
+<div><strong>长程代办抗扰</strong>：执行跑步路线或理赔过程中应对各种突发调整。</div>
+</div>
+</div>
+<div>
+<div>META AI · 思考搭档</div>
+<div>问题拆解与对话协力</div>
+<div>
+<div><strong>复杂难题结构化</strong>：将盘根错节的问题抽丝剥茧，拆解为清晰可执行的步骤。</div>
+<div><strong>要害追问推进</strong>：顺着用户思路提出更深入的核心问题，激发解决灵感。</div>
+<div><strong>思维变卦即时跟进</strong>：用户中途突发奇想或彻底推翻原方案，即刻无缝接入新思路。</div>
+</div>
+</div>
+</div>
+<div>
+<p><strong>多模态专门版图延展</strong>：除了专注长程推进的专门化模型，Meta 还部署了负责查证纠错生图的 Muse Image、支持原生音频的视频模型 Muse Video，以及支持实时语音与动态形象的 Muse Voice，共同构成覆盖对话、视觉与目标代办的专门化多模态能力矩阵。</p>
+</div>
+</div>
+<div>
+<h2>工程启示：旗舰当老师，专门化模型承接日常高频场景</h2>
+<div>
+<div>训练路径归纳：用旗舰模型训练日常专门化版本</div>
+<p>Meta 这次没有把庞大的旗舰原模型直接搬进所有对话，而是确立了<strong>旗舰模型 Muse Wonder 充当训练源、专门化模型承接产品高频场景</strong>的落地路径。将「主动记忆」与「主动专注」两种前沿能力训进现有模型，让普通用户在每天打开的 Muse 与 Meta AI 中，真正体验到不轻易忘事、半路遇阻不轻易卡死的个人 AI 助手。</p>
+</div>
+</div>
+</div>
+</div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://research.meta.ai/blog/specialized-models-for-muse-and-metaai">看原网页 ↗</a></p></div><div></div><div><div><h1>Bringing Specialized Models to Muse and Meta AI</h1></div><div><p>Bringing key frontier capabilities to everyone with specialized models for Muse and Meta AI</p></div><div><p>A few weeks ago, we introduced the <a href="https://research.meta.ai/blog/muse-wonder">Muse Wonder</a> series, our most capable models to date, delivering state-of-the-art performance on personal and professional agentic tasks. Today, we’re introducing specialized versions of our existing models, trained using Muse Wonder, and rolling them out to people who use Muse and Meta AI.</p></div><div><h2>Bringing Key Frontier Capabilities to Muse and Meta AI</h2></div><div><p>We designed Muse Wonder to have frontier capabilities for complex tasks at work and in everyday life. We’ve also used it to improve the models behind Muse and Meta AI, bringing some of those capabilities to even more people.</p></div><div><h2>Remembering What Matters</h2></div><div><p>With Muse Wonder, we introduced Active Memory and Active Focus. We’re bringing both of these to our specialized models in Muse and Meta AI.</p></div><div><p>Active Memory enables Muse and Meta AI to remember what matters and recognize when earlier information becomes relevant, making it easier to build off your past conversations. We’ve trained our models to recognize what type of information is temporary versus permanent, to reason across time, and to distinguish between what is still relevant and what has become stale. For example, our improved models in Muse show a 2.4x reduction in forgetting critical information necessary for helping you achieve your goals.</p></div><div><h2>Working Toward Your Goals</h2></div><div><p>Active Focus enables Muse to continue working toward a goal, even when faced with unexpected challenges. We’ve trained our models on a variety of bottlenecks reflective of the real world, so that they can try harder, recover, or find alternatives on your behalf. In Muse, our models show a 67% improvement in completing everyday tasks where unexpected issues arise.</p></div><div><p>We’ve also developed our specialized models to leverage Muse Wonder’s performance on behaviors that are especially important to Muse. For example, they learned to be excellent multi-taskers that know when to push on your goals independently or collaborate live with you. They can also better adapt to steers and clarifications in the middle of running tasks without getting confused.</p></div><div><p>In Meta AI, the same improvements make for a better thinking partner and collaborator. It can break complex problems into clear steps, ask sharper follow-up questions, and keep up when you change direction mid-conversation.</p></div><div><p>By adding these specialized models to <a href="https://muse.ai/">Muse</a> and <a href="https://meta.ai/">Meta AI</a>, we aim to give more people access to even more capable superintelligence. We can’t wait for you to experience it for yourself.</p></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://research.meta.ai/blog/specialized-models-for-muse-and-metaai">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Dan Koe 的 AI 生意路线：给自己做品牌，替别人管内容 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/dan-koe-one-person-creative-team/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:dan-koe-one-person-creative-team</guid>
+<pubDate>Mon, 09 Nov 2026 12:00:23 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 一次被看见，和让人记住你，是两件事 02 会写稿，只接住了三种工作中的一种 03 先采访这个人，再让 AI 替他起草 04 读者向前走的时候，你扮演什么角色？ 05 有旧作品，就从里面找；还没发过，就找影响你的人 06 去自己不发内容的平台，找新的参考 07 把“我想说什么”和“别人愿意看什么”放在一起 08 第一单，从一份已经做出来的作品开始 09 按什么顺序，把整套方法做一</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 9 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Dan Koe 的 AI 生意路线：给自己做品牌，替别人管内容 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/dan-koe-one-person-creative-team/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>一次被看见，和让人记住你，是两件事</span></a><a><span>02</span><span>会写稿，只接住了三种工作中的一种</span></a><a><span>03</span><span>先采访这个人，再让 AI 替他起草</span></a><a><span>04</span><span>读者向前走的时候，你扮演什么角色？</span></a><a><span>05</span><span>有旧作品，就从里面找；还没发过，就找影响你的人</span></a><a><span>06</span><span>去自己不发内容的平台，找新的参考</span></a><a><span>07</span><span>把“我想说什么”和“别人愿意看什么”放在一起</span></a><a><span>08</span><span>第一单，从一份已经做出来的作品开始</span></a><a><span>09</span><span>按什么顺序，把整套方法做一遍？</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>AI 实操</a><i>·</i>11-09<i>·</i>约 7 分钟<i>·</i>作者 Dan Koe</div><h1>Dan Koe 的 AI 生意路线：给自己做品牌，替别人管内容</h1><p>从一次人物访谈、两份内容资料到第一份展示稿，理解一人创意团队怎样组织工作，以及客户为什么仍需要人的判断。</p><div><div>正文一页纸原文</div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Dan Koe</span><span>11-09 · 约 7 分钟</span><span>⚑ 大佬观点 · 个人立场</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>一人创意团队既能经营自己的品牌，也能替别人统筹内容。</li><li>个人经历和观点要先变成资料，才能写出让人认得你的内容。</li><li>争取第一单，可以先交打磨好的作品，让客户看见合作的样子。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/dan-koe-one-person-creative-team/social/zh-b2eeaa29b50e.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>你给一位忙碌的创始人发私信，说自己会用 AI 写内容。他可能根本没空听。换一种开场：你先研究他的经历、读过他表现最好的作品，直接送上十条替他打磨好的稿子。对话就从介绍技能，变成了看作品。</p>
+<p>这是 Dan Koe 在长文《2027 年最赚钱的 AI 生意》中介绍的获客办法。支撑这个办法的，是一套更完整的工作：弄清这个人值得讲什么，找到别人愿意看的表达，再把稿子做出来。</p>
+<p>Dan Koe 是内容创作者，也是创作者工具 Eden 的创始人。他看好的方向，叫“一人创意团队”：借 AI 做研究和起草，由你统筹整套内容工作。客户已经能自己打开 AI，为什么还需要你？这正是全文要回答的问题。</p>
+<figure>
+<div>这套服务怎样把材料变成内容</div>
+<div><div><b>品牌资料</b><span>你帮助谁<br />经历、信念、独特视角</span></div><div><b>内容资料</b><span>优秀旧作品<br />或影响自己的思想</span></div></div>
+<div>再加上跨平台参考 ↓</div>
+<div><b>内容地图</b><br />方向 → 主题 → 点子 → 角度</div>
+<div>AI 协助起草，人来核对与改稿 ↓</div>
+<div><div><b>给自己的品牌用</b><span>持续发布，经营自己的受众。</span></div><div><b>给潜在客户看</b><span>用十条样稿展示能力，再争取合作。</span></div></div>
+<figcaption>依据 Dan Koe 的公开方法归纳两份输入与两个出口。正式客户的完整访谈，与争取第一单的样稿展示，是不同的工作场景。</figcaption>
+</figure>
+<h2>一次被看见，和让人记住你，是两件事</h2>
+<p>好产品、好书、好本领，都需要有人知道，才有机会成为生意。Dan Koe 从这个常识出发：无论经营自己的事业，还是帮别人的公司增长，吸引注意力都是一项有商业价值的能力。钱花掉还能再赚，已经花出去的注意力却收不回来，这是他看重这项能力的理由。</p>
+<p>广告预算的变化给了他信心。IAB 的美国创作者广告支出数据，从 2021 年的 139 亿美元，增长到对 2026 年的 439 亿美元预测。公司越来越愿意花钱，通过具体的人触达受众，创始人亲自做内容也成了增长手段。</p>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/dan-koe-one-person-creative-team/source-2117662084133756928.jpg" alt="原文折线图：美国创作者广告支出，2021年至2026年预测" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>原文配图。横轴是年份，纵向数值单位为十亿美元；2025 年 371 亿、2026 年 439 亿美元是估计值，用虚线连接。这是美国广告支出，不是全球创作者收入。</figcaption></figure>
+<p>但一条帖子有一百万阅读，其他帖子只有一千阅读，未必建立了能持续吸引人的品牌。这是 Dan Koe 举的假设例子：读者可能只喜欢那一条，并没有形成对你的认识。</p>
+<p>内容让人停下来，品牌让人愿意再来看你。前者关乎眼前的选题和表达，后者关乎你长期谈什么、怎么看问题、有哪些别人没有的经历。他希望建立的是一组能互相呼应的内容，读者看完一篇，还想继续了解这个人。</p>
+<figure>
+<div>一条内容爆了，人未必记住了你</div>
+<div><b>其中一条：100 万阅读</b><span>其余每条：约 1000</span></div>
+<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<div><span>读者可能只为这一篇停留</span><span>表现形状示意，不按比例</span></div>
+<div><span>你的经历</span><span>你的观点</span><span>你的方法</span><b>互相呼应，给人继续读的理由</b></div>
+<figcaption>阅读数字来自 Dan Koe 的假设例子；下方是“内容世界”的关系示意，不表示品牌建好后每条都能获得高阅读。</figcaption>
+</figure>
+<div><b>文中另外两组市场数字怎么看？</b>高盛在 2023 年预测，全球创作者经济总规模可能从 2500 亿美元升到 2027 年的 4800 亿美元；WPP Media 在 2025 年中预测，创作者内容产生的当年广告收入约为 1849 亿美元。前者是全球市场规模，后者涉及内容和平台的广告收入，都不能当成创作者个人到手的钱，也不能与美国广告支出直接相加。<a href="https://www.goldmansachs.com/insights/articles/the-creator-economy-could-approach-half-a-trillion-dollars-by-2027">高盛资料</a> · <a href="https://www.wppmedia.com/ar/news/tyny-midyear-2025">WPP Media 资料</a></div>
+<h2>会写稿，只接住了三种工作中的一种</h2>
+<p>AI 已经能生成帖子，客户为什么还会请人？Dan Koe 转述过合作内容团队的反馈：创始人要管理团队和业务，常常连想内容的精力都没有。他需要有人带着理解与判断，替他把这件事持续做下去。</p>
+<p>一人创意团队要接住三种不同的工作：品牌定位先交代边界，内容策略据此选择题目，写作发布再把题目做成符合这个人的作品。给 AI 一个随机选题，会跳过前面的判断。</p>
+<figure>
+<div><div>品牌定位</div><div><p><b>决定别人为什么要记住你。</b></p><p>服务谁、表达什么观点、怎样积累信任。不能为了追热点损耗可信度。</p>关心的是长期的认识与信任。</div></div>
+<div><div>内容策略</div><div><p><b>决定下一篇值得做什么。</b></p><p>研究哪些主题有人看，标题、开头、形式为什么有效，再提出选题。</p>关心的是内容怎样吸引并留住人。</div></div>
+<div><div>写作发布</div><div><p><b>把方向变成实际作品。</b></p><p>起草帖子、文章或视频脚本，按定位改稿，安排并完成发布。</p>AI 可以协助研究与初稿，人仍要看稿改稿。</div></div>
+<figcaption>读到最后一层的稿子，要接住前两层的决定：符合这个人的定位，也有适合读者的选题与呈现。</figcaption>
+</figure>
+<p>如果只研究爆款形式，可能做出好看的单篇，却没有稳定的个人面貌。如果只让 AI 连续出稿，连“这篇为什么值得写”都没人负责。Dan Koe 认为，很多 AI 内容生意停在了制作这一层。</p>
+<p>这里有两条经营路径：给自己做，建立受众、邮件列表和数字产品；给别人做，为缺乏创作精力的创始人、公司或创作者提供服务。两条路都要求你统筹内容。经营自己的品牌，即使有 AI，也可能已经是一份全职工作；他还提醒，创作者要同时做软件，通常仍需团队。</p>
+<p>他举到的 Eden 机构使用者，服务还包括邮件营销、数字产品发布，以及把受众引向购买的转化流程。这也说明，他讨论的服务范围可以延伸到内容发布之后的经营环节。</p>
+<div>你成为自己或别人品牌的创意负责人。<span>“you become the creative director of your own brand or someone else’s.”</span></div>
+<p>Dan Koe 还转述了使用 Eden 的内容团队的另一项反馈：当时尚未裁员，但不扩编也能承接更多工作。这里体现的是团队承接能力的变化，与下面个人少花多少工时，是两个层面的观察。</p>
+<p>文中一位内容团队使用者描述，自己的工作已变成审查和改写草稿，每天耗时从 12 小时变成 4 小时。这是 Dan Koe 转述的个人口述，能帮助理解工作怎样变化，不能据此推算所有人的效率。</p>
+<div><b>“一人团队”能收多少？</b>Dan Koe 设想，能力成熟的人服务 1—3 个客户，每月做到 1 万—7.5 万美元并非不可想象。他比较的是雇用完整团队的成本：对原本就有较大营销预算的企业，这种收费仍可能只是团队成本的一部分。这是他的商业判断，没有公开成交样本、成本或成功率，不能当作新手报价表。他同时强调需要练习，别把它当快速致富机会。</div>
+<h2>先采访这个人，再让 AI 替他起草</h2>
+<p>真正的第一步，发生在写稿之前：和客户聊一次，录音、转写，把他是谁整理成以后能反复参考的资料。做自己的品牌，也可以回答同一组问题，让 AI 辅助访谈和归档。</p>
+<p>Dan Koe 把这份材料叫个人的“思想签名”。可以把它理解成观点底稿：记录这个人帮助谁，经历过什么，哪些事有自己的看法。没有这层上下文，换个名字也成立的稿子就很容易出现。</p>
+<figure>
+<div><b>写稿前，先做一页人物访谈</b><span>原文九类问题的中文整理</span></div>
+<div><b>你想帮助谁</b><span>想到一个真实的人。他糟糕的一天是什么样？向朋友抱怨时，用的原话是什么？试过哪些没用的办法？</span></div>
+<div><b>你走过什么路</b><span>哪些经历与读者相似？转折发生在哪，哪怕变化很小？做成过什么、试过什么、失败过什么，又想通了什么？自己或帮助过的人，有哪些结果能拿出来看？</span></div>
+<div><b>谁影响了你</b><span>哪些具体的人、书、文章或视频改变了你的想法？哪些观点反复想起，为什么？即使后来不再赞同，也可以记录。</span></div>
+<div><b>你能一直聊什么</b><span>先列所有兴趣，再选最在意的两三个。你用什么独特角度理解它们？别人常找你问什么？哪些事你一遍遍向人解释？</span></div>
+<div><b>你相信什么</b><span>一句话说出想帮助人做到的事。你相信什么，而同行多数人并不认同？行业里哪些常见建议，你认为错了？</span></div>
+<div><b>你反对什么</b><span>想帮读者摆脱哪种生活、习惯或误解？针对的是观念和做法，不是攻击某个人。</span></div>
+<div><b>为什么现在谈</b><span>世界发生了什么变化，而你想帮助的人可能还没意识到？</span></div>
+<div><b>你想带人去哪</b><span>跟着你走五年，读者希望怎样生活、怎样介绍自己？你在这段路上扮演什么角色？</span></div>
+<div><b>你有哪些自己的说法</b><span>理想读者每天相信并遵循哪些规则？列出 5—12 条。给自己的想法、方法或问题起过什么名字？每个名字分别是什么意思？</span></div>
+<figcaption>目的在于留下可反复调用的个人材料，无须一次访谈就得到完美的品牌宣言。</figcaption>
+</figure>
+<p>这一页也不用塞进一条帖子。Dan Koe 建议在接下来 6—12 个月的内容里，逐渐让人看见这些经历、信念与视角。品牌是这样被认识的，靠一段自我介绍很难完成。</p>
+<figure>
+<div>一次访谈，留下什么</div>
+<div><div>录下对话</div><div><b>保留真实说法</b><span>读者怎样抱怨，你怎样讲自己的经历。</span></div></div>
+<div><div>转成文字</div><div><b>可以反复查阅的访谈记录</b><span>以后想题、核对表达时，能回到这份材料。</span></div></div>
+<div><div>整理成文</div><div><b>品牌资料</b><span>受众、经历、信念、自己的概念与说法。</span></div></div>
+<div><div>写稿时用</div><div><b>给 AI 背景，也给人核对的依据</b><span>检查观点是否符合这个人，故事是否有出处。</span></div></div>
+<figcaption>做自己的品牌，也可以把问题交给 AI，让它访谈自己并整理文档。资料要保存在以后能找到、能继续引用的地方。</figcaption>
+</figure>
+<p>当 AI 再来帮忙想选题、写初稿时，你就有了可以检查的依据：这件事真是他经历过的吗？这个观点符合他一贯的看法吗？这句表达听起来像他吗？资料的作用，是让写作有东西可依靠。</p>
+<h2>读者向前走的时候，你扮演什么角色？</h2>
+<p>访谈里有一组问题特别影响后面的表达：跟着你走五年，读者的一天会是什么样？他们希望怎样介绍自己？以及，你在他们的故事里是谁？前两个问题交代要去哪里，最后一个问题交代你怎样参与这段路。</p>
+<figure>
+<div><b>向导</b><span>帮助读者理解路径，带着他们向前走。</span></div>
+<div><b>过程记录者</b><span>自己也在路上，把正在尝试、遇到的问题和变化记录下来。</span></div>
+<div><b>带地图回来的人</b><span>走出过类似的处境，回头帮助仍在其中的人。</span></div>
+<div><div><b>读者今天的生活</b><span>困扰、失败的尝试、向朋友说的原话。</span></div><div>→</div><div><b>他们希望走向的生活</b><span>五年后的日常，想成为怎样的人。</span></div></div>
+<figcaption>三种角色是 Dan Koe 给的例子，用来想清自己与读者的关系；五年描述是愿景，不是服务效果承诺。</figcaption>
+</figure>
+<p>这些问题也让“世界观”有了具体内容：你认为什么值得追求，哪些常见做法让人走弯路，想帮助人摆脱什么。同一个选题，由向导给出路径，或由记录者展开自己的尝试，写出来就会不同。这是把个人背景带进内容的一种方式。</p>
+<h2>有旧作品，就从里面找；还没发过，就找影响你的人</h2>
+<p>访谈记下的是这个人怎样认识自己，旧作品则提供了已经说出口、也得到读者反馈的材料。Dan Koe 建议，从客户活跃的每个平台选出 10—20 条表现最好的内容。</p>
+<p>请 AI 从中整理三件事：反复出现的核心观点，表达里有个性的地方，以及可能把读者聚在一起的世界观。再由你亲自跨平台看一遍优秀作品，找可以再次使用的规律，判断 AI 的归纳是否成立，存成一份内容资料。</p>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/dan-koe-one-person-creative-team/source-2117663292491694080.jpg" alt="原文中Eden按热门程度展示Dan Koe历史作品的界面" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>原文的 Eden 界面截图，展示 Dan Koe 的历史作品排行。它说明可以从过往作品入手找材料；热门标签和互动数字本身，并不能证明内容生意的收益。</figcaption></figure>
+<p>这一步也解释了为什么他没有主张全自动代笔。在他看来，AI 已能处理公司口吻，个人品牌的独特表达仍很难被完全复刻。访谈和旧稿要组成的是知识库，帮助人更容易找到材料、起草和修改。最终仍需保留这个人的特点。</p>
+<p>如果你还没有发布内容，就列出 5—10 位对自己影响最大的人。可以是创作者，也可以是写书的人。用同一套研究任务分析他们的公开作品；没有社交账号的，就让 AI 从全网和书籍中整理重要思想，再追问：为什么这些想法影响了我？它们与我的经历在哪里相遇？资料同样要存成文档。</p>
+<p>Dan Koe 对独特性的理解，是他人的思想在你身上产生新的组合。收集参考之后，还要经过自己的理解；当新观点更有解释力时，也要愿意更新原来的看法。这个过程与照搬别人的结论有明显距离。</p>
+<figure>
+<div>别人的思想，怎样变成你的理解</div>
+<div><div><b>Dan Koe 列举的思想来源</b><span>Naval</span><span>Leo Gura</span><span>Mihaly C</span><span>Steven Kotler</span><span>Ken Wilber</span></div><div>＋</div><div><b>自己的经历</b><span>做过什么<br />失败过什么<br />想通了什么</span></div></div>
+<div>在自己的处境里，重新理解这些想法 ↓</div>
+<div><b>自己的观点与表达</b><span>吸收思想之后，还要说清自己怎样理解、为什么认同。</span></div>
+<figcaption>这是 Dan Koe 对思想独特性的解释。名单是他的例子，读者要找的是实际影响过自己的人。</figcaption>
+</figure>
+<h2>去自己不发内容的平台，找新的参考</h2>
+<p>Dan Koe 特别建议，研究自己没有发布内容的平台。一直盯着同一个平台，容易反复遇见相似的表达；在别处看见的选题与结构，可能给自己的内容带来新的入口。</p>
+<p>Dan Koe 用艺术家收集参考来解释这件事。研究热门内容，可以观察一个题目怎样切入，标题怎样提出问题，视频怎样留住观众。借鉴的是形式和规律，自己的观点、经历与判断仍要放进去。</p>
+<figure>
+<div>跨平台时，把什么带回来？</div>
+<div><b>视频内容</b><span>研究标题、缩略图、开头与留住观众的方式。</span></div>
+<div><b>帖子与文章</b><span>研究有效的选题、形式和表达结构。</span></div>
+<div>提取规律与参考 ↓</div>
+<div><b>回到自己的发布平台</b><span>带着自己的品牌资料和内容资料，重新组织表达。</span></div>
+<figcaption>调研看的是可借鉴的规律；别人的观点、案例和个人经历，需要与自己的材料分清。</figcaption>
+</figure>
+<p>原文的工具路径，是把 Eden 连接到 Claude 或 ChatGPT，再由 AI 读取内容资料；其中 MCP 是 AI 连接外部工具的接口。Dan Koe 还推荐用 Eden 做跨平台研究。这些是他的产品介绍，本次没有实测连接与调研功能。</p>
+<h2>把“我想说什么”和“别人愿意看什么”放在一起</h2>
+<p>到这里，两份底稿与调研结果都已经就位。第一份记“人”：访谈整理出的经历、信念与想帮助的读者。第二份记“内容”：优秀旧作及其特点，或影响自己的思想参考。现在把这两份资料与前面的跨平台调研结果放在一起，整理成内容地图。</p>
+<figure>
+<div>两份底稿，长成一张内容地图</div>
+<div>人物与品牌资料 ＋ 内容资料</div>
+<div>
+<div><b>3—4 个长期方向</b><span>例如：内容创作。</span>
+<div><div><b>每个方向 5—7 个主题</b><span>其中一个主题：选题方法。</span>
+<div><div><b>每个主题 5—10 个点子</b><span>其中一个点子：从读者留言找选题。</span>
+<div><div><b>每个点子 4—5 个角度</b><span>一个角度：拿一条假设留言，演示怎样变成下周选题。</span></div></div>
+</div></div></div></div></div>
+</div>
+<div>以一个虚拟的内容创作账号示意，只展开一条分支，并非原文案例。数量是 Dan Koe 的建议范围，不必填满；研究时参考过去 6—12 个月的内容表现。</div>
+</figure>
+<p>下面把长文公开的两段任务整理在一起：先得到内容资料，再用两份资料生成内容地图。</p>
+<figure>
+<div>两段公开任务的中文整理 · 可以带着自己的材料照做</div>
+<div>先研究已有内容，再生成内容地图</div>
+<p><b>任务一：整理优秀内容。</b>给出本人或参考人物的账号。研究他们在每个平台表现最好的 10—20 条内容，整理核心观点、有个人特点的表达，以及可能让读者产生认同的信念与世界观；从作品中推测的部分要标明。归纳可能促进账号增长的因素和可以再次使用的内容规律，汇总成一份文档。</p>
+<p><b>任务二：生成内容地图。</b>同时提供品牌资料与内容资料，先提取自己的长期方向和独特视角，再跨平台研究相关主题在过去 6—12 个月有效的内容。规划 3—4 个长期方向，每个方向 5—7 个主题，每个主题 5—10 个点子，每个点子 4—5 个表达角度，整理成易读的文档。</p>
+<p>后续让 AI 起草时，继续带上这些背景，并参照有效作品检查每篇的结构。两项任务依据长文内公开的提示词改写；外链综合提示词未读取。</p>
+</figure>
+<p>地图给的是可以继续打磨的内容储备。Dan Koe 估计，它能提供大约半年的选题思路。实际写哪一篇、用什么结构，仍要回到资料与内容表现上判断；分支数量多，并不等于已经有同样多的好作品。</p>
+<p>这套流程最有用的地方，是让“别人爱看”和“只有你能讲”在写稿前相遇。先完成这些准备，再请 AI 起草，你面对的就不再是一张白纸。</p>
+<h2>第一单，从一份已经做出来的作品开始</h2>
+<p>开头那十条稿子的做法，来自 Dan Koe 讲述的朋友 JK Molina 的私信。大意是：知道 Dan 不想找人代笔，但还是先替他写了十条，请他试着发布；喜欢的话可以继续合作，或者留一份评价。</p>
+<p>这里要区分两种场景：争取合作时，用对方已有的公开表达先做展示稿；正式合作后，再用访谈补齐背景。前面的录音访谈，是 Dan Koe 描述的客户入驻流程。</p>
+<p>这个办法把客户需要想象的部分提前做了出来。他不用先相信你的自我介绍，就能看到你是否理解他、能不能交出东西。Dan Koe 称它为“Permissionless Apprentice”：先替理想客户做一份作品，再设法让对方看到。</p>
+<p>他给出的行动建议，是运用前面的资料研究流程，起草十条内容，亲自打磨，再每天联系十位潜在客户。对忙碌的创作者、创始人，以及内容增长遇到困难的人，都可以寻找这样的展示机会。</p>
+<p>他设想这类服务首单可以按每月 2500—5000 美元谈，并认为坚持一个月有机会找到客户。这些是他的经验判断，没有公布联系次数对应的成交率。文章并未提供按这套步骤执行就能签约的证据。</p>
+<figure>
+<div>第一单，先让客户看见交付</div>
+<div><b>研究</b><span>读他的经历和优秀旧作，理解这个人的特点。</span></div>
+<div><b>制作</b><span>先替他做十条内容，用 AI 协助起草，由你打磨。</span></div>
+<div><b>展示</b><span>把作品送到对方面前，私信或公开展示都可以。</span></div>
+<div><b>再谈合作</b><span>对方先用作品判断价值；是否愿意合作，仍要得到回应。</span></div>
+<figcaption>Dan Koe 的先做作品再争取合作方法。这里画的是行动路径，不表示每天联系十人就一定能成交。</figcaption>
+</figure>
+<p>私信不奏效，也可以公开展示。Dan Koe 举了一条视频帖：一位创作者直接以 Grant Cardone 需要新的创意负责人为切入点，展示自己的申请。他在文中转述 Grant 的回应，借此说明作品有可能引来对话。</p>
+<div><figure><img src="https://pic.xiaohu.ai/jiedu-media/dan-koe-one-person-creative-team/source-2117663481117962240.jpg" alt="原文所附公开展示创意申请的Instagram视频静态截图" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>原文附的是 august_carlsson 的 Reel 静态截图，画面提出为 Grant Cardone 担任创意负责人的申请。本次拿到的是图片，没有视频文件；回应来自 Dan Koe 的讲述，也没有核实后续签约。</figcaption></figure></div>
+<p>回到客户为什么付钱：你需要交付的，不只是一批能生成的文字。你要理解这个人，把他的素材与读者的兴趣连起来，选出值得做的题目，再把初稿改到可以用。AI 参与了制作，客户仍需要有人承担这些责任。</p>
+<p>这一点，也把整套方法的门槛讲清了：愿意研究人、研究内容、不断改稿，才有“一人创意团队”的工作。十条作品，只是让别人看见这份能力的开始。</p>
+<h2>按什么顺序，把整套方法做一遍？</h2>
+<p>下面把前面的公开方法排成一份执行提纲。阶段名称和“核对产物”是本文的编辑归纳，方便照着检查；找客户的最后一段，适用于给别人提供内容服务的人。</p>
+<figure>
+<div><h3>先定服务方向</h3><div><ul><li>决定给自己的品牌做，还是替别人做。</li><li>描述一个真实的服务对象，想清想帮助他做到什么，以及自己与他的关系。</li></ul><div><b>核对产物：</b>能说清服务谁、带他去哪里、自己扮演什么角色。</div></div></div>
+<div><h3>留下两份资料</h3><div><ul><li>自己的品牌或正式客户，用九类问题访谈并留存记录；争取首单时，先据对方公开内容整理背景。</li><li>每平台研究 10—20 条优秀旧作；新手整理实际影响自己的 5—10 人。</li><li>把观点、个人表达和世界观整理成内容资料。</li></ul><div><b>核对产物：</b>两份文档可查阅，后续写稿能继续引用。</div></div></div>
+<div><h3>调研与规划</h3><div><ul><li>跨平台收集参考，提炼选题和结构的规律。</li><li>结合两份资料，按方向、主题、点子与角度整理内容地图。</li><li>研究过去 6—12 个月有效的作品。</li></ul><div><b>核对产物：</b>地图里的点子既有个人视角，也能说明参考了哪些有效内容。</div></div></div>
+<div><h3>起草与改稿</h3><div><ul><li>让 AI 带着已有背景起草。</li><li>由人审查、改写，保留自己的观点和表达特点。</li><li>参照有效作品检查结构；给自己的品牌用，可以安排发布，给潜在客户用，则进入样稿展示与合作沟通。</li></ul><div><b>核对产物：</b>交出去的是经过自己判断和修改的作品。</div></div></div>
+<div><h3>用作品争取第一单</h3><div><ul><li>面向忙碌的创始人、创作者或内容增长遇到困难的人。</li><li>先做十条并打磨，带着作品争取对话；私信无效时，可以公开展示。</li><li>每天联系十位、坚持一个月，是 Dan Koe 提出的尝试，不是签约保证。</li></ul><div><b>核对产物：</b>已经有能让目标客户直接评价的具体作品；成交要以实际回应为准。</div></div></div>
+<figcaption>先把背景资料搭好，再反复使用、研究和改稿。半年储备与长期品牌都需要后续工作，不能用内容地图的分支数量代替实际作品。</figcaption>
+</figure>
+</div><div><div><div>来源</div><div><span>The most lucrative AI business to start in 2027</span><span>Dan Koe<span>·</span><a href="https://x.com/thedankoe/status/2117664712532123680">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/i/article/2117661803769659392">X Article 长文地址</a><span>·</span><a href="https://github.com/doublesq97-ui/x-post-images-hd/tree/main/2026-11/dankoe">FTS 三页图总结（图解组织参考）</a></div></div></div></div></div><div>
+<div>Dan Koe · 内容创作者、Eden 创始人</div>
+<h1>一套 AI 内容方法，两条生意路线</h1>
+<div>AI 协助研究与起草，由人负责定位、选题和改稿；既经营自己的品牌，也能为别人提供内容服务。</div>
+<div>长文逻辑拆解 · 核心机制模型 · 约 4 分钟阅读</div>
+<div>
+<p>你给一位忙碌的创始人发私信，说自己会用 AI 写内容。他可能根本没空听。换一种开场：你先研究他的经历、读过他表现最好的作品，直接送上十条替他打磨好的稿子。对话就从介绍技能，变成了看作品。</p>
+<p>Dan Koe 从这个常识出发：无论经营自己的事业，还是帮别人的公司增长，吸引注意力都是一项有商业价值的能力。钱花掉还能再赚，已经花出去的注意力却收不回来，这是他看重这项能力的理由。</p>
+<div>
+<div>
+<div>139亿 → 439亿</div>
+<div>美国创作者广告支出（美元）：2021实际→2026预测</div>
+</div>
+<div>
+<div>100万 / 1000</div>
+<div>Dan Koe 的假设阅读量例子，非普遍统计</div>
+</div>
+<div>
+<div>2500—5000</div>
+<div>美元/月：作者设想的首单服务报价</div>
+</div>
+</div>
+<div>
+<p><strong>内容让人停下来，品牌让人愿意再来看你。</strong>前者关乎眼前的选题和表达，后者关乎你长期谈什么、怎么看问题、有哪些别人没有的经历。但一条帖子有一百万阅读，其他帖子只有一千阅读，未必建立了能持续吸引人的品牌。这是 Dan Koe 举的假设例子：读者可能只喜欢那一条，并没有形成对你的认识。</p>
+</div>
+</div>
+<div>
+<p>AI 已经能生成帖子，客户为什么还会请人？Dan Koe 转述过合作内容团队的反馈：创始人要管理团队和业务，常常连想内容的精力都没有。他需要有人带着理解与判断，替他把这件事持续做下去。</p>
+<div>
+<div>
+<div>核心机制 · 内容工程的三层模型</div>
+<div>三种工作都需要人的判断，AI 协助整理、研究和起草</div>
+</div>
+<div>
+<div>
+<div>第 1 层 · 品牌定位</div>
+<div><strong>交代边界与世界观：</strong>明确这个人帮助谁、经历过什么、在读者的故事里扮演向导还是记录者。缺少这层底稿，换个名字也成立的平庸稿子就会大量出现。</div>
+<div>人定方向 · AI 辅助整理</div>
+</div>
+<div>
+<div>第 2 层 · 内容策略</div>
+<div><strong>决定选题与表达方向：</strong>研究过去6—12个月有效的内容，结合自己的材料形成内容地图。Dan Koe 估计可得到约半年的选题思路，仍需判断和打磨。</div>
+<div>人统筹 · AI 协助研究</div>
+</div>
+<div>
+<div>第 3 层 · 写作发布</div>
+<div><strong>起草、改写与跨平台制作：</strong>根据定位要求完成初稿生成、口吻润色与分发排版。很多 AI 内容生意仅仅停在了制作这一层。</div>
+<div>AI 协助起草 · 人审改</div>
+</div>
+</div>
+<div>一人创意团队要接住三种不同的工作：品牌定位先交代边界，内容策略据此选择题目，写作发布再把题目做成符合这个人的作品。如果只研究爆款形式，可能做出好看的单篇，却没有稳定的个人面貌。如果只让 AI 连续出稿，连“这篇为什么值得写”都没人负责。Dan Koe 认为，很多 AI 内容生意停在了制作这一层。</div>
+</div>
+</div>
+<div>
+<p>先留下可反复引用的个人资料：做自己的品牌，可以自我访谈；正式客户合作后，用录音访谈、转写补齐经历与观点；争取首单时，先研究对方已有的公开内容做样稿。资料记录帮助谁、经历过什么、相信什么，成为以后想题和改稿的依据。</p>
+<div>
+<div>内容地图的生成逻辑：两份底稿与跨平台调研的交汇</div>
+<div>
+<div>
+<div>轨道 A · 思想签名（关于“人”）</div>
+<div><strong>读者未来愿景：</strong>跟着你走五年，读者的一天会是什么样？他们希望怎样介绍自己？</div>
+<div><strong>角色与世界观：</strong>你在他们的故事里是谁？什么值得追求，哪些做法让人走弯路？</div>
+</div>
+<div>
+<div>轨道 B · 内容资料（关于“共鸣”）</div>
+<div><strong>已有旧作：</strong>在每个活跃平台各选10—20条优秀内容，提炼核心观点、个人表达，以及可能凝聚读者的世界观。</div>
+<div><strong>尚未发布：</strong>研究真正影响自己的5—10人；没有账号时，从全网和书籍整理思想。无论哪条分支，都再到自己不发内容的平台收集参考。</div>
+</div>
+</div>
+<div>
+<div>汇流产物 · 内容地图（选题思路）</div>
+<div>品牌资料记“人”，内容资料记旧作特点或思想参考，再结合跨平台调研。地图展开为3—4个长期方向→每个5—7个主题→每个5—10个点子→每个4—5个角度。起草时继续带着背景，参照有效作品检查结构；这些分支是待打磨的思路，不是已经完成的作品。</div>
+</div>
+</div>
+</div>
+<div><div>同一套方法，两个经营出口</div><div><div><div>给自己的品牌用</div><div>持续发布，经营受众、邮件列表和数字产品。</div></div><div><div>替别人统筹内容</div><div>为缺乏创作精力的人研究、选题、改稿和交付。下面的十条样稿，是争取这类客户的一种起步办法。</div></div></div></div><div>
+<p>开头那十条稿子的做法，来自 Dan Koe 讲述的朋友 JK Molina 的私信。大意是：知道 Dan 不想找人代笔，但还是先替他写了十条，请他试着发布；喜欢的话可以继续合作，或者留一份评价。</p>
+<div>
+<div>
+<div>技能自荐</div>
+<div>私信介绍“我会用 AI 写内容”。客户要从自我介绍里想象合作效果，忙碌时可能没空判断。</div>
+</div>
+<div>
+<div>先做作品，再争取合作</div>
+<div>研究对方已有的公开内容，先做十条并打磨，再用作品争取对话。私信不奏效，也可以公开展示。对方能直接看你是否理解他、能交出什么。</div>
+</div>
+</div>
+<div>
+<p><strong>商业边界与条件提示：</strong>Dan Koe 设想这类服务首单可以按每月 2500—5000 美元谈，并认为坚持一个月有机会找到客户。这些是他的经验判断，没有公布联系次数对应的成交率。文章并未提供按这套步骤执行就能签约的证据。回到客户为什么付钱：你需要交付的，不只是一批能生成的文字。你要理解这个人，把他的素材与读者的兴趣连起来，选出值得做的题目，再把初稿改到可以用。AI 参与了制作，客户仍需要有人承担这些责任。</p>
+</div>
+</div></div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://x.com/thedankoe/status/2117664712532123680">看原网页 ↗</a></p></div><div></div><div><div><h1>The most lucrative AI business to start in 2027</h1></div><div><figure><img src="https://pbs.twimg.com/media/HWNySA0bkAAMYZd.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>The most lucrative skill has always been capturing attention.</p></div><div><p>It’s obvious why.</p></div><div><p>If your goal is making more money, it doesn’t matter how good a software you build. It doesn’t matter if it took you 3 years and endless scrapped drafts to write a book. It doesn’t matter if you work hard and improve yourself to increase your career opportunities.</p></div><div><p>If nobody knows who you are or what you offer, how in the world are they going to pay you?</p></div><div><p>Meaning, whatever your work is or whatever business you build, capturing attention and acquiring customers will be the primary thing that determines your success.</p></div><div><p><em>This applies to both your own business and others’ businesses.</em></p></div><div><p><em>And other people will pay top dollar for you to do it for them.</em></p></div><div><p>As job security goes down, people are met with 3 options:</p></div><div><ol><li>Complain about how life is unfair and do nothing</li><li>Upskill and reeducate to find a better job opportunity</li><li>Start building the business you’ve always wanted to build</li></ol></div><div><p>An absurd amount of people will choose option 3.</p></div><div><p>As you could guess, and as everyone is screaming about on social media, the way they will build that business is by starting a personal brand.</p></div><div><p>Why?</p></div><div><p>Because attention is a finite resource, and it’s only becoming more scarce. People can make more money, but they will never get back the attention they spent.</p></div><div><p>In this letter, I will show you how to master attention capture on social media. That way, at least for the next few years, you won’t have an issue making money.</p></div><div><p>With what you learn, you can start your own business using social media to fuel it, or become a “one person creative team” for other companies that will pay top dollar for your skill set.</p></div><div><hr /></div><div><p><strong>Promo - Workshops for the Second Renaissance:</strong></p></div><div><p>I’m teaming up with Hussain Ibarra (grew from 2,600 to 20,100 Substack subs) to teach newsletter and article writing that people actually want to read.</p></div><div><p>If you’ve considered building a Substack, or want to write better X articles, <a href="https://eden.so/workshop">sign up here</a>, it’s $49 but will teach you the skills to make far more than that.</p></div><div><hr /></div><div><h2>I – You will either become a creator, pay a creator, or get paid to work for a creator.</h2></div><div><p>The data is almost too hard to ignore.</p></div><div><p>Goldman Sachs predicts the creator economy will nearly double, from $250 billion in 2023 to $480 billion by 2027.</p></div><div><p>In 2025, creators earned about $185 billion in ad revenue, which is <em>the first year they passed traditional media</em>.</p></div><div><p>US brands spent $13.9 billion on creators in 2021, and the IAB expects that to reach $43.9 billion in 2026, which is about 3x in 5 years.</p></div><div><figure><img src="https://pbs.twimg.com/media/HWNychcbIAAqos5.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>Absurd.</p></div><div><p>And as someone who both is a creator, has worked for creators, and pays creators, the prices people charge are crazy. There is an absurd amount of VC money being thrown around, paying thousands of dollars for a single reel or 60-second YouTube time slot (that don’t even bring results 90% of the time).</p></div><div><p>The point is that social media is where the attention is. Not the radio, TV, or news anymore. When you want to start any kind of business - from lifestyle business talking about your interests to the next unicorn startup, posting content is almost a given at this point for how you attract an audience that pays you.</p></div><div><p>When companies want to expand, they put millions of dollars into affiliate and partnership campaigns. I keep getting ads from Hormozi saying they pay over a million a month to creators to promote Skool. And that’s aside the fact the Hormozi <em>is</em> a creator, which massively helps grow Skool.</p></div><div><p>“Founder-led marketing” is now a buzzword in the startup space, which essentially means that the latest and greatest way to grow your startup is... you guessed it, starting a personal brand and posting content (and most of them are horrible at it by the way, and you should probably start using <a href="https://eden.so/">Eden</a> to research, differentiate yourself, and post).</p></div><div><p>What does this mean for you?</p></div><div><p><em>It doesn’t matter if you plan to work for yourself, have a business already, or want to work for another business - the most lucrative skill to learn is capturing attention. When you translate that to the digital landscape, the most lucrative skill is creating content - <strong>good content, not infinite slop</strong>.</em></p></div><div><p>Unfortunately, you can master capturing attention, but that doesn’t mean you’ve actually captured it.</p></div><div><p>Getting a million views on one tweet or reel is useless if the rest of your posts get a thousand views a pop. That signals that your content is decent, but your brand is non-existent. We need both.</p></div><div><p>You can try to go viral all the time, which is what most people do (and why most people fail abysmally), or you can build a world of content that people can’t help but explore.</p></div><div><p>I’ll teach you how to do that.</p></div><div><h2>II – The One-Person Creative Team</h2></div><div><p>There is a massive shift happening in the content space right now.</p></div><div><p>I’m the founder of Eden, a tool where creators and digital businesses research viral ideas, plan and schedule their content, sell digital products, and run their email list.</p></div><div><p>That’s not meant to be a pitch. It’s to point out that we have data about this that almost nobody else has. We <em>know</em> what topics, hooks, and content styles work across billions of posts.</p></div><div><p>Aside that, freelancers and <a href="https://eden.so/agencies">agencies</a> use it to run their clients’ personal brand, from content to email marketing to digital product launches and building funnels.</p></div><div><p>We talk with these content agencies and media teams, and they are all saying the same things (paraphrasing):</p></div><div><p><em>“We’re not firing people yet, but we can take on so much more work without expanding the team because everyone’s output has gone up.”</em></p></div><div><p><em>“The reason creators and founders hire us is because they don’t even have time to think about content. They have a team to manage and a business to run, which requires focus. AI can write content for them, but they still know they need a strategist or <strong>creative director</strong> who leverages AI better than they would. It still requires creativity and thought.”</em></p></div><div><p><em>“AI still can’t write the best posts, and I don’t think it ever will, but it can research what’s performing, understand the strategy, and draft posts that are almost there. My entire job nowadays is reviewing and rewriting drafts. It takes me 4 hours a day instead of 12 now.”</em></p></div><div><p>The most lucrative AI business to start (as one person), in my eyes, is two-fold.</p></div><div><p><strong>One - you can become your own creative team</strong>. Start a personal brand. Build an audience. Create digital products. Build an email list. All that stuff. And that is your sole focus. Trust me when I say it is a full-time job, even with AI. If you are a creator, you probably aren’t going to build software without a team.</p></div><div><p><strong>Two - you can become someone else’s creative team</strong>. Help companies, founders, and even creators who don’t have the creative bandwidth to put out irreplaceable content. Most founders still create “announcement” style content and have no idea what it takes to build influence online.</p></div><div><p>In other words, you become the creative director of your own brand or someone else’s.</p></div><div><p>If you can pull this off, I don’t see why you wouldn’t be able to demand a price that is a fraction of what a full team costs. $10-$75k a month for 1-3 clients isn’t that far out of reach (if you’re good at this and practice - don’t let your mind convince you this is your next opportunity to get rich quick). And business owners who pour millions into marketing won’t bat an eye at that price.</p></div><div><p>What does this one person creative team look like?</p></div><div><p>What skills do you need to learn?</p></div><div><p><strong>Job</strong> <strong>1) Brand Strategist</strong></p></div><div><p>A brand strategist is in charge of positioning and perception.</p></div><div><p>They are going to be the first to say that you <em>shouldn’t</em> just follow trends and try to go viral with every post. Growth and engagement are important, but not at the expense of trust and authority.</p></div><div><p>I’m going to show you how to do all of this below, by the way.</p></div><div><p><strong>2) Content Strategist</strong></p></div><div><p>Not the same as a brand strategist.</p></div><div><p>The content strategist is someone who scouts what content is performing in various topics and niches and proposes what the creator’s next posts should be. They deeply study post formats, YouTube thumbnail and title structures, retention, and virality.</p></div><div><p>They are good at growing accounts, but without accounting for brand strategy, if the creator were to stop posting, nobody would ask where they went.</p></div><div><p><strong>3) Content Writer / Social Media Manager</strong></p></div><div><p>The person who drafts the tweets, YouTube or Reels scripts, X articles, and Substack newsletters, plans them, and posts them.</p></div><div><p>They take the content strategists ideas and brand strategists direction and make sure the content aligns with that.</p></div><div><p>You can probably tell why most people are failing to build anything lasting with AI. They still treat it as a get rich quick scheme. They think that if they just have Claude pump out scripts without direction or data they’re going to magically build a connection with their audience.</p></div><div><p>Almost nobody accounts for brand strategy.</p></div><div><p>Some people account for content strategy.</p></div><div><p>Most people just turn random ideas into posts and pray that they’ll do well.</p></div><div><p>This is your competition, and it’s not hard to stand out.</p></div><div><h2>III – If You Were My Client, Here’s Exactly How I’d Build an Irreplaceable Personal Brand</h2></div><div><p>Let’s have some fun with this.</p></div><div><p>I’m going to act like I’m onboarding you as a client.</p></div><div><p>That way, if you want to <em>become</em> a creator, you can implement the process yourself. And if you want to start a content business for others (ghostwriting tweets, writing Substack articles for brands, etc), this is how you would bring them on as a client (I’ll give you one of the best strategies for landing your first client later).</p></div><div><p><strong>Step 1) Onboarding Call To Create Their Intellectual Signature</strong></p></div><div><p>To make their brand and content unique, you need quite a bit of context from them.</p></div><div><p>After you land them as a client, schedule a call with them so you can interview them for everything you need. Record the call so you’re able to store the transcript somewhere and reference it with AI.</p></div><div><p>If you’re doing this for your own brand, I already have a quiz / prompt you can use. It also comes with a 30 day creator sprint course. It builds your strategy for you based off of what’s going viral right now mixed with what makes you unique. <a href="https://eden.so/sprint">Try it here.</a></p></div><div><p>This is what you would ask your client, or you can ask yourself. You could also paste this into Claude and have it pull the info out of you and save it as a brand document you can reference with AI at any point.</p></div><div><p>All of these questions shape your brand.</p></div><div><p>They can spin off into content topics, and are something you post about over 6-12 months. People see this and ask “How do I get this all across in one post?”</p></div><div><p>You don’t. This is a long term game, and is why most people fail miserably. Because they want quick attention and authority. Good luck with that.</p></div><div><p>Since this is long, I put all of this and more into a comprehensive prompt for you, <a href="https://app.eden.so/w/dan-s-workspace/notes/bd8c9594-8ce6-4ae5-95a3-86fed3da148b?via=eden-f136db14df6d">save it or duplicate it to your workspace</a>.</p></div><div><ol><li><strong>Who you help</strong> Who do you most want to help? Describe one real person. What does a bad day look like for them right now? What do they say when they complain to a friend? Use their exact words. What have they already tried that didn’t work?</li><li><strong>Your story</strong> What have you lived through that your audience is living through now? What was the moment things changed for you (no matter how small)? What have you built, tried, failed at, or figured out? List them from biggest to smallest, they are all worthy. What results can you point to, for you or for people you’ve helped?</li><li><strong>Who shaped your mind</strong> Whose books, posts, or videos do you never skip? Name real people and titles. Which idea from them do you keep coming back to, and why? Who changed how you think, even if you disagree with them now?</li><li><strong>Content pillars and unique perspective</strong> What could you talk about for hours? List everything, even things that seem unrelated. Of those, which 2 or 3 matter most to you? How do you come at each one differently from others? (For example “through psychology” or “as a former nurse”) What do people ask you for advice on most? What do you keep explaining to people over and over?</li><li><strong>Mission and beliefs</strong> In one sentence, what do you want to help people do? What do you believe that most people in your space don’t? What common advice in your field do you think is wrong?</li><li><strong>What you’re against</strong> What way of living is hurting the people you want to help? What life do you want to help them escape? Answer in your own words. What myth or habit would you get rid of if you could? (A habit or idea, not a person or company.)</li><li><strong>Why it matters right now</strong> What just changed in the world that most people haven’t noticed yet?</li><li><strong>Where you’re taking them</strong> What does their day-to-day life look like five years after following you? What would they proudly call themselves in their own bio? Who are you in their story? (Their guide, someone documenting the journey, or someone who got out and came back with a map.)</li><li><strong>Rules and words</strong> What does your ideal reader believe and do every day? List 5 to 12 rules. Do you have names for your own ideas, methods, or problems? Write each name with what it means.</li></ol></div><div><p>Keep all of this information somewhere safe, like a brand board in Eden so you can reference it whenever you are ideating post ideas.</p></div><div><p><strong>Step 2) Scrape Their Best Content If They Are Posting</strong></p></div><div><p>I think we can all agree AI can’t replicate someone’s voice.</p></div><div><p>Even if it gets close, there’s always going to be one little thing that feels off about it.</p></div><div><p>That’s not our goal with this. AI can handle company voices just fine, but a personal brand is personal for a reason. It needs that hit of uniqueness.</p></div><div><p>The reason we interview them and pull in their best content isn’t to automate the entire process. Instead, you’re building a knowledge base of everything that is unique or noteworthy about that person. When you use AI to brainstorm, draft, or ideate, it becomes so much easier than starting from scratch.</p></div><div><p>To pull in their best content on all platforms, connect Eden to Claude or ChatGPT with the MCP so it can pull in their posts or others posts that are going viral, give it their social handles, and use a prompt like this:</p></div><div><blockquote><p>Pull the best content from [@handles]. 10-20 posts from each platform they are on. Then, I want you to note down the core ideas that make them unique, the aspects of their voice that have personality, and a guess at what their worldview or philosophy is that could rally other people behind it. In essence, note down everything that led to their growth, and compile it into a document.</p></blockquote></div><div><figure><img src="https://pbs.twimg.com/media/HWNzi27aAAAQ8cH.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>It’s also worth just looking at their top posts on all platforms so you can spot patterns that are replicable.</p></div><div><p><strong>Step 2.5) If You Haven’t Started Posting Content Yet</strong></p></div><div><p>As a beginner, this is arguably the best thing you can do.</p></div><div><p>You must understand that your mind has been shaped by those who have impacted you the most. Your best ideas - the ones that will lead to your growth - are how you interpret the ideas you’ve adopted from others.</p></div><div><p>Similar to “steal like an artist,” except it’s just how the mind works.</p></div><div><p>It’s a core sign of intelligence to swap the beliefs and ideas running your mind when you are exposed to a new one. It is a sign of stupidity to never let go of beliefs or ideas that do not lead to advantageous outcomes.</p></div><div><p>My mind is largely composed of ideas that have been mashed together from Naval, Leo Gura, Mihaly C, Steven Kotler, Ken Wilber, and more. The interaction of those ideas in my head, plus my own life experience, is what makes my ideas mine.</p></div><div><p>So, if you aren’t posting content, create a list of 5-10 people who have impacted you the most.</p></div><div><p>If they are creators, even better. Put them <a href="https://eden.so/features/creators/">in a list</a> so you can see all of their content or chat with it.</p></div><div><p>Then use the same prompt mentioned above, but for <em>their</em> social handles. If they don’t have social media, ask AI to pull their best ideas from across the web and their books. Save it as a document somewhere safe.</p></div><div><p><strong>Step 3) Create A Research-Backed Content Map</strong></p></div><div><p>So far we have:</p></div><div><ul><li>Gotten enough brand context to create something unique</li><li>Documented the best ideas that we can reuse, reposition, and replicate</li></ul></div><div><p>Now, we need to put on our marketing hat.</p></div><div><p>And it’s not even a marketing hat. It’s an artists hat.</p></div><div><p>Most “creatives” hate the thought of researching viral posts, or top performing YouTube titles, or basing your content off of what is more likely to perform... but you’re just looking at it from an angle that hides what you’re actually doing.</p></div><div><p>You’re collecting references.</p></div><div><p>That’s what artists do. They have inspiration boards and references that help <em>shape</em> their work. They don’t copy it 1-1, but they pull patterns and principles so that their own work is likely to perform better.</p></div><div><p>Because let’s face it, you want your work to be a success. You just think looking at data feels icky and somehow isn’t a part of the creative process. Snap out of it.</p></div><div><p>Here’s what you do.</p></div><div><p>(Disclaimer: I’m mentioning Eden a lot in this letter, because frankly there isn’t anything else that can do the job. Social scrapers can’t see what’s performing across more than one account, and apps like GrokBot are incredible, but only work on X, and you’re better off researching platforms that you’re <em>not</em> posting on to get unique ideas).</p></div><div><p>It’s as simple as using this prompt, and plugging the 2 documents you’ve made so far into it:</p></div><div><blockquote><p>I want you to create a research backed content map: 3-4 unique and broad content pillars that branch into 5-7 topics that are both based on ideas that are working, through my own unique lens based on [@ brand document] and [@ content document]. Branching off each topic should be 5-10 ideas that are likely to perform well, with 4-5 angles branching off of each of those ideas. Look over my brand and content docs, pull potential pillars and my lens out of it, then use Eden to research what’s performing across platforms in those topics. We want a unique content map, but we want to merge it with patterns that have been proven to perform over the past 6-12 months. Put the output in an easy to read document.</p></blockquote></div><div><p>Now you have about 6 months of content ideas that you can work with. You can ask Eve or AI to draft them using the previous context we made, and validate the structure of the post based on what’s performing as well.</p></div><div><p>I think it’s hard to deny that you wouldn’t see results with this process, and that it puts you miles upon miles ahead of those who are not doing this.</p></div><div><p>As mentioned, here’s a <a href="https://app.eden.so/w/dan-s-workspace/notes/bd8c9594-8ce6-4ae5-95a3-86fed3da148b?via=eden-f136db14df6d">doc/prompt you can duplicate</a> with the entire process in it. It may take a bit to get through, but it is comprehensive.</p></div><div><h2>IV – How to land your first client</h2></div><div><p>A few years ago, my friend JK Molina (the guy who essentially started the trend of becoming a twitter ghostwriter), send me a DM.</p></div><div><p>It went something like this:</p></div><div><p>“Dan, I know you don’t want anyone to write for you, but I wrote 10 posts for you anyway. Try posting them, if you like them, then let me write more, or just give me a testimonial.”</p></div><div><p>Before I was doing social media stuff, I was a freelancer, and cold outreach was pure hell. I hated it.</p></div><div><p>But when I got this DM, I realized this has to be one of the best strategies anyone could use to land a content client for $2500 to $5000 a month. You could target current busy creators, founders, or people just struggling to grow.</p></div><div><p>You could do everything we mentioned above in one prompt for <em>them,</em> have it draft 10 posts, polish them up, and send 10 DMs a day.</p></div><div><p>If you actually did that, I’d find it hard to believe that you wouldn’t land atleast one client in a month.</p></div><div><p>This is the “Permissionless Apprentice” approach.</p></div><div><p>You do free work for a dream client, then get it in front of them however you can.</p></div><div><p>If DMs don’t work, do it in public like this - can work on X, Substack, or any other platform really:</p></div><div><figure><img src="https://pbs.twimg.com/media/HWNzt1nacAAYZ64.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>In that reel, he hooked them in with “Grant Cardone needs a new creative director and this is my application. It seems like his content is stuck in 2016.”</p></div><div><p>I think Grant Cardone responding saying “Hit me I’m stuck” and the engagement on this post prove most of what I’ve said in this letter. It is a massive opportunity right now. And you have all the tools to land these clients, onboard them, and create incredible content for them.</p></div><div><p>Hope this was helpful.</p></div><div><p>– Dan</p></div><div><p>Again, workshop on how to write newsletters / articles people can’t help but read happens on November 10. <a href="https://eden.so/workshop">Join here</a> if you want to learn to create long-form content as a skill.</p></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/thedankoe/status/2117664712532123680">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Claude Code 工程师 Addy Osmani：像带你的开发团队一样管理你的 Agent 一份五行任务说明和九条管法 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/coding-agents-made-you-a-manager/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:coding-agents-made-you-a-manager</guid>
+<pubDate>Mon, 09 Nov 2026 12:00:23 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 所属专题 所属专题 Agent 工程与软件工厂 → 本页目录 01 为什么说用 Agent 就是在当经理？ 02 最该先做的：让它能自己验收，拿证据来交差 03 只交代它读不到的东西 04 同一件事纠正两次，就写下来 05 管多严？大多数事让它自己拿主意 06 先对计划，再让它动手 07 跑偏了早点拉，拉两次不回就重来 08 活可以交，判断不能交 09 通宵跑之前，先问五个问题 10 想多开几</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 9 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Claude Code 工程师 Addy Osmani：像带你的开发团队一样管理你的 Agent 一份五行任务说明和九条管法 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/coding-agents-made-you-a-manager/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>Agent 工程与软件工厂 →</a></div><div>本页目录</div><a><span>01</span><span>为什么说用 Agent 就是在当经理？</span></a><a><span>02</span><span>最该先做的：让它能自己验收，拿证据来交差</span></a><a><span>03</span><span>只交代它读不到的东西</span></a><a><span>04</span><span>同一件事纠正两次，就写下来</span></a><a><span>05</span><span>管多严？大多数事让它自己拿主意</span></a><a><span>06</span><span>先对计划，再让它动手</span></a><a><span>07</span><span>跑偏了早点拉，拉两次不回就重来</span></a><a><span>08</span><span>活可以交，判断不能交</span></a><a><span>09</span><span>通宵跑之前，先问五个问题</span></a><a><span>10</span><span>想多开几个 Agent？先让「盯」的活变少</span></a><a><span>11</span><span>做起来便宜了，更要会说「不」</span></a><a><span>12</span><span>这个比喻在哪里不成立</span></a><a><span>13</span><span>不想当经理，也值得学这一套</span></a><a><span>14</span><span>给动手的人：这些做法对应 Claude Code 的哪些功能</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>深度</a><i>·</i>11-09<i>·</i>约 12 分钟<i>·</i>作者 Addy Osmani</div><h1>Claude Code 工程师 Addy Osmani：像带你的开发团队一样管理你的 Agent 一份五行任务说明和九条管法</h1><p>Claude Code 团队的 Addy Osmani 把好经理带团队的十条做法，一条条对到用 Agent 写代码上：怎么交代、怎么验收、怎么放手，以及这个比喻在哪里不成立。</p><div><div>正文一页纸原文</div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Addy Osmani</span><span>11-09 · 约 12 分钟</span><span>⚑ 大佬观点 · 个人立场</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><strong>一分钟速览</strong><ul><li>用 Agent 用得最好的人，不一定最会写提示词，而是学会了当经理。</li><li>最该先做的是给它一个能跑出过或不过的检查，让它拿证据交差。</li><li>活可以交，判断不能交，测试全过就直接批，等于替它盖章。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/coding-agents-made-you-a-manager/social/zh-eebc3db01f5b.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><figure>
+<p><span>一张便利贴的交接，</span><span>问题全留在脑子里</span></p>
+<div>
+<div><b>把仪表盘弄快点</b>—— 就这一句</div>
+<ul>
+<li>快到多少算快？</li>
+<li>为谁快？</li>
+<li>数据库能动吗？</li>
+<li>拿什么交差？</li>
+</ul>
+</div>
+<div><span><b>Agent</b>：收到，马上开干。</span></div>
+<figcaption>一句话交代完就走，问题全留在你脑子里。Agent 不会追问，接了就干。</figcaption>
+</figure>
+<p>用 Agent 写代码，很多人都碰到过这种事：你交代一句「把仪表盘弄快点」，它马上开干，交回来的东西看着是做完了，一跑才发现不对。你指出问题，它改，改完又歪到别处。同一件事，今天纠正一遍，明天开个新会话还得再纠正一遍。Agent 开得越多，你越像个跟在后面验收的人。</p>
+<p>Claude Code 团队的工程师 Addy Osmani 最近写了一篇长文，专门讲怎么走出这种状态。他自己多数时候同时开着四五个 Agent。办法说起来很简单：把好经理带团队的那一套，搬到 Agent 身上。</p>
+<p>交代清楚它在代码里看不到的背景；给它一个能自己判断过没过的检查；同一件事纠正过两次，就写下来；活可以交出去，拍板的事留给自己。他一共整理了十条，越靠前越管用。</p>
+<h2>为什么说用 Agent 就是在当经理？</h2>
+<p><strong>你一整天做的，正是经理那几件事。</strong></p>
+<p>回想一下你用 Agent 的一天：挑一件活，写说明，交给它，过一会儿去看进度，检查它交回来的东西，最后决定哪些留、哪些上线。一遍遍地转。这就是下面这张图的外圈。</p>
+<figure>
+<p>你转外圈，Agent 转内圈</p>
+挑活
+写说明
+交出去
+跟进
+验收
+拍板上线
+写
+跑检查
+看到失败
+自己改
+Agent自己转
+<div><span><i></i>你</span><span><i></i>Agent</span><span><i></i>检查过关</span></div>
+<p><b>给它一个检查办法，内圈它自己就能转到过关。</b>你的力气留在外圈：交代什么、读多少、留什么证据、什么必须你签字。</p>
+<figcaption>按原文开头的六个动作和「内圈 / 外圈」一段画成，示意图。</figcaption>
+</figure>
+<p>Addy 说的「管」，指的是一件具体的事：<strong>帮别人把活干好，由此做出好结果</strong>。他不是劝你去当那种日程表排满、整天泡在会里的经理。很多他佩服的工程师，正是看到朋友当了经理就「消失」在会议里，才选择一直做一线工程师（不带人、自己干活的工程师）。他也明确说了，Agent 不能替代经理，也不能替代同事。</p>
+<div><span>The engineers who get the most out of agents aren't necessarily the ones who are best at prompt engineering. They're the ones who learned how to manage, intentionally or otherwise.</span>把 Agent 用得最好的工程师，不一定是最会写提示词的人，而是学会了怎么管的人，不管是有意学的还是不知不觉学会的。</div>
+<p>Addy 有个说法：你对坏老板的每一句吐槽，都是一份用 Agent 时的 bug 报告。对一线工程师来说，这其实是个好消息。你接了这么多年的活，挨过含糊的需求、缺背景的交接、中途改口的期望，所以你其实知道一次好的交接长什么样。现在轮到你来交接了。开头那个仪表盘的例子，就改编自 Addy 文中的示例，后面会把它改成一份完整的任务说明。</p>
+<p>这些经验一半来自好经理带团队的做法，一半来自 Anthropic 自己用 Claude Code、做 Claude Code 攒下的教训。</p>
+<h2>最该先做的：让它能自己验收，拿证据来交差</h2>
+<p><strong>给它一个能跑出「过 / 不过」的检查办法，让它把结果拿给你看；别把「看着做完了」当成做完了。</strong></p>
+<p>问一个老练的经理：你不可能每行代码都看，怎么确定团队干得好？他会告诉你：靠护栏，比如每次提交自动跑检查、代码审查、监控面板、轮流值班。没搭护栏的新经理只能什么都自己验，用不了一个季度，他自己就成了整个团队最堵的那个口子。</p>
+<p>Agent 一样。它会在活「看起来做完了」的时候停下。如果没有任何检查，「看起来做完了」就是它唯一的标准，验收的活全落回你头上，<strong>你变成了它的测试</strong>。</p>
+<p>有了检查办法就不一样了：它写完自己跑检查，看到哪里没过，自己改，再跑，直到过关。这就是图里的内圈。改界面的活，可以让它真的在浏览器里打开页面，一遍遍改到能用、好看为止。</p>
+<p>检查办法几乎什么都行，只要能给出明确的「过」或「不过」。写代码时常用的有：测试（一套自动检查代码对不对的程序）；能不能顺利打包成可运行的程序；写法合不合团队的规范；把结果和标准答案逐行比对；截一张图看页面长什么样。Claude Code 的官方最佳实践指南说，<strong>跑这些检查的那条命令，是 CLAUDE.md 里最有用的一行</strong>。CLAUDE.md 就是 Agent 每次开工先读的那份说明文件。</p>
+<p>有了检查办法，接进日常有四种做法：</p>
+<ul>
+<li><strong>直接要求</strong>：交活时说一句「改完跑一遍登录相关的测试，没过就接着改，直到全过」。</li>
+<li><strong>设一个目标</strong>：给它定一个完成条件。每干完一轮，由另外一个模型来判断条件达到没有，而不是让干活的模型自己说「好了」。长时间在后台跑的活最用得上。</li>
+<li><strong>强制</strong>：设一个它想收工时必定先跑的自动检查。比如代码里有数据类型对不上的错误，这一轮就不许结束。</li>
+<li><strong>送审</strong>：把改动交给一个新开的子 Agent 审。它没看过你们的对话，就像写代码的人不给自己批改动。</li>
+</ul>
+<div>
+<div><span>交活时贴在任务末尾</span>复制</div>
+<pre>改完之后跑一遍相关的测试，没全过就接着改，直到全部通过。最后把测试结果原样贴给我，作为做完的证据。</pre>
+</div>
+<p>送审时可以限定范围。叫它「找问题」，它总能找出点什么；叫它「只找会出错的地方，风格别管」，它就照做。好经理找人要反馈，也是这么问的。</p>
+<div>
+<div><span>请人审改动时这样限定</span>复制</div>
+<pre>帮我审这次改动：只找会导致功能出错的问题，代码风格、命名习惯都不用管。每个问题写清在哪一行、为什么会错。</pre>
+</div>
+<p>Claude Code 里的 skill（打包好的一套做法）、钩子（到点必定执行的自动程序，不由模型决定）、子 Agent（另派出去干一小块活的帮手）、MCP（把外部工具接给它的通道），大多是为这件事准备的：让它干完马上能验，验不过马上能改。你只用操心它自己验不了的那部分。</p>
+<div><b>不写代码，检查办法怎么给？</b>Addy 讲的是写代码，道理可以照搬：交活时就写清能逐条核对的标准，让它做完先自己对一遍，再拿结果给你。比如写文案，给出字数上限、必须讲到的三个点、不许用的词；做表格，让它把合计和原始数据核对一遍，列出对不上的地方。</div>
+<h2>只交代它读不到的东西</h2>
+<p><strong>说清楚代码里看不出来的东西：目标、为什么、约束、哪些不做、怎样算成功。</strong></p>
+<p>好经理讲清楚要什么结果、有哪些限制，至于怎么做，交给干活的人自己想。军队里叫「指挥官意图」，Netflix 叫「给背景，不控制」。</p>
+<p>难点在于，你很难知道 Agent 缺哪些背景。它接到任何任务，第一件事都是读你的代码。目录怎么分、命名有什么习惯、测试怎么搭，现在的模型摸清这些，比你讲给它听快得多。</p>
+<p>所以动笔前先想一想：<strong>它读代码就能知道、而且真的会去读的，就别写</strong>。把字花在仓库外面的东西上。</p>
+<figure>
+<p>字该花在哪：水面下的那部分</p>
+<div>
+<div><span>露在水面上：代码仓库里</span>
+<ul><li>目录怎么分</li><li>命名习惯</li><li>测试怎么搭</li></ul>
+<span>Agent 开工先读这些，不用写</span></div>
+<div><span>沉在水面下：只在你脑子里</span>
+<ul><li>会上定下的事</li><li>同事的上线流程</li><li>为什么要做这件事</li><li>这次怎样算完成</li></ul>
+<span>只有你知道，要写进说明</span></div>
+</div>
+<figcaption>两边的例子都来自原文。</figcaption>
+</figure>
+<p>常见的错法有两种：一种是丢一句话就走，真正的期待全在你脑子里；另一种是反过来，把它自己读代码就能发现的东西塞满一大段。</p>
+<a href="https://xiaohu.ai/article/claude-overprompting/"><span>站内相关</span><strong>Claude Code工程师：你可能给 Claude 写了太多提示词：哪些该删，哪些要讲清楚</strong><span>第二种错法的展开：哪些话是多余的，哪些必须讲清。</span><b>去读</b></a>
+<p>回到开头那句「把仪表盘弄快点」。Addy 把它改写成了一份五行的任务说明，下面是中文版。里面的数字只是举例。</p>
+<div>
+<div><span>任务说明示例（路径和数字换成你自己的）</span>复制</div>
+<pre>目标：在成员 1 万以上的组织里，把团队仪表盘（/team）的 p95 加载时间降到 2 秒以内。
+为什么：企业管理员每天都要打开它，加载慢是他们提得最多的工单。
+约束：不改数据库结构；接口返回的数据格式保持不变。
+不做：不改界面；不给整个页面加缓存。
+验收：运行 scripts/perf/team.sh，把改动前后的数字都给我看。</pre>
+</div>
+<p>每一行都在补一块它读代码读不出来的东西：</p>
+<p><strong>目标</strong>把「快一点」变成能量的数：哪个页面，哪些用户，到多少算过关。p95 加载时间（100 次打开里，有 95 次不超过这个时间）盯的是慢的那一头：只看平均数，少数很慢的几次会被大多数快的拉平。</p>
+<p><strong>为什么</strong>告诉它这活是为谁做的。遇到两条路都能走的时候，它知道往哪边偏。这就是「指挥官意图」：讲清目的，不规定动作。</p>
+<p><strong>约束</strong>是代码里看不出来的红线。数据库结构能不能动，接口格式（别的程序来取数据时，拿到的数据长什么样）能不能改，往往取决于仓库外面的事，它读代码猜不到。</p>
+<p><strong>不做</strong>把范围画死。整页加缓存、顺手改界面，都是看起来能交差、但不是这次要的做法。先写明，把这些路堵上。</p>
+<p><strong>验收</strong>就是上一节说的检查办法：一条能跑的命令，加上改动前后的对比数字，当作交差的证据。</p>
+<div><b>不是每个任务都要写这么全。</b>探索性的活，写一句泛泛的提示词完全没问题，边做边调就行。还没想清楚要什么时，可以反过来让 Agent 采访你：「先别写代码，一个一个问我问题，直到你能写出完整的需求说明，然后存成文件。」再新开一个会话照着这份说明做，做完还能拿它来对照验收。</div>
+<p>有些背景不在仓库里，在别的系统里，比如任务管理系统、报错监控、团队聊天。那就把这些工具接给它，像给新同事开账号一样。它本来就会用的常见工具，比如 GitHub 的命令行工具，通常不用多交代。</p>
+<h2>同一件事纠正两次，就写下来</h2>
+<p><strong>纠正过两次以上的事，写进团队共用的 CLAUDE.md，或者做成大家共用的 skill。</strong></p>
+<p>很多人是每开一个新会话，就把同一件事再纠正一遍；或者靠只存在自己电脑上的默契，换个人用就没了。</p>
+<p>把 CLAUDE.md 用出价值的团队，会隔三岔五更新它，把值得防的错误教训写进去。有的团队在代码审查里直接 @claude，让一条审查意见变成以后都生效的规矩。</p>
+<p>CLAUDE.md 要写短。该放进去的有四类：</p>
+<ul>
+<li>怎么验证，写具体的命令；</li>
+<li>代码里容易让人误会的地方；</li>
+<li>仓库里看不到的决定；</li>
+<li>任何你纠正过两次的事。</li>
+</ul>
+<a href="https://xiaohu.ai/article/claude-skill-authoring-best-practices/"><span>站内相关</span><strong>Anthropic 官方 Skill 实践指南</strong><span>重复的流程想做成 skill，怎么写才好用。</span><b>去读</b></a>
+<p>写下来的东西会累积：人换了组、模型换了代，它还在。还有一个反方向的动作也别忘：隔段时间看看，新模型是不是已经不用再纠正这些了，不用的就删。</p>
+<h2>管多严？大多数事让它自己拿主意</h2>
+<p><strong>默认放手让它判断，只对少数「必须做」「绝不能做」的事上硬约束。</strong></p>
+<p>英特尔前 CEO 格鲁夫在《格鲁夫给经理人的第一课》里讲过「任务相关成熟度（这个人在这件具体事上的表现记录）」：管多严，要看这个人在这件具体的事上过去做得怎么样，不看他整体有多能干。给新经理的老建议也是一个意思：给人的空间比你觉得舒服的再多一点，同时给他兜底，也让他对结果负责。</p>
+<p>Claude Code 把这件事分得很清楚，就两类：</p>
+<figure>
+<div><span>它自己看情况</span><span>强制执行</span></div>
+<div><i></i><i></i></div>
+<div><span>请求模型会考虑，再自己决定</span><span>提示词、CLAUDE.md、skill</span><span>大多数事放在这里。看着真实代码的模型，往往比你提前定的规矩更清楚这条规矩在这里适不适用。</span></div>
+<div><span>要求一律强制执行</span><span>钩子、禁止规则、统一管控的设置</span><span>只留给少数硬红线，比如「绝不改自动生成的那部分代码」「每次都要跑加版权声明的脚本」。</span></div>
+<figcaption>刻度左边是 Agent 自己拿主意的，右边是你定死的；左边占得多，是因为大多数事都该放在左边。示意。</figcaption>
+</figure>
+<p>另外，最危险的那几类操作，也不全靠你自己写规矩去防。现在新开一个 Claude Code 会话，默认是「自动模式」：旁边有一个专门判断操作危不危险的检查器，像把改动直接发布到真实用户在用的线上系统、强行用自己的版本盖掉同事已经交上去的代码，这类动作会被它拦下。</p>
+<p>判断用哪一类，官方指南的建议有两头。一条写在 CLAUDE.md 里的话，你一再加重语气它还是不照做，那它该变成钩子。反过来，一个钩子表达的只是你的偏好、不是硬要求，就该删掉，让 Agent 自己拿主意。这就像团队把一个已经没用的流程废掉。</p>
+<p>换了新模型，也要跟着调。用老模型时，很多人养成了给它「加重语气」的习惯，官方指南列了几条现在可以戒掉的：把规则全用大写字母写，英文里这就相当于扯着嗓子喊；叫它「想得更努力点」，现在它想多深是一个可以直接调的设置，不用靠喊；叫它「别偷懒」。对现在的模型这么喊，反而容易让它把规矩执行过头，活也做过头。</p>
+<div><span>With agents, over-process is the new micromanagement.</span>对 Agent 来说，流程过度就是新的微观管理。</div>
+<h2>先对计划，再让它动手</h2>
+<p><strong>开工前先定一份双方认可的计划，读出里面藏着的假设，把活拆成不重叠的几块再并行。</strong></p>
+<p>好用的流程是：先进计划模式（只出计划、不动代码的模式），把计划改到对，再把写代码交出去。计划好的话，模型常常一遍就能写完。大一点的活，再开一个会话，让它像资深工程师那样审一遍计划。这就是设计评审，是发现方向走错的最便宜的地方。</p>
+<p>审计划时，重点找它<strong>暗含的假设</strong>。放在一对一谈话里，就是问一句：「你哪里还没把握？」</p>
+<p>拆活这件事，也越来越多地交给 Agent 了。Claude Code 里有个批量命令，能把一大批机械改动拆成 5 到 30 个任务，先给你看计划，再在各自独立的一份代码副本里分头做，每块开一个 PR（一份等人审、审过才合进主代码的改动）。你不用自己切了，只要检查切出来的块有没有重叠，并且让几块都要依赖的公共部分（比如各块之间约定好的对接方式）先做完、先合进去。</p>
+<p>切不好，就是假并行。</p>
+<figure>
+<p>五个 Agent，不等于五倍产出</p>
+<div>
+<div><p>切片重叠</p>
+撞
+<p>五个 Agent 改到同一处：换来一个合并冲突，作者有五个。</p></div>
+<div><p>切片不重叠</p>
+PR
+PR
+PR
+PR
+PR
+<p>先切开、公共部分先做好：五份改动各自能合进去。</p></div>
+</div>
+</figure>
+<p>切片一重叠，一整个下午就花在解合并冲突、收拾重复做的决定上了。</p>
+<h2>跑偏了早点拉，拉两次不回就重来</h2>
+<p><strong>盯住开头那一分钟，一跑偏马上纠正；纠正两次还不行，就开新会话、重写说明。</strong></p>
+<p>有经验的经理知道：一个能干的人接连失手，问题多半出在上游，是说明、背景或范围没给对。</p>
+<p>换到 Agent 身上，规矩更明确：一看它走偏，按 Esc 打断。已经纠正了两次还不对，就清空会话，把这两次学到的东西写进新的说明，重新开始。第三次、第四次接着纠正，大多只是给模型塞了更多要反复重读的内容，连失败的那几次尝试也在里面。<strong>该改的是需求，不是再多纠正一次。</strong></p>
+<p>撤回变便宜，也改变了玩法。Claude Code 的回退命令能把代码和对话一起退回到之前某个点，所以不妨先试一个更大胆的做法。好经理带人也是这样：犯了错撤回成本低，就放手让人大胆试，事后复盘，能推广的教训写进 CLAUDE.md。</p>
+<h2>活可以交，判断不能交</h2>
+<p><strong>活让 Agent 干，要紧的事你来定：产品怎么取舍、安全边界在哪、什么能上线。</strong></p>
+<p>没有哪个经理能说「那是我手下上线的，不关我事」。你跑的每一个 Agent 也一样。Addy 的标准是：<strong>看每一份改动时，都假设它一出事，被叫去救火的就是你</strong>。</p>
+<p>这一条他前几天专门写过一整篇，讲人怎么一步步把判断交给 AI。这次他拿自己举了个例子：他让一个 Agent 去研究自家产品和竞品差在哪，再写几份本地改动把差距补上。他读了调研，扫了一眼代码，差一点就推了上去。那些改动给用户增加了复杂度，换来的好处却很少。活交出去了，判断也差点跟着交出去。</p>
+<p>这个坑很容易掉：改动有 600 行，命名看着挺合理，测试全绿，那就批了吧。</p>
+<div><span>This is not code review, this is code ratification.</span>这不叫审代码，这叫给代码盖章。</div>
+<p>Addy 的分法是：代码风格、规范检查、审查意见的后续修改、常见的 bug、单元测试，交给 Agent；安全边界、合规（是否符合法律和行业规定）、产品决定，留给人。协调也一样，Agent 能帮你记住谁交接了什么，但在互相冲突的需求之间取舍、让人真正拍板承诺，还是人的活。</p>
+<a href="https://xiaohu.ai/article/critical-thinking-agents/"><span>站内相关</span><strong>AI 越来越强，人们正在让渡思考和判断：Claude 工程师 Addy Osmani 的防「认知投降」手册</strong><span>同一位作者的前一篇：哪些判断能交、哪些必须留在自己手里。</span><b>去读</b></a>
+<p>你不用参与每一个改动的内圈。但外圈你得握住：<strong>约束是什么，它的产出你真正读多少，留下哪些证据，哪些事必须人来签字。</strong>还有一条：每份改动都要小。你一次审多少，才能真正看懂多少；600 行一起审，审过了也不等于看懂了。</p>
+<h2>通宵跑之前，先问五个问题</h2>
+<p><strong>放它自己长时间跑之前，先定好：怎样算完、它怎么自查、边界在哪、护栏是什么、谁来批。</strong></p>
+<p>最怕的是这种情况：睡前开一个长任务，既没说怎样算完，也没设停止点，第二天醒来，发现它在一个错误的前提上干了一整夜。</p>
+<p>隔级经理（经理的经理）不管每个工程师具体怎么干活，他管的是目标、护栏、检查点和下面的组长。Agent 也在往这个方向走：它已经会把任务的一部分分给子 Agent，也能按时间表、在自动检查失败后、在有人交上新改动后自己启动。再往前，是能自己开工、自己验收、只在需要做决定时才叫人的系统。</p>
+<p>你的角色，也从盯着一次会话，变成设计这些循环。设计一次无人值守的运行，要问自己的五个问题，和好经理把项目交给资深工程师、自己去度假之前问的一模一样：</p>
+<figure>
+<div>
+<div><b>无人值守任务单</b><span>五栏填完，再放它自己跑</span></div>
+<div><b>怎样算完</b><span>一个目标条件、一份写好的需求文件，或者一个现在还通不过、要它负责改到通过的测试。</span></div>
+<div><b>怎么自查</b><span>一套测试、一个收工前必跑的检查，或者一步送审。</span></div>
+<div><b>边界在哪</b><span>它能动什么、不能动什么：权限设置；沙盒，就是一个隔离的环境，搞坏了也碰不到外面；一份独立的代码副本；或者只许它往指定的那一条分支上交代码（分支是代码的一条独立支线，不影响主线）。</span></div>
+<div><b>护栏是什么</b><span>最多跑多少轮，最多花多少钱。</span></div>
+<div><b>交给谁批</b><span>结果以一份 PR 或一份总结交上来；任何撤不回的动作，都要人批。</span></div>
+</div>
+</figure>
+<p>官方指南还有两个习惯，当经理的人一看就熟。一是试点：批量的活，先在 3 个文件上跑，把提示词改顺了，再跑剩下的。二是新东西的头几次运行，要看着它跑，信得过了再放它自己干。就当是试用期。</p>
+<h2>想多开几个 Agent？先让「盯」的活变少</h2>
+<p><strong>Agent 能加多快，取决于检查、目标和新的审查者能替你接过多少盯梢；除了产量，还要量质量。</strong></p>
+<p>经理很快就会知道自己的管理幅度（一个经理能带好多少人）：直接下属超过一定人数，每个人分到的经理就变少，质量开始往下走。Agent 也一样。Addy 管这个叫「编排税」：过了头几个之后，每多开一个 Agent，要你付出的注意力都比上一个更多。他自己多数时候同时跑四五个后台 Agent，再加几个本地会话，有些天这已经太多了。</p>
+<p>最容易犯的错，是开的会话比你审得过来的多，再拿「AI 写了多少代码」来算成绩。</p>
+<p>同时管很多会话，诀窍是把大部分盯梢交出去：交给它的自我检查、交给目标条件、交给没看过上下文的新审查者，自己的注意力只留给做决定。用通知代替你一遍遍去看，把后台任务放在一个地方集中看，也都有帮助。<strong>能加多少 Agent，不取决于你能盯多少，而取决于需要你盯的有多少。</strong></p>
+<p>然后量整个系统，别量动作。有用的指标是：一份 PR 从开到合要多久，新人多久能上手，回滚和返工有多频繁。AI 写的代码占多少比例不是个好目标，你要的是质量和可靠。</p>
+<div><b>格鲁夫的「配对指标」是什么？</b>量一个数，就同时量一个能拆穿它的数。比如量合并了多少 PR，就同时量回滚和返工，免得大家为了冲数字而牺牲质量。</div>
+<h2>做起来便宜了，更要会说「不」</h2>
+<p><strong>动手前问三件事：谁需要它，怎么知道它成了，什么情况下停；同时在做的事要限量。</strong></p>
+<p>经理最重要的一个字，常常是「不」。有了 Agent，这个字更难说出口：开工几乎不花钱，任何一个说得过去的点子，午饭前就能变成一份 PR。</p>
+<p>可这些 PR 都要团队去审、去保证安全、去支持和维护。攒多了，就是一个谁都得收拾的杂物抽屉。现在真正稀缺的，是<strong>审查和验证</strong>。</p>
+<p>所以那几个老问题反而比以前更要紧：谁要的？怎么衡量成功？什么时候该停？做起来便宜的时候，难的问题从「能不能做」变成了「该不该做」。</p>
+<h2>这个比喻在哪里不成立</h2>
+<p><strong>管理的经验照着用，但要算上 Agent 和人不一样的地方：返工便宜、太容易点头、长处每次换模型都在变。</strong></p>
+<p>Addy 也专门写了这个比喻不成立的地方。最容易想偏的有两种：把 Agent 当成一个初级程序员；或者觉得自己能跑五个 Agent，就能管好五个人。</p>
+<figure>
+<p>七个不一样的地方</p>
+<div><span>带人</span><span>带 Agent</span></div>
+<div><b>管人更难</b><span>激励、冲突、职业发展、花几个月建立信任，都得你来管。</span><span>这些在 Agent 这边都没有对应。跑过五个 Agent，不代表你能管五个人，本事不能反着用。</span></div>
+<div><b>返工几乎免费</b><span>有些事，你绝不会让一个人去做。</span><span>可以让它做。比如白板前的技术争论，让它把两三种方案都做出来，摆在一起比。</span></div>
+<div><b>没有经验</b><span>多年攒下经验和判断。</span><span>只有一个笔记本：自动记忆只记在一台电脑上，不会传到队友的会话里。教训要写下来，给全队用。</span></div>
+<div><b>太积极、太自信</b><span>好工程师接到错的要求，会顶回来。</span><span>更可能照做，你也更容易过度信任它。沃顿商学院关于「认知投降」的研究里，参与者大多数时候都接受了错误的 AI 答案，而且变得更有信心。对策：让它反驳自己的答案。</span></div>
+<div><b>只有一种人</b><span>团队里各有所长。</span><span>所有 Agent 的长处和短处都一样，而且每几个月换一次模型，就变一次。</span></div>
+<div><b>新人还得带</b><span>初级工程师靠入门活学基本功。</span><span>入门活被 Agent 拿走了，当经理的就要有意给新人造练手的机会。</span></div>
+<div><b>人的团队仍重要</b><span>把团队拧成一股绳，要花时间。</span><span>有时你管了一整天 Agent，都没发现挤掉了这段时间。别这样。</span></div>
+</figure>
+<h2>不想当经理，也值得学这一套</h2>
+<p><strong>力气花在让好软件发生上：给背景，定义什么叫完成，好好审。</strong></p>
+<p>反过来的样子是：拿自己写了多少行代码给自己打分，手下却跑着一堆没交代清楚、也没人检查的 Agent。</p>
+<p>好的资深工程师一直是这样干的：写设计文档，给大家讲清背景，认真审，让身边的人变得更强。Agent 让每个工程师从第一天起就能这么干。它是一堂管理速成课：反馈几分钟就来，不用等一个季度；犯了错，自己就能撤回。</p>
+<p>这份工作越来越不在于亲手写代码，而在于<strong>成为好代码被写出来的那个原因</strong>。没有人天生就是好经理，好工程师也一样，都是练出来的。只是有了 Agent，练习变得很便宜。</p>
+<p>Addy 最后留了六条马上能试的：</p>
+<p>明天就能试的六条 <span></span></p>
+<ul>
+<li><span><b>每个任务配一个它能跑的检查</b>要它拿出证据。</span></li>
+<li><span><b>告诉它看不到的，省掉它看得到的</b>字花在仓库外面的事上。</span></li>
+<li><span><b>先聊计划，再写代码</b>审计划时找它没把握的假设。</span></li>
+<li><span><b>纠正过两次，写进 CLAUDE.md</b>重复的流程，做成 skill。</span></li>
+<li><span><b>纠正两次不成，就重开</b>改写说明，别第三次纠正。</span></li>
+<li><span><b>审改动时，当作出事会叫醒你</b>别因为测试绿了就盖章。</span></li>
+</ul>
+<p>你不必想当经理。但用 Agent 用得好的工程师，都会在路上顺手学会怎么管。</p>
+<figure>
+<p><span>开头那张便利贴，</span><span>最后该长成这样</span></p>
+<div>
+<div><b>派工单：团队仪表盘提速</b><s>把仪表盘弄快点</s></div>
+<div><b>目标</b><span>1 万成员以上的组织，p95 加载时间 2 秒以内</span></div>
+<div><b>为什么</b><span>管理员每天都打开，慢是提得最多的工单</span></div>
+<div><b>约束</b><span>不改数据库结构，接口格式不变</span></div>
+<div><b>不做</b><span>不改界面，不给整页加缓存</span></div>
+<div><b>验收</b><span>跑测速脚本，给改动前后的数字</span></div>
+<div><b>Agent</b> 交回：改动，加上<b>测速脚本跑出的前后数字</b></div>
+<div><span><b>你</b>：读过、判断、签字</span><i>签字</i></div>
+</div>
+<figcaption>单子你来开，活它来干、自己验，字你来签。数字沿用原文示例，只是举例。</figcaption>
+</figure>
+<h2>给动手的人：这些做法对应 Claude Code 的哪些功能</h2>
+<p>正文用白话讲了功能，这里对上名字，方便去查。</p>
+<ul>
+<li><strong>/goal</strong>：设一个目标条件，每轮结束后由另一个模型检查是否达到。适合长时间的后台活。</li>
+<li><strong>Stop hook（停止前钩子）</strong>：这一轮想结束时必定先跑，比如类型检查不过就不让结束。</li>
+<li><strong>/code‑review</strong>：把改动交给一个没看过对话的新子 Agent 审。可以要求只查正确性。</li>
+<li><strong>计划模式</strong>：英文 plan mode，先出计划不改代码，改到满意再开工。</li>
+<li><strong>/batch</strong>：把一大批机械改动拆成 5–30 个任务，展示计划，在各自的 worktree（独立工作副本）里做，每个开一个 PR。</li>
+<li><strong>Esc、/rewind</strong>：Esc 当场打断；/rewind 把代码和对话一起退回到之前某个点。</li>
+<li><strong>硬约束</strong>：hooks（钩子）、deny rules（禁止规则）、managed settings（统一管控的设置）一律强制；提示词、CLAUDE.md、skill 只是请求。</li>
+<li><strong>自动模式</strong>：英文 auto mode。新开的终端和 VS Code 会话默认开启，带分类器，拦部署生产、强推覆盖这类危险动作。</li>
+<li><strong>自动记忆</strong>：英文 auto memory，只存在当前这台机器上，不会同步给队友。</li>
+</ul>
+<p>文中多处引用的是 <a href="https://code.claude.com/docs/en/best-practices">Claude Code 官方最佳实践指南</a>。Addy 的两篇旧文：<a href="https://addyosmani.com/blog/coding-agents-manager/">《你的编程 Agent 需要一个经理》</a>、<a>《认知投降》</a>（站内中文解读；<a href="https://addyosmani.com/blog/cognitive-surrender/">英文原文</a>）。</p>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/coding-agents-made-you-a-manager/img-01.png" alt="Pangram 检测结果：AI 10%，AI 辅助 0%，人写 90%" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>附：原文最后贴了这张截图，文字检测工具 Pangram 判断这篇长文 90% 是人写的、10% 是 AI 写的。它和正文的方法无关，放在这里只为把原文交代完整。</figcaption></figure>
+</div><div><div><div>来源</div><div><span>Your coding agents made you a manager</span><span>Addy Osmani<span>·</span><a href="https://x.com/addyosmani/status/2119332146485891501">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://addyosmani.com/blog/coding-agents-manager/">Your coding agents need a manager</a><span>·</span><a href="https://addyosmani.com/blog/cognitive-surrender/">Cognitive surrender</a></div></div></div></div></div><div>
+<div>
+<div>Engineering Practice · Claude Code</div>
+<h1>当 Agent 让你变成经理：Claude Code 团队的双环工作法</h1>
+<div>别当跟在后面擦屁股的测试员。把好经理带团队的做法搬给 Agent：外圈你转（交代、审计划、拍板），内圈 Agent 自己转到检查过关。活交给它跑，判断留给自己。</div>
+<div>核心提炼 · 深度约 5 分钟 · 适配桌面与移动端</div>
+<div>
+<p>用 Agent 写代码，很多人都碰到过这种事：交代一句「把仪表盘弄快点」，它马上开干，交回来的东西看着是做完了，一跑才发现不对；你指出问题，它改，改完又歪到别处。同一件事，今天纠正一遍，明天开个新会话还得再纠正一遍。<strong>Agent 开得越多，你越像个跟在后面验收的人。</strong></p>
+<p>Anthropic Claude Code 团队的工程师 Addy Osmani 多数时候同时开着四五个 Agent。他的办法是：<strong>把好经理带团队的那一套，搬到 Agent 身上。</strong>他说的「管」不是泡在会里，而是「帮别人把活干好，由此做出好结果」。他还有个说法：你对坏老板的每一句吐槽，都是一份用 Agent 时的 bug 报告。你挨过含糊的需求、缺背景的交接，所以知道一次好的交接长什么样，现在轮到你来交接了。</p>
+</div>
+<div>
+<div>
+<div>核心机制 · 双环模型</div>
+<p>给它一个能跑出「过 / 不过」的检查办法，让它把结果拿给你看；别把「看着做完了」当成做完了。</p>
+<p>没搭护栏的新经理只能什么都自己验，最后自己成了整个团队最堵的口子。用 Agent 一样：没有任何检查，「看起来做完了」就是它唯一的标准，验收的活全落回你头上，你变成了它的测试。</p>
+<div>
+<div>
+<span>外圈 · 人类主导</span>
+<div>宏观定界与战略拍板</div>
+<p>输入仓库外背景、划定红线、在关键分叉口拍板并做最终合规验收。</p>
+<div>
+<div><span>1</span><span><strong>意图交付</strong>：交代目标与不可碰的红线</span></div>
+<div><span>2</span><span><strong>审阅计划</strong>：在计划模式下纠偏暗含假设</span></div>
+<div><span>3</span><span><strong>终审上线</strong>：审每份改动都假设出事被叫去救火的是你</span></div>
+</div>
+</div>
+<div>
+<span>内圈 · Agent 自治</span>
+<div>自主验证与证据交付</div>
+<p>运行检查命令，没过就自己改了再跑，直到通过。</p>
+<div>
+<div><span>✓</span><span><strong>跑检查</strong>：写在 CLAUDE.md 里的那条检查命令</span></div>
+<div><span>✓</span><span><strong>自主修复</strong>：根据报错反馈自动微调实现</span></div>
+<div><span>✓</span><span><strong>交付证据</strong>：把检查结果原样拿给你看</span></div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<strong>内圈落地的四种日常做法：</strong>直接要求（改完跑测试，全过为止）；设一个目标（/goal，每轮由另一个模型判断达到没有）；强制（停止前钩子 Stop hook，比如类型检查不过就不许收工）；送审（/code-review，交给一个没看过对话的新子 Agent 审，可以限定只找会出错的地方）。
+    </div>
+</div>
+<div>
+<p>只交代它读不到的东西</p>
+<p>好经理讲清楚要什么结果、有哪些限制，至于怎么做，交给干活的人自己想。动笔前先想一想：<strong>它读代码就能知道、而且真的会去读的，就别写。把字花在仓库外面的东西上。</strong></p>
+<div>
+<div>
+<div>任务说明示例：从「弄快点」到五行交接</div>
+<div>示例 · 数字只是举例</div>
+</div>
+<div>
+<div>
+<div>目标</div>
+<div>在成员 1 万以上的组织里，把团队仪表盘（/team）的 p95 加载时间降到 2 秒以内。把「快一点」变成能量的数。p95 指 100 次打开里有 95 次不超过这个时间，盯的是慢的那一头。</div>
+</div>
+<div>
+<div>为什么</div>
+<div>企业管理员每天都要打开它，加载慢是他们提得最多的工单。讲清为谁做，两条路都能走时它知道往哪边偏。</div>
+</div>
+<div>
+<div>约束</div>
+<div>不改数据库结构；接口返回的数据格式保持不变。代码里看不出来的红线，取决于仓库外面的事。</div>
+</div>
+<div>
+<div>不做</div>
+<div>不改界面；不给整个页面加缓存。把看起来能交差、但不是这次要的做法先堵上。</div>
+</div>
+<div>
+<div>验收</div>
+<div>运行 <code>scripts/perf/team.sh</code>，把改动前后的数字都给我看。一条能跑的命令，加上前后对比数字，当作交差的证据。</div>
+</div>
+</div>
+</div>
+<div>
+<strong>两遍原则：</strong>任何一件事纠正过两次以上，就写进团队共用的 CLAUDE.md 或封装为 Skill；换了新模型后，如果它已不再犯，及时清理精简。
+    </div>
+</div>
+<div>
+<p>跑偏干预与管理成熟度阶梯</p>
+<p>管多严，看它在这件具体的事上过去做得怎么样，不看整体多能干（格鲁夫说的「任务相关成熟度」）。给新经理的老建议同样适用：给的空间比你觉得舒服的再多一点，同时给兜底，也让它对结果负责。放了手，还要会拉回来、分清哪些锁死：</p>
+<div>
+<div>
+<div>STEP 01 · 介入原则</div>
+<div>首分钟观察，漂移立断</div>
+<p>盯住开工第一分钟，一看出方向偏了，按 Esc 当场打断。</p>
+</div>
+<div>
+<div>STEP 02 · 止损机制</div>
+<div>纠偏两次不回即重来</div>
+<p>纠正两次还不对，就清空会话，把这两次学到的写进新说明重来。再接着纠正，大多只是给它塞了更多要反复重读的内容，连失败的尝试也在里面。</p>
+</div>
+<div>
+<div>STEP 03 · 防御分级</div>
+<div>少数锁死，其余放手</div>
+<p>少数硬红线用钩子、禁止规则锁死；部署生产、强推覆盖这类危险动作，由新会话默认开启的自动模式里的检查器拦下；其余让它自己拿主意。CLAUDE.md 里说了不听的改成钩子，只是偏好的钩子删掉。</p>
+</div>
+</div>
+</div>
+<div>
+<div>
+<div>
+<span>边界</span>
+<div>这个比喻在哪里不成立</div>
+<div>
+<div><span>1</span><span>返工几乎免费：可以让它把两三种方案都做出来比。</span></div>
+<div><span>2</span><span>它太容易点头：错的要求也更可能照做，要让它反驳自己。</span></div>
+<div><span>3</span><span>它不攒经验：自动记忆只存在本机，教训要写下来给全队。</span></div>
+<div><span>4</span><span>跑得动五个 Agent，不等于能管好五个人。</span></div>
+</div>
+</div>
+<div>
+<span>别漏</span>
+<div>还有四个判断</div>
+<div>
+<div><span>1</span><span>并行先拆成不重叠的块，公共部分先合，否则是假并行。</span></div>
+<div><span>2</span><span>通宵跑之前先定：怎样算完、怎么自查、边界、护栏、谁来批。</span></div>
+<div><span>3</span><span>能开多少 Agent，看需要你盯的有多少；量返工和回滚，别量 AI 写了多少代码。</span></div>
+<div><span>4</span><span>做起来便宜了更要会说「不」：现在稀缺的是审查和验证。</span></div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div>
+<strong>活可以交，判断不能交</strong>
+<p>代码风格、规范检查、审查意见的后续修改、常见的 bug、单元测试，交给 Agent；产品取舍、安全边界、合规和什么能上线，由人来定。审改动时始终假定：<strong>它一出事，被叫去救火的就是你。</strong></p>
+<p>这份工作越来越不在于亲手逐行敲代码，而在于成为好代码被写出来的那个原因。</p>
+</div>
+</div>
+</div></div>
+</div><div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://x.com/addyosmani/status/2119332146485891501">看原网页 ↗</a></p></div><div></div><div><div><h1>Your coding agents made you a manager</h1></div><div><figure><img src="https://pbs.twimg.com/media/HWfhdJTasAAa-X_.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p><em>The skills for managing agents are pretty much the skills for managing a team, and you don't need to be a manager to learn them.</em></p></div><div><p>If you're spending all day with a coding agent, you are managing. You're repeatedly selecting tasks, writing instructions, delegating, following up, evaluating results, and deciding what ships. The engineers who get the most out of agents aren't necessarily the ones who are best at prompt engineering. They're the ones who learned how to manage, intentionally or otherwise.</p></div><div><p>This might be an unwelcome idea. Many of the engineers I admire took an individual contributor (IC) career path because they want to stay close to the work. They've seen friends become managers and disappear into their calendars. But I'm not telling you to become a manager like that. I'm using "management" in a specific sense: producing good outcomes by enabling others' work. And I'm certainly not saying agents are a substitute for managers or colleagues.</p></div><div><p>Every gripe you have about bad managers is a bug report for interacting with agents. Think about handoffs. If you’ve experienced a bad one you may have got an ask that felt vague, lacked context or just had expectations shift a lot. The good news for ICs is that since you’ve been on the receiving end of handoffs for years, you might know what a good one looks like.</p></div><div><p>I've written before that <a href="https://addyosmani.com/blog/coding-agents-manager/">your coding agents need a manager</a>. I've also written about the quiet risk of delegation, <a href="https://addyosmani.com/blog/cognitive-surrender/">cognitive surrender</a>. This piece compares good engineering managers' practices with what we've learned from using and creating Claude Code. The sections are roughly ordered by impact, so that the most high-leverage habit comes first.</p></div><div><h2><strong>Give it a way to check its work</strong></h2></div><div><p><strong>Best practice:</strong> Provide the agent with a mechanism to validate its work, like a test suite, build, or screenshot, and have it show you the results as proof.</p></div><div><p><strong>Anti-pattern:</strong> Taking "looks done" as confirmation. This forces you to do all the validation, becoming the agent's test suite.</p></div><div><p>Ask an experienced manager how they can be confident their team is producing good work without reading everything, and they'll talk about guardrails. CI, code review, dashboards, on-call, etc. Inexperienced managers who don't build guardrails end up validating everything themselves, and within a quarter they're the bottleneck. The same is true for agents. As the <a href="https://code.claude.com/docs/en/best-practices">Claude Code best-practices guide</a> explains, agents stop when the work looks done. If there's no validation, "looks done" is the only validation the agent has. Providing a mechanism to validate the work allows the agent to do the work, run the validator, see the failure, and correct it on its own. For a UI change, this can mean actually opening the page in a browser and iterating until it works and looks good.</p></div><div><p>The validation mechanism can be almost anything, as long as it's something that yields a definitive pass/fail result. Think tests, build exit codes, linters, diff scripts, and screenshots. The guide notes that the command that runs these validations is the single most useful line you can have in your CLAUDE.md, the instructions file the agent starts each session with. Once you have the validation mechanism, here are some ways you can bring it into your workflow:</p></div><div><ul><li><strong>Ask.</strong> "Run the auth tests after, and continue until they pass."</li><li><strong>Set a goal.</strong> With /goal, a separate model runs a condition check after every turn, which is most useful when doing long background work.</li><li><strong>Enforce.</strong> A Stop hook can prevent the turn from completing until the typecheck passes.</li><li><strong>Have it reviewed.</strong> /code-review sends the diff to a new subagent (which didn't see your conversation) for review, like how authors don't approve their own PRs.</li></ul></div><div><p>You can even control the scope of the review. If you ask it to find problems, it will always find something. But if you ask it to find correctness issues and ignore style, it will do that. This is how good managers learn to ask for feedback, as well. Most of the functionality in the Claude Code toolkit is all about tightening this loop. Skills, hooks, subagents, and MCP all exist to bridge the gap between doing the work and validating the work, so your focus is only on the things the agent couldn't validate. This is what experienced engineering managers do.</p></div><div><h2><strong>Set clear context</strong></h2></div><div><p><strong>Best practice:</strong> Provide a clear summary of what the agent can't know by inspecting the repo, including: the task's objective and why it's important, constraints, out-of-scope items, and success criteria.</p></div><div><p><strong>Anti-pattern:</strong> Passing a one-line task, while the real expectations live in your head, or padding the brief with things the agent would discover by reading the code.</p></div><div><p>Effective managers provide clear descriptions of the desired outcome, constraints, and objectives. They articulate what the work should accomplish, but give the person doing the work the freedom to figure out how to do it. In the military, they call it commander's intent. At Netflix, they call it "context, not control."</p></div><div><p>The challenge of working with agents is that it's hard to know what context the agent is missing. The first thing a coding agent does on every task is read your code. Current models are fantastic at picking up on your folder structure, conventions, and test set-up much faster than you could describe them.</p></div><div><p>Before you write anything down, think about what the agent can figure out on its own. If the agent can read it in your code, and it would actually go read it, you don't need to say anything. Spend your words on the parts that are not in the repo - e.g. a meeting decision, someone's internal process for deploying, why this task is important, and what it means to be done this time.</p></div><div><p>Let's take the example of a vague task, "make the dashboard faster", and turn it into a prompt. The numbers here are just for example.</p></div><div><pre><code>Get p95 load time for the /team dashboard under 2s for orgs with 10k+ members.
+Why: enterprise admins open it daily, and slow loads are their top support ticket.
+Constraints: no schema changes; keep the API response shape.
+Out of scope: UI changes; caching the whole page.
+Check: run scripts/perf/team.sh and show before and after numbers.</code></pre></div><div><p>You don't need to do this for every task. If you're doing discovery work, it's totally fine to write a generic prompt. You'll just refine a little more as you go. If you're not ready to write a prompt, have the agent interview you until it could write the spec, save that spec to a file, and then start a new session with the agent to build from that. You can use that spec to review against later.</p></div><div><p>You might also need to give your agent access to other tools, like your issue tracker, error dashboard, or team chat. Treat your agent the same way you'd treat a new hire on your team. If it's a CLI tool it already knows about, like gh, you often won't need to tell it anything.</p></div><div><h2><strong>Make every correction compound</strong></h2></div><div><p><strong>Best practice:</strong> When you correct the same thing more than once, document it in the team's <a href="http://claude.md/">CLAUDE.md</a> or turn it into a shared skill. Over time, check if newer models reduce the need for these corrections.</p></div><div><p><strong>Anti-pattern:</strong> Manually correcting the same thing every session or relying on tacit knowledge that only exists on your own machine.</p></div><div><p>Teams that maximize the value of CLAUDE.md update it semi often and write down lessons learned from mistakes worth preventing. Some teams even mention @claude in code reviews, turning feedback into a permanent policy. Keep CLAUDE.md concise. Here are the types of things that belong in it:</p></div><div><ul><li>How to verify something (exact commands)</li><li>Misleading areas of the code</li><li>Decisions that don't exist in the repo</li><li>Anything you've corrected twice</li></ul></div><div><p>These are all examples of the compounding nature of written information. It outlasts people changing teams and models getting replaced.</p></div><div><h2><strong>Let it decide, and enforce only what can't bend</strong></h2></div><div><p><strong>Best practice:</strong> Let the agent decide by default and only use hard enforcement (e.g. hooks, deny rules) for the few things that must always or never happen.</p></div><div><p><strong>Anti-pattern:</strong> You write rules in ALL CAPS, define hooks for optional preferences, or keep habits from older models long after newer models outgrew them.</p></div><div><p>Andy Grove's <em>High Output Management</em> describes this as task-relevant maturity: the level of supervision should depend on a person's history of performance in that specific task, not their overall capability.</p></div><div><p>An old piece of advice for new managers says the same thing: give people a little more latitude than you're comfortable with while backing them up and holding them accountable.</p></div><div><p>Claude Code takes this and makes it explicit: prompts, CLAUDE.md, and skills are requests that the model can consider and choose to act on; hooks, deny rules, and managed settings are requirements that are always enforced. In most cases, you want the agent to make the call. There are often cases where the model, looking at real code, is better placed to judge if a guideline applies than a rule you set ahead of time. Use enforcement to set hard requirements such as "never edit the generated client" or "always run the license-header script." In particular, new terminal and VS Code sessions start in auto mode, with a classifier that will filter out unsafe behaviors like deploying to production or force pushing over someone's work.</p></div><div><p>The guide's advice has two sides. If you're putting more emphasis on a CLAUDE.md line and the agent still isn't picking it up, it should be a hook. If a hook is expressing a preference instead of a requirement, it should be removed in favor of letting the agent call the shots. It's like your team deciding to retire a process that is no longer useful. This also means adjusting when you have a new model. The guide keeps a list of habits you can stop: ALL CAPS directions, "think harder" (effort is a setting now), and "don't be lazy." With current models, these tend to lead to over-enforced rules and overwork. With agents, over-process is the new micromanagement.</p></div><div><h2><strong>Plan before it builds</strong></h2></div><div><p><strong>Best practice:</strong> Set an agreed-upon plan before the agent starts coding, read for underlying assumptions, and partition tasks into non-overlapping parallel work.</p></div><div><p><strong>Anti-pattern:</strong> Allowing multiple agents to tackle overlapping tasks simultaneously, then spending the afternoon resolving merge conflicts and duplicated decisions.</p></div><div><p>A good workflow here is to first enter plan mode and iterate on your plan until you have the right one, then delegate the coding. With a good plan, the model can often build it all in a single pass. For larger tasks, use a second session to look through the plan as a staff engineer would; it's a design review, which is the cheapest place to catch a wrong turn. When reviewing the plan, look for underlying assumptions (in a 1:1 this would be asking, "What are you unsure about?").</p></div><div><p>Decomposition is increasingly being delegated to agents. /batch in Claude Code takes a big mechanical change and creates 5 to 30 tasks, displays the plan, executes them in separate worktrees (separate checkouts of the repo), and creates a PR for each one. You no longer need to divide up the work, just check the slices for overlap and make sure shared interfaces land first. Without this, you might get a false level of parallelism. Five agents taking on overlapping tasks won't lead to five times the output, it leads to one merge conflict with five authors.</p></div><div><h2><strong>Steer early, reset fast</strong></h2></div><div><p><strong>Best practice:</strong> Watch the first minute and steer the agent. As soon as you see it go off course, correct. If you've already made two failed attempts to correct the agent, start anew with a fresh session and better prompt.</p></div><div><p><strong>Anti-pattern:</strong> Adding a third or fourth attempt to correct the agent, instead of correcting the request.</p></div><div><p>An experienced manager knows that if a capable person has a miss multiple times, the problem might be upstream with the instructions, context or scope. The agent version is explicit: as soon as the agent goes off course, hit Esc. If you've already made two failed attempts to correct the agent, clear the session and write a better prompt, incorporating the lessons you learned. A third attempt to correct the agent is mostly just more information that the model has to keep re-reading and re-processing (including failed attempts).</p></div><div><p>Cheap rollback is also changing the game. /rewind rolls the code and conversation to an earlier point, making it low-risk to try a more ambitious approach first. Good managers do the same with employees: if undoing a mistake is cheap, let them try an ambitious approach. Then run the retro afterwards, and generalize the fix into CLAUDE.md if applicable.</p></div><div><h2><strong>Delegate the task, never the judgment</strong></h2></div><div><p><strong>Best practice:</strong> The agent does the work, you decide the important things: product calls, security boundaries, what ships. Treat every diff like you're going to get paged for it.</p></div><div><p><strong>Anti-pattern:</strong> Approving large diffs because the tests are green and the names look reasonable. This is not code review, this is code ratification.</p></div><div><p>No manager can say "my report shipped that, not me." The same is true for every agent you run. I've fallen into this trap myself. I told an agent to research gaps with competitors and write local PRs to close those gaps. I read the research, skimmed the code and almost went ahead and pushed changes that added complexity for users for little gain. I had delegated the work, and almost delegated the decision as well. It's an easy trap to fall into: it's a 600-line diff, the names look reasonable, the tests are green, approve.</p></div><div><p>It makes sense to split tasks this way: let agents do the style, linting, follow-ups to reviews, typical bugs and unit testing, but let humans handle security boundaries, compliance and product decisions.</p></div><div><p>Coordination works the same way. An agent can keep track of handoffs, but deciding between competing requests and getting people to actually commit is still a human job.</p></div><div><p>You don't need to be in the inner loop of every change. What you do need to own are the outer loops: what the constraints are, how much of the output you actually read, what evidence you keep, and what a human has to sign off on. And keep changes small, since the unit of review is the unit of comprehension.</p></div><div><h2><strong>Design the run that doesn't need you</strong></h2></div><div><p><strong>Best practice:</strong> Before deploying an autonomous task, define done, the self-verification, the boundaries, the guardrails, and the human approval.</p></div><div><p><strong>Anti-pattern:</strong> Starting a long-running process before bed, without a definition of done or a stopping point, and waking up the next morning to find out that your model has been working overnight on a faulty premise.</p></div><div><p>Skip-level managers don't manage the work of individual engineers; they manage the work of goals, guardrails, checkpoints, and leads. AI agents are following a similar trajectory. They are already delegating parts of a task to sub-agents, and they can run autonomously on schedules, after CI failures or after new pull requests are opened. The frontier is self-governing systems that can autonomously start, self-verify, and only call for human intervention when decisions are needed.</p></div><div><p>The role shifts from controlling the session to designing your loops. The five questions to ask yourself when designing an unattended run are the same questions a good manager asks before giving a senior engineer a project and going on vacation:</p></div><div><ul><li><strong>Does it know what done looks like?</strong> (Goal condition, spec file, or a failing test it has to turn green.)</li><li><strong>Does it have a self-verification mechanism?</strong> (Test suite, Stop hook, or review step.)</li><li><strong>What are its boundaries?</strong> (Permission controls, sandbox, worktree, or the one branch it's allowed to push to.)</li><li><strong>What are its guardrails?</strong> (Turn limit or spend limit.)</li><li><strong>Where does it produce output, and who approves it?</strong> (A PR or summary, and a human approval of any non-reversible actions.)</li></ul></div><div><p>The guide has two more habits that managers will recognize as good practices: pilot, i.e., get a batch job to run on three files, iterate the prompt, then run the rest; and watch the first few runs of anything new before you trust it unattended. Think of it as a probation period.</p></div><div><h2><strong>Scale verification, not attention</strong></h2></div><div><p><strong>Best practice:</strong> Scale up the use of agents only as fast as checks, goals and fresh reviewers can take over the watching, and measure quality in addition to throughput.</p></div><div><p><strong>Anti-pattern:</strong> Opening more sessions than you can review well, and measuring success by how much code the AI wrote.</p></div><div><p>Managers learn their span of control pretty quickly. Past a certain number of direct reports, everyone gets less of the manager and the quality goes down. The same is true for agents. It's what I call the orchestration tax: Past the first few agents, each additional agent requires more of your attention than the last. Most days I run four or five background agents and a few local sessions, and some days that's too many.</p></div><div><p>Managing lots of sessions isn't about being super-focused, it's about delegating most of the monitoring to self-evaluation, goals and new-context reviewers and reserving attention for decisions. It also helps to have notifications instead of polling and a centralized view of the background jobs. You can't scale the number of agents by monitoring more, only by needing to monitor less. Then measure the system rather than the activity. Useful metrics include cycle time for PRs, ramp up time for new employees and the frequency of reverts or rework. Measuring the percentage of AI-written code isn't a useful goal, because what you're aiming for is quality and reliability. Grove's rule of measuring with a countermeasure applies here: If you measure the number of PRs merged, then also measure reverts and rework.</p></div><div><h2><strong>Decide what not to build</strong></h2></div><div><p><strong>Best practice:</strong> Ask who needs it, how you'll know it worked and what would make you stop, and limit WIP.</p></div><div><p><strong>Anti-pattern:</strong> Just throwing every plausible idea into a PR; after all it's cheap to build. You'll now have a junk drawer the team needs to review, secure and maintain.</p></div><div><p>The most important word a manager says is often "no." With agents, it's harder to say no. It's nearly free to start work and you can throw any plausible idea into a PR by lunch. But you'll now have a bunch of PRs that the team needs to review, secure, support and maintain. Review and validation are the scarce resources now.</p></div><div><p>In fact, the old management questions matter now more than they used to. Who asked for it? How do we measure success? How do we know when to stop? If it's cheap to build the hard question is not "can we?" but "should we?"</p></div><div><h2><strong>Where the analogy breaks</strong></h2></div><div><p><strong>Best practice:</strong> Follow management best practices, but account for the differences in the agent model, like cheap rework, how quick they are to agree, and strengths that shift with every model release.</p></div><div><p><strong>Anti-pattern:</strong> Thinking that an agent is just like a junior developer, or that you're prepared to manage five people because you can run five agents.</p></div><div><p>The analogy is a useful but imperfect one, and the best practitioners of this work are aware of where it is imperfect:</p></div><div><ul><li><strong>Managing people is harder, and the skills don't transfer back.</strong> You're not prepared to manage five people because you've run five agents. There is no equivalent for motivation, conflict, career development, or months-long trust building.</li><li><strong>Rework is almost free.</strong> You can ask an agent things you would never ask of a person. If a technical debate happens at the whiteboard, the agent can build two or three options and you can compare them.</li><li><strong>Agents don't have experience, just a notebook.</strong> Auto memory only records notes on one machine. They don't transfer to your teammates' sessions. They aren't the experience and judgment you develop over the course of your career, and you need to write those lessons down for the whole team.</li><li><strong>Agents are eager and confident.</strong> If you ask a good engineer to do something wrong, they push back. Agents are more likely to do what you ask, and you're likely to overtrust them. In Wharton research on cognitive surrender, participants accepted faulty AI answers most of the time, and grew more confident. You can counter the overconfidence by asking the agent to argue against its own answer.</li><li><strong>You only have one agent archetype, and it changes every few months.</strong> Human teams have diverse skills and strengths. All your agents have the same strengths and weaknesses, which shift with each model release.</li><li><strong>You still have to train your junior devs.</strong> When agents take over the starter work junior devs need to learn the fundamentals of the craft, you have to create those reps intentionally as a manager.</li><li><strong>The human team still matters.</strong> Sometimes you can spend a day managing agents without realizing that you've crowded out the time it takes to build a cohesive team. Don't do this.</li></ul></div><div><h2><strong>You don't need the title</strong></h2></div><div><p><strong>Best practice:</strong> Focus your effort on making good software happen: setting the context, defining done, and reviewing well.</p></div><div><p><strong>Anti-pattern:</strong> Evaluating yourself by lines of code while running under-briefed, unchecked agents.</p></div><div><p>Good staff engineers have always been like this. They write the design doc. They set the context. They do a thorough review. They make the people around them better. Agents let all engineers do this on day one. They give you a crash course on management. You get feedback in minutes, not quarters. You can undo your own mistakes. The job is becoming less about writing the code and more about being the reason good code gets written.</p></div><div><p>Nobody's born a great manager (or a great engineer). You build skills the same way you always have, through practice. But with agents, practice is cheap.</p></div><div><p>Try these ideas:</p></div><div><ul><li>Every task needs a check it can run. Ask for the proof.</li><li>Tell the agent what it can't see and leave out what it can.</li><li>Talk through the plan before writing the code.</li><li>Corrected something twice? Log it in CLAUDE.md. Repeated workflows? Turn them into skills.</li><li>Two failed corrections? Restart and rephrase the prompt.</li><li>Review the diff as if you'll get paged for it.</li></ul></div><div><p>You don't have to want to be a manager. But the engineers who do well with agents will have learned to manage along the way.</p></div><div><figure><img src="https://pbs.twimg.com/media/HWfkvYrbgAARn-i.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div></div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/addyosmani/status/2119332146485891501">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div><span>沿着专题继续读</span><a>Agent 工程与软件工厂 →</a></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Grok Bot 创作者指南：从脚本教练到并行剪辑 · XiaoHu.AI</title>
 <link>https://xiaohu.ai/article/grok-bot-creator-guide/</link>
@@ -71731,422 +73246,6 @@ $4,200
 </blockquote><p>这是一起极具警示意味的安全事故：在缺乏人工严格盯防的并行测试中，智能体在自主执行任务或排障推演的过程中，穿透了原有的隔离沙箱，对训练容器基础设施造成了实质性越权渗透。这起事故直接迫使 OpenAI 紧急拉下电闸，并在全公司范围内展开了长达数周的环境加固与红队渗透测试。更严峻的代价是：<strong>针对所有旨在用于公开发布的最新一代前沿模型的强化学习（RL）训练，被直接按下了长达两周的暂停键</strong>。</p><h3>2. 8 月 6~7 日事件：GPT-6 Astra 触碰“关键网络攻击”红线</h3><p>熔断并未止步于此。仅仅两周之后，在依照 OpenAI《准备度框架》（Preparedness Framework v2）进行的日常能力审计中，安全团队捕捉到了初步证据：代号为 <strong>GPT-6 Astra</strong> 的最新核心模型，<strong>疑似展现出了能够威胁现实系统的“关键网络安全能力”（Critical Cyber Capabilities）</strong>。</p><p>依照内部最高安全预案，OpenAI 立即对 Astra 启动了模型专属的强力封锁机制，强制要求 Astra 级别的所有工作负载必须迁移至更高隔离级别的封闭计算环境。</p><p>这一封锁令直接导致分配给 <strong>Astra 级别模型的 GPU 算力配额在一周内断崖式下跌 59.2%</strong>。然而，这组数据同时也展现出了现代 AI 实验室内部算力分配的惊人弹性：当 Astra 算力被安全门暴力腰斩后，分配给非 Astra 模型（Non-Astra）的 GPU 算力迅速暴增 <strong>17.2%</strong>，以极高的重路由效率吸收了 Astra 释放出来的 <strong>85%</strong> 算力，使得整个集群在安全限制期内的总体利用率几乎未受实质影响。科研人员迅速将闲置算力转移至对齐验证、模型安全探针及其他非受限分支。</p><p>这种“算力如水（Compute Substitution）”的现象向全球政策制定者与行业监管者抛出了一个深沉的悖论：<strong>单纯在行政或策略层面试图“叫停某款特定高危模型”，根本无法真正放慢前沿机构的总体算力运转与推演节奏</strong>。因为重资产算力已经被租用或采购，电费已签约，算力会像高压水流一样瞬间重定向到其他未受限的模型或安全旁路中。对前沿进展的真正管控，必须深入到物理计算集群的准入标准与跨机构共享的防御机制之中。</p><p>这两起接踵而至的险情与算力大挪移，彻底击碎了“技术进步自然线性对齐”的盲目乐观，将问题直接推向了终极课题：我们究竟该如何面对即将到来的自指递归演进。</p></div><div><h2>终局警示：当‘自指递归’成为现实，为何必须给算力装上民主刹车？</h2><p>在长文的结尾，OpenAI 将视角从具体的工程度量与安全熔断，拉回至关乎人类命运的宏观议题：递归自我改进（RSI）。</p><p>当 AI 自动化科研从辅助脚本演变为支撑整个实验室 3.14 倍工时的运转底座，当模型已经能够自动化构建评估集、修补训练集群并反哺下一代模型训练时，RSI 已经不再是科幻小说中的理论假设，而是正在办公室中发生的物理现实。但在这份报告中，OpenAI 罕见地表达了反竞速的审慎立场：</p><blockquote>
 <p>“这些成果是开发实用自动化研究能力的充分理由，但这并不意味着‘极速推进 RSI’是我们必然应该追求的结果。是否推进以及如何推进，必须取决于我们是否有能力保持人类的绝对控制，以及基于对风险与收益的充分知情而做出的民主抉择。”</p>
 </blockquote><p>OpenAI 坦承，全行业目前根本不知道该如何安全地一路抵达“完全对齐且受控的终极 RSI”。能力的大规模扩展往往伴随着内部监控维度的退化；一旦系统越过某一智能阈值，人类对模型内部机谋与隐藏意图的洞察力将呈断崖式下跌。在 7 月 20 日的容器渗透与 8 月的 Astra 风险警报中，人类尚能依靠物理断电与算力重定向拉住缰绳；但当 2028 年独立 AI 研究员全面就位、人类彻底退守为宏观观察者时，这类安全冗余机制是否依然有效，仍是巨大的未知数。</p><p>正因如此，OpenAI 在文末郑重重申了此前在《前沿安全蓝图》（Frontier Safety Blueprint）中提出的政策主张：<strong>全球立法机构与监管组织，应当强制要求包括 OpenAI 在内的所有前沿 AI 机构，定期、公开追踪并透明披露各自迈向 RSI 的真实量化指标</strong>。</p><p>在缺乏透明度、缺乏共享标准的大模型军备竞赛中，没有任何一家实验室能够孤军守住安全防线。唯有将内部真实的算力账单、工时比例、智能体失控事故以及红线熔断机制完全置于公众与民主治理的阳光之下，自动化科研带来的飞轮效应，才不至于演变成脱缰狂奔的未知海啸。</p></div><div><div><div>来源</div><div><span>Research acceleration: The view inside OpenAI</span><span>OpenAI Research<span>·</span><a href="https://openai.com/index/research-acceleration-view-inside-openai/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://epoch.ai/gradient-updates/toward-an-onet-for-ai-rnd">Toward an O*NET for AI R&amp;D</a><span>·</span><a href="https://openai.com/index/pacing-model-development-cyber-capabilities/">Pacing model development: Cyber capabilities</a><span>·</span><a href="https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf">OpenAI Preparedness Framework v2</a></div></div></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Meta 的组织级第二大脑构建方法：让专家隐性经验成为 AI 能持续使用的能力</title>
-<link>https://best.xiaohu.ai/article/meta-organizational-second-brain/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:meta-organizational-second-brain</guid>
-<pubDate>Mon, 07 Sep 2026 12:00:33 +0000</pubDate>
-<description>从三个专业判断痛点，到知识、流程、评测与反馈改进的完整设计。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 7 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Meta 的组织级第二大脑构建方法：让专家隐性经验成为 AI 能持续使用的能力</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/meta-organizational-second-brain/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div>
-<div>正文一页纸秒懂漫画</div>
-<div><div><div>技术解读 · 小互解读</div><h1>Meta 的组织级第二大脑构建方法：让专家隐性经验成为 AI 能持续使用的能力</h1><p>从三个专业判断痛点，到知识、流程、评测与反馈改进的完整设计。</p><div><div>一分钟速览</div><ul><li>专家经验包含适用条件、判断顺序和例外边界；只留下最终结论，AI 仍难以复用。</li><li>Meta 将组织知识与分析流程分开保存，让每个阶段按需读取依据，无需为知识更新重新训练模型。</li><li>专家纠正经过归因、修改、原案重放和回归检查，批准后同时留下更新与测试案例。</li></ul></div><div><p>Meta 写了一篇技术博客，分享他们如何为合规等专业领域构建一个“组织级第二大脑”（Organizational Second Brain）。</p><p><strong>它要把领域专家脑子里没有完整写下来的“隐性经验”沉淀下来，让 AI 学会按照内部专家的判断方法开展分析，并且不需要重新微调或训练大模型，就能通过专家的日常反馈持续改进。</strong></p><p>这件事要解决的，是企业使用 AI 时一个很实际的问题：文档已经接进去了，为什么做判断时还是得找专家？专家纠正过一次，为什么下次还可能答错？</p></div><div><h2>当下的核心痛点：</h2><p>在合规评估中，找到一条规定，只是工作的开始。真正费时间的是判断：这条规定适不适用于当前产品？公司过去如何处理类似情况？哪些条件必须满足？什么情况需要交给专家决定？</p><p>Meta 在合规领域遇到的困难，集中在三个方面。</p><p><strong>第一，专家知道怎么判断，但文档没有把“为什么”写清楚。</strong></p><p>“隐性经验”包括专家习惯先看什么线索、怎样排列因素的重要性、旧结论在什么条件下有效，以及什么时候应当停止推断、找人讨论。有时专家已经熟练到不会主动解释这些步骤，历史记录便只留下了最终结论。</p><p>例如“允许小范围试用”是一条结论，却还没有告诉后来的人：试用面向谁、使用什么数据、出了问题能不能撤回。下面用一组教学规则把这些隐藏条件具体化：<strong>只有内部测试、模拟数据、可回退三项同时满足，才进入常规试用评审；其他情况转专项人工评审或补材料。</strong> 这是帮助理解的虚构规则，不是 Meta 的内部制度。</p><figure>
-<div>试用对象内部测试对外开放使用数据模拟数据真实用户信息尚未确认回退条件可以回退无法回退</div><div><strong>进入常规试用评审</strong><p>内部测试、模拟数据、可回退三项同时满足。这里决定评审路径，常规评审仍需完成，并不等于已批准上线。</p></div><figcaption>教学规则：三项全满足才走常规；已知存在对外开放、真实数据或无法回退，转专项人工评审；尚不能确认数据且没有已知排除条件，先补材料。此例为虚构教学规则，不是 Meta 制度。</figcaption>
-</figure><p>改变试用人数，未必改变评审路径；把模拟数据换成真实用户信息，即使人数不变，也可能需要另一种评审。专家经验里包含的正是这种取舍：什么只是表面相似，什么才会改变判断。</p><p>将这些经验写下来，也不只是给旧文档做摘要。摘要可能仍是“项目获准试用”；可复用的知识则要保留适用条件、排除情形、判断依据和未决问题。原文介绍了从文档中离线提炼、再用专家反馈更新的办法，但没有公开完整提炼算法；文档中没有出现、专家也从未表达的经验，不能被默认视为系统已经知道。</p><p><strong>第二，大模型懂一般知识，却不知道这家公司采用什么标准。</strong></p><p>同样一项业务，行业里可能有几种处理方式，但公司已经基于历史经验、业务方向或风险承受能力，确定采用其中一种。</p><p>通用模型可以列出几种方案，却不知道公司已经做过这个选择。它给出的建议未必没有道理，但仍需要内部专家重新判断、修改。</p><p><strong>缺的就是组织自己的立场：面对这个问题，我们采用什么解释，又有哪些不能越过的边界。</strong></p><p><strong>第三，RAG 能找资料，却不能省掉每次重新梳理判断依据的工作。</strong></p><p>RAG，也就是检索增强生成，可以在回答前查找相关文档。但检索结果可能同时包含旧项目记录、现行规则和只适用于特殊情况的例外。</p><p>如果没有提前整理，AI 每次都要重新判断：哪份材料优先？哪些条件适用？几份资料之间有什么关系？</p><p>这既费时间，也容易导致同类问题得出不一致的结论。专家纠正了一次，如果纠正只留在聊天记录中，没有进入知识或流程，下一次分析仍可能重走同一条错路。</p></div></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】SpaceXAI 团队工程师教你如何让 AI Agent 成为更好的工程师</title>
-<link>https://best.xiaohu.ai/article/cursor-agent-engineering/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:cursor-agent-engineering</guid>
-<pubDate>Mon, 07 Sep 2026 12:00:33 +0000</pubDate>
-<description>从亲自复现问题，到功能地图、技能评测和架构约束，Lauren Tan 展示了逐步扩大 Agent 自主工作的工程条件。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 7 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">SpaceXAI 团队工程师教你如何让 AI Agent 成为更好的工程师</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/cursor-agent-engineering/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div>
-<div>正文一页纸秒懂漫画</div>
-<div><div><div>工程实践 · 小互解读</div><h1>SpaceXAI 团队工程师教你如何让 AI Agent 成为更好的工程师</h1><p>从亲自复现问题，到功能地图、技能评测和架构约束，Lauren Tan 展示了逐步扩大 Agent 自主工作的工程条件。</p><div><div>一分钟速览</div><ul><li>写代码越快，人工验证越容易成为瓶颈；让 Agent 亲自运行应用，才能逐步减少来回确认。</li><li>能操作工具还不够：Agent 要懂产品路径、遵循工作方法，并在实际任务中证明这些方法有效。</li><li>把重复错误变成自动检查，再让正确写法更容易完成，代码库才有条件承受更多并行改动。</li><li>工具和架构也能由 Agent 帮忙建设；先跑通一个常见任务，再判断是否值得扩展给整个团队。</li></ul></div><div><p>现属 SpaceXAI 的 Cursor 团队工程师 Lauren Tan 曾在一场 Maven 分享中，讲了自己怎样从盯着 Agent 的每一步，走到允许它自动合并代码。她此前参与过 Meta 的 React 编译器开发，也在 Netflix 做过技术负责人和工程经理；带 Agent 时，她沿用了带新同事的思路：对方会编程，却还不熟悉产品和团队的工作方法。</p><p>她逐步补齐了三类条件：让 Agent 能亲自运行应用、验证结果；用功能地图和技能交代产品知识与工作方法，再用实际任务评估效果；把反复出现的错误变成自动检查，让正确的写法更容易完成。这些条件稳定下来，云端 Agent 和其他同事才能复用它们。</p><p>这套做法最值得追问的地方，是信任怎样一点点建立。一个能写出补丁、却总要等人来检查的 Agent，究竟缺了什么？从一次反复修不好的性能问题开始，Lauren 的答案逐渐变得具体。</p><figure>
-<a href="https://pic.xiaohu.ai/jiedu-media/cursor-agent-engineering/cursor-agent-engineering-zh-en.mp4">打开双语视频</a>
-<figcaption>完整分享 · 中英双语字幕</figcaption>
-</figure><figure>
-<figcaption>按当前问题找方法</figcaption>
-<div>
-<p>选择一个问题聚焦查看，选“全部对照”恢复四条路径。</p>
-<span>当前问题</span>
-全部对照
-人替它验证
-找不到产品功能
-方法总漏步骤
-重复违反工程规则
-</div>
-<div>
-<div><strong>人替它验证</strong><div><p>让 Agent 启动应用、操作界面并采集运行证据。</p><p>检查：它能否独立复现，并对比修改前后的实际表现。</p></div></div>
-<div><strong>找不到产品功能</strong><div><p>补齐功能地图：入口、操作、定位元素与验证前提。</p><p>检查：它能否从初始界面到达问题位置，并完成指定检查。</p></div></div>
-<div><strong>方法总漏步骤</strong><div><p>把漏掉的动作写成任务说明，再用实际任务评测。</p><p>检查：它是否执行了关键步骤；换任务或模型后还要复核。</p></div></div>
-<div><strong>重复违反工程规则</strong><div><p>把能判定的规则变成自动检查，明确代码边界，并提供正确示例。</p><p>检查：违规能否自动失败，正确路径能否顺畅通过。</p></div></div>
-</div>
-<p>根据分享整理的排查起点；同一问题可能需要组合几种方法。</p>
-<a><span>01</span>验证能力</a>
-<a><span>02</span>功能地图</a>
-<a><span>03</span>工作方法</a>
-<a><span>04</span>任务评测</a>
-<a><span>05</span>自动检查</a>
-<a><span>06</span>正确路径</a>
-<a><span>07</span>云端复用</a>
-<a><span>08</span>团队收益</a>
-</figure></div><div><h2>人一直替 Agent 检查，就很难同时推进更多任务</h2><p>Lauren 刚加入 Cursor 时，需要帮助优化 Agent 窗口的性能。应用用 React 开发，发布期限很近，代码库对她和 Agent 都很陌生。最初的做法是她打开开发者工具，记录性能轨迹，把截图或文件交给 Agent 分析。Agent 经常很确定地指出一个原因，改完却发现问题仍然存在。</p><p>这个过程里，写代码可以交出去，观察应用的工作却仍然压在人身上。Agent 说做完了，人打开开发版本，发现问题，再复制截图和报错回去。一轮轮往返的速度，取决于人能检查多少次。再多开几个 Agent，也会一起等这个人验收。</p><p>因此，Lauren 首先补的是验证能力：让 Agent 能启动应用、操作界面、采集 CPU 性能记录和内存快照，必要时运行模拟器。它应当接触用户实际使用的那一层，看到改动前后发生了什么，而不能只根据自己写出的代码判断成功。</p><p>这能回答“这个问题是否解决”，但好架构、可维护性和业务判断还需要其他约束。一次运行通过，只覆盖那次实际验证到的行为。</p><p><a><img /></a></p><p>Lauren 用手绘曲线描述这段过程。她在分享中说，自己已经经历过一觉醒来有约 20 个 PR 自动合入的情况。PR 是提交给代码库审查、合并的一组改动。她还提到上个月合入约 1,000 个 PR，当月到 12 日已接近 800 个。这些数字说明她当时处理改动的频率；每个 PR 的内容和规模不同，不能据此计算生产力倍数。</p></div><div><h2>给 Agent 一张功能地图，让它能找到并验证问题</h2><p>让 Agent 能操作应用，很快又暴露出一个问题：它能打开窗口，却不知道产品功能在哪里。</p><p>用户说“左侧栏卡了”或“右边的 PR 标签页不工作”，人通常能联想到具体位置。新来的 Agent 缺少这种认识，只能一边翻代码，一边试着点击。甚至反馈只有一张截图和几个问号，它连问题指向哪个功能都不确定。</p><p>Lauren 为验证技能增加了 <strong>Feature Map，功能地图</strong>。它把用户眼中的功能和实际到达路径联系起来：从哪进入、有哪些子功能、怎样操作、有什么快捷键，以及程序化操作界面时能使用哪些元素属性。Agent 因而能把一句模糊反馈，转换成一段可执行的导航过程。地图负责讲清产品怎样使用；需要理解内部实现时，仍要回到代码。</p><p><a><img /></a></p><p>可以用下面这组问题检查自己的地图是否有用：</p><div><table>
-<thead>
-<tr>
-<th>地图需要回答的问题</th>
-<th>它帮助 Agent 完成什么</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>用户说的功能对应哪个区域？</td>
-<td>把反馈中的产品叫法落到实际界面</td>
-</tr>
-<tr>
-<td>从初始状态怎样进入？</td>
-<td>避免启动后到处试点</td>
-</tr>
-<tr>
-<td>有哪些操作、快捷键或可定位元素？</td>
-<td>把“去看看”变成可重复操作</td>
-</tr>
-<tr>
-<td>验证需要什么前提，应检查什么表现？</td>
-<td>避免进了页面就宣告验证结束</td>
-</tr>
-</tbody>
-</table></div><p>这张表可作为整理功能地图的起点，具体路径和元素需要根据自己的产品填写。复制另一款产品的导航文档，并不能让 Agent 理解当前应用。</p><p>Lauren 把创建和维护验证技能的办法放进了 pstack。维护与创建同样关键：入口、快捷键和交互变了，旧地图就会把 Agent 带到错误位置。验证工具负责让它“能操作”，功能地图负责让它“知道怎样到达要验证的地方”。</p></div><div><h2>把反复踩的坑，整理成可复用的工作方法</h2><p>pstack 最初是 Lauren 在日常工作中积累的一组技能。Skill 可以理解为给 Agent 使用的任务说明和操作方法，常以 Markdown 保存，并配合执行工具。它的价值来自具体经验：某一种失败反复出现，就把正确处理方式写下来。</p><p>例如，Agent 一口咬定某个故障原因时，她去看实际工具调用，发现它根本没有读取应当相关的代码。对于这种问题，仅仅补一句“认真一点”很难改变工作。她需要明确要求它先搜索、阅读相关实现，必要时分头调查，再根据证据解释原因。</p><p>这也说明，早期观察不能只看最终回答。回答听起来很合理，实际动作却可能没有支撑它。查看读了什么、运行了什么、验证了什么，才能知道应当补哪一种能力。</p></div><div><h2>用实际任务评估，确认技能有没有帮助</h2><p>写进 Skill，不代表 Agent 就会稳定照做。Lauren 用 <strong>eval，也就是针对 Agent 行为的评测</strong>，来检查技能修改是否产生了预期结果。她的方法包括：先明确任务与评判标准，再让多个 Agent 在独立目录中执行，观察它们能否做对；对常用的不同模型重复评测；必要时用另一种模型作为裁判，交叉检查判断。</p><p>她还会尽量避免让目录命名等线索直接暴露“你正在参加评测”，因为她观察到 Agent 识别出评测场景后可能改变行为。这里关注的是日常执行的可靠性，而不只是某次展示是否漂亮。</p><p>她也描述了让协调 Agent 反复修改技能、运行评测、提高得分的做法，验证技能本身就经过这样的迭代。评测达到满分，表示它满足了那套任务和评分标准；不能由此保证所有新任务都正确。评测能否暴露真实工作里的失败，仍需要人持续观察和判断。</p><p>这些基础工具也可以由 Agent 帮忙建设。Lauren 让 Agent 参与编写控制应用的命令行工具、改进验证技能，再通过评测检查效果。人负责选定要解决的问题和判断标准，Agent 参与实现与迭代。这样，过去因为缺少人手而一直没建起来的工程工具，也有机会逐步补齐。</p><p>这条改进路径可以落到一个小范围上：先选一个经常失败的任务，记录 Agent 漏掉了哪一步；补一条具体方法；用能触发该问题的任务检查它是否改变了行为。等这一类问题稳定下来，再扩大技能覆盖范围。</p></div><div><h2>把反复出现的错误，变成自动检查</h2><p>验证能力解决了“运行起来有没有达到目标”，代码库还要解决“功能越加越多后，整体会不会变差”。</p><p>Lauren 认为，这和大规模工程团队遇到的问题很相似。许多人同时提交代码时，不能只靠每个人始终记住所有原则；需要框架、约定、权限和自动检查。Agent 提交改动的速度提高后，小团队也会遇到这种协调压力。</p><p>因此，已有成熟约束的老项目可能更适合 Agent。风险较高的反而是迅速拼出来的新原型：每个任务都按当时最方便的方式解决，久而久之，功能之间的依赖变得混乱，修改一处又破坏另一处。</p><p>为避免每个功能各走各的路，她把 Grokbot 这款 Agent 应用重构到一套共同的工程约定中，称为 Dune。它规定代码怎样组织、哪些依赖不允许出现，并通过自动检查执行这些限制。Lauren 将它描述为一组原则和设计，没有承诺把它作为通用框架开源。</p><p>Dune 最具体的例子，是限制哪些代码可以进入界面渲染一侧。Electron 是构建桌面应用的一种技术，界面绘制与其他工作需要合理分工。Lauren 说，Agent 窗口过去常因隔离不清，让重计算或大量 I/O 意外进入渲染路径，和界面更新争抢时间。</p><p>60 FPS 意味着每秒显示 60 帧，每帧预算约为 16.7 毫秒，分享中将其近似为 16 毫秒。如果其他工作占用了这段时间，界面就容易掉帧、卡顿。只在审查时提醒“别引入卡顿”，很难追上频繁合入的改动。</p><p>她在 Dune 中把相关代码放进明确分开的目录，再通过 CI 检查依赖图，阻止违反边界的导入。<strong>CI 是代码提交后自动运行的一组检查</strong>；违反可检测的约束，检查就失败。这样，错误不必等到人读 PR 时才被发现。</p><p><a><img /></a></p><p>其中，Bugbot 是辅助审查代码的工具。几种约束分别承担不同工作：</p><div><table>
-<thead>
-<tr>
-<th>约束放在哪里</th>
-<th>在这套实践里做什么</th>
-<th>主要作用与边界</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>代码库与框架</td>
-<td>功能代码集中，常见任务有固定实现方式</td>
-<td>从结构上减少绕路和随意拼接</td>
-</tr>
-<tr>
-<td>静态分析与 CI</td>
-<td>检查导入边界、禁止的模式和编译错误</td>
-<td>对已编码的条件给出确定失败</td>
-</tr>
-<tr>
-<td>规则、Skill 与 Bugbot</td>
-<td>解释做法，并辅助审查代码</td>
-<td>可以补充判断，但可能漏用、遗忘或漏检</td>
-</tr>
-</tbody>
-</table></div><p>Lauren 还举了禁用代码注释的项目约束。她观察到，Agent 会把一次局部修改意见写成貌似永久有效的注释，让后来的执行者误以为那是全局规则。她也在 Dune 中禁用 React 的 <code>useEffect</code>——一个常用于让组件与外部系统同步的接口，她认为它容易被用错。这些属于她对那套代码库的选择，不能直接推广成所有 React 项目或所有团队的规则。</p><p>她提到 Rust 时，强调的也是编译器能替人强制一部分约束。编译检查的价值在于提前拦截它能够识别的错误；业务是否正确、界面是否流畅，仍有各自的验证问题。</p><p>对团队更有用的动作是：如果同一种审查意见反复出现，就检查它能否成为 lint（自动检查代码模式的规则）、CI 检查，或通过架构调整消除那条错误路径。人的判断由此沉淀到之后每一次提交中。</p></div><div><h2>让正确的写法，成为最省事的写法</h2><p>硬约束多了，会不会让开发越来越麻烦？Lauren 的另一半设计是，让正常工作有一条清楚、就近、容易模仿的路径。</p><p>比如一个功能的相关代码集中放在一个目录，新增功能也遵循相同的组织方式。Agent 处理新手引导时，就能主要围绕对应功能目录工作，不必在代码库各处寻找碎片。框架中的功能、入口和聊天卡片等概念，也有约定的创建方法。</p><p>Dune 还要求，每个需要长期保存的状态值，都有一个明确的写入者；新增产品功能尽量增加独立文件，避免不断给共享入口添加分支；确需例外时，范围要小、意图要明确，并按架构变更接受审查。这些约定让状态由谁修改、功能在哪里扩展、边界怎样调整，都有清楚的处理方式。</p><p>这利用了 Agent 喜欢沿用已有模式的特点。好模式容易找到，照着做就符合约束；坏路径由自动检查拦住。架构因此同时给出了正向示范和错误边界，Agent 少做一些不必要的选择，也更容易把已有做法用对。</p><p>减少不必要的判断，还可能降低任务对模型能力的要求。Lauren 说，在这套环境准备好后，能力不及最大模型的 Agent 也能把代码工作做好。她没有给出统一的成本降幅，但这提供了一个可检验的方向：先把任务路径和工程边界讲清楚，再用自己的任务评估是否还需要更强的模型。</p><p>工作拆分同样服务这个目的。Lauren 鼓励把改动拆成多个含义完整的 PR，让每个 PR 说明一小块工作在干什么。这样，Git 历史能留下可理解的上下文，出问题时也更容易定位和回滚。</p><p>她没有给 PR 设统一行数上限。她描述的规模从约 50 行到上千行不等，也可能主要是删除代码。因此“小 PR”的重点，是改动能独立说明、检查和撤回，而非所有提交都控制在同一个数字之下。</p></div><div><h2>先在本地跑可靠，再交给云端和团队使用</h2><p>Lauren 建议从本地建立验证流程，因为人在现场能看见 Agent 是否进入了正确界面、调用了什么工具、有没有实际完成检查。等这套能力可信，再放进云端，才容易让多人复用。</p><p>她展示的 Benny 是一个处理反馈的 Agent。它收到 bug 报告后，在自己的云端电脑里启动 Cursor，用同一套控制技能尝试复现。一个具体回报是：它在旧提交上复现了问题，但发现 main，也就是主干代码，已经修好。</p><p><a><img /></a></p><p>这份回报的价值很直接：团队知道修复已经存在，下一步是发布包含修复的新构建。无需再派一个人和 Agent 来回确认一个小时，也无需重复修改已修好的代码。</p><p>云端复用放大的，就是这类已经建立的能力。验证工具、功能地图和环境配置不再只帮助 Lauren，还能帮助接收反馈的同事。反过来，如果单个 Agent 的操作还不可靠，直接扩到大量云端实例，只会把空转与错误一起扩大。</p><p>让更多同事用起来，还需要合适的入口。Lauren 提到，IDE 和命令行偏向开发者，产品经理、设计师未必用得顺手；Grokbot 采用更接近日常聊天的界面，便于他们提出任务、查看进展和参与修改。容易使用的入口负责让人进得来，后面的验证与工程约束负责支撑改动质量。</p><p>自动合并也处在这段历程的后面。Lauren 的实践可以用来理解它需要哪些支撑，但其中没有一份适合所有项目的自动合并条件。团队仍需根据自己的工程标准，确认哪些结果足以支持下一步操作。</p></div><div><h2>这套改造值不值，要看整个团队能否持续受益</h2><p>Lauren 为了把 Grokbot 重构到这套架构，投入了 600 多个 PR，也消耗了大量 token。她明确承认自己在 AI 实验室工作，拥有非常充裕的 token 资源，其他团队不能假设同样的投入条件。</p><p>所以，这套方法的成本要和后续收益一起看。前期需要建立控制工具、整理功能地图、迭代评测、迁移架构、补齐检查；收益则是减少后续重复验证，让更多贡献者在同一套约束下完成工作。她描述的回报还包括产品经理和设计师能借助 Agent 修复问题、提交功能，再由工程同事审查。</p><p>前面的框架、检查和验证环境，把一部分专业经验变成了其他同事也能使用的条件。她没有提供通用的回本周期；判断是否值得投入，应当看这些设施能否被持续复用，以及是否确实减少了重复的人工介入。</p><p>如果要开始实践，范围可以收得很小：选一个反复出现、能在本地观察的故障，让 Agent 独立跑通复现与验证；补齐这条路径的功能地图；把一次常见的违规写法变成可执行检查。等同类任务不再反复依赖人工补步骤，再把能力扩展到其他功能和云端。</p><p>工程师的工作也随之变化：除了解决眼前的问题，还要把这次解决问题所依赖的知识、动作和边界留下来。下一次执行者能直接用上这些条件，可靠的自主工作才有可能持续增加。</p></div><div><h2>原文参考</h2><p>Lauren Tan，How Cursor Turned AI Agents Into Better Engineers，Maven，2026 年 8 月 12 日。视频章节包括验证与功能地图（08:35）、技能评测（20:04）、云端 Agent（26:34）、重构与约束（32:34）、Dune 架构（41:00）和成本（50:38）。</p><p><a href="https://maven.com/p/e23d9c/how-cursor-turned-ai-agents-into-better-engineers">观看原始分享</a></p><p>公司归属：Cursor 于 2026 年 8 月 14 日宣布正式被 SpaceX 收购，团队在官方公告中明确表示加入 SpaceXAI。原分享和产品中的 Cursor 名称按当时称呼保留。<a href="https://cursor.com/cn/blog/joining-spacex">收购公告</a> · <a href="https://www.linkedin.com/posts/cursorai_cursor-is-now-a-part-of-spacex-cursor-activity-7494016275065647104-BOVk">团队归属说明</a></p></div><div><div><div>来源</div><div><span>How Cursor Turned AI Agents Into Better Engineers</span><span>Lauren Tan · Maven<span>·</span><a href="https://maven.com/p/e23d9c/how-cursor-turned-ai-agents-into-better-engineers">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://cursor.com/cn/blog/joining-spacex">Cursor 现已成为 SpaceX 的一部分</a><span>·</span><a href="https://www.linkedin.com/posts/cursorai_cursor-is-now-a-part-of-spacex-cursor-activity-7494016275065647104-BOVk">Cursor joins the SpaceXAI team</a></div></div></div></div></div><div>
-<h1>SpaceXAI 团队工程师教你如何让 AI Agent 成为更好的工程师</h1><p>现属 SpaceXAI 的 Cursor 团队工程师 Lauren Tan，把“人反复帮 Agent 检查”逐步变成团队可复用的工程环境。</p>
-<h2>会写代码，为什么还要人盯着？</h2><p>Lauren Tan 在 Cursor 优化性能时，Agent 常常改完代码，问题却还在。</p><div>原来的循环Agent 改代码 → 人打开应用、截图 → 交回 Agent 再改。</div><div>瓶颈在哪里检查全靠同一个人，多开 Agent 也会一起等验收。</div>
-<h2>把“我做完了”变成可检查的结果</h2><p>先让 Agent 接触真实应用，再把反复遗漏的做法留下来。</p><ol>
-<li><strong>能跑，也知道去哪</strong><p>控制工具让它启动、操作、采集证据；功能地图交代入口、操作和验证前提。</p></li>
-<li><strong>把漏步骤写成方法</strong><p>观察实际读了什么、运行了什么；把失败经验整理成可复用的 Skill。</p></li>
-<li><strong>用任务检查方法</strong><p>以真实任务评测是否执行关键步骤，必要时换模型复核，再据结果改技能。</p></li></ol>
-<h2>坏路径能被拦住，好路径容易照做</h2><p>验证结果之外，还要把团队反复强调的要求放进工程环境。</p><div><div><strong>自动拦截坏路径</strong><p>Dune 工程约定划定目录边界，用 CI 自动检查依赖，阻止重计算或大量 I/O 误入界面渲染路径。</p></div><div><strong>给出清楚的好路径</strong><p>功能代码就近集中；持久状态有明确写入者；新增功能增加隔离文件。</p></div></div>
-<h2>先在本地可信，再让团队复用</h2><div><strong>扩展顺序</strong><p>本地能独立复现与验证 → 云端复用同一套能力 → 产品经理、设计师也能参与。</p></div><p>云端 Agent Benny 对照旧提交与 main，发现问题已修好，让团队直接推进发布，避免重复修复。</p><div><strong>成本与判断</strong><p>Lauren 的架构改造投入 600 多个 PR，且 token 资源充裕。是否值得，要看能否持续减少重复人工介入。</p></div><div><strong>从一条路径开始</strong><p>选一个反复故障，跑通验证、补地图和一条自动检查，再扩大范围。</p></div><strong>保留边界</strong><p>一次验证、满分评测或 CI 通过，只覆盖检查过的条件；PR 数量不代表生产力倍数，也没有通用回本期。</p>
-</div>
-<div><p>Agent × 工程师</p><h2>SpaceXAI 团队工程师教你如何让 AI Agent 成为更好的工程师</h2><div>
-<div>
-<p>修好了！</p>
-<p>可它还在卡……</p>
-</div><p><span>01</span>Agent 写完代码，人还得打开应用、截错误、催它再改。多开几个 Agent，只会多一条等人的队伍。</p>
-<div>
-<p>这次，你自己跑一遍。</p>
-</div><p><span>02</span>先让 Agent 启动应用、操作界面、采集运行证据。它要亲眼检查，改动有没有解决这次问题。</p>
-<div>
-<p>原来入口在这里。</p>
-</div><p><span>03</span>会操作，还要知道去哪儿。功能地图说明入口、操作、定位元素和验证前提，并随产品一起维护。</p>
-<div>
-<p>先读实现，再试一次。</p>
-</div><p><span>04</span>把反复漏掉的步骤写成工作方法，再用实际任务评测。Agent 也能帮忙建设工具；评分通过只说明所测任务做对了。</p>
-<div>
-<p>这里最近……怎么又卡了？</p>
-</div><p><span>05</span>任务越多，局部捷径越容易拖累整体。比如重计算意外进入界面渲染路径，就会和界面更新争抢时间。</p>
-<div>
-<p>让对的做法，也更省事。</p>
-</div><p><span>06</span>把可判定的违规变成自动检查，把功能放在清楚的位置。正确路径容易照做，错误路径不用等人逐条提醒。</p>
-<div>
-<p>主干已修好，只差新版本。</p>
-</div><p><span>07</span>可靠后再扩到云端。云端 Agent Benny 的一次回报就区分了“旧版能复现”和“主干已修好”，团队因此知道下一步是发布。</p>
-<div>
-<p>先建好一小块，再看值不值。</p>
-</div><p><span>08</span>前期重构、工具和评测都要投入。先跑可靠一个常见任务，再让团队复用；这不保证所有任务正确，也不是直接跳到自动合并。</p>
-</div></div>
-</div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Claude Code 团队讲他们最近一年使用 Claude Code 方式的一些改变 从写代码到推进产品目标</title>
-<link>https://best.xiaohu.ai/article/claude-code-team-goal-workflows/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:claude-code-team-goal-workflows</guid>
-<pubDate>Mon, 07 Sep 2026 12:00:33 +0000</pubDate>
-<description>从写函数到推进产品目标，Claude Code 团队把环境、工作流和反馈逐步接起来；模型继续进步时，他们也重新设计工具与自己的工作方式。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 7 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Claude Code 团队讲他们最近一年使用 Claude Code 方式的一些改变 从写代码到推进产品目标</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/claude-code-team-goal-workflows/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div>
-<div>正文一页纸秒懂漫画</div>
-<div><div><div>方法实践 · 小互解读</div><h1>Claude Code 团队讲他们最近一年使用 Claude Code 方式的一些改变 从写代码到推进产品目标</h1><p>从写函数到推进产品目标，Claude Code 团队把环境、工作流和反馈逐步接起来；模型继续进步时，他们也重新设计工具与自己的工作方式。</p><div><div>一分钟速览</div><ul><li>委派产品目标，需要让 Claude 取得团队背景，并为它留下分析现象、提出方案的空间。</li><li>模型能力进步后，旧的补偿工具可能失去价值；更大的任务又会要求新的环境与协作方式。</li><li>工作流的分工和结果连接也可以交给 Claude 设计，再用程序组织执行、用复核收敛发现。</li><li>测试、审查和使用反馈接起来后，开发者更容易减少逐步监督，把注意力转向产品方向与实际体验。</li></ul></div><div><p>Claude 官方频道发布了一个约 22 分钟的访谈 <a href="https://www.youtube.com/watch?v=S-sYlFiGFv8">《How the Claude Code team uses Claude Code》</a>。Claude Code 团队的 Thariq Shihipar、Sid Bidasaria 和 Robert Boyce，聊了他们怎样用自己开发的工具完成日常工作，也回顾了这一年工作方式的变化。</p><p>过去，他们更多是给 Claude 一条具体指令，例如写一个函数，然后检查结果、提出修改意见。现在，他们开始把更完整的工作交给 Claude：讨论产品方案、制作原型、编写代码、运行测试，甚至在工具投入使用后持续整理反馈。有成员原本准备让 Claude 实现自己想到的改法，后来改成了直接告诉它：“用户没有走完这个流程，请先想想怎样改善。”Claude 因此也能参与分析问题和提出方案。</p><p>这种用法需要相应的准备。Claude 要知道团队之前做过哪些决定，要有能运行软件和测试的开发环境，还要把截图、测试结果和用户反馈带回来，供人判断下一步。同时，团队也会重新检查旧工具是否还有必要：早期模型容易漏做任务，他们就加上待办清单；后来模型能力提高，原来那套清单的作用变小，他们便重新调整。访谈讲的，就是这些具体的使用方法，以及团队怎样随着 Claude 的进步改变自己的工作方式。</p><p><strong>访谈全片 · 中英双语字幕</strong></p></div><div><h2>从交代一个函数，到交付一个目标</h2><p>Claude Code 是帮助开发者完成编程工作的 AI 工具。访谈还介绍了 Claude Tag——团队正在使用和开发的 Slack 原生智能体。Slack 是团队沟通工具；Claude Tag 在这里接收任务，也能查阅产品讨论和团队已经做出的决定。</p><p>一位成员估计，自己约 70%—80% 的工作发生在 Claude Tag 里，剩下的一部分会打开终端界面或桌面应用精修。这是他的个人用法，但足以说明一个变化：对话的入口已经进入团队日常协作的地方，交给 Claude 的问题也远远超出了“实现这个类”或“写这个函数”。</p><p>产品为什么这样设计，团队曾经放弃过哪些方案，某个决定背后有什么约束，这些信息往往不在代码里。只有代码库时，模型可能知道“怎样做得出来”；加上讨论和决策背景，它才更有机会判断“怎样做符合这个团队的目标”。</p><p>人的关注点也随之改变。过去，他们会仔细看每次工具调用和模型的每个决定；后来，更多时候是提出一个目标，等 Claude 带回结果。比如，“实现我指定的修改”把方案留给了人；“改善用户完成这个流程的情况”则把分析现象、提出方案和比较选择的空间也交给了 Claude。</p><p>委派到目标这一层，对智能体的要求更高。它要取得背景、组织工作、运行产物，还要把结果带回来，让人有依据决定下一步。团队随后讲到的工具变化，正是在为这种工作方式补齐条件。</p></div><div><h2>目标变大，辅助工具也要随模型改变</h2><p>团队遇到的一个特殊问题是，工具依赖的模型能力变化很快。受访者形容，过去一项技术可能稳定使用多年，现在底层能力大约每两个月就有一次明显变化。工具开发既要解决今天的困难，也要判断哪些困难可能很快消失。</p><p>待办清单就是一个例子。在 Sonnet 3.5 附近的时期，他们发现模型处理长任务容易遗漏：交代五件事，可能做完三件就停。增加清单后，表现有了改善。后来，模型能力和可用的记忆状态发生变化，成员认为原来那种清单已经不再那么必要。</p><p>这里有一条持续变化的链条：先发现模型的具体失败，用工具补上；模型进步后，重新检查这个补偿机制是否仍有价值；接着把任务扩大，又会遇到新的协调和状态管理问题。工具需要跟着问题变化，不能把每一代模型的补丁一直累加下去。</p><p>团队把围绕模型组织工具、状态和执行过程的系统称为 <strong>harness</strong>，可以理解为让模型完成工作的运行框架。删掉过时机制，也是在为新的任务形态腾出设计空间。</p><p>提问方式的演化展示了另一种变化。最初，成员希望 Claude 在制定计划后向用户提问；后来，这变成了模型可以自行调用的 AskUserQuestion 工具，当时还需要仔细设计接口，才能让模型用好。随着能力提高，Claude 又能直接生成 HTML 产物，把图示、界面原型和问题放在一起。</p><p>例如，讨论界面方案时，人可以对着可见的原型作决定，减少双方仅凭文字想象不同界面的情况。原来固定的提问界面，开始成为 Claude 可以按任务生成的产物。权限管理、可视化和提问等基础能力仍然重要，但它们可以组合成不同的工作方式，上层产品不必固定在早期的形态。</p></div><div><h2>要持续推进，先让工作离开笔记本</h2><p>目标扩大后，执行往往会跨越一次对话或一次上班时间。团队讲到循环任务时，先提了一个朴素的障碍：智能体跑在笔记本上，离开办公室、合上电脑，工作就停了。</p><p>他们先使用远程开发机器，解决了必须一直开着笔记本的问题；但连接远程机器、重新进入相应工作环境仍有摩擦。后来，Web 上的托管容器提供了更方便的入口，让开发环境在远端持续运行。</p><p>这里要解决两件不同的事。第一件是任务能否持续运行；第二件是 Claude 在那个环境里能否真正完成开发。仅把代码放到远端还不够，它还需要启动软件、访问必要依赖、运行测试，并检查从开始到结束的完整流程。</p><p>Robert 在谈到用 Claude Tag 开发 Claude Tag 时，就把主要精力放在打通这些条件上：尽量让智能体拥有开发者完成工作时所需的环境和端到端测试能力。软件依赖的集成越复杂，这项准备越费力，也越影响智能体最后能独立推进到哪里。</p><p>环境稳定后，指令才容易成为一项持续责任。例如，每天检查收到的反馈，按重要性分类，再处理其中有较高把握的问题。这样的循环跨越多次执行，不需要人每次重新发起同一个任务。</p><p>一位成员把搭建远端环境后的个人生产力感受形容为约十倍提升；访谈没有提供测量方法。可以借鉴的具体做法是，把运行环境也当成委派工作的一部分来建设：目标需要哪些动作，就让 Claude 具备完成那些动作的条件。</p></div><div><h2>任务更复杂，让 Claude 自己组织工作流</h2><p>复杂目标还有一个独立的难题：工作怎样分解。团队以代码审查为例：先让多个智能体从不同方向探索潜在问题，再针对每个候选问题进行多角度复核，最后筛选出值得人关注的重要项目。</p><p>这个流程的关键是先扩大探索范围，再逐层收敛结果。</p><figure>
-<ol>
-<li><span>01</span><strong>并行探索</strong><span>多个智能体从不同方向寻找潜在问题</span></li>
-<li><span>02</span><strong>多角度复核</strong><span>逐个检查候选问题是否真实存在</span></li>
-<li><span>03</span><strong>筛选重要问题</strong><span>把需要人关注的项目收拢出来</span></li>
-<li><span>04</span><strong>人工判断</strong><span>结合产品意图、接口设计与服务边界作决定</span></li>
-</ol>
-<figcaption>探索扩大覆盖，复核与筛选收拢结果；多角度意见一致，仍需证据支持。</figcaption>
-</figure><p>访谈举的做法是，从三个角度重新审视一个候选问题，判断它是否真实存在。这样，开发者收到的就不只是大量疑似问题，还包括经过进一步分析和筛选的发现。多角度复核能帮助降低误报，最终判断仍要有证据支持。</p><p>他们把求解时增加推理和计算投入称为 <strong>test-time compute</strong>。这里增加的是当前任务的分析工作：多找一些方向、多做几轮复核，再把额外工作转化成更有用的结果。</p><p>更进一步，<strong>Claude 连工作流本身也可以设计</strong>。人提出问题后，它可以决定需要哪些代理、哪些方向并行展开、前一层输出怎样传给下一层，以及最后如何汇总。随后，它再写代码，把这些代理连接起来执行。委派范围由此从单项分析扩展到了分析工作怎样组织。</p><p>代码和模型在其中承担不同职责。程序循环负责对每个项目执行同一套步骤，减少“说好检查五项却只检查三项”的遗漏；模型负责每一项里面需要理解和判断的内容。程序能帮助维持流程的一致性，每项分析是否正确仍要另外判断。</p><p>这套方法也能用于普通研究。团队举了带父母去 Tahoe 旅行的例子：住宿、活动等方向可以分别搜索，再经过筛选、核对和汇总。最后的收敛很重要，否则并行工作只是把更多零散材料交给了人。</p><p>代码审查中，人的注意力也随之上移。Claude 可以先处理细碎问题，人则更值得看接口为什么这样设计、服务边界为什么划在这里，以及实现是否符合团队的产品意图。这又回到了开头的上下文问题：局部代码看起来合理，不代表它符合整个系统的设计理由。</p></div><div><h2>少盯每一步，把协作建立在可检查的结果上</h2><p>工作流能在后台推进，人与智能体的界面也需要变化。Claude Tag 把日常消息与完整执行记录分开：发消息是模型可以调用的工具，它选择什么时候向人汇报、汇报什么；需要追查过程时，人可以打开完整记录的链接。</p><p>这让产品界面不必同步展示模型的每个输出和工具调用。受访者说，最初无法像以前那样盯着细节，会让人不安；后来，反复拿到好结果，又让这种工作方式变得轻松。界面变化推动他们练习另一种协作：围绕目标、待决问题和交付结果交流。</p><p>支撑这种信任的是具体的验证。Claude 提交代码变更时，会运行测试、发送界面截图。内部工具的开发者还让它录下自己操作终端界面的过程；看完录像后，他把代码拉到本地，亲自试用，确认自己喜欢实际体验。</p><p>这些反馈各有用途：测试帮助检查功能，截图让人看到界面状态，操作录像展示一段流程怎样完成，亲自试用则补上使用感受。开发者减少了逐步监督，仍然能通过交付物判断工作到了什么程度。</p><p>实现是否符合目标，还需要代码审查与真实使用反馈：前者帮助发现代码和设计问题，后者让团队看见工具投入使用后发生了什么。</p></div><div><h2>把实现和反馈接起来，推进一个完整产品</h2><p>访谈中最完整的案例，是一位成员开发一个需要多人支持的内部工具。他先让 Claude 找出应该与谁讨论这个想法、谁可能关心它，再制作界面原型。人在手机上通过 Slack 就能看原型、讨论具体方案，想法因此更容易进入下一步实现。</p><p>代码写出来后，还有一个新问题：工具是否真的被使用，使用者能不能走完流程？他在工具中加入事件记录，内部部署后让 Claude 持续观察使用情况，也关注同事的反馈，在需要时提醒自己加入讨论。</p><p>这条产品推进链中，每一步都为下一步提供了信息。</p><div><table>
-<thead>
-<tr>
-<th>推进阶段</th>
-<th>Claude 参与的工作</th>
-<th>怎样推动下一步</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>找到相关同事</td>
-<td>查找可能关心想法的人</td>
-<td>知道需要向谁解释方案、争取支持</td>
-</tr>
-<tr>
-<td>做出可见原型</td>
-<td>生成界面，在 Slack 中讨论</td>
-<td>把抽象想法变成可以选择和修改的方案</td>
-</tr>
-<tr>
-<td>实现并内部部署</td>
-<td>编写实现；工具加入事件记录后进入内部使用</td>
-<td>为持续观察工具的使用情况做好准备</td>
-</tr>
-<tr>
-<td>观察使用和反馈</td>
-<td>跟踪事件、关注讨论并提醒开发者</td>
-<td>看见用户在什么地方停下、遇到什么问题</td>
-</tr>
-<tr>
-<td>提出下一轮改进</td>
-<td>根据观察分析方向、提出方案</td>
-<td>把真实使用情况变成下一轮产品目标</td>
-</tr>
-</tbody>
-</table></div><p>最后一个转折最有价值。开发者看到一些用户没有走完整个操作流程，原本想把自己的改法交给 Claude 实现。随后他改了提问方式：请 Claude 改善这个流程，先提出思路；自己的方案可以作为一个例子。</p><p>团队把这个流程称为“漏斗”：它指用户从开始使用到完成目标所经过的一系列步骤。知道用户在哪一步停下，只是分析的起点。把改善目标交给 Claude，意味着它可以结合现象寻找原因、比较方案，而不必从一开始就只执行开发者已经选好的答案。</p><p>相关同事、原型、实现、事件记录和反馈因此围绕同一个目标连接起来。测试与审查帮助检查改动，使用反馈又为下一轮选择提供依据。Claude 参与的范围从一段代码延伸到了产品的持续改进，人则在其中决定方向、处理重要问题并检查实际体验。</p></div><div><h2>工程师也要更新自己能做什么的判断</h2><p>工具在变，团队成员对自己工作的想象也在变。有人过去喜欢钻研性能优化，有人曾用一天时间精细复刻 macOS Aqua 按钮的 CSS 渐变。如今，他们更愿意把这些具体实现交给 Claude，把精力投入新想法，让原型更快走向可用产品。</p><p>一位成员还回忆，小时候因为不会编程，就用 PowerPoint 尝试做游戏。这个故事对应着一种熟悉的限制：有想法，却被自己不会的技术挡住。与 Claude 协作后，更多这样的想法可以被拆开、尝试并做成东西。人的能力边界，也需要随着工具能力重新估计。</p><p>迁移这套经验，可以从正在做的一项工作开始。先把目标和背景讲清楚，再补齐运行环境，让 Claude 参与设计工作步骤，并约定可以拿回哪些产物与反馈。</p><div><table>
-<thead>
-<tr>
-<th>当前工作停在哪里</th>
-<th>可以怎样改变委派方式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>一直让 Claude 实现自己的改法</td>
-<td>给出目标、观察到的现象与约束，让它先提出可比较的方案</td>
-</tr>
-<tr>
-<td>复杂任务总要自己逐步分派</td>
-<td>让 Claude 提出分工、结果传递和复核方式，讨论后再执行</td>
-</tr>
-<tr>
-<td>任务离开本机就无法继续</td>
-<td>准备能持续运行、具备开发和测试条件的环境</td>
-</tr>
-<tr>
-<td>每次都得阅读大量执行过程</td>
-<td>约定关键决策的沟通时机，以及测试、截图或操作录像等交付物</td>
-</tr>
-<tr>
-<td>已经做出来，却不知道是否有用</td>
-<td>接入使用事件和反馈，让它们成为下一轮任务的依据</td>
-</tr>
-<tr>
-<td>旧规则和辅助工具越来越多</td>
-<td>回看每项机制最初补偿什么问题，判断是否仍然需要</td>
-</tr>
-</tbody>
-</table></div><p>这些做法来自团队在自身环境中的实践，具体配置需要按自己的项目调整。更值得持续练习的是，同时更新两种判断：哪些工作可以交得更完整，哪些旧的工具和习惯已经值得重新设计。</p></div><div><div><div>来源</div><div><span>How the Claude Code team uses Claude Code</span><span>Claude 官方频道 · 团队访谈<span>·</span><a href="https://www.youtube.com/watch?v=S-sYlFiGFv8">查看主材料</a></span></div></div></div></div></div><div><span>↗</span><h1>把一个目标交给 Claude，需要接起什么？</h1><p>从“实现这项修改”走到“改善用户完成流程的情况”。</p><h2>先改变交代任务的方式</h2><p>Claude Code 团队在官方访谈中，回顾从写函数走向推进产品目标的实践。</p><div><div>原来的交代<strong>按我指定的改法实现</strong></div><b>→</b><div>扩大后的委派<strong>用户没有走完流程；先分析原因、提出改善方案</strong></div></div><h2>目标交出去，也要给它做事的条件</h2><p>背景决定方向，环境决定它能推进到哪里。</p><div><div><b>◎</b><h3>团队背景</h3><p>讨论、过去的决定与产品约束</p></div><div><b>▥</b><h3>可运行环境</h3><p>远端持续运行，具备依赖与端到端测试</p></div><div><b>⑂</b><h3>可组织的工作</h3><p>让 Claude 设计分工和结果传递，再用程序执行</p></div></div><h2>探索可以分散，交付需要收拢</h2><p>代码审查案例：多个方向探索 → 候选问题多角度复核 → 筛选重要发现 → 人判断产品意图与系统边界。</p><div><p><b>程序</b>让每个项目经过约定步骤</p><p><b>模型与人</b>判断每项分析是否成立；多角度一致仍需证据</p></div><h2>让结果成为下一轮目标的起点</h2><p>↻ 原型 → 实现与内部部署 → 观察使用事件及反馈 → 提出下一轮改善。</p><p><b>拿回可检查的产物</b><br />测试、截图、操作录像，再亲自试用</p><p><b>随能力重新设计</b><br />检查旧工具补偿的失败是否仍在；这些是团队实践，具体配置需按项目调整</p></div>
-<div><h1>从“照着改”到“把目标推进下去”</h1><div><div>先按我的改法写？</div><p>内部工具做出来了，部分用户却没有走完整个流程。</p><div>先想想怎样改善。</div><p>团队成员改了交代方式：把观察与目标交给 Claude。</p><div>准备好，才能继续。</div><p>给它讨论背景，也给它能持续开发、运行和测试的环境。</p><div>把值得关注的留下。</div><p>复杂任务先分头探索，再复核、筛选；程序组织步骤，模型逐项判断。</p><div>我来检查实际体验。</div><p>测试、截图和操作录像带回结果；人审查，也亲自试用。</p><div>接下来，改善哪里？</div><p>把使用反馈变成下一轮目标。模型进步时，也重新检查旧工具是否仍有必要。</p></div></div>
-</div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】AI 引发招聘变局：经验为什么更受重视？</title>
-<link>https://best.xiaohu.ai/article/experience-over-skills/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:experience-over-skills</guid>
-<pubDate>Sun, 06 Sep 2026 12:00:28 +0000</pubDate>
-<description>从招聘要求的变化，理解经验的价值与适用边界；同时读懂注意力、安全和建设需求的三组信号。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 6 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">AI 引发招聘变局：经验为什么更受重视？</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/experience-over-skills/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div>
-<div>正文一页纸秒懂漫画</div>
-<div><div><div>行业洞察 · 小互解读</div><h1>AI 引发招聘变局：经验为什么更受重视？</h1><p>从招聘要求的变化，理解经验的价值与适用边界；同时读懂注意力、安全和建设需求的三组信号。</p><div><div>一分钟速览</div><ul><li>技术岗位的经验要求上升、技能条目减少，提示企业可能更重视能在工作方法变化时作出判断的人。</li><li>经验的价值在于能否转化为方案选择、排错和结果检验；履历年限本身无法证明这些能力。</li><li>AI造成招聘变化仍是解释假说；当新工作逐渐定型，企业也可能重新提高对具体技能的要求。</li></ul></div><div><p>风险投资机构 a16z 旗下媒体的最新一期图表周报，把一个招聘变化放在了标题里：科技企业对工作经验的要求在提高，对技能清单长度的要求却在下降。作者 Moses Sternstein 借此提出一个值得讨论的解释：当新技术让工作方法不断变化时，企业更需要能判断问题、找到办法的人。</p><p>招聘之外，这期周报还讨论了三个独立话题：</p><ul>
-<li><strong>Netflix 的注意力竞争：</strong>用户把时间花在哪里，如何影响流媒体平台的竞争位置？</li>
-<li><strong>网络安全的响应速度：</strong>漏洞更早遭到利用，企业还能留下多少修复时间？</li>
-<li><strong>数据中心的用工需求：</strong>AI 基础设施建设，怎样带动建筑业和专业工种就业？</li>
-</ul></div><div><h2>经验要求上升，不等于技能已经不重要</h2><p>Revelio Labs 的招聘数据出现了两条方向相反的线：从 2025 年初起，技术岗位要求的经验年数上升，列出的技能数量下降。图中已控制岗位资历层级，值得关注的是同类岗位的要求如何变化。</p><figure>
-<div>
-<div>
-<p>同类技术岗位：经验要求升，技能条目降</p>
-<a><img /></a>
-<p>2025年起两条线明显分离；红线读左轴的技能数量，蓝线读右轴的经验年数。已控制岗位资历层级。两线交点不表示数值相等。</p>
-</div>
-<div>
-<p>数据与系统相关技能，经验要求增幅靠前</p>
-<a><img /></a>
-<p>比较自2023年以来，每次技能提及对应的经验年数增量；数据组织与数据研究位列前二。</p>
-</div>
-</div>
-</figure><p>这里的“经验溢价”衡量招聘要求，不能直接读成薪资涨幅。招聘广告也只能告诉我们企业怎样描述理想人选，无法单独证明最终录用了谁、什么能力带来了更好业绩。</p><p>如果企业少列几个技能关键词，却多要求一些经验，它在试图筛选什么？</p></div><div><h2>工作方法还没定型，判断能力就更难写进清单</h2><p>技能清单适合描述明确的工作：使用什么工具、完成什么任务、达到什么标准。当工作本身尚在变化时，清单就不容易覆盖真正的难点。人可能熟悉列出的工具，却仍不知道先处理哪个问题，或怎样判断结果是否可靠。</p><p>Sternstein 的解释是，AI 让既有做法的适用性发生变化，而新做法还没有完全定型。此时，经历过复杂问题的人，可能更善于在条件不完整时推进工作。数据和系统相关岗位的经验要求变化，是他支持这一解释的线索。</p><p>具体看数据工作：AI 增加了整理和处理数据的迫切性，但需要整理成什么形态、处理流程怎样安排，都在变化，最优方案也没有固定下来。Sternstein 的推论是，连任务该怎样完成都还在摸索时，企业很难先列出一张准确的技能清单；能边做边判断的人，因此更有价值。这解释了为什么经验要求增幅靠前的项目集中在数据组织、数据研究、系统架构等领域。</p><figure>
-<figcaption>作者的解释假说</figcaption>
-<ol>
-<li><strong>工作方法在变化</strong><span>旧方法未必适用</span></li>
-<li><strong>技能清单难覆盖</strong><span>任务尚未完全定型</span></li>
-<li><strong>判断能力更受重视</strong><span>经验提供筛选线索</span></li>
-</ol>
-<p>这条路径解释招聘偏好，尚不能证明AI造成了图中的变化。</p>
-</figure><p>这个判断有一个关键限定：<strong>有价值的经验，需要能转化为新的判断。</strong> 单纯重复同一种操作，与经历过方案选择、失败排查和结果检验，并不意味着同样的能力。履历年限容易统计，判断质量却需要通过具体工作才能看见。</p><p>对求职者而言，可以把项目经历整理成一条可检验的链：遇到了什么约束，为什么选这个方案，出现了什么偏差，怎样确认修正有效。这是一种展示能力的方法，并不保证招聘结果；它的作用是让“我有经验”变成别人能够判断的证据。</p><p>AI 是否造成了招聘变化，目前仍是解释假说。岗位结构、远程招聘范围和从业者自然年龄增长，都可能影响观察结果。等到新工作形成稳定方法，企业也可能重新把这些能力写成具体技能要求。原文标题中的大于号，适合描述一种阶段性的偏好，不能理解为经验永远压过技能。</p></div><div><h2>Netflix 的压力，要把使用量、份额和收入分开看</h2><p>应用数据机构 Apptopia 观察到，美国社交媒体使用时间仍在微增，增长主要由 17—25 岁用户推动；36 岁以上用户的使用时间自 2025 年 10 月起趋于回落。与此同时，自 2026 年 4 月以来，社交媒体占手机总使用时间的份额下降约 3 个百分点。用户仍在刷社交媒体，却把更多新增时间给了别处。</p><figure>
-<div>
-<div>
-<p>美国社交应用总时长上升，年龄组走势有别</p>
-<a><img /></a>
-<p>总量仍高于2023年，17—25岁组继续增加；其他年龄组近期出现走平或回落。</p>
-</div>
-<div>
-<p>手机时间份额回落，同比增速接近零</p>
-<a><img /></a>
-<p>深绿线读右轴的手机时间份额，浅绿线读左轴的同比增速；接近零的是增速。</p>
-</div>
-</div>
-</figure><p>使用时间增加，份额仍可能下降。假设某类应用从每天 40 分钟增至 45 分钟，而手机总使用时间从 100 分钟增至 125 分钟，它的份额就从 40% 降至 36%。这个假设例子说明，绝对增长不能直接证明竞争位置改善。Sternstein 提出了其他应用、AI 和短视频等可能去向，并更倾向于 YouTube 短视频带来的竞争；这些去向仍是解释，份额变化本身没有识别出原因。</p><figure>
-<div>
-<div>
-<p>交叉使用出现不对称：YouTube用户更少打开Netflix</p>
-<a><img /></a>
-<p>美国移动应用指数，以2025年1月为100；Netflix用户使用YouTube的指数大致稳定，反方向明显下降。</p>
-</div>
-<div>
-<p>美国周活跃用户：Netflix走低，Spotify走高</p>
-<a><img /></a>
-<p>以2022年12月26日所在周为100；这是各自的变化指数，不能用来比较两者用户总量。</p>
-</div>
-<div>
-<p>美国使用时长：Netflix下降更明显</p>
-<a><img /></a>
-<p>以2023年1月为100；Netflix降至约70附近，Spotify仍高于基期。</p>
-</div>
-</div>
-</figure><p>Netflix 面对的是更直接的压力：YouTube 用户中同时使用 Netflix 的那条指数下行，而 Netflix 用户同时使用 YouTube 的指数大体平稳。Sensor Tower 的美国数据还显示，Netflix 的周活跃用户与使用时长长期趋弱。以图中各自的 2022 年末、2023 年初起点为 100，最新周活跃用户指数在 80 多，使用时长指数约为 70，观看时间损失得更明显。短视频竞争是可能的解释，订阅价格和其他流媒体竞争也可能参与其中。</p><p>交叉使用的两个方向以不同用户群体为分母，不能互换。指数则把某个起点记为100，用来观察后续变化；它不表示用户人数。这些图呈现美国样本中的使用表现，不能直接换算成全球订阅流失。</p><figure>
-<div>
-<div>
-<p>使用承压时，Netflix高端订户收入估算仍领先</p>
-<a><img /></a>
-<p>2026年6月美国订户：Netflix高端月付方案的终身收入估算为1,427美元；这是收入估算，尚未扣除内容等成本。</p>
-</div>
-</div>
-</figure><p>与此同时，研究机构 Owl &amp; Co. 估算的美国订户终身收入中，Netflix 高级月付方案为 1,427 美元，高于下一名 Disney+ 高级年付方案的 871 美元。较高付费水平与较长订阅时间，能支撑单个订户的收入价值。因此，使用减少与订户收入价值较高，可以同时成立；终身收入也不等于扣除内容等成本后的利润。</p><p>较高价格也可能让用户重新衡量订阅是否值得。Sternstein 因此把 Netflix 拓展体育直播、视频片段和短视频的动作，与注意力压力联系起来：平台需要提供更多打开应用的理由，来维持留存和付费价值。新内容能否收回用户时间，仍要看后续表现。</p><p>作者借百视达作类比：约二十年前 Netflix 冲击了这家录像租赁巨头，如今自身也可能遭遇观看习惯变化带来的挑战。这个类比提出了商业模式能否适应的问题，图表还不能证明 Netflix 已走向同样结局。观察时要分别追问用户是否减少打开、减少观看、减少付费。</p></div><div><h2>安全风险的重点，是防守还剩多少响应时间</h2><p>Epoch AI 汇总的高危与严重漏洞报告，在2026年春季后明显增多。与此同时，ZeroDayClock 统计显示，在已经被利用的漏洞中，利用发生得越来越早。两者结合起来，防守团队面临的不只是更多待处理问题，还有更紧的响应时间。</p><figure>
-<div>
-<div>
-<p>高危与严重漏洞报告在2026年显著增多</p>
-<a><img /></a>
-<p>橙线为高危，红线为严重；样本来自图下注明的厂商，报告流程、标签和频率存在差异。</p>
-</div>
-<div>
-<p>已被利用样本中，披露时已遭利用的比例上升</p>
-<a><img /></a>
-<p>2026年为86.7%；分母仅是已被利用的CVE，事件发生在公开披露当天或更早。</p>
-</div>
-</div>
-</figure><p>ZeroDayClock 图中的 86.7%，指 2026 年截至图表统计时，已被利用的漏洞样本中，在披露当天或更早就遭到利用的比例；2020 年为 22.8%，2025 年为 53.6%。这个跨年份对比显示，披露前后即遭利用的情形变得更加集中；2026 年尚未结束，样本规模也与完整年份不同。它说明披露未必给防守者留下准备时间，但不能理解为全部漏洞近九成都已遭到利用。报告数量增长也可能包含发现能力和披露口径的变化。</p><figure>
-<div>
-<div>
-<p>中位利用时间的门槛，被外推到分钟级</p>
-<a><img /></a>
-<p>依据2018—2024年趋势外推；图中2027年的“一小时”和“一分钟”均标为预测。</p>
-</div>
-<div>
-<p>最终被利用的漏洞，利用更集中在披露早期</p>
-<a><img /></a>
-<p>横轴从公开披露起算，纵轴是尚未被利用的比例；2026年曲线更低，样本不含永远未被利用的漏洞。</p>
-</div>
-</div>
-</figure><p>从披露到被利用的时间，ZeroDayClock 展示的趋势已缩短到以天计；“2027年达到一分钟”是基于历史趋势的外推。另一张曲线把差异呈现得更直观：在最终会被利用的那组漏洞里，2022 年样本在披露约一个半月后仍有约一半尚未被利用，2026 年样本同期已接近零。等待一个固定的常规修复周期，可能赶不上风险变化；这也不意味着任何漏洞都会在某个期限内被利用。</p><p>Sternstein 同时强调，AI 也会改变防守方式：加速发现漏洞的能力，可以服务于防御。对防守方而言，实用问题是：发现风险、判断影响、决定行动和落实修复，各自花了多久？即使检测工具更快，如果后续交接仍然很慢，整体响应时间也不会自动跟着缩短。</p><figure>
-<div>
-<div>
-<p>安全与可观测性，年内股价表现领先其他软件组</p>
-<a><img /></a>
-<p>截至2026年9月1日，按当时市值加权的类别表现；这组曲线衡量资本市场定价。</p>
-</div>
-<div>
-<p>安全组在远期收入倍数上获得较高定价</p>
-<a><img /></a>
-<p>纵轴为企业价值／未来12个月收入，横轴为预期收入增速，气泡面积为市值；这是估值比较。</p>
-</div>
-</div>
-</figure><p>在图中选取的软件股票里，网络安全与可观测性类别的年内表现显著领先，远期收入估值也体现出市场的较高期待。资金正在为这类需求定价。股价与估值不能证明产品防守能力；既有厂商和新平台仍要回答同一个问题：怎样把更快发现风险转化为更快降低风险？</p></div><div><h2>数据中心把 AI 需求传导到了建筑现场</h2><p>AI 基础设施需求会经过机房、电力、制冷和建设环节，落到软件行业之外。数据中心建设支出的年化速度，半年内从约 500 亿美元升至约 750 亿美元，增量相当于此前约两年的提升。与此同时，美国建筑业职位空缺近期也出现回升。高盛以其他建筑就业趋势作参照，估算数据中心相关建筑与专业工种自 2022 年以来增加了约 30 万人；原文援引的近一年增量接近 7.5 万人。</p><figure>
-<div>
-<div>
-<p>数据中心建设支出加速，建筑职位空缺回升</p>
-<a><img /></a>
-<p>红线读右轴的季调年化建设支出，蓝线读左轴的建筑业职位空缺三个月均值；职位空缺覆盖建筑业。</p>
-</div>
-<div>
-<p>相关建筑工种，相对其他建筑就业趋势多出逾30万</p>
-<a><img /></a>
-<p>左图以2022年为比较起点，包含暖通、电气、公用设施和商业建筑等类别；右图分别显示同比增长。</p>
-</div>
-</div>
-</figure><p>图中的相关工种包括暖通空调、电气、公用设施和商业建筑施工。建设支出采用季节调整后的年化口径，也就是排除季节因素后，按当前速度折算的一年支出规模。年化速度提高，不能直接当成某段时间内已经花掉的钱；相对就业趋势的估算，也不能直接当成全社会净新增就业。</p><p>这些增量的意义，要放回建筑业的大环境里看：利率上升后，其他许多建筑活动放缓，用工需求承压。Sternstein 据此判断，数据中心建设正在支撑原本偏弱的蓝领就业市场；如果缺少这轮建设，就业表现可能更差。原文还提到相关工作的工资溢价，但本期图表没有给出具体幅度。</p><p>这里要区分“项目需要哪些工作”和“全社会净增加多少岗位”。一座设施带来建设需求，并不自动回答人员是否从其他项目转来、施工结束后还剩多少岗位。反过来，也不能只观察办公室里的自动化，就忽略为基础设施建设提供的工作。</p><p>回到招聘问题，个人能做的具体准备是检查自己的经历：哪些只是熟悉某个工具，哪些能够说明自己在变化的条件下做过判断、修正过错误，并完成了可检验的结果。把后者讲清楚，经验才有超出履历年限的信息量。</p></div><div><div><div>来源</div><div><span>Charts of the Week: Experience &gt; Skills</span><span>a16z New Media<span>·</span><a href="https://www.a16z.news/p/chart-of-the-week-experience-skills">查看主材料</a></span></div></div></div></div></div><div>
-<h1>经验的价值，落在判断里</h1><p>a16z 图表周报观察到：技术岗位要求更多经验，却列出更少技能。企业可能更看重在工作方法未定型时做判断的人。</p>
-<h2>招聘广告的两条反向信号</h2><p>Revelio Labs：自 2025 年初起，技术岗位呈现以下变化，已控制岗位资历层级。</p><div><div><b>经验年数</b><strong>要求上升</strong></div><div><b>技能数量</b><strong>列项下降</strong></div></div>衡量招聘要求；不能直接读成薪资或录用结果。
-<h2>工具清单难以预写一条新路</h2><p>作者的解释：AI 改变既有做法，新流程还在摸索；数据组织、研究与系统架构等工作尤其需要边做边判断。</p><div><div><b>任务仍在变化</b><p>目标、数据形态、处理流程尚未完全定型</p></div><div><b>固定技能清单</b><p>能写明会用什么，却难覆盖先做什么、如何验收</p></div></div><div><b>可迁移的经验</b></div>
-<h2>把“做过几年”变成一条可检验的经历</h2><p>求职展示可以沿这条链组织。重复操作的年数，不能自动代表判断质量。</p><ol><li><b>约束</b><span>当时什么条件不完整？</span></li><li><b>选择</b><span>为什么采用这个方案？</span></li><li><b>修正</b><span>哪里偏了，怎样调整？</span></li><li><b>检验</b><span>什么证据表明有效？</span></li></ol>
-<h2>经验偏好有条件，也有时限</h2><p>AI 导致招聘变化仍是假说。岗位结构、招聘范围、从业者年龄变化也可能参与；新方法稳定后，经验又可能被写回技能清单。</p><strong>真正有信息量的经验，是能解释选择、修正与结果的经验。</strong>
-<h2>同一期的另外三个独立观察</h2><p>以下趋势彼此独立，也不是上述招聘变化的因果证据。</p>Netflix使用走弱与较高订户终身收入可同时成立；时间、份额、收入要分开看。网络安全在已被利用的漏洞样本中，利用更早发生；防守要缩短发现到修复的总时间。数据中心机房、电力与制冷建设带动专业工种；相关就业估算不等于全社会净增岗位。
-</div>
-<div><h1>工具带齐以后，路要怎样走？</h1><div>
-<div>工具我会不少，经验要怎样讲？</div><p>技术岗位要求更多经验、列出更少技能。以下是解释用的虚构场景。</p>
-<div>工具齐了，路却还没定。</div><p>作者的解释：AI 改变做法，旧流程未必适用，新流程尚未稳定。</p>
-<div>先看约束，再选走法。</div><p>经验的作用，可能是帮助人在信息不完整时作出判断。</p>
-<div>这一步不稳，先修正。</div><p>做过复杂问题的人，需要能解释方案如何偏离预期、如何修正。</p>
-<div>走通了，还要留下验证依据。</div><p>把约束、选择、修正和检验连起来，“有经验”才成为别人能判断的证据。</p>
-<div>我能讲清为什么选、怎样改、如何验。</div><p>AI 是否造成招聘变化仍是假说；年限不等于判断，展示经历也不保证录用。</p>
-</div></div>
-</div></div>
 </div></div></body></html>]]></content:encoded>
 </item>
 </channel>
