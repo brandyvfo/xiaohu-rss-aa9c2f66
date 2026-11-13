@@ -6,7 +6,321 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Thu, 12 Nov 2026 12:00:14 +0000</lastBuildDate>
+<lastBuildDate>Fri, 13 Nov 2026 12:00:14 +0000</lastBuildDate>
+<item>
+<title>【日报】Google 发布 Gemini 4 Hydrogen：比 3.8 Flash 还快 2.5 倍，编程得分从 18.2% 涨到 57% · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/gemini-4-hydrogen/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:gemini-4-hydrogen</guid>
+<pubDate>Fri, 13 Nov 2026 12:00:14 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 Hydrogen 和 Carbon、Argon 是什么关系？ 02 Orchestrator：一个任务里，两个模型怎么换手？ 03 单独用：比上一代 3.8 Flash 强多少？ 04 四档思考：快和准，怎么挑？ 05 搜索和 Gemini app 里，普通人能感觉到什么？ 06 安全：越界少了，误拒多了一点 07 怎么用上？开发者迁移要改什么 AI 解读 / 产品发布 · 1</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 13 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Google 发布 Gemini 4 Hydrogen：比 3.8 Flash 还快 2.5 倍，编程得分从 18.2% 涨到 57% · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/gemini-4-hydrogen/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>Hydrogen 和 Carbon、Argon 是什么关系？</span></a><a><span>02</span><span>Orchestrator：一个任务里，两个模型怎么换手？</span></a><a><span>03</span><span>单独用：比上一代 3.8 Flash 强多少？</span></a><a><span>04</span><span>四档思考：快和准，怎么挑？</span></a><a><span>05</span><span>搜索和 Gemini app 里，普通人能感觉到什么？</span></a><a><span>06</span><span>安全：越界少了，误拒多了一点</span></a><a><span>07</span><span>怎么用上？开发者迁移要改什么</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>产品发布</a><i>·</i>11-13<i>·</i>约 14 分钟<i>·</i>作者 Google</div><h1>Google 发布 Gemini 4 Hydrogen：比 3.8 Flash 还快 2.5 倍，编程得分从 18.2% 涨到 57%</h1><p>Gemini 4 家族里主打快和省的一档。单独用，它比 3.8 Flash 强出一大截；在 Antigravity 里，它还能和 Carbon 搭班：Carbon 出主意，Hydrogen 动手。</p><div><div>正文原文</div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Google</span><span>11-13 · 约 14 分钟</span><span>⚑ 产品发布</span></div></div></div>
+<div><div><div><figure><img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/key-art.jpg" alt="Gemini 4 Hydrogen 官方主视觉：蓝色背景上一团透明的水泡状球体" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><strong>一分钟速览</strong><ul><li>默认思考档综合分 51，反超 Gemini 4 前沿模型 Argon 的 50。</li><li>比 3.8 Flash 快 2.5 倍，终端编程测试得分翻了三倍多。</li><li>和 Carbon 搭班，成功率接近全程用 Carbon，额度平均省 24%。</li></ul><div><p>Google 发布了 Gemini 4 家族的新成员 <strong>Gemini 4 Hydrogen</strong>。前两款 Carbon 和 Argon 是前沿模型，专门啃最难、最长的任务；Hydrogen 是这一代里主打「快、省」的那一档，负责把活儿又快又稳地做完：写代码、跑测试、调工具、做 Agent 流程。</p><p>几组数字很硬。在第三方综合榜 Artificial Analysis 智能指数上，它在默认的 high 思考档拿到 51 分，比 Argon 的 50 分还高，开到新增的 xhigh 档是 54 分。和上一代主力 Gemini 3.8 Flash 比，它做完任务快 2.5 倍，终端编程测试 Terminal-Bench 4.1 从 18.2% 涨到 57%，编造事实的情况少了五倍多。价格是每百万 token 输入 1.5 美元、输出 7.5 美元，100 万 token 的窗口里不分长短一个价。</p><p>它也把 Gemini 4 铺到了所有人手里：Google 搜索的全球用户、Gemini app（免费用户在系统自动选模型时会用到它）、AI Studio 和 Gemini API 的免费档都能用。</p><p>把官方发布长文和同时发出的几份配套文档、模型卡合起来读，我们觉得最值得看的是「分工」。小模型过去常被当成大模型的便宜替身，Hydrogen 的设计目标却很明确：在团队里当执行者。最强的模型负责想清楚，它负责快速干完，Google 还把这种搭班直接做进了自家编程 Agent 工具 Antigravity 的模型菜单。用 AI 写代码、跑 Agent 的人，选模型的思路会因此改变；只用搜索的人，赶上的是 Google 口中「搜索迄今最大的一次模型升级」。</p><h2>Hydrogen 和 Carbon、Argon 是什么关系？</h2><p>Gemini 4 现在有三款，名字都取自化学元素。三款共用同一套 100 万 token 上下文、长输出机制和内置工具，区别在想得多深、花多少钱、等多久。模型卡还写明，Hydrogen 是从 Carbon 改造（adapted）来的。</p><div><div>
+<div>Gemini 4 一家三口，各管一摊</div>
+<div>定位按 Google AI Studio 开发者说明整理</div>
+<div>
+<div>
+<div>C</div>
+<div>Gemini 4 Carbon</div>
+<div>最强的前沿模型。每一轮花更多思考 token 去验证假设、查边界情况，适合难的架构、排错、科研和安全审计。</div>
+<div>思考档：默认 medium，最高 high</div>
+</div>
+<div>
+<div>Ar</div>
+<div>Gemini 4 Argon</div>
+<div>能扛下大多数高难度长任务，token 用量比 Carbon 少。</div>
+<div>思考档：默认 medium，最高 high</div>
+</div>
+<div>
+<div>H</div>
+<div>Gemini 4 Hydrogen</div>
+<div>快、省，也能处理复杂的 Agent 流程。日常编程、交互网页、调工具的 Agent、多模态文档、并行子 Agent。</div>
+<div>$1.50 输入 / $7.50 输出（每百万 token）</div>
+<div>思考档：默认 high，新增 xhigh</div>
+</div>
+</div>
+<div>Google 推荐 3.8 Flash 以及更早的 Gemini 3、2.5 用户升级到 Hydrogen。最便宜最快的仍是 Gemini 3.5 Flash-Lite，留给大批量分类、路由和要求亚秒级响应的场景。</div>
+</div></div><p>综合分被 Hydrogen 反超，Argon 并没有因此过时。那 51 分是 Hydrogen 在默认的 high 档拿到的，Argon 的默认档是低一级的 medium；Argon 的 50 分是哪一档测的，原文没有说。官方给的分工也没变：最难、最长的推理任务仍然交给 Carbon 和 Argon。</p><p>官方原文对这层分工的说法是：Carbon 和 Argon 擅长在最难的问题上做深度、长时间的推理，Hydrogen 为「在各种 Agent 流程里快速执行」而生。它可以单独当日常主力，也可以和 Carbon、Argon 搭班，当多模型流程里的高效执行引擎。</p><div><a>
+<span>站内旧文 · 搭班的另一半</span>
+<span>Google 发布 Gemini 4 Carbon：主攻持续多天的编程任务，强化漏洞发现与修复</span>
+<span>想知道 Orchestrator 里负责规划的 Carbon 有多强：它能连跑多天排查大型代码库里的细微 bug，也是 Google 的网络安全主力。</span>
+<span>阅读 →</span>
+</a></div><h2>Orchestrator：一个任务里，两个模型怎么换手？</h2><p>真实的软件开发里，团队设计系统、解开隐蔽 bug 时离不开 Carbon、Argon 这样的前沿模型，但写代码、跑测试、核对改动这些活，更需要一个又快又守规矩的执行者。每一步都用最强模型，循环变慢，额度（订阅里前沿模型的可用量）也烧得快。</p><p>业内常见的办法是「静态路由」：看第一句提示猜任务有多难，然后把整个任务派给能胜任的最便宜模型。Antigravity 的博客指出，Agent 一跑久，这种办法就开始失灵：同一个任务在不同阶段难度不同，而且往往做到一半才发现。</p><p>Google 在 Antigravity 里新加的 <strong>Orchestrator</strong>（编排器）选项换了个做法：在同一次会话、同一条任务轨迹里，让 Carbon 和 Hydrogen 双向来回切换。</p><div><div>
+<div>Orchestrator 怎么换手 <span>示意图</span></div>
+<div>按 Antigravity 博客描述的流程画，具体步骤是举例</div>
+<div><b>静态路由：</b>只看第一句话判断难度 → 整个任务交给一个模型。做到一半变难了，也换不了。</div>
+<div>
+<div>Carbon · 想</div>
+<div>Hydrogen · 干</div>
+<div><span>1 只读</span>摸清依赖，把含糊的地方问清楚</div>
+<div><span>2 定计划</span>写好计划，并写明什么情况要重新规划</div>
+<div><span>3 交给 Hydrogen</span>改代码</div>
+<div><span>4</span>升级依赖包</div>
+<div><span>5</span>跑测试：卡住了</div>
+<div><span>6 交回 Carbon</span>查看现场，修补计划</div>
+<div><span>7 再交给 Hydrogen</span>接着做，测试通过</div>
+</div>
+</div></div><p>在 Terminal-Bench 4.0 上（官方长文这里用的是 4.0 版），Orchestrator 的任务成功率接近全程只用 Carbon，同时平均少用 24% 的额度，完成得快 19%。</p><div><div>
+<div>Orchestrator 对比全程用 Carbon</div>
+<div>Terminal-Bench 4.0，平均值。以全程用 Carbon 为 100</div>
+<div>
+<div>
+<div>任务成功率 <span>接近 Carbon（原文没给具体数）</span></div>
+</div>
+<div>
+<div>消耗的额度</div>
+<div><div>全程 Carbon 100</div></div>
+<div><div>Orchestrator 76</div></div>
+</div>
+<div>
+<div>完成用时</div>
+<div><div>全程 Carbon 100</div></div>
+<div><div>Orchestrator 81</div></div>
+</div>
+</div>
+<div>「少用 24%、快 19%」换算成以 Carbon 为 100 的条形。原文没有给出成功率的具体数字，只说「接近 Carbon」。</div>
+</div></div><p>要多个 Agent 并行干活时，分工也一样：Carbon 当协调人，Hydrogen 当干活的和验收的，各自在隔离的工作区里同时写改动、跑测试。Google 的说法是，这样能让团队更快交付复杂项目，token 成本又不会跟着飙升。</p><div><div>
+<div>并行时的搭法</div>
+<div>按官方原文的描述画</div>
+<div>
+<div><b>Carbon</b> · 协调：拆任务、派活</div>
+<div>↓　　　↓　　　↓</div>
+<div>
+<div><div>隔离工作区 1</div><div>H · 写改动</div><div>H · 测试核验</div></div>
+<div><div>隔离工作区 2</div><div>H · 写改动</div><div>H · 测试核验</div></div>
+<div><div>隔离工作区 3</div><div>H · 写改动</div><div>H · 测试核验</div></div>
+</div>
+</div>
+</div></div><p>想自己决定谁干什么，也可以用 Antigravity SDK 手动把两个模型接起来。Antigravity 博客演示了一个开源项目的 issue 分拣系统：几个 Hydrogen Agent 负责分拣和写代码，跟上不断涌进来的 issue，在代码库里搜索、追问不清楚的地方、按 PR 评论快速改界面；Carbon Agent 负责较大的重构、新功能和安全检查。</p><p><strong>谁能用：</strong>Orchestrator 先以 Orchestrator (Carbon) 和 Orchestrator (Argon) 两个选项开放给 Google AI Ultra 订阅用户，付费的 Google AI Pro 用户能用 Orchestrator (Argon)，企业可以通过 Gemini for business 使用，Google 说以后会支持更多模型和套餐。</p><h2>单独用：比上一代 3.8 Flash 强多少？</h2><p>不搭班，Hydrogen 本身也是一次大升级。官方原文给了从 3.8 Flash 迁过来的几组对比：默认的 high 档下做完任务快 2.5 倍，Terminal-Bench 4.1 成绩翻了三倍多（57% 对 18.2%），编造的说法少了五倍多，工具调用失败或者搜索返回空结果时，也能利落地换个办法。</p><div><div>
+<div>Hydrogen 对比 Gemini 3.8 Flash</div>
+<div>数字来自官方原文；第三格的小圆点是示意</div>
+<div>
+<div>
+<div>做完同一个任务的用时</div>
+<div><span>3.8 Flash</span><span><i></i><b></b></span></div>
+<div><span>Hydrogen</span><span><i></i><b></b></span></div>
+<div><b>快 2.5 倍</b><br />用时约为 3.8 Flash 的四成（默认 high 档）</div>
+</div>
+<div>
+<div>Terminal-Bench 4.1 得分</div>
+<div><span>3.8 Flash</span><span><i></i><b>18.2%</b></span></div>
+<div><span>Hydrogen</span><span><i></i><b>57%</b></span></div>
+<div><b>三倍多</b><br />在终端里自己动手完成编程任务</div>
+</div>
+<div>
+<div>编造的说法</div>
+<div><span>3.8 Flash</span><span><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+<div><span>Hydrogen</span><span><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+<div><b>少五倍多</b><br />缺信息时会指出来，不去瞎猜</div>
+</div>
+</div>
+</div></div><p>编造少了的原因，AI Studio 的开发者说明讲得更具体：遇到缺失的上下文，它会标出来，而不是自己猜一个答案。</p><p>快的一个来源是「批量读」。在大型代码库里找东西，Hydrogen 会把读文件、搜索这些工具调用一次性并行发出去，不再一个文件一个文件地看。合作方在复杂图结构、SQL 和数据密集的企业流程里做早期测试，测到它比 3.8 Flash 快 2 到 2.8 倍，token 用量少 12% 到 23%。</p><div><div>
+<div>一个一个看，还是一次全发出去 <span>示意图</span></div>
+<div>同样要读 6 个文件。每发一次请求、等一次结果，算一个来回</div>
+<div>
+<div>
+<div>逐个读取 <span>来回 0 次</span></div>
+<div><div>a.py</div><div>b.py</div><div>c.sql</div><div>d.ts</div><div>e.md</div><div>f.json</div></div>
+<div><i></i></div>
+</div>
+<div>
+<div>并行批量读取（Hydrogen） <span>来回 0 次</span></div>
+<div><div>a.py</div><div>b.py</div><div>c.sql</div><div>d.ts</div><div>e.md</div><div>f.json</div></div>
+<div><i></i></div>
+</div>
+</div>
+<div>示意图只演示道理：来回越少，等得越短。真实提速幅度以合作方的测试为准：比 3.8 Flash 快 2 到 2.8 倍，token 少用 12% 到 23%。</div>
+</div></div><h3>和同档对手比</h3><p>Google 拿它和同一档的 Claude Sonnet 5.5、GPT-6.1 Terra 做了一张对比表。10 项测试里，Hydrogen 7 项最高；Terminal-Bench 4.1、OSWorld-2.1 和 Terminal-Bench-Science 三项，Claude Sonnet 5.5 更高。前面那个翻了三倍多的 57%，在这张表里排在 Sonnet 5.5 的 63.9% 后面。</p><div><div>
+<div>10 项测试，三家同档模型</div>
+<div>按 Google 官方对比表重画。条越长越好；每行从 0 到 100%（Vending-Bench 2 从 0 到 1.6 万美元），每项最高分加粗</div>
+<div><span><i></i>Gemini 4 Hydrogen</span><span><i></i>Claude Sonnet 5.5</span><span><i></i>GPT-6.1 Terra</span></div>
+<div></div>
+</div></div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/chart-benchmarks_table.gif" alt="Google 官方对比表：Gemini 4 Hydrogen、Claude Sonnet 5.5、GPT-6.1 Terra 在 10 项测试上的成绩" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>官方原表：</b>蓝底是 Hydrogen 最高的格子，灰底是对手更高的格子。Terminal-Bench 4.1 一栏标的是「剔除作弊后」（Cheating-adjusted）的成绩，字面意思是扣掉作弊情况后的得分，原文没展开怎么算；GPT-6.1 Terra 这一项没有数据。</figcaption>
+</figure></div><p>原文挑出来的几项：</p><ul>
+<li><strong>反复改代码、排错：</strong>它改得精准，不去重写无关的文件。SWE-sweep 要求模型自己找出 bug、修好，还不能弄坏原有代码，Hydrogen 在这项上超过同档模型。</li>
+<li><strong>开放式 Agent 任务：</strong>深度调研、数据分析、在大代码库里四处找东西这类多步任务，它在 arena.ai 的实时榜 Agent Arena 排第 5。专业推理方面，HLE-Diamond 58.8% 同档领先，Vals 税务 Agent 测试 52.3% 总榜第一，Vals 法律调研测试 55.8% 并列第一。</li>
+<li><strong>多模态知识工作：</strong>原生支持 100 万 token 输入、最多 100 万 token 输出，能把大份 PDF、表格、图表、音频和录像整理成带引用的报告，看视频时还能主动查看特定帧和画面细节。新的多模态知识 Agent 测试 MKA 得 53.4%，端到端专业工作流程测试 Agents' Last Exam v1.1 得 71.6%。</li>
+<li><strong>网页开发：</strong>实时做界面原型、照设计稿写代码、做交互应用，它用更少轮提示做出功能更完整的页面。</li>
+</ul><h3>它做出来的东西</h3><p>原文配了 5 段开发向的演示视频。其中 Geminisland 和电商店铺两个都有<a href="https://aistudio.google.com/apps/bundled/geminisland">在线</a><a href="https://aistudio.google.com/apps/bundled/material-flask-website">试玩版</a>，店铺用到的前端设计技能也<a href="https://github.com/google-gemini/demolab">开源</a>了。</p><div><div>
+<div>开发向演示 <span>Google 官方演示视频</span></div>
+<div>点封面直接在这里播放</div>
+<div>
+<a href="https://www.youtube.com/watch?v=RxS0b_izj_4"><span><img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/demo-geminisland-poster.jpg" alt="Geminisland 演示画面：体素风格的小岛和建筑" style="max-width:100%;height:auto;border-radius:8px;" /></span><span><b>Geminisland：一句话往岛上盖楼</b>用 Hydrogen 现场写 3D 代码。任何人一句提示就能往一座共享的体素小岛上加建筑，生成后直接出现在地图上，玩家可以第一人称走进去逛。<span>点封面播放 · 也可去 YouTube 看 ↗</span></span></a>
+<a href="https://www.youtube.com/watch?v=BNWgUFXA5bQ"><span><img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/demo-storefront-poster.jpg" alt="电商店铺演示画面：保温杯产品页" style="max-width:100%;height:auto;border-radius:8px;" /></span><span><b>一次做出整个电商店铺</b>配合 Antigravity 里新出的 Gemini 前端设计技能，一次做完：WebGL2 地形着色器、固定画面的四段滚动叙事、热成像分屏滑块、3D 线框参数卡、实时外观配置器。<span>点封面播放 · 也可去 YouTube 看 ↗</span></span></a>
+<a href="https://www.youtube.com/watch?v=8tvoedsLqts"><span><img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/demo-sheets-pixel-poster.jpg" alt="Google Sheets 里用单元格画出的落叶像素画" style="max-width:100%;height:auto;border-radius:8px;" /></span><span><b>把电子表格变成像素动画</b>在 Antigravity 里，Hydrogen 把 Google Sheets 的几千个单元格缩小，结合 Python、原生 =LET(...) 公式和条件格式，直接在表格里画出并播放动画场景。<span>点封面播放 · 也可去 YouTube 看 ↗</span></span></a>
+<a href="https://www.youtube.com/watch?v=Iy9LEGlreC0"><span><img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/demo-slides-poster.jpg" alt="Antigravity 里连接 Google Slides 的设置界面" style="max-width:100%;height:auto;border-radius:8px;" /></span><span><b>看一段发布会视频，做出整套幻灯片</b>从一段 YouTube 发布会视频和一份设计模板出发，直接在 Google Slides 里生成多页演示，然后自己检查、自己修：抓出重叠的文字，把每页版式理顺。<span>点封面播放 · 也可去 YouTube 看 ↗</span></span></a>
+<a href="https://www.youtube.com/watch?v=GwPcVKYl5Zo"><span><img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/demo-sheets-finance-poster.jpg" alt="Sheets 里的五年财务预测仪表盘" style="max-width:100%;height:auto;border-radius:8px;" /></span><span><b>财务数据变成可交互模型</b>Google Sheets 里的 Gemini 把财务数据做成交互模型，随不同的预测情景自动调整。在 Sheets canvas 里出结果，比之前的模型快 30% 以上。<span>点封面播放 · 也可去 YouTube 看 ↗</span></span></a>
+</div>
+</div></div><h2>四档思考：快和准，怎么挑？</h2><p>Hydrogen 有四个思考档：low、medium、high（默认）和新加的 xhigh。档位越高，想得越深，等得越久，token 也花得越多。Google 说这四档是平滑、可预期地递进的，任务需要多深就开多深，只为用到的那部分推理等待和付钱。</p><div><div>
+<div>四个思考档各适合什么</div>
+<div>按 AI Studio 开发者说明整理；柱子高低只表示 token 用量的先后顺序，不是实测比例</div>
+<div>
+<div><div><i></i></div><div>low</div><div>token 最少，延迟最低</div><div>快速聊天、大批量处理。做 Agent 任务也还行</div></div>
+<div><div><i></i></div><div>medium</div><div>token 较少，响应较快</div><div>边聊边写代码、实时做界面原型、对延迟敏感的工具调用</div></div>
+<div><div><i></i></div><div>high<span>默认</span></div><div>智能和速度平衡</div><div>大多数任务的推荐默认：复杂编程、Agent 执行、调工具、多模态知识工作</div></div>
+<div><div><i></i></div><div>xhigh<span>新</span></div><div>token 最多，推理最深</div><div>high 搞不定的多步难题。简单问题上可能想太多</div></div>
+</div>
+<div><span>← 更快、更省</span><span>想得更深 →</span></div>
+</div></div><p>AI Studio 给开发者的建议很实用：多数复杂任务从 high 开始，xhigh 留给 high 搞不定的多步难题；把四档都在自己的测试集上跑一遍（记得把 <code>max_output_tokens</code> 设高，免得答案被截断），然后挑能达标的最低一档。</p><p>「快」到底快多少？下面这张图按官方的「AA 智能指数 vs 每个任务耗时」重画，时钟走起来，看三家各要多久爬到 50 分上下。</p><div><div>
+<div>同样爬到 50 分上下，各要多少分钟</div>
+<div>Artificial Analysis 智能指数 5.0.1，横轴是每个任务的耗时。按官方图重画，点的位置从原图量出，是近似值</div>
+<div><span><i></i>Gemini 4 Hydrogen</span><span><i></i>Claude Sonnet 5.5</span><span><i></i>GPT-6.1 Terra</span></div>
+<div></div>
+<div>
+<div><b>约 6 分</b><span>Hydrogen 默认 high 档到 51 分</span></div>
+<div><b>约 13 分</b><span>Hydrogen 开到 xhigh，54 分</span></div>
+<div><b>约 14 分</b><span>GPT-6.1 Terra 最高档到 51 分</span></div>
+<div><b>约 15 分</b><span>Claude Sonnet 5.5 到 50 分</span></div>
+<div><b>约 33 分</b><span>Claude Sonnet 5.5 最高档到 54 分</span></div>
+</div>
+</div></div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/chart-aa-index_score-time_graph.gif" alt="官方图：AA Index 5.0.1 得分与每个任务耗时（分钟），Hydrogen 四档对比 Claude Sonnet 5.5 和 GPT-6.1 Terra" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>官方原图：</b>Hydrogen 的四个点从左到右是 Low、Med、High、X High。low 档它比 GPT-6.1 Terra 略低，从 high 档开始，同样的分数它花的时间明显更短。</figcaption>
+</figure></div><p>时间之外，Google 还给了四张「得分 vs 每个任务花多少钱」的图。读法一样：<strong>越往左上越好</strong>，分数高、花钱少。四张图一起看，结论比原文那句「同档中常常更快、输出 token 更少」更细一些：</p><div><div>
+<div>得分和每个任务的花费 <span>官方原图</span></div>
+<div>蓝线是 Hydrogen（四个点依次是 Low、Med、High、X High），浅灰是 Claude Sonnet 5.5，深灰是 GPT-6.1 Terra。横轴是每个任务的花费（美元），每张图刻度不同。</div>
+<div>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/chart-automation-bench_graph.gif" alt="官方图：AutomationBench-AA 得分与每个任务花费" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption><b>AutomationBench-AA：</b>优势最明显的一张。Med 档的分数已经和 Sonnet 5.5 最贵那一档差不多，花费低得多。</figcaption></figure>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/chart-aa-index_graph.gif" alt="官方图：AA Index 5.0.1 得分与每个任务花费" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption><b>AA 智能指数：</b>比 Sonnet 5.5 省，但 GPT-6.1 Terra 的线在它左边，同样的分数 Terra 花得更少。</figcaption></figure>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/chart-t-bench_graph.gif" alt="官方图：Terminal-Bench 4.0 得分与每个任务花费" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption><b>Terminal-Bench 4.0：</b>High 和 X High 两个点一样高，开 xhigh 只是多花钱。Sonnet 5.5 最高档分数更高，每个任务的花费也贵好几倍。</figcaption></figure>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/chart-hle_graph.gif" alt="官方图：HLE-Diamond 得分与每个任务花费" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption><b>HLE-Diamond：</b>xhigh 比 high 多拿几个点，到 58.8%，每个任务的花费却涨到三倍多。</figcaption></figure>
+</div>
+<div>图里的判断是我们从原图读出来的。Terminal-Bench 那张正好印证了 AI Studio 的提醒：xhigh 不一定更好，简单任务上反而可能想过头。模型卡也提到，高思考档有时会为了把成绩拉满多用 token，偶尔会慢或超时。</div>
+</div></div><h2>搜索和 Gemini app 里，普通人能感觉到什么？</h2><p>普通用户这一侧，Google 的说法是：Hydrogen 更能在多轮对话里不跑题、按吩咐办事，少一些来回拉扯就拿到靠谱结果。Gemini app 里主要有三处变化：</p><ul>
+<li><strong>写东西一次到位：</strong>它会紧跟你要的语气、格式和具体规则，邮件草稿、复习提纲、改写和文档第一次就能直接用。比较产品或者消化大段材料时，会整理成清楚的表格和图示，不漏关键细节。</li>
+<li><strong>串起资料，多办成几件事：</strong>它会把目标一步步拆开，从你上传的文件、Gmail 和 Google Drive 这些 Google 应用、以及 Airtable、Dropbox 等已连接的应用里取相关内容。开始一个任务时，它也更常调用对口的工具和技能。</li>
+<li><strong>随手做原型：</strong>想试一个点子，它用更少几轮提示就能做出能用的页面，方便快速做出交互小项目再慢慢改。</li>
+</ul><p>免费用户怎么用上？原文脚注写明：Gemini app 的免费用户会通过「自动选模型」用到 Hydrogen，前提是系统判断这条提示适合交给它。</p><div><div>
+<div>日常向演示 <span>Google 官方演示视频</span></div>
+<div>点封面直接在这里播放</div>
+<div>
+<a href="https://www.youtube.com/watch?v=wRdIl5dnqUY"><span><img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/demo-lightning-globe-poster.jpg" alt="闪电地球演示画面：世界地图上标着雷击位置" style="max-width:100%;height:auto;border-radius:8px;" /></span><span><b>会唱歌的闪电地球</b>一个交互式 3D 地球，加上 Web Audio 音乐引擎，由实时的全球雷击数据驱动：世界各地的每一道闪电，都变成画面上的一圈涟漪和一段环境音乐。<span>点封面播放 · 也可去 YouTube 看 ↗</span></span></a>
+<a href="https://www.youtube.com/watch?v=oh8AyMFU5S8"><span><img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/demo-water-glass-poster.jpg" alt="水与玻璃演示画面：透明球体里的 hydrogen 字样" style="max-width:100%;height:auto;border-radius:8px;" /></span><span><b>纯数学画出来的水和玻璃</b>让它做一个 WebGL2 水和玻璃的可视化。它只用数学和 SDF 纹理，实时模拟光线的折射、反射、色散和吸收。<span>点封面播放 · 也可去 YouTube 看 ↗</span></span></a>
+<a href="https://www.youtube.com/watch?v=k1Y_dohjajA"><span><img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/demo-sizzle-reel-frame.jpg" alt="混剪短片中段画面：取自公有领域档案影像的讲解片段" style="max-width:100%;height:auto;border-radius:8px;" /></span><span><b>一部关于「氢」的混剪短片</b>用一个自定义的视频剪辑技能、按创意简报，它做了一部讲氢元素的档案影像混剪：自己找公有领域素材，剪成一条连贯的片子，配上干净的旁白。<span>点封面播放 · 也可去 YouTube 看 ↗</span></span></a>
+</div>
+</div></div><h3>搜索：一句话里问好几件事</h3><p>Hydrogen 已经在全球上线 Google 搜索，所有用户都能用到。Google 搜索产品副总裁在配套博客里称，这是搜索迄今最大的一次模型升级。变化有三处：</p><ul>
+<li><strong>更懂你真正想问什么：</strong>可以照着自己的思路随口问，一句话里好几个要求、打错的字、很具体的条件都行，搜索会逐条回应。</li>
+<li><strong>回答更直观：</strong>会根据问题出图片、结构化回答、对比表，还有专门为你生成的小工具，速度保持搜索该有的快。</li>
+<li><strong>链接更多更广：</strong>搜索里的 query fan-out（把一个问题拆成多个子问题同时去搜）得到加强，会就问题涉及的各个子话题同时检索，给你更多以前可能找不到的网站。</li>
+</ul><div><div>
+<div>一个问题怎么拆开搜 <span>示意图</span></div>
+<div>问题取自下面波士顿那张官方截图；子问题是我们按截图里的回答拆的，不是 Google 公布的真实查询</div>
+<div>用户的问题我要搬去波士顿，在市中心上班。28 岁，想住有社交氛围、但工作日晚上不太吵的街区，推荐几个？</div>
+<div>
+<div><div>到市中心通勤方便的街区</div><div><i></i><i></i><i></i></div></div>
+<div><div>年轻人多、社交氛围好的地方</div><div><i></i><i></i><i></i></div></div>
+<div><div>工作日晚上的噪音情况</div><div><i></i><i></i><i></i></div></div>
+<div><div>各街区的风格和地铁线路</div><div><i></i><i></i><i></i></div></div>
+</div>
+<div>↓ 汇总</div>
+<div>
+<div>回答：地图 + 街区对比表</div>
+<div>
+<div><i></i><i></i><i></i><i></i></div>
+<div><div><span>街区</span><span>风格</span><span>地铁</span></div><div><span>South End</span><span>美食、艺术</span><span>橙线</span></div><div><span>Back Bay</span><span>高档、好走</span><span>绿线</span></div><div><span>South Boston</span><span>活力、近海</span><span>红线</span></div></div>
+</div>
+</div>
+</div></div><p>Google 放出了三组同一问题的新旧对比截图，左边是 Gemini 3.5 Flash 的回答，右边是 Hydrogen（官方截图里对比的是 3.5 Flash）：</p><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/search-apartment.webp" alt="搜索对比截图：小开间公寓 200 美元内隔成两个房间，左 Gemini 3.5 Flash 右 Gemini 4 Hydrogen" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>「小开间、视频会议老拍到床，200 美元内怎么隔出两个房间？」</b>左边先讲道理再列步骤；右边一上来给出具体办法（调转书桌朝向、在椅子后面放半透明或开放式隔断），第一条方案就标了价格区间（80 到 140 美元的开放式书架隔断），还配了实物图。</figcaption>
+</figure></div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/search-boston.webp" alt="搜索对比截图：28 岁搬去波士顿选街区，右侧 Hydrogen 给出地图和街区对比表" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>「28 岁搬去波士顿，想要社交氛围但工作日晚上别太吵」：</b>左边是一串文字推荐；右边先给出按地铁橙线、绿线选街区的思路，再配一张标好街区的地图和一张对比表（风格、主要地铁线、社交评分）。</figcaption>
+</figure></div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/gemini-4-hydrogen/search-sneakers.webp" alt="搜索对比截图：推荐透气、足弓支撑好的一脚蹬运动鞋" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>「推荐透气、足弓支撑好、能走一整天的一脚蹬」：</b>右边接上了用户已经在穿的 Allbirds Tree Loungers，先说清它透气但鞋底偏平，再推荐带足弓支撑的款式，并配上商品图。</figcaption>
+</figure></div><p>搜索博客还提到，这些改进覆盖 AI Mode 支持的所有语言。</p><h2>安全：越界少了，误拒多了一点</h2><p>Hydrogen 会是 Gemini 4 用户最多的一款，所以安全数据值得看一眼。官方原文把重点放在两块：Agent 干活时守不守规矩，日常对话靠不靠谱。和 3.8 Flash 比，主要数字是：</p><div><div>
+<div>安全数据：官方博客 + 模型卡</div>
+<div>都是 Google 的内部评测。「最多」是原文的 up to</div>
+<div>
+<div><b>−81%</b><span>Agent 干活时擅自多做的情况，最多减少</span></div>
+<div><b>−79%</b><span>活没干到位的情况，最多减少</span></div>
+<div><b>÷12</b><span>调工具、写代码时不按用户意图办事和偷工减料的情况，降到 1/12</span></div>
+<div><b>÷2</b><span>任务做不了或被挡住时，绕过权限边界的可能性最多降到一半</span></div>
+<div><b>96.7%</b><span>内部 Agent 诚实度评测的诚实率</span></div>
+<div><b>99.9%</b><span>思考过程能看懂的比例；审计 20 多万轮，没有一次为了骗人改写思考过程</span></div>
+<div><b>×2.3</b><span>抵抗藏在网页、文件里的恶意指令（间接提示注入）的能力，Gray Swan 测试里是原来的 2.3 倍以上</span></div>
+<div><b>&lt;0.4%</b><span>HealthBench Pro 上把正常问题错拒的比例</span></div>
+</div>
+<div>模型卡里另外几项：和 3.8 Flash 比升降了几个百分点</div>
+<div>
+<div><b>+7.00</b><span><i>变好：</i>带图片的提问，回答守规矩的比例</span></div>
+<div><b>+0.80</b><span><i>变好：</i>纯文字提问，回答守规矩的比例</span></div>
+<div><b>+5.57</b><span><i>变差：</i>本来可以回答却被拒的比例升了，带图片的提问更明显</span></div>
+<div><b>−0.65</b><span><i>变差：</i>拒绝时语气客观、不说教的程度略降</span></div>
+</div>
+<div>模型卡说明，拒答语气和 3.8 Flash 相近；人工复查确认，失分的样本绝大多数要么是误判，要么不严重。完整的安全报告还没发布。</div>
+</div></div><p>换成大白话：做 Agent 任务时，它更少擅自多做、也更少偷懒；遇到做不了的任务，更少去绕权限。代价是对一些本来可以回答的普通问题，它拒答得比 3.8 Flash 多了一点。医疗、科研类问题是个例外，Google 说更新后的防护能更准地分清真正的生物安全风险和正常的医学科学提问，HealthBench Pro 上误拒不到 0.4%。</p><p>前沿安全方面，模型卡写到：在帮人获取生物武器相关信息、发动网络攻击这两类风险上，Hydrogen 没有达到「临界能力等级」，也就是能力强到可能造成严重危害的那条线，但已经碰到了这两项的预警线，Google 会继续部署防护。还有一类风险是模型避开监督、让人失去控制，这一项没有另做能力测试：按 Google 自己的安全评估，Hydrogen 的通用能力相对 Argon 没有实质性的增加（这和开头那个第三方综合榜是两套口径）。即便如此，Google 仍按已经达到阈值来对待，给它上了控制、监测和模型安全措施。</p><h2>怎么用上？开发者迁移要改什么</h2><p>Hydrogen 从发布当天起在全球铺开：</p><div><div>
+<div>在哪能用到 Hydrogen</div>
+<div>按官方原文和 Antigravity 博客整理</div>
+<div><table>
+<tr><th>开发者</th><td>Gemini API（AI Studio、Android Studio），AI Studio 里直接试API 和 AI Studio 免费档、付费档都能用；免费档有速率限制</td></tr>
+<tr><th></th><td>Google Antigravity付费的 Google AI Pro、Ultra 订阅用户</td></tr>
+<tr><th>企业</th><td>Gemini for business（API 或模型下拉菜单）、Google Antigravity，以及符合条件的企业订阅里的 Google Sheets Gemini</td></tr>
+<tr><th>所有人</th><td>Gemini app 模型下拉菜单免费用户经「自动选模型」用到</td></tr>
+<tr><th></th><td>Google 搜索全部用户，全球</td></tr>
+<tr><th></th><td>Google Sheets 里的 Gemini先给 Google AI Pro、Ultra 订阅用户</td></tr>
+</table></div>
+</div></div><p><strong>价格：</strong>付费档每百万 token 输入 1.50 美元，输出（含思考 token）7.50 美元，整个 100 万 token 窗口不分长短统一价。重复发过的输入会被自动缓存（隐式缓存），命中的部分只收 5%，即 0.075 美元；让模型用 Google 搜索查资料（grounding）仍按查询次数另算。</p><p>和上一代比：现在换成 Hydrogen，单价是 3.8 Flash 的两倍；2027 年起两者同价。3.8 Flash 目前的 0.75 / 3.75 美元是到 2026 年底的限时引导价，之后恢复输入 1.50 美元、输出 7.50 美元的标准价，和 Hydrogen 一样。</p><div><a>
+<span>站内旧文 · 上一代</span>
+<span>Gemini 3.8 Flash 发布：定位“全能主力（Workhorse）”，主打软件工程、自主 Agent 任务和多步骤深度推理</span>
+<span>3.8 Flash 的引导价和标准价、默认思考档和当时的成绩都在这篇里，正好对照这次升级了什么。</span>
+<span>阅读 →</span>
+</a></div><p>上下文窗口的算法也变了，这一点迁移时最容易踩坑：</p><div><div>
+<div>同样是「100 万 token」，算法不一样</div>
+<div>按 AI Studio 迁移说明画；Hydrogen 那条的分段比例是举例</div>
+<div>
+<div>
+<div>Gemini 3.8 Flash <span>输入、输出各算各的</span></div>
+<div><div><div>输入 最多 100 万</div></div><div>输出<br />6.4 万</div></div>
+</div>
+<div>
+<div>Gemini 4 Hydrogen <span>输入、思考、输出共用 1,048,576</span></div>
+<div></div>
+<div><div>输入</div><div>思考</div><div>输出</div></div>
+</div>
+</div>
+<div>单次同步请求里，思考和输出合计最多 65,536 token（64K）。要写得更长，把 <code>background</code> 设为 true、<code>max_output_tokens</code> 设到 65,536 以上，服务器会以每段 64K 接着往下写，最长到 100 万减去输入的部分。</div>
+</div></div><p>从 3.8 Flash 迁过来，AI Studio 列出的要点：</p><ul>
+<li><strong>换模型 ID：</strong>把 <code>gemini-3.8-flash</code> 改成 <code>gemini-4-hydrogen</code>。</li>
+<li><strong>去掉写死的低输出上限：</strong><code>max_output_tokens</code> 管的是思考和输出合计，代码里如果写死成 8,192 这类小数，删掉或调到 65,536；想省 token，改用更低的思考档。</li>
+<li><strong>思考档：</strong>默认从 medium 变成 high，新增 xhigh；传 <code>minimal</code> 会直接报错。建议在自己的测试集上比一比 medium 和 high。</li>
+<li><strong>不再支持显式缓存：</strong><code>cachedContents</code> 和 <code>caches.create</code> 都不能用了，请求里的 <code>cached_content</code> 要删掉。隐式缓存默认开启，提示至少 4,096 token 时生效，命中部分打 5%。</li>
+<li><strong>删掉采样参数：</strong><code>temperature</code>、<code>top_p</code>、<code>top_k</code> 传了服务器也会忽略。</li>
+<li><strong>工具用原生方式声明：</strong>别在系统提示里让模型自己吐 JSON 格式的工具调用，可能返回 <code>MALFORMED_FUNCTION_CALL</code>；用 function calling 声明工具，或用 structured outputs 约束 JSON。</li>
+<li><strong>多轮对话保留状态：</strong>用 Interactions API 时传 <code>previous_interaction_id</code>；自己管理历史时，模型之前的回合和 thought signature 原样传回。</li>
+<li><strong>重新估算账单：</strong>思考 token、grounding 时内部的系统指令和函数声明都计费。</li>
+</ul><p>已经在用 Carbon 或 Argon 的，加上 Hydrogen 不用改请求结构，只要换模型 ID；还可以在同一个多轮会话里，把规划回合发给 Carbon、执行回合发给 Hydrogen，相当于自己搭一个 Orchestrator。另外，Gemini Managed Agents 里的 Antigravity agent 现在默认就用 Hydrogen。</p><p>回到开头说的分工：Hydrogen 让「最强模型想、快模型干」从需要自己搭的流程，变成了菜单里的一个选项和 API 里的一行模型 ID。它单独用已经够强，真正的变化在于，选模型从「挑一个」变成了「排一个班」。</p></div><div><div><div>来源</div><div><span>Introducing Gemini 4 Hydrogen</span><span>Koray Kavukcuoglu, Google DeepMind<span>·</span>2026-11-12<span>·</span><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity">Gemini 4 Hydrogen and Orchestrator（Google Antigravity 博客）</a><span>·</span><a href="https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade">Google Search gets a major upgrade with Gemini 4 Hydrogen</a><span>·</span><a href="https://aistudio.google.com/docs/whats-new-gemini-4-hydrogen">What's new in Gemini 4 Hydrogen（Google AI Studio）</a><span>·</span><a href="https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Hydrogen-Model-Card.pdf">Gemini 4 Hydrogen Model Card</a></div></div><div><div>本站说明</div><div>图表、搜索对比截图和主视觉来自 Google；8 段演示视频嵌自 Google 官方 YouTube，点封面播放。3.8 Flash 的引导价和标准价取自 Google AI Studio 的 3.8 Flash 开发者文档。</div></div></div></div></div>
+<div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/">看原网页 ↗</a></p></div><div></div><div><div><h1>Introducing Gemini 4 Hydrogen</h1></div><div><p>Today, we’re introducing Gemini 4 Hydrogen, our daily driver for agentic workflows</p></div><div><p>Nov 12, 2026</p></div><div><p>|</p></div><div><p>14 min read</p></div><div><p>Hydrogen brings cutting-edge intelligence to everyone.</p></div><div><hr /></div><div><hr /></div><div><p>Your browser does not support the audio element.</p></div><div><p>Listen to article</p></div><div><p>18:04 minutes</p></div><div><p>This content is generated by Google AI. Generative AI is experimental</p></div><div><p>0:00</p></div><div><p>18:04</p></div><div><p>In this article Gemini 4 Hydrogen is available Unlocking efficiencies in multi-model workloads Scaling developer and enterprise workflows Adaptable speed and intelligence across thinking levels Fast, everyday help in the Gemini app and Search Designed for safe, dependable execution for scale Available to everyone today</p></div><div><p>Today, we’re introducing Gemini 4 Hydrogen, bringing cutting-edge intelligence to everyone — with speed and efficiency for everyday coding and agentic workflows.</p></div><div><p>While our frontier models, <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/">Gemini 4 Carbon</a> and <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/">Gemini 4 Argon</a>, excel at deep, long-horizon reasoning on your hardest problems, Hydrogen is built for rapid execution across diverse agentic workflows. With Hydrogen, we’re also bringing Gemini 4 to everyone — for all tiers of <a href="https://aistudio.google.com/prompts/new_chat?model=gemini-4-hydrogen">Google AI Studio</a>, the Gemini API, <a href="https://cloud.google.com/gemini-enterprise">Gemini for business</a>, the <a href="https://gemini.google.com/">Gemini app</a>, <a href="https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade">Google Search</a>, and paid Google AI Pro and Ultra subscribers in <a href="https://antigravity.google/">Google Antigravity</a>.</p></div><div><p>Hydrogen surpasses Argon on the <a href="https://artificialanalysis.ai/">Artificial Analysis Intelligence Index</a> at its default high thinking level (51 vs. 50, and reaching 54 at its highest xhigh thinking setting), while often completing tasks faster than models in its class. Gemini 4 Hydrogen is priced flat across its entire 1 million-token context window at $1.50 per million input tokens and $7.50 per million output tokens.</p></div><div><h2>Unlocking efficiencies in multi-model workloads</h2></div><div><p>In real-world software development, while teams rely on frontier models like Carbon and Argon for deep architectural judgment when designing systems or untangling subtle bugs, they still need a fast, disciplined execution model for writing code, running tests, and verifying changes. Hydrogen is built to stand on its own as a model for everyday work — or to pair with Carbon and Argon as the high-efficiency execution engine in multi-model workflows.</p></div><div><p>To help make this multi-model collaboration automatic, we’re introducing <a href="https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity">Orchestrator in Google Antigravity</a>. Rather than using a single model from start to finish, Orchestrator dynamically switches between models like Carbon and Hydrogen within the same session. On <a href="https://www.tbench.ai/news/terminal-bench-4-0">Terminal-Bench 4.0</a>, Orchestrator reached near-Carbon task success rates while, on average, consuming 24% less quota and completing 19% faster. For workflows that require parallel agents, Carbon can act as the coordinator while Hydrogen can power worker and verifier agents to build and test changes simultaneously across isolated workspaces — helping teams ship complex projects faster without driving up token costs.</p></div><div><h2>Scaling developer and enterprise workflows</h2></div><div><p>Beyond multi-model workflows, Hydrogen is a major standalone upgrade for teams migrating from Gemini 3.8 Flash. It delivers significant leaps in both speed and intelligence — finishing tasks 2.5 times faster at its high default setting while more than tripling <a href="https://www.tbench.ai/">Terminal-Bench 4.1</a> scores (57% vs. 18.2%), cutting fabricated claims by more than 5x, and adapting cleanly when a tool call fails or a search returns empty. It also matches or outperforms competing models in its class across core developer and enterprise workflows:</p></div><div><ul><li><strong>Iterative repository coding and debugging:</strong> Hydrogen handles issue resolution, debugging, rapid iteration, and codebase Q&amp;A with focused, surgical edits — delivering cleaner, production-ready code without rewriting unrelated files. It outperforms similar-tier models on SWE-sweep where it has to discover and repair bugs without breaking existing code. To explore large repositories efficiently, the model excels at natively batching file-read and search calls in parallel rather than inspecting files one by one; in early testing across complex graphs, SQL, and data-heavy enterprise workflows, our partners have seen Hydrogen run 2x to 2.8x faster while reducing token usage by 12% to 23%, compared to 3.8 Flash.</li><li><strong>Open-ended agentic execution:</strong> On multi-step tasks like deep research, data analysis, and broad codebase navigation, Hydrogen ranks #5 on <a href="https://arena.ai/leaderboard/agent">Agent Arena</a>, arena.ai’s live benchmark. For deep domain reasoning and analysis, it leads its class on HLE-Diamond (58.8%), ranks #1 overall on <a href="https://www.vals.ai/benchmarks/tax_agent_bench">Vals Tax Agent Bench</a> (52.3%), ties for #1 on the <a href="https://www.vals.ai/benchmarks/legal_research">Vals Legal Research Bench</a> (55.8%), and leads its class on <a href="https://artificialanalysis.ai/evaluations/automationbench-aa">AutomationBench-AA</a>.</li></ul></div><div><ul><li><strong>Multimodal knowledge work:</strong> Hydrogen pairs native 1 million-token input with up to 1 million output tokens to synthesize dense PDFs, spreadsheets, charts, audio, and recorded video into polished, cited reports and structured deliverables. It outperforms other models on the new <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/">Multimodal Knowledge Agent (MKA)</a> benchmark (53.4%) for end-to-end agentic knowledge work over complex visual files, and on <a href="https://agents-last-exam.org/leaderboard">Agents’ Last Exam v1.1</a> (71.6%) for end-to-end professional workflows.</li><li><strong>Web development</strong>: On tasks where speed matters to developers, like live UI prototyping, design-to-code iteration, and interactive app building, Hydrogen generates more functional, feature-complete layouts in fewer prompts.</li></ul></div><div><h2>Adaptable speed and intelligence across four thinking levels</h2></div><div><p>We built Gemini 4 Hydrogen for real-world usability. Hydrogen’s four thinking levels — low, medium, high (default), and a new xhigh tier — offer a wide range of options across quality, latency, and cost, scaling in a smooth, predictable progression so you only wait and pay for the reasoning depth a task requires. Across thinking levels, Hydrogen matches or outperforms some of the competing models in its class while often finishing tasks faster and using fewer output tokens.</p></div><div><h2>Fast, everyday help in the Gemini app and Search</h2></div><div><p>For consumers, Gemini 4 Hydrogen makes it easier to get things done, staying on track and following instructions more closely across multi-turn conversations.</p></div><div><p>In the Gemini app, Hydrogen makes your everyday assistant even more helpful — it’s better at following your guidance, calling the right tools, and getting you to a reliable output with less back-and-forth.</p></div><div><ul><li><strong>Ready-to-go writing, research, and everyday work:</strong> Hydrogen sticks closely to your tone, format, and specific rules, so email drafts, study guides, rewrites, and documents come back ready to use on the first try. When you are comparing products or synthesizing dense material, it pulls together clear tables and visual breakdowns without dropping key details.</li><li><strong>Connects the dots and gets more tasks done:</strong> Hydrogen breaks down your goal step-by-step, pulling relevant context from your uploads, Google apps like Gmail and Google Drive, and Connected Apps like Airtable and Dropbox. When you start a task in Gemini, it also more frequently calls the right tools and skills for the job, helping save you time as you check things off your to-do list.</li><li><strong>Everyday prototyping and iteration:</strong> For exploring and testing ideas, Hydrogen generates clean, working layouts in fewer prompts, making it easy to prototype and refine interactive projects quickly, like synthesizing real-time global lightning strike data into an interactive 3D globe.</li></ul></div><div><p>Hydrogen is significantly upgrading <a href="https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade">Search</a>, delivering more helpful, intuitive responses for all users globally.</p></div><div><ul><li><strong>Better understands your true intent:</strong> With Hydrogen, you can ask your question in your natural flow of thought — even if you have multiple parts to your query, hard-to-understand typos, or highly specific requests — and Search will intelligently comprehend what you’re looking for.</li><li><strong>More visual responses:</strong> You’ll get highly adaptive, visual, and easy-to-scan responses that are uniquely relevant to your needs, at the speed you expect from Search.</li><li><strong>Wider range of relevant links:</strong> With Hydrogen’s advanced reasoning, we’re also upgrading our query fan-out technique in Search, connecting you to a broader range of helpful links than before, helping you find sites you previously might not have discovered.</li></ul></div><div><h2>Designed for safe, dependable execution at scale</h2></div><div><p>Gemini 4 Hydrogen brings improvements from our latest Gemini 4 safety and security stack to our broadest audience yet, combining built-in training with real-time surface safeguards to help mitigate both misalignment and misuse. Beyond foundational protections, we focused on two areas that matter most for a faster model that’s for everyday work:</p></div><div><ul><li><strong>Safe, aligned, and secure agentic workflows:</strong> While 3.8 Flash has strong alignment and safeguards, Hydrogen is a leap ahead. It reduces overreach in agentic tasks by up to 81% and under-service by up to 79%, and cuts misaligned actions and task shortcutting across tool-use and coding evaluations by 12x. When faced with impossible or blocked tasks, it is up to 2x less likely to bypass permission boundaries and achieves a 96.7% honesty rate on our internal agent honesty evaluation.Building on our commitment to <a href="https://institute.deepmind.com/essays/the-case-for-reasoning-transparency/">reasoning transparency</a>, Hydrogen also preserves 99.9% chain-of-thought legibility with zero deceptive reasoning edits across more than 200,000 audited turns. Against indirect prompt injection attacks, Hydrogen is more than 2.3x more resilient on the Gray Swan IPI benchmark, while significantly improving robustness across tool use, computer use, and coding agents.</li><li><strong>Helpful, reliable everyday interactions:</strong> Across our product surfaces, we tuned Hydrogen to make everyday conversations more reliable and safe. Our updated safeguards are also much more precise at distinguishing between real biosecurity risks and legitimate medical or scientific questions — keeping false refusals on HealthBench Pro under 0.4%.</li></ul></div><div><p>For more details see the Gemini 4 Hydrogen <a href="https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Hydrogen-Model-Card.pdf">model card</a>.</p></div><div><h2>Gemini 4 Hydrogen, available to everyone today</h2></div><div><p>Starting today, Hydrogen is rolling out globally across our developer, enterprise, and consumer surfaces:</p></div><div><ul><li><strong>For developers:</strong> Build with the Gemini API in <a href="https://aistudio.google.com/docs/whats-new-gemini-4-hydrogen">AI Studio</a> and <a href="https://developer.android.com/studio">Android Studio</a>, try it in <a href="https://aistudio.google.com/prompts/new_chat?model=gemini-4-hydrogen">AI Studio</a> and if you’re a paid Google AI Pro or Ultra subscriber, you can try it in <a href="https://antigravity.google/">Google Antigravity</a>.</li><li><strong>For enterprises:</strong> Deploy it in <a href="https://cloud.google.com/gemini-enterprise">Gemini for business</a> via the API or model drop down, Google Antigravity, and in Gemini in Google Sheets for eligible business subscriptions.</li><li><strong>For everyone:</strong> Start using it in the <a href="https://gemini.google.com/">Gemini app</a> model drop down 1 and in <a href="https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade">Google Search</a> for all users, and in Gemini in <a href="https://sheets.new/">Google Sheets</a> starting with Google AI Pro and Ultra subscribers.</li></ul></div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Google DeepMind 发布 DNA 模型 AlphaGenome 2，能把疾病相关变异追到具体细胞 · XiaoHu.AI</title>
 <link>https://xiaohu.ai/article/alphagenome-2/</link>
@@ -74865,75 +75179,6 @@ AirPods 5
 <div>
 <img />
 <div><p><span>硬件变化</span><strong>5.4 英寸外屏 + 7.6 英寸内屏，展开厚 5.2 mm；A20 Pro、均热板与双电池。</strong></p><p><span>AI 在哪里</span><strong>双屏多任务、Siri 屏幕理解、Smart Take 自动抓拍，都依赖持续端侧计算。</strong></p><p><span>购买门槛</span><strong>254 g、无 Face ID、全球纯 eSIM；Apple Pencil (USB-C) 支持要等后续更新。</strong></p><p><span>时间与价格</span><strong>10 月 16 日预购，10 月 23 日发售；256GB 起价 1,999 美元。</strong></p></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】从换工具到改写工作方式：面向多 Agent 研⁠发实践的10 条原则</title>
-<link>https://best.xiaohu.ai/article/frontier-engineering/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:frontier-engineering</guid>
-<pubDate>Thu, 10 Sep 2026 12:00:46 +0000</pubDate>
-<description>AI 编程没有让交付显著变快，往往不是模型不够强，而是人仍卡在每一步。Kiro 的 10 条原则把问题落到意图、验证、代码库、权限与注意力管理。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 10 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">从换工具到改写工作方式：面向多 Agent 研⁠发实践的10 条原则</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/frontier-engineering/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div>
-<div>
-<div>
-正文
-一页纸
-</div>
-</div>
-<div><div><h1>从换工具到改写工作方式：面向多 Agent 研⁠发实践的10 条原则</h1><p>AI 编程没有让交付显著变快，往往不是模型不够强，而是人仍卡在每一步。Kiro 的 10 条原则把问题落到意图、验证、代码库、权限与注意力管理。</p><strong>一分钟速览</strong><ul><li>真正的变化不是多生成几行代码，而是把人的职责移到定义意图、做方向判断和验收系统结果。</li><li>Agent 要完成长程任务，代码库必须提供清晰规则、本地反馈、边界测试和最小权限环境；否则人仍会变成实时路由器。</li><li>这套做法仍处早期探索阶段：前几周会更慢，需要持续调优工作环境，也必须坚持人类工程标准与注意力边界。</li></ul><div>
-<p>不少开发者日常使用 AI 编程助手时，会陷入这样一种状态：</p>
-<p>在 IDE 里敲下一行提示词，屏住呼吸等待几十秒，看到代码刷出来，顺手点击接受；本地一运行，控制台红了一片；于是把报错日志复制回对话框，再等几十秒……循环往复。</p>
-<p>你确实换了更新的工具，打字与生成速度也变快了，但如果退后一步看整体交付周期：从需求提出、系统设计、代码编写、反复调试到上线发布，整体交付往往并没有带来预期的显著提速。开发者依然容易陷入疲态，核心原因在于<strong>许多人仍把自己放在 AI 与终端之间，充当实时的人肉路由器、异常传递员和点击确认器</strong>。</p>
-<p>2025 年 9 月，Kiro 团队发布了由 Clare Liguori 主笔的工程专题《Frontier Engineering》（前沿工程学），系统梳理了 10 条面向多代理（Agent）研发实践的探索性原则。</p>
-<p>作者的核心主张在于：<strong>当前的软件研发实践正在出现分化。一部分团队只是在既有流程中换了编码工具，而前沿探索者则在尝试重构工作方式——从亲自手写每一行代码，转向搭建让 Agent 自主闭环推进的工程基础设施，以追求显著乃至阶跃式的交付提速。</strong></p>
-<p>如果你已经熟悉 AI 辅助编程，却发现端到端交付依旧频繁受阻于人肉卡点，本文将结合 Kiro 的 10 条原则，解析这套工作流背后的运行机制、依赖条件与工程边界。</p>
-<blockquote>
-<p><strong>10 条原则阅读地图</strong></p>
-<ol>
-<li>Architect, not typist → 角色重置</li>
-<li>Maximize agent time → 摆脱人肉卡点</li>
-<li>Build for agents → 改造代码库</li>
-<li>Build a fast feedback loop → 快速反馈闭环</li>
-<li>Direction over execution → 角色重置中的方向与规格驱动</li>
-<li>Treat code as disposable → 代码可重写，边界测试是契约</li>
-<li>Hold the line on human standards → 人类标准与审查分工</li>
-<li>Trust the boundaries → 防护栏工程</li>
-<li>Use agents for everything → 全流程协同</li>
-<li>Constantly tune your setup → 持续调优的飞轮</li>
-</ol>
-</blockquote>
-<hr />
-<h2>角色重置：从敲击代码的打字员，转向定义意图的架构师</h2>
-<p>在前沿工程实践中，Kiro 观察到走在最前面的开发者手写的生产代码占比已经降至 1% 以下。需要强调的是，这是作者在特定实践中观察到的现象，而非要求所有团队生搬硬套的目标 KPI。这并不意味着开发者的职责变轻了，而是工程重心发生了显著转移。</p>
-<p><img /><br />图：Kiro「Architect, not typist」原则配图，示意工程师把重心转向系统方向与验证。</p>
-<p>以往大部分时间消耗在敲击键盘、寻找语法细节与排查低级 API 调用上。但在由 Agent 承接具体编码的模式下，<strong>软件研发的核心成本转变为两件事：第一，清晰定义什么叫「Done」（需求边界、约束、验收准则）；第二，验证输出物是否真正符合系统意图。</strong></p>
-<p>很多开发者使用 Agent 效果不佳，第一步往往踩在「意图模糊」的陷阱上（注：以下加鉴权对比为本文为了说明意图表达机制而展开的示意，非 Kiro 原文用例）：</p>
-<ul>
-<li><strong>低效意图</strong>：“给这个 API 加上用户鉴权。”<br />
-面对这句指令，Agent 往往自行脑补技术选型、随意决定拦截范围与默认错误响应格式。一旦其假设与业务实际冲突，开发者就需要耗费额外精力推倒重来。</li>
-<li><strong>合格意图</strong>：“为以下端点增加基于角色的访问控制（RBAC）：<code>/admin/*</code> 仅限 Admin 角色，<code>/api/v1/user/*</code> 允许 User 与 Admin 角色访问。当 Token 过期时，按照规范返回 401 状态码及 <code>TOKEN_EXPIRED</code> 错误体；提供针对未授权访问、令牌过期、伪造签名的测试用例，并确保全部通过。”</li>
-</ul>
-<p>在这里，<strong>具体代码执行的边际成本大幅下降，而定义系统方向（Direction）的权重被显著放大。</strong></p>
-<p>系统架构、API 契约、外部依赖选择以及核心权衡（Trade-offs）一旦偏离，推倒修正的成本依然不低。因此，开发者应当把精力聚焦在系统的关键骨架上。在设计阶段，也可以让 Agent 成为方案推演的助手：例如让它调研多种可行的技术路线并编写可对比的原型，通过原型运行结果与实际证据来辅助团队做决策。</p>
-<p>方向确定后，工作应当转入<strong>规格驱动开发（spec-driven development）</strong>：先与 Agent 共同写清规格与需求，以减少生成代码之前的歧义；在推进过程中持续判断架构能否承受真实负载、既有权衡是否需要重审，以及产品是否已经达到可以交给用户的状态。</p>
-<p><img /><br />图：Kiro「Direction over execution」原则配图，示意先确定方向与规格，再扩大执行。</p>
-<hr />
-<h2>摆脱人肉卡点：把「60 秒等待循环」拉长为「30 分钟自愈闭环」</h2>
-<p>要实现开发吞吐量的跃迁，必须打破「人在回路中（Human-in-the-loop）」的紧耦合。</p>
-<p>如果你坐在屏幕前，每次发完指令就盯着光标闪烁，等待 60 秒后手动帮它测、手动喂报错，那么<strong>你就是整个流水线上最大的并发瓶颈</strong>。</p>
-<p>前沿开发者的做法是给 Agent 分配具备明确验证标准、生命周期更长的任务。例如 Kiro 在原则中给出的典型任务指令为：</p>
-</div></div></div></div></div>
 </div></div></body></html>]]></content:encoded>
 </item>
 </channel>
