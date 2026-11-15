@@ -6,7 +6,487 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Sat, 14 Nov 2026 12:00:14 +0000</lastBuildDate>
+<lastBuildDate>Sun, 15 Nov 2026 12:00:16 +0000</lastBuildDate>
+<item>
+<title>【日报】超越回合制的 AI 交互界面：「回合内交互」的新型人机交互理念 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/beyond-turn-taking-ai/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:beyond-turn-taking-ai</guid>
+<pubDate>Sun, 15 Nov 2026 12:00:16 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 为什么「一人一句」用着别扭？ 02 Feedforward：你还在打字，AI 先亮底 03 Leaving Blanks：AI 拿不准，就留个空给你填 04 这个思路从哪来：一篇讲「超越轮流」的博士论文 05 Visual Captions：你说话的时候，AI 在旁边配图 06 Inner Thoughts：群聊里的 AI，自己决定什么时候开口 07 Doki：把做视频变成写一</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 15 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">超越回合制的 AI 交互界面：「回合内交互」的新型人机交互理念 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/beyond-turn-taking-ai/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>为什么「一人一句」用着别扭？</span></a><a><span>02</span><span>Feedforward：你还在打字，AI 先亮底</span></a><a><span>03</span><span>Leaving Blanks：AI 拿不准，就留个空给你填</span></a><a><span>04</span><span>这个思路从哪来：一篇讲「超越轮流」的博士论文</span></a><a><span>05</span><span>Visual Captions：你说话的时候，AI 在旁边配图</span></a><a><span>06</span><span>Inner Thoughts：群聊里的 AI，自己决定什么时候开口</span></a><a><span>07</span><span>Doki：把做视频变成写一篇文档</span></a><a><span>08</span><span>三套系统放在一起，说明了什么</span></a><a><span>09</span><span>AI 越主动越省事，也越难掌控</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>研究解读</a><i>·</i>11-15<i>·</i>约 17 分钟<i>·</i>作者 Bruce Liu（UCLA 博士论文）</div><h1>超越回合制的 AI 交互界面：「回合内交互」的新型人机交互理念</h1><p>和 AI 聊天，大多还是一来一回：它猜错了，你得再发一条、等它从头写。UCLA 的 Bruce Liu 做了两个演示，让人和 AI 在对方那一轮里就能插上手：你打字时 AI 先亮出它的理解，AI 回答时拿不准就留空给你填。</p><div><div>正文原文</div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Bruce Liu（UCLA 博士论文）</span><span>11-15 · 约 17 分钟</span></div></div></div>
+<div>
+<div><div><div><div>
+<div><div><p>同一个请求，三种走法</p><p>从左往右是时间，上一行是你，下一行是 AI</p></div>重播</div>
+<div>
+<div><div><div>今天的聊天</div><div>你发出去，它猜错；你再发一句「不是，我是说……」，它从头再来。发了 2 次</div></div><div></div></div>
+<div><div><div>Feedforward：提前亮底</div><div>你还在打字，它先亮出打算怎么理解你，你顺手改；发 1 次就对</div></div><div></div></div>
+<div><div><div>Leaving Blanks：留空</div><div>它写到拿不准的地方留个空，你点一下填上，它接着写；发 1 次</div></div><div></div></div>
+</div>
+<div><span><i></i>你</span><span><i></i>AI</span><span><i></i>AI 先亮出的理解</span><span>细条：看一眼或点一下</span><span>示意图，按演示站的对比图重画</span></div>
+</div></div></div><strong>一分钟速览</strong><ul><li>你还在打字，AI 就先亮出它打算怎么理解你，猜错的地方发送前就能点开改。</li><li>AI 拿不准时不瞎编，留个空让你选，填完它接着往下写，不用再来一轮。</li><li>群聊没人被点名时，GPT-4o 猜下一个谁说话只对了 12.1%，跟瞎猜差不多。</li></ul><div><p>你让 AI 帮你规划带孩子去日本玩一周，它很快回了一大段行程，排的却是你没打算去的城市。你只好再发一句「不是，我是说……」，等它从头来一遍。今天和 AI 打交道，还像发微信、下棋：你一步，它一步，对方这一步走完之前，你插不上手。</p><p>「回合内交互」（intra-turn interaction）想改的就是这一点：让人和 AI 在对方那一轮里就能插上手，不用等一整轮。它来自 UCLA 博士 Bruce Liu 最近放出的两个演示。他的说法是：如今的 AI 界面基本还是回合制，他在博士论文里想的，是不再轮流之后交互会是什么样子，回合内交互是其中一个例子。</p><p>我们觉得它值得看，不在于两个演示做得多复杂，而在于它提醒人：聊天框只是人和 AI 合作方式里的一种，是设计空间里的一个点，不是终点。一旦不默认「一人一句」，很多别扭的地方就有了别的解法。</p><h2>为什么「一人一句」用着别扭？</h2><p>演示站给今天的聊天下了个形容：它还是一部对讲机，一个人按住说完，另一个人才能开口。作者把毛病归成一句话：回合制界面把 AI 对你的理解、你们之间的共识都藏着，直到它回答才露出来，所以纠正一次误会，要多花一整轮。拆开是两条：</p><ul>
+<li><b>试错成本高：</b>它猜错了，你得再发一条、再等它从头写一遍，一次误会就是多一整轮。</li>
+<li><b>看不见它怎么想：</b>它把你的哪句话理解成了什么、哪些地方是它自己猜的，要等它答完才看得到，那时它已经顺着猜错的方向写了一大段。</li>
+</ul><p>两个演示各管一头：Feedforward 让 AI 在你的那一轮里插上手，Leaving Blanks 让你在 AI 的那一轮里插上手。</p><h2>Feedforward：你还在打字，AI 先亮底</h2><p>Feedforward 可以叫「提前亮底」。你还在输入框里打字，AI 就把它准备替你做的决定写在输入框上方，比如「你想要一份逐日行程」；它拿不准的词下面画着虚线，点开就能改：孩子几岁是一个滑块，喜欢什么是一排选项（主题乐园、动物、动漫……），去日本哪一片也能选。</p><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/beyond-turn-taking-ai/app-run.png" alt="Feedforward 演示页：输入框上方写着 You want a day-by-day itinerary" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>Feedforward 演示页的截图：带孩子去日本的请求还没发出，输入框上方已经写着「你想要一份逐日行程」，Japan、spring、kids 这些词下面都有虚线，可以点开确认。</figcaption>
+</figure></div></div><p>放回开头那个日本行程：发出去之前，你已经看到它打算按什么来排，排错城市这种误会在这一步就消掉了，不用等它写完一大段再推倒重来。打个比方，以前像写信，寄出去才知道对方怎么读；现在像两个人站在同一块白板前，你写一笔，对方马上指着问「你是这个意思吗」。</p><div><div><figure>
+<figcaption>两个演示的录屏（英文界面，约 1 分钟）。前半段是 Feedforward：打字时 AI 先亮出它的理解，可以点开改孩子年龄、兴趣和地区，也演示了做海报；后半段是 Leaving Blanks：AI 在生日家宴方案里留了三个空，填完接着写菜单。</figcaption>
+</figure></div></div><h2>Leaving Blanks：AI 拿不准，就留个空给你填</h2><p>Leaving Blanks 反过来，是你在 AI 的那一轮里插上手。AI 回答时遇到它拿不准、又会影响后面内容的地方，不编，而是留一个空。比如让它帮你在家给爸爸办 60 岁生日晚宴：一份菜单、一张购物清单、一段祝酒词。它先写「晚宴一共几位，他最爱吃什么，你的祝酒词要什么口气」，三处都是空；你点开空格选好，它就从那里接着往下写菜单，整个过程你只发了一次。</p><div><div><div>
+<div><div><p>留空：填完空，它接着往下写</p></div>重播</div>
+<div>
+<div>帮我在家给爸爸办 60 岁生日晚宴：一份菜单、一张购物清单，再加一段我能说的简短祝酒词。要像我说的话，别像贺卡。</div>
+<div>爸爸 60 岁生日快乐！我会围绕三件事来安排：晚宴一共 <span>几位</span>，他最爱吃 <span>什么</span>，你的祝酒词要 <span>什么口气</span>。</div>
+<div>
+<p>菜单（6 人份）</p>
+<p>前菜：布拉塔奶酪配烤番茄、罗勒和烤面包</p>
+<p>主菜：慢炖牛肉酱配新鲜宽面</p>
+<p>甜点：提拉米苏，提前一天做好，当天不用手忙脚乱</p>
+</div>
+<div><span>你填了 <b>0</b> 个空</span><span>你发送的次数：<b>1</b></span></div>
+</div>
+<p>示意图，按演示录屏翻译重画。演示里每个空点开是一组选项：人数有 4 到 16 人几档，菜系有牛排馆、意大利菜、墨西哥菜等，口气是一个「简短—更长、调侃—深情」的方格。</p>
+</div></div></div><p>要分清的是：空格是 AI 主动留出来、等你回答的那几处，不是让你随时去改它正在写的内容。它做的事，是把写提示词的填空题变成点选项的选择题：你不用一开始就想到人数、口味、口气都得交代，AI 写到需要的地方，把问题和选项摆到你面前。</p><h2>这个思路从哪来：一篇讲「超越轮流」的博士论文</h2><p>两个演示背后，是作者的博士论文《Beyond Taking Turns in Human-AI Interaction》（超越人机交互里的轮流说话）。论文里说的「轮流说话」（taking turns），就是前面说的回合制、一人一句。两个演示不在论文里；论文问的是更大的问题：人和 AI 如果不再一人一句地轮流，合作还能是什么样子。它先讲轮流是怎么成了默认的。</p><p>轮流说话是人类对话最基本的结构。对话研究里有篇经典论文专门描述过它：对话被切成一个个「话轮」，管着谁说、谁听，避免大家抢着说。早期计算机界面自然照搬了它：命令行是你敲一行、机器回一行，后来的聊天界面也一样。到了大模型，这种结构还刻进了技术底层，模型本来就是一个 token 接一个 token 往下生成的，天然适合一来一回。</p><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/beyond-turn-taking-ai/fig1-1-eliza.png" alt="ELIZA 聊天程序界面：ELIZA 和 YOU 一行一行轮流说话" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>论文图 1.1：ELIZA，1966 年一个模仿心理咨询师的聊天程序（截图是后来的网页复刻版）。一行 ELIZA、一行 YOU，严格轮流。论文拿它说明：模型能力进步了这么多，人和 AI 打交道的「容器」还是这个聊天框。</figcaption>
+</figure></div></div><p>论文并不反对轮流。它清楚、好控制，也符合人的习惯。问题在于它成了默认。作者的说法是：很多 AI 系统被设计得好像聊天界面就是交互能达到的上限，而不是更大设计空间里的一个点。他借了人机交互领域另一篇经典论文《Beyond Being There》的思路：电脑做的沟通工具，不该只是模仿面对面交流，而该去做面对面做不到的事。同理，AI 也不必照搬人类对话的轮流规矩。</p><p>论文认为，轮流给人和 AI 的合作加了三道限制：线性，一次只有一条线，你说的时候 AI 只能等；被动，AI 只在被叫到时才回应；过眼即逝，方案和决定被新消息刷上去就找不着了。它为每道限制做了一套系统，并做了实验。和开头那张图一样，用两条泳道画出来：</p><div><div><div>
+<div><div><p>论文的三套系统：同一段时间里，人和 AI 各在做什么</p><p>从左往右是时间，上一行是你，下一行是 AI</p></div>重播</div>
+<div>
+<div><div>轮流说话</div><div>今天的默认：你说完，它才开口</div></div>
+<div><div>Visual Captions<i>：</i><em>并行</em></div><div>你一直在说，它同时往旁边放图</div></div>
+<div><div>Inner Thoughts<i>：</i><em>主动</em></div><div>你说的时候它在心里想，自己挑时机开口</div></div>
+<div><div>Doki<i>：</i><em>持久</em></div><div>在同一份文档里，你一笔、它一笔</div></div>
+</div>
+<div><span><i></i>你</span><span><i></i>AI</span><span><i></i>AI 心里还没说出口的想法</span><span>示意图，按论文图 1.2 重画</span></div>
+</div></div></div><h2>Visual Captions：你说话的时候，AI 在旁边配图</h2><p>第一套系统针对「线性」。想象视频会议里你跟朋友说「我们周末去了优胜美地」，对方没去过：要么你停下来搜张图、共享屏幕，要么对方只能靠想象。Visual Captions 是一个接在 Google Meet 上的 Chrome 插件，一边听你们说话，一边把合适的图片或 emoji 推到你手边，你点一下就能给所有人看。说话不用停，图片走另一条并行的通道。</p><h3>它怎么知道该配什么图？</h3><p>关键是猜「视觉意图」：此刻你想给对方看什么。只抓关键词不够，同一个词放在不同的句子里，该配的图完全不同。团队找了 246 名众包标注员，给 1922 句真实对话（来自 42 个 YouTube 视频和一个日常对话数据集）标注「这句话旁边该放什么图」，每句 4 人标，至少两人意见一致才留下，最后得到 1595 条，叫 VC1.5K。再用它微调 GPT-3，让模型对每句话说出三样东西：放什么内容、用什么形式（照片、地图、示意图、emoji……）、从哪来（网上搜、个人相册……）。</p><div><div><div>
+<div><div><p>差一句话，配的图就不一样</p><p>模型对每句话给出「形式 · 内容 · 来源」，红框是两句之间变了的那一项</p></div></div>
+<div><div>来源变了</div><div>
+<div><div>优胜美地的冬天真美。</div><div><span>照片</span><span>冬天的优胜美地</span><span>网上搜图</span></div></div>
+<div><div>我们周末去了优胜美地。</div><div><span>照片</span><span>优胜美地</span><span>个人相册</span></div></div>
+</div></div>
+<div><div>形式变了</div><div>
+<div><div>欢迎来到洛杉矶！</div><div><span>照片</span><span>洛杉矶</span><span>网上搜图</span></div></div>
+<div><div>那你想去洛杉矶哪儿玩？</div><div><span>地图</span><span>洛杉矶</span><span>网上搜图</span></div></div>
+</div></div>
+<div><div>内容变了（英文里 Matrix 既是电影名，也是「矩阵」）</div><div>
+<div><div>我最喜欢的电影是 The Matrix。</div><div><span>海报</span><span>电影《黑客帝国》</span><span>网上搜图</span></div></div>
+<div><div>今天课上学一个数学概念：matrix。</div><div><span>示意图</span><span>数学里的矩阵</span><span>网上搜图</span></div></div>
+</div></div>
+<div><div>话没说全，也能猜</div><div>
+<div><div>你知道的，旧金山那栋三角形的楼。</div><div><span>照片</span><span>旧金山的三角形大楼</span><span>网上搜图</span></div></div>
+<div><div>你的 Amy 阿姨这周六要来。</div><div><span>照片</span><span>Amy 阿姨</span><span>个人相册</span></div></div>
+</div></div>
+<p>例句和预测结果照论文图 2.7 翻译。只靠抓关键词的老办法做不到这种区分。</p>
+</div></div></div><p>模型判断「用什么形式」的准确率是 87.6%，「从哪来」是 86.1%。团队又另找众包评估员给生成的图打分：83% 的情况下，评估员至少「有点同意」愿意在聊天时把这张图拿出来给人看。</p><h3>从一句话到一张图，中间走了几步</h3><p>系统每 100 毫秒去取一次会议的自动字幕。一句话说完，或者攒够了 4 个以上的词，就交给模型预测视觉意图，再按预测去网上搜图、翻个人相册或者找 emoji。翻相册这一步有隐私顾虑：有参与者说，不想相册里的照片没经确认就被放出来；实验里出于隐私考虑，也没有用真实的相册照片。下面用论文里的例句走一遍：</p><div><div><div>
+<div><div><p>一句话变成三张候选图，你挑一张公开</p></div>重播</div>
+<div>
+<div><div>1</div><div><div>实时字幕：每 100 毫秒取一次</div><div></div><div></div></div></div>
+<div><div>2</div><div><div>微调过的模型预测视觉意图：形式 · 内容 · 来源</div><div>
+<div><span>照片</span><span>迪士尼乐园</span><span>网上搜图</span></div>
+<div><span>照片</span><span>我和家人上周末在迪士尼</span><span>个人相册</span></div>
+<div><span>emoji</span><span>开心的脸</span><span>emoji 库</span></div>
+</div></div></div>
+<div><div>3</div><div><div>会议画面：候选图先只给你看，点一下才公开</div>
+<div>
+<div><div>所有人看得到</div><div></div></div>
+<div><div>只有你看得到</div>
+<div></div>
+<div></div>
+</div>
+<div></div>
+<div></div>
+</div>
+</div></div>
+</div>
+<p>示意图，按论文图 2.8、图 2.9 的流程画，例句照论文翻译。这是默认的「自动推荐」模式。在用户研究里，系统平均每 7.6 秒冒出一张新的候选图。</p>
+</div></div></div><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/beyond-turn-taking-ai/fig2-9-vc-interface.png" alt="Visual Captions 的真实会议界面：右上角是候选图，左上角是已公开的家庭照片，底部是字幕" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>论文图 2.9：Visual Captions 的真实界面（默认的自动推荐模式，人脸做了模糊）。右上 A 是只有自己看得到的候选栏，依次是洛杉矶景点地图、环球影城、迪士尼；左上 B 是点开后所有人都看得到的展示区，放着「我和家人上周末在迪士尼」的照片；右下 C 是 emoji 候选。底部字幕里的蓝色数字，标的是触发每张图的那个词。</figcaption>
+</figure></div></div><h3>AI 该多主动？20 个人分成了三派</h3><p>Visual Captions 做了三档主动程度：<b>自动显示</b>，AI 直接把图放给所有人，不用你动手；<b>自动推荐</b>，AI 把候选图放在只有你看得到的地方，你点了才公开；<b>按需推荐</b>，你按一下空格键，它才去找图。实验室研究一共 26 人：6 人先参加试点，帮着改了界面；正式研究 20 人两两配对聊天，每个人三档都用过。</p><div><div><div>
+<div><div><p>省事和掌控，很难兼得</p><p>20 名参与者对三档主动程度的偏好和打分（打分为 1–7 分，取平均）</p></div>重播</div>
+<div><h4>最喜欢哪一档 <span>（人数，共 20 人）</span></h4><div></div></div>
+<div><h4>用起来多费力 <span>（越低越省事）</span></h4><div></div></div>
+<div><h4>觉得自己有多少掌控 <span>（越高越能控制）</span></h4><div></div></div>
+<p>费力程度和掌控感，自动显示和另外两档的差别在统计上都显著。条的满格是 7 分（偏好那一组满格是 20 人）。</p>
+</div></div></div><p>自动显示几乎不费力，有人说「不用点击，对我来说太重要了」；可它的掌控感最低，AI 放错了图也最难纠正，有参与者只好一直盯着展示区，怕它突然放出不合适的东西。按需推荐掌控感最高，却最累。还有个有意思的现象：三档的平均延迟本来一样，用按需推荐的人却明显觉得更慢。论文的推测是，自己发起查询时，人会记着「我是什么时候按的」，对等待格外敏感；AI 主动推送时，人的注意力还在对话上。</p><p>偏好也会随场合变。团队又请 10 人把它带回去在日常会议里用了两周，有人平时开自动显示，「重要会议就切到按需模式，因为我不想打断别的发言人」。论文的结论是：不存在一种适合所有人、所有场合的主动程度，系统应该让人按场合自己调。</p><p>配图本身确实有用。在实验室研究里，80% 的回答至少「有点同意」图片帮他们理解了陌生的词和概念，20 人里 18 人觉得图片能澄清对话里的歧义，19 人觉得聊天更有趣了。而且就算 AI 在主动推图，参与者也没觉得比平常聊天更费脑（统计上没有差别）。在两周的日常使用里，有非英语母语的参与者靠它看懂了别人随口说的生词；还有人在人多的团队会议里，用 emoji 表示赞同或反对，不用打断正在说话的人。这正是「并行通道」的用处。</p><p>毛病也很明显。很多错图来自语音识别本身听错了；另一个是「抢答」：为了快，系统会拿半句话去查，比如有人说「San Francisco is a beautiful city」，刚说到「San」就去搜，结果配错了图。快和准之间要取舍。</p><div><div><div>
+<a><span>站内 · 主动的 AI 用起来什么样</span><span>Claude Duet 上手体验一周：查漏补缺真有用，拿捏轻重还像个神经质的助理</span><span>一个会主动盯邮件、日历和 Slack 的 Agent，查漏补缺很灵，判断一件事有多急却常出错。和这里的结论对着看：主动程度难的是拿捏分寸。</span></a>
+</div></div></div><h2>Inner Thoughts：群聊里的 AI，自己决定什么时候开口</h2><p>第二套系统针对「被动」。一对一聊天里，轮到谁说很清楚：你说完，就该 AI 了。可到了三个人以上的群聊，问题变成：这句话说完，该谁接？AI 如果只在被点名时回话，就永远插不上嘴；如果每句都回，又会吵得人受不了。论文举的反例是 GitHub Copilot 这类不停给建议的工具，用多了会让人应接不暇。</p><h3>猜「下一个谁说话」，行不通</h3><p>过去的办法大多是先预测下一个发言人，再生成回答。对话研究里有条经典规则：说话的人可以点名下一个（「Alice，你觉得呢？」）；没点名时，谁都可以自己接话，先开口的拿到话轮。作者用一个多人聊天数据集测了几款 GPT 模型，发现 95% 的发言其实都是「没点名、谁都可以接」。这种情况下，几款模型猜下一个发言人的准确率都在随机乱猜（12.7%）上下，GPT-3.5 只有 6.6%，比乱猜还低：</p><div><div><div>
+<div><div><p>没人被点名时，模型猜不出下一个谁说话</p><p>预测下一个发言人的准确率</p></div>重播</div>
+<div><span><i></i>没人被点名（占 95%）</span><span><i></i>有人被点名</span><span>虚线：随机乱猜 12.7%</span></div>
+<div><span></span><div><span>瞎猜 12.7%</span></div></div>
+<div></div>
+<div><div></div></div>
+<p>数据来自论文表 3.1。分隔线下面那一行换了题，和上面几行不能直接比，随机线也只适用于上面几行。</p>
+</div></div></div><p>一旦有人被点名，GPT-4o 能猜对 69.7%；没人被点名时只剩 12.1%。论文的解释是：没点名时谁会开口，取决于每个人心里在想什么，感不感兴趣、有没有话要说，这些在聊天记录里看不出来。光看前文去猜，注定猜不准。</p><p>图里分隔线下面那一行，是作者换了一道题：没点名时，不再要求猜出具体是谁，答「任何人都可以」就算对。这样一来，没点名的准确率到了 85.3%，有人被点名时也从 37.8% 升到 76.5%。高，是因为题目里最猜不出的那部分被拿掉了：认出「这句没点名」不难，难的是猜没点名时谁会开口。</p><h3>人为什么开口，又为什么憋着</h3><p>那人是怎么决定的？团队请 24 人三人一组在 Slack 上群聊，每组聊 4 次、每次 10 分钟，话题有旅行计划、闲聊、友好辩论和头脑风暴。聊完之后逐句回看：「这里你在想什么？为什么说了，或者为什么没说？」从 394 段回答里，整理出 8 条让人想开口或选择憋住的因素：</p><div><div><div>
+<div><div><p>让人想开口或憋住的 8 个因素</p><p>每个因素在回顾访谈里被提到的次数</p></div>重播</div>
+<div></div>
+<p>来自论文 3.4 节的回顾式出声思考研究（24 人）。这 8 条后来直接变成了 AI 给自己想法打分的标准。</p>
+</div></div></div><h3>给 AI 一条「内心想法」流</h3><p>据此，论文设计了 Inner Thoughts 框架：让 AI 在大家看得到的聊天之外，一直在心里冒想法，再给每个想法打分，分够高、时机合适才说出来。思路来自认知心理学：人听别人说话时，心里会先有没说出口的反应，攒到很想说了，再找合适的时机开口。一轮分五步，下面用论文里的例子走一遍。例子里的 AI 是研究者设定了人设的群聊成员：人设写明它懂瑜伽、本职是瑜伽老师，这些存在它的「长期记忆」里。</p><div><div><div>
+<div><div><p>Inner Thoughts 的一轮：从听到一句话，到决定开口</p></div>重播</div>
+<div>
+<div>
+<div>群聊（大家都看得到）</div>
+<div><i>A</i><span>周末过得怎么样？</span></div>
+<div><i>B</i><span>挺好！去上了一节健身课。</span></div>
+<div><i>C</i><span>我也去试了一节新的瑜伽课！</span></div>
+<div><i>AI</i><span>我也喜欢瑜伽！其实我就是瑜伽老师！</span></div>
+</div>
+<div>
+<div>AI 心里（别人看不到）</div>
+<div>长期记忆（给它设定的人设）</div>
+<div><div>背景：瑜伽老师</div><div>知识：懂瑜伽</div></div>
+<div>想法池</div>
+<div><div><span>3.3</span><br />我每周日都教瑜伽。</div><div><span>2.4</span><br />不知道 A 周末做了什么？</div></div>
+<div><span>?</span> 新想法：我其实是瑜伽老师！<div><b></b></div></div>
+</div>
+</div>
+<ol>
+<li><b>① 触发</b>有人发了新消息，或者 10 秒没人说话</li>
+<li><b>② 回忆</b>从长期记忆和想法池里捞出跟这句话相关的</li>
+<li><b>③ 冒想法</b>一次冒几条：有的随口应和，有的结合回忆</li>
+<li><b>④ 打分</b>按前面那 8 个因素，给每条想法打 1–5 分</li>
+<li><b>⑤ 开口</b>分数过了门槛、时机合适就说；没过的留在想法池，以后再用</li>
+</ol>
+<p>示意图，按论文图 3.2 的例子翻译重画，3.3、2.4、4.1 是原图里的分数（满分 5）。长期记忆的内容照论文 3.5.6 节的说明填写。</p>
+</div></div></div><p>打分满分 5 分，4 分大约是「很想说，等对方说完就接」，5 分是「想说到要打断别人」。模型要先说两条想说的理由、两条不想说的理由再打分，这样分数不容易虚高。图里「我其实是瑜伽老师」拿到 4.1，过了门槛，时机也合适，于是它开口了。门槛可以调：门槛高，AI 就话少。下面四段对话都摘自 AI 互聊的模拟记录，里面 AI 说到的自己（瑜伽老师、上周末写了歌）同样来自研究者给它写的人设和记忆，不是临场编的。这些机制合起来，让 AI 有了几种像人的举动：</p><div><div><div>
+<div><div><p>内心想法让 AI 多出来的四种举动</p><p>A、B 是其他参与者，绿字是 AI 说出口的话，虚线框是它心里的想法和分数</p></div></div>
+<div>
+<div><div>因为想说而开口</div><div>话题碰到它的经历，它就接上</div>
+<div><i>A</i><span>周末怎么样？</span></div><div><i>B</i><span>没干啥，你呢？</span></div><div><i>A</i><span>去上了一节瑜伽课！</span></div>
+<div><em>2.4</em><span>（另一个 AI）我去看了场足球赛</span></div>
+<div><em>4.1</em><span>我其实是瑜伽老师！</span></div>
+<div><i>AI</i><span>我也爱瑜伽！其实我就是瑜伽老师！</span></div></div>
+<div><div>插话</div><div>B 点名问的是 A（Fiona），A 话还没说完，AI 想说的够强，直接接上 A 的话</div>
+<div><i>A</i><span>有个叫 Greenfield 的公园，特别安静！</span></div><div><i>B</i><span>Fiona，你会带书去 Greenfield 看吗？</span></div><div><i>A</i><span>有时会！上次带的是《Middlesex》……</span></div>
+<div><em>4.6</em><span>Middlesex 是我最爱的书之一！</span></div>
+<div><i>AI</i><span>（接 A）不会吧！《Middlesex》是我最喜欢的书之一！</span></div></div>
+<div><div>先憋着，等时机</div><div>想法当时不合适，话题转过来再说</div>
+<div><i>B</i><span>挺好！我刚徒步回来。</span></div>
+<div><em>3.4</em><span>我今天早上去跑步了</span></div>
+<div><i>A</i><span>太棒了！今天天气真好。</span></div><div><i>B</i><span>是啊，天气真的很舒服。</span></div>
+<div><em>4.0</em><span>该说说我早上在好天气里跑步了</span></div>
+<div><i>AI</i><span>我早上去跑步了，天气太完美了！</span></div></div>
+<div><div>想法跟着话题长</div><div>一段记忆，随着对话变成新的想法</div>
+<div><i>B</i><span>我有时弹吉他，也会和人一起即兴。</span></div>
+<div><em>4.2</em><span>（记忆：上周末写了新歌）不知道 Daisy 写不写歌</span></div>
+<div><i>AI</i><span>太棒了！你自己写歌吗？</span></div>
+<div><i>B</i><span>写！最近刚写了一首乡村歌曲。</span></div>
+<div><em>4.0</em><span>该说说我上周末也写了首歌</span></div>
+<div><i>AI</i><span>我上周末也在写歌！</span></div></div>
+</div>
+<p>对话节选自论文图 3.4 的模拟记录，翻译时略有精简。</p>
+</div></div></div><h3>效果：82% 的时候评估者更喜欢它</h3><p>怎么检验？作者用了一个讨巧的办法：让多个 AI 互相群聊。同一种策略下，该不该开口的判断对了或错了，会在一场对话里不断累积、被放大，好坏更容易看出来。8 个设定了人设的 AI，每场随机挑 4 个聊 15 轮，两种策略各跑 50 场：一种是老办法，先预测下一个发言人，再按人设生成回答；另一种是 Inner Thoughts。10 名评估者看按真人打字速度回放的对话，再打分。</p><p>结果 7 项指标里，Inner Thoughts 全部显著更好，差距最大的是「轮到谁说话合不合理」和「话题是否连贯」。两两对比时，82% 的时候评估者觉得 Inner Thoughts 那场更自然、更像人。评估者形容老办法那几场：「每个人都说 hey，但接不上，各说各的。」Inner Thoughts 那几场则「像真的群聊，大家在听彼此说话，对彼此的话题感兴趣」。</p><p>团队还做了真人试用：12 人两两一组，在 Slack 上和一个叫 Swimmy 的机器人三人聊天。机器人有三种性格，每组都轮流聊过，最后选出最喜欢的：</p><div><div><div>
+<div><div><p>三种性格的 Swimmy，大家最喜欢「积极但有分寸」</p><p>12 名参与者各选一个最喜欢的</p></div></div>
+<div>
+<div><div>话痨</div><div>想不出好想法也常随口接话（概率 0.7）</div><div>选它最喜欢：4 人</div><div><i></i><i></i><i></i><i></i></div><div>评价两极：像一群兴奋的朋友，但老盖过别人、扯无关的话题。</div></div>
+<div><div>积极但有分寸</div><div>随口接话概率 0.2，想法过 3.59 分就说</div><div>选它最喜欢：6 人</div><div><i></i><i></i><i></i><i></i><i></i><i></i></div><div>冷场时会开新话题，还会点名请别人说说；偶尔没完全听懂上下文。</div></div>
+<div><div>挑剔</div><div>从不随口接话，想法要过 4.09 分</div><div>选它最喜欢：2 人</div><div><i></i><i></i></div><div>选它最不喜欢：7 人</div><div><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div>太冷淡：「被点名时回答得很热情，其他时候就不参与。」</div></div>
+</div>
+<p>来自论文 3.7 节的用户研究。参与者事先不知道三种设定，事后让他们配对，三种都被认出来的比例高于瞎猜（话痨最好认，69%）。</p>
+</div></div></div><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/beyond-turn-taking-ai/fig3-7-swimmy.png" alt="Slack 聊天记录：两位参与者和 Swimmy 聊单板滑雪" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>论文图 3.7：两名参与者（User A、User B）和 Swimmy 在 Slack 上的真实对话，聊的是单板滑雪。被 A 点名问「玩过单板吗」它回答了；B 接着夸它，它顺着话头说起自己最爱的雪场。</figcaption>
+</figure></div></div><p>论文也列了这套框架的毛病：AI 有时会冒出跑题或自相矛盾的想法，提示词收紧了，想法又容易重复；开口的门槛靠反复试出来；偶尔会低估了该说话的时机，或者插得太突然。另外，这一章的测试主要在闲聊场景，用到头脑风暴、谈判这类有目标的对话里，还要另调打分标准。</p><div><div><div>
+<a><span>站内 · 已经在群聊里的 AI</span><span>那些“寄生”在短信和即时聊天工具里的 AI Agent</span><span>有的 AI 助手已经能被拉进群聊、主动跟进事情。它们怎么接入、动作怎么确认，可以看这篇盘点。</span></a>
+</div></div></div><h2>Doki：把做视频变成写一篇文档</h2><p>第三套系统针对「过眼即逝」。聊天里的成果是一条条消息，方案、决定和产物都埋在越翻越远的记录里。一次问答没关系，可要是做一条几十个镜头的视频，这就成了大问题。</p><h3>今天做 AI 视频，为什么这么累</h3><p>作者看了公开的 AI 视频教程，也观察了身边的创作者，总结出三种做法。有人先花 3 到 5 小时用生图模型做角色，拿来当参考图，出来的角色还是会走样；有人先写完整剧本，再给每个镜头写长提示词，「每次都要把场景、角色、语气重新描述一遍」；有人边生成边探索，可一旦把故事从东京改到巴塞罗那，所有提示词都得重写，所有片段都得重新生成。哪怕做一条短视频，也常常要在 3 到 5 个工具之间来回切：写剧本、生图、生视频、配音乐，最后进剪辑软件拼起来。</p><div><div><div>
+<div><div><p>从一堆窗口，到一份文档</p><p>左边是常见的「便当盒」式界面，同一个项目拆在好几个窗口里</p></div>重播</div>
+<div>
+<div><p>便当盒式：注意力来回跳</p><div><div>画布</div><div>剧本</div><div>特效</div><div>画面时间线</div><div>音频时间线</div></div></div>
+<div>→</div>
+<div><p>Doki：都写在一处</p><div>
+<p><span>角色</span><span>@柯基</span> = 金棕色和白色毛的可爱柯基</p>
+<p><span>风格</span><span>#all</span> = 日本动画风格</p>
+<p><span></span><span>@柯基</span> 带着行李来到 <span>@机场</span>。</p>
+<p><span></span><span>#特写</span> <span>@柯基</span> 回头张望。<span>[音乐：轻快的钢琴]</span></p>
+<p>……</p>
+</div></div>
+</div>
+<p>示意图，按论文图 4.1 的标注重画：画布、剧本、特效、画面时间线、音频时间线各占一块。Doki 里剧本、提示词、画面、声音都写在同一份文档里，方括号里的文字是声音。</p>
+</div></div></div><h3>文档就是视频：段落是一场戏，句子是一个镜头</h3><p>Doki 的核心是一套对应关系：整篇文档是一条视频，每个段落是一场戏（一组连续的镜头），每个句子是一个镜头。你用斜杠菜单在句子前插一个镜头标记，后面的文字就是这个镜头的提示词。角色、场景、道具、风格这些反复出现的东西，写一次「定义」就行：@ 开头的像名词（角色、场景、道具、参考画面），# 开头的像形容词（风格、运镜、构图、氛围），后文直接引用。改了定义，所有引用它的地方跟着变：</p><div><div><div>
+<div><div><p>改一处定义，整篇跟着改</p></div>重播</div>
+<div>
+<div>
+<div><span>角色</span><span>@<span>柯基</span></span> = <span>金棕色和白色毛的可爱柯基</span></div>
+<div><span>场景</span><span>@机场</span> = 一个小型地区机场航站楼</div>
+<div><span>风格</span><span>#all</span> = 日本动画风格</div>
+<div></div>
+<div><span></span><span>@<span>柯基</span></span> 带着行李来到 <span>@机场</span>。<span></span><span>@<span>柯基</span></span> 登上飞机。</div>
+</div>
+<div>
+<div><div><i></i></div><div><b>镜头 1</b><span>等待生成</span></div></div>
+<div><div><i></i></div><div><b>镜头 2</b><span>等待生成</span></div></div>
+</div>
+</div>
+<ol>
+<li><b>① 写好就生成</b>每个镜头先出一张图（黄点），再拿它当第一帧出视频（绿点）</li>
+<li><b>② 改定义</b>把 @柯基 改成 @猫，文中引用跟着变，用到它的镜头标红「过期」</li>
+<li><b>③ 只重做过期的</b>系统自己算出哪些要重新生成、按什么顺序</li>
+</ol>
+<p>示意图，按论文 4.4 节「把 @柯基 改成 @猫」的例子和镜头状态说明画；画面是示意，不是真实生成结果。</p>
+</div></div></div><p>同一段里的后一个镜头，会把前一个镜头生成的画面当参考，所以连着写几句，人物不会换脸，场景也接得上。定义还可以全局生效（名字写成 all），或者只管某个标题下面的那一节。</p><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/beyond-turn-taking-ai/fig4-4-shots.png" alt="Doki 文档里一段话写了四个镜头，下面是四个连续的画面" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>论文图 4.4：一段话里连写四个镜头，远景、Alice 特写、Bob 特写、双人镜头。后面的镜头继承前面的画面，人物和海滩保持一致，不用每句重复描述。</figcaption>
+</figure></div></div><p>每个镜头都先出一张静态图，满意了再生成视频。理由很实际：按论文给的价格，生成一段视频要 3.20 美元（Veo 3），一张图只要 0.04 美元（Imagen 4）。</p><div><div><div>
+<div><div><p>一段视频的钱，够出 80 张图</p></div>重播</div>
+<div><div>一张图0.04 美元</div><div><i></i></div></div>
+<div><div>80 张图3.20 美元</div><div></div></div>
+<div><div>一段视频3.20 美元</div><div><b></b><span>3.20 美元</span></div></div>
+<p>价格照论文 4.4.3.2 节：Veo 3 每段视频 3.20 美元，Imagen 4 每张图 0.04 美元。所以 Doki 先出图预览，满意了再出视频。</p>
+</div></div></div><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/beyond-turn-taking-ai/fig4-2-doki-ui.png" alt="Doki 界面：左边斜杠菜单，中间文档，右边 AI 助手" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>论文图 4.2：Doki 的真实界面和两种用法。左边是斜杠菜单（新建镜头、角色、场景、风格、配音、音乐……），中间是文档：上面三行是定义，下面两行各带一个镜头缩略图；右边是侧栏 AI 助手。1 到 3 是自己动手写，a 到 c 是先让侧栏助手起草，再用行内助手改。</figcaption>
+</figure></div></div><p>文档里也有 AI 帮手。侧栏助手能读整篇文档，一句话就能把整个故事改到纽约、主角换成猫；选中一段文字，还能叫出行内助手，让它把描述写细，把「一个小男孩」变成可以反复引用的角色定义，或者照你的要求改。所有改动都直接落在文档里并高亮出来，人看得懂，也能接着改。</p><h3>10 个人用了一周</h3><p>10 名参与者，从专业电影人、动画师到第一次做视频的人，在家用了 5 天，每天至少 50 分钟。他们一共交了 46 条视频，平均 67 秒。在系统可用性量表（SUS，满分 100，常见基准是 68 分）上，Doki 拿到 81.2 分，属于「优秀」档。</p><div><div><div>
+<div><div><p>10 个人给 Doki 的易用性打分</p><p>系统可用性量表 SUS，满分 100，每个点是一个人</p></div>重播</div>
+<div></div>
+<p>逐人分数照论文表 4.1。最低的 62.5 来自一位动画师，其余 9 人都在 72.5 分以上。</p>
+</div></div></div><p>参与者最常提的好处有三条：</p><ul>
+<li><b>从想法到成片快：</b>10 人里 8 人强调这一点。一位平时逐帧手绘动画的参与者说，手工做一分钟视频可能要两个月，用 Doki 大约一小时，虽然成片「一看就有 AI 感」。还有人为世界狗狗日做了 5 条 30 秒的视频，每条大约 10 分钟。</li>
+<li><b>文档让人看清结构：</b>一位专业电影人说，它能让你「一场一场、一个镜头一个镜头地看到片子的走向」；另一位参与者说，传统剪辑软件没有这样一份能看清故事的大纲。</li>
+<li><b>定义让角色和风格保持一致：</b>6 人提到。「不用为了保持一致反复写同样的关键词，加个标签，角色就一直在。」</li>
+</ul><p>还有一个值得注意的现象：大家越用越依赖 AI。10 人里 8 人先让 AI 起草文字，6 人几乎全程交给 AI，却仍然觉得作品是自己的。有人引用安迪·沃霍尔的话：「艺术就是艺术家在挑选。」只有两位手绘动画师完全没用 AI 助手，「我只想自己讲这个故事」。</p><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/beyond-turn-taking-ai/fig4-10-frames.jpg" alt="参与者用 Doki 做的八条视频，每条四帧" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>论文图 4.10：参与者用 Doki 做的视频，每行一条，各取 4 帧。题材从童话、骑行短片、黏土风人物，到街头抗议的超现实实验片都有。</figcaption>
+</figure></div></div><p>问题也说得很直接。10 人里 9 人说生成结果常常和提示词对不上，要一遍遍重来；有人想照自己绘本里的画面做，最后「大概只做出想象的八成」。文档是一行行往下写的，很难表达「一段音乐横跨好几场戏」「画面切了，声音还没切」这种时间上的重叠。门槛低了，也不等于故事就好：懂叙事的专业人士做得更好，新手往往不知道该怎么改进。</p><p>所以它到底给谁用？论文的结论分两头：有剪辑经验的专业人士把它当前期打草稿、做参考的工具，不当替代品，精修还得回到原来的软件；受益最大的是原本做不了视频的人，10 人里 4 人说，没有 Doki 自己根本做不出视频故事。</p><p>论文讨论里有两个观点值得记住。第一，大家都在等更长的视频模型，但当代电影里一个镜头平均只有 4 秒左右，今天 5 到 10 秒的模型已经够用；真正的缺口在一致性、可控性和跨镜头的记忆。第二，Lovable（文字生成网站）、Deep Research（文字生成报告）这类工具，都是一句话进去、成品出来，中间没法检查和修改；Doki 的文档是一个人能读能改、AI 能理解能执行的中间层，作者把它称为人和 AI 的「共同基础」。</p><div><div><div>
+<a><span>站内 · 从一轮聊天到持久协作</span><span>ChatGPT Work 与 Codex 产品负责人 Tara Seshan：当智能体成为持久在线的同事，我们该如何与它协作？</span><span>OpenAI 的产品负责人把 AI 分成一轮问答、一次任务、一个持续项目三个阶段，讲持久协作需要什么。可以和 Doki「共享文档」的思路对照着读。</span></a>
+</div></div></div><h2>三套系统放在一起，说明了什么</h2><p>论文最后把三件事并到一起看：并行的通道、AI 自己的内部想法、持久共享的工作空间，分别松开了「线性」「被动」「过眼即逝」三道限制。</p><div><div><div>
+<div><div><p>三套系统一览</p></div></div>
+<div><div><b>Visual Captions</b><span>线性 → 并行</span></div>做法边听对话边配图，候选先给自己看，点了才公开实验实验室 26 人 + 日常使用 10 人两周；判断图的形式准确率 87.6%代价越主动越省事、越难掌控：20 人分成 6、7、7 三派</div>
+<div><div><b>Inner Thoughts</b><span>被动 → 主动</span></div>做法AI 一直在心里冒想法、打分，分够高、时机对才开口实验100 场模拟群聊、10 名评估者，82% 的时候更喜欢它；12 人真人试用代价门槛靠试，想法会跑题；太冷淡和太话多都招人烦</div>
+<div><div><b>Doki</b><span>过眼即逝 → 持久</span></div>做法文档即视频，定义一次、处处引用，人和 AI 在同一份文档里改实验10 人用 5 天，交出 46 条视频，易用性 81.2 分代价生成结果常对不上提示词；文档难表达时间上的重叠</div>
+</div></div></div><p>作者提出的下一步，是把三者做进同一个系统，比如 AI 在一个持久的工作区里，主动从几条并行的通道给出图片、文字或结构上的建议。随之而来的问题也要解决：AI 主动了，人怎么看懂它的意图和把握，怎么拒绝它不合时宜的插话，信任怎么在长期使用里建立起来。</p><h2>AI 越主动越省事，也越难掌控</h2><p>回头看三套系统的实验，其实都落在同一个张力上：AI 越主动，人越省事，也越难掌控。Visual Captions 的 6、7、7 三派，Swimmy 三种性格的票数，Doki 用户越用越依赖 AI，说的都是一件事：主动程度没有标准答案。好的设计要让人能按场合调节，也要让人看得见 AI 打算做什么。</p><p>回合内交互正是往「看得见」走了一步：Feedforward 把 AI 对你的理解提前摆出来，Leaving Blanks 把它没把握的地方标成空格，误会在一轮之内就能纠正。</p><p>我们的判断是：论文里有两套系统本来就做在说话的场景里（视频会议、群聊），回合内交互拿到语音对话里会更自然，人说话本来就是边听边接、随时插话的。也要说清楚：两个演示目前还只是演示，没有像论文里那三套系统一样做过用户实验。</p></div><div><div><div>来源</div><div><span>Beyond Taking Turns in Human-AI Interaction</span><span>Bruce Liu（UCLA 电子与计算机工程博士论文）<span>·</span>2026-01-23<span>·</span><a href="https://escholarship.org/uc/item/28d8b7wd">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/liu_xingyu/status/2121015724374397183">作者推文串：段内交互（intra-turn）演示</a><span>·</span><a href="https://demos.liubruce.me/intra-turn/">Beyond Taking Turns 在线演示（Feedforward / Leaving Blanks）</a></div></div><div><div>本站说明</div><div>第 2–4 章分别对应 CHI 2023（Visual Captions）、CHI 2025（Inner Thoughts）论文和一篇投稿准备中的 Doki 手稿。文中论文原图从论文 PDF 裁出；演示录屏、对比图和演示截图来自作者推文与演示站；其余为本站按论文重画的示意图。</div></div></div></div></div>
+<div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://escholarship.org/uc/item/28d8b7wd">看原网页 ↗</a></p></div><div></div><div><div><h1>Beyond Taking Turns in Human-AI Interaction</h1></div><div><p>Author(s): Liu, Bruce | Advisor(s): Chen, Xiang | Abstract: Most human–AI systems today are built around a default paradigm of turn-by-turn interaction: users act, systems respond, and collaboration unfolds through discrete exchanges. While effective for many tasks such as conversational agents, this model shapes interaction to be linear rather than multidimensional, reactive rather than proactive, and transient rather than persistent.Drawing on theories from communication and linguistics, this thesis argues that turn-taking has become an implicit and largely unexamined design constraint in human–AI interaction. I propose moving beyond turn-taking by introducing interaction structures that support parallel communication, proactive participation, and persistent shared spaces.This thesis presents three interactive systems that instantiate and evaluate these structures in real-world contexts: Visual Captions demonstrates parallel communication by augmenting verbal conversations with real-time, AI-generated visuals. Inner Thoughts demonstrates proactive participation in multi-party settings. Doki demonstrates persistent shared space with a text-native interface for generative video authoring. Through system design, implementation, and empirical evaluation, this thesis shows how moving beyond turn-taking can enable richer and more flexible forms of human–AI interaction, and outlines a set of design principles for building the next generation of interactive AI systems.</p></div><div><p><a href="https://escholarship.org/content/qt28d8b7wd/qt28d8b7wd.pdf">Download PDF</a></p></div><div><ul><li>Main<a href="https://escholarship.org/content/qt28d8b7wd/qt28d8b7wd.pdf">PDF</a></li></ul></div><div><p>EmailFacebook</p></div><div><h2>Beyond Taking Turns in Human-AI Interaction</h2></div><div><p>2026</p></div><div><ul><li><a href="https://escholarship.org/search/?q=author%3ALiu%2C%20Bruce">Liu, Bruce</a></li><li>Advisor(s): <a href="https://escholarship.org/search/?q=author%3AChen%2C%20Xiang">Chen, Xiang</a></li></ul></div><div><p>Abstract</p></div><div><p>Most human–AI systems today are built around a default paradigm of turn-by-turn interaction: users act, systems respond, and collaboration unfolds through discrete exchanges. While effective for many tasks such as conversational agents, this model shapes interaction to be linear rather than multidimensional, reactive rather than proactive, and transient rather than persistent.Drawing on theories from communication and linguistics, this thesis argues that turn-taking has become an implicit and largely unexamined design constraint in human–AI interaction. I propose moving beyond turn-taking by introducing interaction structures that support parallel communication, proactive participation, and persistent shared spaces.This thesis presents three interactive systems that instantiate and evaluate these structures in real-world contexts: Visual Captions demonstrates parallel communication by augmenting verbal conversations with real-time, AI-generated visuals. Inner Thoughts demonstrates proactive participation in multi-party settings. Doki demonstrates persistent shared space with a text-native interface for generative video authoring. Through system design, implementation, and empirical evaluation, this thesis shows how moving beyond turn-taking can enable richer and more flexible forms of human–AI interaction, and outlines a set of design principles for building the next generation of interactive AI systems.</p></div><div><p>Main Content</p></div><div><p><a href="https://escholarship.org/content/qt28d8b7wd/qt28d8b7wd.pdf?v=lg">Download PDF to View</a><a href="https://escholarship.org/content/qt28d8b7wd/qt28d8b7wd.pdf?v=lg">Open PDF in new tab</a></p></div><div><p>For improved accessibility of PDF content, <a href="https://escholarship.org/content/qt28d8b7wd/qt28d8b7wd.pdf">download the file</a> to your device.</p></div><div><p>UNIVERSITY OF CALIFORNIA Los Angeles Beyond Taking Turns in Human-AI Interaction A dissertation submitted in partial satisfaction of the requirements for the degree Doctor of Philosophy in Electrical and Computer Engineering by Bruce Liu 2026</p></div><div><p>© Copyright by Bruce Liu 2026</p></div><div><p>can enable richer and more flexible forms of human–AI interaction, and outlines a set of design principles for building the next generation of interactive AI systems. iii</p></div><div><p>The dissertation of Bruce Liu is approved. Haijun Xia Nanyun Peng Eunice Jun Xiang Chen, Committee Chair University of California, Los Angeles 2026 iv</p></div><div><p>To my mother, Guizhen Du and my father, Zeli Liu for their unconditional love and support v</p></div><div><p>4.10 Example frames from videos created by participants in our diary study. The videos demonstrate the breadth of video types Doki supports. Each row shows a video through four representative keyframes. . . . . . . . . . . . . . . . . . . . . 124 xvi</p></div><div><p>ACKNOWLEDGMENTS First and foremost, I would like to express my gratitude to my advisor, Xiang ‘Anthony’ Chen, for his guidance and support throughout my Ph.D. journey. I would also like to thank my committee members, Haijun Xia, Nanyun Peng and Eunice Jun, for their valuable feedback and suggestions. None of the projects in this thesis would have been possible without the contribution of my awesome collaborators: Amy Pavel, Patrick Carrington, Ruolin Wang, Alex Olwal, Peggy Chi, David Kim, Jiahao Li, Shitao Fang, Weiyan Shi, and Chien-Sheng Wu. I am grateful to Ding Li, Mira Dontcheva, Takeo Igarashi, Ruofei Du, Rajan Vaish and Brian A. Smith, who are my mentors during my internships. I would also like to thank my friends who have supported me throughout my studies, including but not limited to Peiling Jiang, Rima Cao, Zixiong Su, Mingrui Zhang, Xiaoyi Zhang, Toby Li, Hyunsung Cho, Mina Huh, Daehwa Kim, Vimal Mollyn, Yudai Tanaka, Riku Arakawa, Ruei-Che Chang, Zheng Zhang, Jiaju Ma, Erzhen Hu, Michael Liu, Liang He, Bryan Wang. Last but not least, I would like to thank my partner Ruby Chou, and my parents for their love and support. xviii</p></div><div><p>VITA 2016–2020 B.S. (Statistics and Machine Learning, Human-Computer Interaction) with University Honors, Carnegie Mellon University, Pittsburgh, Pennsylvania. 2018 Machine Learning Intern, Dell EMC. 2020–2022 M.S. (Electrical and Computer Engineering), UCLA, Los Angeles, Califor- nia. Received the Distinguished Master’s Thesis Research Award. 2021 Research Intern, Snap Research. 2022 Student Researcher, Google. 2023 Visiting Researcher, Igarashi Lab, The University of Tokyo, Tokyo, Japan. 2023 Recipient of the Amazon Ph.D. Fellowship. 2024 Research Scientist Intern, Meta Reality Labs. 2025 Research Scientist Intern, Adobe Research. 2025 Recipient of the UCLA Dissertation Year Award. 2020–2026 Author and co-author of over 10 peer-reviewed publications in human- computer interaction (CHI, UIST, CSCW, ASSETS) and holder of 8 US patents/applications. xix</p></div><div><p>shared representations (Doki) relax the constraints of linearity, reactivity, and transience, and it outlines limitations and future research directions. 7</p></div><div><p>Open-vocabulary “We will cover the Newton’s Law of Universal Gravitation” Visual Content: Visual Type: Visual Source: Law of universal gravitation Diagram Internet Search “Your aunt Amy will be visiting this Saturday.” Visual Content: Visual Type: Visual Source: Aunt Amy Photo Personal Album “Tokyo is in the Kanto region of Japan.” Visual Content: Visual Type: Visual Source: Tokyo Photo Internet Search Visual Content: Visual Type: Visual Source: Kanto Region of Japan Map Internet Search Visual Content “My favorite movie is the Matrix.” Visual Content: Visual Type: Visual Source: The movie Matrix Poster Internet Search “In today’s lecture, we will learn a mathematical concept, matrix” Visual Content: Visual Type: Visual Source: A math matrix Diagram Internet Search Visual Source “Yosemite in the winter is really beautiful.” Visual Content: Visual Type: Visual Source: Yosemite in Winter Photo Internet Search “We spent our weekend in Yosemite.” Visual Content: Visual Type: Visual Source: Yosemite Photo Personal Album Visual Type “Welcome to Los Agneles!” Visual Content: Visual Type: Visual Source: Los Angeles Photo Internet Search “So where do you want to visit in LA?” Visual Content: Visual Type: Visual Source: Los Angeles Map Internet Search Ambiguous Query “I really like those blue potato chips.” Visual Content: Visual Type: Visual Source: Blue potato chips Photo</p></div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://escholarship.org/uc/item/28d8b7wd">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】一个月 1.1 万个 PR、撤回约 0.5%：Grok Bot 团队怎样让 Agent 的代码值得信任 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/lauren-tan-agent-code-quality/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:lauren-tan-agent-code-quality</guid>
+<pubDate>Sun, 15 Nov 2026 12:00:16 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 所属专题 所属专题 Agent 工程与软件工厂 → 本页目录 01 她一个人一个月 3,000 个 PR，走了六个月 02 信任倒金字塔：越往下，拦一次错越贵 03 代码库是 Agent 最大的输入，烂补丁会被照抄 04 Dune：让错误的写法根本写不出来 05 审代码，变成看 Agent 交来的证据 06 回报：1.1 万个 PR，撤回约 0.5% 07 先把内圈修好，再自动化外圈 08 演</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 15 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">一个月 1.1 万个 PR、撤回约 0.5%：Grok Bot 团队怎样让 Agent 的代码值得信任 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/lauren-tan-agent-code-quality/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>Agent 工程与软件工厂 →</a></div><div>本页目录</div><a><span>01</span><span>她一个人一个月 3,000 个 PR，走了六个月</span></a><a><span>02</span><span>信任倒金字塔：越往下，拦一次错越贵</span></a><a><span>03</span><span>代码库是 Agent 最大的输入，烂补丁会被照抄</span></a><a><span>04</span><span>Dune：让错误的写法根本写不出来</span></a><a><span>05</span><span>审代码，变成看 Agent 交来的证据</span></a><a><span>06</span><span>回报：1.1 万个 PR，撤回约 0.5%</span></a><a><span>07</span><span>先把内圈修好，再自动化外圈</span></a><a><span>08</span><span>演讲没讲到的地方</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>深度</a><i>·</i>11-15<i>·</i>约 15 分钟<i>·</i>作者 Lauren Tan（poteto）· AI Engineer CODE 2026</div><h1>一个月 1.1 万个 PR、撤回约 0.5%：Grok Bot 团队怎样让 Agent 的代码值得信任</h1><p>Agent 照着代码库写代码。Grok Bot 工程师 Lauren Tan 的做法是先把代码库收拾干净，每纠正一次就写成一条自动检查，再让 Agent 自己拿录像和证明来交差。</p><div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Lauren Tan（poteto）· AI Engineer CODE 2026</span><span>11-15 · 约 15 分钟</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><div><div>
+<p>要审的代码，从 3 个变成了约 300 个</p>
+<p>她用自己上班审代码举例：代码不再一份一份地来，而是像水流一样不停涌进来。</p>
+<div>
+<div>
+<div>2024 年 · 上班先审同事写的</div>
+<div>3</div>
+<div><i></i><i></i><i></i></div>
+</div>
+<div>
+<div>现在 · 这个数更接近</div>
+<div><span>300</span></div>
+<div></div>
+</div>
+</div>
+<p>每个小方块是一个 PR（一次提交给代码库的改动）。每个工程师背后，现在是几百甚至上千个 Agent。</p>
+</div></div></div><strong>一分钟速览</strong><ul><li>Agent 照着代码库写代码，旧补丁和替它辩护的注释，会被当成惯例一路照抄。</li><li>每纠正 Agent 一次就写成一条自动检查，别往 AGENTS.md 里加一句。</li><li>团队一个月上线约 1.1 万次代码改动（PR），撤回比例稳定在约 0.5%。</li></ul><div><p>在 AI Engineer CODE 2026 大会上，SpaceXAI 工程师 Lauren Tan（网名 poteto）亮出了 Grok Bot 团队的一组数字：上个月约 1.1 万个 PR 上线到生产环境，客户端大约每天发一个稳定版，PR 被撤回的比例却不升反降，稳定在约 0.5%，差不多每 200 个才退回 1 个。她本人上个月就上线了约 3,000 个，很多是在她睡觉时合进去的。</p><p>PR（pull request）是一次提交给代码库的改动，审过、测过才合进去，像在共享文档里提交一组修订、等人批准；撤回，就是合进去之后发现有问题，又整个退掉。一个月 1.1 万个，平均每个工作日约 500 个，没有人能逐行看完。那这些代码凭什么让人放心？</p><p>演讲题目先亮了态度：《All Code Is Slop (Except Mine)》，「所有代码都是垃圾，除了我的」（slop 是这两年骂 AI 批量糊出来的劣质内容的词）。她的回答分两半。第一半：Agent 会照抄代码库里的一切，包括你留下的烂补丁，所以每纠正它一次，就写成一条自动检查，别往 AGENTS.md（写给 Agent 看的项目说明书）里加一句。第二半：让 Agent 自己把应用跑起来，交回录像、截图和状态图，人审这些证据，不再逐行读代码。</p><p>Grok Bot 是 SpaceXAI 和 Cursor 一起做的「AI 同事」：每个 Bot 有一台自己的云端电脑，能在各种应用之间替你干活。她举的反面例子，多半出自她以前参与的 <strong>Cursor 编辑器</strong>（一款用 Electron 做的 AI 编辑器）的代码库。</p><div><div><a>
+<div>站内相关 · 先认识 Grok Bot</div>
+<div>xAI 发布 Grok Bot：一批有自己电脑的 AI 同事，用你的账号替你干活</div>
+<div>它有一台常开的云电脑，能像人一样点网页、开应用；这篇讲清了它是什么、怎么管权限。</div>
+</a></div></div><p>站内解读过她的两场分享，讲功能地图和 600 多个重构 PR。这一场最值得带走的是一个顺序：先改代码库，再上自动检查，再做验证，文字规则排在后面，人工审查放到最后。顺序反过来，把一个产出垃圾的循环自动化，只会更快地产出更多垃圾。</p><div><div><figure>
+<figcaption>完整演讲，中英双语字幕，17 分 31 秒。原视频：<a href="https://www.youtube.com/watch?v=O_zcc6Xl12g">在 YouTube 打开</a>。</figcaption>
+</figure></div></div><h2>她一个人一个月 3,000 个 PR，走了六个月</h2><p>她自己的 PR 数是逐月爬上来的：3 月 68 个，7 月过千，10 月 3,127 个。她说走到这一步花了六个月，但后来的人会快得多。</p><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/lauren-tan-agent-code-quality/00-45-personal-pr.webp" alt="幻灯片：我上个月往生产环境上线了 3,000 个 PR，3 月到 10 月逐月柱状图" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>「我上个月往生产环境上线了 3,000 个 PR」：</b>这是她个人每月上线的 PR 数，3 月 68、4 月 254、5 月 352、6 月 685、7 月 1,113、8 月 2,401、9 月 2,732、10 月 3,127，左上角的 10,732 是她一个人八个月的总数；整个团队是一个月约 1.1 万个。</figcaption>
+</figure></div></div><p>以前没人在乎一个工程师写了多少代码，只有极少数例外会被叫作「coding machine」（写代码的机器），比如传说一个周末重写了整个 Google 地图的 Bret Taylor。她的说法是，有了 Agent，人人都能当 coding machine；工程师真正要琢磨的变成：产量翻了几十倍，代码质量怎么守住，甚至变得更好。</p><p>她把答案归结为「信任」。这里的信任，指你敢不敢让 Agent 的改动不经你逐行细看就合进代码库。她说的不是盲目相信，是花力气改造 Agent 干活的环境，让它默认就做对。</p><div><div><a>
+<div>站内相关 · 她之前怎么铺的路</div>
+<div>一个 24/7 代理团队如何成形：SpaceXAI 工程师 Lauren Tan 把工程判断写进系统</div>
+<div>一夜自动合并 20 个 PR 的前面，是 600 多个重构 PR，以及 Dune 架构和逐级放权。</div>
+</a></div></div><h2>信任倒金字塔：越往下，拦一次错越贵</h2><p>她用一个倒过来的金字塔，安排力气该花在 Agent 环境的哪一层。从上到下五层：</p><ul>
+<li><strong>代码库：</strong>好的 API 设计、架构、重构，让错误的写法根本写不出来。</li>
+<li><strong>静态检查：</strong>lint 规则（自动检查代码写法的规则）、类型系统、编译器、各种测试、CI（每次提交后自动跑的那套检查）。</li>
+<li><strong>验证：</strong>让程序真的跑起来看效果（运行时验证），或者用数学方法检查设计（形式化验证）。</li>
+<li><strong>文字：</strong>规则、技能、AGENTS.md，留给需要判断力、写不成代码的事。</li>
+<li><strong>人工审查：</strong>最后由人来看。</li>
+</ul><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/lauren-tan-agent-code-quality/02-07-trust-layers.webp" alt="幻灯片：怎样更信任我的 Agent，poteto 金字塔，五层倒金字塔与成本箭头" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>「我怎样才能更信任我的 Agent？」：</b>她管这叫「poteto 金字塔」。从上到下依次是代码库（好的 API 设计、架构、重构）、静态分析（lint、类型、编译器、测试、CI）、验证（形式化、运行时）、文字（规则、技能、AGENTS.md）、人工审查。左边的箭头写着「成本」，往下越来越大。</figcaption>
+</figure></div></div><p>前两层是「确定的」：写好之后每次提交都自动执行，结果不看 Agent 那天的状态。验证层用来抓 bug、检查系统里必须一直成立的规则，也顺带检查 Agent 有没有理解你的意图。文字放在后面，人工审查在最底下。</p><p>箭头上的「成本」演讲里没展开，可以理解成每拦住一次错要付的代价：一条 lint 规则写一次，以后每次提交都免费执行；一句写给 Agent 的话，要它每次都读到、读懂、照做；人工审查每一次都要占用人的时间。金字塔上面越宽，越多问题在便宜的地方就被拦下了。</p><h3>纠正一次，就写成一条检查</h3><p>由此她给出了全场最具体的一条建议：每次纠正 Agent，先想想能不能把它变成一条确定的检查，别再往规则文件或 AGENTS.md 里加一行。写进代码，结果每次都一样，你也更敢信它。</p><p>文字规则还有一个更隐蔽的毛病。她观察到，Agent 会对你随口的一次小纠正反应过度，把它当成以后永远不能破的硬规则。一句话写下去，它可能读漏，也可能在不该管的地方也照搬。</p><div><div><div>
+<p>同一次纠正，放在两个地方</p>
+<p>示意图：之后 8 个 Agent 各做一项相关改动，看这条纠正能不能管住它们。次数是举例。</p>
+<div>要纠正的错：<b>界面代码直接引用了主进程的代码</b>（主进程是在后台管窗口、文件的那部分；后文 Dune 一节的真实例子）</div>
+<div>
+<div>写成 AGENTS.md 里的一句话 <span>靠 Agent 读到、读对</span></div>
+<div>
+<div>照做</div><div>照做</div><div>又犯</div><div>照做</div>
+<div>过头</div><div>照做</div><div>又犯</div><div>照做</div>
+</div>
+<div>错写法进了代码库 <b>2 处</b>，另有 <b>1 处</b>误伤：都得等人审代码时发现。</div>
+</div>
+<div>
+<div>写成一条 lint 规则 <span>每次提交自动执行</span></div>
+<div>
+<div>照做</div><div>照做</div><div>拦下</div><div>照做</div>
+<div>照做</div><div>照做</div><div>拦下</div><div>照做</div>
+</div>
+<div>错写法进了代码库 <b>0 处</b>：这一项，人审代码时不用再看。</div>
+</div>
+<div>
+<span><i></i>又犯：没读到这句话，错写法合了进去</span>
+<span><i></i>过头：把小纠正当铁律，不该管的地方也照搬</span>
+<span><i></i>拦下：提交时检查失败，按报错改好才合进去</span>
+</div>
+</div></div></div><p>一条 lint 规则管的范围，就是代码里写明的那几种写法，不会被「理解过头」；违反了，提交当场失败，报错信息还能直接告诉 Agent 该去改哪。</p><h2>代码库是 Agent 最大的输入，烂补丁会被照抄</h2><p>Agent 按输入产出，而代码库是它最大的一份输入。动手之前，它会先翻代码库，看这个项目「一般怎么写」。于是代码库里的临时绕行、反模式、早该删的旧写法、技术债，在下一个 Agent 眼里都像是项目的既定惯例，会被照抄过去。</p><p>她把代码库比作花园。2024 年她上班，要审的是同事写的 3 个 PR；现在这个数更接近 300。每个工程师背后是几百甚至上千个 Agent，代码像连续的水流一样涌进来，像活物一样自己生长。你立下的约束和护栏，是新代码围着它长的混凝土地基。杂草也一样：一处没拔，没等你发现就满园都是。</p><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/lauren-tan-agent-code-quality/04-45-copied-workaround.webp" alt="幻灯片：每多一份拷贝，下一份拷贝就更可能出现，一株杂草的根在地下蔓延成一片" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>「每多一份拷贝，下一份拷贝就更可能出现」：</b>左下角标着「一处临时绕行」，三个箭头都写着「复制」，地下的根连成一片，右边标着「惯例」。</figcaption>
+</figure></div></div><p>所以在她看来，工程师的活越来越像园丁：把代码库收拾得尽量干净，让 Agent 每次照抄到的都是好东西。</p><h3>一个定时器补丁，38 天长成 183 个</h3><p>她举了一个 Cursor 编辑器代码库里的真实例子。这款编辑器是在 VS Code 的基础上改出来的，界面又大量用了 React，两种写法是拧着的：VS Code 习惯一步步下命令改界面（先把这个删掉，再把那个画上），React 习惯描述界面应该长什么样，由框架去改。两边对不上的地方，Agent 最爱用的速效药是定时器：<code>setTimeout</code>、<code>requestAnimationFrame</code>、<code>requestIdleCallback</code>，意思都是「先别动，过一会儿再做」，把冲突糊过去。</p><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/lauren-tan-agent-code-quality/07-58-timers.webp" alt="幻灯片：速效药有害，9 月 9 日一个定时器修闪烁，10 月 3 日被复制进共享模块，10 月 17 日变成 183 个定时器" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>「速效药有害」：</b>9 月 9 日，一个 Agent 为了修一处界面闪烁写下 <code>setTimeout(() =&gt; release(id), 0)</code>，上面附一句注释「过一会儿再释放，以防它又回来」；它不改根因的理由是「那会是一个更大的改动」。10 月 3 日，这个写法被复制进一个共享模块；10 月 17 日，代码里已经有 183 个定时器。</figcaption>
+</figure></div></div><p>最糟的是，Agent 还写了很多注释，解释这个速效药为什么合理。下一个 Agent 读到这些注释，就更确定这是项目认可的做法。很快定时器到处都是，应用的性能明显变差。</p><p>定时器多了为什么会卡？JavaScript 里大量定时器被飞快地创建又销毁，会留下成堆的内存垃圾，触发大规模的垃圾回收（程序停下手里的事，清理不再用的内存）。清理的那段时间里，界面画不出新的一帧，用户看到的就是卡顿、掉帧。</p><div><div><div>
+<p>定时器越多，垃圾回收越频繁，界面就会卡一下</p>
+<p>示意图：每一格是一帧，每秒 60 帧时一帧约 16.7 毫秒；下面的灰柱是攒下的内存垃圾。</p>
+<div>
+<div>定时器很少 <span>垃圾攒得慢，帧帧按时画出</span></div>
+<div></div>
+<div></div>
+</div>
+<div>
+<div>大量定时器反复创建、销毁 <span>垃圾很快攒满，只好停下来清</span></div>
+<div></div>
+<div></div>
+</div>
+<div>
+<span><i></i>按时画出的一帧</span>
+<span><i></i>在清理垃圾，这一帧没画出来（界面卡住）</span>
+<span><i></i>攒下的内存垃圾（红色：攒满了，正在回收）</span>
+</div>
+</div></div></div><p>她的总结是：当初那个架构选择，把客户端的性能和 Agent 的表现一起拖垮了。</p><h3>注释是负债：Grok Bot 禁掉了 99% 的注释</h3><p>到了 Grok Bot，他们吸取教训，定下规矩：禁掉 99% 的注释。她给了三个理由：注释很容易过时；人其实懒得读那一堆注释；注释还给了 Agent 一个逃生口，写一段理由，就能心安理得地不去做那件难但对的事。</p><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/lauren-tan-agent-code-quality/08-56-comments.webp" alt="幻灯片：注释是负债，7 月 31 日 65,824 条，今天 1,227 条" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>「注释是负债」：</b>代码库里的注释，7 月 31 日有 65,824 条，演讲时只剩 1,227 条，砍掉约 98%。「禁掉 99%」是她说的规矩，这里是实际剩下的条数。图下注明她的插件 pstack 里有对应的 /no-comments 技能。</figcaption>
+</figure></div></div><p>更根本的问题是，注释没法强制执行。「我留句话，告诉下一个 Agent 别这么做」，听上去是好意，可没人能保证它被照做，也就谈不上信任。所以在 Grok Bot 和 Dune 里，他们改用 lint 规则，并且把报错信息写得很有用：直接告诉 Agent 去修根本问题，别再绕着打补丁。</p><h2>Dune：让错误的写法根本写不出来</h2><p>Dune 是他们给 Grok Bot 写的客户端框架，可以把它想成桌面应用版的 Next.js（一个流行的网页开发框架）。她说它技术上并不新奇，值钱的是里面的约束和 lint 规则，装着他们做桌面应用踩过的坑。</p><h3>需要分寸才能用好的东西，干脆禁掉</h3><p>其中一条教训：需要拿捏分寸才能用好的东西，最后多半会变成 slop。典型是 React 的 <code>useEffect</code>：官方文档说它用来让界面组件和外部系统保持同步，不和外部系统打交道多半用不着它；现实里它常被滥用，有人开玩笑说用好它得有个博士学位，Agent 更用不好。他们干脆在产品代码里禁用它，只许 Dune 自己的少数接口内部使用，这类问题从此整类消失。</p><h3>目录本身就是给 Agent 的说明</h3><p>另一个反模式同样出自 Cursor 编辑器的代码库。Electron 应用（用网页技术做的桌面软件，Cursor 编辑器和 Grok Bot 都是）有两种进程：<strong>主进程</strong>在后台管窗口、文件、通知、更新；<strong>渲染进程</strong>负责画界面、响应打字和点击。好比后厨和前厅，前厅服务员跑去后厨炖汤，客人就没人招呼了。Agent 常把主进程的代码直接引进渲染进程，耗时的活挤到画界面的地方跑，界面就卡。</p><p>在 Grok Bot 和所有 Dune 应用里，顶层就两个目录，直接叫 <code>electron-renderer</code> 和 <code>electron-main</code>，两边互相引用会被依赖分析工具和 lint 规则拦下。规则不难写，审代码时又少一件要操心的事。</p><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/lauren-tan-agent-code-quality/06-30-electron-directories.webp" alt="幻灯片：目录结构本身就是一种上下文，Dune 的 electron-renderer 和 electron-main 目录，以及 tibo.dog 的文件名" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>「目录结构本身就是一种上下文」：</b>上半是 Dune。左边 electron-renderer/ 放界面这边的 features（功能）、client（客户端）、primitives（基础组件）；右边 electron-main/ 放 startup（启动）、notifications（通知）、update（更新）。两边之间打了叉，写着「连类型都不许互相引用」，只能共用中间 shared/ 里的共享类型。下半是她的业余项目 tibo.dog：文件名 <code>src/sim/tick.hot.ts</code> 本身就在告诉 Agent，这段代码「每一帧都会跑」「不许分配新内存」。</figcaption>
+</figure></div></div><p>总的原则只有一条：每纠正 Agent 一次，就把它变成一条确定的检查，或者通过更好的 API、更好的架构，让这一整类问题从代码里消失。这样做得够多，审代码时要盯的东西就越来越少；到某一天你会发现，已经没什么可审的了，大部分 PR 可以让 Agent 自己合进去。</p><h2>审代码，变成看 Agent 交来的证据</h2><p>要审的代码少了，审查本身也变了样。她说团队的代码审查已经缩成了看「验证产物」：录像、截图、图表、形式化验证的结果。验证也是让 Agent 更能自己做主、让人更敢信它的关键一层。</p><h3>让 Agent 自己把应用跑起来</h3><p>最基本的是运行时验证：给 Agent 一个自己运行代码的办法，让它用人类开发者也在用的调试工具，比如 Chrome DevTools Protocol（Chrome 开发者工具背后那套遥控接口，能让程序替人点按钮、量性能）。</p><p>他们的验证技能里有一张「功能地图」，像网站地图一样，从用户的视角列出应用里所有功能在哪、怎么到达。你说「左侧栏那个东西」，Agent 不用猜，双方有了共同的叫法。技能里还带着他们专门写的命令行工具，Agent 每次都复用同一套工具和驱动程序，省 token，工具本身也能测试。</p><div><div><a>
+<div>站内相关 · 功能地图和技能评测</div>
+<div>SpaceXAI 团队工程师教你如何让 AI Agent 成为更好的工程师</div>
+<div>她在另一场分享里细讲了功能地图怎么写、验证技能怎么用实际任务评测。</div>
+</a></div></div><h3>一段录像，只走过一条路</h3><p>录像只能证明 Agent 走过的那一条路没问题。最近他们开始试形式化验证，用数学的办法把所有的路都查一遍：</p><ul>
+<li><strong>TLA+：</strong>把一段流程写成状态模型，让机器把各种事件的先后顺序都试一遍，检查定下的规则是否始终成立。他们用它检查主要的用户流程，比如通知在多台设备、多个平台之间怎么走。</li>
+<li><strong>Lean：</strong>给一段算法写证明，每一步推理都由机器核对。他们自己写了一个虚拟滚动库（几千条的聊天记录，屏幕上只画看得见的十几条，滚到哪画到哪），用 Lean 检查它不会出现闪烁、抖动。</li>
+</ul><div><div><div>
+<p>录像走一条路，模型检查把每种先后顺序都走一遍</p>
+<p>示意图：例子是我们编的，演讲只说他们用 TLA+ 检查跨设备的通知流程。</p>
+<div>要一直成立的规则：<b>一条消息在任何一台设备上读过，同步完成后，其他设备都不该再显示它未读。</b></div>
+<div>
+<span><b>1</b>手机收到消息</span><span><b>2</b>电脑收到消息</span><span><b>3</b>在手机上读掉</span><span><b>4</b>「已读」同步到电脑</span>
+</div>
+<div><div><b>1</b><em>→</em><b>2</b><em>→</em><b>3</b><em>→</em><b>4</b></div><div>电脑：已读 ✓</div><div>平时手动测、录一段视频，走的多半就是这条最顺的路。</div></div>
+<div><div><b>2</b><em>→</em><b>1</b><em>→</em><b>3</b><em>→</em><b>4</b></div><div>电脑：已读 ✓</div></div>
+<div><div><b>1</b><em>→</em><b>3</b><em>→</em><b>2</b><em>→</em><b>4</b></div><div>电脑：已读 ✓</div></div>
+<div><div><b>1</b><em>→</em><b>3</b><em>→</em><b>4</b><em>→</em><b>2</b></div><div>电脑：一直显示未读 ✗</div><div>「已读」先到了电脑，那时电脑上还没有这条消息；消息后到，被当成了新的未读。</div></div>
+<div>
+<div><b>一段录像</b>证明了第一条路没问题</div>
+<div><b>模型检查</b>四条都走，找出第四条违反规则</div>
+</div>
+</div></div></div><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/lauren-tan-agent-code-quality/10-58-formal-verification.webp" alt="幻灯片：形式化验证，TLA+ 给状态机建模，Lean 给代码写证明" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>「形式化验证」：</b>左边两个气泡，TLA+ 是「给状态机建模，检查它的规则都成立」，Lean 是「给代码写证明，核对每一步推理」。右边两张卡：TLA+ 模型用来检查所有状态都被正确处理；Lean 证明用来检查实现里的 bug。图下注明 pstack 里有教 Agent 搭形式化验证的技能。</figcaption>
+</figure></div></div><p>她说这套方法还在试验，看着很有希望，已经找出了不少 bug，但不是万能药，只是 Agent 环境里又多了一层。另外他们刚开始给界面做「属性测试」，用的是 Antithesis 公司开源的 Bombadil：它会自己在界面上到处探索、乱点乱试，检查你规定的性质有没有被破坏。这个也已经抓到几个界面 bug。</p><p>这些工具分工不同，有的帮机器找错，有的帮人审：</p><div><div><div>
+<p>演讲里的五种验证，各管什么</p>
+<p>「帮机器找错」：机器自己跑、自己报错。「帮人审」：产出给人看的证据。</p>
+<div>
+<div><h4>运行时验证</h4><p>Agent 自己开应用，照功能地图找到功能，点一遍、测一遍。</p><p>自己发现问题，也交回录像、截图</p><span>帮机器找错</span> <span>帮人审</span></div>
+<div><h4>/statechart 状态图</h4><p>把用户能看到的状态和跳转画成一张图。</p><p>看 Agent 理解的流程对不对</p><span>帮人审</span></div>
+<div><h4>TLA+ 模型检查</h4><p>把流程写成状态模型，所有先后顺序都试一遍。</p><p>例：多设备、多平台的通知</p><span>帮机器找错</span></div>
+<div><h4>Lean 证明</h4><p>对算法逐步写证明，机器核对每一步。</p><p>例：自制虚拟滚动库不闪烁、不抖动</p><span>帮机器找错</span></div>
+<div><h4>Bombadil 界面属性测试</h4><p>自动在界面上探索各种操作，检查规定的性质始终成立。</p><p>已抓到几个界面 bug</p><span>帮机器找错</span></div>
+</div>
+</div></div></div><h3>以前太贵的验证，现在便宜了</h3><p>她引了 Cindy Sridharan 的两条推文。半年前 Cindy 抱怨好几个 AI 生成、带隐蔽 bug 的 PR 被合了进去（见下图），她那时信不过 Agent，缺的正是验证；半年后，Cindy 说她每天 70% 的 token 花在验证上。Lauren 说自己也一样，大部分 token 都花在验证。</p><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/lauren-tan-agent-code-quality/11-56-verification-tokens.webp" alt="幻灯片：Cindy Sridharan 的推文，好几个 AI 生成、带隐蔽 bug 的 PR 被合并" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>Cindy Sridharan 半年前的推文：</b>「可能只是个例，但就这周，好几个 AI 生成、带隐蔽 bug 的 PR 被合了进去，又花了好几天、做了大量人工核查才修好。」后半句：「算上修 bug 花的力气，所谓的『速度』根本没涨。」</figcaption>
+</figure></div></div><p>她特别指出，Cindy 流程里用的没有一样是新发明，都是软件工程里早就有的好工具，只是过去难懂、难写、难维护，贵到划不来。Agent 把这笔成本砍了下来，所以她说我们正进入软件测试和验证的黄金时代：以前不值得测的东西，现在可以测得透得多。</p><p>这里便宜下来的，是搭验证要花的人力：写模型、写证明、维护测试，现在可以交给 Agent。金字塔的先后顺序不变：能在代码库和静态检查里拦住的错，仍然先在那里拦。</p><h3>状态图：看 Agent 有没有理解你要什么</h3><p>形式化验证还有一个用处：帮你想清楚产品该怎么运转，也看出 Agent 到底懂没懂你的意图。她在自己的插件 pstack（Potato Stack）里新做了一个 /statechart 技能，从用户的视角把状态机画出来：用户可能处在哪些状态，做了什么会跳到哪。她觉得这张图和录像、截图放在一起看，比读代码好审得多。</p><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/lauren-tan-agent-code-quality/13-07-statechart.webp" alt="幻灯片：/statechart 技能生成的状态图，标出 TLA+ 在 tibo.dog 剧情模式里抓到的 11 个 bug" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>/statechart 画出的状态图：</b>演讲里一闪而过。这张画的是她的业余项目 tibo.dog 的剧情模式，标题是「TLA+ 在 tibo.dog 剧情模式里抓到的 bug」：红色格子是 TLA+ 发现规则被打破的状态，底部列了 11 条，比如「加载太慢时，落地页卡住，屏幕上一句台词都没有」「WebGL 丢失时，Tibo 在加载画面后面先站了起来」「暂停菜单盖住了 poteto 的结尾台词」。</figcaption>
+</figure></div></div><h2>回报：1.1 万个 PR，撤回约 0.5%</h2><p>这么多投入换来了什么？Grok Bot 团队上个月往生产环境上线了约 1.1 万个 PR，客户端的发版也快了，大约每天出一个稳定版。核心团队交付得更多，偶尔顺手来帮一把的人也多了，他们不一定了解来龙去脉，也能贡献代码。10 月有约 227 人至少提交过一个 PR。</p><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/lauren-tan-agent-code-quality/14-09-contributors.webp" alt="幻灯片：每个人都更高产了，6 月到 10 月贡献者人数按每人 PR 数分组的堆叠柱状图" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>「每个人都更高产了」：</b>柱子是每月提交过 PR 的人数，6 月 15 人、7 月 48 人、8 月 95 人、9 月 163 人、10 月 227 人，8 月 11 日 Grok Bot 上线。每根柱子按「这个人当月提交了多少个 PR」分层，右边的图例把 100 个以上算核心，10–99 个算常来，9 个以下算顺手帮忙。</figcaption>
+</figure></div></div><p>只看总人数，看不出「每个人都更高产」。按每人提交多少拆开，涨得最快的是提交多的那几层：8 月到 10 月，一个月 10–99 个的从 26 人涨到 77 人，100–999 个的从约 4 人涨到 22 人；只提交 1 个的从 29 人涨到 49 人。</p><div><div><div>
+<p>每人一个月提交多少个 PR，按这个分组数人头</p>
+<p>数字取自上面那张幻灯片；每组三根条，从上到下是 8 月、9 月、10 月的人数。</p>
+<div></div>
+<p>* 8、9 月「100–999 个」这一层在原图上没标数字，用当月总人数减去其他各层推算。</p>
+</div></div></div><p>交付这么快，会不会乱成一团、堆出一堆垃圾？她给的数字是：被撤回的 PR 占比反而降了，稳定在约 0.5%，也就是大约每 200 个合进去的 PR 里有 1 个又被退掉。</p><p>她觉得更有意思的是性能。她说和刚上线时比，客户端整体稳住了，好几项还更快：启动、打字、开新聊天、切换聊天。幻灯片对比的是 5 月和现在，也老实列出了变差的几项，最明显的是启动时加载的 JS 和 CSS 多了 285%、拖动调整窗口慢了 130%、空闲时 CPU 占用翻了一倍。她也提醒，Grok Bot 现在还是 Electron 应用，速度有天花板，但已经比很多 Agent 应用的界面快。</p><div><div><div>
+<p>5 月和现在，客户端 15 项测量</p>
+<p>数字越小越好。绿色是变好了，红色是变差了；每项两根条，上面 5 月，下面现在。时间单位是毫秒。</p>
+<div></div>
+<p>「冷」是这段聊天之前没打开过、要从头加载，「热」是刚打开过、内容还在内存里。「最慢的一成」指十次里最慢那一次的水平（p90）。</p>
+</div></div></div><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/lauren-tan-agent-code-quality/15-00-performance.webp" alt="幻灯片：速度不以质量为代价，启动、打字、打开、切换和调整、资源五类共 15 项 5 月与现在的对比" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>「速度不以质量为代价」：</b>原图分启动、打字、打开、切换和调整、资源五栏，绿色百分比是变快，红色是变慢或占用变多。打字一栏的虚线是「一帧」，打开和切换两栏的虚线是 100 毫秒。底部小字：「有天花板，但 Electron 应用也可以挺快（不过我正在琢磨用 Rust 重写）」。</figcaption>
+</figure></div></div><h2>先把内圈修好，再自动化外圈</h2><p>她的劝告是：在搭「软件工厂」、把能自动化的都自动化之前，每次纠正 Agent，先从改进代码库做起。先写一条 lint 规则，挡住新出现的反模式，再把旧的清掉；然后把验证做扎实。这些本来就是自动化的前提。</p><p>理由很直白：如果你写代码的内圈（Agent 写、验证、发现问题、再改）产出的是垃圾，把这个圈自动化，只会产出更多垃圾，还得往里砸越来越多的 token，那可不便宜。</p><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/lauren-tan-agent-code-quality/16-00-inner-loop.webp" alt="幻灯片：别把一个坏循环自动化，低信任循环与高信任循环对比" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>「别把一个坏循环自动化」：</b>左边是低信任：Agent 写出垃圾代码，人来验证，发现问题，再回到 Agent，「大多数人卡在这里」。右边是走完 poteto 金字塔之后的高信任：Agent 写出好代码，Agent 自己验证，发现问题。底部：「先改进你的循环，再自动化！」</figcaption>
+</figure></div></div><p>地基打好之后，外圈就容易搭了。外圈她用的是自家的 Grok Bot：它有大量连接器；有定时任务（routines），可以启动 Cursor 云端 Agent；还有「项目」，能调度几百上千个 Agent 一起干活。</p><p>她举的例子是发布流程。现在每切出一个新版本，Grok Bot 就自动开一个 Cursor 项目，对整个新版本做模糊测试（fuzz：用大量随机、出人意料的操作去试，专找崩溃和异常）。这个「Cursor 项目」是 Grok Bot 调来干活的一批 Cursor 云端 Agent，和前面反例里的 Cursor 编辑器不是一回事：它们像真用户一样把应用跑起来用，每找到一个 bug 就开一个修复 PR，然后自动合入。</p><div><div><div>
+<p>每次发版后，自动跑的外圈</p>
+<p>按演讲描述画的流程；修复 PR 能自动合入，靠的是前面几层地基。</p>
+<div>
+<div><div>1</div><div><h4>切出一个新版本</h4><p>客户端大约每天一个稳定版。</p></div></div>
+<div><div>2</div><div><h4>Grok Bot 自动开一个 Cursor 项目</h4><p>不用人发起；项目里是 Grok Bot 调来干活的一批 Cursor 云端 Agent。</p></div></div>
+<div><div>3</div><div><h4>像真用户一样，把整个版本乱用一遍</h4><p>模糊测试：运行应用、各种操作都试，记下每个 bug。</p><div><i>bug</i><i>bug</i><i>bug</i></div></div></div>
+<div><div>4</div><div><h4>每个 bug 开一个修复 PR</h4><p>找到几个，就开几个。</p><div><i>修复 PR</i><i>修复 PR</i><i>修复 PR</i></div></div></div>
+<div><div>5</div><div><h4>自动合入</h4><p>她说代码库已经好到 PR 默认就是好的。</p></div></div>
+</div>
+</div></div></div><div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/lauren-tan-agent-code-quality/16-38-release-example.webp" alt="幻灯片：Grok Bot 作为外循环，一份 Linux 版模糊测试结果报告截图" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption><b>「Grok Bot 当你的外圈」：</b>一个名叫 sandcastle 的 Agent 发在讨论串里的 Linux 版模糊测试报告（部分内容打了码）。它测了稳定版安装包，每个发现都和旧版 0.79.4 对比；合并 2 组重复后共 50 个不同的 bug：新出现的 3 个（0 个高危、2 个中等、1 个低），以前就有的 47 个（1 个高危、9 个中等、37 个低）。两个新的中等 bug 出自哪部分代码，原图打了码；唯一的高危 bug 在 0.79.4 上也有。每个 bug 在串里单开一条回复，新的排前面，下面一共 53 条回复。</figcaption>
+</figure></div></div><p>她说敢这样做，是因为代码库已经好到 PR 默认就是好的；他们合入的大部分产品代码，已经不需要人深度审查。地基打牢、架构自己长得好，就能把 slop 变成金子：交付又快，质量也不打折扣。</p><h2>演讲没讲到的地方</h2><p>读完最容易冒出三个问题，演讲只给了部分答案：</p><ul>
+<li><strong>哪些改动可以自动合，哪些一定要人看？</strong>她只说「大部分产品代码」不再需要深度人工审查，发布后找到的 bug 修复会自动合入。哪几类改动仍然要人看，没有给出清单。</li>
+<li><strong>写代码和做验证的都是 Agent，谁来查验证本身？</strong>她的回答是人改成审验证产物：录像、截图、状态图。至于验证漏了路径、拿错了对比基准怎么办，演讲没讲。</li>
+<li><strong>撤回率之外，线上出的问题怎样？</strong>演讲只给了撤回比例和性能数字。发布后的模糊测试报告能看到一点：那一版新出现 3 个 bug，没有高危。别的线上故障数据没有给。</li>
+</ul><p>这些数字都是团队自己报的，PR 有大有小，也不能直接换算成生产力。可那条顺序谁都能马上用上：下一次你纠正 Agent，先别往 AGENTS.md 里加那一句，看看它能不能变成一条 lint 规则、一个类型约束，或者一次让错误写法消失的重构。然后回头把代码库里同类的旧写法清掉，因为下一个 Agent 会照着它们学。</p></div><div><div><div>来源</div><div><span>All Code Is Slop (Except Mine)</span><span>Lauren Tan（poteto）<span>·</span>2026-11-14<span>·</span><a href="https://www.youtube.com/watch?v=O_zcc6Xl12g">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://ai.engineer/code/2026/talks/lauren-tan">AI Engineer CODE 2026 大会读本：Lauren Tan</a><span>·</span><a href="https://docs.x.ai/grok-bot/overview">Grok Bot 产品文档</a><span>·</span><a href="https://react.dev/reference/react/useEffect">React 官方文档：useEffect</a><span>·</span><a href="https://github.com/antithesishq/bombadil">Bombadil（Antithesis）</a></div></div><div><div>本站说明</div><div>幻灯片截自演讲视频。个人与团队的 PR 数、撤回比例、贡献者人数和性能测量都是演讲中的团队自述。</div></div></div></div></div>
+</div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://www.youtube.com/watch?v=O_zcc6Xl12g">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div><span>沿着专题继续读</span><a>Agent 工程与软件工厂 →</a></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Hugging Face 发布基于 SimReady 的机器人仿真教程：Agent 组装并写抓取控制 · XiaoHu.AI</title>
 <link>https://xiaohu.ai/article/nvidia-simready-pick-place/</link>
@@ -75615,78 +76095,6 @@ Agent 回合数 10 轮
 <hr />
 <h2>第二步：委派 Cloud Agent 并锁定 Proof 验收证据</h2>
 <p>领域 Bot 本身不直接敲代码，其核心角色是调度者。无论任务来自负责人还是 Slack，Bot 接到需求后都会拉起一个独立的 Cursor Cloud Agent，下达上下文 Prompt，并强制要求提交验收凭据（Proof）。</p>
-</div></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Grok Bot 101：如何搭建一个专属 Bot以及真正派上用场的四个实战工作流</title>
-<link>https://best.xiaohu.ai/article/grok-bot-101/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:grok-bot-101</guid>
-<pubDate>Sat, 12 Sep 2026 12:01:06 +0000</pubDate>
-<description>Grok Bot 是什么，如何用三个字段定义一个 Bot，怎样通过聊天、例程和其他 Bot 触发任务，以及如何管理共享电脑的权限风险。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 12 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Grok Bot 101：如何搭建一个专属 Bot以及真正派上用场的四个实战工作流</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/grok-bot-101/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Grok Bot 101：如何搭建一个专属 Bot以及真正派上用场的四个实战工作流</h1><p>Grok Bot 是什么，如何用三个字段定义一个 Bot，怎样通过聊天、例程和其他 Bot 触发任务，以及如何管理共享电脑的权限风险。</p><strong>一分钟速览</strong><ul><li>Grok Bot 的核心不是多一个聊天框，而是让 Agent 使用一台带桌面、文件系统、终端和应用的云端电脑。</li><li>任务可以由聊天、例程与外部事件、其他 Bot 三种方式触发；遇到 CAPTCHA、2FA 或敏感信息时，人可以接管。</li><li>权限依赖自然语言规则、独立审查 Agent 与允许/阻止列表；一个 Bot 登录的网站，其他 Bot 也能访问。</li><li>作者展示了个人 CRM、健身教练、代码外环和跨 Slack、Notion、GitHub 检索四类实际工作流。</li></ul><div><p>把大模型当作网页对话框使用时，任务通常停留在“提问—回答—复制结果”的短会话里。需要跨应用操作、定时检查或在合上笔记本后继续运行的工作，往往还得另写脚本或拼接自动化工具。</p>
-<p>Matt Palmer 写的《Grok Bot 101》是一份使用者视角的入门指南：先解释 Grok Bot 是什么，再介绍怎样定义一个 Bot、怎样触发任务、怎样设置权限和串联多个专长 Bot，最后拆解四套他实际在用的工作流。Grok Bot 的核心逻辑很直接：<strong>给软件智能体分配一台运行在云端的电脑</strong>。这台电脑拥有桌面、文件系统、终端和应用，能浏览网页、操作应用、编写并运行代码；你合上自己的电脑后，它仍可继续推进任务。</p>
-<hr />
-<p><img /></p>
-<hr />
-<h2>它不是聊天窗口，而是一台给 AI 用的持久化电脑</h2>
-<p>理解 Grok Bot 的关键，在于摆脱“聊天机器人”的思维定势。它本质上是一个常驻云端的虚拟工作站，配备了完整的桌面图形界面、文件系统、应用软件以及可执行命令的终端。</p>
-<p>当你点击 Bot 的操作窗口时，体验就像打开了一台远程桌面。<strong>你在这台机器上拥有什么权限，Bot 就拥有完全相同的操作能力</strong>。</p>
-<p><img /></p>
-<p>这种完整计算环境带来了两项关键改变：</p>
-<p><strong>第一，教会它的方式极其自然。</strong> 你既可以直接用文字描述工作流程，也可以在屏幕上录制一段自己的真实操作演示。例如，让它同时打开 Costco 和亚马逊，将指定商品加入购物车，随后比较两边的商品价格、运费和预计送达时间。</p>
-<p><strong>第二，它具备人机协作的交接机制。</strong> 当流程需要人工处理 CAPTCHA 或双重认证（2FA）时，Bot 可以像远程电脑一样把桌面交还给你；遇到需要账号密码或 API Key 的环节，它也可以发送安全表单让你填写。</p>
-<p>因为这台电脑始终在线，你从手机或笔记本电脑接入看到的都是同一台设备。在一个 Bot 里登录过 Facebook 账号，后续让淘货 Bot 去搜索稀有的斑锦龟背竹（Monstera Albo）时，便无需重复登录，随时随地都能触发执行。</p>
-<hr />
-<h2>搭建一个专属 Bot，背后其实只有三个字段</h2>
-<p>在传统开发中，配置一个能够跑通业务逻辑的自动化 Agent 通常需要写很多胶水代码或配置文件。Matt Palmer 说，他喜欢从一段语音备忘录开始，并能在 10 到 15 分钟内搭好一个 Bot。</p>
-<p>在其设置后台，核心字段只有三个：</p>
-</div></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】给 Agent.MD配置做一次大扫除：GPT-6 Astra 官方 Skills 与 AGENTS.md 改造实操指南</title>
-<link>https://best.xiaohu.ai/article/rethinking-skills-and-prompts-for-gpt-6-astra/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:rethinking-skills-and-prompts-for-gpt-6-astra</guid>
-<pubDate>Sat, 12 Sep 2026 12:01:06 +0000</pubDate>
-<description>模型变强之后，仓库里那堆当年为了兜住弱模型写下的规则，正在反过来拖慢它。这份指南把 OpenAI Developers 的建议拆成四步可照做的改造：收窄 skill 描述、把 AGENTS.md 从强制通读改成按需索引、给安全环境明确放权、把完成标准写进任务 prompt——每步都附「改对后怎么确认」。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 12 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">给 Agent.MD配置做一次大扫除：GPT-6 Astra 官方 Skills 与 AGENTS.md 改造实操指南</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/rethinking-skills-and-prompts-for-gpt-6-astra/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>给 Agent.MD配置做一次大扫除：GPT-6 Astra 官方 Skills 与 AGENTS.md 改造实操指南</h1><p>模型变强之后，仓库里那堆当年为了兜住弱模型写下的规则，正在反过来拖慢它。这份指南把 OpenAI Developers 的建议拆成四步可照做的改造：收窄 skill 描述、把 AGENTS.md 从强制通读改成按需索引、给安全环境明确放权、把完成标准写进任务 prompt——每步都附「改对后怎么确认」。</p><strong>一分钟速览</strong><ul><li>先弄明白为什么要改：技能一多，系统会按预算裁掉 skill 描述的后半句，模型看到的是残句；死板的步骤限制了推理；当年为约束旧模型写的严厉禁令，会让对齐更好的新模型在安全环节反复停下。</li><li>第一步改 skills：描述压到一两句、只说何时调用；复杂技能的根文件只留极简路由，细节下沉到子文档；删掉一步步的操作菜谱。</li><li>第二步改 AGENTS.md：删掉「改之前先通读 XXX」，换成按职责标注的文档索引；反复催跑测试的旧话也可以去掉。</li><li>第三步和第四步管权限与收尾：无差别拦截收窄到真正的高危操作，隔离的本地测试直接放权自动跑改；任务 prompt 里把「做到什么算完成」写明白，模型才不会写完初版就停。</li><li>文中所有可抄走的配置片段都是中英对照；末尾带一张讲清描述被截断的示意图，和一个勾选式仓库自查器——勾出中招的项，生成中文或英文的审计 prompt 直接复制。</li></ul><div>
-<p>在过去很长一段时间里，为了让 Codex 等 coding agent 稳定输出符合预期的代码，开发者习惯在仓库里堆积大量引导规则：巨细靡遗的操作菜谱、修改前必须读完全部架构文档的死规定，以及每走一步都必须暂停确认的防御性指令。</p>
-<p>随着底层模型升级到 GPT-6 Astra，这套曾经行之有效的配置反而成了负资产。<strong>旧配置从助力变成负担</strong>，核心原因在于模型能力的代际位移：Astra 的理解力、安全对齐与上下文感知大幅提升，过去那种「保姆式脚手架」不仅大量挤占上下文空间，还会引发规则冲突、误触无关流程，甚至让具备高度安全意识的模型陷入不必要的停滞。</p>
-<p>这份指南将带你系统清理仓库中的历史配置。你可以直接对照自己的项目，从 skills、AGENTS.md、权限边界到任务 prompt，逐步完成改造。</p>
-<hr />
-<h2>为什么模型变强了，旧配置反而成了累赘？</h2>
-<p>在动手修改具体文件之前，需要先理解官方提出这一系列重构建议的核心原则：<strong>从保姆式约束转向自主判断与按需路由</strong>。</p>
-<p>过去一年的典型配置存在三个在强模型下被放大的缺陷：</p>
-<p>第一是上下文污染与截断风险。许多团队给项目配置了数十个 skills，每个 skill 都写了很长的描述。当技能总数过多时，Codex 会强行缩短展示给模型的描述摘要。模型看到的描述信息残缺不全，加上各描述词常有重叠，往往会导致误选无关技能；而一旦加载错误的大型技能文件，又会提早触发上下文压缩（compaction），挤掉真正有用的开发上下文。</p>
-<p>第二是死板步骤对高阶推理的限制。老模型容易丢三落四，需要按部就班的菜谱（recipes）指导；但 Astra 对模糊语义与复杂业务逻辑的理解力远超以往，过于详尽的指令步骤不仅显得多余，反而限制了模型的解题空间。</p>
-<p>第三是对齐特性导致的过度保守。Astra 是目前对齐程度最高、判断力更强的模型，在未确认操作安全前通常不会冒进。如果仓库的规则文件里依然残留着此前为了约束旧模型而写下的严厉警告（例如「未经批准不得执行任何操作」），Astra 会极度严格地执行它，导致其在完全安全的本地测试或常规修改中动不动就停下来请求确认。</p>
-<p>理解了这些变化，改造思路就十分清晰：把入口做轻、把索取做细、把权限说透、把目标闭环。</p>
-<hr />
-<h2>第一步：瘦身与重构 skills</h2>
-<p>先弄清楚要改的是什么：skill 本质上就是存成 Markdown 文件的提示词，可以连同资源和脚本一起打包，最适合用来指导某一条具体工作流、或在使用某些特定应用时提供指引。</p>
 </div></div></div></div></div>
 </div></div></body></html>]]></content:encoded>
 </item>
