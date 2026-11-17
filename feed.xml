@@ -6,7 +6,793 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Mon, 16 Nov 2026 12:00:17 +0000</lastBuildDate>
+<lastBuildDate>Tue, 17 Nov 2026 12:00:16 +0000</lastBuildDate>
+<item>
+<title>【日报】Higgsfield 发布 AI 品牌吉祥物教程：不训练模型，靠固定描述和三张参考表画同一只熊 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/higgsfield-brand-mascot/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:higgsfield-brand-mascot</guid>
+<pubDate>Tue, 17 Nov 2026 12:00:16 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 先分清：哪些不能变，哪些可以变 02 第 1 步：先给吉祥物建一份角色档案 03 第 2 步：快模型试方向，准模型定稿 04 第 3 步：做三张参考表：角度、表情、姿势 05 第 4 步：把提示词拆成固定段和可变段 06 第 5 步：同一只熊，换五个场景 07 第 6 步：发现走样，当场就修 08 第 7 步：让它动起来：1.8 秒的挥手循环 09 第 8 步：打包成一套吉祥物</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 17 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Higgsfield 发布 AI 品牌吉祥物教程：不训练模型，靠固定描述和三张参考表画同一只熊 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/higgsfield-brand-mascot/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>先分清：哪些不能变，哪些可以变</span></a><a><span>02</span><span>第 1 步：先给吉祥物建一份角色档案</span></a><a><span>03</span><span>第 2 步：快模型试方向，准模型定稿</span></a><a><span>04</span><span>第 3 步：做三张参考表：角度、表情、姿势</span></a><a><span>05</span><span>第 4 步：把提示词拆成固定段和可变段</span></a><a><span>06</span><span>第 5 步：同一只熊，换五个场景</span></a><a><span>07</span><span>第 6 步：发现走样，当场就修</span></a><a><span>08</span><span>第 7 步：让它动起来：1.8 秒的挥手循环</span></a><a><span>09</span><span>第 8 步：打包成一套吉祥物套件</span></a><a><span>10</span><span>发布前最后看四眼</span></a><a><span>11</span><span>几个常见疑问</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>AI 实操</a><i>·</i>11-17<i>·</i>约 11 分钟<i>·</i>作者 Higgsfield</div><h1>Higgsfield 发布 AI 品牌吉祥物教程：不训练模型，靠固定描述和三张参考表画同一只熊</h1><p>AI 画一只可爱小熊只要几秒，难的是画到第十张还是同一只。这套做法不用训练模型，靠参考图和固定措辞，走样在第一张就修掉。</p><div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Higgsfield</span><span>11-17 · 约 11 分钟</span></div></div></div><div><div><div><div>
+<div>
+<div>@Biscuit ＋ 同一段身份描述下面五张图的提示词里，这一段一个字都没改</div>
+</div>
+<div>
+<div><div></div><span>网站欢迎图</span></div>
+<div><div></div><span>产品介绍</span></div>
+<div><div></div><span>客户支持</span></div>
+<div><div></div><span>季节性帖子</span></div>
+<div><div></div><span>庆祝图</span></div>
+</div>
+<div>
+<div><b>锁住不变</b>轮廓比例 · 五官 · 配色 · 毛绒材质 · 天线、围巾、徽章</div>
+<div><b>每张可换</b>动作 · 场景 · 构图 · 光线（表情和道具也能换）</div>
+</div>
+<p><span>示意图</span> 简笔示意，Biscuit 真身是第 2 步那只毛绒 3D 小熊。五个场景对应第 5 步的五种用途。</p>
+</div></div></div><strong>一分钟速览</strong><ul><li>把吉祥物长相写成一段固定描述，每条提示词逐字带上，只换动作和场景。</li><li>不用训练模型：先做角度、表情、姿势三张参考表，生成新图时附上对照。</li><li>每张新图都和定稿对照，走样在第一张就修，比出到五十张再修容易得多。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/social/zh-ff8ec3515bab.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>给品牌做吉祥物，用 AI 画出第一只可爱的小熊只要几秒，难的是第二张、第十张。耳朵忽大忽小，围巾换了颜色，头顶的小天线时有时无。单看每张都不错，摆在一起却像一窝长得差不多的亲戚。吉祥物要出现在官网、新手引导、客服回复、节日海报和动图里，每一处都得让人一眼认出是同一个角色。没有一套固定做法，就只能一张张挑、一处处修，走样的图攒得越多，越难收拾。</p><p>AI 视频和图像创作平台 Higgsfield 用自家接入的 GPT Image 2.6，从零做了一只虚构的奶油色毛绒小熊，名叫 Biscuit：定下基础设计，做出角度、表情、姿势三张参考表，再拿同一套提示词批量出网站图、客服图、节日图，修掉走样，做成挥手动图，最后打包成一套别的设计师拿到就能接着用的吉祥物套件。整个过程不需要训练模型。</p><p>真正起作用的是一个很朴素的动作：把「这只熊长什么样」写成一段固定的话，每条提示词都一字不改地带上它，再附上参考图；每次只改动作、场景、构图和光线。这段话和那几张参考表不绑定哪一家工具，换个出图模型也能带过去当起点，只是出来的结果仍要重新对照检查。</p><h2>先分清：哪些不能变，哪些可以变</h2><p>一个吉祥物能被认出来，靠的是五样东西，每张图都不能动：</p><ul>
+<li><b>身体比例和轮廓：</b>人最先认出的是整体形状，缩成缩略图也一样。</li>
+<li><b>面部结构：</b>眼睛位置、鼻子、脸颊和脸型不变，表情可以变。</li>
+<li><b>配色和颜色的位置：</b>Biscuit 的毛是奶油白，针织围巾是青柠绿，方形徽章固定在肚子上。</li>
+<li><b>材质和画风：</b>平涂、黏土、光面 3D 还是水彩，选定了就不再换。</li>
+<li><b>标志性配饰：</b>环形天线、围巾和徽章，换什么姿势、什么场景都要认得出。</li>
+</ul><p>这五样守住了，姿势、表情、动作、背景和镜头角度都可以放开换。后面八步做的事，说到底都是在给这五样上锁。</p><h2>第 1 步：先给吉祥物建一份角色档案</h2><p>动手生成之前，先想清楚这个角色是谁、出现在哪、靠什么被认出来。Biscuit 的档案是这样填的：</p><div><div><div>
+<div>角色档案：Biscuit</div>
+<div>
+<div><p>Biscuit</p></div>
+<div>品牌角色欢迎访客、介绍功能，帮忙讲清楚数字服务</div>
+<div>受众新用户和回访用户</div>
+<div>性格俏皮、好奇、友好、让人安心</div>
+<div>角色类型一只带环形天线的毛绒小熊</div>
+<div>视觉风格柔和的 3D 渲染，蓬松人造毛加针织面料</div>
+<div>标志性特征奶油色环形天线、青柠绿围巾、肚子上的方形徽章</div>
+<div>主要用在网站、新手引导界面、客服图、社交帖子和 GIF</div>
+</div>
+<p>「性格」写三四个具体的词就够；最要紧的是「标志性特征」那一行，它决定这只熊缩成小图时靠什么被认出来。左边头像为<b>示意图</b>。</p>
+</div></div></div><p>填完以后把特征分成两堆：比例、材质、颜色和配饰定义了 Biscuit，一直不动；表情、姿势、环境和道具可以变。</p><h2>第 2 步：快模型试方向，准模型定稿</h2><p>整套流程用的出图模型是 GPT Image 2.6，它在 Higgsfield 上分快、准两个版本：<b>Flare</b> 出图快，适合打草稿、试方向；<b>Sunburst</b> 慢一些，但更准，更能保住脸、产品和文字的细节。所以这一步草稿用 Flare，细化用 Sunburst。两个版本最多都能带 16 张参考图。</p><div><div><a>
+站内 · 背景
+<strong>OpenAI 发布 Images 2.6：图片能做成 GIF，参考图保存一次反复用</strong>
+<span>Flare 和 Sunburst 两个版本分别为什么而生，GIF 和可复用参考图是怎么来的。</span>
+</a></div></div><p>草稿阶段：打开「图像」，切到「手动」，选 Flare，设成 2K、1:1、高画质，不加参考图。Biscuit 先试了两个方向，粗糙的 3D 和扁平的 2D，两条提示词只差中间一句画风。</p><div><div><div>
+<div>
+<b>草稿提示词</b>
+<div><span>Flare</span><span>2K</span><span>1:1</span><span>高画质</span><span>不加参考图</span></div>
+<div>
+复制 3D 版
+复制 2D 版
+</div>
+</div>
+<div>Mascot character concept: a round, chubby cream-white bear with small round ears, a little curly antenna on top of its head, big black eyes, rosy pink cheeks and a small open smile.<span><i>3D</i>Generic glossy 3D render, smooth plastic-looking fur, simple lighting.</span><span><i>2D</i>Simple flat 2D cartoon illustration, plain outlines, flat colors.</span>Full body, standing, front three-quarter view, centered. Plain solid pale-blue background #CFE8F7. No text.</div>
+<div><b>中文意思</b>吉祥物概念：一只圆滚滚的奶油白小熊，小圆耳朵，头顶一根卷曲的小天线，大黑眼睛，粉红脸颊，微微张嘴笑。【3D】普通的光面 3D 渲染，毛像光滑的塑料，简单打光。【2D】简单的扁平 2D 卡通插画，素线描边，平涂颜色。全身、站立、正面四分之三视角、居中。纯浅蓝背景 #CFE8F7。不要文字。</div>
+</div></div></div><div><div><div>
+<div>两张草稿，缩小了再比</div>
+<div>挑草稿看三件事：整体形状、五官比例、缩小以后还认不认得出。</div>
+<div>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/f4c6d6.jpg" alt="粗糙 3D 草稿：光面塑料感的奶油色小熊，头顶卷曲天线" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption><b>粗糙 3D 草稿<span>选了它</span></b>光面、像塑料，后面再细化成毛绒</figcaption></figure>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/8c5ebb.jpg" alt="扁平 2D 草稿：描边平涂的同款小熊" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption><b>扁平 2D 草稿</b>描边平涂，留作备选</figcaption></figure>
+</div>
+<div>
+<div><span>3D 缩小</span><div><div><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/f4c6d6.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" />72 像素</div><div><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/f4c6d6.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" />40 像素</div><div><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/f4c6d6.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" />22 像素</div></div></div>
+<div><span>2D 缩小</span><div><div><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/8c5ebb.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" />72 像素</div><div><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/8c5ebb.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" />40 像素</div><div><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/8c5ebb.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" />22 像素</div></div></div>
+</div>
+<p>两张草稿用的是同一段角色描述，所以圆身子、小圆耳、卷天线、粉脸颊都一致，差别只在画风。缩到图标大小，五官已经看不清，还能认出它的是轮廓、配色和头顶那根天线。</p>
+</div></div></div><h3>用 Sunburst 把草稿推成成品</h3><p>换到 Sunburst，2K、1:1、高画质不变，附两张参考图，顺序有讲究：第一张是选中的草稿，给出角色的基本形状；第二张是已经定稿的吉祥物成品，规定最终的毛、颜色和配饰。</p><div><div><div>
+<div>
+<b>细化提示词</b>
+<div><span>Sunburst</span><span>2K</span><span>1:1</span><span>高画质</span></div>
+复制
+</div>
+<div>
+<div><div><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/f4c6d6.jpg" alt="图像 1：选中的 3D 草稿" style="max-width:100%;height:auto;border-radius:8px;" /></div><b>图像 1：选中的 Flare 草稿</b>提供角色的初始形状</div>
+<div><div>?从哪来没交代<br />从零做时没有</div><b>图像 2：已定稿的成品图</b>当风格参考，规定最终的毛、颜色和配饰</div>
+</div>
+<div>Turn the draft mascot from image 1 into the final brand mascot exactly as it appears in image 2. Keep the character from image 1 recognizable: the same round chubby bear shape, small round ears, the curly antenna, big black eyes, pink cheeks and happy open smile.
+Finish it like image 2: a real soft plush mascot made of fluffy cream-white faux fur #F6F0DA with visible fibers, glossy black eyes with a white highlight, soft pink blush, a tiny pink nose, a small open smile with a pink tongue, a cream loop antenna on top of the head, a lime-green knitted scarf #C8E632 wrapped around the neck with one end hanging down the chest, and a small square lime-green badge pinned on the belly.
+Full body, standing, front three-quarter view, centered. Soft even studio light, a plain solid pale-blue background #CFE8F7 with a soft contact shadow under the feet.</div>
+<div><b>中文意思</b>把图 1 的草稿吉祥物，变成和图 2 一模一样的最终品牌吉祥物。保留图 1 角色的辨识度：同样圆滚滚的熊身、小圆耳朵、卷曲天线、大黑眼睛、粉脸颊和开心张嘴的笑。照图 2 的样子完成：真正柔软的毛绒吉祥物，奶油白蓬松人造毛 #F6F0DA、看得见纤维；带白色高光的亮黑眼睛，淡粉腮红，小粉鼻子，张嘴小笑露出粉舌头；头顶奶油色环形天线；脖子上绕一条青柠绿针织围巾 #C8E632，一端垂在胸前；肚子上别一枚青柠绿小方徽章。全身、站立、正面四分之三视角、居中。柔和均匀的影棚光，纯浅蓝背景 #CFE8F7，脚下有柔和的接触阴影。</div>
+</div></div></div><p><b>这里容易卡住：</b>第二张参考图要的是「已经定稿的成品」，可这一步本来就是在做成品，看上去像个死循环。其实是演示时手里已经有这张图，它从哪来没有交代。自己从零做的人没有图像 2，那就只附草稿这一张，靠提示词后半段那串写得很细的成品描述，把草稿推到成品：毛的颜色和纤维、眼睛的高光、围巾怎么绕、徽章别在哪。复制提示词后，有两处提到 image 2 要一起改掉：开头一句删掉 “exactly as it appears in image 2”，第二段开头的 “Finish it like image 2:” 改成 “Finish it as:”。要做出来的样子，就是下面那张定稿图。</p><p>出图后拿它和参考图对照，比例、毛的质感、脸、天线、围巾、徽章都确认过，这张就是<b>基础设计</b>，后面所有图都拿它当标准。</p><div><div><div>
+<div>定稿的 Biscuit：每张新图都拿它对照</div>
+<div>
+<img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/92ad36.jpg" alt="定稿的 Biscuit：奶油白长毛小熊，头顶环形天线，脖子上青柠绿针织围巾，肚子上青柠绿方形徽章，浅蓝背景" style="max-width:100%;height:auto;border-radius:8px;" />
+<span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+</div>
+<ul>
+<li><i>1</i><span><b>环形天线：</b>奶油色，一个圈</span></li>
+<li><i>2</i><span><b>五官：</b>带高光的亮黑眼睛、粉腮红、小粉鼻子</span></li>
+<li><i>3</i><span><b>毛：</b>奶油白 #F6F0DA，蓬松、看得见纤维</span></li>
+<li><i>4</i><span><b>围巾：</b>青柠绿 #C8E632 针织，一端垂在胸前</span></li>
+<li><i>5</i><span><b>徽章：</b>青柠绿小方块，别在肚子上</span></li>
+<li><i>6</i><span><b>轮廓：</b>圆滚滚的身子、短四肢</span></li>
+</ul>
+</div></div></div><h2>第 3 步：做三张参考表：角度、表情、姿势</h2><p>一张基础设计只告诉模型这只熊正面长什么样。转过身、哭起来、跑起来是什么样，模型还得靠猜。三张参考表就是把这些答案提前画出来：角度表管各个方向，表情表管情绪，姿势表管动作。</p><p>三张都用 Sunburst、2K、16:9、高画质，附两张参考图：图 1 是第 2 步做出来的定稿图，当角色参考；图 2 是第 2 步细化时用过的那张风格参考。两张画的是同一只熊，下面身份描述块的第一句就是这么交代的。从零做、没有图像 2 的，这里也只附图 1，并删掉身份描述块里讲 image 2 的那半句。</p><p>三条提示词结构一样：开头是同一段身份描述，中间是这张表专门的要求，结尾是同一句背景要求。</p><div><div><div>
+<div>三条提示词，只有中间一段不同</div>
+<div>深色是三条完全一样的部分，浅绿是各自的要求。</div>
+<div>
+<div><span>开头</span><span>中间</span><span>结尾</span></div>
+<div><div><b>身份描述</b>同一段</div><div><b>角度表</b>5 个全身视角排一行：正面、¾ 正面、侧面、¾ 背面、背面</div><div><b>背景要求</b>同一句</div></div>
+<div><div><b>身份描述</b>同一段</div><div><b>表情表</b>3×2 六张头肩像：开心、大笑、惊讶、难过、生气、犯困</div><div><b>背景要求</b>同一句</div></div>
+<div><div><b>身份描述</b>同一段</div><div><b>姿势表</b>3×2 六个全身姿势：挥手、坐、跳、跑、抱听筒、趴</div><div><b>背景要求</b>同一句</div></div>
+</div>
+</div></div></div><p>开头那段身份描述是整套方法的核心，后面的提示词也反复用到它：</p><div><div><div>
+<div>
+<b>身份描述块（三张表都以它开头）</b>
+<div><span>Sunburst</span><span>2K</span><span>16:9</span><span>高画质</span></div>
+复制
+</div>
+<div>Use image 1 as the exact character reference; image 2 shows the same mascot as the approved style reference. The mascot: a round, chubby plush bear made of fluffy cream-white faux fur with visible fibers, small round ears, a cream loop antenna on top of the head, big glossy black eyes with a white highlight, soft pink blush, a tiny pink nose, a small open smile, a lime-green knitted scarf with one end hanging down the chest and a small square lime-green badge on the belly. Keep the identical design in every drawing: the same proportions, fur, colors, scarf and badge; real plush-toy materials, soft even studio light.</div>
+<div><b>中文意思</b>以图 1 为准确的角色参考；图 2 是同一个吉祥物的定稿风格参考。吉祥物：一只圆滚滚的毛绒小熊，奶油白蓬松人造毛、看得见纤维，小圆耳朵，头顶奶油色环形天线，带白色高光的大亮黑眼睛，淡粉腮红，小粉鼻子，微张的小嘴，青柠绿针织围巾一端垂在胸前，肚子上一枚青柠绿小方徽章。每一幅都保持完全相同的设计：同样的比例、毛、颜色、围巾和徽章；真实毛绒玩具的材质，柔和均匀的影棚光。</div>
+</div></div></div><p>结尾的背景要求是这一句：</p><blockquote>背景：整张参考表为单一纯浅蓝色 #CFE8F7，仅带柔和的接触阴影；无面板、无边框、无网格线。无文字、无标签、无标识。</blockquote><h3>角度表：五个方向</h3><div><div><div>
+<div><b>角度表要求（接在身份描述后面）</b><div></div>复制</div>
+<div>Character turnaround reference sheet: five full-body views of the mascot standing in a row on one shared floor line, evenly spaced and the same size: front view, three-quarter front view, side profile facing right, three-quarter back view, back view with the scarf knot and a short round tail visible. Neutral happy expression in every view. The mascot fills most of the sheet height.</div>
+<div><b>中文意思</b>角色转面参考表：吉祥物五个全身视角，站在同一条地面线上排成一排，间距均匀、大小一致：正面、正面四分之三、朝右的侧面、背面四分之三、背面（看得见围巾结和一条圆圆的短尾巴）。每个视角都是平静开心的表情。吉祥物占满参考表的大部分高度。</div>
+</div></div></div><div><div><div>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/c30c0c.jpg" alt="角度参考表：同一只小熊的正面、四分之三正面、侧面、四分之三背面、背面五个全身视角" style="max-width:100%;height:auto;border-radius:8px;" /></div>
+<div><span>正面</span><span>¾ 正面</span><span>侧面</span><span>¾ 背面</span><span>背面</span></div>
+<p>五个视角的身高、头身比一致。徽章在正面和 ¾ 正面看得见，侧面只露出一道边，转到背面就没了，背面只剩一圈围巾和圆尾巴：配饰固定在同一位置，只在那个角度本来看得见时才出现。</p>
+</div></div></div><h3>表情表：六种情绪</h3><div><div><div>
+<div><b>表情表要求</b><div></div>复制</div>
+<div>Expression reference sheet: six head-and-shoulders portraits of the mascot in a neat 3 by 2 arrangement, the same size and the same three-quarter angle, scarf visible in each: 1) happy with an open smile, 2) laughing with eyes squeezed shut and paws up to the cheeks, 3) surprised with a small round mouth and the antenna springing up, 4) sad with droopy ears and teary eyes, 5) grumpy with a furrowed brow and a pout, 6) sleepy with closed eyes and a tiny yawn.</div>
+<div><b>中文意思</b>表情参考表：吉祥物六张头肩像，整齐排成 3×2，大小相同、角度都是同一个四分之三侧，每张都看得见围巾：1）开心张嘴笑；2）大笑，眼睛眯成缝，爪子捧着脸颊；3）惊讶，小圆嘴，天线弹起来；4）难过，耳朵耷拉，眼泪汪汪；5）生气，皱眉噘嘴；6）犯困，闭着眼打个小哈欠。</div>
+</div></div></div><div><div><div>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/b0f860.jpg" alt="表情参考表：小熊六张头肩像，开心、大笑、惊讶、难过、生气、犯困" style="max-width:100%;height:auto;border-radius:8px;" />
+<span>1<i> 开心</i></span><span>2<i> 大笑</i></span><span>3<i> 惊讶</i></span>
+<span>4<i> 难过</i></span><span>5<i> 生气</i></span><span>6<i> 犯困</i></span>
+</div>
+<div>1 开心　2 大笑　3 惊讶　4 难过　5 生气　6 犯困</div>
+<p>眼睛、嘴巴、耳朵和天线跟着情绪走：惊讶时天线弹起，难过时耳朵耷拉。头型、五官比例、毛和围巾徽章六张都认得出。</p>
+</div></div></div><h3>姿势表：六个动作</h3><div><div><div>
+<div><b>姿势表要求</b><div></div>复制</div>
+<div>Pose reference sheet: six full-body poses of the mascot in a neat 3 by 2 arrangement, the same size: 1) waving one paw, 2) sitting on the floor with legs out, 3) jumping with both arms up, 4) running with the scarf flying, 5) hugging a big lime-green phone handset, 6) lying on its belly with the chin on its paws.</div>
+<div><b>中文意思</b>姿势参考表：吉祥物六个全身姿势，整齐排成 3×2，大小相同：1）挥一只爪子；2）坐在地上，腿伸直；3）双臂举起跳起来；4）奔跑，围巾飘起；5）抱着一个青柠绿大电话听筒；6）趴着，下巴搁在爪子上。</div>
+</div></div></div><div><div><div>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/cd3cb1.jpg" alt="姿势参考表：小熊挥手、坐着、跳起、奔跑、抱电话听筒、趴着六个全身姿势" style="max-width:100%;height:auto;border-radius:8px;" />
+<span>1<i> 挥手</i></span><span>2<i> 坐</i></span><span>3<i> 跳</i></span>
+<span>4<i> 跑</i></span><span>5<i> 抱听筒</i></span><span>6<i> 趴</i></span>
+</div>
+<div>1 挥手　2 坐　3 跳　4 跑　5 抱听筒　6 趴</div>
+<p>第 5 个姿势里的青柠绿听筒只属于这一个姿势，不能写进固定的身份描述，否则它会跑进毫不相干的图里。</p>
+</div></div></div><p>每张表出来都要和基础设计对照：哪个视角把角色画变了，就重做或修掉；表里多出来的文字和装饰符号也要清干净。</p><div><div><a>
+站内 · 同一思路放大到整部电影
+<strong>Higgsfield 将他们的 95 分钟 AI 故事片《Hell Grind》全部提示词和制作方法开源</strong>
+<span>所有镜头共用一段 12 行的「技术底座」，每个角色先做一张三视图资产表：和吉祥物的身份描述、参考表是同一个办法。</span>
+</a></div></div><h2>第 4 步：把提示词拆成固定段和可变段</h2><p>定稿的吉祥物可以存成 Higgsfield 的 <b>Element</b>（元素），之后在提示词里打 @ 就能调出来。这里叫它 @Biscuit，你用的时候换成自己 Element 的 ID。</p><p>存成 Element 不等于可以省掉文字。Element 是存起来的定稿角色，身份描述是写给模型的文字，两样一起用：后面第 6、7 步那几条以 @Biscuit 开头的提示词里，照样一项项写了圆身子、短四肢、奶油色毛、环形天线，以及围巾和徽章要留在原位。</p><p>每条提示词按固定顺序写：角色身份 → 动作 → 场景 → 构图 → 光线 → 约束条件。头尾两段每次照抄，中间四段按这张图要什么来换。</p><div><div><div>
+<div>一条提示词的六段</div>
+<div>深色两段每次照抄；浅绿四段每张图换。</div>
+<div>
+<div><b>角色身份</b><em>@Biscuit 加那段身份描述</em></div><span>→</span>
+<div><b>动作</b><em>挥动一只爪子、双臂高举跳起、抱着大听筒</em></div><span>→</span>
+<div><b>场景</b><em>浅蓝色背景、薄雪地里、公园</em></div><span>→</span>
+<div><b>构图</b><em>全身右侧留白、四分之三视角、居中</em></div><span>→</span>
+<div><b>光线</b><em>柔和的摄影棚灯光、柔和的冬日日光</em></div><span>→</span>
+<div><b>约束条件</b><em>围巾徽章留在原位，不加多余文字</em></div>
+</div>
+<div>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/b0f860.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /><b>做反应图</b>附表情表</div>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/cd3cb1.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /><b>做动作</b>附姿势表</div>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/higgsfield-brand-mascot/c30c0c.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /><b>换视角</b>附角度表</div>
+</div>
+<p>参考图也按任务挑，和这次要变的东西对上。</p>
+</div></div></div><h2>第 5 步：同一只熊，换五个场景</h2><p>有了这套提示词，就可以给不同用途出图。下面五个场景里，Biscuit 的身份描述一个字没动，只换了场景指令；每张图出来，要重点查的地方也不一样。</p><div><div><div>
+<div>每张都是：@Biscuit ＋ 身份描述 ＋ 下面这句场景指令</div>
+<div>
+<div><h4><i>1</i>网站欢迎图</h4><p>Biscuit 站在左侧，挥动一只爪子。浅蓝色背景上的全身视图，右侧留白放标题。柔和的摄影棚灯光。</p><span><b>查：</b>面部、天线、比例、围巾和徽章</span></div>
+<div><h4><i>2</i>产品介绍</h4><p>Biscuit 在面部下方捧着一个小产品盒。浅蓝色背景上的四分之三视角。包装上无文字。</p><span><b>查：</b>道具不遮挡、不扭曲面部和身体</span></div>
+<div><h4><i>3</i>客户支持</h4><p>Biscuit 抱着一个青柠绿大电话听筒，闭眼微笑。居中构图，柔和的摄影棚灯光。</p><span><b>查：</b>表情和参考图一致；听筒仍是独立的道具</span></div>
+<div><h4><i>4</i>季节性帖子</h4><p>Biscuit 坐在薄雪中，用一只爪子接住雪花。保留原有的青柠绿围巾。柔和的冬日日光。</p><span><b>查：</b>毛还是奶油白；配饰保持原来的颜色和质感</span></div>
+<div><h4><i>5</i>庆祝图</h4><p>Biscuit 双臂高举跳起，表情欣喜。全身构图，天线上方留出空间，下方有柔和阴影。</p><span><b>查：</b>动起来也要保持短四肢、圆身子和认得出的天线</span></div>
+</div>
+</div></div></div><p>要拿去做其他版式的抠图，就把背景设成透明。导出前看两处：毛的边缘，以及环形天线中间那个洞有没有抠干净。</p><h2>第 6 步：发现走样，当场就修</h2><p>图出得越多，角色越容易慢慢走样，这叫「漂移」。办法是每出一张就和定稿版并排放，细小的变化并排时最容易看出来。常见的走样和修法：</p><div><div><div>
+<div>找不同：六种常见走样 <span>示意图</span></div>
+<div><p><b>定稿参照：</b>每张新图都和它并排比。红圈是走样的地方，下面一行是修法。</p></div>
+<div>
+<div><div><b>头身比例变了</b><span>附上定稿的全身参考图，重申圆润胖乎乎的身子和短四肢</span></div></div>
+<div><div><b>毛变光滑、像塑料</b><span>毛边没了，表面一片反光。</span><span>写明「带可见纤维的蓬松人造毛」，拿 Sunburst 定稿图当参考</span></div></div>
+<div><div><b>毛色、围巾颜色偏了</b><span>把配色再写一遍，在相近的光线下对比</span></div></div>
+<div><div><b>天线没了或变形</b><span>写明「奶油色环形天线」，给一张天线清楚可见的参考图</span></div></div>
+<div><div><b>徽章跑了位置</b><span>要求方形徽章的位置和定稿参考一致</span></div></div>
+<div><div><b>道具跑进无关的图</b><span>从提示词里删掉它，换一张不带这个道具的参考图</span></div></div>
+</div>
+</div></div></div><p>还有一种情况：姿势太复杂，把角色拧变了形。这时先把动作简化，确认角色没问题，再往周围加场景。</p><h3>笼统的一句话，给模型留的空间太大</h3><p>「Biscuit 跑过公园」这样的指令，模型能自由发挥的地方太多。更稳的写法，是把动作钉在定稿设计上，每个容易走样的部位都点一遍名：</p><div><div><div>
+<div><b>把动作锚在定稿上</b><div><span>笼统版：Biscuit 跑过公园。</span></div>复制</div>
+<div><span><i></i>体型</span><span><i></i>毛和天线</span><span><i></i>配饰位置</span><span><i></i>配饰怎么跟着动</span><span><i></i>画风和材质</span></div>
+<div>@Biscuit runs through a park in a full-body three-quarter view. Preserve the round, chubby body, short limbs, cream fluffy fur, and loop antenna from the reference. Keep the lime-green knitted scarf and square belly badge in their original positions. Let the scarf trail naturally with the movement. Soft 3D rendering with visible fur fibers.</div>
+<div><b>中文意思</b>@Biscuit 穿过公园奔跑，全身、四分之三视角。保持参考图里圆滚滚的身体、短四肢、奶油色蓬松毛和环形天线。青柠绿针织围巾和肚子上的方形徽章留在原来的位置。让围巾随动作自然飘起。柔和的 3D 渲染，看得见毛的纤维。</div>
+</div></div></div><h3>小毛病就圈出来局部改</h3><p>只有一小块不对，比如徽章没了，用 <b>Markup-guided editing</b>（标记引导编辑）：在图上圈出那一块，再写清要改成什么样。</p><div><div><div>
+<div>只改框里那一块 <span>示意图</span></div>
+<div>
+<figure><figcaption><b>徽章没了</b>在肚子上框出这一块</figcaption></figure>
+<div>→</div>
+<figure><figcaption><b>补回原位</b>框外的毛、围巾、姿势不动</figcaption></figure>
+</div>
+<div>
+<div><b>修正提示词</b><div></div>复制</div>
+<div>Restore the small square lime-green badge on the belly, matching its size, position, and appearance in the approved reference. Preserve the surrounding fur, scarf, pose, lighting, and background.</div>
+<div><b>中文意思</b>把肚子上那枚青柠绿小方徽章补回来，大小、位置和样子都和定稿参考一致。周围的毛、围巾、姿势、光线和背景保持不变。</div>
+</div>
+</div></div></div><p>改完要看整张图，包括没让它改的地方：局部修改有时会顺手动到旁边的细节。</p><div><div><a>
+站内 · 局部改图怎么写
+<strong>GPT Image 2.6 官方提示指南 从参考图到局部改图 提示词该怎么写</strong>
+<span>红圈标出改哪里之后，提示词还要写清哪些东西必须留下：用花瓶改色、移走手里的花几个例子讲透。</span>
+</a></div></div><h2>第 7 步：让它动起来：1.8 秒的挥手循环</h2><p>动画从一张定稿图和一个简单动作开始。挥手是个好选择：动作清楚，脸和配饰又一直在画面里，方便检查。用存好的 Element，再拿定稿的挥手姿势图做参考。</p><div><div><div>
+<div><b>动画提示词</b><div><span>输出 GIF</span><span>9 帧</span><span>每帧 200 毫秒</span></div>复制</div>
+<div>@Biscuit stands in place and gently waves one paw, then returns to the starting pose for a seamless loop. Fixed camera, full-body view, pale-blue background #CFE8F7, soft studio lighting. Preserve the round plush body, short limbs, cream-white fluffy fur, small rounded ears, cream loop antenna, glossy black eyes, pink nose, and rosy cheeks. Keep the lime-green knitted scarf and square belly badge attached in their original positions. Maintain consistent fur texture and lighting. No additional props, characters, text, or logos.</div>
+<div><b>中文意思</b>@Biscuit 站在原地，轻轻挥一只爪子，再回到起始姿势，形成无缝循环。镜头固定，全身，浅蓝背景 #CFE8F7，柔和的影棚光。保持圆圆的毛绒身体、短四肢、奶油白蓬松毛、小圆耳朵、奶油色环形天线、亮黑眼睛、粉鼻子和红润脸颊。青柠绿针织围巾和肚子上的方形徽章固定在原位。毛的质感和光线前后一致。不加多余的道具、角色、文字或标志。</div>
+</div></div></div><p>输出格式选 GIF，再看帧设置。帧数乘每帧时长，就是一圈循环有多长：9 帧、每帧 200 毫秒，正好 1.8 秒。</p><div><div><div>
+<div>9 帧 × 200 毫秒，按真实速度播一遍 <span>示意图</span></div>
+<div>
+<div><span>第 9 帧</span></div>
+<div>
+<div><span>1.8</span> 秒</div>
+<div><i></i></div>
+<div><span>0.2</span><span>0.4</span><span>0.6</span><span>0.8</span><span>1.0</span><span>1.2</span><span>1.4</span><span>1.6</span><span>1.8</span></div>
+<div>9 帧 × 200 毫秒 = <b>1.8 秒</b><br /><span>每帧时长调小，挥得更快；帧数加多，动作更细</span></div>
+</div>
+</div>
+<div></div>
+<div><span>第 1 帧：手放下</span><span>第 9 帧要能顺滑接回第 1 帧 ↺</span></div>
+</div></div></div><p>先完整看一遍循环，再一帧帧查：</p><ul>
+<li>表情变化时，脸的比例保持稳定。</li>
+<li>四肢的长短和形状不变。</li>
+<li>天线在动作里还认得出。</li>
+<li>围巾和徽章贴在原位，不脱落。</li>
+<li>毛和光线不闪烁。</li>
+<li>最后一帧能和第一帧顺滑接上。</li>
+</ul><p>动作把角色扭变了形，就把动作再简化，重新生成一版。</p><h2>第 8 步：打包成一套吉祥物套件</h2><p>最后把定稿的东西收拢到一处。别的设计师拿到这一包，就能直接出新图，不用把角色从头再做一遍。</p><div><div><div>
+<div>Biscuit 吉祥物套件</div>
+<div>
+<ol>
+<li>最终的基础设计</li>
+<li>角度、表情、姿势三张参考表</li>
+<li>角色描述和可复用的提示词模板</li>
+<li>每张定稿图用的模型、设置和参考图</li>
+<li>已保存的 Element 名称和 ID</li>
+<li>可以接受的变化、需要修正的变化，各留几个例子</li>
+<li>最终 PNG、透明抠图和定稿的 GIF</li>
+</ol>
+<div>
+<div>目标配色</div>
+<div><i></i><div><code>#F6F0DA</code><br /><span>奶油白毛</span></div></div>
+<div><i></i><div><code>#C8E632</code><br /><span>青柠绿围巾</span></div></div>
+<div><i></i><div><code>对照定稿</code><br /><span>方形徽章：和定稿的青柠绿徽章一致</span></div></div>
+<div><i></i><div><code>#CFE8F7</code><br /><span>参考表背景</span></div></div>
+</div>
+</div>
+</div></div></div><p>色值只代表想要的颜色，光线和材质渲染会让它看起来有出入。需要精确对上品牌色的地方，拿成品和定稿参考对照后再调。浅蓝背景也不属于角色本身：Biscuit 可以去任何场景，只要比例、脸、毛、天线、围巾和徽章还是原样。</p><h2>发布前最后看四眼</h2><ol>
+<li><b>并排比：</b>新图和基础设计、参考表摆在一起，比例、脸、颜色和标志物都要对得上。</li>
+<li><b>缩小看：</b>缩到很小，轮廓还认得出。</li>
+<li><b>放进系列：</b>和其他吉祥物图放在一组，没有哪张像另一个角色。</li>
+<li><b>动图看完整一圈：</b>特别留意转身和脸被挡住一部分的瞬间。</li>
+</ol><h2>几个常见疑问</h2><p><b>要不要为吉祥物训练专门的模型？</b>不用。整套流程靠参考表、可复用的提示词和 Element，都不涉及训练模型。</p><p><b>能给它换衣服吗？</b>可以。新衣服写在提示词的可变部分，比例、五官、毛和标志性细节照旧。换完要确认围巾和徽章还露在外面，轮廓也只因为衣服本身变了。</p><p><b>换了别的 AI 工具怎么办？</b>把参考表、身份描述和提示词模板一起带过去当起点。不同工具出来的结果仍会有差别，每张都要对照参考表检查。</p><p><b>2D 吉祥物能变成 3D 吗？</b>可以。拿定稿的 2D 设计当参考，描述想要的 3D 材质、光线和景深，检查轮廓和五官比例有没有变，再给 3D 版重做一套参考表。</p><p><b>为什么一动起来就变样？</b>动起来会出现新的姿势和角度，还有身体被挡住的瞬间，脸、比例、配饰上的不一致都会暴露出来。从一个简单动作、固定镜头和定稿参考开始，再逐帧看完整个循环。</p></div><div><div><div>来源</div><div><span>2026 年如何用 AI 制作风格一致的品牌吉祥物（完整指南）</span><span>Higgsfield.AI Team<span>·</span>2026-11-16<span>·</span><a href="https://higgsfield.ai/zh/blog/consistent-brand-mascot-ai">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://higgsfield.ai/zh/blog/gpt-image-2-6-higgsfield">Higgsfield 上的 GPT Image 2.6：GIF 动图、SVG 矢量图和透明图像</a></div></div><div><div>本站说明</div><div>文中图片均来自 Higgsfield 原文</div></div></div></div></div>
+</div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://higgsfield.ai/zh/blog/consistent-brand-mascot-ai">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】tiny-voca：一个从未听过真实人类声音的文本到语音模型 训练只花了 9.56 美元 能在浏览器里跑 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/tiny-voca/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:tiny-voca</guid>
+<pubDate>Tue, 17 Nov 2026 12:00:16 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 先听：同一句话，两个声音 02 450 万参数有多小 03 一句话怎么变成声音 04 不用神经声码器，用「声带 + 口腔」发声 05 老师是 Qwen3-TTS：训练用的声音全是合成的 06 9.56 美元花在哪 07 能拿来做什么，做不了什么 AI 解读 / 产品发布 · 11-17 · 约 8 分钟 · 作者 Muhammed Nazeem（n4ze3m） tiny-voc</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 17 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">tiny-voca：一个从未听过真实人类声音的文本到语音模型 训练只花了 9.56 美元 能在浏览器里跑 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/tiny-voca/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>先听：同一句话，两个声音</span></a><a><span>02</span><span>450 万参数有多小</span></a><a><span>03</span><span>一句话怎么变成声音</span></a><a><span>04</span><span>不用神经声码器，用「声带 + 口腔」发声</span></a><a><span>05</span><span>老师是 Qwen3-TTS：训练用的声音全是合成的</span></a><a><span>06</span><span>9.56 美元花在哪</span></a><a><span>07</span><span>能拿来做什么，做不了什么</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>产品发布</a><i>·</i>11-17<i>·</i>约 8 分钟<i>·</i>作者 Muhammed Nazeem（n4ze3m）</div><h1>tiny-voca：一个从未听过真实人类声音的文本到语音模型 训练只花了 9.56 美元 能在浏览器里跑</h1><p>它出声不靠又大又重的神经网络，而是照着「声带振动、口腔塑形」的原理现场合成，这一段只占整个模型的 0.57%。</p><div><div>正文原文</div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Muhammed Nazeem（n4ze3m）</span><span>11-17 · 约 8 分钟</span><span>⚑ 产品发布</span></div></div></div>
+<div><div><div><div>
+<p>F2 女声 · 5.75 秒 · <b>“Hello! This is tiny voca, a small text to speech model that runs on a phone or in a browser.”</b></p>
+<div>
+<div><b>4,537,291</b>个参数，发声部分也算在内</div>
+<div><b>18.2 MB</b>PyTorch 权重文件</div>
+<div><b>≈70×</b>4 个 CPU 线程上快于实时</div>
+<div><b>$9.56</b>数据、失败尝试和训练的总花费</div>
+</div>
+</div></div><strong>一分钟速览</strong><ul><li>M2 男声在 50 个模型的英文榜单上错词率排第 8，参数只有 450 万。</li><li>最后出声那步照「声带加口腔」的原理合成，只占全部参数的 0.57%。</li><li>训练语音全由更大的 Qwen3-TTS 合成，自然度超不过 Qwen3-TTS。</li></ul><div><p>开发者 Muhammed Nazeem 开源了 tiny-voca：一个只说英文的文字转语音（TTS，把文字念成声音）模型，有一个女声 F2、一个男声 M2。它的定位是「小」——小到用 CPU 就能跑，也能直接在浏览器里跑。几个关键数字：</p><ul>
+<li><strong>整个模型 4,537,291 个参数：</strong>出声的部分也算在里面，不用另配声码器（把声学数据转成波形的组件）；模型文件 18.2 MB，ONNX 格式 21.4 MB。把文字转成音标的 dizione 在模型外，另带 5.4 MB 数据。</li>
+<li><strong>快：</strong>在 4 个 CPU 线程上，生成速度约是实时的 70 倍，1 分钟的语音不到 1 秒就能出来。</li>
+<li><strong>榜单成绩：</strong>在 Open TTS 排行榜的 50 个英文模型里，按错词率（把合成语音转回文字，数错了几个词，越低越清楚）排名，M2 第 8、F2 第 13；周围的对手参数大多是它的几倍到几百倍。</li>
+<li><strong>从零训练，全部开放：</strong>不带任何预训练权重；代码、权重、训练方法、数据集都公开，权重和代码用 Apache-2.0 协议。</li>
+<li><strong>便宜：</strong>整个项目在一张租来的 RTX 4090 上花了 9.56 美元，造数据、失败的尝试都算在内，最终那次训练只占 2.89 美元。</li>
+</ul><p>这么小还能念清楚，靠的是两个选择。一是发声那一步不交给神经网络去「画」波形，而是用一台照着人体发声原理搭的合成器：声带振动出声，口腔形状决定音色，网络只负责每 10.7 毫秒告诉它一次音高和口型。二是训练数据全部由大模型 Qwen3-TTS 合成，一个 4.5M 的学生跟着一个 1.7B 的老师学，学得很像，但上限也被老师定死了。</p><p>如果你在做英文旁白、App 里的朗读，或者想在浏览器里离线发声，它值得试；如果要中文、要换声音、要克隆自己的声音，它现在还做不到。</p><h2>先听：同一句话，两个声音</h2><p>四句试听，各有考点：第二句里有时间、日期和数字，第三句是问句，第四句是带逗号的长句。点波形就能播放。</p><div><div>
+<p>tiny-voca 试听：四句话 × 两个声音</p>
+<p>波形是这几段音频真实的音量起伏，播放时会跟着走。</p>
+<div>
+<p>Hello! This is tiny voca, a small text to speech model that runs on a phone or in a browser.</p>
+<p>你好！我是 tiny voca，一个能在手机或浏览器里运行的小型文字转语音模型。</p>
+</div>
+<div>
+<p>The meeting moved to 3:30 pm on March 14th, so we have about 45 minutes left.</p>
+<p>会议改到 3 月 14 日下午 3 点半，我们还剩大约 45 分钟。<i>可以听：3:30 pm、14th、45 怎么念</i></p>
+</div>
+<div>
+<p>Did you really think I would forget your birthday?</p>
+<p>你真以为我会忘了你的生日？<i>可以听：问句的语调</i></p>
+</div>
+<div>
+<p>She had never seen the sea before, and for a long while she stood at the edge of the water without saying a word.</p>
+<p>她从没见过大海，在水边站了很久，一句话也没说。<i>可以听：长句里的停顿</i></p>
+</div>
+</div></div><p>两个声音都是「设计」出来的，背后没有真人录音。F2 听起来比预想的年轻：设计时要的是一位二十五六岁的美国成年女性，结果听起来偏年轻，作者说之后会出一个更成熟的声音。另外，同一段文字每次念出来都一模一样，不会随机换语气；默认语速也比训练录音略快一点，嫌快可以用 <code>--speed</code> 调慢。</p><p>想把它和别的模型放在一起比，排行榜上有现成的<a href="https://huggingface.co/spaces/hf-audio/open_tts_leaderboard?listen=n4ze3m%2Ftiny-voca+%28M2%29%2CQwen%2FQwen3-TTS-12Hz-1.7B-CustomVoice%2Chexgrad%2FKokoro-82M">对比试听</a>：tiny-voca、教它的 Qwen3-TTS、Kokoro 念同样的句子。也可以在<a href="https://tiny-voca.n4ze3m.com">网页版</a>里输入自己的句子。</p><h2>450 万参数有多小</h2><p>参数可以粗略理解成模型脑子里可调的旋钮数。现在常见的语音模型动辄上亿、上十亿个，tiny-voca 只有 450 万。光看大小没意义，要看它小了之后还念得清不清楚。</p><p>Open TTS 排行榜衡量「清楚」的办法是<strong>错词率</strong>：让语音识别模型去听合成出来的语音，写成文字，再和原句对比，错了几个词。数字越低，听起来越清楚。榜单在三套英文测试句上各算一次再平均，不比声音克隆。另一列「自然度」是另一个模型自动打的分（UTMOS，5 分制），估的是听起来像不像真人。</p><p>看下面这一段榜单时注意 tiny-voca 的邻居：第 6 到第 14 名里，除了第 12 名的 PiVo，其余模型的参数都是它的 2.6 倍到约 450 倍。</p><div><div>
+<p>英文排行榜第 6 到第 14 名：参数差几百倍，错词率前后只差 0.07 个百分点</p>
+<p>灰条长短是参数量（按对数画，否则小模型细得看不见）。错词率越低越好；自然度是自动打分，5 分制。</p>
+<div><span>名次</span><span>模型 · 参数量</span><span>错词率</span><span>自然度</span></div>
+<div><span>6</span><div><b>phonon-31m-en</b><span><i></i>41 M</span></div><span>0.730%</span><span>4.45</span></div>
+<div><span>7</span><div><b>Inflect Micro v3</b><span><i></i>12 M</span></div><span>0.730%</span><span>4.37</span></div>
+<div><span>8</span><div><b>tiny-voca（M2 男声）</b><span><i></i>4.5 M</span></div><span>0.733%</span><span>4.34</span></div>
+<div><span>9</span><div><b>phonon-40m-en</b><span><i></i>51 M</span></div><span>0.737%</span><span>4.45</span></div>
+<div><span>10</span><div><b>supertonic-3</b><span><i></i>100 M</span></div><span>0.743%</span><span>4.45</span></div>
+<div>第 11 名略</div>
+<div><span>12</span><div><b>PiVo-1.4M</b><span><i></i>1.4 M</span></div><span>0.767%</span><span>4.33</span></div>
+<div><span>13</span><div><b>tiny-voca（F2 女声）</b><span><i></i>4.5 M</span></div><span>0.773%</span><span>4.43</span></div>
+<div><span>14</span><div><b>LFM3-Audio-2B</b><span><i></i>2.05 B</span></div><span>0.797%</span><span>4.45</span></div>
+<p>Open TTS Leaderboard v1.6.3 快照，50 个英文模型，不含声音克隆。tiny-voca 两个声音各算一行，两行都只用 CPU 跑。</p>
+</div></div><p>几个读法：</p><ul>
+<li><strong>和前后邻居几乎打平：</strong>M2 的 0.733% 和第 6、7 名的 0.730% 只差 0.003 个百分点，而第 6 名的参数是它的 9 倍。排在后面的 LFM3-Audio-2B 有 20.5 亿参数，大约是它的 450 倍。</li>
+<li><strong>清楚不等于好听：</strong>M2 的自然度 4.34，比周围几个 4.45 的模型低一截；F2 的 4.43 就接近了。实际听感也是这样：声音清楚，但听得出一点合成味。</li>
+<li><strong>名次挤得很紧：</strong>F2 和 M2 的错词率只差 0.04 个百分点，名次就差了 5 位。看这一段榜单，数字比名次更有意义。</li>
+<li><strong>还有更小的：</strong>第 12 名 PiVo 只有 140 万参数，错词率夹在 tiny-voca 两个声音中间。「小模型也能念清楚英文」已经不是个例。</li>
+</ul><div><a>
+站内延伸 · 怎么看语音模型的榜单
+<b>26 个 AI 语音模型实测：开口最快、读得最准、声音最自然，为什么不是同一个？</b>
+<span>错词率和自然度分都是机器估分。选声音前，先弄清自己的产品最怕哪种问题。</span>
+</a></div><h3>「70 倍实时」是什么意思</h3><p>实时 1 倍，就是生成 1 秒语音要花 1 秒。70 倍实时，就是 1 秒钟能生成大约 70 秒的语音。这个速度是在 4 个 CPU 线程上测的，不用显卡。</p><div><div>
+<p>同样是 1 分钟语音：听完它，和生成它</p>
+<p>两条按同一时间比例画。动画把 60 秒压缩成几秒播放。</p>
+<div><div><span>把这段 1 分钟的语音听完</span><b>60 秒</b></div><div><div></div></div></div>
+<div><div><span>tiny-voca 生成它（4 个 CPU 线程）</span><b>约 0.86 秒</b></div><div><div></div></div></div>
+<p>换成实际用法：一篇 10 分钟的英文口播稿，按 70 倍算，<b>大约 8.6 秒</b>生成完。</p>
+</div></div><h2>一句话怎么变成声音</h2><p>tiny-voca 走的是一条「先算清楚、再出声」的流水线：每个音读多长、音高多少、口型怎样，都由网络明确算出来，最后才交给合成器发声。下面拿一句英文走一遍。</p><div><div>
+<p>从一句文字到 24 kHz 的波形</p>
+<p>右边是每一步的参数量。大头花在「怎么读」：每个音读多长、音高多少、口型怎样；真正出声的合成器只占 0.57%。</p>
+<div>
+<p>I read the book you read yesterday.</p>
+<p>&lt;bos&gt; aɪ &lt;sp&gt; ɹ ˈiː d &lt;sp&gt; ð ə &lt;sp&gt; b ˈʊ k …</p>
+音素器 dizione 的输出：每个音一个符号，ˈ 是重音，&lt;sp&gt; 是词间隔。
+</div>
+<ol>
+<li><span>1</span><div><b>音素器 dizione：把文字变成音标</b><span>数字、日期、钱数、缩写先展开成词；「read」这类一词多音按上下文挑读法。它在模型外面，词典数据 5.4 MB。</span></div><span>模型外</span></li>
+<li><span>2</span><div><b>理解整串音标</b><span>弄清每个音在句子里的位置和前后关系。</span></div><span>1,588,864</span></li>
+<li><span>3</span><div><b>预测每个音读多长</b><span>以 10.7 毫秒为一格，给每个音分几格，顺带安排停顿。</span></div><span>123,906</span></li>
+<li><span>4</span><div><b>预测音高和音量</b><span>每一格算一次：音多高、声带振不振、多响。</span></div><span>795,971</span></li>
+<li><span>5</span><div><b>预测口型</b><span>每一格算一次合成器要用的「口型」。</span></div><span>1,985,984</span></li>
+<li><span>6</span><div><b>「声带 + 口腔」合成器：出声</b><span>拿音高和口型，按固定公式算出这一格的声音。</span></div><span>25,862</span></li>
+</ol>
+<p>↓ 24 kHz 单声道波形</p>
+<div>
+<div>4,537,291 个参数都花在哪（按比例）</div>
+<div>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i>
+</div>
+<div>
+<span>理解音标 35%</span>
+<span>读多长 2.7%</span>
+<span>音高和音量 17.5%</span>
+<span>口型 43.8%</span>
+<span>出声合成器 0.57%</span>
+<span>另有音素、重音、声音的编码表 16,704，约 0.4%</span>
+</div>
+</div>
+</div></div><p>前两步决定「念什么」。dizione 是作者专门为 tiny-voca 写的音素器，能处理数字、日期、钱数、单位、缩写和聊天用语，「I read the book you read yesterday」里两个 read，它会按前后文分别挑读音。它也有短板：碰到词典里没有的词，靠一个小模型猜，大约每三个就错一个，外国人名最容易错。</p><p>做内容的话有个实用办法：品牌名、人名这类容易念错的词，可以在文字里直接写读音，比如 <code>Say {HH AH0 L OW1} to everyone.</code>，大括号里是 CMU 词典的音标写法；也可以给一份自己的读音表，优先级最高。</p><p>中间几步决定「怎么念」，参数主要花在这里，尤其是预测音高和口型的两部分。真正出声的最后一步只占 0.57%，下一节专门讲它。</p><div><a>
+站内延伸 · 语音合成的基本流程
+<b>ElevenLabs 科普语音合成技术实现原理：文字是怎么变成自然的人类语音的</b>
+<span>从文本规范化、重音停顿到声码器，一句话的五步转换讲得更细。</span>
+</a></div><h2>不用神经声码器，用「声带 + 口腔」发声</h2><p>常见的语音合成模型最后一步交给<strong>神经声码器</strong>：另一个神经网络，专门把声学特征「画」成波形。24 kHz 的音频每秒有 24,000 个采样点，让网络把这些点算出来，既要参数也要算力。</p><p>tiny-voca 换了个思路，用的是语音学里很老的<strong>源-滤波模型</strong>，和人发声的方式一样：</p><ul>
+<li><strong>声源：</strong>元音靠声带振动，产生一串等间隔的脉冲，振得越快音越高；「s」「f」这类音靠气流摩擦，是一片噪声。tiny-voca 同时准备了这两种声源。</li>
+<li><strong>滤波器：</strong>口腔和舌头的形状，会把某些频率放大、某些压低。同样的声带振动，嘴型从「啊」变到「衣」，声音就变了。</li>
+</ul><p>网络要做的只剩每 10.7 毫秒报一次数：音高多少、声带振不振、音量多大、滤波器是什么形状（用一组叫「倒谱」的数字描述）。1 秒钟大约报 94 次，剩下的采样点由固定公式算出来。所以发声这一段只需要 25,862 个参数。</p><div><div>
+<p>声源 × 滤波器 = 你听到的声音<span>示意图</span></p>
+<p>横轴是频率（Hz，越往右越尖细），竖线越高这个频率越响。口腔形状决定哪些频率被放大，被放大的鼓包就是「峰」；换一种口型，峰的位置一变，同样的声带振动就成了另一个音。</p>
+<div><b>「啊」</b><span>声带振动 · 音高 120 Hz</span></div>
+<div>
+<div><span>① 声源</span>声带脉冲：每根竖线间隔 = 音高</div>
+</div>
+<div>×</div>
+<div>
+<div><span>② 滤波器（口型）</span>鼓包处的频率被放大</div>
+</div>
+<div>=</div>
+<div>
+<div><span>③ 输出</span>竖线高度跟着口型走</div>
+</div>
+<i></i><span>听一遍这个原理：啊→衣→乌→嘶</span>
+<p>按钮里的声音是用同一原理在你的浏览器里现场合成的示意，不是 tiny-voca 念的。</p>
+<div>
+<div><b>10.7 ms</b>网络每隔这么久给一次音高和口型</div>
+<div><b>≈94 次</b>1 秒语音里网络要报数的次数</div>
+<div><b>25,862</b>发声部分的参数，占全部 0.57%</div>
+</div>
+<p>动画里的口型用的是英语元音常见的峰位置。</p>
+</div></div><p>这条路的好处很直接：模型小、算得快，ONNX 文件在 onnxruntime-web（浏览器里的 WebAssembly 运行环境）里也能跑，和 PyTorch 版本的声音差别在峰值幅度的 0.6% 以内。（设计借鉴了 FastSpeech 2、DDSP 等公开方法，没用它们的代码和权重。）</p><h2>老师是 Qwen3-TTS：训练用的声音全是合成的</h2><p>训练语音合成模型，通常要找真人在录音棚里念上几十个小时。tiny-voca 一句真人录音都没用，它的训练数据是另一个大模型念出来的。</p><div><div>
+<p>一个 4.5M 的学生，怎么跟 1.7B 的老师学</p>
+<p>从「设计声音」到「学生出师」的五步。</p>
+<ol>
+<li><em>1</em><div><b>用一段文字描述设计出两个声音</b><span>Qwen3-TTS VoiceDesign 按描述生成 F2、M2 两段参考音。</span></div></li>
+<li><em>2</em><div><b>老师照着参考音念出 17,371 段录音，共 19.1 小时</b><span>Qwen3-TTS 1.7B Base 念的。句子来自公开有声书文本、大模型写的句子、Common Voice 句子，外加专门练数字、日期、钱数、人名、问句的模板。</span></div></li>
+<li><em>3</em><div><b>Whisper 逐句听写，错词率超过 15% 的扔掉</b><span>老师念错的不让学生学。</span></div></li>
+<li><em>4</em><div><b>wav2vec2 标出每个音读了多长</b><span>只用来给训练数据打标签，不进模型。</span></div></li>
+<li><em>5</em><div><b>tiny-voca 从零学 104,737 步</b><span>一张 RTX 4090，7.7 小时。训练集 16,018 段、17.6 小时。</span></div></li>
+</ol>
+<div>
+<p>学生有多小：按参数量换算，老师 Qwen3-TTS 约等于 375 个 tiny-voca</p>
+<div><span>1 个点 = tiny-voca，450 万参数</span><span>全部 375 个点 ≈ 老师 Qwen3-TTS，17 亿参数</span></div>
+</div>
+<div>
+<div><b>学生 0.6% · 老师 0.6%</b>验证句（8 句）的错词率</div>
+<div><b>学生 0.9% · 老师 0.9%</b>测试句（8 句）的错词率</div>
+<div><b>学生 0.0%</b>16 句数据集外的新句子，没有老师录音可对照</div>
+</div>
+<p>错词率用 Whisper small.en 听写算出；各组只有 8 到 16 句，只能说明「念得清楚」，算不上正式评测。</p>
+</div></div><p>这件事有三层意思：</p><ul>
+<li><strong>上限被老师锁住：</strong>学生学的是老师的声音，再怎么学也不会比老师更自然。想要更好听，得先换更好的老师。</li>
+<li><strong>不牵扯真人的声音：</strong>两个声音都是用文字描述设计出来的，不涉及任何真人录音。数据集按 CC BY 4.0 公开，谁都能拿去复现。</li>
+<li><strong>配方便宜又全公开：</strong>数据、代码、训练命令都摆在那里，已经有人在它的基础上做出了德语、意大利语、土耳其语、韩语版本。</li>
+</ul><h2>9.56 美元花在哪</h2><p>整个项目都在一张租来的 RTX 4090 上完成，GPU 时间加起来约 24 小时，总共 9.56 美元。</p><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/tiny-voca/cost.png" alt="tiny-voca 成本分项柱状图：总计 9.56 美元" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>
+<span>
+<b>$2.89</b><span>训练最终模型，7.7 GPU 小时</span>
+<b>$1.68</b><span>生成第一批 11.5 小时音频，约 4.5 GPU 小时</span>
+<b>$4.42</b><span>第二批音频、时长对齐、失败的尝试和测试，11.8 GPU 小时</span>
+<b>$0.57</b><span>硬盘和网络</span>
+</span>
+</figcaption>
+</figure></div><p>最贵的一项不是最终训练，而是第二批数据加上各种试错，占了 46%。最终那次训练只花了 2.89 美元，约三成。换句话说，真正的门槛是想清楚怎么做，机器钱已经低到可以忽略。</p><h2>能拿来做什么，做不了什么</h2><p>先说做不了的，免得白折腾：</p><ul>
+<li><strong>只有英文：</strong>两个固定的美式英语声音，不能克隆声音，也不能换别的语言。</li>
+<li><strong>不支持流式：</strong>不能边生成边播。网页版的做法是一句一句地生成，每句好了就先播。</li>
+<li><strong>读法固定：</strong>同一段文字每次念得都一样，没有随机的语气变化。</li>
+<li><strong>生僻词会念错：</strong>外国人名和不常见的拼写经常读错；数字、缩写、一词多音念得对不对，取决于音素器。</li>
+<li><strong>略带合成味：</strong>声音清楚，但听得出不是真人。</li>
+</ul><p>能做的：给英文视频配旁白、给 App 加离线朗读、在网页里不联网就发声。最短的上手方式是命令行：</p><div><div>
+<div>PyTorch · 命令行</div>
+<pre>pip install git+https://github.com/n4ze3m/dizione git+https://github.com/n4ze3m/tiny-voca
+hf download n4ze3m/tiny-voca --local-dir tiny-voca
+export DIZIONE_DATA=tiny-voca/phonemizer
+python -m tiny_voca.infer \
+  --checkpoint tiny-voca/tiny-voca.pt \
+  --voice F2 \
+  --text "Hello! This is tiny voca." \
+  --output hello.wav
+<span># --voice 换成 M2 是男声；--speed 调语速；--pitch-shift 升降调（0.058 约等于一个半音）；--text-file 读整个文件</span></pre>
+</div></div><p>文字多长都行，它会一句一句念再拼起来，存下来的音频峰值不超过 0.99，不会爆音。要自己调 ONNX 文件，有三点要注意：</p><ul>
+<li><strong>一次最多一句：</strong>每次调用最多 512 个 token、32 秒，长文要先拆成句子。</li>
+<li><strong>句尾要有标点：</strong>没有句号之类的结尾标点，最后一个词会被截断。</li>
+<li><strong>先压一下音量：</strong>大约每 20 句就有 1 句峰值略超过 1.0，存成 16 位音频前要缩一下，不然会爆音。</li>
+</ul><h3>别人已经拿它做了什么</h3><p>因为代码、数据和训练方法都公开，又便宜，已经有人在它上面接着做（这些是别人做的，作者没测过）：</p><ul>
+<li><strong>新语言和新声音：</strong>德语（apptor-tiny-tts）、意大利语（tiny-voca-it）、土耳其语（zerre-tts）、韩语以及韩英混说（korean-tts），还有会叹气、呼气、倒吸一口气的英文版（fiato）。</li>
+<li><strong>移植和应用：</strong>Rust 重写版（voca）、本地控制面板、Mac 应用。</li>
+<li><strong>同样的思路做别的声音：</strong>tinygroove，一台不用任何采样的鼓机。</li>
+</ul><p>社区列出的版本里还没有中文。按这套配方推想，找一个会说中文的大模型当老师、念出一二十小时的数据，再配一个中文音素器，就是下一个可以试的方向。</p></div><div><div><div>来源</div><div><span>tiny-voca（Hugging Face 模型卡）</span><span>Muhammed Nazeem<span>·</span>2026-11-14<span>·</span><a href="https://huggingface.co/n4ze3m/tiny-voca">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://github.com/n4ze3m/tiny-voca">tiny-voca GitHub 仓库</a><span>·</span><a href="https://github.com/n4ze3m/tiny-voca/blob/main/docs/model.md">tiny-voca docs/model.md：模型与数据</a><span>·</span><a href="https://github.com/n4ze3m/dizione">dizione 音素器</a><span>·</span><a href="https://huggingface.co/datasets/n4ze3m/tiny-voca">tiny-voca 训练数据集</a><span>·</span><a href="https://huggingface.co/spaces/hf-audio/open_tts_leaderboard?version=v1.6.3">Open TTS Leaderboard v1.6.3 快照</a><span>·</span><a href="https://tiny-voca.n4ze3m.com">tiny-voca 网页版</a></div></div><div><div>本站说明</div><div>试听音频（F2/M2 各四句）和成本柱状图来自 tiny-voca 模型卡；排行榜数字取模型卡里的 16 Nov 2026 快照表。</div></div></div></div></div>
+<div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://huggingface.co/n4ze3m/tiny-voca">看原网页 ↗</a></p></div><div></div><div><div><h1>n4ze3m/tiny-voca · Hugging Face</h1></div><div><p>Text-to-Speech model. Download, explore files and run it on Hugging Face.</p></div><div><p>tiny-voca is a small English text-to-speech model with two voices, F2 (female) and M2 (male). The complete model, including the waveform generator, has 4.5M parameters and was trained from scratch on about 18 hours of synthetic speech. It runs about 70x faster than real time on four CPU threads.</p></div><div><ul><li>Code: <a href="https://github.com/n4ze3m/tiny-voca">https://github.com/n4ze3m/tiny-voca</a></li><li>Phonemizer: <a href="https://github.com/n4ze3m/dizione">https://github.com/n4ze3m/dizione</a></li><li>Dataset: <a href="https://huggingface.co/datasets/n4ze3m/tiny-voca">https://huggingface.co/datasets/n4ze3m/tiny-voca</a></li><li>Try it in the browser: <a href="https://huggingface.co/spaces/n4ze3m/tiny-voca-studio">https://huggingface.co/spaces/n4ze3m/tiny-voca-studio</a></li></ul></div><div><div><div><table><thead><tr><th>Parameters</th><th>4,537,291</th></tr></thead><tbody><tr><td>Voices</td><td>F2, M2 (American English)</td></tr><tr><td>Output</td><td>24 kHz mono</td></tr><tr><td>Input</td><td>Text, converted to phonemes with dizione</td></tr><tr><td>Pretrained weights in the model</td><td>None</td></tr><tr><td>License</td><td>Apache-2.0</td></tr></tbody></table></div></div></div><div><h2>Files</h2></div><div><div><div><table><thead><tr><th>File</th><th>Size</th><th>Contents</th></tr></thead><tbody><tr><td><code>tiny-voca.pt</code></td><td>18.2 MB</td><td>PyTorch weights, float32</td></tr><tr><td><code>onnx/model.onnx</code></td><td>21.4 MB</td><td>ONNX export, float32, opset 17</td></tr><tr><td><code>config.json</code></td><td></td><td>Model settings, phoneme vocabulary, voices</td></tr><tr><td><code>phonemizer/</code></td><td>5.4 MB</td><td>Data files for dizione</td></tr><tr><td><code>samples/</code></td><td></td><td>The audio on this page</td></tr></tbody></table></div></div></div><div><p>SHA256:</p></div><div><ul><li><code>tiny-voca.pt</code>: <code>ebb22871524c5732520fb1652e6aefcec708a7452e83bdd00adcf6181db5ef70</code></li><li><code>onnx/model.onnx</code>: <code>fe6d918791a15b82e37465981d7f27a070e46b46635e5a3482fc8dff87a1ae46</code></li></ul></div><div><h2>Samples</h2></div><div><div><div><table><thead><tr><th>Text</th><th>F2</th><th>M2</th></tr></thead><tbody><tr><td>Hello! This is tiny voca, a small text to speech model that runs on a phone or in a browser.</td><td></td><td></td></tr><tr><td>The meeting moved to 3:30 pm on March 14th, so we have about 45 minutes left.</td><td></td><td></td></tr><tr><td>Did you really think I would forget your birthday?</td><td></td><td></td></tr><tr><td>She had never seen the sea before, and for a long while she stood at the edge of the water without saying a word.</td><td></td><td></td></tr></tbody></table></div></div></div><div><h2>Usage</h2></div><div><h3>PyTorch</h3></div><div><pre><code>pip install git+https://github.com/n4ze3m/dizione git+https://github.com/n4ze3m/tiny-voca
+hf download n4ze3m/tiny-voca --local-dir tiny-voca
+export DIZIONE_DATA=tiny-voca/phonemizer
+python -m tiny_voca.infer \
+  --checkpoint tiny-voca/tiny-voca.pt \
+  --voice F2 \
+  --text "Hello! This is tiny voca." \
+  --output hello.wav</code></pre></div><div><div><div><table><thead><tr><th>Option</th><th>Default</th><th>Meaning</th></tr></thead><tbody><tr><td><code>--text-file</code></td><td></td><td>Read the text from a file instead of <code>--text</code>.</td></tr><tr><td><code>--voice</code></td><td><code>F2</code></td><td><code>F2</code> or <code>M2</code></td></tr><tr><td><code>--speed</code></td><td>1.0</td><td>Speaking rate</td></tr><tr><td><code>--pitch-shift</code></td><td>0</td><td>Added to log F0. 0.058 is about one semitone.</td></tr><tr><td><code>--pitch-range</code></td><td>1.0</td><td>Scales pitch movement around the utterance mean.</td></tr></tbody></table></div></div></div><div><p>Text of any length works. The command reads it one sentence at a time and joins the audio. A text that ends without a mark gets a full stop. A sentence with nothing to read, such as one in another script, is skipped. The saved audio never peaks above 0.99.</p></div><div><h3>ONNX</h3></div><div><p>The graph takes phoneme ids and stress values and returns the waveform. Text is converted to ids outside the graph with dizione; the ids are the positions in <code>vocab</code> in <code>config.json</code>.</p></div><div><pre><code>import numpy as np
+import onnxruntime as ort
+import soundfile as sf
+import dizione   # needs DIZIONE_DATA=tiny-voca/phonemizer
+phones = dizione.phonemize("Hello! This is tiny voca.")
+one = lambda value: np.array([value], dtype=np.float32)
+session = ort.InferenceSession("tiny-voca/onnx/model.onnx")
+audio, durations = session.run(None, {
+    "tokens": np.array([phones.ids], dtype=np.int64),
+    "stress": np.array([phones.stress], dtype=np.int64),
+    "voice": np.array([0], dtype=np.int64),      # 0 = F2, 1 = M2
+    "speed": one(1.0),
+    "pitch_shift": one(0.0),
+    "pitch_range": one(1.0),
+})
+audio = audio[0]
+audio = audio * min(1.0, 0.99 / np.abs(audio).max())    # the model can peak above 1.0
+sf.write("hello.wav", audio, 24000)</code></pre></div><div><div><div><table><thead><tr><th>Input</th><th>Type</th><th>Shape</th><th>Meaning</th></tr></thead><tbody><tr><td><code>tokens</code></td><td>int64</td><td>[1, N]</td><td>Phoneme ids, including the start and end tokens</td></tr><tr><td><code>stress</code></td><td>int64</td><td>[1, N]</td><td>0 none, 1 primary, 2 secondary</td></tr><tr><td><code>voice</code></td><td>int64</td><td>[1]</td><td>0 = F2, 1 = M2</td></tr><tr><td><code>speed</code></td><td>float32</td><td>[1]</td><td>1.0 as predicted; larger is faster</td></tr><tr><td><code>pitch_shift</code></td><td>float32</td><td>[1]</td><td>Added to log F0</td></tr><tr><td><code>pitch_range</code></td><td>float32</td><td>[1]</td><td>Scales pitch movement</td></tr></tbody></table></div></div></div><div><div><div><table><thead><tr><th>Output</th><th>Type</th><th>Shape</th><th>Meaning</th></tr></thead><tbody><tr><td><code>audio</code></td><td>float32</td><td>[1, samples]</td><td>Waveform at 24 kHz</td></tr><tr><td><code>durations</code></td><td>int64</td><td>[1, N]</td><td>Length of each token in frames of 256 samples</td></tr></tbody></table></div></div></div><div><p>The model reads one utterance per call, up to 512 tokens and 32 seconds. Split longer text into sentences; <code>tiny_voca.infer.speak_text</code> does this in Python. End each utterance with a mark such as a full stop: without one the last word breaks off. The audio can peak a little above 1.0 (about one sentence in twenty), so scale it down before you save 16-bit samples, as above. The same file runs in onnxruntime-web (WebAssembly). Its audio matches the PyTorch model to within 0.6% of the peak amplitude, apart from the random noise signal, which each runtime draws itself.</p></div><div><h2>Model</h2></div><div><p>Text is converted to phonemes with a stress value for each. A transformer encoder (4 blocks) reads the phonemes, a duration predictor gives each one a length in frames, and two frame-level transformers (2 and 5 blocks) predict pitch, voicing and energy and then the parameters of the waveform generator. All blocks use 192 channels, 4 heads and rotary position embeddings.</p></div><div><p>The waveform is produced by a source-filter synthesizer instead of a neural vocoder. A band-limited pulse train at the predicted pitch and a noise signal are each shaped by a time-varying filter, whose cepstrum the network predicts once per frame (256 samples, 10.7 ms). This part has 25,862 parameters.</p></div><div><div><div><table><thead><tr><th>Component</th><th>Parameters</th></tr></thead><tbody><tr><td>Embeddings (phoneme, stress, voice)</td><td>16,704</td></tr><tr><td>Text encoder</td><td>1,588,864</td></tr><tr><td>Duration and pause predictor</td><td>123,906</td></tr><tr><td>Frame transformer A, prosody head</td><td>795,971</td></tr><tr><td>Frame transformer B</td><td>1,985,984</td></tr><tr><td>Source-filter waveform head</td><td>25,862</td></tr><tr><td>Total</td><td>4,537,291</td></tr></tbody></table></div></div></div><div><h2>Training</h2></div><div><div><div><table><thead><tr><th>Data</th><th><a href="https://huggingface.co/datasets/n4ze3m/tiny-voca">n4ze3m/tiny-voca</a>: 16,018 clips, 17.6 hours, two voices</th></tr></thead><tbody><tr><td>Steps</td><td>104,737</td></tr><tr><td>Hardware</td><td>One RTX 4090, 7.7 hours</td></tr><tr><td>Losses</td><td>Multi-resolution spectral losses; adversarial loss with multi-period and multi-resolution discriminators after step 8,000</td></tr></tbody></table></div></div></div><div><p>The training audio is synthetic. Both voices were created from text descriptions with Qwen3-TTS VoiceDesign, and the recordings were generated with Qwen3-TTS 1.7B Base. No recording of a real speaker is involved. Phoneme durations come from forced alignment with <code>facebook/wav2vec2-lv-60-espeak-cv-ft</code>, which is used only to label the training data. No pretrained weights are part of the model.</p></div><div><h2>Evaluation</h2></div><div><p>Word error rate of synthesized speech, transcribed with Whisper small.en. The recordings of the same sentences are scored the same way for reference.</p></div><div><div><div><table><thead><tr><th>Sentences</th><th>Clips</th><th>WER, tiny-voca</th><th>WER, recordings</th></tr></thead><tbody><tr><td>Validation</td><td>8</td><td>0.6%</td><td>0.6%</td></tr><tr><td>Test</td><td>8</td><td>0.9%</td><td>0.9%</td></tr><tr><td>New sentences, not in the dataset</td><td>16</td><td>0.0%</td><td></td></tr></tbody></table></div></div></div><div><p>These sets are small and the scores are a sanity check, not a benchmark. No formal listening test has been run.</p></div><div><h3>Open TTS Leaderboard</h3></div><div><p>Official leaderboard snapshot: <strong>16 November 2026</strong> (v1.6.3), English, <strong>without voice cloning</strong>, equal average across Seed-TTS, CV3-Eval and MiniMax; 50 ranked models (full-coverage English). Each tiny-voca voice is a separate row; <strong>M2</strong> currently ranks <strong>8th by average WER</strong> and <strong>F2</strong> ranks <strong>13th</strong>. The hosted leaderboard notes tiny-voca is CPU-only on both rows.</p></div><div><div><div><table><thead><tr><th>Rank</th><th>Model</th><th>Params</th><th>Average WER % ↓</th><th>UTMOS22 ↑</th></tr></thead><tbody><tr><td>6</td><td>phonon-31m-en</td><td>41 M</td><td>0.730</td><td>4.45</td></tr><tr><td>7</td><td>Inflect Micro v3</td><td>12 M</td><td>0.730</td><td>4.37</td></tr><tr><td><strong>8</strong></td><td><strong>tiny-voca (M2)</strong></td><td><strong>4.5 M</strong></td><td><strong>0.733</strong></td><td><strong>4.34</strong></td></tr><tr><td>9</td><td>phonon-40m-en</td><td>51 M</td><td>0.737</td><td>4.45</td></tr><tr><td>10</td><td>supertonic-3</td><td>100 M</td><td>0.743</td><td>4.45</td></tr><tr><td>…</td><td>…</td><td>…</td><td>…</td><td>…</td></tr><tr><td>12</td><td>PiVo-1.4M</td><td>1.4 M</td><td>0.767</td><td>4.33</td></tr><tr><td><strong>13</strong></td><td><strong>tiny-voca (F2)</strong></td><td><strong>4.5 M</strong></td><td><strong>0.773</strong></td><td><strong>4.43</strong></td></tr><tr><td>14</td><td>LFM3-Audio-2B</td><td>2.05 B</td><td>0.797</td><td>4.45</td></tr></tbody></table></div></div></div><div><p>📊 <a href="https://huggingface.co/spaces/hf-audio/open_tts_leaderboard?version=v1.6.3">Open TTS Leaderboard (16 Nov 2026 snapshot)</a></p></div><div><p>🎧 <a href="https://huggingface.co/spaces/hf-audio/open_tts_leaderboard?listen=n4ze3m%2Ftiny-voca+%28M2%29%2CQwen%2FQwen3-TTS-12Hz-1.7B-CustomVoice%2Chexgrad%2FKokoro-82M">Compare model outputs</a> with Qwen3 TTS (model used for training) and Kokoro</p></div><div><h2>Limitations</h2></div><div><ul><li>English only, two fixed voices, no voice cloning.</li><li>The voice is clear but can sound slightly synthetic.</li><li>The F2 voice sounds younger than intended. It was designed as an adult voice (the prompt asked for an adult American woman in her mid twenties; see voices.json in the dataset). A more mature voice is planned.</li><li>The same text is always read the same way. There is no sampling of prosody.</li><li>Speech is slightly faster than the training recordings at the default speed.</li><li>Foreign names and unusual spellings are often mispronounced. Numbers, abbreviations and homographs depend on the phonemizer.</li><li>No streaming.</li><li>The training data is itself synthetic, so the model cannot be more natural than the model that generated it.</li></ul></div><div><h2>Cost</h2></div><div><p>The whole project cost $9.56 of GPU time on one rented RTX 4090. That is the dataset, the failed tries and the final training run.</p></div><div><figure><img src="https://huggingface.co/api/resolve-cache/models/n4ze3m/tiny-voca/d94d2a0338fd1e0eab7dd896ec0ad23d8cdf7c14/cost.png?%2Fn4ze3m%2Ftiny-voca%2Fresolve%2Fmain%2Fcost.png=&amp;amp;etag=%221d6beea512ea8dc4b9f2bbafa6c20a4170c9fb71%22" alt="Cost breakdown" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><h2>Support</h2></div><div><p>It cost less than a pizza to make. If you like it, you can buy me one: <a href="https://ko-fi.com/n4ze3m">https://ko-fi.com/n4ze3m</a></p></div><div><h2>License</h2></div><div><p>The weights and code are released under Apache-2.0. The files in <code>phonemizer/</code> are derived from the CMU Pronouncing Dictionary and other sources; their licenses are in <code>phonemizer/LICENSE.cmudict</code> and <code>phonemizer/LICENSE.homograph-data</code>.</p></div><div><h2>Citation</h2></div><div><pre><code>@software{nazeem2026tinyvoca,
+  author = {Nazeem, Muhammed},
+  title  = {tiny-voca: a 4.5M-parameter two-voice English text-to-speech model},
+  year   = {2026},
+  url    = {https://huggingface.co/n4ze3m/tiny-voca}
+}</code></pre></div><div><p>Author: Muhammed Nazeem (<a href="https://orcid.org/0009-0002-9991-0217">ORCID 0009-0002-9991-0217</a>).</p></div><div><h2>Acknowledgements</h2></div><div><p>The design builds on FastSpeech 2 (explicit duration and prosody prediction), DDSP and the neural homomorphic vocoder (source-filter synthesis with predicted filters), and HiFi-GAN and UnivNet (discriminators). No code or weights from these projects are used.</p></div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://huggingface.co/n4ze3m/tiny-voca">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Claude Code 团队公开让 AI 自己检查代码的方法：想同时开几十个 Claude 一定要看 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/claude-code-verification/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:claude-code-verification</guid>
+<pubDate>Tue, 17 Nov 2026 12:00:16 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 所属专题 所属专题 Agent 工程与软件工厂 → 本页目录 01 验证做得好，才敢多开几个 Claude 02 先避开两个坑：测试不稳、测试太慢 03 三种最值得投入的测试 04 Claude Code 团队自己怎么做 05 你的活从读每一份 diff，变成定义「做完」长什么样 AI 解读 / AI 实操 · 11-17 · 约 10 分钟 · 作者 Anthropic Claude Cod</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 17 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Claude Code 团队公开让 AI 自己检查代码的方法：想同时开几十个 Claude 一定要看 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/claude-code-verification/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>Agent 工程与软件工厂 →</a></div><div>本页目录</div><a><span>01</span><span>验证做得好，才敢多开几个 Claude</span></a><a><span>02</span><span>先避开两个坑：测试不稳、测试太慢</span></a><a><span>03</span><span>三种最值得投入的测试</span></a><a><span>04</span><span>Claude Code 团队自己怎么做</span></a><a><span>05</span><span>你的活从读每一份 diff，变成定义「做完」长什么样</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>AI 实操</a><i>·</i>11-17<i>·</i>约 10 分钟<i>·</i>作者 Anthropic Claude Code 团队</div><h1>Claude Code 团队公开让 AI 自己检查代码的方法：想同时开几十个 Claude 一定要看</h1><p>没有验证循环，你同时只能开一两个 Claude，因为每份改动都得自己看；有了它，可以开几十上百个。</p><div><div>正文原文</div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Anthropic Claude Code 团队</span><span>11-17 · 约 10 分钟</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div>
+<div><div><div><figure>
+<div>
+<div>
+<div>没有验证循环</div>
+<div>每份改动都等你亲自看</div>
+<div><span>Claude 1</span><span>Claude 2</span></div>
+<div><b>你：逐份检查</b>
+<div><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+<div><b>0</b> 份在排队等你看</div>
+</div>
+<div>
+<div>有验证循环</div>
+<div>40 个 Claude 并行，各自拿证据过关</div>
+<div></div>
+<div>每份改动先过：端到端跑一遍、测试、审查</div>
+<div><span>自己过关 <b>0</b></span><span>三轮没过、叫你看 <b>0</b></span></div>
+</div>
+</div>
+<figcaption>示意图：人逐份检查时，Claude 开得越多，排队越长；让检查先跑，人只看没过关的那几份。</figcaption>
+</figure></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】higurashi 发布全双工语音模型 Haru-4B：MacBook就能跑 65毫秒延迟 会附和、会让话、会抢话 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/haru-4b/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:haru-4b</guid>
+<pubDate>Tue, 17 Nov 2026 12:00:16 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 对讲机和电话，差在哪 02 一个模型怎么同时听和说 03 4000 万小时真人录音，怎么变成两路对话 04 65 毫秒花在哪 05 再听三段 06 现在能拿它做什么 AI 解读 / 产品发布 · 11-17 · 约 9 分钟 · 作者 higurashi higurashi 发布全双工语音模型 Haru-4B：MacBook就能跑 65毫秒延迟 会附和、会让话、会抢话 电话里的</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 17 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">higurashi 发布全双工语音模型 Haru-4B：MacBook就能跑 65毫秒延迟 会附和、会让话、会抢话 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/haru-4b/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>对讲机和电话，差在哪</span></a><a><span>02</span><span>一个模型怎么同时听和说</span></a><a><span>03</span><span>4000 万小时真人录音，怎么变成两路对话</span></a><a><span>04</span><span>65 毫秒花在哪</span></a><a><span>05</span><span>再听三段</span></a><a><span>06</span><span>现在能拿它做什么</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>产品发布</a><i>·</i>11-17<i>·</i>约 9 分钟<i>·</i>作者 higurashi</div><h1>higurashi 发布全双工语音模型 Haru-4B：MacBook就能跑 65毫秒延迟 会附和、会让话、会抢话</h1><p>电话里的「嗯嗯」「对对」、话说一半被接住、两人同时开口，这些它都是听真人录音自己学会的，没人给它写规则。</p><div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>higurashi</span><span>11-17 · 约 9 分钟</span><span>⚑ 产品发布</span></div></div></div><div><div><div>
+<div><b>同一时刻，两个人都在出声</b><span><span><i></i>人</span><span><i></i>Haru</span></span></div>
+<div>
+<div><b>人</b></div>
+<div><b>Haru</b></div>
+<div></div>
+</div>
+<div><span>0 秒</span><span>11 秒</span><span>22 秒</span></div>
+<ol>
+<li><span>1</span>人说「想做点投资」，Haru 在中间插一声<em>「嗯」</em>。</li>
+<li><span>2</span>人还在说「所以想让你教教我」，Haru 的<em>「嗯嗯嗯，行啊」</em>已经叠上来。</li>
+<li><span>3</span>Haru 刚答完「投资我也懂一点」，人的下一句已经开口。</li>
+</ol>
+<p>取自下面发布片里的一段（第 9–31 秒），人和 Haru 的声音分在左右两个声道，这里按每 0.1 秒的音量画出。紫色阴影是两个人同时出声的时刻。</p>
+</div></div><strong>一分钟速览</strong><ul><li>它每 133 毫秒同时听一小段、说一小段，不用等你说完再开口。</li><li>附和、插话、让话都从 4000 万小时真人录音里学，刻意不用合成对话。</li><li>权重开源，约 12GB 显存的 N 卡能跑，Mac、iPhone 上也能本地跑。</li></ul><div><p>东京的 AI 公司 higurashi 开源了 Haru-4B，一个 40 亿参数的全双工语音对话模型。全双工本来是说电话的：两头可以同时说话。放到 AI 身上，就是它听你说话的同时也能开口：你说着，它会「嗯嗯」附和；你插话，它会让出来；两个人的声音可以叠在一起。它直接听声音、直接出声音，中间不先转成文字再念。</p><p><strong>Haru-4B 主要特点：</strong></p><ul>
+<li><strong>小个子底座：</strong>40 亿参数（4B），只做过预训练，还没调教成会听指令的助手。</li>
+<li><strong>边听边说：</strong>每 133 毫秒（一秒 7.5 次）同时听进你的一小段声音、说出自己的一小段声音。</li>
+<li><strong>延迟低：</strong>在 M1 Max 的 MacBook 上端到端延迟约 65 毫秒，iPhone 上也能本地跑。</li>
+<li><strong>学的是真人：</strong>用 4000 万小时以上的真实语音预训练，覆盖 160 多种语言，刻意不用 AI 合成的对话；其中 1300 万小时以上是拆成两路的对话，最长一段 60 分钟。</li>
+<li><strong>人设和嗓音可换：</strong>一段文字定性格和关系，一段 3 秒到 3 分钟的录音定嗓音。</li>
+<li><strong>开源：</strong>权重和代码按 Apache 2.0 公开，主要支持英、西、葡、德、法、中、日、俄、韩 9 种语言。</li>
+</ul><p>这一年 GPT-Live、豆包都上了这种边听边说的语音，模型都握在厂商手里，下载不到，只能用他们的服务。Haru-4B 把同一类能力做成了能下载、能在自己电脑上跑的开源底座。它练的是聊天的节奏：什么时候附和、什么时候让话、什么时候接上。它还没练成助手，说的事实不可靠，也不会照指令办事。先听它聊一段，再看它凭什么又快又像人。</p><div><figure>
+<div>
+开声音
+<div></div>
+</div>
+<figcaption><b>和老同学聊怎么开始投资（日语）：</b>青色一行是人，紫色一行是 Haru；黄色标签标出了附和、互相让话、两人同时说话这些时刻。Haru 的语气和语速会跟着话题自己调。</figcaption>
+</figure></div><h2>对讲机和电话，差在哪</h2><p>大多数语音助手其实是对讲机：你说一段，它等你说完再回一段。判断「你说完了」的，通常是一个叫 VAD（语音活动检测）的小模块，它只管有没有人在出声，静音够久就认定你说完，把话头交给模型。这样一来，你说话时它没法「嗯」一声，它说话时也听不见你。</p><p>Haru-4B 走的是电话那条路：模型自己一直在听、随时能说，什么时候附和、什么时候停下来，由模型自己判断。</p><div><div>
+<div>同一段对话，两种 AI 怎么接<span>示意图</span></div>
+<div>你先问一句，等它回答时又插了一句「等一下」。</div>
+<div>
+<div><b>轮流式：靠静音判断你说完没有</b><span>对讲机</span></div>
+<div>
+<div><b>你</b></div>
+<div><b>AI</b></div>
+<div></div>
+</div>
+<ul><li><span>1</span>你说完，它要等一段静音才开口，你说话时一声不吭。</li><li><span>2</span>它说话时听不见你，你喊「等一下」，它照说不误。</li></ul>
+</div>
+<div>
+<div><b>全双工：一直在听，随时能说</b><span>Haru-4B</span></div>
+<div>
+<div><b>你</b></div>
+<div><b>AI</b></div>
+<div></div>
+</div>
+<ul><li><span>1</span>你还在说，它边听边「嗯」。</li><li><span>2</span>你一插话，它停下来让你说。</li></ul>
+</div>
+</div></div><p>要让一个系统开口说话，大致有四种搭法。最早的是接力：语音识别把话转成字，大模型回一段字，语音合成再念出来。第二种是一个模型直接听、直接说，但还是你一句我一句。后两种才是全双工，差别在声音和字怎么喂给模型，下一节细说。</p><div><a><span>站内相关 · 接力那条路</span><span>Hugging Face 与 Cerebras 让 Gemma 4 的语音交互变得像真人聊天一样流畅自然</span><span>整条链开源、能搬回自己机器的接力式语音：把「想答案」那一环换成极速硬件，快了很多，但还是轮流说话。</span></a></div><h2>一个模型怎么同时听和说</h2><p>Haru-4B 建在阿里的文本模型 Qwen3.5-4B 上。语言模型天生是一格一格往后写的，难点在于：怎么让它在同一时间既处理「你在说的」，又处理「它自己在说的」。</p><h3>三样东西叠进一格</h3><p>Haru 把时间切成 133 毫秒一格（行内叫一帧）。每一格里有三样东西：这一格你的声音、它上一格说出的声音、它上一格写下的字。三样东西各自变成一串数字，再直接加成一份，只占模型里的一个位置，不用排队；模型看完这一份，同时给出下一个字和下一段声音。听和说就这样在同一步里完成，谁也不用等谁。</p><p>另一种做法是把三样东西排成一队轮流喂进去，叫交错式。同样 0.8 秒的对话，排队要占 18 个位置，加成一份只要 6 个。模型每一步要回头看的内容只剩 1/3，算得更快，同样的记忆容量也能装下更长的对话；字的那条流也不会被声音切碎。</p><div><div>
+<div>每 133 毫秒，三样东西挤进一格</div>
+<div>一格进去，同时出来下一个字和下一段声音。</div>
+<div>
+<div>
+<div>它上一格写的字</div><div>＋</div>
+<div>它上一格说的声音</div><div>＋</div>
+<div>这一格你的声音</div>
+</div>
+<div>
+<div><span>下一个字</span><span>下一段声音</span></div>
+<div>↑</div>
+<div>语言模型Qwen3.5-4B，32 层</div>
+<div>↑ 三样直接加成一份，只占一个位置</div>
+</div>
+</div>
+<div>
+<div>同样 6 格（0.8 秒）对话，要占模型几个位置：</div>
+<div><b>交错排队</b><div></div><span>0</span></div>
+<div><b>Haru 叠一格</b><div></div><span>0</span></div>
+<div><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div>
+</div>
+<p>青色是你的声音，紫色是它的声音，绿色是它的字。交错排队时一格要拆成三个位置；Haru 把三样叠在同一个位置上，上下文长度是前者的 1/3。</p>
+</div></div><div><figure>
+<div>
+</div>
+<figcaption><b>一帧一帧往前走：</b>底下每一帧收进你的声音（紫），和它上一帧的声音（橙）、上一帧的字（绿）加在一起送进语言模型，上面同时吐出下一个字和下一段声音。</figcaption>
+</figure></div><h3>一段声音，一步生成</h3><p>声音这边还有一道坎：模型想好了要说什么，还得把每一小段声音真正做出来。很多语音模型把一段声音拆成好几个编号，一个接一个地吐；也有的从一团噪声开始，一遍遍打磨，才磨出一段声音。步数一多，就慢。</p><p>Haru 每一小段声音只做一次：语言模型给出想法，后面挂的一个很小的网络一步就把这段声音画出来，不用排队吐编号，也不用反复打磨。办法是先教会这个小网络一遍遍地磨，再把它压缩成一步到位（行内叫蒸馏）。</p><div><div>
+<div>生成 0.4 秒声音，要按顺序跑几步<span>示意图</span></div>
+<div>每个点是一次按顺序的计算，三种做法用同样的速度跑。</div>
+<div>
+<div>拆成编号挨个吐每秒 12.5 帧，每帧 8 个编号</div>
+<div></div><div><span>0</span>5 帧 × 8</div>
+</div>
+<div>
+<div>从噪声反复打磨每秒 7.5 帧，每帧磨 N 遍</div>
+<div></div><div><span>0</span>3 帧 × N</div>
+</div>
+<div>
+<div><span>Haru</span>一步生成每秒 7.5 帧，每帧 1 次</div>
+<div></div><div><span>0</span>3 帧 × 1</div>
+</div>
+<p>中间一行的 N 画成 4 次，只为示意。第一行是离散编号（RVQ）那类做法，中间是多步扩散那类做法；Haru 的小网络是 4 层 MLP，用 MeanFlow 蒸馏成一步。</p>
+</div></div><p>声音这一侧的步数压下来，训练和推理都轻了：推理时每秒只需要按顺序算 7.5 步。这是它能在笔记本上实时对话的根本原因。</p><h3>字先写完一串，再等声音追上</h3><p>Haru 每说一句话，也同时写下这句话的字。声音照着字念，字这条线让原来那个文本模型继续帮它想「要说什么」。麻烦在于字和声音的速度不一样：一句话写出来就几个字，念出来却要占好几格。Haru 让一句里的字连成一串先写出来，后面用「等待」占位，等声音念完；下一句开口的前一格，放一个专门的记号 EOP，意思是「要开口了」。如果硬让每个字钉在它对应的那一格声音上，字会被切得七零八落，文本模型原本学到的知识也容易被冲掉。</p><div><div>
+<div>字和声音怎么对上<span>示意图</span></div>
+<div>同一句「今天天气不错」，10 格，每格 133 毫秒。</div>
+<div>
+<div>逐词对齐每个字钉在自己的声音上，字被拆散</div>
+<div></div>
+</div>
+<div>
+<div>Haru：按块对齐字连成一串先写完，再等声音</div>
+<div></div>
+</div>
+<div><span><i>EOP</i>下一格要开口了</span><span><i>·</i>等待（占位）</span></div>
+</div></div><div><a><span>站内相关 · 反方向的路</span><span>Block 发布了纯语音对话模型 Dessa：只靠听人类说话 从零学会了说话的 AI</span><span>同样边听边说、同样能在 Mac 上本地跑，Dessa 不借文本模型，只听声音从零学；Haru 则站在 Qwen 文本模型的肩上。</span></a></div><h2>4000 万小时真人录音，怎么变成两路对话</h2><p>为什么非要真人录音？合成的对话太规整：一人一句，谁也不打断谁。真实录音里有自然的打断、迟疑、附和、两人同时开口，还有说不准什么时候换人的节奏。Haru 要学的就是这些，所以训练数据里刻意去掉了大模型写的对话和语音合成的声音。</p><p><strong>第一步：</strong>先让 Qwen3.5-4B 学会听和说，几样活混在一起练：把语音转成字，把一段声音或文字接着往下续，再接着读纯文本，免得把原来的知识忘掉。大部分录音事先用开源的语音修复模型 Sidon 洗干净，他们还把给 Sidon 提速的代码也开源了。</p><p><strong>第二步：</strong>练全双工。这一步要求两个人的声音分在两路、时间对齐，可现实里的对话录音几乎都混在一个声道里。他们为此专门做了 FastDialogueSidon，一边把两个人的声音拆开，一边修音质，模型和代码也都开源了。拆出来的两路对话有 1300 万小时以上，单段最长 60 分钟，所以模型见过很长的来回。</p><div><div>
+<div>一路混在一起的录音，拆成两路<span>示意图</span></div>
+<div>用开头那段对话的音量演示：上面是拆之前，下面是拆之后。</div>
+<div>
+<span>拆之前：两个人混在一个声道</span>
+<div><b>↓ FastDialogueSidon：拆开两个人 + 修音质</b></div>
+<span>拆之后 · 说话人 A</span>
+<span>说话人 B</span>
+</div>
+<div>
+<div><b>4000 万+</b><span>小时真实语音，预训练总量</span></div>
+<div><b>160+</b><span>种语言，9 种为主</span></div>
+<div><b>1300 万+</b><span>小时拆好的两路对话</span></div>
+<div><b>60 分钟</b><span>单段对话最长</span></div>
+<div><b>256 张</b><span>NVIDIA B200 显卡</span></div>
+<div><b>约 8 天</b><span>预训练用时</span></div>
+</div>
+</div></div><p>整个预训练用了 256 张 NVIDIA B200 显卡，跑了约 8 天。每条训练样本还配了一段自动生成的人设说明，再加上同一个说话人的一小段录音当参考。所以用的时候，给一段文字、一段录音，就能定下它的性格和嗓音。</p><p>放在日语圈看，这个数据量是一次跳跃。此前能说日语的开源全双工模型（J-Moshi 等），是在一个 7B 的英语模型上，用约 7 万小时日语对话补练出来的。Haru 只有 4B，用的语音却多得多，底座也换成了支持多语言的 Qwen3.5。</p><div><div>
+<div>一格 = 7 万小时</div>
+<div>能说日语的开源全双工模型，各用了多少小时语音。</div>
+<div><div><b>J-Moshi 等：日语对话</b><span>约 7 万小时</span></div><div></div></div>
+<div><div><b>Haru-4B：两路对话</b><span>1300 万小时以上 ≈ 186 格</span></div><div></div></div>
+<div><div><b>Haru-4B：全部语音</b><span>4000 万小时以上 ≈ 571 格</span></div><div></div></div>
+<p>口径不同：J-Moshi 的 7 万小时是在现成模型上补练日语用的对话；Haru 的数字是从头训练用的全部语音，日语只是其中一部分。</p>
+</div></div><h2>65 毫秒花在哪</h2><p>65 毫秒是在 M1 Max 的 MacBook 上测的：用他们自己写的 Swift 原生应用，配有线麦克风和耳机，从声音进麦克风，到回应从耳机里出来，中间编码、模型算一步、解码、输入输出全算上。大头是模型算一步，34 毫秒左右。</p><div><div>
+<div>约 65 毫秒的账M1 Max · int8 权重 · 中位数</div>
+<div>一次从麦克风到耳机，每一段花多少毫秒。</div>
+<div>
+<div></div><div>模型算一步 34.2</div><div></div><div></div><div></div>
+</div>
+<div>
+<div><span><i></i>麦克风 → 应用</span><b>5.3</b></div>
+<div><span><i></i>模型算一步</span><b>34.2</b></div>
+<div><span><i></i>进程间传递</span><b>4.1</b></div>
+<div><span><i></i>等着输出</span><b>13.3</b></div>
+<div><span><i></i>应用 → 耳机</span><b>8.1</b></div>
+<div><span>合计</span><b>65.2 毫秒</b></div>
+</div>
+<div>
+<div>这 65 毫秒没算进去的：</div>
+<div><b>凑满一帧</b><div><div>65</div><div>最多 +133</div></div></div>
+<div><b>换成蓝牙耳机</b><div><div>65</div><div>+100 以上</div></div></div>
+<div><span>0</span><span>100</span><span>200 毫秒</span></div>
+</div>
+</div></div><p>这个数不含「凑满一帧」的时间。模型每 133 毫秒收一帧声音，一帧没凑满只能等，所以最多还要再加 133 毫秒。蓝牙耳机和麦克风会再多出 100 毫秒以上，想要低延迟得用有线的。放到服务器上，用 vLLM-Omni 跑在 NVIDIA B300 上，编码、解码加模型一步合起来约 15 毫秒。</p><h2>再听三段</h2><p><strong>聊带孩子（日语）：</strong>两个家里都有两岁孩子的朋友在电话里聊挑食。Haru 会共情，会把结论再强调一遍；对方开玩笑说要自己扮成胡萝卜喂孩子，它笑着说「绝对不要」。这段两个人的话叠得很多，对话一直没断。</p><div><figure>
+<div>
+开声音
+<div></div>
+</div>
+<figcaption><b>聊孩子挑食（日语，约 3 分半）：</b>画面里 A 是人，B 是 Haru。标签标出了它抢着接话、对方附和时继续说、跟着话题共情、强调结论、听到玩笑会笑。</figcaption>
+</figure></div><p><strong>问投资（英语）：</strong>Haru 扮理财顾问。开头还是老朋友寒暄的口气，话题一认真，说话就变得专业起来。建议也分了情况：求稳就看跟踪大盘的指数基金，想冒险再去挑个股。</p><div><figure>
+<div>
+开声音
+<div></div>
+</div>
+<figcaption><b>找朋友问钱该怎么投（英语）：</b>A 是人，B 是 Haru；标签标出了两人重叠、对方附和时它接着说、语气转严肃、认真回答问题。</figcaption>
+</figure></div><p><strong>打电话聊电影（英语）：</strong>问它最喜欢哪部爱情喜剧。它边想边用「嗯」填空，聊到喜欢的电影明显兴奋起来，对方附和时也不停下。</p><div><figure>
+<div>
+开声音
+<div></div>
+</div>
+<figcaption><b>聊最爱的爱情喜剧（英语，约 1 分钟）：</b>Person 是人，AI 是 Haru；标签标出了笑声、边想边用填充词、对方附和时继续说、聊到喜欢的话题变兴奋。</figcaption>
+</figure></div><h2>现在能拿它做什么</h2><p>Haru-4B 是一个只做过预训练的底座。它能把一场对话自然地聊下去，但说的事实不可靠，也不会像助手那样按指令办事。它适合拿来做研究，或者在上面接着微调出自己的语音产品。</p><p><strong>自己跑：</strong>有一张约 12GB 显存的 NVIDIA 显卡，装好代码就能在浏览器里跟它聊；苹果芯片的 Mac 有原生应用；要在服务器上同时接很多路对话，可以接 vLLM-Omni。</p><p><strong>嗓音自带：</strong>它不附带任何音色。你得上传一段 3 秒到 3 分钟、只有一个人、干净的录音，它就用这个嗓音说话。只能用你有权使用的声音。</p><p><strong>先打个电话：</strong>会日语的话，可以直接拨 050-5444-3154（男声）或 050-5444-3155（女声）跟它聊，从「自己紹介をお願いします」开始。这是还没微调的版本，偶尔会不稳。</p><div><a><span>站内相关 · 闭源的那条路</span><span>OpenAI 开放 GPT‑Live‑1 API：可以将GPT的语音对话能力接入到任意应用中 每分钟 0.05 美元</span><span>要现成就能接进产品、还能把任务交给后端去办的全双工语音，目前是这类按分钟计费的 API。</span></a></div><p><strong>接下来：</strong>团队在用真正分两路录的对话做微调，因为拆出来的声音在两人重叠的地方还会有错和杂音；同时在预训练超过 1000 亿参数的全双工模型，补上 4B 模型回答质量的短板；还在自己做对话生成和语音生成模型，造一批自然的两路合成对话，用来提升回答质量和对话的多样性。之前刻意不用的是大模型写的一问一答，这次要造的是带重叠、带附和的那种。另外还要接上实时视频，做能看、能听、能说的版本。更详细的技术报告和训练代码之后公开。</p><p>一个 4B 的模型，聊天像人，说事不靠谱，这个组合本身说明了一件事：像人，靠的是节奏和数据；靠谱，还得靠模型的个头。前一半，现在谁都能下载下来拆开看了。</p></div><div><div><div>来源</div><div><span>【人間のように、自然に笑い、相槌を打つ「人間らしいAI」】（@HigurashiAI 主题帖）</span><span>higurashi<span>·</span>2026-11-13<span>·</span><a href="https://x.com/HigurashiAI/status/2121043937762889832">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://blog.higurashi.ai/melte/haru4b-ja/">Haru-4B: 低遅延・多言語の全二重連続音声対話基盤モデル（技术博客日文版）</a><span>·</span><a href="https://blog.higurashi.ai/melte/haru4b/">Haru-4B: A Low-Latency and Multilingual Full-Duplex Continuous Spoken Dialogue Foundation Model（技术博客英文版）</a><span>·</span><a href="https://huggingface.co/higurashi-ai/Haru-4B">higurashi-ai/Haru-4B（Hugging Face 模型页）</a><span>·</span><a href="https://github.com/higurashi-ai/Haru">higurashi-ai/Haru（GitHub 仓库）</a></div></div><div><div>本站说明</div><div>视频和原理动画来自 higurashi 的主题帖和技术博客；视频中文字幕由本站按分声道转写翻译。</div></div></div></div></div>
+</div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/HigurashiAI/status/2121043937762889832">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Databricks Genie One 技能指南：让 AI 先采访你，再像带新人一样验收 · XiaoHu.AI</title>
 <link>https://xiaohu.ai/article/databricks-genie-one-skills/</link>
@@ -76577,194 +77363,6 @@ MAKE HIM THE SUPREME RULER OF THIS LAND
 <div>结构变化<strong>拥有终端客户关系</strong></div>
 <b>→</b>
 <div>力量来源<strong>资金或 Token 流经过你</strong></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Lieflat Charts：61 种图表、12 套报告模板，能让 AI 直接生成各种好看炫酷的 HTML 图表或报告</title>
-<link>https://best.xiaohu.ai/article/lieflat-charts/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:lieflat-charts</guid>
-<pubDate>Mon, 14 Sep 2026 12:01:49 +0000</pubDate>
-<description>输入数据和使用场景，AI 就能从编辑叙事图、基础图、动态图、地图和交互大图中选型，并生成可直接打开的 HTML 图表或整页报告。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 14 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Lieflat Charts：61 种图表、12 套报告模板，能让 AI 直接生成各种好看炫酷的 HTML 图表或报告</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/lieflat-charts/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Lieflat Charts：61 种图表、12 套报告模板，能让 AI 直接生成各种好看炫酷的 HTML 图表或报告</h1><p>输入数据和使用场景，AI 就能从编辑叙事图、基础图、动态图、地图和交互大图中选型，并生成可直接打开的 HTML 图表或整页报告。</p><strong>一分钟速览</strong><ul><li>Lieflat Charts 是一套让 AI 生成单文件 HTML 图表和整页报告的 Agent Skill，输入数据与使用场景即可开始。</li><li>61 种图表分为 Lupi、Basics、Glance、Maps 和交互大图：既能做细腻的编辑叙事图，也能做动态图、地图与大型关系网络。</li><li>每种图表都可以按照数据形状、适用任务、生成方法和使用边界来选择，文章中提供了完整图册与逐图说明。</li><li>12 套报告模板覆盖调研一页纸、年度复盘、月度运营、数据海报、仪表盘、研究简报和周报等完整交付场景。</li></ul><div>
-<p>日常写业务复盘、用户调研、产品白皮书或公众号长文时，难点通常不在“会不会画柱状图”，而在如何根据数据形状、阅读时间和发布场景选对表达。同样一组数据，既可以被做成三秒扫完的周报图，也可以被展开成保留逐条记录的编辑叙事图；选错方式，再精致的样式也会伤害理解。</p>
-<p><strong>Lieflat Charts</strong> 是一套模板驱动的 Agent Skill。它把图型目录、选型规则、视觉语法和可复用的 HTML/SVG 实现放在同一个仓库里，让 Moxt、Claude Code、Codex 等能读取 <code>SKILL.md</code> 的 Agent 用自然语言接收数据和场景，生成无需构建、可直接用浏览器打开的单文件 HTML 图表或报告。</p>
-<p><img /></p>
-<hr />
-<h2>从安装到选图：先掌握这四条规则</h2>
-<p>Lieflat Charts 不需要你搭建复杂的本地编译环境，所有图表本质上都是轻量的 Web 代码，AI 编写后可以直接在浏览器中双击打开查看或截图。</p>
-<h3>安装与载入方式</h3>
-<p>如果你在使用支持技能扩展的 AI 终端（如 Codex、Claude Code 或 Moxt），只需向终端输入一条安装命令：</p>
-<div><pre><code>npx skills add https://github.com/larashero3-dotcom/lieflat-charts --skill lieflat-charts
-</code></pre></div>
-<p>也可以直接将项目代码下载或克隆到本地技能目录中（例如 <code>~/.codex/skills/lieflat-charts</code> 或 <code>~/.claude/skills/lieflat-charts</code>）。安装后检查目录内是否存在主规则文件 <code>SKILL.md</code>、模板文件夹 <code>templates/</code>、图型目录 <code>catalog.md</code> 以及设计令牌 <code>mono-tokens.js</code>。</p>
-<p>使用前还要看授权边界：仓库采用 <strong>PolyForm Noncommercial License 1.0.0</strong>，不是通用的开源许可。非商业目的可按条款使用、修改和分发；准备用于商业项目时，应先阅读仓库的完整 <code>LICENSE</code> 并向权利人确认所需授权。</p>
-<h3>图表模式 vs 报告模式的边界</h3>
-<p>Lieflat Charts 严格区分两种生成模式，默认情况下只启用<strong>图表模式</strong>：</p>
-<ul>
-<li><strong>图表模式（默认状态）</strong>：适合文章插图、社媒配图或特定结论说明。单篇短文通常插入 1 张图，两到三个核心论点配 2–3 张，万字长文或研报配置 4–6 张。一个页面默认最多呈现 6 张图，严禁为了凑版面把同一个结论反复画成不同的图。</li>
-<li><strong>报告模式（需明确唤醒）</strong>：只有当你对 AI 明确提出“请做成年度报告、调研一页纸、白皮书、月度看板、数据海报”等整页交付需求时，AI 才会加载复合排版模板（R01–R12）。在报告模式下，AI 会严格套用整页骨架，不会把几张互不相关的模板拼凑在一起。</li>
-</ul>
-<h3>选型优先级与主力备用机制</h3>
-<p>为了保证图表的信息密度与审美格调，Lieflat Charts 设定了铁律一般的<strong>选型过滤漏斗</strong>：</p>
-<ol>
-<li><strong>第一优先级：全面审查 Lupi Editorial</strong>。优先看能否用细线、点阵、逐条记录、留白和旁注把数据展开。这里的“Lupi 风”特指仓库 gallery 内的视觉语法，不是对 Giorgia Lupi 本人手绘风格的模仿。</li>
-<li><strong>第二优先级：审查基础型组（Lupi Basics）</strong>。如果数据量偏小、类目稀疏，但依然想要保留发丝线与刻度质感，从这里寻找经典图型的变体。</li>
-<li><strong>第三优先级：降级进入 Glance 系列</strong>。只有当前两组都无法清楚表达数据，或者你明确要求“做成监控仪表盘、周报卡片、需要 3 秒内读完”时，才允许调用粗线条、强聚合的 Glance 系列。</li>
-<li><strong>特殊补充：地图仅限显式要求</strong>。即便数据里包含城市、省份或国家名称，也不要默认画地图。只有当你明确强调“画出地域分布图”时才会调用地图。</li>
-</ol>
-<p>在整套系统中，L1–L15 与 F1–F13 构成日常出图的<strong>主力军</strong>。其余编号大多属于后备方案，必须在主力确实无法表达时使用。唯一的例外是 F15（箱线图）、F16（河流图）、F17（K线图）、L17（日历热力图）和 L20（平行坐标），由于主力库中没有与之对应的数学编码，一旦数据结构完全契合即可直接启用。</p>
-<h3>色彩系统与离线运行规则</h3>
-<p>在同一篇文章或同一份报告中，<strong>全篇必须强制锁定单一体系的配色方案</strong>，不能在一张图里红蓝撞色，在另一张图里又变成草绿：</p>
-<ul>
-<li><strong>Mono（极简黑白灰）</strong>：默认保底方案，依靠线条粗细与明度拉开层次，最耐看、排版容错率最高。</li>
-<li><strong>Porcelain（青瓷蓝）</strong>：单色阶方案，依靠深浅变化表达有序数值或单一连续指标。</li>
-<li><strong>Palm（椰林绿）</strong>：柔和低饱和度的绿黄色系，专门用来区分少量无序的分类。</li>
-<li><strong>Wire（编辑部黑白+荧光橙）</strong>：全图保持黑白灰底色，只用一抹亮眼的橙色点出全篇最关键的数据落点。</li>
-</ul>
-<p>在技术底层上，纯 SVG 格式渲染的图表（大部分 Lupi 与 Basics 图型）完全支持<strong>单机断网离线运行</strong>。而采用 Chart.js、ECharts 引擎或在线字体的图型，在没有做代码内联打包时则需要联网加载依赖。</p>
-<div>
-<p>DATA SHAPE → CHART</p>
-<h3>先说数据长什么样，再说想用哪张图</h3>
-<p>下面把最常见的数据任务压成 12 条选型路径。每条先给 Lupi / Basics 候选；只有需要快读、动画或高密度查询时，才走向 Glance 或 B 系大图。</p>
-</div>
-<div>
-全部
-比较
-时间
-构成
-分布
-关系
-</div>
-<p>当前显示 12 条路径</p>
-<div>
-<span>少类目比较</span><strong>F1 / F5 / L2</strong><p>竖柱、长标签横条、可数单位点阵；明确要快读时用 G3。</p></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】谁在用 AI 改变软件开发？AI 编程正在催生一种全新的软件开发者</title>
-<link>https://best.xiaohu.ai/article/ai-new-kind-software-developer/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:ai-new-kind-software-developer</guid>
-<pubDate>Mon, 14 Sep 2026 12:01:49 +0000</pubDate>
-<description>他们未必熟悉代码语法，却懂业务、会测试、能挑错，也能把软件交付出来。真正移动的不是专业底线，而是实现门槛。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 14 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">谁在用 AI 改变软件开发？AI 编程正在催生一种全新的软件开发者</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/ai-new-kind-software-developer/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>谁在用 AI 改变软件开发？AI 编程正在催生一种全新的软件开发者</h1><p>他们未必熟悉代码语法，却懂业务、会测试、能挑错，也能把软件交付出来。真正移动的不是专业底线，而是实现门槛。</p><strong>一分钟速览</strong><ul><li>作者认为，新的不是人：律师、设计师、电商从业者和企业主早就懂需求与流程，AI 只是补上了他们过去缺少的实现通道。</li><li>新门槛是能否指挥、检查和验证：追问重复请求、进程中断和无关改动，再为失败路径写测试，与只看页面能跑完全不是同一种 AI 编程。</li><li>AI 改变了长尾软件的经济性：一个只值 5000 美元、专业团队却要报价 5 万美元的工具，现在可能由最懂问题的人用几个周末做出够用版本。</li><li>学习顺序也可能反转：先做真实项目，再因鉴权、重复处理、性能和崩溃恢复问题去学幂等性、索引和竞态条件；危险是 AI 也可能把本该学会的东西藏起来。</li><li>第一版能跑不等于软件工程已经解决：400 次修改、旧假设冲突、数据迁移和依赖库停维仍需要经验，金融、医疗和基础设施等高风险系统更不能用起步能力替代工程判断。</li></ul><div><p>拥有 30 多年编程经验的开发者 Lars Jansen 在 X 上发帖，提出一个观察：AI 编程正在催生一种全新的软件开发者。</p>
-<p>他指的不是精通每种框架规范、随手能写编译器，或者为缩进该用制表符还是空格争论 15 年的传统程序员；更不是跟着教程做个待办清单、一路点击 Accept 就自称工程师的人。他说的是另一群人：能把系统应该怎样工作描述清楚，会测试、会质疑模型，发现不对劲时不会放过，并持续修改直到软件真正可用的人。他们中的许多人以前甚至不会称自己为程序员。</p>
-<p>这条帖文很快引来大量争论，也出现了许多“这说的就是我”的回复。Jansen 随后结合自己的编程经验和这些回复写成了这篇<a href="https://x.com/i/article/2099002466817966080">观点长文</a>。它不是一份具有统计代表性的行业调查，而是在追问一个已经发生的变化：当亲手写代码不再是过去那道硬门槛，什么才算软件开发，又有谁因此获得了进入软件开发的机会？</p>
-<h2>谁正在进入软件开发</h2>
-<p>回复让 Jansen 注意到，这批人不是计算机专业的学生，也不是想靠 AI 冒充资深工程师的新人。他们是长期生活在具体问题里的领域专家：律师、设计师、电影从业者、电商人士和企业主。</p>
-<p>他们过去缺的通常不是想法，而是把想法变成软件的能力。律所从业者可能比外部开发者更熟悉自己的工作流程；建筑从业者知道十个项目之间需要追踪哪些信息；仓库管理者清楚昂贵旧系统只要多一个界面，就能替每个人每天省下半小时；设计师也能准确描述图像工作流应该怎样运转。</p>
-<p>领域知识原本就在那里</p>
-<h3>4 种职业，看见 4 种软件缺口</h3>
-<div>
-<span>01</span>
-<h4>律所从业者</h4>
-<p>熟悉律所内部真正怎样运转，比外部开发者更清楚工作流应该如何衔接。</p></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】AI 到处都是，为什么“AI原生组织”还没出现？</title>
-<link>https://best.xiaohu.ai/article/ai-is-everywhere-agentic-organization-isnt-yet/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:ai-is-everywhere-agentic-organization-isnt-yet</guid>
-<pubDate>Mon, 14 Sep 2026 12:01:49 +0000</pubDate>
-<description>八成企业尚未看到 AI 影响利润。问题不只是模型能力，而是企业仍把智能体塞进旧流程：工作流、治理、领导方式与人才成长必须一起重做。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 14 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">AI 到处都是，为什么“AI原生组织”还没出现？</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/ai-is-everywhere-agentic-organization-isnt-yet/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>AI 到处都是，为什么“AI原生组织”还没出现？</h1><p>八成企业尚未看到 AI 影响利润。问题不只是模型能力，而是企业仍把智能体塞进旧流程：工作流、治理、领导方式与人才成长必须一起重做。</p><strong>一分钟速览</strong><ul><li>超过 80% 的企业尚未看到 AI 投资影响底线收益；局部任务变快，不等于跨部门流程已经创造价值。</li><li>规模化价值要从端到端工作流入手，逐一决定 Agent、人类复核、规则与异常处理应该放在哪里。</li><li>“人在环上”不是无人负责：人从频繁接棒转向定义目标、设置边界、处理例外并承担最终判断。</li><li>组织还要同步改变治理、领导方式与人才培养，否则监督带宽和新人断层会成为新的瓶颈。</li></ul><div><p><img /></p>
-<p>企业界正在经历一场声势浩大却收效尴尬的技术实验。几乎所有公司都在启动 AI 试点，但超过八成的企业报告称，这些项目尚未在财务底线上看到实际成效。这种“处处都在用 AI、财务底线却尚未见效”的落差，构成了当前企业智能化转型中最大的悖论。</p>
-<p>很多人将问题归咎于模型能力或算力成本，但麦肯锡全球资深合伙人 Alexis Krivkovich 指出，真正的瓶颈不在技术，而在组织本身。企业习惯于用采购软件的旧逻辑去引入 AI，结果只是在原有的科层架构中增加了零散的单点工具。如果日常工作流程、团队协同机制、权力监督边界和领导力习惯依然停留在工业时代，哪怕给员工配齐最先进的生成式 AI，也只能制造出更多无序的协作摩擦和随处漂浮的内容垃圾。从单点实验走向真正的企业级回报，核心在于将企业重塑为“AI 原生组织”（agentic organization）：业务模式、端到端流程、治理、人才与技术底座，都围绕人和 AI 智能体的协作重新设计。</p>
-<h2>为什么超过八成企业的 AI 投资尚未看到底线成效：单点工具救不了断裂的端到端流程</h2>
-<p>企业之所以难以将 AI 试点转化为底线收益，根本原因在于绝大多数项目都落入了“单点工具”（Point Solutions）的陷阱。传统试点通常着眼于某个高度孤立的具体任务。这类工具确实能让局部任务提速，但企业的商业价值从来不是由单个任务决定的，而是产生于串联多个部门的端到端完整流程，例如保险承保或人力资源从招聘到入职的业务闭环。</p>
-<p>在传统企业中，真正消耗成本、拖慢进度的往往不只是一项任务本身，还包括节点之间的协同与交接。一项业务从发起、流转、合规审查到最终交付，中间可能包含大量跨部门沟通和反复核对。如果端到端工作流没有重新设计，单点工具提速可能只是让某个节点更快地把半成品推向下一个堵塞环节。<strong>超过 80% 的企业表示 AI 投资尚未体现在底线收益上</strong>；真正需要回答的问题已经从“怎样再做一个试点”，变成“怎样重新设计整条业务流”。</p>
-<p>智能体（Agentic AI）与生成式 AI 单点工具的核心区别，在于它能够参与到端到端的工作流程之中，而不仅仅局限于孤立的单点任务。只有当企业放弃只修补局部任务的思路，转而重构整个端到端流程时，规模化价值才会显现。<strong>单点工具无法弥合跨部门协作的断裂缝隙</strong>，真正的破局点在于将整个业务流作为整体重塑，让智能体参与到端到端流程的协同之中。</p>
-<h2>端到端流程重塑：从人在环路内走向人在环路之上</h2>
-<p>重构端到端流程不是一句抽象口号，而是需要深入业务机理的颗粒度极细的设计工作。业务领导者在重塑流程时，必须逐一回答五个关键问题：流程中的哪些环节应当完全由智能体自主执行；哪些环节必须保留人在环路之内；哪些环节可以让人类退至环路之上进行监督；何时需要由多个专业智能体组成协同团队；以及如何将训练成熟的智能体沉淀为可复用的资产，在整个企业中跨场景调用。</p>
-<p>这也带来了工作方式的根本分野。在传统的“人在环路内”（Human-in-the-loop）模式中，智能体只做辅助，完成一段工作后必须交接给人类，人类处理完毕再推给机器，人与机器始终处于频繁的交替协作中。另一种“人在环路之上”（Human-above-the-loop）的模式则是：如果协同工作的智能体团队能够端到端地跑完大部分、甚至整个核心流程，人类便可以减少对日常操作细节的介入，转而负责定义规则、审核异常，并行使最终判断权。</p>
-</div></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】如何设计和构建基于你自己业务的自定义Agent Harness？</title>
-<link>https://best.xiaohu.ai/article/custom-agent-harness/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:custom-agent-harness</guid>
-<pubDate>Mon, 14 Sep 2026 12:01:49 +0000</pubDate>
-<description>从业务所需的上下文、潜在故障、强制策略和运行环境出发，借助 create_agent 与 middleware，把八类能力组合成真正适配任务的 Agent Harness。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 14 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">如何设计和构建基于你自己业务的自定义Agent Harness？</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/custom-agent-harness/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>如何设计和构建基于你自己业务的自定义Agent Harness？</h1><p>从业务所需的上下文、潜在故障、强制策略和运行环境出发，借助 create_agent 与 middleware，把八类能力组合成真正适配任务的 Agent Harness。</p><strong>一分钟速览</strong><ul><li>先定义 Task-Harness Fit：你的任务需要什么上下文、会遇到什么失败、必须执行什么策略、运行在什么环境中。</li><li>Agent 可以理解为 Model + Harness；Harness 的职责是在循环的每一步，把任务所需的上下文提供给模型。</li><li>create_agent 提供极简核心循环，middleware 则通过确定性逻辑、工具生命周期、自定义状态和流处理器完成业务定制。</li><li>不要全量安装 middleware：从八项能力中选择业务真正需要的部分，再映射成可组合、可复用的中间件栈。</li></ul><div>
-<p>在构建面向具体业务的 AI Agent 时，开发者真正要决定的关键问题，往往并不是“选哪个最强模型”，而是厘清当前任务的具体运行诉求：它究竟<strong>需要哪些上下文（context it needs）</strong>、<strong>会遇到哪些潜在失败（failures it'll encounter）</strong>、<strong>必须执行哪些策略（policies it must enforce）</strong>，以及<strong>运行在怎样的真实环境（environment it operates in）之中</strong>。这四个维度，正是原文在定义 <strong>Task-Harness Fit（任务与底座适配度）</strong> 时明确指出的核心衡量标准。</p>
-<p>构建真正实用的智能体，本质上是关于<strong>定制化（Customization）</strong>——如何让智能体在特定任务中连接到所需的上下文、数据与运行环境。包裹在模型外部的 <strong>Agent Harness（智能体运行底座/脚手架）</strong>，正是实现这种连接的工程实体。需要交代的是，原文并未给出开箱即用的完整业务实施教程，而是系统阐明了如何以极简原语为核心、利用中间件为业务量身设计和定制 Harness 的架构路径。</p>
-<p><img /></p>
-<h2>概念解耦：什么是 Harness？为什么说 Agent = Model + Harness？</h2>
-<p>在最本质的层面上，智能体就是一个模型在循环中不断调用外部工具，直到任务完成并返回结果：</p>
-<p><img /></p>
-<p>这一运行机制可以用一个核心公式清晰表达：</p>
-<blockquote>
-<p><strong>Agent = Model + Harness</strong></p>
-</blockquote>
-<p>这里的 <strong>Harness</strong>，就是包裹在大模型外部、负责将其与真实世界连接起来的整套脚手架工程。</p>
-<p><img /></p>
-<p>这一架构认知建立在两项前提之上：</p>
-<ol>
-<li><strong>智能体的实际表现，取决于提供给模型的上下文质量</strong>（An agent is only as good as the context provided to the model）；</li>
-<li><strong>Harness 的核心职责，就是在循环的每一步为模型精准提供所需的上下文</strong>（The job of a harness is to provide context to the model at every step）。</li>
-</ol>
-<p>因此，要构建出真正可用的智能体，就必须打造一套善于为特定任务按时、按需向模型输送正确上下文的 Harness。</p>
-<hr />
-<h2>极简原语与预组装底座的分水岭：为什么选择 create_agent？</h2>
-<p>在 LangChain 体系中，构建自定义 Harness 的基础原语正是 <code>create_agent</code>。只需传入模型、工具集和系统提示词，就能得到一个正常运转的智能体：</p>
-<div><pre><code>from langchain.agents import create_agent
-agent = create_agent(
-    model="anthropic:claude-sonnet-4-6",
-    tools=tools,
-    system_prompt="you are a helpful assistant..."
-)
-</code></pre></div>
-<p>在工程选型中，市面上存在两种截然不同的底座构建思路：</p>
-<ul>
-<li><strong>预组装 Harness（Pre-assembled Harnesses）</strong>：如 <a href="https://docs.langchain.com/oss/python/deepagents/overview">Deep Agents</a> 或 <a href="https://code.claude.com/docs/en/agent-sdk/overview">Claude Agent SDK</a>。它们出厂即带有一套有明确取向的中间件技术栈，包含记忆、上下文管理、沙箱等组件。这类底座旨在帮助团队快速得到生产可用的 Agent，适用于大多数场景。然而，许多 Agent 仍需要比预装底座更细粒度的定制控制，例如专属提示词、业务逻辑以及护栏。</li>
-<li><strong>极简原语路线（Purposefully Minimalistic Primitive）</strong>：<code>create_agent</code> 采取了不同的方式，这一理念类似于高可配置的代码智能体 Harness <a href="https://pi.dev/">Pi</a>。<code>create_agent</code> 只实现最核心的智能体循环，并把<strong>中间件（Middleware）</strong>暴露为定制原语。</li>
-</ul>
-<hr />
-</div></div></div></div></div>
 </div></div></body></html>]]></content:encoded>
 </item>
 </channel>
