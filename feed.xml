@@ -6,7 +6,758 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Thu, 19 Nov 2026 12:00:15 +0000</lastBuildDate>
+<lastBuildDate>Fri, 20 Nov 2026 12:00:30 +0000</lastBuildDate>
+<item>
+<title>【日报】Skill lemo-animi：一句话让 Codex 做出带配乐和拟音的定格短片 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/lemo-animi-stop-motion/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:lemo-animi-stop-motion</guid>
+<pubDate>Fri, 20 Nov 2026 12:00:30 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 八种材质，八支样片 02 图只负责「像」，动全靠代码 03 说完一句话之后 04 不满意，就停在那一帧写意见 05 带孩子一起「动嘴做动画」 06 开工前要准备什么 07 能不能拿去商用 AI 解读 / AI 实操 · 11-20 · 约 7 分钟 · 作者 LemoLab（Lemomo） Skill lemo-animi：一句话让 Codex 做出带配乐和拟音的定格短片 没有</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 20 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Skill lemo-animi：一句话让 Codex 做出带配乐和拟音的定格短片 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/lemo-animi-stop-motion/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>八种材质，八支样片</span></a><a><span>02</span><span>图只负责「像」，动全靠代码</span></a><a><span>03</span><span>说完一句话之后</span></a><a><span>04</span><span>不满意，就停在那一帧写意见</span></a><a><span>05</span><span>带孩子一起「动嘴做动画」</span></a><a><span>06</span><span>开工前要准备什么</span></a><a><span>07</span><span>能不能拿去商用</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>AI 实操</a><i>·</i>11-20<i>·</i>约 7 分钟<i>·</i>作者 LemoLab（Lemomo）</div><h1>Skill lemo-animi：一句话让 Codex 做出带配乐和拟音的定格短片</h1><p>没有一帧是视频模型画的：生图只管把角色画像，动作全靠代码一格一格排出来；不满意就停在那一帧写意见，它改到你点通过。</p><div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>LemoLab（Lemomo）</span><span>11-20 · 约 7 分钟</span><span>⚑ 产品发布</span></div></div></div><div><div><figure>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/lemo-animi-stop-motion/cast.webp" alt="八支样片的主角：黏土企鹅、纸艺狐狸、铁皮大象、羊毛毡兔子、纸板箱机器人、木偶熊、钩织河豚、拼布小鸭，一个接一个转过身" style="max-width:100%;height:auto;border-radius:8px;" /></div>
+<figcaption>八种材质的八个主角，依次转过身来。每一个都是生图模型按一种材质画出来的角色设定。</figcaption>
+</figure></div><strong>一分钟速览</strong><ul><li>不用视频模型：生图只画角色、动作表和背景，代码把表切成一格格排成动画。</li><li>成片后在网页里停在哪一帧就在哪写意见，它逐条改完出新版，直到你点通过。</li><li>许可证是 CC BY-NC 4.0：非商用免费，用它做的片子拿去商用也要授权。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/lemo-animi-stop-motion/social/zh-178b25ffde97.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>LemoLab 公开了一个做定格动画的 Skill，叫 lemo-animi。Skill 可以理解成给 AI Agent 装上的一套固定做事流程。装进 Codex 之后，对它说一句「做一支 40 秒的黏土定格动画：小企鹅学做煎饼」，它会自己写故事和镜头表，画出角色和布景，让它们一格一格动起来，再配好音乐，最后交给你一支短片。主要用法是在 Codex 里做，Claude Code 配一个生图模型也能用。现在是第一个版本，还在开发中，遇到问题可以去仓库提 issue。</p><p><b>lemo-animi 主要能力：</b></p><ul>
+<li><b>8 种材质风格：</b>黏土、纸艺、铁皮、羊毛毡、纸板箱、木偶、钩织、拼布，每种都是一套定好的提示词、光线、机位、配乐和拟音（给动作配的音效）。</li>
+<li><b>不用视频生成模型：</b>生图只画角色设定、八格动作表和空背景，Python 把表切成一格一格，按每秒 24 帧、一拍二排成动画。</li>
+<li><b>片长 20 秒到 2 分钟：</b>默认 40 秒、1920×1080 横屏，也能出竖屏和方形。</li>
+<li><b>声音一起做：</b>用真实乐器采样写原创配乐，每次落地、碰撞都配拟音，想要的话再加中文或英文旁白和字幕。</li>
+<li><b>审片台：</b>停在哪一帧就在哪写意见，它逐条改完给你看新版，直到你点通过。</li>
+</ul><p>用 AI 做动画，常见的办法是交给视频模型一次生成一整段，想只改其中一处，往往只能整段重来。lemo-animi 走的是定格动画的老路子：先把角色、每个动作、每块布景当成道具画好，再由代码一格一格摆出来。成片里每一帧都能追到用的是哪张表的哪一格、停了几帧，所以你在审片台上写一句「脚底有点飘」，它能落到具体那几格上去改。先看它做出来的片子。</p><h2>八种材质，八支样片</h2><p>八种风格各是一个固定的风格包，用中文名、英文名点名都行。下面八支样片都是这个 Skill 从一句话做出来的，每支 53 到 58 秒，带中文旁白和字幕。</p><div><figure>
+<div>
+<i></i><span>黏土</span>
+<i></i><span>纸艺</span>
+<i></i><span>铁皮</span>
+<i></i><span>羊毛毡</span>
+<i></i><span>纸板箱</span>
+<i></i><span>木偶</span>
+<i></i><span>钩织</span>
+<i></i><span>拼布</span>
+</div>
+<div>
+<div>
+</div>
+</div>
+<div><span>01 · 黏土定格</span><span>《波波的煎饼》</span><span>0:53</span><span>油性黏土捏的角色和布景，表情夸张、压扁拉长，最有喜感。</span><span><b>故事：</b>小企鹅波波想抛出一张完美的煎饼，两次都失败，闭上眼第三次成了；粘在天花板上的那张掉下来，正好给了小老鼠。</span></div>
+<figcaption>点上面的角色换一支片。默认静音，想听旁白和配乐，在视频控制条里打开声音。</figcaption>
+</figure></div><h2>图只负责「像」，动全靠代码</h2><p>整个流程里没有一帧是视频模型画的。生图模型只画「表」：角色设定（同一个角色的正面、侧面、背面）、八格动作表（一个动作拆成八个姿势）、2×2 近景表（关键时刻的表情），还有不带角色的空背景。角色和动作这些表都是透明底，全按同一种材质的样子画。</p><div><figure>
+<div>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/lemo-animi-stop-motion/p1.webp" alt="小企鹅角色设定：正面、侧面、背面四个角度，透明底" style="max-width:100%;height:auto;border-radius:8px;" /><div><b>① 角色设定</b>四个角度，后面每张表都照它画</div></div>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/lemo-animi-stop-motion/p2.webp" alt="八格动作表：小企鹅端着平底锅颠煎饼的八个姿势" style="max-width:100%;height:auto;border-radius:8px;" /><div><b>② 八格动作表</b>一个动作拆成八个姿势</div></div>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/lemo-animi-stop-motion/p3.webp" alt="黏土厨房空背景，没有角色" style="max-width:100%;height:auto;border-radius:8px;" /><div><b>③ 空背景</b>布景里不画主角</div></div>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/lemo-animi-stop-motion/p4.webp" alt="成片里的一帧：小企鹅端着锅站在厨房窗前" style="max-width:100%;height:auto;border-radius:8px;" /><div><b>④ 成片里的一帧</b>近景镜头，角色和布景在代码里合成</div></div>
+</div>
+<div><div>①②③ 生图模型画：只管「像」</div><div>④ 代码合成：管「动」</div></div>
+<figcaption>《波波的煎饼》用到的几张表。生图模型画出来的都是静止的素材，成片里的每一帧都是代码拼出来的。</figcaption>
+</figure></div><p>剩下的活都交给 Python：把动作表切成一格一格，按时间排在布景上，再加运镜、接触阴影（角色脚下那团软影子，让它看起来真的站在桌面上）、光和调色。运镜、光和特效也按「一张画」为单位一步一步变，不做平滑过渡，定格动画那种一顿一顿的手感就是这么来的。</p><h3>一张八格动作表，怎么变成一段动作</h3><p>成片是每秒 24 帧。「一拍二」是定格和手绘动画的行话：每张画停两帧，一秒钟实际只换 12 张画；「一拍三」是每张停三帧，一秒换 8 张。画换得少，动作就带着一点顿挫，看起来像是一格一格拍出来的。</p><div><figure>
+<div>
+<div>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/lemo-animi-stop-motion/p2.webp" alt="" style="max-width:100%;height:auto;border-radius:8px;" /><i></i></div>
+<div>八格动作表：方框走到哪一格，舞台上就用哪一格</div>
+</div>
+<div>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/lemo-animi-stop-motion/p3.webp" alt="" style="max-width:100%;height:auto;border-radius:8px;" /><div></div><div></div></div>
+<div>第 <b>24</b> 帧 → 第 <b>8</b> 张画</div>
+</div>
+</div>
+<div><span>一拍二：每张画停 2 帧，<em>一秒 12 张</em></span><span>放慢 3 倍</span></div>
+<div></div>
+<div><span>第 1 帧</span><span>一秒 = 24 帧</span><span>第 24 帧</span></div>
+<figcaption>示意图。上面的尺子是一秒钟的 24 帧，每个格子下面的数字是这几帧用的是第几张画。一拍二时八个姿势 16 帧就走完了，剩下 8 帧停在最后一张；一拍三时八个姿势正好铺满一秒。</figcaption>
+</figure></div><p>真做片的时候，代码要管的细节更多：角色按脚底的锚点对齐，换一张动作表时位置不跳；摆到一个姿势停住时，到位那一张往下压 3%，下一张轻轻弹回，第三张站稳；角色跳起来时，脚下的影子跟着变小、变淡。</p><h3>声音也是一层层配上去的</h3><p>配乐是用真实乐器的采样现写的原创曲子。每一次落地、碰撞、抛起、接住都配一个拟音（给动作配的音效，脚步声、碰撞声这类），关键动作踩在音乐的点上，反转之前留一段安静。需要的话再加旁白和字幕，中文或英文，也可以要双语字幕。旁白默认关，开工前问你时自己选。旁白用的是微软 Edge 的在线语音，可以替换；用它时旁白文字会发到微软的语音服务。</p><h2>说完一句话之后</h2><p>第一次用，它会先装运行环境，检查通过了才开始提问。后面的流程是这样的：</p><div><figure>
+<div><b>只有第一次：</b>先装运行环境、下载约 1.7 GB，这时什么都不定</div>
+<div>
+<div><span>1</span><div><div>一次问完<span>你答</span></div><div>没说到的都放进一组问题，默认项排第一</div></div></div>
+<div><span>2</span><div><div>定方案</div><div>故事骨架和每段秒数、节拍、镜头表、生图清单</div></div></div>
+<div><span>3</span><div><div>生图</div><div>角色设定、背景、八格动作表、2×2 近景表</div></div></div>
+<div><span>4</span><div><div>代码让它动</div><div>切格、一拍二排时间，加运镜、阴影、光和调色</div></div></div>
+<div><span>5</span><div><div>配声音</div><div>乐器采样配乐、拟音，可选旁白字幕</div></div></div>
+<div><span>6</span><div><div>你来审<span>你审</span></div><div>它先自审自改一遍，再打开审片台</div></div></div>
+<div>2–5 步 agent 一口气做完，中途只发简短进度</div>
+</div>
+<div><span>第 1 步会问：</span><span>风格</span><span>故事</span><span>时长</span><span>画幅</span><span>旁白</span><span>片头片尾</span><span>要不要先看角色</span><span>其他要求</span></div>
+<figcaption>示意图。你只在第 1 步和第 6 步出场；中间如果选了「先看角色」，它会多停一次，把角色和主要背景给你过目。</figcaption>
+</figure></div><p>提问这一步有个规矩：你没说到的每一项单独一题，放在一起问，等你全部答完才开工，嫌麻烦可以直接回「全部默认」。故事这一题它不会替你出主意，只给一个题目也行，完整的故事它自己写，按「交代、三次尝试、低谷、转机」的骨架给每段分好秒数。</p><h3>片子越长，图越多、等得越久</h3><div><figure>
+<div><span>成片片长</span><span>生图张数</span><span>镜头</span><span>粗估用时</span></div>
+<div><div>20 秒</div><div><i></i><i></i><span>约 10–14 张</span></div><div><span>2–4 个</span><span>不到 1 小时</span></div></div>
+<div><div>40 秒默认</div><div><i></i><i></i><span>约 20–26 张</span></div><div><span>5–8 个</span><span>约 1 小时</span></div></div>
+<div><div>60 秒</div><div><i></i><i></i><span>约 30–38 张</span></div><div><span>6–12 个</span><span>1.5–2 小时</span></div></div>
+<div><div>90 秒</div><div><i></i><i></i><span>约 42–52 张</span></div><div><span>9–16 个</span><span>2–2.5 小时</span></div></div>
+<div><div>2 分钟</div><div><i></i><i></i><span>约 55–68 张</span></div><div><span>12–22 个</span><span>2.5–3 小时</span></div></div>
+<div><span><i></i>最少张数</span><span><i></i>最多张数</span></div>
+<figcaption>片长算的是整支片，含片头片尾。用时是粗估，单张图生成最长可能要等 10 分钟。</figcaption>
+</figure></div><p>默认的 40 秒要画 20 多张图，大约一个小时。超过 60 秒的片子，它开工前会先告诉你大概要多少张图、多久。按开发者的说法，生图的消耗没有那么大，Plus 用户可以放心用。</p><h2>不满意，就停在那一帧写意见</h2><p>片子做好后，它先自己逐帧看一遍、改一遍，再在浏览器里打开审片台交给你。</p><div><figure>
+<div>
+<img src="https://pic.xiaohu.ai/jiedu-media/lemo-animi-stop-motion/review-zh.webp" alt="审片台截图：羊毛毡小刺猬的片子停在 0:18.40，右侧三条意见，第一条已标「已改」，胶片上钉着三枚图钉" style="max-width:100%;height:auto;border-radius:8px;" />
+<span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+</div>
+<ul>
+<li><span>1</span><b>agent 在不在等你：</b>顶上写着还剩多少分钟；它最多等你 30 分钟提交意见</li>
+<li><span>2</span><b>停下的这一刻：</b>时间码、第几帧、第几个镜头，写意见时自动带上</li>
+<li><span>3</span><b>胶片上的图钉：</b>一枚对应一条意见，点图钉跳到那条</li>
+<li><span>4</span><b>改完的回复：</b>这条写的是「已把脚底钉住，每一步落地停 2 格」</li>
+</ul>
+<figcaption>审片台里的一支短片《最暖的生日礼物》，三条意见里第一条已经改完。</figcaption>
+</figure></div><ol>
+<li><b>停在要改的那一刻：</b>空格播放 / 暂停，← → 一帧一帧找。</li>
+<li><b>按回车写下问题：</b>时间码、帧号和镜头自动带上，胶片上钉一枚图钉。</li>
+<li><b>点「提交给 agent」：</b>它逐条去改，在每条意见下回复改了什么，登记新的一版，页面会提示你刷新；旧版本和当时的意见收在下面。</li>
+<li><b>满意了点「通过」：</b>它交片。</li>
+</ol><p>打开审片台后，agent 最多等你 30 分钟提交意见。过了时间也不会丢东西。意见边写边存在片子文件夹里，写完回对话说一声「看完了」，它会读到全部意见接着改；页面关了，让它重新打开就行。如果 agent 的沙盒不让它起本地服务、审片台只能当本地文件打开，就点「复制意见」，贴进对话。</p><p>最后交到你手上的是成片 mp4：默认 1920×1080、每秒 24 帧，竖屏是 1080×1920，方形是 1080×1080。有旁白时附一份字幕文件，另外还有一份 production-log.md，记着导演方案和它自己审片的记录。</p><h2>带孩子一起「动嘴做动画」</h2><p>整个过程只要说话、回答问题，很适合带孩子一起玩：故事让孩子来讲，风格让孩子来挑。孩子自己画的角色、家里宠物的照片也能当参考，它会按选定的材质重新做成角色设定。真人的脸和现成的动画形象不行，它会引导你换成原创角色。</p><div><figure>
+<div></div>
+<figcaption>开发者自己用 lemo-animi 做的一支 90 秒羊毛毡短片《一整个冬天》：小熊呼噜要睡一整个冬天，小兔子把一根红毛线系在他手上，每天往线上挂一样东西：第一片雪花、一颗冻红的果子、一根喜鹊的羽毛。中文旁白，英文字幕。</figcaption>
+</figure></div><h2>开工前要准备什么</h2><p>电脑得是 macOS 或 Linux，装好 ffmpeg（macOS 上用 <code>brew install ffmpeg</code>），再加 Python 3.11–3.13 或 uv。</p><div><figure>
+<div><span>先装好：</span><span>macOS 或 Linux</span><span>ffmpeg</span><span>Python 3.11–3.13 或 uv</span><span>能生图的 Codex 账号</span></div>
+<div>
+<div># Codex：装好后新开一个对话</div>
+<div><span>$</span> codex plugin marketplace add <span>lemomo-ai/lemo-animi</span></div>
+<div><span>$</span> codex plugin add <span>lemo-animi@lemomo-ai</span></div>
+<div></div>
+<div># Claude Code：① 在对话里输入下面这句</div>
+<div>/plugin install <span>lemo-animi</span> <span>--marketplace</span> <span>lemomo-ai/lemo-animi</span></div>
+<div># ② 装完再输入 /reload-plugins，或者新开一个会话</div>
+<div></div>
+<div># Claude Code 默认让本机的 Codex 画图</div>
+<div><span>$</span> npm i -g <span>@openai/codex</span></div>
+<div><span>$</span> codex login</div>
+<div>（命令太长折到第二行的，是同一条命令）</div>
+</div>
+<div>
+<div>第一次做片要下载约 1.7 GB <span>（必须，断了可以续传）</span></div>
+<div><i></i><i></i></div>
+<div><i></i></div>
+<div>
+<span><i></i>Python 运行环境 <b>约 300 MB</b></span>
+<span><i></i>配乐用的乐器采样 <b>约 1.4 GB</b></span>
+<span><i></i>抠图模型 <b>0.97 GB</b>，只在某张图抠不干净时才下</span>
+</div>
+</div>
+<figcaption>下载的东西都放在 ~/lemo-animi-env，同一台电脑上的 Codex 和 Claude Code 共用，哪边先装好，另一边就不再下载。卸载插件不会删这个文件夹，要腾空间得自己删。</figcaption>
+</figure></div><p><b>用 Codex：</b>图用 Codex 自带的生图。推荐 GPT-6.2 Sol 或 Astra，推理强度 High 以上。</p><p><b>怎么叫它：</b>除了直接说一句话，也可以按格式说全「用 lemo-animi 做：&lt;故事&gt;，&lt;风格&gt;，&lt;时长&gt;，&lt;画幅&gt;」；想点名用它，在 Codex 里输入 $、在 Claude Code 里输入 /，选 lemo-animi。</p><p><b>用 Claude Code：</b>Claude 负责写代码、跑代码，它自己不会画图，图默认交给本机的 Codex 去画。也可以接你自己的生图工具或本地生图模型，这还是实验功能：样片全是 Codex 生图做的，别的模型没有针对各个风格调过。角色和动作表要透明底才能叠到布景上，你的工具出不了透明底时，它会另外下一个 0.97 GB 的抠图模型把背景抠掉，边缘会差一些。做片时建议切到 auto 模式（Shift+Tab），一支片子要跑几百条命令，默认模式下每条都会先问你。</p><h2>能不能拿去商用</h2><p>lemo-animi 的代码公开在 GitHub 上，许可证是 CC BY-NC 4.0。这份许可带「非商业」限制，和 MIT、Apache 这类开源软件许可证不是一回事：</p><div><figure>
+<div><div>免费，可以直接用</div><ul><li>个人使用永远免费：自己做着玩、给孩子做</li><li>分享、改编都行，要署名「lemo-animi by Lemomo (LemoLab)」，附上仓库和许可证链接，改过要注明</li></ul></div>
+<div><div>先拿商用授权</div><ul><li>广告、接单给客户做</li><li>带变现的频道、做成产品</li><li>用它做出来的片子拿去商用，也算在内</li></ul></div>
+<div><b>另外几样各守各的许可：</b>片里的字用思源黑体（SIL OFL 1.1），安装时下载的乐器采样库保留各自的许可证，旁白用的微软 Edge 在线语音遵守微软的条款。</div>
+</figure></div><p>想用它接单、做带货视频，或者放进有收益的频道，先写信申请商用授权再动手，联系方式在仓库 README 的末尾。</p><p>皮影戏、平面剪纸、彩泥浮雕、微缩模型这几种风格还在测试，会在以后的版本放出来。自己玩的话，从一支 20 秒的开始，不到一小时就能看到结果。</p></div><div><div><div>来源</div><div><span>开源 lemo-animi 定格动画Skill。一句话，让 Codex 做一支定格动画短片</span><span>LemoLab（Lemomo）<span>·</span>2026-11-18<span>·</span><a href="https://x.com/lemomo_ai/status/2123038832815907084">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://github.com/lemomo-ai/lemo-animi">lemo-animi GitHub 仓库（README、SKILL.md、LICENSE）</a><span>·</span><a href="https://lemomo-ai.github.io/lemo-animi/zh/">lemo-animi 样片画廊</a><span>·</span><a href="https://twitter.com/lemomo_ai/status/2123597199305232468">lemo-animi 后续推文与 90 秒演示片《一整个冬天》</a></div></div><div><div>本站说明</div><div>图片、样片和演示片均来自 lemo-animi；动作表演示里的小企鹅是从仓库动作表 p2 抠出、按脚底对齐后放到仓库空背景 p3 上的示意合成。</div></div></div></div></div>
+</div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/lemomo_ai/status/2123038832815907084">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Pika 发布了一个全新的 AI视频工具Enact：能模仿片场当导演现场实时导戏 视频一边播一边改，能拖人摆位、还能给 AI 演员说戏 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/pika-enact/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:pika-enact</guid>
+<pubDate>Fri, 20 Nov 2026 12:00:30 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 底座：比播放还快的 Pika H3 Flex 02 一、实时摆位：拖到哪，人就站到哪 03 二、实时指导演员：说一句戏，演员接着演 04 三、实时运镜：边播边转镜头 05 现在能做什么 AI 解读 / 产品发布 · 11-20 · 约 11 分钟 · 作者 Pika Pika 发布了一个全新的 AI视频工具Enact：能模仿片场当导演现场实时导戏 视频一边播一边改，能拖人摆位、</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 20 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Pika 发布了一个全新的 AI视频工具Enact：能模仿片场当导演现场实时导戏 视频一边播一边改，能拖人摆位、还能给 AI 演员说戏 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/pika-enact/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>底座：比播放还快的 Pika H3 Flex</span></a><a><span>02</span><span>一、实时摆位：拖到哪，人就站到哪</span></a><a><span>03</span><span>二、实时指导演员：说一句戏，演员接着演</span></a><a><span>04</span><span>三、实时运镜：边播边转镜头</span></a><a><span>05</span><span>现在能做什么</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>产品发布</a><i>·</i>11-20<i>·</i>约 11 分钟<i>·</i>作者 Pika</div><h1>Pika 发布了一个全新的 AI视频工具Enact：能模仿片场当导演现场实时导戏 视频一边播一边改，能拖人摆位、还能给 AI 演员说戏</h1><p>以前想改一个镜头，得重写提示词、再等一整段；在 Enact 里画面一直在播，拖一下、说一句，接下来的画面就跟着改。</p><div><div>正文原文</div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Pika</span><span>11-20 · 约 11 分钟</span></div></div></div>
+<div><div><div><figure>
+<div>示意图</div>
+<div>
+<div>提示词框<em>做完再看</em></div>
+<div>
+<div>① 写提示词</div>
+<div>② 等它生成一整段<span><i></i></span></div>
+<div>③ 从头看一遍</div>
+<div>④ 哪里不对，回到 ① 重来</div>
+</div>
+</div>
+<div>
+<div>Enact<em>边播边改</em></div>
+<div>
+<span>拖：把她挪到左边</span>
+<span>说：Alice，这里爆发</span>
+<span>镜头：推近</span>
+<div><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div></div>
+</div>
+<div>每一格是不到一秒的一小块画面。黑线是正在播的位置，模型总在它前面几块生成；指令从下一块开始生效，画面不停。</div>
+</div>
+</figure></div><strong>一分钟速览</strong><ul><li>Enact 让视频边播边生成，拖人、给演员说戏、转镜头，都在播放中实时生效。</li><li>AI 演员记得你给过的戏，排练完喊 Action，整场从第一帧重新拍成一条。</li><li>目前只是研究预览，普通用户还用不了，想试要发邮件联系 Pika 企业团队。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/pika-enact/social/zh-b5ddad1a0670.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>Pika 发布了研究预览 Pika Enact：一个模仿片场当导演的实时视频生成环境。它建在 Pika 自己的视频模型 Pika H3 Flex 上，把视频和声音切成不到一秒的小块，一块接一块地生成；每一块都带着前面的场景往下走，同时把你刚给的新指令揉进去。所以画面一直在播，你随时可以插手。</p><h3>Pika Enact 的三种实时操作：</h3><ul>
+<li><strong>实时摆位：</strong>用鼠标把人或物体拖进正在播放的画面，放到你想要的位置，场景照常往下播。生成速度是播放的 1.8 倍。</li>
+<li><strong>实时指导演员：</strong>打字或开口给演员说戏，演员照着演，还会用自己的声音回你的话。演员记得你给过的戏，排练完喊 Action，整场从第一帧重新拍成一条。画面连声音，生成速度是播放的 1.75 倍。</li>
+<li><strong>实时运镜：</strong>边播边用鼠标摇镜头、推近、绕着人物转。不需要现成视频，一张外观参考图加一个没贴图的 3D 动作代理就能开拍。生成速度是播放的 1.5 倍。</li>
+</ul><p><strong>现在还用不了：</strong>Enact 是研究预览，不对普通用户开放。想试用或谈集成，要发邮件给 Pika 企业团队（<a>[email&#160;protected]</a>）。</p><p>用 AI 做视频，到现在都是同一个循环：写提示词，等它生成一整段，从头看一遍，哪里不对再改提示词重来。模型越来越快，这个循环没变过。Enact 把循环拆掉了：生成成了一个一直在跑的过程，导演的动作（拖一下、说一句、转一下镜头）直接落在正在播的画面上。它把「片场」这套工作方式搬进了 AI 视频。三种操作背后，训练数据怎么造、模型怎么改，其实是同一个思路，读完你会知道「实时」二字难在哪。</p><div><figure>
+<div>
+<div></div>
+<span>开声音</span>
+</div>
+<figcaption>Enact 发布短片：先和两位演员对台词，调暗灯光又调回来，把场景换成厨房，再喊 Action 拍一条。中文字幕是我们加的。</figcaption>
+</figure></div><h2>底座：比播放还快的 Pika H3 Flex</h2><p>Enact 用的模型是 Pika H3 Flex：Pika 在 MiniMax H3 上做后训练（在别人训练好的模型上接着训练）得到的版本，权重开放。它在 DesignArena 文生视频榜上排第 7，是榜上排名最高的开放权重模型；生成速度平均是 H3 Max 的 1.8 倍，15 秒的 768p 片段最快约 7 秒算完（只算模型本身的计算时间，不是端到端的等待）。</p><div><div><a>站内旧文 · 同一个底座<b>视频生成快过播放：fal 对 MiniMax H3 后训练后 让其能实时生成视频</b><span>同样在 MiniMax H3 上后训练，fal 把 15 秒内容压到播放结束前就能生成下一段。可以对照看「快过播放」之后，还差哪一步才能「边播边改」。</span></a></div></div><p>可它仍然是一次交一整段：15 秒的片子，你得等它算完才能看；看完想改，再等一遍。Enact 做的改造，是让它一边算一边播：把一整段拆成不到一秒的小块，算完一块就送出去播，同时开始算下一块。只要算一块的时间比播一块短，画面就不会卡住；你的新指令也只需等到下一块就能生效。三种操作各自的速度：</p><div><figure>
+<div>同样一段画面，算出来比播完更快</div>
+<div>
+<div><b>实时摆位</b><span>单台服务器</span></div>
+<div><i></i><em>播放 1 秒</em></div>
+<div><i></i><em>生成约 0.56 秒</em><strong>1.8 倍速</strong></div>
+</div>
+<div>
+<div><b>实时指导演员</b><span>画面和声音一起生成</span></div>
+<div><i></i><em>播放 1 秒</em></div>
+<div><i></i><em>生成约 0.57 秒</em><strong>1.75 倍速</strong></div>
+</div>
+<div>
+<div><b>实时运镜</b><span>一台 8 卡 B300 服务器 · 640×480 · 每秒 24 帧</span></div>
+<div><i></i><em>播放一块 0.708 秒</em></div>
+<div><i></i><em>生成 0.473 秒</em><strong>1.5 倍速</strong></div>
+</div>
+<figcaption>倍速 = 生成速度是播放的几倍。紫色条越短越快，只要生成比播放短，画面就不用停下来等。前两项的「约 0.56 / 0.57 秒」是按倍数换算的；三项测试条件不同，不能直接横比。</figcaption>
+</figure></div><h2>一、实时摆位：拖到哪，人就站到哪</h2><p>拍戏先要定好人站哪、怎么走位。用提示词做这件事又慢又不准：你只能写「往左一点」，然后等生成出来，再看左了多少。Enact 里画面一边播，你一边用鼠标把人拎起来、挪过去、放下，马上就能看到结果。</p><ul>
+<li><strong>位置精确：</strong>提示词只能说「往左一点」，鼠标能把人拖到你要的那个点。</li>
+<li><strong>和环境融在一起：</strong>被拖的人或椅子由模型和整个场景一起生成，拖动时姿势、光线、影子跟着周围变。没有抠图的毛边，原来站的地方不会留个洞，也不用事后再做一遍合成。</li>
+<li><strong>人会对被拖做出反应：</strong>被拎在半空时会挪重心、调整姿势，松手后自然站稳。</li>
+<li><strong>跟得上手：</strong>单台服务器上，生成速度是播放的 1.8 倍；低延迟设置下，在 H100（英伟达的数据中心显卡）上 0.4 秒内就有反应，解码也算在内。</li>
+</ul><div><figure>
+<div></div>
+<figcaption>在美术馆、台球室、走廊等几个场景里把人拎起、挪动、放下。红点表示按住鼠标，白圈表示松开。注意人在半空时的姿势变化和落地后的影子。</figcaption>
+</figure></div><h3>训练数据：现实里拍不到「被拖过去」的对照</h3><p>要教会模型跟着鼠标拖人，得有严格对齐的成对视频：一段是原样，一段是同一个场景里只有那个人被拖走，还要逐帧记下鼠标在哪、按没按着。现实中拍的视频给不了这种东西。</p><p>Pika 的办法是自己造。拿一段没人动过的视频，让一个 3D 替身沿着拖拽路径运动，模拟真实的重量和惯性；再用视频模型把它渲染成照片级的目标视频，同时自动记下每一帧的鼠标位置和按键状态。这样得到的训练对不用人工标注，可以大量生产，而且两段视频之间只有被拖的那个人不一样。覆盖的动作有拎起、分几步搬运，以及把照片里的人放进正在播的场景。这套数据贯穿了整条流程：完整模型的训练、实时版的蒸馏，到最后的评测。</p><div><figure>
+<div>示意图</div>
+<div>一对训练数据：只有被拖的人在动，鼠标逐帧自动记下</div>
+<div>
+<div><h4>原视频：没人碰</h4>
+</div>
+<div><h4>目标：被拎起搬走</h4>
+</div>
+</div>
+<div><table><thead><tr><th>帧（每秒 24 帧）</th><th>鼠标 x</th><th>鼠标 y</th><th>按键</th></tr></thead><tbody></tbody></table></div>
+<figcaption>红点是按住鼠标，空心圈是松开。3D 替身沿拖拽路径运动、再渲染成真实画面，鼠标位置和按键状态是自动记下的，不用人标。表里的数是示意。</figcaption>
+</figure></div><div><figure>
+<div></div>
+<figcaption>真实的训练对：左边是原视频，没人碰那个人；右边是训练目标，人被拎起来搬走。两边除了这个人，别的都一样。</figcaption>
+</figure></div><div><figure>
+<div></div>
+<figcaption>城市广场：左边是正在播的视频加一张人物照片，右边是把这个人拖进场景的结果。</figcaption>
+</figure></div><h3>怎么跟上鼠标：一小块一小块地生成</h3><p>要让 H3 Flex 能被实时拖动，它得学会两件事：跟着光标走；从「一次生成一整段」改成「源源不断往外流」。</p><p>跟光标，靠三路和画面逐帧对齐的信号：每秒 24 次的鼠标状态（按下、按住、松开和位置），一张标出「抓在哪」的热力图，以及没人动过的原视频，用来保住背景不变。这三路信号通过几个轻量的附加模块接进原模型，不用重训整个模型。</p><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/pika-enact/image.jpg" alt="实时摆位架构图：鼠标流、动作特征和光标热力图进入因果视频 DiT，经流式解码器推到浏览器播放器" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>实时摆位的整条链路：每 0.17 到 0.7 秒，模型读进最新的鼠标数据，接着自己已经生成的画面生成下一块，解码后推到浏览器。你看着画面继续拖，新的鼠标数据跟着下一块进去。中间大框（Causal video DiT）里那一排小格就是下面要讲的「记忆」：prefix 是提示词和原视频，sink 是第一块，t-4 到 t-1 是最近四块，紫色的 current 是正在生成的一块；框底写着每块去噪 4 步。</figcaption>
+</figure></div><p>生成方式也改了：不再一次出整段，而是一块接一块，每块只看前面已经生成的内容，不偷看未来（这叫「因果」生成）。标准设置下一块 0.7 秒，低延迟设置下 0.17 秒。块越小，从你拖一下到画面有反应就越快。</p><p>一块接一块会遇到一个麻烦：越往后前面的内容越多，要是每块都把前面全部重看一遍，会越算越慢，最后跟不上播放。Enact 的办法是只留一部分「记忆」（技术上叫 KV 缓存，就是模型给前文做的笔记，算一次、反复用）：提示词、原视频、第一块和最近四块，更早的就扔掉。这样不管播了多久，每块要算的量都一样，可以一直播下去。</p><div><figure>
+<div>记忆只留开头和最近四块，所以能一直播下去</div>
+<div>已经生成的块（划掉的已经移出记忆）</div>
+<div><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span></div>
+<div>生成下一块时，模型要看的记忆</div>
+<div>
+<div><b>一直留着</b><span>提示词</span><span>原视频</span><span>第 1 块</span></div>
+<div><b>最近四块</b><span>·</span><span>·</span><span>·</span><span>·</span></div>
+<div><b>正在生成</b><span>第 3 块</span></div>
+</div>
+<p></p>
+<figcaption>不管已经播了多久，每生成一块看的东西都一样多。最近四块记住刚才发生了什么，第一块和原视频记住这场戏原本的样子。</figcaption>
+</figure></div><h3>蒸馏：从 20 步压到几步，还不能越播越歪</h3><p>视频模型生成一块画面，要从一团噪点开始一遍遍擦干净，这叫去噪。完整模型要擦 20 遍，太慢，跟不上鼠标。办法是蒸馏：让一个只擦几遍的「学生」模型去模仿完整模型这个「老师」（架构图里写的是 4 遍）。</p><p>还有一个坑。每块都接着前几块往下生成，前面一点小偏差会被一路放大，画面越播越走样，这叫漂移。根源在于学生练习时接的是标准答案，上场后接的却是自己的输出。Pika 的做法叫 self-forcing（大意是「逼它接自己的话」）：练习时就让学生接着自己生成的内容往下写，再由老师给它纠偏。结果是去噪从 20 遍降到几遍，光标仍然跟得准、跟得稳。</p><div><figure>
+<div>示意图</div>
+<div>
+<div>一块画面要算几遍</div>
+<div><div>完整模型：20 步<span>第 20 遍才好</span></div><div></div></div>
+<div><div>蒸馏后的学生：4 步<span>第 4 遍就好</span></div><div></div></div>
+</div>
+<div>
+<div>练的时候接谁的上文</div>
+<div><b>只拿标准答案练：</b>上场后接的是自己的输出，偏差一块块累积</div>
+<div><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div><b>self-forcing：</b>练习时就接自己的输出，由老师纠偏</div>
+<div><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+<figcaption>上半：每个格子是一次去噪，同样的速度，4 步的学生早早交出这一块。下半：圆点代表画面里同一个人的位置，越往后偏得越多就是漂移。技术名是 self-forcing 分布匹配蒸馏（DMD），纠偏的除了完整版老师，还有一个一起训练的评判模型。</figcaption>
+</figure></div><div><div><a>站内旧文 · 同一套技术路线<b>Runway Solaris：把视频模型变成实时生成界面的操作层</b><span>同样是逐帧自回归、少步蒸馏、用自己的输出训练，Runway 拿它来实时生成可以点、可以拖的软件界面。</span></a></div></div><h2>二、实时指导演员：说一句戏，演员接着演</h2><p>人摆好了，下一步是给演员说戏。在 Enact 里，画面里的人就是能对话的演员：打字或直接说一句，比如「走近她一点」「告诉他你为什么难过」「把这里换成夜里的厨房」，他们会接着演，视频不停。</p><ul>
+<li><strong>像聊天一样说戏：</strong>给一句指示，演员照着演；跟他们说话，他们会以角色的身份、用自己的声音回答。画面连声音，生成速度是播放的 1.75 倍，所以对话是实时的节奏。</li>
+<li><strong>先排练，再开拍：</strong>一遍遍调表演，给意见、让演员再试，觉得对了就喊 Action。排练过的东西会变成干净的一条，从第一帧重新拍。</li>
+<li><strong>演员有自己的想法和记忆：</strong>每个演员都是一个有独立性格和逻辑的 AI Agent，记得你喜欢什么、不喜欢什么，以及这场戏里发生过的一切。一句意见不用说两遍，也不用从头再来。</li>
+</ul><div><figure>
+<div>
+<div></div>
+<span>开声音</span>
+</div>
+<figcaption>一次排练：先跟 Alice 和 Bob 打招呼，再一句句教台词，最后喊 Action 拍一条。视频剪短过，英文字幕和导演的摄像头小窗是后期加的，中文字幕是我们加的。</figcaption>
+</figure></div><h3>一个负责想，一个负责演</h3><p>实时指导背后是一个边想边演的 Agent：理解你的意思，规划接下来发生什么，记住你给过的意见，再把戏连画面带声音演出来。分工是两个模型：剧本模型负责想，实时视频模型负责演。你跟它说话的时候，表演不会停。</p><p>剧本模型读你的指令，加上开场画面和这场戏的记忆，通过调用工具把它翻译成一个个结构化的「节拍」（一段戏里最小的动作单位）：动作、台词、情绪、视线、灯光。每个节拍对应一句提示，演成好几块画面。没有新指令的时候，场景会自然停在原处，人物轻轻呼吸、眨眼。</p><div><figure>
+<div>示意图</div>
+<div>
+<div>你（导演）<span></span></div>
+<span>→</span>
+<span>剧本模型</span>
+</div>
+<div>
+<div><b>动作</b>转向 Bob</div>
+<div><b>台词</b>「如果我总是一个人，就没有『我们』。」</div>
+<div><b>情绪</b>压不住，爆发</div>
+<div><b>视线</b>盯着 Bob</div>
+<div><b>灯光</b>不变</div>
+</div>
+<div>
+<div>已演完Alice：你说七点的……</div>
+<div>正在演Bob：我在工作……</div>
+<div>下一拍<span>Alice 低声回一句</span></div>
+<div>之后保持：呼吸、眨眼</div>
+</div>
+<div><div></div><div></div><div></div><div></div></div>
+<div>每个节拍演成好几块画面，1 块 = 0.708 秒视频</div>
+<figcaption>新的指令只替换还没开始演的节拍，正在演的那一拍不会被打断。台词取自上面那段排练，节拍里的其他内容是示意。</figcaption>
+</figure></div><p>演的那一半，是把 H3 Flex 蒸馏成一个少步、因果的音视频模型，同样只留部分记忆、练习时接自己的输出。它一直盯着开场的「锚定帧」和最近几秒的内容，所以长镜头里人物、布景和原声都能保持一致。锚定帧也有副作用：场景一闲下来，就会被它往开场的样子拉回去。所以每个节拍都写明演员看哪儿；系统还会定期悄悄插入「保持」节拍，让改过的灯光或站位留住。</p><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/pika-enact/image-2.jpg" alt="实时指导演员架构图：导演指令进入剧本模型，生成节拍表，再由因果音视频模型逐块生成画面和声音" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>实时指导演员的整体结构：你的意见经剧本模型变成节拍，节拍变成一块块画面和声音，演员的回话在这一条还在播的时候传回给你。底下三格分别是排练、Action 和「保持」节拍。</figcaption>
+</figure></div><h3>排练完喊 Action：从第一帧重拍一条</h3><p>排练时，演员知道镜头在那儿，会和你对话，每一句（你的和他们的）都被逐字记下。喊 Action 后，剧本模型把这段来回改写成一场连贯、不间断的表演，从第一帧重新开始拍。排练里的磕绊、你插的话，都不会出现在正式的这一条里。</p><div><figure>
+<div>示意图</div>
+<div>
+<div><h4>排练：每一句都逐字记下</h4>
+<div><b>导演</b>Alice，你先开口，你说……</div>
+<div><b>Alice</b>你说七点的。现在都快半夜了。</div>
+<div><b>导演</b>Bob，你要为自己辩解，你说……</div>
+<div><b>Bob</b>我在工作，Alice。我一整天都没停过。</div>
+<div><b>导演</b>然后 Alice，你爆发了，带着情绪说……</div>
+<div><b>Alice</b>如果我总是一个人，就没有「我们」。</div>
+<div><b>导演</b>最后一句说完，推一下 Bob 的肩膀，转身走出画面；Bob 愣在原地。</div>
+</div>
+<div>Action</div>
+<div><h4>正式一条：从第一帧重新拍</h4>
+<div><b>Alice</b>你说七点的。现在都快半夜了。我给你打了两次电话……</div>
+<div><b>Bob</b>我在工作，Alice。我一整天都没停过。我做这一切都是为了我们。</div>
+<div><b>Alice</b>如果我总是一个人，就没有「我们」。</div>
+<div>Alice 推 Bob 的肩膀，转身走出画面</div>
+<div>Bob 站在原地，愣住</div>
+</div>
+</div>
+<figcaption>「排练」一栏的台词和导演要求取自上面那段排练视频（有删节）；「正式一条」是喊 Action 之后改写出的那一条：导演的话不再出现，导演要求的动作进了表演。</figcaption>
+</figure></div><p>训练上，实时模型在蒸馏时向 H3 Flex 自己学：它用自己的输出一块块生成带声音的视频，再以完整版 H3 Flex 对这些片段的评判作为学习目标。</p><h2>三、实时运镜：边播边转镜头</h2><p>取景和运镜决定一场戏有没有电影感。Enact 让你在场景持续生成时用鼠标操控一台虚拟摄影机：横摇、推近给特写，或者绕着人物转。</p><ul>
+<li><strong>实时掌镜：</strong>画面播放中拖动鼠标，调整角度、视角和运动，改变的是接下来的画面，不用等离线渲染。</li>
+<li><strong>不需要现成视频：</strong>和在已有片段上做后期修改不同，它从零生成画面和声音。一张外观参考图定下演员和布景，一个轻量的 3D 动作代理（比如 Blender 里没贴图的视口画面）引导镜头路径。</li>
+<li><strong>比播放更快：</strong>在一台装 8 张 B300 的服务器上（B300 是英伟达比 H100 更新一代的数据中心显卡；画面 640×480、每秒 24 帧），首帧 0.51 秒出来，之后生成速度是播放的 1.5 倍，省出的时间留给代理画面采集和推流。</li>
+</ul><div><figure>
+<div>
+<span>开声音</span>
+</div>
+<figcaption>一次实时运镜。左栏标着 Input Video，是固定机位的参照画面，给出演员的动作和场景；右栏是 Enact 边播边生成的结果：同一段表演，镜头被实时移到舞台另一侧、推近，人物和大厅保持一致。歌声也是一起生成的，可以开声音听。</figcaption>
+</figure></div><h3>训练数据：在 Blender 里搭一个虚拟摄影棚</h3><p>要让模型学会自由移动的镜头怎样同时影响画面透视和空间里的声音，训练数据得逐帧严格同步。Pika 搭了一条从 Blender 到视频的自动合成流水线，在可控的 3D 环境里同时录下四样东西：多角度的镜头轨迹、没贴图的 3D 动作参考、目标画面，以及空间音频。再用光流检查（看相邻帧之间像素怎么移动）和跨帧身份核对，把穿模和人物前后不一致的样本筛掉，只留干净的训练对。</p><h3>老师看全片，学生一块一块生成</h3><p>训练分两步。第一步，训练一个「全参考老师」：它能看到完整的镜头运动序列、外观参考和目标音视频，学会整段生成。第二步，用前面讲过的办法训练学生：学生一块一块地生成，接着自己生成的内容往下写，由不再变动的老师和评判模型给它打分。</p><div><figure>
+<div>老师先学整段，学生学一块块接着往下拍</div>
+<div><div>第一步 · 离线训练老师学整段</div><div><span>完整镜头轨迹</span><span>外观参考</span><span>目标画面和声音</span><i>→</i><span>老师：学会一次生成整段</span></div></div>
+<div><div>第二步 · 离线训练学生边看自己生成的边学</div><div><span>当前这一块的参考</span><span>自己生成的上几块</span><i>→</i><span>学生：生成下一块</span><i>←</i><span>老师和评判模型打分</span></div></div>
+<div><div>上线 · 只跑学生边播边出画面和声音</div><div><span>鼠标</span><i>→</i><span>Blender 里的镜头</span><i>+</i><span>外观参考</span><i>+</i><span>已生成的历史</span><i>→</i><span>一块约 0.71 秒的画面和声音</span></div></div>
+<figcaption>把下面那张英文架构图压成三行。老师只在训练时用；真正上线干活的是学生，所以能一块一块跟着鼠标走。</figcaption>
+</figure></div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/pika-enact/image-3.jpg" alt="实时运镜训练架构图：第一阶段训练全参考老师，第二阶段用 self-forcing DMD 训练因果学生，推理时只用学生" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>原图（英文）。上面两格是离线训练的两个阶段：全参考老师看完整序列学习；学生在自己的连续生成上接受老师和评判模型打分。下面一格是实际使用：鼠标变成 Blender 里的镜头控制，学生读当前的参考块、外观参考和自己已生成的历史，连续产出音视频块。</figcaption>
+</figure></div><p>实际使用时只跑学生。它读实时的 3D 镜头运动、外观参考和自己的历史，每次生成约 0.71 秒的同步音视频块，每块只走几步去噪。它盯着开场锚定帧和一段滑动的历史窗口，所以长时间环绕拍摄时，人物长相和房间结构都不走样，内存占用也有上限。</p><p>为了跑得比播放快，还做了几处工程优化：把不变的外观部分缓存起来跨块复用，复用固定的内存布局，用流式视频解码器边生成边解码。稳态下每块 0.708 秒的画面只需 0.473 秒计算，也就是生成速度是播放的 1.5 倍。</p><h2>现在能做什么</h2><p>Enact 目前只是研究预览，普通用户用不了；想试用或谈集成，联系 <a>[email&#160;protected]</a>。Pika 团队说自己测试时，被这样生成视频的真实感和临场感吓了一跳，认为这是一种新创作方式的开始：现实里当导演的即时感，加上生成式媒体几乎不设限的可能。底座 H3 Flex 的权重已经开放，可以从 Hugging Face 和 GitHub 下载。</p><p>对做视频的人来说，值得留意的是工作方式的变化：从「写一段描述，等结果」变成「对着画面直接动手、开口」。分辨率、可用范围这些都还早，三种操作的速度是在不同硬件和设置下测的。但拖、说、转这三个动作已经能落在正在播的画面上，提示词框不再是唯一的入口。</p><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/pika-enact/yt-7ufTrKiOxi0.jpg" alt="Pika 团队在 The Neuron 节目聊 Enact 的视频封面" style="max-width:100%;height:auto;border-radius:8px;" /><span>▶ 播放访谈</span>
+<figcaption>Pika 团队上 The Neuron 节目聊 Enact（英文，点封面才加载）。<a href="https://youtu.be/7ufTrKiOxi0">去 YouTube 看</a></figcaption>
+</figure></div><div><div><a>站内旧文 · 另一种实时可交互的生成<b>Google DeepMind 发布 Genie 4：能实时改场景、与角色对话的世界模型</b><span>同样是研究预览：在一边生成的世界里移动、改天气、让角色说话。Genie 4 偏「走进一个世界」，Enact 偏「在片场拍一场戏」。</span></a></div></div></div><div><div><div>来源</div><div><span>Research Preview: Pika Enact</span><span>Pika<span>·</span>2026-11-18<span>·</span><a href="https://pika.art/blog/pika-enact">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://pika.art/pika-h3-flex">Pika H3 Flex 产品页</a><span>·</span><a href="https://twitter.com/pika_labs/status/2123127584342921652">Pika 官方 X 发布帖</a><span>·</span><a href="https://youtu.be/7ufTrKiOxi0">Pika 团队在 The Neuron 聊 Enact（YouTube）</a></div></div><div><div>本站说明</div><div>图片和视频均来自 Pika；两段有人声视频的中文字幕为本站添加。</div></div></div></div></div>
+<div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://pika.art/blog/pika-enact">看原网页 ↗</a></p></div><div></div><div><div><h1>Research Preview: Pika Enact</h1></div><div><p>Pika Enact explores a future of AI filmmaking where creators can talk to their cast, rehearse performances, and shape scenes as they unfold.</p></div><div><p>At Pika, we believe the next generation of AI creation should go beyond the prompt box, and more closely resemble how we already make films. Pika Enact is an exciting step in that direction.</p></div><div><p>Pika Enact is <strong>designed to mimic the experience of directing on set.</strong> It’s an experimental live-streaming environment built on <a href="https://pika.art/pika-h3-flex">Pika H3 Flex</a> that generates video and sound in sub-second chunks, carrying scene context forward while incorporating new direction into the ongoing generation.</p></div><div><p>This allows the creator to interact with “actors,” manually re-stage a scene, and manipulate the camera—all in real time.</p></div><div><h4>Pika Enact <strong>enables three new modes of interaction:</strong></h4></div><div><ol><li><strong>Live Staging</strong>. Place and reposition actors or objects within a running video with your mouse. The scene continues while you move them.</li><li><strong>Live Actor Direction:</strong> Speak directly to actors on set, and shape their performances. They’ll remember your notes, and deliver a fresh, continuous take when you call “Action.”</li><li><strong>Live Camera Control</strong>. Direct camera movement with your mouse around a live, playing scene.</li></ol></div><div><p>Below, we walk through each one: the data they learn from, their technical architecture, and some demo videos.</p></div><div><h2>1. Live Staging</h2></div><div><p>Scene design and actor blocking are mainstays of a live directing experience. But AI video creation makes that process inexact and time-consuming. With Enact, rather than waiting for a generation to load in order to see the outcome of your direction, you get instantaneous feedback; <strong>you can manually shape the scene as it plays.</strong></p></div><div><p>Lifting, moving and setting down people across several scenes. A red dot marks a held mouse button; a white ring marks release.</p></div><div><p>The live staging within Pika Enact lets the creator drag an object or actor into place with their mouse, which creates several key benefits:</p></div><div><ul><li><strong>Precise placement:</strong> Where a prompt can only suggest “a bit to the left,” a cursor drags subjects to the exact intended spot.</li><li><strong>Consistency with environment:</strong> The model generates whatever you move—a person or a chair—together with the rest of the scene. As you drag, the subject responds naturally to the movement, while its pose, lighting, and shadows adapt to its surroundings. The result has no cut-out edges, no hole where it stood, and no compositing pass to clean up afterwards.</li><li><strong>Real-time responsiveness</strong>: The video keeps playing while you drag, and on a single server the model generates it <strong>1.8× faster than it plays.</strong> Additionally, the subject actively reacts to being moved, shifting weight and adjusting posture mid-air before settling naturally where you let go.</li></ul></div><div><p>To keep up with the cursor movement, we distill the model to a few steps and stream the mouse input and decoding in small pieces. In our low-latency setting, the picture responds in <strong>under 0.4 seconds on H100</strong>, decoding included.</p></div><div><h2>The Data Engine</h2></div><div><p>Training interactive video dragging requires strictly consistent before-and-after video pairs synchronized with frame-level cursor trajectories, which real-world footage cannot provide.</p></div><div><p>We built a physics-driven synthetic data engine to solve this. Starting from an untouched video, we animate a 3D stand-in along a drag path to simulate natural weight and momentum. Our video models then render photorealistic target clips while automatically logging mouse positions and button states.</p></div><div><p>This produces scalable, zero-labeling training pairs where only the dragged subject changes, covering lifting, multi-step carries, and inserting new subjects from photos into live scenes. The dataset drives our entire pipeline, from full-clip training and real-time distillation to evaluation.</p></div><div><p>For data access or more detail on how the data was made, contact our team at <a>[email&#160;protected]</a>.</p></div><div><p>City square: bringing a person into the playing scene.</p></div><div><p>Left: source video, nobody touches the person. Right: training target, the person is lifted and carried.</p></div><div><h2>Technical Architecture</h2></div><div><p>To make <a href="https://pika.art/pika-h3-flex">Pika H3 Flex</a> draggable in real time, it has to learn two things: follow a cursor, and generate a stream instead of a clip.</p></div><div><figure><img src="https://cdn.pika.art/v2/creation/cms/notion/5fe8ad69f8243bea73c82170ca6ddfd0.webp" alt="Live Staging: mouse in, video out. The system watches how the mouse moves and uses that to predict what the video should show next. " style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>Live Staging: mouse in, video out. The system watches how the mouse moves and uses that to predict what the video should show next.</figcaption></figure></div><div><p>To follow a drag in real time, Pika H3 Flex injects three frame-aligned signals via lightweight, zero-initialized modules: 24 fps mouse states, a spatial grab heatmap, and the untouched source video to keep the background intact. Rather than generating full clips at once, the model streams short causal chunks (0.7 s standard, 0.17 s low-latency) through a sliding key-value cache that retains the prompt, source video, first chunk, and four most recent chunks, with re-based positional embeddings for infinite sessions at constant cost.</p></div><div><p>To cut latency and prevent autoregressive drift, we apply self-forcing distribution matching distillation (DMD). A few-step student generates chunks directly from its own past outputs, guided by a trainable critic and the full-clip teacher with emphasized cursor signals. This reduces sampling from twenty steps to just a few while keeping cursor tracking sharp and stable.</p></div><div><h2>2. Live Actor Direction</h2></div><div><p>Once everything has been staged, the next step is typically directing your cast. With Enact, the people in a video become actors you can talk to. Type or say a note, such as “move closer to her”, “tell him why you’re upset” or “make it a kitchen at night”, and they play it out while the video keeps running.</p></div><div><p>A rehearsal with Enact: greeting the actors, then running the scene line by line. Edited for length; subtitles and the director’s webcam inset were added afterwards.</p></div><div><p>This mimics the experience of directing on set in several important ways:</p></div><div><ul><li><strong>Communicate conversationally</strong>: Give a note and the actors act on it; talk to them and they answer you in character, in their own voices. The video generates picture and sound 1.75× faster than they play, so the interaction happens at a real-time pace.</li><li><strong>Rehearse first, then shoot.</strong> Work through a performance iteratively. Give notes, have the actors try gain, and when it feels right, call Action. Everything you rehearsed becomes one clean take, shot fresh from the first frame.</li><li><strong>The actors have minds and memories of their own.</strong> Each is an AI agent with a distinct personality, its own logic, and the ability to think and respond in character. They remember what you liked, what you didn't, and everything that's happened in the scene. You never have to repeat a note or start from scratch. Every interaction builds on the last, making the characters feel more natural, consistent, and alive.</li></ul></div><div><h2>Data</h2></div><div><p>During distillation, the real-time model learns from Pika H3 Flex itself: it generates audio-video clips chunk by chunk from its own output, and the full Pika H3 Flex model’s judgment of those clips is what it learns toward. For more on the training data, data access or custom training, contact our team at <a>[email&#160;protected]</a>.</p></div><div><h2>Technical Architecture</h2></div><div><p>Live Direction is an agentic model within Pika Enact that thinks and performs at the same time. It understands what you mean, plans what should happen next, remembers your notes, and acts the scene out live, picture and voices together. A script model does the thinking and a real-time video model does the acting. And while you talk to the agent, the performance never stops.</p></div><div><figure><img src="https://cdn.pika.art/v2/creation/cms/notion/e74a29829416d05dfde6ef666737a12a.webp" alt="The Live Actor Direction works as one agent: notes become beats, beats become chunks of picture and sound, and the actors’ answers come back to you while the take keeps running." style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>The Live Actor Direction works as one agent: notes become beats, beats become chunks of picture and sound, and the actors’ answers come back to you while the take keeps running.</figcaption></figure></div><div><p>A script language model reads your notes together with the opening frame and session memory. Through tool calls, it translates directorial input into structured beats: action, dialogue, emotion, gaze, and lighting. When no instruction is queued, the scene holds naturally with subtle breathing and blinking.</p></div><div><p>At its core, Pika H3 Flex is distilled into a few-step causal audio-video model. This model uses a sliding key-value cache and self-forcing distribution matching distillation (DMD). By attending to the opening anchor frame and recent seconds of context, it keeps characters, sets, and native voices consistent across long takes. The opening anchor can pull idle scenes back toward the opening state. To counter this, each beat specifies actor gaze. In addition, Real-Time Director silently injects periodic hold beats to preserve lighting or staging changes.</p></div><div><p>During rehearsal, actors acknowledge the camera and converse with you. Every line is logged verbatim. Calling Action prompts the script model to rewrite that exchange into a seamless, uninterrupted performance that starts fresh from the first frame.</p></div><div><h2>3. Live Camera Control</h2></div><div><p>Framing and camera movement are what turn a scene into something cinematic. Pika Enact lets you steer a virtual camera with your mouse while a scene is continuously generating—panning, dollying in for a close-up, or orbiting around the subjects.</p></div><div><p>A live session with Live Camera Control: starting from an appearance reference and a 3D motion proxy, moving the virtual camera on the fly while the characters and room stay consistent.</p></div><div><ul><li><strong>You direct the lens in real time.</strong> Move and drag your mouse while the stream is playing to adjust camera angles, perspective, and movement on the fly—shaping upcoming frames as the scene unfolds instead of waiting for offline renders.</li><li><strong>No existing video needed:</strong> Unlike post-hoc video editing that modifies an existing clip, the system generates audio and video from scratch. An appearance image anchors the cast and set, while a lightweight 3D motion proxy (such as an untextured Blender viewport) guides the camera path.</li><li><strong>It runs faster than real time.</strong> On an 8×NVIDIA B300 node (640×480 @ 24 fps), the model renders initial frames in 0.51 s and generates subsequent chunks at 1.50× real-time speed, leaving headroom for proxy capture and streaming.</li></ul></div><div><h2>Data</h2></div><div><p>To teach Pika H3 Flex how free-roaming 3D camera moves affect both visual perspective and spatial acoustics, training data must be tightly synchronized down to the frame level.</p></div><div><ol><li><strong>Virtual Soundstage Capture:</strong> We built an automated Blender-to-Video synthesis pipeline that simultaneously records multi-angle camera trajectories, untextured 3D motion reference streams, target RGB video frames, and spatial audio tracks in controllable 3D environments.</li><li><strong>Rigorous Quality Filtering:</strong> Using automated optical flow checks and cross-frame identity verification, we filter out clipping artifacts and subject inconsistencies, retaining only high-signal-to-noise pairs for training.</li></ol></div><div><h2>Technical Architecture</h2></div><div><p>Two stages turn offline 3D supervision into a live, responsive camera generator: a full-reference teacher that sees the entire sequence, and a causal student that generates chunk by chunk as you move the mouse.</p></div><div><figure><img src="https://cdn.pika.art/v2/creation/cms/notion/23dc2230ec08505500b2e28567d5a5a2.webp" alt="Two offline training stages: the full-reference teacher learns from paired sequences; DMD trains the causal student on its own rollouts. At inference, the student reads current Blender references and generated history to produce successive audio-video chunks." style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>Two offline training stages: the full-reference teacher learns from paired sequences; DMD trains the causal student on its own rollouts. At inference, the student reads current Blender references and generated history to produce successive audio-video chunks.</figcaption></figure></div><div><p>During streaming, the causal student reads live 3D camera motion, the appearance reference, and its own history. It generates about 0.71 s chunks of synchronized audio and video. These chunks respond immediately to virtual camera movement. The student is distilled from the full-reference H3 teacher with self-forcing distribution matching distillation (DMD) to few denoising steps per chunk. It attends to the opening anchor frame and a sliding history window. The window carries synchronized relative positions. This design preserves character likeness and room geometry across long orbits at bounded memory cost.</p></div><div><p>To exceed real-time playback speed, we cache static appearance prefixes across chunks. We reuse fixed memory layouts and routing metadata with zero numerical loss. We also decode latents through a streaming video decoder. Together, these optimizations cut steady-state compute to 0.473 s per 0.708 s chunk, or 1.50 x real time.</p></div><div><h2>What’s Next</h2></div><div><p>Enact is an early look at what happens when video listens to you—and responds—while it plays. In our own tests, we were startled by how much more real and visceral it feels to generate video this way. So, while it’s only in research preview right now, we think this is the beginning of a new paradigm for creation. It’s the immediacy of directing in real life paired with the expansive possibilities of generative media.</p></div><div><h2>Contact Us</h2></div><div><p>Currently, Enact is a research preview, unavailable for consumer use. If you’re interested in trying it or talking about integration opportunities, contact our team at <a>[email&#160;protected]</a>.</p></div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://pika.art/blog/pika-enact">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】OpenAI 发布 GPT-Live-1.1 API：换语言口音更稳，新增待机模式，待机时每分钟只收 0.02 美元 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/gpt-live-1-1-api/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:gpt-live-1-1-api</guid>
+<pubDate>Fri, 20 Nov 2026 12:00:30 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 价格：通话一小时 3 美元，待机一小时 1.2 美元 02 1.1 和 1 代比，改了哪些 03 待机：没人说话时，让模型先停下 04 能省多少：自己算一笔 05 待机、关会话，还是什么都不做 06 现在能拿到什么 AI 解读 / 产品发布 · 11-20 · 约 7 分钟 · 作者 OpenAI Developers OpenAI 发布 GPT-Live-1.1 API：换语</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 20 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">OpenAI 发布 GPT-Live-1.1 API：换语言口音更稳，新增待机模式，待机时每分钟只收 0.02 美元 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/gpt-live-1-1-api/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>价格：通话一小时 3 美元，待机一小时 1.2 美元</span></a><a><span>02</span><span>1.1 和 1 代比，改了哪些</span></a><a><span>03</span><span>待机：没人说话时，让模型先停下</span></a><a><span>04</span><span>能省多少：自己算一笔</span></a><a><span>05</span><span>待机、关会话，还是什么都不做</span></a><a><span>06</span><span>现在能拿到什么</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>产品发布</a><i>·</i>11-20<i>·</i>约 7 分钟<i>·</i>作者 OpenAI Developers</div><h1>OpenAI 发布 GPT-Live-1.1 API：换语言口音更稳，新增待机模式，待机时每分钟只收 0.02 美元</h1><p>对方没挂电话、也不说话，那段沉默以前和说话一样按每分钟 5 美分计费；现在可以让模型先停下来，等有人开口再接上。</p><div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>OpenAI Developers</span><span>11-20 · 约 7 分钟</span><span>⚑ 产品发布</span></div></div></div><div><div><figure>
+<div>
+<div><span></span></div>
+</div>
+<figcaption>一顿早餐、四种口音：说美式英语的一方点可颂、问松鼠，说法语、德语、韩语的朋友各自用母语接话，可颂（croissant）、松鼠（Eichhörnchen）、辣炒年糕（떡볶이）这几个难词在语言之间来回切换，听的是每个声音换词、换语言时口音稳不稳。开声音听效果更明显。</figcaption>
+</figure></div><strong>一分钟速览</strong><ul><li>GPT-Live-1.1 跨语言口音更稳、转写更准，仍是每分钟 0.05 美元</li><li>新增待机：沉默超时后暂停推理，按每分钟 0.02 美元计，1 代也能用</li><li>委派后端不用再写特殊标记，用大白话写清什么时候交给后端就行</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/gpt-live-1-1-api/social/zh-c22feab1e957.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>OpenAI 把 GPT-Live-1.1 开放到了 API。GPT-Live 是 OpenAI 的全双工语音模型——能一边听一边说，你随时插话它就停下来听，碰到要查资料、用工具、动脑子的活，它把任务委派给后端模型——开发者指定的另一个模型，替它去想、去调工具——自己继续陪用户说话。上一代 GPT-Live-1 的 API 之前已经开放，这次同时给两代模型加了一个新的计费档位。</p><p><strong>GPT-Live-1.1 主要升级：</strong></p><ul>
+<li><strong>口音更稳：</strong>跨语言对话时，口音和音色更自然、更一致，发音也有改进。</li>
+<li><strong>转写更准：</strong>听写用户说的话比 1 代准，字母、数字这类要一字不差的细节能准确听懂。</li>
+<li><strong>更听指令、办事更稳：</strong>更会遵循指令，完成任务更可靠。</li>
+<li><strong>委派写法变简单：</strong>什么时候把任务交给后端，用大白话写在提示词里就行，不用再写 1 代要求的特殊标记。</li>
+<li><strong>新增待机（1 代也能用）：</strong>沉默 5–60 秒（自己设）后模型暂停，WebRTC 通话不断线，这段时间按每分钟 0.02 美元计，平时是 0.05 美元。</li>
+<li><strong>价格不变：</strong>主动通话仍是每分钟 0.05 美元，按秒计费，后端模型和工具另算。</li>
+</ul><p>对开发者来说，这次最能马上算清楚的是待机这笔账：语音 Agent 的账单里，最冤的一直是沉默——用户去翻订单号、事情办完了没挂电话、开着麦克风去忙别的，模型一直醒着，每秒都在按全价计费。</p><h2>价格：通话一小时 3 美元，待机一小时 1.2 美元</h2><p>GPT-Live 按通话时长收费，按秒计，不凑整分钟。通话中每分钟 0.05 美元，换算下来<strong>一小时 3 美元</strong>；进入待机后每分钟 0.02 美元，<strong>一小时 1.2 美元</strong>。这是「听和说」这一层的钱；交给后端模型去想、去调工具的那部分，按后端模型和工具各自的价格另算。1.1 和 1 代价格完全相同。</p><div><div>
+<p>实时语音模型，每小时多少钱</p>
+<p>按各家官方每分钟价 × 60 换算；只比按分钟报价的几家</p>
+<div>
+<div><div><span>xAI Grok Voice 3.0</span>$0.08 / 分钟</div><div><div></div><div>$4.80</div></div><div>官方没写另算项</div></div>
+<div><div><span>ElevenLabs Realtime v1 Mini / Max</span>$0.08 / 分钟起</div><div><div></div><div>$4.80 起</div></div><div>大模型用量另算</div></div>
+<div><div><span>OpenAI GPT-Live-1.1 / 1 · 通话中</span>$0.05 / 分钟</div><div><div></div><div>$3.00</div></div><div>后端模型和工具另算</div></div>
+<div><div><span>OpenAI GPT-Live-1.1 / 1 · 待机</span>$0.02 / 分钟</div><div><div></div><div>$1.20</div></div><div>只在 WebRTC 会话待机时</div></div>
+<div><div><span>微软 MAI Realtime 1</span>$0.01 / 分钟起</div><div><div></div><div>$0.60 起</div></div><div>推理另按 token 计；限量预览，公开预览前不收费</div></div>
+</div>
+<p>OpenAI 自家的 gpt-realtime-2.1 和 Google 的 Gemini Live 按 token 计价，没有官方的每分钟价，不放进图里比。</p>
+</div></div><p>在按分钟报价的几家实时语音模型里，GPT-Live 处在中间：比 Grok Voice 3.0、ElevenLabs Realtime 便宜，比微软 MAI Realtime 1 贵。各家另外收的钱不一样，比总账时要把后端或推理那部分一起算上。待机则把沉默的时段降到每小时 1.2 美元。</p><h2>1.1 和 1 代比，改了哪些</h2><p>1.1 这个版本其实早就在用：从 2026 年 10 月 15 日起，ChatGPT Plus 和 Pro 用户的语音对话背后就是它，现在开放给开发者。模型名写 <code>gpt-live-1.1</code>，放进原来的会话配置里就能用。注意模型只能在建会话时选，想换模型得开新会话。</p><div><div>
+<p>GPT-Live-1.1 和 GPT-Live-1 对照</p>
+<p>圆点标的是 1.1 新改的地方</p>
+<div>
+<div></div><div>GPT-Live-1</div><div>GPT-Live-1.1</div>
+<div>跨语言口音</div><div>基准</div><div>更自然、更一致</div>
+<div>转写</div><div>基准</div><div>更准，字母和数字能可靠听对</div>
+<div>什么时候找后端</div><div>提示词里写特殊标记 <code>&lt;|SpawnThinking|&gt;</code></div><div>用大白话描述</div>
+<div>主动通话</div><div>$0.05 / 分钟</div><div>$0.05 / 分钟</div>
+<div>待机</div><div>$0.02 / 分钟（新增）</div><div>$0.02 / 分钟（新增）</div>
+<div>计费方式</div><div>按秒，不凑整分钟</div><div>按秒，不凑整分钟</div>
+</div>
+<p>价格两代完全一样，待机是两代都能开的新配置，只对 WebRTC 会话生效。</p>
+</div></div><div><a>
+<span>站内旧文 · 补背景</span>
+<span>OpenAI 开放 GPT‑Live‑1 API：可以将GPT的语音对话能力接入到任意应用中 每分钟 0.05 美元</span>
+<span>没接触过 GPT-Live 的，先看这篇：前端管说话、后端管办事的分工怎么搭，1 代的评测数字和定价怎么看。</span>
+</a></div><h3>口音：选对声音，再用提示词定住</h3><p>口音稳不稳，对做多语种客服、语言陪练、出海产品的人最要紧。同样说西班牙语，马德里人和墨西哥人一听就知道「这不是我们这儿的人」；同样说英语，印度用户可能更习惯带印地语节奏的英语。1.1 相比 1 代，换语言时口音和音色更一致，这是这次更新的重点。</p><p>用法分两步。第一步挑声音：GPT-Live 的内置声音各自带地区口音，比如英语有澳大利亚、英国、爱尔兰、北美几种，Bossa 和 Tempo 带巴西葡萄牙语口音，Nira 是印地语声音。第二步在会话指令里把口音写清楚，让它整场保持住。</p><div><div>
+<p>给印度用户做英语助手：声音选 Nira，再加一句指令</p>
+<div>
+<div><span>session.instructions</span><span>声音：<code>nira</code></span></div>
+<pre>You are in a natural, clean English voice conversation. Speak fluent English in your natural Hindi-influenced Indian English accent. Keep that familiar rhythm throughout.</pre>
+<div>意思：这是一场自然、干净的英语语音对话。用你本来带印地语味道的印度英语口音说流利的英语，整场保持这种熟悉的节奏。</div>
+</div>
+<p>内置声音里没有合适口音时，还可以用一段文字描述生成新声音（写清地区、音高、语速），符合条件的客户还可以用征得本人同意的录音做定制声音。</p>
+</div></div><h3>委派后端：从写标记到写大白话</h3><p>GPT-Live 自己只管聊天，查订单、改预约、算东西这些活交给后端。它怎么知道什么时候该交出去，全看你在提示词里怎么写。1 代要求在提示词里写一个模型专用的特殊标记 <code>&lt;|SpawnThinking|&gt;</code>，意思是「这时候生成这个标记」；1.1 直接写「这种情况交给后端」就行，读起来就是一段普通的岗位说明。</p><div><div>
+<p>同一段委派规则，两代的写法</p>
+<div>
+<div><span>GPT-Live-1</span><span>要写特殊标记</span></div>
+<pre>Generate &lt;|SpawnThinking|&gt; when:
+- The request needs a backend capability or careful reasoning.
+Do not generate &lt;|SpawnThinking|&gt; when:
+- You need a brief clarification to understand the request.</pre>
+</div>
+<div>
+<div><span>GPT-Live-1.1</span><span>直接说</span></div>
+<pre>Delegate to the backend when:
+- The request needs a backend capability or careful reasoning.
+Do not delegate when:
+- You need a brief clarification to understand the request.</pre>
+<div>意思：需要后端的能力、或需要仔细推理时，交给后端；只是要跟用户确认一句话时，自己问，不交。</div>
+</div>
+<p>从 1 代升级时，旧提示词里这类标记要改成 1.1 的写法。规则后面还建议加一句：要靠后端结果才能回答时，先交出去，等结果，别自己猜。</p>
+</div></div><p>1.1 还能更可靠地听准字母和数字。这一点对电话场景很实在：报订单号、车牌、邮箱、验证码，错一位就白忙。结合更好用的委派写法，一个常见的流程是——用户报出订单号，GPT-Live 听准、复述确认，然后交给后端去查，查的时候继续和用户说话。</p><div><a>
+<span>站内旧文 · 补背景</span>
+<span>OpenAI 发布 GPT-Live：和 AI 说话不用轮流开口，难问题自动找 GPT-5.5</span>
+<span>GPT-Live 最早在 ChatGPT 里上线时的介绍：全双工是什么意思，它和以前要轮流讲话的语音模式差在哪。</span>
+</a></div><h2>待机：没人说话时，让模型先停下</h2><p>先说清楚以前的问题。GPT-Live 按会话时长计费，只要会话开着、模型在推理，就按主动价每分钟 0.05 美元算。「主动时间」不只是说话：沉默、等后端干活，只要推理没停，都算在里面。用户把麦克风静音也没用——静音的会话照样算主动。</p><p>待机做的事很简单：沉默够久，模型自己暂停推理，进入低价档；有人开口，再自动醒过来接着聊。电话不挂、会话不换，对话记录也还在。</p><p><strong>怎么开：</strong>建 WebRTC 会话时设三项。</p><ul>
+<li><code>session.wake_policy.type</code> 设成 <code>speech</code>：听到说话才开始推理。</li>
+<li><code>session.idle_timeout_s</code> 设 5 到 60 之间的整数：连续这么多秒没有任何输入、输出的转写，就回到待机。不设这一项，第一次醒来后会一直保持主动，直到会话结束。</li>
+<li><code>session.wake_policy.vad_threshold</code>（可选）：0 到 1，默认 0.5。数字越大，越要「确定是人在说话」才醒，嘈杂环境可以调高，免得背景声音把它吵醒。</li>
+</ul><p>醒来、睡下各有一个事件通知你的程序：<code>session.paused</code> 表示进入待机，<code>session.resumed</code> 表示推理恢复（第一次醒来也会发）。下面把一分钟电话里发生的事走一遍。</p><div><div>
+<p>一分钟电话里，模型什么时候醒、什么时候睡<span>示意图</span></p>
+<p>假设一通电话：超时设 10 秒，前 14 秒在说话，中间 40 秒没人出声，最后 6 秒用户又开口</p>
+<div>
+<div>谁在说</div>
+<div><div>说话</div><div><span>说话</span></div><div></div><div></div></div>
+<div>不开待机</div>
+<div><div>一直按 5¢/分钟</div><div></div><div></div></div>
+<div>开了待机</div>
+<div><div>主动</div><div><b>10秒</b></div><div>待机 2¢/分钟</div><div></div><div></div><div></div></div>
+</div>
+<div>
+<div><code>session.paused</code><br />进入待机</div>
+<div><code>resumed</code><br />醒来</div>
+</div>
+<div><span>0 秒</span><span>15</span><span>30</span><span>45</span><span>60 秒</span></div>
+<div>
+<div><div>不开待机</div><div>5.00¢</div><div>60 秒全按主动价</div></div>
+<div><div>开了待机</div><div>3.50¢</div><div>主动 30 秒 + 待机 30 秒</div></div>
+</div>
+<div><span><i></i>主动（5¢/分钟）</span><span><i></i>沉默但还没到超时，仍按主动价</span><span><i></i>待机（2¢/分钟）</span></div>
+<p>超时前那 10 秒沉默照样按主动价算，所以超时设得越短省得越多，但太短会在用户想事情时频繁睡下。醒来时会话和对话记录都恢复，只是醒后对一句短话的第一次回应可能慢一点。</p>
+</div></div><p>两条硬要求要记住。第一，待机期间<strong>麦克风轨道要一直开着</strong>，模型靠它听见有人说话才能醒；连接和会话 ID 都不变。第二，待机<strong>只对 WebRTC 会话有效</strong>，也就是浏览器、App 里那种实时音频连接。</p><div><div>
+<div>
+<div><span></span></div>
+</div>
+<figcaption>约周五两点理发：几句话就办完了，用户却没挂电话，过了一阵才发现「哦，我没挂」。画面按一分钟通话算账——黑线是不开待机，一直按 5¢/分钟走；蓝线在说完几秒后变细，进入 2¢/分钟（便宜 60%）的待机，用户再开口时变回粗线。一分钟下来，5.0 美分对 2.9 美分，整通便宜 42%。按 2.9 美分倒推，这通电话约 18 秒按主动价、42 秒按待机价：说完几秒就转入待机，比上一张示意图的 10 秒超时更短，所以省得更多。</figcaption>
+</div></div><h2>能省多少：自己算一笔</h2><p>账的算法很直白：主动分钟数 × 0.05 美元，加上待机分钟数 × 0.02 美元，按秒计，不凑整分钟。待机每分钟比主动便宜 3 美分，也就是打四折——这也是上限：再长的沉默，最多只能省下 60%，而超时前那几秒沉默永远按全价算。</p><p>下面的算账器默认用计费文档里举的例子：60 秒主动 + 30 秒待机（拆成 50 秒说话和处理、40 秒沉默、超时 10 秒）。这通电话待机只占三分之一，所以只省 20%。拖动滑块换成你自己的场景：客服电话里用户去找单据要几分钟？车载助手一路开着但半天不说话？</p><div><div>
+<p>一通电话的语音费</p>
+<p>只算语音会话本身；后端模型和工具按各自价格另算</p>
+<div>
+说话和等后端处理的时间<b>50 秒</b>
+中间没人说话的时间<b>40 秒</b>
+超时设置（idle_timeout_s）<b>10 秒</b>
+</div>
+<div><div><span>不开待机</span><b>7.50¢</b></div><div><i></i></div></div>
+<div><div><span>开了待机</span><b>6.00¢</b></div><div><i></i><i></i><i></i></div></div>
+<div>
+<div><div>一通省下</div><div>1.50¢</div></div>
+<div><div>省了几成</div><div>20%</div></div>
+<div><div>一万通电话省下</div><div>$150</div></div>
+</div>
+<p>计算：不开待机 =（说话 + 沉默）× 5¢/分钟；开了待机 =（说话 + 超时前的沉默）× 5¢/分钟 + 剩下的沉默 × 2¢/分钟。这里把沉默当成一整段；如果一通电话里有好几段沉默，每段都要先扣掉超时那几秒。</p>
+</div></div><p>算几组就能看出规律：沉默短于超时，待机一分钱都省不了；沉默越长，省下的比例越接近 60%。所以最划算的是那种「电话还开着、但很久没人说话」的场景——比如用户去拿东西、在想要不要下单，或者事情办完了忘了挂。</p><h2>待机、关会话，还是什么都不做</h2><p>待机不是唯一的省钱办法。沉默如果长到几分钟以上、而且你的应用能断开，直接关掉会话、等用户回来再开一个新的，可能更省。代价是：关了的会话听不见用户，得靠按钮、按住说话或者你自己的本地唤醒来重新开；每次新建 WebRTC 会话会先记 15 秒的时长，会话跑起来后再从时长里抵扣；重连很频繁、或者会话建好后用户迟迟不开口，这 15 秒都要算进去。</p><div><div>
+<p>处理沉默的三种办法</p>
+<p>按沉默可能有多长来选</p>
+<div>
+<div>
+<div>什么都不设默认</div>
+<div>5¢ / 分钟</div>
+<ul><li>沉默、等后端都按主动价</li><li>静音麦克风也照样计费</li></ul>
+<div>适合：几乎不会冷场的短通话</div>
+</div>
+<div>
+<div>开待机超时 5–60 秒后暂停</div>
+<div>2¢ / 分钟</div>
+<ul><li>连接、会话 ID、对话记录都保留</li><li>有人开口自动醒，不用按按钮</li><li>麦克风要一直开着；只限 WebRTC</li><li>醒后第一句可能慢一点</li></ul>
+<div>适合：电话还开着、会冷场几十秒到几分钟</div>
+</div>
+<div>
+<div>关掉会话，回来再开你的应用自己管</div>
+<div>0¢ 断开期间</div>
+<ul><li>先存好上下文和任务进度</li><li>新开或从存档的会话接着聊</li><li>每次新建先记 15 秒；频繁重连、建好后迟迟不开口时要算上</li><li>断开时听不见，要按钮或本地唤醒</li></ul>
+<div>适合：长时间不用，比如车载、编程助手</div>
+</div>
+</div>
+<p>「断开期间 0¢」只指语音会话；后端如果还在干活，照样按后端的价格算。</p>
+</div></div><p>关会话之前，要等助手的话播完、没有还挂着的任务；只看转写事件之间的空档不能断定用户真的不说了。下一个会话起来时，把还没完成的后端任务查一遍，别让已经办完的事再办一次。</p><h2>现在能拿到什么</h2><ul>
+<li><strong>模型：</strong>API 里写 <code>gpt-live-1.1</code>，放进现有的 GPT-Live 会话配置即可；速率和并发上限看自己账号的限额页。</li>
+<li><strong>价格：</strong>主动每分钟 0.05 美元（一小时 3 美元）、待机每分钟 0.02 美元（一小时 1.2 美元），1.1 和 1 代相同，按秒计费；后端模型和工具另算。</li>
+<li><strong>待机：</strong>1.1 和 1 代的 WebRTC 会话都能开，设 <code>wake_policy</code> 和 <code>idle_timeout_s</code> 两项。</li>
+<li><strong>从 1 代升级：</strong>改模型名，把提示词里的 <code>&lt;|SpawnThinking|&gt;</code> 写法换成大白话；正式切换前，用自己的典型对话录音对比一遍口音和转写。</li>
+</ul></div><div><div><div>来源</div><div><span>GPT-Live-1.1 is now available in the API（主题帖 3 条）</span><span>OpenAI Developers<span>·</span>2026-11-19<span>·</span><a href="https://x.com/OpenAIDevs/status/2123506733524136446">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://developers.openai.com/api/docs/models/gpt-live-1.1">GPT-Live-1.1 Model | OpenAI API</a><span>·</span><a href="https://developers.openai.com/api/docs/guides/live-conversations#configure-standby">Managing idle sessions / Configure standby | OpenAI API</a><span>·</span><a href="https://developers.openai.com/api/docs/guides/voice-latency-cost?api=live">Voice latency and cost | OpenAI API</a><span>·</span><a href="https://developers.openai.com/api/docs/pricing">Pricing | OpenAI API</a><span>·</span><a href="https://developers.openai.com/api/docs/guides/live-prompting">Prompting GPT-Live | OpenAI API</a><span>·</span><a href="https://developers.openai.com/blog/prompting-multilingual-voice-agents">Prompting GPT-Live for languages and regional accents</a><span>·</span><a href="https://x.ai/news/grok-voice-3">Grok Voice 3.0 | xAI</a><span>·</span><a href="https://elevenlabs.io/pricing/api">ElevenLabs API Pricing</a><span>·</span><a href="https://elevenlabs.io/realtime">ElevenLabs Realtime</a><span>·</span><a href="https://microsoft.ai/news/introducing-mai-realtime-1/">MAI Realtime 1: Leading voice AI at $0.01 per audio minute | Microsoft AI</a></div></div><div><div>本站说明</div><div>两段视频来自主题帖第 1、2 条，中文字幕为本站翻译；API 更新日志 11 月 19 日条目也作了参考。</div></div></div></div></div>
+</div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/OpenAIDevs/status/2123506733524136446">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
+<item>
+<title>【日报】Ideogram 发布了 Ideogram 4.6 模型：原生 4K 出图 宣称为迄今最精确的改图模型 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/ideogram-4-6/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:ideogram-4-6</guid>
+<pubDate>Fri, 20 Nov 2026 12:00:30 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 连改 18 步：没被点名的那个人，动没动？ 02 比 4.5 强在哪：五类改图，能直接用的结果多了多少 03 多步改图榜第一，但第二名是自家上一代 04 原生 4K：凑近看，毛孔和绒毛都在 05 价格和用法：2K 不涨价，4K 是新加的一档 06 换过去之前，先在自己的图上比一比 AI 解读 / 产品发布 · 11-20 · 约 9 分钟 · 作者 Ideogram Ideog</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 20 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Ideogram 发布了 Ideogram 4.6 模型：原生 4K 出图 宣称为迄今最精确的改图模型 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/ideogram-4-6/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>连改 18 步：没被点名的那个人，动没动？</span></a><a><span>02</span><span>比 4.5 强在哪：五类改图，能直接用的结果多了多少</span></a><a><span>03</span><span>多步改图榜第一，但第二名是自家上一代</span></a><a><span>04</span><span>原生 4K：凑近看，毛孔和绒毛都在</span></a><a><span>05</span><span>价格和用法：2K 不涨价，4K 是新加的一档</span></a><a><span>06</span><span>换过去之前，先在自己的图上比一比</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>产品发布</a><i>·</i>11-20<i>·</i>约 9 分钟<i>·</i>作者 Ideogram</div><h1>Ideogram 发布了 Ideogram 4.6 模型：原生 4K 出图 宣称为迄今最精确的改图模型</h1><p>改图最怕改一处、坏一片。我们逐像素比对了官方演示里那张连改 18 步的合照：没被点名的那个人，几乎每一步都看不出变化。</p><div><div>正文原文</div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Ideogram</span><span>11-20 · 约 9 分钟</span><span>⚑ 产品发布</span></div></div></div>
+<div><div><div><div>
+<div>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/c2331c6fd9293304.webp" alt="改之前：米色外套的模特坐在飞舞的报纸里" style="max-width:100%;height:auto;border-radius:8px;" /><span>改之前</span></figure>
+<figure><span>改之后</span></figure>
+</div>
+<p>同一张人像，用 Ideogram 4.6 一步步改成杂志封面：外套、发色、背景、天气都换了，加了刊头，人物的姿势和构图没变。</p>
+</div></div><strong>一分钟速览</strong><ul><li>按品牌色号改色，可用结果从 4.5 的 46% 涨到 83%，五项改图任务全涨。</li><li>原生 4K 生成，不靠放大；刻意去掉 AI 磨皮感，看得见毛孔和细纹。</li><li>Rapidata 多步改图榜第一，1892 分；第二是 4.5，只差 26 分。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/social/zh-0d521d967019.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>图像模型公司 Ideogram 发布了 Ideogram 4.6，定位是它迄今最精确的改图模型，同时能直接生成 4K 图。上一代 4.5 主打「连着改很多轮也不走样」，4.6 在这条路上接着往前推。</p><p><strong>Ideogram 4.6 主要升级：</strong></p><ul>
+<li><strong>原生 4K：</strong>直接按全分辨率生成，不是先出小图再放大；示例图尺寸有 3648×4576、5472×3040 等，皮肤去掉了 AI 常见的磨皮感。</li>
+<li><strong>改哪动哪：</strong>改动范围以外的像素漂移少得多，颜色也更准，同一张图可以一步一步接着改。</li>
+<li><strong>五项改图任务全涨：</strong>Ideogram 拿同一批改图请求分别测 4.5 和 4.6，统计给出可用结果的比例。按品牌色号改色 46%→83%，修产品小瑕疵 61%→86%，产品图 66%→88%，人物换场景还认得出 69%→85%，只改涂抹区域 82%→90%。</li>
+<li><strong>多步改图榜第一：</strong>Rapidata 是给 AI 模型排榜的第三方评测（benchmark.ai），它的多步改图榜让各家模型对同一张图连续改好几步，再比结果排名次。4.6 在这张榜上 1892 分，排第二的是自家 4.5（1866 分），第三是字节的 Seedream 5.5（1805 分）。</li>
+<li><strong>价格：</strong>API 两个接口、四档质量；2K 输出和 4.5 基本同价，新加的 4K 档最高 0.60 美元一张，最便宜的档 0.008 美元一张。</li>
+</ul><p>它已经在 Ideogram 应用和 API 上线，也接进了 Leonardo、Runway、fal、Comfy、HeyGen、Luma 等 12 家合作平台。</p><p>对用 AI 修商品图、做系列海报的人，最费钱的往往不是生成一张图，而是改到第五步发现第一步满意的地方变了，只好从头再来。4.6 把力气花在这件事上。它的 18 步合照连改，我们逐像素算了每一步到底动了哪里，结果比宣传语更有说服力；同一批演示里的戒指，也露出了它还会做错的地方。</p><div><figure>
+<p>发布视频：一组鞋服照片，换角度、换配色、换材质、局部修补</p>
+<p>画面里依次出现「Now in 4K」「人物前后一致」「最准的颜色」「最准的纹理和材质」「最适合局部修补」几个卖点，对应下面几节。原视频只有配乐，这里静音播放。</p>
+</figure></div><h2>连改 18 步：没被点名的那个人，动没动？</h2><p>让 AI 改图，常见的毛病是：你只让它给一个人换件衣服，旁边那个人的脸也悄悄变了一点，背景颜色也偏了一点。下一步接着在这张图上改，这些小偏差一层层叠上去，改到第十步，图已经不是原来那张了。这种「没让改的地方也在变」叫像素漂移（pixel drift）。</p><div><a>
+站内旧文 · 上一代
+<strong>Ideogram 4.5：让 AI 连续改图，少动你没要求改的地方</strong>
+<span>像素位移、颜色漂移、纹理伪影是怎么一轮轮累积的，4.5 怎样把没改的像素原样保留。</span>
+</a></div><p>4.6 给了一组两人合照的连改，一共 18 步，每步一句话。第 1 到第 17 步，每步只点名其中一个人（「只给他戴眼镜」「只给她加耳环」），其中第 11 步按参考图把男方整个换掉，同时要求女方保持原样；第 18 步改的是两人身后的墙。</p><p>光看图很难判断「有没有偷偷变」，所以我们把相邻两步的图逐个像素相减，算出每一步画面上真正变了的地方，再按两人中间那条线分成左右两半，分别统计。按什么标准算「变了」，写在图注里。</p><div><figure>
+<p>每一步改了哪里：粉色是和上一步相比、变化超过阈值的像素</p>
+<p>自动从第 1 步播到第 18 步，最后停在换人的第 11 步。紫色柱 = 这一步点名的那一半变了多少；绿线 = 没点名的那一半，没有超过阈值的变化（记为 0.0%）。点下面的步数可以单独看某一步。</p>
+<div>
+<img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/couple-11.webp" alt="两人合照，连改演示的某一步" style="max-width:100%;height:auto;border-radius:8px;" />
+<img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/couple-00.webp" alt="" style="max-width:100%;height:auto;border-radius:8px;" />
+<img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/diff-11.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" />
+<span></span>
+<span>她</span><span>他</span>
+</div>
+<div><span>第 11 步</span><span>按参考图把男人换成另一个人，衣服和姿势不变，女人保持原样</span></div>
+<p>点名：他 · 她那半边变了 <b>0.0%</b>，他那半边变了 <b>5.6%</b></p>
+<div>
+<span>她<br />半边</span><div></div>
+<span></span><div></div>
+<span>他<br />半边</span><div></div>
+</div>
+<div><span><i></i>点名的一半</span><span><i></i>没点名但有变化</span><span><i></i>没点名、没有超过阈值的变化</span></div>
+<p>我们的算法：相邻两步的图先轻微模糊去掉压缩噪点，再逐像素比较，任一颜色通道差超过 30（满分 255）记为「变了」；左右以两人中线分开，中间留 40 像素不算。柱高按这一半画面里变了的比例画，最高 50%。图片是 Ideogram 发布的演示，每一步用上一步的结果当底图；演示是挑出来的单次序列，换成自己的图，效果会有差别。</p>
+</figure></div><p>结果很干净。第 1 到第 17 步里，没被点名的那个人那半边，有 16 步没有一个像素的变化超过阈值（图里记为 0.0%；像素数值上仍有压缩带来的、约 1/255 的细微差别）。唯一的例外是第 10 步给她盘高发髻时，他的毛线帽针脚也轻微变了一点，占他那半边的 0.3%。第 11 步换人，右半边只变了 5.6%，左边的她同样是 0.0%。第 18 步改墙，两边都变了一半左右，这是要求本身。</p><p>还有一个容易忽略的细节：点名的那一半，变的也只是该变的东西。加眼镜那一步，他那半边只变了 0.5%，就是眼镜那一圈；换 T 恤颜色才动到三成。</p><h3>戒指：换了五次宝石，再让它「换回原来那颗」</h3><p>第二组演示是一枚戒指，每一步只换主石，指令末尾都加一句「其他一切保持完全不变」。前五步干净利落：每步整张图只变了约 1.8%，就是宝石那一小块，戒托、桌面、窗光都没动。</p><div><figure>
+<p>第 6 步要的是「换回原来那颗宝石」</p>
+<div>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/ring-z0.webp" alt="原图里的紫色宝石" style="max-width:100%;height:auto;border-radius:8px;" /><span>原图：紫色的素面宝石</span></div>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/ring-z6.webp" alt="连改中的宝石" style="max-width:100%;height:auto;border-radius:8px;" /><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/ring-z6.webp" alt="" style="max-width:100%;height:auto;border-radius:8px;" /><span>第 6 步「换回原来那颗」：一颗透明刻面钻</span></div>
+</div>
+<div>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/ring-00.webp" alt="戒指原图" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>原图</figcaption></figure>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/ring-01.webp" alt="换成黄水晶" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>1 黄水晶</figcaption></figure>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/ring-02.webp" alt="换成绿松石" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>2 绿松石</figcaption></figure>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/ring-03.webp" alt="换成摩根石" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>3 摩根石</figcaption></figure>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/ring-04.webp" alt="换成黑玛瑙" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>4 黑玛瑙</figcaption></figure>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/ring-05.webp" alt="换成珍珠" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>5 珍珠</figcaption></figure>
+<figure><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/ring-06.webp" alt="换回原来那颗" style="max-width:100%;height:auto;border-radius:8px;" /><figcaption>6 换回原来那颗</figcaption></figure>
+</div>
+<p>上面两格是宝石的放大局部。前五步每一步都换对了；第 6 步回来的是一颗透明的刻面钻石，和原图的紫色素面宝石不是一回事。</p>
+</figure></div><p>第 6 步出了岔子。这一步的输入是第 5 步那张戴珍珠的图，画面里早就没有紫色宝石了，从这张图里已经看不出「原来那颗」是什么。这提醒用的人两件事：要回到某一步的状态，直接拿那一步的图当底图重改，别指望它记得；原图、每一步的指令和结果都留好。Ideogram 也建议每改一步就检查一次，连改得越长越要看。</p><h3>玩具车：连改十步，换了九种材质</h3><p>第三组更接近电商的用法：一辆红色玩具车连改十步，其中九步换材质，一步只把车轮换成白色。每一步整张图只变了大约 1% 到 4%，几乎全落在车和它的倒影上，桌面和墙的光影没跟着变。</p><div><figure>
+<p>连改十步（放大局部）</p>
+<div>
+<figure><a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/toycar-00.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/car-z00.webp" alt="原图：红色玩具车" style="max-width:100%;height:auto;border-radius:8px;" /></a><figcaption><b>0</b> 原图：红色玩具车</figcaption></figure>
+<figure><a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/toycar-01.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/car-z01.webp" alt="亮蓝漆的压铸金属" style="max-width:100%;height:auto;border-radius:8px;" /></a><figcaption><b>1</b> 亮蓝漆的压铸金属</figcaption></figure>
+<figure><a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/toycar-02.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/car-z02.webp" alt="车轮换成白色" style="max-width:100%;height:auto;border-radius:8px;" /></a><figcaption><b>2</b> 车轮换成白色</figcaption></figure>
+<figure><a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/toycar-03.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/car-z03.webp" alt="印条纹的铁皮玩具" style="max-width:100%;height:auto;border-radius:8px;" /></a><figcaption><b>3</b> 印条纹的铁皮玩具</figcaption></figure>
+<figure><a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/toycar-04.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/car-z04.webp" alt="毛绒布" style="max-width:100%;height:auto;border-radius:8px;" /></a><figcaption><b>4</b> 毛绒布</figcaption></figure>
+<figure><a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/toycar-05.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/car-z05.webp" alt="雕刻的玉" style="max-width:100%;height:auto;border-radius:8px;" /></a><figcaption><b>5</b> 雕刻的玉</figcaption></figure>
+<figure><a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/toycar-06.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/car-z06.webp" alt="绿色黏土" style="max-width:100%;height:auto;border-radius:8px;" /></a><figcaption><b>6</b> 绿色黏土</figcaption></figure>
+<figure><a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/toycar-07.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/car-z07.webp" alt="橙色半透明塑料" style="max-width:100%;height:auto;border-radius:8px;" /></a><figcaption><b>7</b> 橙色半透明塑料</figcaption></figure>
+<figure><a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/toycar-08.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/car-z08.webp" alt="折纸" style="max-width:100%;height:auto;border-radius:8px;" /></a><figcaption><b>8</b> 折纸</figcaption></figure>
+<figure><a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/toycar-09.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/car-z09.webp" alt="风化的浮木" style="max-width:100%;height:auto;border-radius:8px;" /></a><figcaption><b>9</b> 风化的浮木</figcaption></figure>
+<figure><a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/toycar-10.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/car-z10.webp" alt="抛光黄金" style="max-width:100%;height:auto;border-radius:8px;" /></a><figcaption><b>10</b> 抛光黄金</figcaption></figure>
+</div>
+<p>每格是同一辆车在第几步的放大局部，底图都是上一步的结果，点开是整张原图。第 3、4 步换成铁皮玩具和毛绒布时，车的轮廓也跟着那种玩具的样子变了；第 8 步变成折纸后，第 9、10 步换成浮木和黄金，形状一直保留折纸的样子，没有回到原来的车形。</p>
+</figure></div><h2>比 4.5 强在哪：五类改图，能直接用的结果多了多少</h2><p>Ideogram 拿同一批改图请求，分别交给 4.5 和 4.6，都用最高的 High 档，统计每个模型给出「可用结果」的比例。分成五类，都是客户要求最多改进的地方。</p><div><figure>
+<p>可用结果的比例：紫条是 4.6，条下的刻度是 4.5</p>
+<p>按涨幅从大到小排</p>
+<div></div>
+<p>同一批请求、High 档下的统计，来自 Ideogram 自己的测试。这组百分比和下一节的榜单分数是两套东西，不能互相换算。</p>
+</figure></div><p>涨得最多的是<strong>按色号改色</strong>：给出一个品牌色的十六进制色号（像 #FF5A00 这样一串），要求把图里某个东西改成这个颜色。4.5 做到能用的不到一半，4.6 到了八成多。对做电商和品牌物料的人，这一项最实际：颜色差一点，整套物料就要返工。</p><p>涨得最少的是<strong>蒙版局部改</strong>，也就是先用画笔涂出一块区域、只让它改这一块。4.5 这项本来就有 82%，4.6 到了 90%。</p><p>人物这项的意思是：把一个人放进新场景，还认得出是同一个人。</p><h2>多步改图榜第一，但第二名是自家上一代</h2><p>Rapidata 的多步改图榜（Multi-step Image Edit）专门比「同一张图连续改好几步」，正好对着 4.6 主打的能力。11 月 17 日的总榜快照里，4.6 排第一。</p><div><figure>
+<p>Rapidata 多步改图榜：分数和误差范围</p>
+<p>圆点是分数，横线是榜上标的 ± 范围</p>
+<div></div>
+<div><span></span><div></div></div>
+<p>粉色区域：4.6 和 4.5 的误差范围在这里重叠（1860–1896）</p>
+<p>参评配置：4.6 用 Precise Edit（专门改现有图片的接口）的 High 档（四档质量里最高的一档）；4.5 用 High 档加高精度。坐标从 1250 起，没有从 0 画。</p>
+</figure></div><p>放在一起看，有两点值得知道。</p><p><strong>和 4.5 几乎打平：</strong>4.6 是 1892±32，4.5 是 1866±30，只差 26 分，误差范围有一大段重叠，这张榜还分不太出两代谁更强。宣传里「领先包括 Seedream 5.5 和 FLUX 3 Image 在内的所有模型」，说的是别家；排第二的其实是它自己。</p><p><strong>和别家拉开了：</strong>第三名 Seedream 5.5 是 1805±29，和 4.6 的范围不重叠，差 87 分。再往后 FLUX 3 Image 1697、Meta 的 Muse Image 1406，差距越来越大。</p><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/t5-leaderboard.png" alt="Rapidata 多步改图榜截图，Ideogram 4.6 排第一" style="max-width:100%;height:auto;border-radius:8px;" />
+<p>榜单原图。微软的 MAI-Image-2.6 排第六（1299 分）。</p>
+</figure></div><p>另外别和别的「改图榜」混在一起。微软的 MAI Image 2.7 拿了 Artificial Analysis 图像编辑榜第一，那是另一家机构、另一套比法（两张图盲投二选一），而且这张 Rapidata 快照里只有它的上一代 MAI-Image-2.6。两张榜的名次不能直接对比。</p><div><a>
+站内旧文 · 另一张改图榜
+<strong>微软发布 MAI Image 2.7 和 Canvas：改图榜第一，价格约为 GPT Image 2.6 的五分之一</strong>
+<span>Artificial Analysis 的盲投榜怎么算分，4 分的领先意味着什么。</span>
+</a></div><h2>原生 4K：凑近看，毛孔和绒毛都在</h2><p>很多模型的「4K」是先生成一张小图，再用放大算法把它拉大。放大算法只能根据已有的像素猜细节，凑近看常是一片光滑。4.6 是直接按全分辨率生成，皮肤、布料的纹理从一开始就画在高分辨率上。</p><p>Ideogram 还专门处理了 AI 人像常见的「塑料脸」：皮肤不再像磨过皮，能看到毛孔、细纹和自然的肌理。下面三块，都是从示例原图里原尺寸截出来的，没有放大。</p><div><figure>
+<p>从 4K 原图里直接截 520×520 像素，没有经过放大</p>
+<div>
+<figure>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/crop-skin.webp" alt="原尺寸局部：女孩脸颊上的雀斑和毛孔" style="max-width:100%;height:auto;border-radius:8px;" />
+<div><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-97d808ed256ad0b1.webp" alt="" style="max-width:100%;height:auto;border-radius:8px;" /><i></i></div></div>
+<figcaption>脸颊的雀斑、鼻翼的毛孔。原图 3328×4992，<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/97d808ed256ad0b1.webp">看整张原图</a></figcaption>
+</figure>
+<figure>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/crop-eye.webp" alt="原尺寸局部：眼睛周围的睫毛和皮肤纹理" style="max-width:100%;height:auto;border-radius:8px;" />
+<div><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-571ffd5f5da48c2a.webp" alt="" style="max-width:100%;height:auto;border-radius:8px;" /><i></i></div></div>
+<figcaption>眉毛一根根分得开，眼下有细纹和颗粒。原图 3648×4576，<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/571ffd5f5da48c2a.webp">看整张原图</a></figcaption>
+</figure>
+<figure>
+<div><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/crop-velvet.webp" alt="原尺寸局部：紫色丝绒扶手椅的绒面" style="max-width:100%;height:auto;border-radius:8px;" />
+<div><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-a2fdd613f51b2fbf.webp" alt="" style="max-width:100%;height:auto;border-radius:8px;" /><i></i></div></div>
+<figcaption>丝绒扶手的绒毛顺着光倒向一边。原图 3648×4576，<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/a2fdd613f51b2fbf.webp">看整张原图</a></figcaption>
+</figure>
+</div>
+<p>右下角小图里的粉框，是截取的位置。</p>
+</figure></div><p>下面是全部 14 张 4K 示例，题材从人像、胶片感照片到油画、黑白插画都有。点任意一张可以打开原尺寸大图（每张 2 到 4 MB）。</p><div><figure>
+<div>
+<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/571ffd5f5da48c2a.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-571ffd5f5da48c2a.webp" alt="银白头发、红眼睛的年轻女人站在雾气森林里，脖子上缠着一条红蛇" style="max-width:100%;height:auto;border-radius:8px;" /><span><b>3648×4576</b> 雾林里的银发女孩，脖子上缠着红蛇</span></a>
+<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/90a649e74b02a07b.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-90a649e74b02a07b.webp" alt="复古黑白影棚肖像，卷发女子戴钟形帽和珍珠项链" style="max-width:100%;height:auto;border-radius:8px;" /><span><b>3648×4576</b> 复古黑白影棚肖像</span></a>
+<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/a752ea5000a31f8b.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-a752ea5000a31f8b.webp" alt="黄昏的荒原上，戴兜帽、长翅膀的战士站在骷髅之间" style="max-width:100%;height:auto;border-radius:8px;" /><span><b>3328×4992</b> 黄昏荒原上的有翼战士</span></a>
+<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/bec0055fc70d9b69.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-bec0055fc70d9b69.webp" alt="背大包的旅人穿过红蓝花田，走向巨大月亮下的浮空城市" style="max-width:100%;height:auto;border-radius:8px;" /><span><b>5472×3040</b> 花田尽头的浮空城</span></a>
+<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/fb2d2012576fdd44.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-fb2d2012576fdd44.webp" alt="黄昏时一个女人泡在水里打电话，身后一道发光的浪卷过来" style="max-width:100%;height:auto;border-radius:8px;" /><span><b>4992×3328</b> 浪里打电话的女人</span></a>
+<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/d9182846be2832c9.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-d9182846be2832c9.webp" alt="油画：蒙娜丽莎和梵高在托斯卡纳庄园花园里举行婚礼" style="max-width:100%;height:auto;border-radius:8px;" /><span><b>3648×4576</b> 蒙娜丽莎嫁给梵高，两种画法混在一起</span></a>
+<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/97d808ed256ad0b1.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-97d808ed256ad0b1.webp" alt="35 毫米胶片质感：白色亚麻裙的女孩站在阳光草地上，头发里插着野花" style="max-width:100%;height:auto;border-radius:8px;" /><span><b>3328×4992</b> 胶片感的草地少女</span></a>
+<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/086d1c655439547a.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-086d1c655439547a.webp" alt="黄昏，骑黑马的骑士登上草坡，身后是巨大的橙色月亮" style="max-width:100%;height:auto;border-radius:8px;" /><span><b>4992×3328</b> 橙色月亮下的骑士</span></a>
+<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/52243d670def2ae5.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-52243d670def2ae5.webp" alt="画廊里一个男人从油画中茶壶的壶嘴接真的茶" style="max-width:100%;height:auto;border-radius:8px;" /><span><b>3648×4576</b> 从画里的茶壶倒出真茶</span></a>
+<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/b83fe6cb86dd2a5e.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-b83fe6cb86dd2a5e.webp" alt="恐怖片特写：一张腐坏的脸，一只眼睛发白" style="max-width:100%;height:auto;border-radius:8px;" /><span><b>5440×3072</b> 恐怖片特写</span></a>
+<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/81ab34e49c331802.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-81ab34e49c331802.webp" alt="穿墨西哥传统服装的少女提着一篮万寿菊走过集市" style="max-width:100%;height:auto;border-radius:8px;" /><span><b>3648×4576</b> 集市里提万寿菊的少女，招牌字也清楚</span></a>
+<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/76bb851eee0d9f9e.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-76bb851eee0d9f9e.webp" alt="黑白墨线插画：灰烬战场上的有翼战士" style="max-width:100%;height:auto;border-radius:8px;" /><span><b>3328×4992</b> 黑白墨线插画</span></a>
+<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/a2fdd613f51b2fbf.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-a2fdd613f51b2fbf.webp" alt="橙色西装的男人坐在紫色丝绒扶手椅上，墙上粉色纸云写着问句" style="max-width:100%;height:auto;border-radius:8px;" /><span><b>3648×4576</b> 丝绒椅上的橙西装男人</span></a>
+<a href="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/aa4acd339ebe040e.webp"><img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/g-aa4acd339ebe040e.webp" alt="穿白色羊毛大衣的女人坐在楼顶边缘，身后是高耸的新古典主义塔楼" style="max-width:100%;height:auto;border-radius:8px;" /><span><b>3648×4576</b> 楼顶的白大衣</span></a>
+</div>
+<p>标的是原图像素尺寸。通过 API 调用时，4K 档的说明是输出最长不超过 4096×4096。</p>
+</figure></div><h3>颜色和材质：冲着电商和产品图去</h3><p>原生 4K 加上更准的颜色和材质，Ideogram 希望打开的是电商和产品摄影的用法：同一张商品图，一次出好几个配色、几种材质，不用重拍。</p><div><figure>
+<p>扶手椅换面料，五双白鞋逐一换成不同颜色，一组餐具换成金、铜、黑、银几种金属。每次只变颜色和材质，造型、光线、摆位不动。</p>
+</figure></div><h3>草图变成图：尽量忠于你的线稿</h3><p>对设计师来说，草图仍然是控制出图最直接的办法。4.6 把草图转成写实图时，尽量贴着原来的线条和构图走。</p><div><figure>
+<p>建筑立面图变成红砖楼和泰式建筑，素描人像变成写实照片，线稿火车头变成实物。</p>
+</figure></div><h2>价格和用法：2K 不涨价，4K 是新加的一档</h2><p>API 有两个接口：<strong>Precise Edit</strong>（精确编辑）改现有图片的一部分，其余保持不变，可以加一张蒙版圈定范围；<strong>Generate</strong>（生成）从文字出新图，也能附最多五张参考图，这时它改的是第一张。四档质量：极低、低、中、高。</p><div><figure>
+<p>每张图的价格（美元）</p>
+<p>「改图」包括 Precise Edit 和带参考图的 Generate</p>
+<div><table>
+<thead><tr><th>质量</th><th>生成 2K</th><th>生成 4K</th><th>改图 2K</th><th>改图 4K</th></tr></thead>
+<tbody>
+<tr><th>极低</th><td>0.0084.5 没有</td><td>—</td><td>0.008</td><td>—</td></tr>
+<tr><th>低</th><td>0.03</td><td>0.06×2</td><td>0.03</td><td>0.06×2</td></tr>
+<tr><th>中</th><td>0.06</td><td>0.12×2</td><td>0.06</td><td>0.20×3.3</td></tr>
+<tr><th>高</th><td>0.10</td><td>0.20×2</td><td>0.22</td><td>0.60×2.7</td></tr>
+</tbody>
+</table></div>
+<div><span><i></i>和 4.5 同价</span><span><i></i>4.6 新加的 4K 档，小字是比 2K 贵几倍</span><span><i></i>4.5 纯文字生成没有极低档</span></div>
+<p>「4K」指输出最长不超过 4096×4096，2K 及以下按 2K 价算；极低档只到 2K。4.5 的价格不分分辨率，最高输出 2K。</p>
+</figure></div><p>换句话说，原来用 4.5 跑 2K 的流程，换成 4.6 价格不变。Precise Edit 输出的图保持原图尺寸，所以原图在 2K 以内，改图就按 2K 的价格算。真正多花钱的是 4K 改图：高档一张 0.60 美元，是 2K 的 2.7 倍，一千张就是 600 美元对 220 美元。要不要上 4K，看图最后印多大、放多大。</p><p>在 Ideogram 应用里，打开图像应用、上传要改的图，在模型选择里手动选 Ideogram 4.6（别用 Auto），一次描述一处改动，生成前按钮上会显示这次要花的积分。改完一张，就拿它当下一步的底图。应用里按积分算，和 API 的美元价格是两套账。</p><div><figure>
+<div>
+<img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/0146fceade61337f.webp" alt="Ideogram 应用里用 4.6 连续改图的界面" style="max-width:100%;height:auto;border-radius:8px;" />
+<img src="https://pic.xiaohu.ai/jiedu-media/ideogram-4-6/972d035683f8ade1.webp" alt="模型选择列表里选中 Ideogram 4.6" style="max-width:100%;height:auto;border-radius:8px;" />
+</div>
+<p>左：应用里的改图界面，右边一列是连续几步的结果。右：在模型列表里选中 Ideogram 4.6。</p>
+</figure></div><p>除了自家应用和 API，4.6 也已经接入这些平台：Leonardo、Runway、fal、Comfy、Runware、Scenario、Invideo、MyDesigns、Sociaro、Moda、HeyGen、Luma。</p><h2>换过去之前，先在自己的图上比一比</h2><p><strong>老流程别急着换：</strong>4.5 还能继续用。榜单上两代只差 26 分，五项可用率是 Ideogram 自己的统计；已经跑顺的 4.5 流程，先拿自己的图和请求，两边各跑一遍再决定。换的时候顺手检查集成里用的接口名和质量档。</p><p><strong>每一步都看一眼：</strong>文字、人脸、颜色、产品细节，改完一步检查一步，连改越长越要看。戒指那组就是例子：步步都对，最后一步换回去时错了。</p><p><strong>留好底：</strong>原图、每一步的指令、选中的结果都存下来，方便追溯这张图是怎么变过来的；要回到某一步，直接拿那一步的图重改。</p><p><strong>商用：</strong>Ideogram 的服务条款允许把生成结果商用；拿来改的原图，得是你有权编辑的。</p></div><div><div><div>来源</div><div><span>Ideogram 4.6 is the new frontier of precise editing.</span><span>Ideogram<span>·</span>2026-11-19<span>·</span><a href="https://ideogram.ai/models/4.6">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/ideogram_ai/status/2123461101224624402">Ideogram 官方 X 账号：Introducing Ideogram 4.6（主题帖）</a><span>·</span><a href="https://ideogram.ai/models/4.5">Ideogram 4.5 模型页（上一代价格与定位）</a><span>·</span><a href="https://www.benchmark.ai/multi-step-image-edit">Rapidata：How Rapidata evaluates models（多步改图榜）</a></div></div><div><div>本站说明</div><div>图片和视频均来自 Ideogram 官网与官方 X 主题帖；连改演示每一步的像素变化比例由本站逐像素计算（相邻两步颜色差超过 30/255 记为变化）。</div></div></div></div></div>
+<div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://ideogram.ai/models/4.6">看原网页 ↗</a></p></div><div></div><div><div><h1>Ideogram 4.6: AI Image Editing Model and API, up to 4K | Ideogram</h1></div><div><p>Ideogram 4.6 makes precise edits that leave the rest of the image untouched, edit after edit. Examples, results against Ideogram 4.5, API endpoints and pricing.</p></div><div><h2>Ideogram 4.6 is the new frontier of precise editing.</h2></div><div><p>Your vision, down to the last detail. Change colors, restyle products, and reimagine entire scenes while preserving what makes your image yours. Ideogram 4.6 brings precise creative control to every edit, with results at up to 4K.</p></div><div><p>Meet Ideogram 4.6</p></div><div><h2>Precise control. One edit at a time.</h2></div><div><p>Ideogram 4.6 is an image generation and editing model built for precise creative control, with output up to 4K. Make a focused change, review the result, and keep refining the same image across multiple turns. Ideogram 4.6 was released on November 19, 2026, and brings Generate and Precise Edit endpoints to API workflows.</p></div><div><h3>Ideogram 4.6 at a glance</h3></div><div><p>Release date November 19, 2026 Resolution Up to 2K or 4K; Very low quality supports up to 2K Quality modes Very low, Low, Medium, High Reference images Up to five through Generate Local edits Optional mask through Precise Edit API endpoints Generate and Precise Edit</p></div><div><p>Evaluated by Rapidata</p></div><div><h2>#1 in multi-step image editing.</h2></div><div><p>Great edits build on each other. Ideogram 4.6 ranks first in Rapidata’s Multi-step Image Edit benchmark, with a score of 1,892.</p></div><div><p>From the first change to the finishing touch, keep refining your image with precise creative control.</p></div><div><h3>Multi-step Image Edit</h3></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/2156bb9193fe5d6c.webp" alt="benchmark.ai by Rapidata" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><div><div><table><thead><tr><th>Rank</th><th>Model</th><th>Score</th></tr></thead><tbody><tr><td>1</td><td>Ideogram 4.6</td><td>1892 ±32</td></tr><tr><td>2</td><td>Ideogram 4.5</td><td>1866 ±30</td></tr><tr><td>3</td><td>Seedream 5.5</td><td>1805 ±29</td></tr><tr><td>4</td><td>FLUX 3 Image</td><td>1697 ±27</td></tr><tr><td>5</td><td>Muse Image</td><td>1406 ±22</td></tr><tr><td>6</td><td>MAI-Image-2.6</td><td>1299 ±22</td></tr><tr><td>7</td><td>Qwen-Image-2.1-Pro (Thinking)</td><td>1291 ±21</td></tr></tbody></table></div></div></div><div><figure><img src="https://ideogram.ai/_astro/ideogram.DyRs8teP.svg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://ideogram.ai/_astro/ideogram.DyRs8teP.svg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>Source: Rapidata · Overall leaderboard</p></div><div><p>About the benchmark</p></div><div><h2>Evaluating edits across multiple steps.</h2></div><div><p>The Rapidata Multi-step Image Edit leaderboard compares models on a sequence of image edits. The table above shows the overall leaderboard snapshot from November 17, 2026, where Ideogram 4.6 ranks first with a score of 1,892.</p></div><div><p>The evaluated configuration is Ideogram 4.6 Precise Edit at High Quality. Ideogram 4.5 is listed at High Quality with High Precision. These leaderboard scores are separate from the task-specific percentages in the comparison chart.</p></div><div><p>The ± values are reproduced alongside the scores as shown in the source snapshot. Rankings describe this evaluation and configuration; compare results on the images and requests that matter to your workflow.</p></div><div><p><a href="https://www.benchmark.ai/multi-step-image-edit">How Rapidata evaluates models ↗</a></p></div><div><p>MULTI-TURN EDITING</p></div><div><h2>One image. Keep going.</h2></div><div><p>Change the color. Swap the material. Reimagine the setting. Build on every edit while keeping the details you love.</p></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/616e7ae068d41ae7.webp" alt="Small changes. Precise control. Original image" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>Original image</p></div><div><h3>Small changes. Precise control.</h3></div><div><p>Refine a single detail while keeping the rest of your image intact.</p></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/5325308ddb3598d3.webp" alt="You choose what changes. Original image" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>Original image</p></div><div><h3>You choose what changes.</h3></div><div><p>Direct each edit to the subject you choose, preserving everything around it.</p></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/3d7c8f470a3713d7.webp" alt="Explore every possibility. Original image" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>Original image</p></div><div><h3>Explore every possibility.</h3></div><div><p>Try new colors, textures, and materials. Build on each edit until it feels right.</p></div><div><p>What’s new since 4.5</p></div><div><h2>Ideogram 4.6 improves where customers asked for more.</h2></div><div><p>More usable results across people, colors, product details, and masked edits. These scores show how often each model delivered a usable result on the same requests at High quality.</p></div><div><h3>Character consistency</h3></div><div><p>Keep a person recognizable in a new scene.</p></div><div><p>85% up from 69% on Ideogram 4.5</p></div><div><h3>Exact color</h3></div><div><p>Recolor an object to a brand hex code.</p></div><div><p>83% up from 46% on Ideogram 4.5</p></div><div><h3>Product detail</h3></div><div><p>Repair a small defect in a product photo.</p></div><div><p>86% up from 61% on Ideogram 4.5</p></div><div><h3>Product shots</h3></div><div><p>Stage, restyle and relabel products.</p></div><div><p>88% up from 66% on Ideogram 4.5</p></div><div><h3>Masked edits</h3></div><div><p>Change only the painted area.</p></div><div><p>90% up from 82% on Ideogram 4.5</p></div><div><p>Native 4K text to image</p></div><div><h2>Ideogram 4.6 generates images in native 4K.</h2></div><div><p>That means no upscaling: every detail, from skin to fabric texture, is generated from scratch at full resolution.</p></div><div><p>We also worked hard to remove the AI look: no airbrushed finish, with visible pores, fine lines, and natural texture.</p></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/571ffd5f5da48c2a.webp" alt="Portrait of a young woman with silver-white hair and red eyes in a misty woodland, with a red snake coiled around her neck." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/90a649e74b02a07b.webp" alt="Vintage black-and-white studio portrait of a young woman with sculpted curls, a cloche hat, and a pearl necklace." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/a752ea5000a31f8b.webp" alt="A hooded, winged warrior stands among scattered skulls on a windswept plain at dusk." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/bec0055fc70d9b69.webp" alt="A lone traveler with a large backpack walks through a field of red and blue flowers toward a city floating under a giant moon." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/fb2d2012576fdd44.webp" alt="At dusk, a woman takes a phone call while submerged to her shoulders as a glowing wave curls over her." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/d9182846be2832c9.webp" alt="Painting of Mona Lisa and Vincent van Gogh at their wedding in a Tuscan villa garden, mixing sfumato and impasto." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/97d808ed256ad0b1.webp" alt="35mm film still of a young woman in a white linen dress standing in a sunlit meadow, wildflowers in her hair." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/086d1c655439547a.webp" alt="An armored knight on a dark horse crests a grassy hill at dusk beneath a large orange moon." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/52243d670def2ae5.webp" alt="A man in a gallery pours real tea from the spout of a teapot in an oil painting into his cup." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/b83fe6cb86dd2a5e.webp" alt="Extreme close-up horror still of a decaying face with one milky eye and wet, wrinkled skin." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/81ab34e49c331802.webp" alt="A smiling teenage girl in a traditional Mexican dress carries a basket of marigolds through a busy market street." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/76bb851eee0d9f9e.webp" alt="Black-and-white ink illustration of a hooded, winged warrior on an ash-covered battlefield." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/a2fdd613f51b2fbf.webp" alt="A man in an orange blazer sits in a purple velvet armchair beneath pink paper clouds that ask where his creativity went." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/aa4acd339ebe040e.webp" alt="Fashion photograph of a woman in a white wool coat seated on a rooftop ledge in front of tall neoclassical towers." style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>Built for your workflow</p></div><div><h2>Precision for every kind of edit.</h2></div><div><h4>Brand colors</h4></div><div><p>Bring an image closer to your brand by changing a specific color. Keep refining the shade while preserving the composition and surrounding details.</p></div><div><h4>People and characters</h4></div><div><p>Update clothing, accessories, or expressions for the person you choose. Build a sequence of changes without starting the scene over.</p></div><div><h4>Materials and finishes</h4></div><div><p>Explore how a product looks in different materials, textures, and finishes. Compare directions before choosing the version that fits your idea.</p></div><div><h4>Scenes and settings</h4></div><div><p>Reimagine a setting, change the atmosphere, or develop a new visual direction. Make each request build on the image you already have.</p></div><div><h4>Text and layouts</h4></div><div><p>Revise wording within an image and refine the surrounding design in separate steps. Check spelling and placement in the final result.</p></div><div><h4>Product touch-ups</h4></div><div><p>Repair a small visual defect or focus an edit on a selected area. Use an optional mask when you need to define where the change belongs.</p></div><div><h3>Build on your existing workflow.</h3></div><div><p>Start with the image you want to refine and describe one change at a time. Review each result before making the next request. For repeatable workflows, use the API to choose the quality mode and provide reference images or a mask as needed.</p></div><div><p>Choose <a href="https://ideogram.ai/models/4.6/">4.6</a> for precise edits and output up to 4K, or compare with <a href="https://ideogram.ai/models/4.5/">4.5</a> for an existing editing workflow. Explore <a href="https://ideogram.ai/models/4.0/">4.0</a> for image creation and <a href="https://ideogram.ai/models/vector/">Vector</a> when your deliverable needs scalable vector artwork.</p></div><div><p>In the app</p></div><div><h2>Start with your image. Make it yours.</h2></div><div><ol><li>Open the Image app and add the image you want to edit.</li><li>Open the Model picker and choose Ideogram 4.6 when it is available in your account, rather than Auto.</li><li>Describe one change, choose your settings, and check the credit cost on Generate before submitting.</li><li>Review the result, then use it as the source for your next edit.</li></ol></div><div><p><a href="https://ideogram.ai/signup?intent=app&amp;amp;source=model-4-6-app">Open Ideogram</a></p></div><div><p>Credit costs depend on the selected model and settings. The Generate button shows the quote for your run. For account access and subscription options, see <a href="https://ideogram.ai/pricing/">plans and pricing</a>. API prices are listed separately below.</p></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/0146fceade61337f.webp" alt="Ideogram 4.6 in the app, showing model settings and a sequence of image edits" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><figure><img src="https://storage.googleapis.com/ideogram-static/website/images/972d035683f8ade1.webp" alt="Open model selector with Ideogram 4.6 selected" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>API</p></div><div><h2>Build with Ideogram 4.6 through the API.</h2></div><div><p>Two endpoints. Four quality modes. Precise control at up to 4K.</p></div><div><p>Send your API key in the Api-Key header. Use Precise Edit for a focused change to an existing image, or Generate for a new image or a request with reference images.</p></div><div><ul><li><code>POST /v2/image/precise-edit/ideogram-4-6</code> Change part of an existing image while preserving the rest.</li><li><code>POST /v2/image/generate/ideogram-4-6</code> Create images from a prompt or edit with up to five reference images.</li></ul></div><div><p><a href="https://developer.ideogram.ai/ideogram-api/api-overview">Explore the API docs ↗</a></p></div><div><div><div><table><thead><tr><th>Quality</th><th>Generate 2K</th><th>Generate 4K</th><th>Edit 2K</th><th>Edit 4K</th></tr></thead><tbody><tr><td>Very low</td><td>$0.008</td><td>—</td><td>$0.008</td><td>—</td></tr><tr><td>Low</td><td>$0.03</td><td>$0.06</td><td>$0.03</td><td>$0.06</td></tr><tr><td>Medium</td><td>$0.06</td><td>$0.12</td><td>$0.06</td><td>$0.20</td></tr><tr><td>High</td><td>$0.10</td><td>$0.20</td><td>$0.22</td><td>$0.60</td></tr></tbody></table></div></div></div><div><p>Prices in USD. Edit pricing covers Precise Edit and Generate with reference images. Very low quality supports up to 2K. 4K covers outputs up to 4096 by 4096 pixels, and anything at 2K or below is billed at the 2K price.</p></div><div><p>Model guide</p></div><div><h2>Choose the model for your next idea.</h2></div><div><div><div><table><thead><tr><th>Model</th><th>When to choose it</th></tr></thead><tbody><tr><td><a href="https://ideogram.ai/models/4.6/">Ideogram 4.6</a></td><td>Ideogram 4.6 is our most precise editing model yet. It leaves far less pixel drift outside your edits and holds color more accurately. It also generates in native 4K, with more realism and texture detail than any Ideogram model before it.</td></tr><tr><td><a href="https://ideogram.ai/models/4.5/">Ideogram 4.5</a></td><td>Ideogram 4.5 was our most precise editing model before 4.6. Choose it to keep an existing integration running while you compare results from 4.6.</td></tr><tr><td><a href="https://ideogram.ai/models/4.0/">Ideogram 4.0</a></td><td>Image generation Create images from a text prompt. Explore its page for generation settings and examples.</td></tr><tr><td><a href="https://ideogram.ai/models/vector/">Ideogram Vector</a></td><td>Scalable artwork Choose vector output when you need an SVG rather than a raster image.</td></tr></tbody></table></div></div></div><div><p>Limits and provenance</p></div><div><h2>Know your source. Review your result.</h2></div><div><h3>Check the details that matter.</h3></div><div><p>Results depend on the source image and request. Review text, faces, colors, and product details after each edit, especially across longer sequences. The examples on this page show individual editing sequences; results will vary with your images.</p></div><div><h3>Keep a record of your edits.</h3></div><div><p>Save your original image, prompts, and selected outputs so you can trace how an image changed. Use source material you have the rights or permission to edit, and identify AI-edited content when your publishing context requires it.</p></div><div><p>Ideogram permits commercial use of outputs under its <a href="https://ideogram.ai/legal/tos/">Terms of Service</a>. You remain responsible for your content and any third-party rights.</p></div><div><h2>Frequently asked questions</h2></div><div><p>What is Ideogram 4.6?</p></div><div><p>Ideogram 4.6 is an image generation and editing model focused on precise changes across multiple edits. It supports output up to 4K and offers Generate and Precise Edit API endpoints.</p></div><div><p>When was Ideogram 4.6 released?</p></div><div><p>Ideogram 4.6 was released on November 19, 2026.</p></div><div><p>What is the best AI model for image editing?</p></div><div><p>Ideogram 4.6 ranks first in the Rapidata Multi-step Image Edit benchmark shown on this page, making it a strong choice for precise, multi-turn image editing. The best model for your workflow depends on your images and requests; compare results on the edits you need to make.</p></div><div><p>Which AI image editor keeps the rest of the photo the same?</p></div><div><p>Ideogram 4.6 is designed to make focused changes while preserving the rest of your photo. Describe the change you want, or use an optional mask through Precise Edit to define the area to edit. Review the output to confirm that surrounding details stay as intended.</p></div><div><p>Is Ideogram 4.6 better than Ideogram 4.5?</p></div><div><p>Ideogram 4.6 delivers more usable results than Ideogram 4.5 across the five editing tasks evaluated on this page at High quality. These tasks cover character consistency, exact color, product detail, product shots, and masked edits. Compare both models on your own images and requests before changing an established workflow.</p></div><div><p>What resolutions does it support?</p></div><div><p>Ideogram 4.6 supports 2K and 4K output. Very low quality supports up to 2K. Precise Edit preserves the source image’s dimensions.</p></div><div><p>What quality modes are available?</p></div><div><p>The API offers Very low, Low, Medium, and High quality modes. Choose a mode based on the level of detail, output size, and price your workflow requires.</p></div><div><p>How much does the Ideogram 4.6 API cost?</p></div><div><p>The Ideogram 4.6 API starts at $0.008 per image in Very low quality at up to 2K. Prices are in USD and vary by quality, resolution, and whether you generate or edit an image. See the pricing table above for each combination.</p></div><div><p>How many reference images can I use?</p></div><div><p>The Generate endpoint accepts up to five attached images. When images are supplied, it edits the first image using the request and references.</p></div><div><p>Can I limit an edit to one area?</p></div><div><p>Yes. The Precise Edit endpoint accepts an optional mask to limit changes to a painted area. Without a mask, describe the change you want in your prompt.</p></div><div><p>How do multi-turn edits work?</p></div><div><p>Use the result of one edit as the source for the next. Make a focused request, review the output, and continue refining. The examples on this page show successive changes to the same source image.</p></div><div><p>How many app credits does an edit cost?</p></div><div><p>Check the credit quote on the Generate button after choosing your model and settings. It is the cost for that run, which may include multiple images. App credits and API prices are listed separately; the API dollar price is not an app-credit amount.</p></div><div><p>Can I use the images commercially?</p></div><div><p>Yes. Ideogram’s Terms of Service permit commercial use of outputs. You are responsible for ensuring your source images and use of the results respect applicable laws and third-party rights. Review the Terms of Service before publishing.</p></div><div><p>Does 4.6 replace 4.5 in my workflow?</p></div><div><p>You can compare 4.6 with 4.5 before changing an established workflow. Consider 4.6 for precise editing workflows and output up to 4K. Compare results on your own images before migrating an existing 4.5 workflow, and check the endpoint and quality settings used by your integration.</p></div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://ideogram.ai/models/4.6">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】英伟达 RTX Spark 小主机开卖：最高 128GB 统一内存，本地能跑 1200 亿参数大模型 · XiaoHu.AI</title>
 <link>https://xiaohu.ai/article/rtx-spark-desktop-local-ai/</link>
@@ -75206,1758 +75957,6 @@ Fig. 10.3 Solved sudoku puzzle.
 <div>
 <strong>客观局限与落地现状：</strong>
 <div>截至目前，整个项目<strong>还没有学生在真实课堂上的学习收益（learning gains）数据</strong>。资深教师给出的高评分反映的是对「软件可用性」与「差异化教学契合度」的认可，但这套工具能否真正帮助学生在考试中拿更高分、概念理解是否更深，仍有待后续课堂实地对照实验来检验。目前，Google 已在公开样例库中开放了 36 个经教师审核的互动练习（英文），使用 Google Workspace for Education 的学校可以报名 Google for Education 试点，课堂实地研究是下一步。</div>
-</div>
-</div>
-</div></div>
-</div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】QuiverAI 发布 Arrow 2：让 AI 用代码画矢量图，Logo、线稿每个形状都能单独改，还能加动画</title>
-<link>https://best.xiaohu.ai/article/quiver-arrow-2/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:quiver-arrow-2</guid>
-<pubDate>Fri, 18 Sep 2026 12:01:46 +0000</pubDate>
-<description>Arrow 2 直接生成可编辑的 SVG 代码，图形放大不糊，每条线和每个形状都能单独修改；复杂任务可以交给上下文更长的 Telos，新版 App 还能继续编辑并添加微动画。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 18 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">QuiverAI 发布 Arrow 2：让 AI 用代码画矢量图，Logo、线稿每个形状都能单独改，还能加动画</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/quiver-arrow-2/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>QuiverAI 发布 Arrow 2：让 AI 用代码画矢量图，Logo、线稿每个形状都能单独改，还能加动画</h1><p>Arrow 2 直接生成可编辑的 SVG 代码，图形放大不糊，每条线和每个形状都能单独修改；复杂任务可以交给上下文更长的 Telos，新版 App 还能继续编辑并添加微动画。</p><strong>一分钟速览</strong><ul><li>Arrow 2 生成的是结构化 SVG：适合 Logo、图标、线稿和插画，放大不会模糊，元素也能继续编辑。</li><li>普通任务用 Arrow 2；复杂构图和长上下文任务用 Telos，它的上下文更长，token 单价高 50%。</li><li>新版 App 把对话生成和画布编辑放在同一个工作区，还能为现有 SVG 添加描线、加载和图标动作等微动画。</li><li>API 改为按 token 计费，实际一张图多少钱取决于输出长度；批量使用前应先用自己的典型任务试算。</li></ul><div><p>主流生成式 AI 几乎都在「画像素」：模型输出由成千上万个色块拼成的位图（如 JPG 或 PNG）。这类图片一旦放大边缘就会模糊，画面里的元素也全部粘在一起，设计师想挪动一片树叶、前端工程师想改变图标描线，都无法直接编辑。</p>
-<p>QuiverAI 推出的新一代矢量生成模型 Arrow 2 与 Arrow 2 Telos，延续了一条截然不同的技术路线：<strong>直接用代码生成结构化的矢量图（SVG）</strong>。SVG（Scalable Vector Graphics）是一种使用 XML 代码描述几何图形的格式，它不是记录像素，而是记录点、线、多边形和曲线的数学方程。这意味着生成的图形不仅任意放大都不会失真，图中的每一个形状、线条和图层都能在矢量软件或代码中独立修改。</p>
-<p>同一天，QuiverAI 还上线了把对话生成和画布编辑放在一起的新版 App，以及独立的开发者平台。计费方式也换了：Arrow 2 和 Telos 按 token 计费，不再像 Arrow 1 系列那样按张收固定价。</p>
-<h2>Arrow 2 的主要功能特点</h2>
-<ul>
-<li><strong>直接生成可编辑 SVG</strong>：输出由路径、形状和图层组成，可以无损放大，也能在矢量软件或代码里继续修改。</li>
-<li><strong>支持文字和参考图共同控制</strong>：可以用提示词描述目标，也可以提供现有图片，让模型沿用配色、线条和几何风格生成新素材。</li>
-<li><strong>覆盖多种矢量设计任务</strong>：能生成图标、人物插画、技术示意图、服装线稿，并把手绘草图或位图转成矢量图。</li>
-<li><strong>可以生成简单动画</strong>：输出的 SVG 能包含路径与属性动画，适合加载图标、状态变化和循环微动效。</li>
-<li><strong>提供 App 与开发者 API</strong>：设计师可以在对话式画布中生成和编辑，开发者可以通过兼容 OpenAI Responses 的接口接入产品。</li>
-<li><strong>两个模型档位</strong>：Arrow 2 面向常规生成，Arrow 2 Telos 提供更长上下文，用于结构复杂、参考材料较多的任务。</li>
-</ul>
-<figure><figcaption>QuiverAI 官方宣传片展示 Arrow 2 的多类矢量图生成与界面操作</figcaption></figure>
-<h2>为什么矢量图不能只靠像素描摹？</h2>
-<p>在传统设计流程中，如果要把位图变成矢量图，通常使用图像软件自带的自动描摹（Image Trace）。这种描摹是靠算法沿着像素的颜色边界拟合出路径，边缘稍有噪点，就容易堆出大量零碎的「锚点」。</p>
-<p>控制点与锚点是矢量图形的基石：<strong>锚点决定几何路径的转折位置，控制点决定曲线的弯曲弧度与走向</strong>。对设计工程而言，控制点越少、越规律，线条越平滑干净；路径上堆满多余的点，文件会变大，人想拖动调整某段轮廓时，也得一个个去对付这些点。</p>
-<figure>
-<div>
-<div>
-<p>像素图</p>
-<p>存的是 14×14＝196 个格子的颜色，放大只会把格子一起放大</p>
-</div>
-<div>
-<p>自动描摹的路径</p>
-<p><strong>38</strong> 个锚点，路径代码 <strong>363</strong> 个字符</p>
-</div>
-<div>
-<p>设计师式写法</p>
-<p><strong>2</strong> 个锚点（实心）＋ 4 个控制点（空心），路径代码 <strong>43</strong> 个字符</p>
-</div>
-</div>
-<div>
-<p>两条路径在 SVG 文件里的实际代码：</p>
-<p>自动描摹</p>
-<pre><code>M17.5 81.1L18.1 74.4L18.2 68.9L17.9 63.4L19.4 57.5L21.6 51.3L25.1 48.2L27.4 42L32.2 39.5L35.9 34.1L41.1 29.6L45.3 26.9L48.2 23.6L53.5 22.9L58.3 20.2L64.8 18L69.9 16L74 15.5L81.1 15.7L85.5 16.2L85.4 21.1L85.3 27.8L82.6 33L81.7 39.1L80.2 42.8L78.5 47.4L74.3 53.8L70.6 57.7L66.9 62.4L65 66.1L61.3 69L56.5 73L51.6 75.4L47.4 79.1L41.2 80.2L34.7 81.7L30.5 83.3L25 81.8Z</code></pre>
-<p>设计师式写法（C 表示一段曲线，后面跟两个控制点和终点）</p>
-<pre><code>M18 82C14 40 52 14 86 16C84 52 58 86 18 82Z</code></pre>
-</div>
-<figcaption>示意图：同一片叶子的三种存法，按 SVG 规则手工绘制，不是 Arrow 的实际输出。想把叶尖往右上拉一点，右边的写法只要改叶尖那一个锚点的坐标，中间的写法要挪动叶尖附近的一串点。</figcaption>
-</figure>
-<p>QuiverAI 团队早期曾发表过 StarVector 与 RLRF 等矢量生成研究，其产品逻辑是将视觉表现转化为编程问题：让大语言模型直接学习如何编写规范的 SVG 标签与贝塞尔曲线参数。Arrow 2 强调的不是像素级的形似，而是通过精简、准确的代码节点来构建可维护的设计资产。</p>
-<h2>Arrow 2 和 Telos 差在哪</h2>
-<p>这次发布了两个模型，定位、上下文窗口和价格各不相同：</p>
-<p><strong>Arrow 2</strong>：平衡质量与速度的主力模型。适用于常规图标、单体插画、扁平界面素材及绝大多数日常设计探索。它的上下文窗口为 131,072 token，单次最大输出限制为 65,536 token。</p>
-<p><strong>Arrow 2 Telos</strong>：面向高复杂度创作的长上下文高保真版本。Telos 的上下文窗口扩大到 1,050,000 token（约为 Arrow 2 的 8 倍），单次最大输出同样为 65,536 token。</p>
-<p>QuiverAI 把 Telos 描述为 Arrow 的矢量能力与更强推理能力的组合，但没有介绍所用模型和具体实现。</p>
-<p>价格上，Telos 每一项 token 单价都比 Arrow 2 高 50%。如果任务涉及包含多层结构的大型示意图、极其紧密的几何制图、需要输入大篇幅设计规范或复杂多图参考的场景，适合调用 Telos；若是大批量生产基础图标或对生成成本敏感的流水线，Arrow 2 是更合理的基础选择。</p>
-<h2>质量、速度与官方示例</h2>
-<p>Arrow 2 的改进目标是减少多余控制点，并改善元素间距、留白和对齐。现有公开材料主要是生成案例，可以用来观察它能做什么；宣传片所说的“快 5 倍”没有配套对比型号和测试条件，因而批量生成的速度与成功率要用自己的图形任务试跑。</p>
-<p>官方博文给了四类示例：</p>
-<p><img />
-<em>输入左侧参考人像，Arrow 2 生成保持色彩与几何风格一致的四款新人物肖像</em></p>
-<p><strong>风格继承与多角色生成</strong>：输入单张插画作为参考图，模型能够提取其配色方案、明暗几何切面和五官绘制规则，批量生成多款风格统一的角色肖像，便于快速构建成套人物素材。</p>
-<p><img />
-<em>肌肉线稿插图中对肩部三角肌等目标区域填红高亮，其余骨骼肌肉保留黑白线稿</em></p>
-<p><strong>局部高亮示意图</strong>：在技术与医学插画中，模型能根据文字指令对特定几何区域进行视觉着重处理，例如将肩部三角肌等特定肌群填充为红色并保留内部纤维线条，周围解剖结构仍维持黑白线稿。</p>
-<p><img />
-<em>根据时尚提示词生成的夹克线稿，清晰展现拉链、裁片拼接与缝线结构</em></p>
-<p><strong>服装与工业线稿</strong>：服装平面款式图（Technical Flats）要求线条规整、结构对称。生成的线稿能稳定呈现不同领型、口袋位置、斜拉链及拼接缝线，方便设计师直接提取裁片逻辑。</p>
-<p><img />
-<em>左侧铅笔手绘面具草图被转为右侧矢量图，外轮廓仅分布数十个关键锚点</em></p>
-<p><strong>草图矢量化（Vectorization）</strong>：把纸上的手绘稿或普通图片（位图）转换成矢量代码。手绘面具草图在被转化为矢量后，外轮廓锚点大部分落在拐角与曲率转折点上，避免了边缘噪点带来的杂乱路径。</p>
-<p>一段 23 秒的公开录屏展示了照片转 SVG 的过程：把 Miu Miu 的短款羽绒服商品图贴进 App，输入「puffer jacket」，Arrow 2 Telos 先画袖子、衣身和下摆，再补上绗缝线、滚边、立领、拉链、口袋和抽绳，最后把原照片与 SVG 并排展示。</p>
-<p>从对比画面看，立领、斜肩滚边、两个拉链口袋、下摆抽绳和罗纹袖口都被保留下来；颜色比原图偏紫、偏浅，绗缝格子也更规整。这段录屏能看到细节还原方式，但没有显示生成时间和 token 用量。</p>
-<figure><figcaption>羽绒服商品图被 Arrow 2 Telos 逐块画成 SVG，结尾与原照片并排对比（录屏：Justine Moore）</figcaption></figure>
-<h2>画布工作区与微动画能力</h2>
-<p>新版 App 把生成和编辑放进同一个工作区：用一句话描述想要的图，靠对话来回修改，再在画布上做精确调整；每个作品都是可编辑的 SVG，可以拿到 App 外面用。</p>
-<p><img />
-<em>新版 App：左侧对话框里正要发送「删掉所有云」，右侧画布上一朵云被单独选中</em></p>
-<p>在 App 里，左侧是对话面板，右侧是 SVG 画布。比如想去掉画面里的云，可以直接在画布上选中那朵云，也可以在对话里说「删掉所有的云」。</p>
-<p>同一段录屏里能看到 App 的模型菜单：包含 Arrow 2 与 Arrow 2 Telos 两个模型，外加一个「Effort」（可以理解为让模型想得多深的档位），演示时选的是 Medium。鼠标停在 Telos 上时，说明文字是「擅长复杂的 SVG 创作，消耗用量快得多」，并标注「按用量计费」（Usage based）。Effort 各档的差别和 Telos 在 App 里多消耗多少额度没有量化，所以复杂任务切到 Telos 前，最实用的方法是用同一张图对比质量和用量。</p>
-<p>Arrow 2 还能让静态 SVG 里的形状和分组动起来：</p>
-<ul>
-<li>产物仍是可以直接放进网页的 SVG 动画，不是视频片段。</li>
-<li>适合 Logo 描线、加载状态、咖啡热气和图标眨眼等界面微交互。</li>
-<li>这项能力此前已经出现在 QuiverAI 的 MCP 工具中，Arrow 2 将它整合进模型和网页编辑器。</li>
-</ul>
-<p>博文的动画示例里，四个小图同时播放：猫头鹰眨眼晃动，杯子上方的热气飘动，一个字母组合标志从单线描出再填实，一组细线几何面板轻微变化。动的都是图里原有的元素，画面本身没有镜头运动。</p>
-<figure><figcaption>Arrow 2 为已有矢量图元素添加的微动画效果（猫头鹰眨眼、咖啡热气、字母标志勾勒与几何动效）</figcaption></figure>
-<h2>计费：新模型按 token 算钱，不再按张</h2>
-<p>要把 Arrow 2 接进生产流程，最该先弄清的是计费方式。</p>
-<p>Arrow 1 系列按张收固定价：Arrow 1.1 生成一张 SVG 0.20 美元，矢量化一次 0.15 美元，这些老模型目前仍在价格表上。</p>
-<p><strong>Arrow 2 与 Telos 没有每张图的固定价，按 token 用量计费</strong>：</p>
-<div><table>
-<thead>
-<tr>
-<th>模型</th>
-<th>输入 token 单价（每百万）</th>
-<th>缓存输入单价（每百万）</th>
-<th>写入缓存单价（每百万）</th>
-<th>输出 token 单价（每百万）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Arrow 2</strong></td>
-<td>$4.00</td>
-<td>$0.40</td>
-<td>$5.00</td>
-<td>$20.00</td>
-</tr>
-<tr>
-<td><strong>Arrow 2 Telos</strong></td>
-<td>$6.00</td>
-<td>$0.60</td>
-<td>$7.50</td>
-<td>$30.00</td>
-</tr>
-</tbody>
-</table></div>
-<h3>一张图到底花多少钱？</h3>
-<p>价格文档给了一个算例：如果一次请求消耗 10,000 个未缓存输入 token 和 2,000 个输出 token，在 Arrow 2 上花费为 0.08 美元，在 Telos 上花费为 0.12 美元。</p>
-<p><strong>这个算例展示的是计费公式，不是单图均价。</strong>一张 SVG 需要多少 token 取决于图形复杂度和推理过程，平台目前没有给出平均值。</p>
-<p>按官方单价推算：</p>
-<ul>
-<li>只看输出：Arrow 2 输出 20 美元 / 每百万 token，所以 1 万个输出 token 正好 0.20 美元，和 Arrow 1.1 生成一张 SVG 的价格相同；Telos 输出 30 美元 / 每百万 token，约 6,700 个输出 token 就到 0.20 美元。</li>
-<li>官方示例（1 万输入 + 2 千输出）在 Arrow 2 上 0.08 美元、Telos 上 0.12 美元，都比 Arrow 1.1 的 0.20 美元便宜。</li>
-<li>单次请求输出上限是 65,536 token：打满时仅输出一项，Arrow 2 约 1.31 美元，Telos 约 1.97 美元。</li>
-<li>用 Responses 接口做多轮工具调用时，每一轮都按上面的方式单独算一次，最后的总价是各轮之和。</li>
-<li>所以贵不贵取决于你的图实际要多少 token（包括推理 token），而官方没有公布这个数；实际用量可以在 API 平台的用量与日志页面里看到每次请求的消耗。</li>
-</ul>
-<p>按官方单价算一张图的钱</p>
-<p>填你实测或估计的 token 数，看同样的用量在 Arrow 2、Telos 上各花多少，和 Arrow 1.1 按张收的 0.20 美元比一比。token 数是你的假设，单价取自官方价格页。</p>
-<div>
-输入 token
-输出 token（含推理）
-请求次数
-</div>
-<div>
-官方算例
-输出正好 1 万
-输出打满上限
-3 轮工具调用
-</div>
-<div><table>
-三个模型在当前用量下的费用
-<thead><tr><th>模型</th><th>这张图的费用</th><th>和 Arrow 1.1 比</th></tr></thead>
-<tbody>
-<tr><th>Arrow 2输入 4 / 输出 20 美元每百万</th><td><span>$0.080</span><span><i></i></span></td><td>便宜 60%</td></tr>
-<tr><th>Arrow 2 Telos输入 6 / 输出 30 美元每百万</th><td><span>$0.120</span><span><i></i></span></td><td>便宜 40%</td></tr>
-<tr><th>Arrow 1.1固定价，生成一张</th><td><span>$0.200</span><span><i></i></span></td><td>基准</td></tr>
-</tbody>
-</table></div>
-<p>算法：（输入 × 输入单价 ＋ 输出 × 输出单价）÷ 1,000,000 × 请求次数。没算缓存输入的折扣价。多轮调用时每次都要把完整对话历史重新发一遍，后面几次的输入会越来越多，所以多轮的结果是下限。Arrow 2 上下文 131,072 token，输入超过这个数就放不进；Telos 是 1,050,000 token。</p>
-<p>实际计费还受三项工程规则影响：</p>
-<ol>
-<li><strong>推理（Reasoning）token 计入输出</strong>：模型出图前会先推理，推理 token 一律算进输出 token 计费（不另外重复收费）；开启流式输出时能看到这段推理过程。</li>
-<li><strong>多轮工具调用分次计价</strong>：在 Agent 工作流中，如果模型通过工具反复微调资产，每一次发起的 HTTP 请求都会独立结算 token 费用，完成一张最终图纸可能会累加多次调用成本。</li>
-<li><strong>资金预扣机制</strong>：对于按 token 计费的请求，系统会在请求开始执行前<strong>临时冻结账户中 1 美元的可用余额</strong>。请求完成后按实际消耗扣除，并释放多余的冻结资金。余额不够支付这次请求时，接口可能在运行前直接返回 402 错误。</li>
-</ol>
-<h3>App 订阅与 API 充值完全隔离</h3>
-<p>App 和 API 是两本账：</p>
-<ul>
-<li><strong>App 订阅不可抵扣 API</strong>：App 提供 Go（$8/月）、Basic（$20/月）、Pro（$40/月）三档套餐，每周分别包含 $5、$15、$40 的应用内额度。这些额度<strong>每周一（UTC 时间）重置，不结转</strong>，只能在 App 里用，不能拿来调 API。</li>
-<li><strong>API 走单独预付费</strong>：开发者调用 API 必须在 platform.quiver.ai 充值独立的预付余额，默认最低充值门槛为 10 美元，充值获得的额度有效期为 1 年。</li>
-</ul>
-<h2>开发者接入：两种接口怎么选</h2>
-<p>对于开发者，Arrow 2 提供了两条调用路径：原生的 <code>/v1/svgs/*</code> 端点，以及兼容 Open Responses 规范的 <code>/v1/responses</code> 接口。</p>
-<p>如果业务场景只是单次「提示词转 SVG」或「图片矢量化」，调用原生的 <code>POST /v1/svgs/generations</code> 是最直接的选择。支持传入参考图（Base64 或公开 URL），当开启 <code>stream: true</code> 时，服务端会依次推送 <code>reasoning</code>（推理）、<code>draft</code>（草稿渲染）和 <code>content</code>（最终 SVG 结果）三种 Server-Sent Events 事件。</p>
-<p>如果想让 Arrow 2 在 Agent 流程里调用你自己的工具，就用 Responses 接口：</p>
-<p><strong>标准 SDK 兼容</strong>：支持通过 Vercel AI SDK 的 <code>@ai-sdk/open-responses</code> 扩展接入，或者直接使用 OpenAI 官方 JS/TS SDK，只需将 <code>baseURL</code> 替换为 <code>https://api.quiver.ai/v1</code> 并调用 <code>client.responses.create</code>。</p>
-<p><strong>客户端工具调用（Tool Calling）</strong>：开发者可以在请求中向 Arrow 声明自身应用支持的函数（例如保存文件的 <code>write_file</code>）。Arrow 2 可以在多轮对话中决定何时触发该工具，并返回结构化的调用参数。</p>
-<p><strong>严格无状态设计</strong>：QuiverAI 的 Responses 接口不保存历史会话记录，请求中不支持传入保存会话的参数。若要实现多轮微调或在工具执行后继续生成，客户端必须自行在上下文数组中回传完整的对话历史、工具调用参数与执行结果。</p>
-<p>宣传片说，用户生成的插画、图标和技术图纸会帮助团队改进 Arrow。在 API 平台上，组织的 Owner 或 Admin 可以通过「Improve QuiverAI」开关决定是否允许符合条件的组织数据用于改进模型。当前文档没有标出该开关的默认值，也没有给出 App 订阅用户对应的数据选项；准备上传客户资产时，应先在实际账户中确认这个开关。</p>
-<h2>选型自检</h2>
-<ul>
-<li>
-<p><strong>图形有多复杂？精度要求有多高？</strong>
-如果生成的是图标、Logo、扁平插画这类元素不多的图形，官方文档建议大多数生成优先使用 Arrow 2。如果在 Arrow 2 的输出中发现细节对不齐、密集路径混乱，或者是密集插画、几何要求紧的 Logo、技术图纸这类「精度比速度重要」的图形，再换用 Telos（每项单价贵 50%）。常规图形直接用 Telos 只会多花钱；而在需要高精度的复杂图形上硬用 Arrow 2，输出可能达不到交付要求。</p>
-</li>
-<li>
-<p><strong>单次请求要传入的内容有多长？</strong>
-检查需要塞入的设计说明、品牌规范和参考材料等总量。如果超过了 Arrow 2 的 131,072 token 上下文上限，只能选择支持 1,050,000 token 的 Telos；如果未超过该上限，上下文长度不是换用 Telos 的理由。超过上限的内容放不进 Arrow 2；没超过却选 Telos，就要多付 50% 的单价。</p>
-</li>
-<li>
-<p><strong>业务预算是否允许按 token 浮动计费？</strong>
-先用少量真实业务需求在 API 平台试跑，在用量与日志页面查看每张图实际消耗的 token。按官方单价推算，Arrow 2 上一张图的输出（含推理）到 1 万 token，光输出费用就已经是 0.20 美元，和 Arrow 1.1 一张的价格持平，再加上输入费用才是总价；输出明显低于这个量，Arrow 2 才比 Arrow 1.1 便宜。如果业务需要每张图价格完全确定，可以先留在按张固定收费的 Arrow 1.1。不先实测就全面接入 Arrow 2 可能导致预算失控；但留在 Arrow 1.1 将无法使用新模型支持的 SVG 编辑与微动画能力。</p>
-</li>
-<li>
-<p><strong>是单次固定生成，还是在 Agent 中调用自己的工具？</strong>
-如果业务只是固定的「文字生成 SVG」或「图片矢量化」，使用原生的 <code>/v1/svgs/*</code> 接口更简单；只有需要让 Arrow 在 Agent 流程中调用你自己的工具时，才选用 <code>/v1/responses</code> 接口，并务必给请求轮数设定上限。在简单场景下用 Responses 接口会增加接入和状态管理成本；在 Agent 流程中若不设轮数上限，每一轮工具调用都会单独计费，容易导致总调用费用失控。</p>
-</li>
-</ul>
-</div><div><div><div>来源</div><div><span>Introducing Arrow 2 and Arrow 2 Telos</span><span>QuiverAI<span>·</span><a href="https://quiver.ai/blog/introducing-arrow-2-0">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://x.com/QuiverAI/status/2100295136261349802">QuiverAI 发布推文串：Introducing Arrow 2</a><span>·</span><a href="https://x.com/venturetwins/status/2100596949829484740">Justine Moore（a16z）：Arrow 2 上手录屏</a><span>·</span><a href="https://docs.quiver.ai/developers/models">QuiverAI Docs：Models（模型对比）</a><span>·</span><a href="https://docs.quiver.ai/developers/pricing">QuiverAI Docs：Pricing（API 价格）</a><span>·</span><a href="https://quiver.ai/pricing">QuiverAI Pricing（App 订阅价格）</a><span>·</span><a href="https://quiver.ai/blog/introducing-arrow-1-1">Introducing Arrow 1.1, a step forward in SVG generation</a><span>·</span><a href="https://quiver.ai/blog/announcing-our-seed-round">QuiverAI raises $8.3M to build the future of vector design and visual code generation</a></div></div><div><div>本站说明</div><div>官方推文串发布于北京时间 2026-09-17；博文页面标注日期为 2026-09-07。模型参数与价格以 2026-09-18 抓取的官方文档为准。</div></div></div></div></div><div>
-<div>
-<div>QUIVERAI ARROW 2 / TELOS 解读</div>
-<h1>Arrow 2：AI 用代码画矢量图，每个形状都能改，账也改成按 token 算</h1>
-<div>主流 AI 生图输出的是改不动的位图；QuiverAI 的 Arrow 2 直接写出 SVG 代码，放大不糊，每个形状都能单独改。代价是新模型从按张收费改成按 token 计费，一张图多少钱得自己测。</div>
-<div>看点：「控制点少」为什么等于好改 ｜ Arrow 2 和 Telos 怎么选 ｜ 按 token 计费后一张图怎么算</div>
-<div>
-<h2>1. 为什么矢量图不能只靠像素描摹？</h2>
-<p>主流生成式 AI 几乎都在「画像素」：模型输出由成千上万个色块拼成的位图（JPG/PNG）。这类图片放大即失真，图元互相粘连，设计师想挪动一片叶子、前端想微调描线都无法直接下手。</p>
-<p>用设计软件的自动描摹（Image Trace）把位图转成矢量，算法沿着颜色边界拟合路径，边缘稍有噪点就会堆出大量零碎的点。控制点与锚点是矢量图形的基石：<strong>锚点决定几何路径的转折位置，控制点决定曲线的弯曲弧度与走向</strong>。控制点越少、越规整，文件越小，人改起来也越省事。</p>
-<div>
-<div>
-<span>传统位图 / 自动描摹</span>
-<p>沿颜色边界拟合路径，噪点处冒出大量零碎锚点；想改一段轮廓，得挪动一串点。</p>
-</div>
-<div>
-<span>Arrow 2 纯代码生成</span>
-<p>让模型像写程序一样写出 SVG 代码。官方示例里锚点大多落在拐角和转折处，每个形状都能单独改。</p>
-</div>
-</div>
-</div>
-<div>
-<span>核心技术机制</span>
-<h3>代码即矢量：让模型像写程序一样画图</h3>
-<p>QuiverAI 推出的新一代矢量生成模型 Arrow 2 与 Arrow 2 Telos，延续了一条截然不同的技术路线：<strong>直接用代码生成结构化的矢量图（SVG）</strong>。输出的是一段描述形状、路径和图层的代码，所以放大不糊，每个形状都能在画布上或代码里单独修改。</p>
-<div>
-<div>
-<h4>对话和画布都能改</h4>
-<p>新版 App 把对话生成和画布编辑放在一起：想去掉画面里的云，可以在画布上选中那朵云，也可以在对话里说「删掉所有的云」。</p>
-</div>
-<div>
-<h4>微动画只动已有的形状</h4>
-<p>不是生成视频，而是让 SVG 里已有的形状和分组（Group）动起来，适合 Logo 描线、加载动画这类界面动效。</p>
-</div>
-</div>
-</div>
-<div>
-<h2>2. Arrow 2 和 Telos 差在哪</h2>
-<p>这次发布了两个模型。QuiverAI 说 Telos 把 Arrow 的速度和「前沿模型」的精修能力结合起来，但没说是哪家的前沿模型：</p>
-<div>
-<div>
-<h3>Arrow 2（主力）</h3>
-<div>平衡质量与速度的主力模型，覆盖图标、单体插画、扁平界面等绝大多数日常资产生产。</div>
-<div>
-<span>上下文 131,072 token</span>
-<span>单次输出 65,536</span>
-<span>输入 $4 / 输出 $20 每百万</span>
-</div>
-</div>
-<div>
-<h3>Arrow 2 Telos（长上下文高保真）</h3>
-<div>面向高复杂度创作的长上下文高保真版本。Telos 的上下文窗口扩大到 1,050,000 token（约为 Arrow 2 的 8 倍），单次最大输出同样为 65,536 token。</div>
-<div>
-<span>上下文 1,050,000 token</span>
-<span>单次输出 65,536</span>
-<span>输入 $6 / 输出 $30（贵 50%）</span>
-</div>
-</div>
-</div>
-<div>
-<strong>没公布的</strong>：官方没有公布标准评测集得分或节点数量统计等量化基准，所有公开案例均为官方挑选；「快 5 倍」只出现在宣传片旁白里，没说跟谁比、怎么测。
-    </div>
-</div>
-<div>
-<h2>3. 计费：新模型按 token 算钱，不再按张</h2>
-<p>Arrow 1.1 按张收固定价（$0.20/张），目前仍在价格表上。<strong>Arrow 2 与 Telos 没有每张图的固定价，按 token 用量计费</strong>，一张图多少钱取决于它实际用掉多少 token，而官方没公布这个数：</p>
-<div>
-<div>
-<div>1 万 token</div>
-<div>Arrow 2 上一张图光输出到 1 万 token，就等于 Arrow 1.1 一张的 $0.20（还没算输入）</div>
-</div>
-<div>
-<div>+50%</div>
-<div>Telos 各项输入/输出 token 单价均比 Arrow 2 贵 50%</div>
-</div>
-<div>
-<div>$1 冻结</div>
-<div>每次请求先临时冻结 1 美元余额，结算后释放多余部分；余额不够支付时可能直接返回 402</div>
-</div>
-</div>
-<div>
-<div>
-<div>01</div>
-<p><strong>推理 token 算进输出</strong>：模型出图前先推理，这部分按输出单价（每百万 $20 或 $30）计费，不另外重复收费。</p>
-</div>
-<div>
-<div>02</div>
-<p><strong>多轮调用分次计价</strong>：用 Responses 接口让 Arrow 在 Agent 流程里多轮调用工具时，每一轮请求单独计费，总价是各轮之和。</p>
-</div>
-<div>
-<div>03</div>
-<p><strong>App 和 API 是两本账</strong>：App 订阅（Go $8 / Basic $20 / Pro $40 每月）每周含 $5 / $15 / $40 额度，每周一重置不结转，只能在 App 里用；API 要在 platform.quiver.ai 单独预付，最低 $10。</p>
-</div>
-</div>
-</div>
-<div>
-<h2>4. 怎么选：接口和模型</h2>
-<p>对于开发者，Arrow 2 提供了原生 <code>/v1/svgs/*</code> 端点与兼容 Open Responses 的 <code>/v1/responses</code> 端点。如果想让 Arrow 2 在 Agent 流程里调用你自己的工具，就用 Responses 接口；只是固定地出图或矢量化，原生端点更简单。按下面四个问题判断：</p>
-<div>
-<div>
-<h3>图形复杂度与精度要求有多高？</h3>
-<p>图标、Logo、扁平插画这类元素不多的图先用 Arrow 2；输出里细节对不齐、密集路径乱掉，或者是密集插画、技术图纸这类精度优先的图，再换贵 50% 的 Telos。</p>
-</div>
-<div>
-<h3>要塞进去的内容有多长？</h3>
-<p>说明、品牌规范和参考材料加起来没超过 Arrow 2 的 131,072 token，上下文就不是换 Telos 的理由；超过了只能用 Telos（1,050,000 token）。</p>
-</div>
-<div>
-<h3>预算能接受按 token 浮动吗？</h3>
-<p>先用少量真实需求试跑，在 API 平台用量页看每张图实际用了多少 token；需要每张价格完全确定，就先留在 Arrow 1.1（$0.20/张），但它不支持 SVG 编辑和动画。</p>
-</div>
-<div>
-<h3>单次出图，还是在 Agent 里调用你的工具？</h3>
-<p>单次出图用原生端点；用 Responses 接口搭 Agent 流程时，给请求轮数设上限，否则每轮单独计费，总价容易失控。</p>
-</div>
-</div>
-<div>
-<h3>一句话</h3>
-<p>Arrow 2 把「画图」变成「写代码」，换来能逐个形状修改的矢量图；但官方没给评测数据，计费也改成按 token 浮动，接入前先用自己的真实需求测一轮质量和用量。</p>
-</div>
-</div>
-</div></div>
-</div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Figure 发布 Helix 2.5：人形机器人进 30 个从没去过的家，直接收拾客厅、铺床、叠毛巾</title>
-<link>https://best.xiaohu.ai/article/figure-helix-2-5/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:figure-helix-2-5</guid>
-<pubDate>Fri, 18 Sep 2026 12:01:46 +0000</pubDate>
-<description>关键在 Index 人类经验数据：同样的机器人任务数据，先在 Index 上预训练的模型，在 30 个陌生家庭里完整做完 56% 的试验，不预训练的只有 8%。Figure 还测出一条“人类数据翻倍、机器人动作预测稳定变好”的缩放曲线。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 18 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Figure 发布 Helix 2.5：人形机器人进 30 个从没去过的家，直接收拾客厅、铺床、叠毛巾</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/figure-helix-2-5/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Figure 发布 Helix 2.5：人形机器人进 30 个从没去过的家，直接收拾客厅、铺床、叠毛巾</h1><p>关键在 Index 人类经验数据：同样的机器人任务数据，先在 Index 上预训练的模型，在 30 个陌生家庭里完整做完 56% 的试验，不预训练的只有 8%。Figure 还测出一条“人类数据翻倍、机器人动作预测稳定变好”的缩放曲线。</p><strong>一分钟速览</strong><ul><li>Helix 2.5 被带进 30 个从未采集过数据的家庭，直接完成收拾客厅、铺床和叠毛巾三项全身任务。</li><li>同一份机器人任务数据下，先用 Index 人类经验预训练的模型完整完成了 56% 的试验，没有预训练的模型只有约 8%。</li><li>Index 数据每翻一倍，机器人下一步动作的预测误差都会稳定下降，说明人类操作视频有机会成为可持续扩展的机器人预训练数据。</li><li>这仍是三项家务上的早期结果：56% 代表明显进步，也意味着机器人距离在家庭里稳定自主工作还有很长距离。</li></ul><div>
-<p>Figure AI 发布了其机器人模型 Helix 2.5，这是它给人形机器人 Figure 03 用的控制模型。为了测试该模型的真实能力，Figure 在旧金山湾区租下 30 栋团队从没进过的房子，事先不在里面采集任何数据，让机器人直接进去收拾客厅、叠毛巾、铺床。</p>
-<h2>Helix 2.5 的主要能力特点</h2>
-<ul>
-<li><strong>进没去过的家直接干活</strong>：在 30 个没采过数据、团队也没进过的家里，用每家自己的沙发、床和台面，不针对现场做任何调整，完成收拾客厅、叠毛巾、铺床。</li>
-<li><strong>一个基础模型，教出三种全身家务</strong>：三项任务都从同一个在 Index 上预训练的基础模型出发分别教会，要用到走动、抓取硬的玩具和软的毛巾被子、双手配合，以及边走边找东西看。</li>
-<li><strong>全身一起动</strong>：在沙发与茶几之间、床与衣柜之间的窄处，边走边弯腰、换站位、绕着床操作，走路和动手不拆成两件事。</li>
-<li><strong>会自己纠错</strong>：出错或够不着时，会退后一步重新站位、换个姿势，或者绕到床的另一边把被角拉好（Figure 的定性观察，没有给数字）。</li>
-<li><strong>能力主要来自人类经验数据</strong>：模型从零开始、完全在 Figure 自己收集的人类经验数据 Index 上预训练。用同一份任务数据，有 Index 预训练的完整做完 56% 的试验，没有的只有 8%。</li>
-<li><strong>教新任务更省数据</strong>：和一个有代表性的 Helix 02 任务相比，只用一半的任务数据就达到同样的成功率，而且是在 30 个陌生家庭里做到的。</li>
-<li><strong>数据越多越好，而且能提前算出来</strong>：Index 数据每翻一倍，预测机器人下一步动作的误差就稳定下降一截，用前三档的结果就能算准第四档。</li>
-</ul>
-<h2>机器人走进陌生家庭，真正难在哪？</h2>
-<p>普通人走进一个陌生的家里，马上就能动手干活；我们对物理世界的理解可以从一个环境带到下一个环境，不需要因为床的高度不同就重新学铺床，也不用因为家具不同就重新学收拾屋子。但机器人目前做不到这一点，它们是一个地方一个地方学的。Figure 此前展示的 Helix 02 已经能协调全身完成长时间任务（例如洗碗机装卸，以及在物流任务中自主运行 200 小时），但那些数据都是在机器人实际要工作的地方采集的。</p>
-<p>导致这一困境的关键在于数据。大语言模型之所以能取得突破，是因为结合了可扩展的预训练与海量数据和算力；但在机器人领域，并不存在互联网规模的数据可供直接学习。</p>
-<p>Helix 2.5 想把大模型那套做法搬到人形机器人上：先用大量数据做通用预训练，再用少量数据教具体任务。它的预训练数据是 Figure 自己收集的人类经验数据 Index；三项家务再用机器人数据教会；然后不做任何调整，直接进没去过的家。</p>
-<figure><figcaption>Figure 官方视频（约 6 分钟，英文讲解，中英双语字幕）：CEO Brett Adcock 在一栋机器人没去过的房子里演示三项家务，AI 负责人 Corey Lynch 讲解 30 户测试、Index 和缩放定律</figcaption></figure>
-<hr />
-<h2>30 个陌生家庭的盲测现场：零样本到底测了什么</h2>
-<p>「零样本（zero-shot）」在这里有明确的范围。它不是说机器人没学过就会做一件新事。叠毛巾、铺床、捡玩具怎么做，是先用在别处采集的机器人任务数据教给模型的。<strong>零样本只指一件事：考试用的房子和物品，模型之前都没见过，到了现场也不做任何调整。</strong>具体来说：</p>
-<ul>
-<li>Figure 租下了旧金山湾区的 30 栋房子做盲测（blind evaluation），团队此前从未进过这些房子，也没有在里面采集任何数据。</li>
-<li>评估用的玩具、毛巾与床品在所有实验开始前就单独留出，先由一个 AI 模型、再由人工复核，确认它们没有在任务数据里出现过。</li>
-<li>机器人直接使用每个家庭自带的沙发、床铺、折叠台面与光照环境；每项任务在 30 个家庭中使用的是同一个固定的模型版本（checkpoint），没有针对评估家庭或物品调整权重，也没有利用评估中的试验数据或表现来挑选模型版本。</li>
-</ul>
-<figure><figcaption>三项任务的同步画面：左为收拾客厅，中为铺床，右为在厨房台面上叠毛巾</figcaption></figure>
-<p>这三项任务合起来，要用到感知、走动、抓取操作、双手配合和全身控制，每一项即便在固定环境里都不容易。下表是原文给出的任务定义：</p>
-<div><table>
-<thead>
-<tr>
-<th>任务名称</th>
-<th>目标物品</th>
-<th>场景条件</th>
-<th>初始状态干扰</th>
-<th>判定合格标准</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>客厅收拾 (Living Room Tidy)</strong></td>
-<td>13 至 15 件形状、材质、刚度各异的小型手持玩具</td>
-<td>目标住宅自带客厅，包括没见过的家具、地面铺装与光照</td>
-<td>工作人员将物品随意抛撒在地板、沙发与茶几上</td>
-<td>在全屋自主巡视搜寻，捡起全部物品并完整放回收纳篮</td>
-</tr>
-<tr>
-<td><strong>叠毛巾 (Towel Folding)</strong></td>
-<td>不同尺寸、颜色、厚度与触感的毛巾</td>
-<td>住宅内任意折叠操作台面，高度与表面摩擦力不一</td>
-<td>毛巾被随意揉团后扔在台面上</td>
-<td>每条毛巾叠好并放进篮子（图表显示每次试验 4 条）</td>
-</tr>
-<tr>
-<td><strong>铺床 (Bed Making)</strong></td>
-<td>不同材质、重量与纹理的床罩、被子与枕头</td>
-<td>住宅原有床铺，不同床架高度、床周边空间与照明条件</td>
-<td>工作人员随手把两只枕头和被子弄乱</td>
-<td>绕床走动，两只枕头归位床头三分之一区域，被面拉伸平整</td>
-</tr>
-</tbody>
-</table></div>
-<figure><figcaption>工作人员在测试前随机抛撒玩具、掀乱被褥并揉乱毛巾，设定不受控的初始状态</figcaption></figure>
-<p>评分只看整件事做没做完：<strong>不给部分分，一次试验必须把整项任务做完才算成功</strong>。评分细则还给每件物品设了时限：每件玩具限时 1 分钟，超时整次试验中止；每条毛巾限时 3 分钟，超时这条毛巾判失败（而整次成功要求所有毛巾都成功）；每个枕头、被子每一侧限时 1 分钟，超时整次试验中止并判失败。如果出于安全需要人工介入，该次试验同样中止并判失败。</p>
-<hr />
-<h2>8% 到 56%：预训练带来的差距</h2>
-<p>这组成绩里，有多少来自 Index 预训练，有多少来自教任务的那份机器人数据？Figure 做了一组对照实验：构建两个结构完全相同的<strong>策略（policy，即根据机器人看到、感觉到的情况，决定它下一步怎么动的模型）</strong>，用完全一样的任务数据和训练设置（超参数）。</p>
-<p>两个模型唯一的区别是起点：一个是从随机权重直接开始训练的任务专用模型；另一个则是先在海量人类行为数据（Index）上完成预训练、再以相同流程微调得到的 Helix 2.5。Helix 2.5 自己也是从随机初始化开始、完全在 Index 上预训练的；上一代 Helix 02 则是从一个现成的、预训练好的视觉语言模型起步。所以这组对照比较的是「有没有 Index 预训练」，不是「有没有任何预训练」。</p>
-<figure>
-<p>对照实验示意</p>
-<h3>两个模型只差起点：有没有先在 Index 上预训练</h3>
-<div>
-<p>Helix 2.5</p>
-<div>
-<span>第 1 步 · 起点</span>
-<p>从随机权重开始，先在 Index 人类经验数据上预训练</p>
-任何一项评估任务在 Index 里的占比都不超过 1.90%
-</div>
-<p>对照组</p>
-<div>
-<span>第 1 步 · 起点</span>
-<p>随机权重，没有 Index 预训练</p>
-</div>
-<div>
-<span>第 2–4 步 · 两组完全相同</span>
-<ol>
-<li><b>教任务：</b>同一份机器人任务数据，在别处采集，不含评估用的家庭和物品</li>
-<li><b>训练设置：</b>模型结构、优化方法、超参数一致</li>
-<li><b>考试：</b>每项任务固定一个模型版本，进 30 个陌生家庭盲测，每项 140 次，不给部分分</li>
-</ol>
-</div>
-<p><span>完整做完</span><strong>237 / 420</strong><em>56%</em></p>
-<p><span>完整做完</span><strong>35 / 420</strong><em>8%</em></p>
-</div>
-<figcaption>次数取自原文 Figure 1 的三项合计；博文正文把对照组写成 9%，图中合计是 8%。</figcaption>
-</figure>
-<p>两组模型在同样的 30 个家庭里各做了 420 次试验（每项任务 140 次），按任务拆开是这样：</p>
-<div><table>
-<thead>
-<tr>
-<th>评测任务</th>
-<th>不使用 Index 预训练（随机初始化）</th>
-<th>使用 Index 预训练 (Helix 2.5)</th>
-<th>倍数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>折叠全部 4 条毛巾</strong></td>
-<td>12 / 140 次成功 (9%)</td>
-<td>87 / 140 次成功 (62%)</td>
-<td>约 7.3 倍</td>
-</tr>
-<tr>
-<td><strong>收拾全部 13-15 件玩具</strong></td>
-<td>7 / 140 次成功 (5%)</td>
-<td>56 / 140 次成功 (40%)</td>
-<td>8 倍</td>
-</tr>
-<tr>
-<td><strong>完整整理床铺（≥B级）</strong></td>
-<td>16 / 140 次成功 (11%)</td>
-<td>94 / 140 次成功 (67%)</td>
-<td>约 5.9 倍</td>
-</tr>
-<tr>
-<td><strong>三项任务合计 (Pooled)</strong></td>
-<td><strong>35 / 420 次成功 (8.3%)</strong></td>
-<td><strong>237 / 420 次成功 (56.4%)</strong></td>
-<td><strong>约 6.8 倍</strong></td>
-</tr>
-</tbody>
-</table></div>
-<p><em>注：铺床任务的图表标签是「≥B」，附录则使用 Good / Bad / Fail 三档，两套标记没有给出对应关系。</em></p>
-<blockquote>
-<p><strong>三项合计的同分母结果是 35/420（约 8%）对 237/420（约 56%），相差约 6.8 倍。</strong>发布博文把起点写成 9%，但 9% 对应图中的叠毛巾单项（12/140）；为了保持分母一致，下文使用三项合计的 8% 与 56%。</p>
-</blockquote>
-<p>从各单项数据可以看出，收拾客厅的成功率（40%）明显低于铺床（67%）和叠毛巾（62%）。从评分规则推断，这可能和考核方式有关：收拾客厅要求把散落的 13 到 15 件物品全部找齐并放回收纳篮，每件限时 1 分钟，只要中途漏掉一件或抓取超时，整次试验就判为失败。而整体来看，用的是完全相同的任务数据，有没有经过 Index 预训练，三项任务的综合成功率相差了近 7 倍。</p>
-<p>官方视频里所说的“30 个家庭每户都看到成功”，指的是每个家庭里至少有过成功尝试。它不是“每次都成功”：在两组共 840 次对照试验中，有 Index 预训练的 420 次试验完成率仍是 56%。</p>
-<p>除了提升成功率，预训练还改变了教会新行为所需的数据量。Figure 报告的一组对比中，Helix 2.5 只用 Helix 02 一半的任务数据就达到相同成功率；Helix 02 在考试环境里采集数据，Helix 2.5 则直接进入 30 个陌生家庭。这组对比要表明的是：通用预训练可以减少每个新任务需要单独采集的机器人数据。</p>
-<hr />
-<h2>预训练用的 Index 是什么数据</h2>
-<p>大语言模型可以拿整个互联网的文字做预训练，机器人没有这样现成的数据。Figure 的思路是：人形机器人的身体在世界里移动的方式和人一样，所以它们也许能直接从人的经验里学。</p>
-<p>Figure 为此构建了名为 Index 的数据收集网络，做法是推出一款手机 App，付费请个人创作者（Creators）录下自己在家里或工作中做事的视频。Figure 在不同时间公布的规模数据包括：</p>
-<ul>
-<li><strong>规模</strong>：在官方视频中，团队提到每周有超过 9 万人贡献数据；而在 Helix 2.5 发布时，官方博文称 Index 每秒产生约 35 分钟新的人类经验。2026 年 8 月 25 日正式发布 Index 时，Figure 披露其 App 在 108 个国家累计下载超过 26.4 万次，截至当时已向创作者支付 1500 万美元。</li>
-<li><strong>任务与场景覆盖</strong>：数据涵盖了家庭里的烹饪、清洁、洗衣、清理猫砂等日常家务，也有换机油、收拾餐厅桌子，以及在物流中心、餐厅、工厂和办公室等工作场所记录的操作。创作者在各自环境中录制，带来了不同的户型、光照、家具布局和操作习惯。</li>
-</ul>
-<p>Figure 说明，预训练有意做得很广，以便后续能够微调出任意行为。按照其附录介绍的方法，团队把 Index 的每段视频做视频嵌入，再把视觉语言模型生成的活动与物体描述做文字嵌入，分别聚类成多层语义类别，统计各类别占总时长的比例。统计表明，<strong>三项评估任务中涉及的具体行为类别，在整个 Index 预训练数据集中的占比均未超过 1.90%</strong>。</p>
-<p>这里真正被对照实验支持的是迁移效果：任务数据完全相同时，在大量人类经验上预训练的模型完成率更高。从现有方法描述还不足以复现人类视频如何转成机器人的训练信号；训练目标、人手动作与机器人动作的对应方法，以及模型的具体结构仍未展开。</p>
-<hr />
-<h2>人类数据翻一倍，机器人动作预测稳定变好</h2>
-<p>成功率之外，Figure 还给出了一条缩放定律（scaling law）。据 Figure 所知，这是第一次在人形机器人上测到「从人迁移到机器人」的缩放定律。</p>
-<p>在大语言模型领域，缩放定律表明模型的预测损失（loss）会随着数据量与计算量的增加而平滑下降，从而让研究人员能够通过较小规模的训练运行，提前预测更大规模模型的表现。</p>
-<p>Figure 提出了一个对应的问题：将人类经验迁移到人形机器人动作预测上，是否也存在类似的可预测规律？</p>
-<p>为了验证这一点，Figure 固定模型规模和后面教任务的训练方式，只改变 Index 预训练数据的多少，分别用 1 倍、2 倍、4 倍、8 倍的 Index 数据训练了 4 个模型（小一档的数据都包含在大一档里）。这 4 个模型都用同一份任务数据微调，再在同一批留出来、不参与训练的数据上计算验证 loss（validation loss）。</p>
-<blockquote>
-<p><strong>这里的 loss 衡量什么？</strong>
-在一批没有参与训练的机器人任务数据上，让模型预测「机器人下一步该怎么动」。模型预测的动作与数据里实际动作之间的差距，就是这里的 loss，差距越小说明动作预测越准。</p>
-</blockquote>
-<p>结果很规整：人类数据每翻一倍，loss 就按差不多的幅度往下降一截。</p>
-<p>根据图中的读数，预训练数据从 1 倍增加到 8 倍时，验证集 loss 从约 0.02897 逐步降至约 0.02789。只用前 3 个较小数据量（1×、2×、4×）的结果画出趋势线，团队在训练最大的 8× 模型之前，将测试 loss 预测到了小数点后第四位；预测误差仅占整个 8 倍数据变化范围的 0.54%。</p>
-<p>换个角度看：这个 loss 本身在 0.028 左右，数据翻了 8 倍，它总共只降了约 0.0011（约 3.7%），预测误差只占这段变化的 0.54%——也就是说，规律曲线非常规整、高度可预测；但它衡量的是动作预测的误差，每一截的降幅本身并不大。</p>
-<figure>
-<p>重绘原文 Figure 2</p>
-<h3>Index 数据每翻一倍，动作预测 loss 降一截</h3>
-<ul>
-<li>四个模型的实测 loss</li>
-<li>只用 1×、2×、4× 三个点画出的延长线</li>
-</ul>
-人到机器人迁移缩放定律
-横轴为 Index 预训练数据量 1 倍、2 倍、4 倍、8 倍，纵轴为验证 loss。四个点近似排成一条直线：约 0.02897、0.02861、0.02825、0.02789。只用前三个点画出的延长线，经过 8 倍那个点。
-0.0290
-0.0288
-0.0286
-0.0284
-0.0282
-0.0280
-1×
-2×
-4×
-8×
-Index 预训练数据量（相对最小一档）
-<figcaption>纵轴只截取 0.0279 到 0.0290 这一小段，线看起来很陡，实际从 1× 到 8× 一共降了约 3.7%。四个点的数值是按原图读出的估算：1× 约 0.02897，2× 约 0.02861，4× 约 0.02825，8× 约 0.02789；原图每个点带误差线，这里省略。</figcaption>
-</figure>
-<p>这条曲线的用途，是在真正投入更大规模训练之前，预估“人类经验数据再翻一倍”能够降低多少动作预测误差。实验中只改变了 Index 数据量，模型规模和后续教任务的训练方式保持不变，所以曲线可用来做数据投入的规模预测。</p>
-<p>这条曲线衡量的是“下一步动作预测得准不准”，不是“一次家务能不能完整做完”。它能帮团队估算追加预训练数据的收益，却不能单独回答机器人进入家庭后的完整任务成功率会提高多少。</p>
-<hr />
-<h2>为什么必须全身一起动</h2>
-<p>大多数关于机器人泛化的研究都是在为机器量身打造的环境中进行的：桌面机械臂在固定的工作空间内作业；轮式机器人则需要地面有足够的开阔空间供底座驶入和转身。普通家庭不会提供这些便利。人形机器人必须在狭小、杂乱的空间中移动身体，调整站位，才能看清、够到并操作物品。于是任务成了全身的问题：机器人可能要先走过去找到东西，再换个站姿去够它，看、走、拿这几件事没法分开解决。</p>
-<p>传统机器人系统通常把走路和手上操作拆成两套独立的控制器，再用一套预设的切换规则（状态机）把它们串起来：走动、停下、站稳、伸手、抓取、再走动。在机器人控制领域，行业正在探索由统一神经网络直接调度全身（例如 <a>Google DeepMind 的 Gemini Robotics 2</a>）。Figure 自己此前发布的 Helix 02 也已经用一个神经网络控制全身；因此 Helix 2.5 的核心新突破不是「全身控制」本身，而是在从未见过的 30 个陌生家庭中，以零样本的方式做到了这一点：</p>
-<figure><figcaption>四个家庭里，机器人在沙发与茶几之间、床与衣柜之间的窄处边走边操作</figcaption></figure>
-<p>在这些未经改造的家庭环境中，三项任务都要求<strong>主动感知（Active Perception）</strong>：机器人必须在房间内走动、调整身体位置和朝向，才能看清死角并够到物品。</p>
-<figure><figcaption>主动感知：机器人在客厅与卧室中走动并俯身查看，搜寻散落物品</figcaption></figure>
-<p>在长时间、多步骤的任务里，Helix 2.5 还展示了一项定性能力：<strong>全身自我纠错</strong>。遇到失误或动作受限时，机器人会退后重新调整站姿、换个角度，或者绕到床的另一边纠正被角。这些画面说明机器人出错后不会立即卡死；自我纠错的稳定性还需要通过多次任务统计。</p>
-<figure><figcaption>全身纠错：原文说明这些画面里机器人退后、重新站位、在屋里走动，从失误中恢复并把长任务做完</figcaption></figure>
-<hr />
-<h2>这组实验最有价值的结论</h2>
-<p>Helix 2.5 真正推进的是机器人学习新任务的方式：先从大量人类操作视频里学会如何观察和行动，再用机器人任务数据教具体目标。三项任务使用完全相同的数据时，经过 Index 预训练的模型在陌生家庭里完成了 56% 的试验，没有预训练的模型只有约 8%。这说明预训练获得的经验确实迁移到了新的家具、物品和空间。</p>
-<p>另一项信号是，Index 数据每翻一倍，动作预测误差都会稳定下降。这让 Figure 第一次可以估计继续增加人类经验数据会带来多少模型收益，也解释了为什么它把重点从“为每个场景重新采机器人数据”转向建设大规模人类经验数据集。</p>
-<p>56% 仍然意味着近一半试验没有完整做完，而且测试只有三项家务，由 Figure 自己设计和评估。现有结果证明了预训练可以显著提高陌生环境中的任务成功率；距离机器人在普通家庭中长期、稳定地自主工作，还有不少能力和验证工作要补。</p>
-</div><div><div><div>来源</div><div><span>Helix 2.5: Zero-Shot 30-Home Generalization</span><span>Figure AI<span>·</span>2026-09-17<span>·</span><a href="https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://www.youtube.com/watch?v=lJpM_2a1zrE">Helix 2.5 30-Home Generalization（官方视频）</a><span>·</span><a href="https://www.figure.ai/news/introducing-index">Introducing Index: Building The World’s Largest and Most Diverse Physical Dataset</a><span>·</span><a href="https://www.figure.ai/news/helix-02">Introducing Helix 02: Full-Body Autonomy</a></div></div></div></div></div><div>
-<div>
-<div>FIGURE · HELIX 2.5</div>
-<h1>Figure 发布 Helix 2.5：人形机器人进 30 个从没去过的家，直接收拾客厅、铺床、叠毛巾</h1>
-<div>先用海量人类日常经验做通用预训练，再用少量机器人数据微调，让同一个模型跨越陌生环境的物理差异。</div>
-<div>核心提炼 · 3 分钟速读</div>
-<div>
-<p>普通人走进一间从未去过的房间，一眼就能认出家具并动手收拾；但对人形机器人来说，传统方案只能在特定房间里“死记硬背”。Figure 过去的 Helix 02 虽然实现了全身长程操作，但数据全部采集自作业现场。</p>
-<p>导致这一困境的核心症结在于数据壁垒：大语言模型可以抓取互联网级海量文本，而机器人物理世界不存在现成的行为数据。Helix 2.5 的核心突破，就是尝试将大模型的通用预训练范式复刻到具身物理控制中。</p>
-</div>
-<div>
-<div>
-<div>核心机制 · A/B 对照验证</div>
-<p><strong>同一份任务数据，起点决定泛化能力。</strong>Figure 构建了由海量人类真实生活视频构成的 Index 预训练集。在控制模型架构、任务训练数据与超参数完全一致的前提下，是否具备 Index 预训练成为了决定性变量：</p>
-<div>
-<div>
-<div>从随机权重初始化（无预训练）</div>
-<div>8.3%</div>
-<div>420 次陌生家庭测试中仅 35 次成功（博文正文写作 9%，此处按原文图表次数计算）</div>
-</div>
-<div>
-<div>先经 Index 预训练 (Helix 2.5)</div>
-<div>56.4%</div>
-<div>420 次陌生家庭测试中 237 次成功（提升近 7 倍）</div>
-</div>
-</div>
-<div>
-<div>分项完整完成率：条形为 Helix 2.5，右侧灰字为没有 Index 预训练的对照组</div>
-<div>
-<span>折叠毛巾</span>
-<div><div></div></div>
-<span>62%</span>
-<span>对照 9%</span>
-</div>
-<div>
-<span>整理床铺</span>
-<div><div></div></div>
-<span>67%</span>
-<span>对照 11%</span>
-</div>
-<div>
-<span>收拾客厅</span>
-<div><div></div></div>
-<span>40%</span>
-<span>对照 5%</span>
-</div>
-</div>
-</div>
-<div>
-<p>数据也更省：和一个有代表性的 Helix 02 任务相比，Helix 2.5 只用一半的任务数据就达到了同样的成功率，而且是在 30 个陌生家庭里做到的（原文没有公布具体数据量）。</p>
-</div>
-</div>
-<div>
-<p><strong>「零样本」到底测了什么？</strong>这绝不代表机器人凭空就能学会从未训练过的新家务，而是指考试时的房屋、家具与物品模型此前从未见过，到达现场后也不对权重进行任何针对性调整。</p>
-<div>
-<div>
-<div>30 栋</div>
-<div>湾区真实家庭盲测，团队此前从未踏入</div>
-</div>
-<div>
-<div>420 次</div>
-<div>两组模型各进行 420 次完整家庭试验</div>
-</div>
-<div>
-<div>0 部分分</div>
-<div>必须完整完成才算成功，超时或人工介入直接判负</div>
-</div>
-</div>
-<div>
-<p>考核极度严苛：收拾客厅需在限时内找齐并收纳全部 13-15 件物品，漏掉一件或抓取单件超过 1 分钟整次试验直接中止。按评分规则推断，这可能是收拾客厅成功率（40%）明显低于铺床（67%）的原因之一。</p>
-</div>
-</div>
-<div>
-<p><strong>缩放定律：人类数据每翻一倍，动作预测稳步变准。</strong>Figure 固定模型规模和后面教任务的训练方式，只改变 Index 预训练数据量（1×、2×、4×、8×）。据 Figure 所知，这是第一次在人形机器人上测到「人到机器人迁移」的缩放定律。</p>
-<div>
-<p><strong>验证集预测误差规律性平滑下降：</strong>根据前三档（1×, 2×, 4×）训练数据拟合的趋势线，团队在训练最大的 8× 模型前，将验证 loss 预测到小数点后第四位，实际误差仅占整个变化范围的 0.54%。</p>
-</div>
-<div>
-<p><strong>关键边界警示：</strong>这里的 loss 衡量的是模型对「下一步动作」的预测偏差。尽管动作预测规律高度可预测，但动作误差下降究竟能在多大程度上、以多快速度转化为实际任务成功率，目前仍缺乏实测数据支撑。</p>
-</div>
-</div>
-<div>
-<p><strong>为什么家庭环境必须「全身一起动」？</strong>传统工业机械臂可以在固定工作台作业，但真实家庭充满茶几与沙发的狭窄夹角。机器人不可能把「走动」和「抓取」拆成两个互不相干的独立过程。</p>
-<div>
-<div>
-<div>STEP 01</div>
-<div>主动感知</div>
-<div>在房间巡视走动，边走边弯腰查看死角，通过移动身体寻找散落物品。</div>
-</div>
-<div>
-<div>STEP 02</div>
-<div>动态调整</div>
-<div>在沙发与床沿狭窄缝隙中同步调整站姿，边走位边完成双手协作。</div>
-</div>
-<div>
-<div>STEP 03</div>
-<div>全身纠错</div>
-<div>抓取失误或空间受阻时，主动后退一步重新站位，或绕到床的另一侧把被角拉好（Figure 的定性观察）。</div>
-</div>
-</div>
-</div>
-<div>
-<div>
-<p><strong>能说明什么，还没证明什么：</strong>Figure 称这是第一份证据，表明人形机器人的全身能力可以从人类经验里学到、迁移到新环境，但这不等于通用机器人已经解决。56% 的综合成功率意味着 44% 的试验没有完整做完，原文没有公布失败原因的分布；「零样本」只针对房子和物品，三项家务仍要用机器人任务数据来教；这些成绩都是 Figure 自己挑选任务、自己评估的。</p>
-</div>
-</div>
-</div></div>
-</div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Claude Code 推出新版「Projects」功能：一个对话当主管，自动拆出多个云端线程并行干活，关了电脑也不停</title>
-<link>https://best.xiaohu.ai/article/claude-code-projects/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:claude-code-projects</guid>
-<pubDate>Fri, 18 Sep 2026 12:01:46 +0000</pubDate>
-<description>每个线程都是一个独立的云端 Claude Code 会话，在自己的分支上干活；项目对话里的 Claude 负责分派和跟踪，谁卡住了就排进「等你处理」。目前是 Pro、Max 的公开 beta，分批推送。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 18 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Claude Code 推出新版「Projects」功能：一个对话当主管，自动拆出多个云端线程并行干活，关了电脑也不停</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/claude-code-projects/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Claude Code 推出新版「Projects」功能：一个对话当主管，自动拆出多个云端线程并行干活，关了电脑也不停</h1><p>每个线程都是一个独立的云端 Claude Code 会话，在自己的分支上干活；项目对话里的 Claude 负责分派和跟踪，谁卡住了就排进「等你处理」。目前是 Pro、Max 的公开 beta，分批推送。</p><strong>一分钟速览</strong><ul><li>新版 Projects 把一个长期对话变成协调者：你交代目标，Claude 自动拆出多个云端线程并行执行，电脑关掉后也能继续。</li><li>每个线程都有独立上下文、代码副本和分支，可以写代码、跑测试、开 PR；遇到需要你决定的事项会暂停并集中显示。</li><li>项目指令、仓库和项目记忆会随线程共享，适合持续数天、跨任务或跨仓库的工作。</li><li>开始时先用一个小任务校准指令和验收方式，再决定并发规模与模型档位；多个高强度线程会像多个完整会话一样消耗额度。</li></ul><div><p>在 Claude 旧版的 Projects（claude.ai 聊天与 Cowork 里的项目）中，项目只是把对话和参考文件归拢在一起，既没有线程，也没有协调者。想同时跑几个 Claude Code 会话，协调工作都得你自己做：决定每个会话做什么，在每个会话开头重复交代同样的背景，再挨个回去看哪个做完了、哪个在等你回答。碰上一项要做好几天、跨好几个代码仓库的活，你就是那个调度员。</p>
-<p>Anthropic 在 Claude Code 的网页版（claude.ai/code）与桌面端上线了全新设计的项目（Projects）功能，目前处于面向 Pro 与 Max 订阅用户的公开 beta 阶段。这次改造的核心转变是从「静态资料夹」变成「带班主管」：整个项目收拢为一个持续运行的中央对话，你在对话里提出目标，由 Claude 担任协调者，自动将需求拆解成多个并行运行的线程（thread）。</p>
-<p>这里的线程不是简单的后台命令，每一个线程本质上都是一个独立的云端 Claude Code 会话。它们各自拥有专属的上下文窗口，在云端独立的沙箱和 git 分支上并行编写代码、跑测试、在需要时开 PR，并且在电脑合盖离线后继续运转。</p>
-<figure><figcaption>在项目对话中一次性输入排查延迟、起草发布说明和升级依赖三项任务，Claude 自动拆出三个并行线程，并在发现兼容性冲突时主动暂停等待决策。</figcaption></figure>
-<p>Projects 的主要能力：</p>
-<ul>
-<li><strong>一个对话派活</strong>：任务、bug、补充说明都丢进同一个项目对话，Claude 决定是就地回答、开新线程，还是转给正在做这块的线程。</li>
-<li><strong>多个线程并行，关了电脑也不停</strong>：每个线程是一个独立的云端 Claude Code 会话，有自己的上下文窗口、代码副本和分支。</li>
-<li><strong>需要你时才叫你</strong>：Overview（总览）面板按状态给线程分组，卡住等你拍板的排进 Waiting on you（等你处理），桌面端还会弹通知。</li>
-<li><strong>共享背景和记忆</strong>：每个新线程都带着同一份项目指令、仓库和项目记忆开工，你让 Claude 记住的决定，后面的线程都知道。</li>
-<li><strong>自己跟进 PR</strong>：线程开了 PR 就一直盯着，CI 挂了或来了评审意见会自己推修复，检查通过再告诉你。</li>
-<li><strong>能定时跑</strong>：可以让 Claude 把一部分工作做成例行任务（routine），按计划在项目里自动运行。</li>
-<li><strong>不止写代码</strong>：没有代码仓库也能用，上传文档让线程调研、写报告，成果交到 Library（资料库）。</li>
-</ul>
-<h2>运行机制：一条复合消息如何变成多个并行线程？</h2>
-<p>官方发布视频演示了这样一个上午：用户在一个名为 <code>checkout-service</code> 的服务项目里，一次性输入了一条包含三项诉求的复合指令——<code>/checkout</code> 接口的 p99 延迟在 4812 号部署后翻了一倍，查出原因并修复、起草周五的发布说明，顺便把 stripe-node（Stripe 的 Node.js SDK）升级到 v15。</p>
-<p>在项目里，主对话里的 Claude 担任协调者，看到的是线程汇报回来的结果，而不是它们走的每一步。Claude 会自主决定消息的去向：快速简单的问题通常直接在对话中就地回答；新工作会开出新线程，或者交由已经在该领域工作的线程继续做，Claude 也会明确告诉你转交给了谁；一条消息里如果包含几件互不相干的事，则会拆成多个独立线程。如果它的分派不符合你的预期，直接告诉它调整即可。</p>
-<p>在演示中，Claude 识别出这是三项独立工作，随即在界面上生成三张线程卡片并行派发：第一项任务在还剩 7 个提交的范围里二分查找出问题的提交；第二项任务检索 v4.11 以来已合并的 23 个 PR 开始归纳改动点；第三项任务更新 6 个文件里的 SDK 调用。此时右侧的总览（Overview）面板显示 3 个线程处于 Working（进行中）状态。</p>
-<p>在线程各自推进期间，如果你临时产生新想法，不需要重新梳理全局。例如用户半小时后在主对话随口补充了一句「发布改到周一了，发布说明里要写对」，协调者会自动识别这条信息归属于哪项工作，直接将其转交给撰写发布说明的线程。该线程在自己的独立会话里接收到转交的消息，就地把发布日期改成周一（9 月 22 日），并把代码冻结的提醒挪到周五，完全不干扰另外两个正在排查代码的线程。</p>
-<p>任务完成后的交付形式也各司其职。排查性能问题的线程最终定位出原因是 QuoteService 里的 N+1 查询，自动改回批量查询，在 GitHub 上推了新分支并开出 PR #4821，主对话随即收到「PR #4821 已开、CI 通过」的完工汇报。</p>
-<p>当线程遇到无法擅自决定的技术断点时，会自动停下等待人工输入。升级 stripe-node 的线程在更新完 6 个文件后运行契约测试，42 项测试通过了 41 项，最后一项因下游 webhook-lambda 仍跑在 Node 18 上而失败（stripe-node v15 不再支持 Node 18）。该线程并没有胡乱猜测或绕过测试，而是将状态置为 Waiting on you（等你处理），向用户提供升级 Lambda 运行时至 Node 20（推荐选项）或锁定 stripe-node v14 的权衡建议。</p>
-<p>需要说明的是，线程在模型支持时默认运行在 auto mode，绝大多数工具调用不需要向你确认。当某个线程确实需要你的批准时，提示只会出现在该线程内部，线程会一直等到你在该线程里作答；如果你在项目对话里告诉 Claude 继续，指令是传不到线程内部的。在线程专属的输入框里发消息会直达该线程，而在项目对话里发跟进消息，只有当 Claude 将其匹配给该线程时才会转交。在官方演示中，用户也是直接点开 stripe-node 线程，在其内部输入框中回复决策的。</p>
-<p>在项目对话右侧的总览（Overview）面板中，线程的状态会按六个分组清晰归类：</p>
-<ul>
-<li><strong>Ready for review（待审）</strong>：PR 已开、等待评审的线程；</li>
-<li><strong>Waiting on you（等你处理）</strong>：等待你的回复或批准，或是执行失败的线程；</li>
-<li><strong>Working（进行中）</strong>：仍在运行中的线程；</li>
-<li><strong>Landing（即将合并）</strong>：PR 已获批准或已排队等待合并的线程；</li>
-<li><strong>Idle（空闲）</strong>：已执行完毕且不等待任何事项的空闲线程；</li>
-<li><strong>Resolved（已了结）</strong>：标记为已了结的线程（由你手动标记、在你走完合并 PR 等最后一步后由 Claude 标记，或在一周没有活动后自动标记）。</li>
-</ul>
-<p>如果你使用的是桌面端，当线程报错、需要你输入或 Claude 在项目对话中发言时，系统会弹出桌面通知，无需时刻盯住界面；而在网页浏览器中，则可以通过 Overview 按钮上的提示圆点来获知有线程在等你。</p>
-<p>回到开头那个上午，四个线程在这几组之间是这样移动的：</p>
-<figure>
-<p>据官方发布视频逐帧整理 · 时刻为画面显示的时间</p>
-<p>一个上午：三件事怎么分出去，又在哪一刻轮到你</p>
-<p>项目 checkout-service。每个时刻左边是对话里发生的事，右边是同一时刻 Overview（总览）里四个线程各在哪一组；这一刻有变化的线程标了「变化」。</p>
-<ol>
-<li>
-<p>9:12</p>
-<div>
-<p>你 · 项目对话</p>
-<p>「/checkout 的 p99 延迟在 4812 号部署后翻倍了，查出来修掉。另外起草周五的发布说明，再把 stripe-node 升到 v15。」</p>
-<p>Claude · 项目对话</p>
-<p>拆成三个线程同时开工：「有需要你的我会标出来。」</p>
-</div>
-<ul>
-<li><span>Working 进行中</span><strong>修 p99 退化</strong><span>二分查找出问题的提交，还剩 7 个</span></li>
-<li><span>Working 进行中</span><strong>起草发布说明</strong><span>读 v4.11 以来合并的 23 个 PR</span></li>
-<li><span>Working 进行中</span><strong>stripe-node 升到 v15</strong><span>改 6 个文件里的 SDK 调用</span></li>
-<li><span>Idle 空闲</span><strong>pg 驱动升到 8.13</strong><span>早先的任务，PR #4790 已合并</span></li>
-</ul>
-</li>
-<li>
-<p>9:41</p>
-<div>
-<p>你 · 项目对话</p>
-<p>「对了，发布改到周一了，说明里要写对。」</p>
-<p>Claude · 项目对话</p>
-<p>只转给「起草发布说明」这一个线程，由它改日期、在线程里确认；另外两个线程不受打扰。</p>
-</div>
-<ul>
-<li><span>Working 进行中</span><strong>修 p99 退化</strong><span>找到出问题的提交 a3f9c12：QuoteService 里的 N+1 查询</span></li>
-<li><span>Working 进行中</span><strong>起草发布说明</strong><span>收到转来的消息：发布日改为 9 月 22 日周一，代码冻结提醒挪到周五</span></li>
-<li><span>Working 进行中</span><strong>stripe-node 升到 v15</strong></li>
-<li><span>Idle 空闲</span><strong>pg 驱动升到 8.13</strong></li>
-</ul>
-</li>
-<li>
-<p>9:58</p>
-<div>
-<p>Claude · 项目对话</p>
-<p>p99 线程做完了：原因是 QuoteService 里的 N+1 查询，已改回批量查询，PR #4821 已开，CI 通过。</p>
-<p>stripe-node 线程要你拍板才能往下走：v15 不再支持 Node 18，而 webhook Lambda 还跑在 Node 18 上，42 个契约测试卡在最后 1 个。</p>
-</div>
-<ul>
-<li><span>Resolved 已了结</span><strong>修 p99 退化</strong><span>PR #4821 已开 · CI 通过</span></li>
-<li><span>Working 进行中</span><strong>起草发布说明</strong></li>
-<li><span>Waiting on you 等你处理</span><strong>stripe-node 升到 v15</strong><span>卡住：Lambda 还在 Node 18</span></li>
-<li><span>Idle 空闲</span><strong>pg 驱动升到 8.13</strong></li>
-</ul>
-</li>
-<li>
-<p>约 10:02</p>
-<div>
-<p>你 · stripe-node 线程自己的输入框</p>
-<p>选「把 Lambda 升到 Node 20」。</p>
-<p>线程给过两个选项：升级 Lambda，改 infra/webhook-lambda.tf 里的一行、重新部署、重跑测试（它推荐这个）；或者停在 stripe-node v14，不动基础设施，但落后一个大版本。</p>
-</div>
-<ul>
-<li><span>Resolved 已了结</span><strong>修 p99 退化</strong></li>
-<li><span>Working 进行中</span><strong>起草发布说明</strong><span>草稿写好，准备发出去审</span></li>
-<li><span>Working 进行中</span><strong>stripe-node 升到 v15</strong><span>把 webhook Lambda 迁到 Node 20，重跑契约测试</span></li>
-<li><span>Idle 空闲</span><strong>pg 驱动升到 8.13</strong></li>
-</ul>
-</li>
-<li>
-<p>10:09</p>
-<div>
-<p>Claude · 项目对话</p>
-<p>周一的发布说明写好了：23 处改动，两处破坏性改动放在最前面。</p>
-</div>
-<p>视频到这里结束，没有展示此刻的 Overview。</p>
-</li>
-</ol>
-<figcaption>中文示意，按发布视频画面整理，不是产品界面。演示里 p99 线程在 PR 仍开着时就归进了 Resolved；按文档，PR 开着等审的线程通常在 Ready for review（待审）一组。</figcaption>
-</figure>
-<h2>Projects 与 Claude Tag 有什么关系</h2>
-<p>Projects 与 Slack 里的 Claude Tag 采用了相似的分层：上层会话负责接收任务和协调，独立线程负责执行，多个任务通过共享记忆衔接起来。</p>
-<ul>
-<li><strong>接活与干活分层</strong>：在 Claude Tag 中，每个 Slack 频道有自己的会话处理顶层消息；遇到需要调查、调用工具或长对话的任务，它会在消息下的 Slack 线程里启动专门的工作会话（dedicated session）。在 Claude Code 项目中，同样是由项目对话里的 Claude 担任协调者负责接活，真正干活的是它开出的各个线程。</li>
-<li><strong>独立沙箱与生命周期</strong>：Claude Tag 中每个线程运行在独立的临时云端沙箱中，同频道的两个线程是两个独立会话，不直接共享状态，沙箱在线程安静下来后释放、有新回复时再重建；项目中的每个线程同样是独立的云端会话，在各自的 Git 分支上工作，沙箱在两轮交互之间暂停，继续时再恢复。</li>
-<li><strong>跨任务记忆</strong>：Claude Tag 在公开频道中学到的经验会存成工作区共享记忆，私密频道单独保存；项目中各个线程也共享同一份项目记忆。</li>
-<li><strong>定时与跟进机制</strong>：Claude Tag 支持按计划运行任务、跟随 PR 并在其变动时采取行动；项目中同样支持例行任务（routine），且线程在开出 PR 后会自动盯住状态并跟进修复。</li>
-</ul>
-<p>两者的主要区别不是架构，而是使用者和工作环境：Claude Tag 面向 Slack 团队，Projects 面向一个人的长期工作。</p>
-<div><table>
-<thead>
-<tr>
-<th>比较维度</th>
-<th>Claude Tag</th>
-<th>项目（Projects）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>在哪用</td>
-<td>Slack 频道</td>
-<td>claude.ai/code、桌面端、手机 App</td>
-</tr>
-<tr>
-<td>谁能派活、谁能看到</td>
-<td>频道里任何人都能派活、都能看到和引导</td>
-<td>只有你自己</td>
-</tr>
-<tr>
-<td>接活的那一层</td>
-<td>频道自己的会话</td>
-<td>项目对话里的 Claude（协调者）</td>
-</tr>
-<tr>
-<td>干活的那一层</td>
-<td>Slack 线程里的工作会话（各有独立沙箱）</td>
-<td>线程（各是一个云端会话、各在自己的分支上）</td>
-</tr>
-<tr>
-<td>用谁的权限</td>
-<td>管理员为频道配置的服务账号</td>
-<td>你自己的 GitHub 权限与个人连接器（connectors）</td>
-</tr>
-<tr>
-<td>记忆范围</td>
-<td>公开频道共享给整个工作区，私密频道单独存</td>
-<td>这一个项目的记忆</td>
-</tr>
-<tr>
-<td>定时与跟进</td>
-<td>例行任务、跟随 PR 并在其变化时行动</td>
-<td>例行任务、线程盯住 PR 自动修复</td>
-</tr>
-<tr>
-<td>适用方案</td>
-<td>Team、Enterprise 方案</td>
-<td>Pro、Max 方案（Team 与 Enterprise 暂不可用）</td>
-</tr>
-</tbody>
-</table></div>
-<p>Claude Tag 面向团队，常驻在 Slack 频道里，频道成员可以派活或中途引导，用的是管理员统一配置的服务账号。</p>
-<p>而 Claude Code 的新版项目目前完全是个人专享的：只有你能向它发送任务或查看它的线程；线程使用的是你个人的 GitHub 推送权限和 claude.ai 绑定的连接器，线程记录也没有分享选项。</p>
-<h3>项目记忆由对话和线程共同维护</h3>
-<p>项目记忆（project memory）不是协调者独占写入的。你可以在项目对话或任何线程里让 Claude 记住需求、决策和踩坑点；纠正一个线程后，也可以把这次纠正写进记忆，让后续线程沿用。Claude 还会保存汇报频率、并发偏好等协调习惯。</p>
-<p>项目记忆沉淀的是长期的业务背景与决策，例如发布改到了周五、为什么砍掉导出功能、动计费服务前要先找谁。</p>
-<p>关于项目记忆，还有三点要知道：</p>
-<ol>
-<li><strong>可随时查看与维护</strong>：记忆文件存放在 Project settings &gt; Memory 中，列在 Auto memory 下，你可以随时查看、编辑或删除其中的文件；</li>
-<li><strong>与本地记忆及仓库规则独立</strong>：它和你本机 Claude Code 的自动记忆（auto memory）是两套独立的存储，也和仓库里的 <code>CLAUDE.md</code> 分开。仓库特有的编码规范应写在 <code>CLAUDE.md</code> 中，而关于该项目的业务背景和决策记录则写入项目记忆；</li>
-<li><strong>关键信息必须写入记忆</strong>：项目对话为了长久运行，并不读取完整的历史对话，而只基于最近的消息、最近的线程以及项目记忆来工作。所以任何绝对不能丢的信息，都要放进项目记忆。</li>
-</ol>
-<p>官方博客的演示动画展示了一个名为 Launch readiness 的项目从周一到周四的演进过程：发布日期最初依据 timeline.csv 定为 10 月 14 日，后来两次推迟到 21 日和 28 日，每次改动都同步更新并沉淀在记忆中；当用户提出「Add pricing to it」这类补充要求时，协调者会自动将其接到已有的 Partner email 线程上；这几天下来，产出的结果（Results）和定下的决定（Decisions）在对话下方一层层累积。</p>
-<figure><figcaption>官方博客的演示动画（英文界面，无声，26 秒）：左边是 Launch readiness 项目对话，下面叠着记忆（Memory）、结果、决定、文件和指令；右边是每个请求开出的线程。</figcaption></figure>
-<h3>线程是完整的云端会话</h3>
-<p>Projects 里的线程与 Claude Code 的 subagents（子 Agent）不是同一种东西。子 Agent 是单个会话内部的委托工作者，完成旁支任务后向主会话返回摘要。</p>
-<p>而在项目中派生出的线程，每一个都是全功能的独立云端会话（cloud session）。每个线程有自己的代码副本和自己的上下文窗口。在需要应对大型任务时，每个线程自身还能根据需要在其内部调用子 Agent、循环执行器（loops）和工作流（workflows）来拆分工序，从而让大型工作更快完成。</p>
-<h3>它会在哪些情况下主动行动</h3>
-<p>Projects 的主动行动主要出现在三种场景：</p>
-<ul>
-<li><strong>首个项目的初始化探索</strong>：你的第一个项目建好后，只要你没抢先发消息，Claude 会自己先走一轮：项目里有它能读的仓库时，可能开一个只读不改的探索线程，看完提出下一步建议；也可能根据你最近的云端会话贴出设置建议（Setup recommendations），列出建议添加的仓库、建议创建的例行任务和它可以开的线程。这一轮同样消耗你的套餐额度。</li>
-<li><strong>例行任务（Routines）</strong>：你可以让 Claude 把一部分工作放到计划里做成例行任务（routine），它以线程的形式在这个项目里运行，出现在 Routines 标签页；而在项目外单独创建的例行任务照常各自运行。</li>
-<li><strong>分支监听与自我修复</strong>：只要线程开了 PR，不管你其他云端会话有没有开 auto-fix（自动修复），它都会主动盯住该 PR。一旦 CI 构建变红或仓库收到了评审修改意见，线程就会主动唤醒并推送修复提交，直到检查通过且 PR 准备好供你评审时再向你汇报。</li>
-</ul>
-<p>实际使用时，还要提前配置并发、权限和额度规则：</p>
-<ul>
-<li><strong>并发线程没有固定上限</strong>：系统会根据任务需要启动相应数量的线程。你在对话里吩咐「最多同时跑两个」只是协调偏好，并不是系统的硬性上限；如果想让并发限制措辞精确且从一开始对所有线程生效，需要写进项目指令。唯一的硬性数量限制是：所有项目加起来每天最多新开 200 个线程。</li>
-<li><strong>批准规则写在仓库里</strong>：前面说过，需要你批准的提示只在线程内部出现。若想让所有线程对某些命令免问、或者一律禁止某些命令，要写进仓库 <code>.claude/settings.json</code> 的权限规则，而且只在单仓库项目里生效。</li>
-<li><strong>额度超限会自动重试并消耗后续窗口</strong>：当线程或项目对话撞上五小时或每周的用量上限时，系统会持续自动重试，一旦额度恢复就接着继续干，<strong>这会在你不发话的情况下直接用掉你下一个周期的额度窗口</strong>。如果你不希望它自动消耗新窗口，需要在线程里点击 Stop，或者直接暂停（Pause）整个项目。（例行任务启动的线程例外，碰到额度限制会直接报错停止，不会等待重试。）</li>
-</ul>
-<h2>横向对比：Claude Code 里的五种并行模式该怎么选？</h2>
-<p>一周前 <a>Cursor 也推出了同名的 Projects</a>，同样是一个协调者在云端规划、分派多个 Agent 干活。回到 Claude Code 自己，目前一共有五种让多项任务同时跑的方式。</p>
-<p>很多开发者容易被这些概念弄混。它们的核心区别在于两点：谁来做任务调度，以及代码跑在本地还是云端：</p>
-<div><table>
-<thead>
-<tr>
-<th>并行方式</th>
-<th>谁来调度</th>
-<th>在哪运行</th>
-<th>适用场景与边界</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>子 Agent（Subagents）</strong></td>
-<td>在发起它的那个会话内部由 Claude 委托派发并回收摘要</td>
-<td>在发起它的那个会话里</td>
-<td>临时处理旁支任务（如检索结果、日志或文件内容），避免主会话上下文被不会再引用的信息填满。</td>
-</tr>
-<tr>
-<td><strong>Agent 视图（Agent view）</strong></td>
-<td>由人派发并监控后台会话，用 <code>claude agents</code> 打开，研究预览（research preview）</td>
-<td>开发者本地机器（派出的会话在修改文件前会移入自己的独立 worktree）</td>
-<td>手头有几个互不相干的独立任务，希望交出去后一览各会话状态，只在需要时介入干预。</td>
-</tr>
-<tr>
-<td><strong>Agent 团队（Agent teams）</strong></td>
-<td>一个领头会话（lead）管理，队友会话共享任务列表、互相直接发消息</td>
-<td>在你的电脑上或一个云端会话内部运行（实验性功能，默认关闭）</td>
-<td>为单项任务拉起若干队友会话协作，任务结束就结束；由 Claude 拆解任务、分派并让成员保持同步。</td>
-</tr>
-<tr>
-<td><strong>动态工作流（Dynamic workflows）</strong></td>
-<td>一个脚本调度许多子 Agent 并交叉核对结果，计划握在脚本里，而不是靠 Claude 一轮轮临场判断</td>
-<td>文档没有单独说明</td>
-<td>任务规模超出少量子 Agent 所能承受，或需要互相核对结论：例如全代码库审计、500 个文件的迁移、交叉核对的研究，或多角度起草方案。</td>
-</tr>
-<tr>
-<td><strong>项目（Projects）</strong></td>
-<td>项目对话里的 Claude 担任长期协调者，自动开出并跟踪干活的线程</td>
-<td>全托管的云端沙箱环境（各线程在独立分支上运行）</td>
-<td>跨越数天或数周的长周期目标；电脑关机后依然在云端推进并按需开 PR，交代一次背景即可持续运转。</td>
-</tr>
-</tbody>
-</table></div>
-<p>需要提醒的是，同时运行多个会话或子 Agent，token 用量会成倍增加。</p>
-<p>Claude Code 的<a>跨会话消息</a>能让你自己开的几个会话互相传递发现和状态，但开哪些会话、谁做什么、什么时候收尾，依然需要你自己来安排；而新版项目的改变，在于把「开会话、分派任务、跟踪进展」这些繁复的调度工作，完全交给了项目对话里的 Claude。</p>
-<p>项目适合的是目标比单个会话更长、会不断冒出新任务的长线工作：例如一个目标跨多个仓库、一个持续往里丢 bug 的服务、一次比单个会话更大的开发或迁移，或是不写代码的纯文档工作（直接上传文件代替仓库，线程会把整理出的成果交到 Library（资料库）标签页）。而在以下四种情况下，用其他方式更为合适：</p>
-<ul>
-<li><strong>一个会话就能做完的单个任务</strong>（例如修一个不稳定的登录测试）：自己开一个云端会话即可；</li>
-<li><strong>需要只有你电脑能访问的工具或服务</strong>（例如本地数据库、设备模拟器、VPN 后面的接口）：用本地会话，或用 Agent 视图（agent view）同时跑几个；如果工作只需要本地文件，直接上传到项目即可；</li>
-<li><strong>按固定时间重复、不需要来回对话的任务</strong>（例如每周一发一份依赖报告）：单独建一个例行任务（routine）；</li>
-<li><strong>几个人在 Slack 频道里一起给 Claude 派活、一起引导</strong>：使用 Claude Tag。</li>
-</ul>
-<h2>用量：默认全用 Opus，比单个会话耗得快</h2>
-<p>新项目在默认配置下，项目对话和所有线程都默认使用 Opus 模型，其中线程默认开启高思考强度（High effort），而协调对话开启低思考强度。</p>
-<p>项目消耗的是与你其他 Claude Code 会话相同的套餐配额，但用量会跑得更快：每个运行中的线程都是一个完整会话，几个同时跑就会同时消耗配额；项目对话自身阅读线程汇报、决定下一步也要消耗 token；此外，那些处于空闲状态但正在盯 PR 的线程，一旦遇到 CI 失败或新的评审意见就会被唤醒，再次消耗额度。因此，Pro 订阅用户在运行项目的日子里，要预期会更早碰到套餐上限。不过，若项目中没有正在运行的线程、没有被盯的 PR 且没有新消息，项目闲置时并不消耗额度，归档的项目也不会产生消耗。</p>
-<p>想要控制并降低项目的用量，可以采取以下做法：</p>
-<ul>
-<li>在 Project settings &gt; Usage 中查看按线程、按模型拆分的 token 用量，以及项目对话自身的消耗；</li>
-<li>如果把跟进消息发给一个闲置时间已超过缓存有效期（Pro 与 Max 套餐额度内为 1 小时）的旧线程，它在处理前会先把整段对话重读一遍；因此对于新工作，让 Claude 开一个全新线程往往比唤醒体积庞大的旧线程更省 token；</li>
-<li>可以在通用设置（General）中，为线程或项目对话换用小模型，或者调低思考强度（effort）；</li>
-<li>让 Claude 在项目对话中少开几个线程，或者对小问题直接就地回答，不要动辄新起线程。</li>
-</ul>
-<h2>开工前要配好的三件事</h2>
-<p>把一条长线工作交给项目之前，GitHub 权限、线程能用的工具、多仓库时的规则，这三处最容易卡住。</p>
-<h3>GitHub：必须装 Claude GitHub App</h3>
-<p>在终端运行 Claude Code 时，开发者常通过 <code>/web-setup</code> 从终端连接 GitHub 并获取 token。那个 token 虽然能让你其他的云端会话访问代码库，但并不足以供项目线程使用。项目中的线程完全运行在云端，必须在目标仓库上安装官方的 Claude GitHub App，且你的 GitHub 账号必须对仓库拥有 push（推送）权限；若仓库属于开启了 SAML SSO 的组织，还必须显式完成组织级的单点登录授权。如果仓库上没装 Claude GitHub App，线程启动前就会报错，根本开不起来。</p>
-<h3>你本机装的东西，线程一样都带不上</h3>
-<p>线程运行在云端的全新环境里，你本机 Claude Code 里装的技能、MCP 服务器、插件和工具，一样都不会带过去。如果任务需要使用特定工具或扩展，必须通过以下方式补齐：</p>
-<ul>
-<li><strong>技能、子 Agent 与自定义命令</strong>：提交到项目关联的代码仓库中（例如 <code>.claude/skills/</code>、<code>.claude/agents/</code> 和 <code>.claude/commands/</code>），线程启动克隆时会自动加载它们；此外，线程也会自动加载你在 claude.ai 账号中启用的技能；</li>
-<li><strong>插件（Plugins）</strong>：在 Project settings &gt; Plugins 中添加，每个新线程启动时都会加载；</li>
-<li><strong>MCP 服务器</strong>：线程通过你 claude.ai 账号上绑定的连接器（connectors）来获取 MCP 工具，所有线程均可直接使用，无需针对每个项目重复配置。但需要特别注意：项目对话本身没有任何连接器，需要使用连接器的工作必须作为任务指派给线程执行；</li>
-<li><strong>命令行工具与包</strong>：在云端环境的 setup script（初始化脚本）中安装；</li>
-<li><strong>内网访问与环境变量</strong>：若需要访问公司内网 API、私有包仓库或需要 API 凭据，应在云端环境（Environment）中配置网络访问域名白名单、环境变量与 API 凭据。</li>
-</ul>
-<h3>多仓库：仓库里的权限规则和 hooks 不生效</h3>
-<p>项目支持关联多个代码仓库，但单仓库和多仓库时，仓库里的配置生效规则不一样。</p>
-<p>关联多个仓库时，每个仓库的 <code>CLAUDE.md</code>、<code>.claude/</code> 下的技能、子 Agent 和命令，以及各仓库 <code>settings.json</code> 里启用的插件，都会照常加载；两个仓库对某个插件意见不一时，以 Project settings &gt; Plugins 里的设置为准。</p>
-<p>不生效的是各仓库 <code>settings.json</code> 里定义的权限规则（permission rules）、hooks 和 env 环境变量，多仓库时一律不起作用，只有已启用插件自带的 hooks 仍会运行。原因是多仓库时线程从所有仓库克隆目录的上一层启动，不读任何一个仓库的这份文件。</p>
-<p>所以在多仓库项目里，统一的规矩要写进项目指令（Project instructions），环境变量要在云端环境里配。另外，在 Project settings 里改的指令、仓库、插件和环境，只对新开的线程生效，已经在跑的线程不受影响。</p>
-<h2>当前可用范围</h2>
-<ul>
-<li><strong>入口与平台限制</strong>：只能在 claude.ai/code 网页端、桌面端以及 Claude 移动端 App 中使用，终端 CLI 暂不支持（CLI 里的 <code>claude project</code> 命令用于管理本地目录状态，与此完全无关），也不能通过 Amazon Bedrock、Google Cloud 的 Agent Platform 或 Microsoft Foundry 等第三方平台使用；</li>
-<li><strong>仅限云端执行</strong>：本地会话无法加入项目，线程只在云端运行。官方说对本地工作流的支持「很快」会来；</li>
-<li><strong>单人私有与归属固定</strong>：项目只属于创建它的个人用户，无法与他人共享，线程记录也没有分享选项，beta 期间没有组织级管控；此外，线程严格归属于启动它的项目，无法在项目之间移动或复制；</li>
-<li><strong>没提交的改动可能丢</strong>：线程的沙箱在两轮之间暂停，继续时恢复；万一恢复不了，线程会从一份全新克隆接着做，没 commit 的改动就没了。长任务要在指令里让线程阶段性 commit 并 push 到远端分支。</li>
-</ul>
-<h2>总结：如何开始你的第一个长周期项目？</h2>
-<p>新版项目把开会话、分派和跟踪交给了协调者，你要花心思的地方变成了：规则写没写清、环境配没配好、交回来的活怎么验。</p>
-<p>在向新项目正式派发成批工作之前，建议按照官方指引做好初始设置与验证：</p>
-<ol>
-<li><strong>编写项目指令（Project instructions）</strong>：利用好最多 16,000 字符的指令空间，作为每个新线程的启动简报。明确写清工作在哪个代码库和分支上展开、PR 如何命名、线程在完工前如何自行检查（如运行 <code>make test</code> 和 <code>make lint</code> 并在最终汇报中附上摘要）、遇到依赖或凭据缺失时禁止自行猜测或 mock 伪造，以及哪些操作必须先在线程内获得你的许可。关于单一仓库特有的规则，则写在仓库的 <code>CLAUDE.md</code> 中。</li>
-<li><strong>先试跑一小块任务并检查结果</strong>：先发送一小块真实工作，或者点击启动 Claude 推荐的建议线程；待其完成后，点开线程查看它如何汇报、在其分支上具体做了什么修改。若发现其做出了错误假设或缺少访问权限，及时回到指令或环境中修复。</li>
-<li><strong>检查线程的模型与思考强度</strong>：前往 Project settings &gt; General 检查 Thread model 与 Thread effort。新项目默认所有线程都运行在 Opus 模型的高思考强度（High effort）下，这会最快消耗套餐额度，可根据任务复杂度换用较小模型或调低思考强度。</li>
-<li><strong>先设限磨合，符合预期后再放开</strong>：在项目对话中要求 Claude 先提出建议线程（propose threads）、等你看过点头后再启动，并限制一次最多同时跑几个线程。待跑过几轮、确认其拆解和汇报方式完全符合你的预期后，再放开这些限制。</li>
-</ol>
-<h2>谁现在能用</h2>
-<ul>
-<li><strong>现在</strong>：公开 beta，先推给用过云端会话、且在 claude.ai 聊天或 Cowork 里没有旧项目的 Pro、Max 用户。</li>
-<li><strong>稍晚</strong>：用过旧版项目的用户晚一点推，好让旧项目顺利迁过来。</li>
-<li><strong>接下来一周</strong>：扩大到更多 Pro、Max 的 Claude Code 用户；之后才轮到整个 Claude，以及 Team 和 Enterprise 方案。</li>
-<li><strong>怎么判断轮到你没有</strong>：claude.ai/code 侧边栏或桌面端 Code 标签页里看不到 Projects，就是还没推到你的账号，可以先加入<a href="https://claude.com/form/projects">等候名单</a>。</li>
-<li><strong>在哪用</strong>：网页（claude.ai/code）、桌面端，以及 iOS、Android 的 Claude 手机 App。</li>
-<li><strong>旧项目怎么办</strong>：照常能用，等新体验推广到聊天和 Cowork 时再统一升级。</li>
-</ul>
-</div><div><div><div>来源</div><div><span>Let Claude coordinate ongoing work with Projects</span><span>Anthropic<span>·</span><a href="https://code.claude.com/docs/en/claude-projects">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://claude.com/blog/projects-redesigned">Projects redesigned: from folder to conversation</a><span>·</span><a href="https://x.com/ClaudeDevs/status/2100633571543367691">@ClaudeDevs 发布推文</a><span>·</span><a href="https://claude.com/docs/claude-tag/concepts/how-it-works">How Claude Tag works</a><span>·</span><a href="https://code.claude.com/docs/en/agents">Run agents in parallel</a></div></div></div></div></div><div>
-<div>
-<div>Architecture Brief · Claude Code Projects</div>
-<h1>从静态资料夹到「带班主管」：Claude Code 长期协调架构</h1>
-<div>当项目收拢为一个持续运行的中央对话，调度员由人类移交给 Claude，多线程独立沙箱如何支撑跨天长周期工程？</div>
-<div>据 Anthropic 官方文档、发布博客与演示视频整理 · 建议阅读时间 4 分钟</div>
-<div>
-<p>在旧版项目里，多会话调度全靠人脑记忆与人工传话；新版 Projects 的核心跃迁，是将项目转化为一个拥有持续记忆的中央协调对话，自动派发具有独立沙箱与 Git 分支的并行云端线程。</p>
-<p>旧版 Projects 只是归拢文件与聊天记录的被动容器。碰上一项要做好几天、跨好几个代码仓库的活，决定每个会话做什么、重复交代背景、逐个盯进度的「调度员」全是你自己。这次改造的核心转变是从「静态资料夹」变成「带班主管」：整个项目收拢为一个持续运行的中央对话，你在对话里提出目标，由 Claude 担任协调者，自动将需求拆解成多个并行运行的线程（thread）。</p>
-<p>这里的线程不是简单的后台命令，每一个线程本质上都是一个独立的云端 Claude Code 会话。它们各自拥有专属的上下文窗口，在云端独立的沙箱和 git 分支上并行编写代码、跑测试、在需要时开 PR，并在电脑合盖离线后继续运转。</p>
-<div>
-<div>
-<div>核心分派架构：单条复合指令的动态解耦与路由</div>
-<div>中央对话作为协调者接活，执行线程在隔离沙箱推进；增量消息按需路由，完工成果汇聚成 PR。</div>
-</div>
-<div>
-<div>
-<div>User Intent (复合指令输入)</div>
-<div>“排查 /checkout 延迟翻倍并修复、起草周五发布说明、顺便把 stripe-node 升级到 v15”</div>
-</div>
-<div>↓ 语义解耦与上下文拆解</div>
-<div>
-<span>中央协调者 · Claude</span>
-<div>识别为 3 项独立任务，分别派生云端线程；之后只看各线程的汇报；中途补充的信息，转给正在做这件事的那个线程。</div>
-</div>
-<div>↓ 并行派发至独立沙箱与 Git 分支</div>
-<div>
-<div>
-<div>
-<div>Thread 01 · 故障排查</div>
-<div>排查并修复延迟</div>
-<div>7 个提交内二分定位 QuoteService N+1 查询，改回批量查询并推新分支。</div>
-</div>
-<div>PR #4821 已提 · CI 通过</div>
-</div>
-<div>
-<div>
-<div>Thread 02 · 文档归纳</div>
-<div>起草发布说明</div>
-<div>检索已合并 PR。中途主对话告知改期，协调者就地转交，自动更新为周一发布。</div>
-</div>
-<div>动态路由 · 增量同步</div>
-</div>
-<div>
-<div>
-<div>Thread 03 · 依赖升级</div>
-<div>升级 stripe-node v15</div>
-<div>改动 6 个文件，测试 41/42 通过；捕获下游 Node 18 不兼容，主动挂起等待决策。</div>
-</div>
-<div>Waiting on you · 决策挂起</div>
-</div>
-</div>
-</div>
-<div>
-<strong>架构本质：</strong>协调者看到的是线程汇报，不是每一步；线程默认运行在 auto mode，电脑关机后依然在云端推进。
-      </div>
-</div>
-</div>
-<div>
-<h2>六态流转与 Waiting on you 决策断点</h2>
-<p>在项目对话右侧的总览（Overview）面板中，线程按状态分进六组。大多数操作线程自己跑（auto mode），碰到要你拍板或批准的事就停下来，排进 Waiting on you：</p>
-<div>
-<div>
-<div>Working</div>
-<div>线程运行中，在云端沙箱跑测试、改代码。</div>
-</div>
-<div>
-<div>Waiting on you</div>
-<div>触发断点，等待人工审批、决策或解决报错。</div>
-</div>
-<div>
-<div>Ready for review</div>
-<div>代码推进完毕，PR 已提出，等待合并评审。</div>
-</div>
-<div>
-<div>Landing</div>
-<div>PR 评审通过，已排队等待主干合并。</div>
-</div>
-<div>
-<div>Idle</div>
-<div>执行完毕空闲；PR 变红或有新评审时自动唤醒。</div>
-</div>
-<div>
-<div>Resolved</div>
-<div>已了结：你手动标、合并后由 Claude 标，或一周没动静自动标。</div>
-</div>
-</div>
-<div>
-<p><strong>关键断点边界：</strong>当某个线程确实需要你的批准时，提示只会出现在该线程内部，线程会一直等到你在该线程里作答；如果你在项目对话里告诉 Claude 继续，指令是传不到线程内部的。所以批准和拍板，要点开那个线程，在它自己的输入框里回答。</p>
-</div>
-</div>
-<div>
-<h2>Projects 与 Claude Tag 的关系</h2>
-<p>两者采用相似的分层：上层会话接活，独立线程执行，并共享记忆与定时跟进。它们服务的场景不同：Claude Tag 面向 Slack 团队，Projects 面向个人长期工作。</p>
-<div>
-<div><table>
-<thead><tr><th></th><th>Claude Tag</th><th>项目（Projects）</th></tr></thead>
-<tbody>
-<tr><td><strong>接活的一层</strong></td><td>频道自己的会话</td><td>项目对话里的 Claude</td></tr>
-<tr><td><strong>干活的一层</strong></td><td>Slack 线程里的工作会话，各有沙箱</td><td>线程，各是完整云端会话、各在自己的分支</td></tr>
-<tr><td><strong>记忆</strong></td><td>公开频道共享给整个工作区</td><td>这一个项目的记忆，项目对话和任何线程里都能让它记</td></tr>
-<tr><td><strong>定时与跟进</strong></td><td>例行任务、跟随 PR</td><td>例行任务、线程盯 PR 自动修</td></tr>
-<tr><td><strong>谁派活、用谁的权限</strong></td><td>频道里任何人；管理员配的服务账号</td><td>只有你；你自己的 GitHub 权限和连接器</td></tr>
-</tbody>
-</table></div>
-</div>
-<p>另外，干活的线程不是 Claude Code 里那个「子 Agent」功能，而是完整的云端会话；线程内部需要时还能再用子 Agent 拆活。</p>
-</div>
-<div>
-<h2>横向定位：五种并发模式的职责边界</h2>
-<p>面对 Claude Code 演进出的多项任务并发机制，开发者极易混淆其适用场景。它们的核心区别在于两点：谁来做任务调度，以及代码跑在本地还是云端：</p>
-<div>
-<div><table>
-<thead>
-<tr>
-<th>并行方式</th>
-<th>谁来调度</th>
-<th>运行环境</th>
-<th>核心适用场景与边界</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>子 Agent (Subagents)</strong></td>
-<td>主会话内部 Claude 委托</td>
-<td>发起它的主会话内</td>
-<td>临时处理检索、日志等旁支任务，避免污染主上下文。</td>
-</tr>
-<tr>
-<td><strong>Agent 视图 (Agent view)</strong></td>
-<td>开发者本人手动派发</td>
-<td>本地机器独立 worktree</td>
-<td>手头多个互不相干的任务，交由本地并行执行并统一监控。</td>
-</tr>
-<tr>
-<td><strong>Agent 团队 (Agent teams)</strong></td>
-<td>Lead 会话领头协同</td>
-<td>本地或单一云端会话</td>
-<td>单项攻坚任务拉起队友协作，互相直接发消息，完工即散。</td>
-</tr>
-<tr>
-<td><strong>动态工作流 (Workflows)</strong></td>
-<td>确定性脚本程序驱动</td>
-<td>文档未单列</td>
-<td>超大规模确定性工序（如 500 文件迁移、全库代码审计）。</td>
-</tr>
-<tr>
-<td><strong>项目 (Projects)</strong></td>
-<td>长期协调者 (Coordinator)</td>
-<td>全托管独立云端沙箱</td>
-<td>跨数天/数周长周期工程；离线推进、多分支演进、盯 PR 闭环。</td>
-</tr>
-</tbody>
-</table></div>
-</div>
-</div>
-<div>
-<h2>云端隔离红线：开工前必配的三件事</h2>
-<p>将长周期任务交给项目前，开发者必须意识到云端沙箱的全新环境特性：线程运行在云端的全新环境里，你本机 Claude Code 里装的技能、MCP 服务器、插件和工具，一样都不会带过去。</p>
-<div>
-<div>
-<div>
-<div>1. GitHub 权限：必须安装官方 Claude GitHub App</div>
-<div>终端 <code>/web-setup</code> 连上的 GitHub token 只够其他云端会话用，项目线程用不了。目标仓库必须装 Claude GitHub App，你的账号要有 push 权限；组织开了 SAML SSO 还要单独授权。</div>
-</div>
-<div>
-<div>2. 扩展与 MCP：需通过代码库或 Connectors 显式加载</div>
-<div>本机配置不自动穿透。技能与自定义命令需提交到仓库的 <code>.claude/</code> 目录；MCP 工具通过 claude.ai 绑定的 Connectors 全局分发（注意协调对话本身无连接器，仅线程可调）。</div>
-</div>
-<div>
-<div>3. 多仓库边界：仓库内 settings.json 权限与 hooks 不生效</div>
-<div>多仓库项目从各仓库克隆目录的上一层启动，不读取各自的权限规则和环境变量。跨仓库统一规矩必须写入 Project instructions，环境变量在云端环境里配。</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<h2>额度：比单个会话耗得快</h2>
-<div>
-<div><div>Opus</div><div>新项目默认模型，线程用高 effort，最耗额度</div></div>
-<div><div>200</div><div>每天新开线程的硬上限；同时跑几个没有固定上限</div></div>
-<div><div>自动续</div><div>额度用完会等下一个窗口接着干，不用你发话</div></div>
-</div>
-<p>几个线程同时跑，就是几个完整会话同时在耗；盯着 PR 的空闲线程碰上 CI 失败或新评审还会被唤醒再耗一次。不想吃掉下一个窗口，就在线程里点 Stop 或暂停整个项目。</p>
-</div>
-</div>
-</div>
-</div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】AI 产品效果上不去，先别急着训模型：Hamel Husain 整理的 13 场实战分享</title>
-<link>https://best.xiaohu.ai/article/hamel-ai-product-engineering/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:hamel-ai-product-engineering</guid>
-<pubDate>Fri, 18 Sep 2026 12:01:46 +0000</pubDate>
-<description>评估是地基，先改检索和上下文，再改系统，最后才训练模型。13 场分享覆盖错误分析、模型级联、多向量检索、OCR 选型、推理延迟、Agent 沙箱和后训练，每场都有能照着做的方法和实测数字。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 18 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">AI 产品效果上不去，先别急着训模型：Hamel Husain 整理的 13 场实战分享</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/hamel-ai-product-engineering/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>AI 产品效果上不去，先别急着训模型：Hamel Husain 整理的 13 场实战分享</h1><p>评估是地基，先改检索和上下文，再改系统，最后才训练模型。13 场分享覆盖错误分析、模型级联、多向量检索、OCR 选型、推理延迟、Agent 沙箱和后训练，每场都有能照着做的方法和实测数字。</p><strong>一分钟速览</strong><ul><li>这 13 场分享给出一条清晰的改进顺序：先把评估做对，再改检索和上下文，然后优化系统，最后才考虑后训练。</li><li>评估要从真实日志里的错误开始：先找反复出现的失败，再为这些失败写评分标准和自动评判器。</li><li>很多效果和成本问题不需要换模型：分类可以让小模型先做、没把握再升级，搜索 Agent 则常常先要修检索器。</li><li>只有正确答案能自动验证、模型又确实有提升空间时，后训练才值得投入；动手前还要先排除超时、资源不足等评测环境问题。</li></ul><div><p>Hamel Husain（做大模型评估的头部实践者，AI Evals 课主讲之一）办了 13 场「AI 产品工程」分享，他把 9.5 小时压成 20 分钟能读完的笔记。这篇解读把 13 篇完整讲一遍；每场分享的完整录像都放在 YouTube 或 Maven 上，各节末尾附了观看链接。</p>
-<p>把大模型做成好用的产品，能调的地方很多。这组分享给出的先后顺序是：</p>
-<ol>
-<li><strong>评估是地基</strong>。评估就是一套固定的测试样例，加上明确的判分方法。能准确衡量系统表现，后面每一次改动才知道是变好还是变坏。</li>
-<li><strong>先改检索和上下文</strong>。这是最容易见效的地方：先把喂给模型的材料弄对。</li>
-<li><strong>再改系统和外壳</strong>。外壳（harness）指包在模型外面、负责调工具和管流程的那层程序；这一层还包括推理速度、硬件成本和运行环境。</li>
-<li><strong>后训练放在最后</strong>。前面几项都试过了，才考虑改模型本身。改评估、检索和外壳，动的是代码、提示词和配置，花钱少、见效快，改坏了也容易退回去；后训练要准备数据、花算力和时间。没有可靠的评估，训练完也没法判断模型是真变好了，还是在别处变差了。</li>
-</ol>
-<p>遇到具体问题，可以直接跳到对应小节：</p>
-<ul>
-<li>效果不稳定、不知道具体错在哪：错误分析、教育平台教训</li>
-<li>分类任务调用大模型开销太大：模型级联</li>
-<li>数据分析 Agent 查库频频出错：数据分析 Agent</li>
-<li>RAG 检索丢失关键细节或抓不准：多向量检索、选嵌入模型、搜索 Agent</li>
-<li>PDF 和扫描件排版解析错乱：选 OCR</li>
-<li>让 Agent 改写长文总丢失关键决定：Subtext</li>
-<li>回答生成太慢、用户等太久：推理延迟</li>
-<li>打算部署开源模型却算不清显存：开源模型经济学</li>
-<li>Agent 跑代码存在安全隐患或意外崩溃：给 Agent 配沙箱</li>
-<li>想微调模型却吃不准是否有必要：后训练</li>
-</ul>
-<h2>评估：先弄清错在哪</h2>
-<p>这一层解决「怎么知道改动有没有用」。每次调了提示词、改了业务逻辑，就把固定的测试样例跑一遍，用分数确认系统是进步了还是倒退了。下面四节讲的是：好的评测该长什么样、怎么先找到真实的错误、怎么在守住准确率的同时省钱，以及一个团队真实踩过的坑。</p>
-<h3>数据分析 Agent：错得最多的是计划，不是找错数据</h3>
-<p>数据分析 Agent 连上公司的数据库，自己写查询或代码，回答「哪一批用户流失率最高」这类业务问题。这类问题原本由数据分析师来答，在知识工作里占比很大，但能好好衡量 Agent 答得怎么样的评测基准很少。</p>
-<p>Shreya Shankar 介绍了数据 Agent 基准 <a href="https://arxiv.org/abs/2603.20576">Data Agent Benchmark（DAB）</a>。真实的数据仓库很乱，DAB 刻意还原了其中四类麻烦：</p>
-<ul>
-<li>多数据库整合：单次任务所需的数据分散在至少两种数据库系统里。</li>
-<li>关联键格式不规范：比如（示意）同一个用户，在用户表里记作 <code>USER_1001</code>，在订单表里却是 <code>usr-1001</code> 或 <code>1001</code>，Agent 得自己判断它们是同一个人，才能把两张表连起来。</li>
-<li>非结构化文本转换：关键数值埋在自由填写的文字里，要先从文字里提取出来。</li>
-<li>领域知识：要懂这个行业的专门概念，才能把问题答对。</li>
-</ul>
-<p>论文对比了五类已有基准（Text-to-SQL、表格问答、数据科学与工程、语义查询处理、通用工具调用）。只有 DAB 四项全部覆盖；前两项，其他五类基准都没有覆盖。</p>
-<p>DAB 是通用基准，回答的问题和你为自己产品做的评估不同，但它的失败分析对做数据 Agent 很有用：<strong>Agent 错得最多的地方是计划和实现本身写错了，而不是选错了数据。</strong> Agent 常常开工时先写好一份计划，做到一半数据已经和计划里的假设对不上，它还是照原计划往下做。调试自己的数据 Agent 时，这类失败值得留意。DAB 公开接受提交，结果在 <a href="https://ucbepic.github.io/DataAgentBench/">DAB 排行榜</a>上，团队会在新模型发布时刷新，值得关注。</p>
-<p>Shreya 讲 DAB 的完整分享可以在 <a href="https://youtu.be/ubk57rW_KUo">YouTube 上观看</a>。</p>
-<h3>模型级联：有把握的交给小模型，没把握的再交大模型</h3>
-<p>许多大模型落地场景本质上是分类任务，例如客服工单按紧急程度打标签、内容违规判定等。大模型用起来太方便，很容易什么请求都丢给最大、最贵的模型；可调用量一大，成本就很高。</p>
-<p>Shreya 介绍的 <a href="https://github.com/ucbepic/BARGAIN">BARGAIN</a>（论文 <a href="https://arxiv.org/abs/2509.02896">arXiv:2509.02896</a>）目标是把大部分分类工作挪给小模型，同时守住你设定的准确率。白板上演示的场景是给工单判「是/否」：直接用 gpt-5.6 sol 判，准但太贵。BARGAIN 的做法是让便宜的 gpt-5-nano 先判；小模型给出答案的同时，还给出一个把握度（0 到 1 之间的数，表示它对这个答案有多确定，比如 0.98 是很确定，0.55 是差不多靠猜）。再设一个阈值 τ：把握度高于 τ，说明小模型够确定，直接用它的答案；不高于 τ，就把这条交给大模型重新判。</p>
-<p>阈值 τ 调高，更多样本会转给大模型，结果更准，也更贵；调低，更多样本留给小模型，省钱，但小模型判错的会更多。要注意，这里的准确率算的是<strong>最终结果和大模型判断一致的比例，不是和人工标注一致的比例</strong>。模型级联的目标是用更低成本得到和大模型一样的答案；大模型本身判得对不对，是另一项评估要回答的问题。</p>
-<p>上线前，用一批样本定出阈值 τ，步骤是：</p>
-<ol>
-<li>抽约 500 条样本，让小模型跑一遍，记下每条的答案和把握度。</li>
-<li>让大模型把这 500 条也判一遍，作为对照。</li>
-<li>用同一批样本检查：小模型的把握度越高，是不是真的越常和大模型一致。如果小模型很「确定」的时候也经常和大模型判得不一样，把握度就不可靠，按把握度分流这个办法就不成立。</li>
-<li>把样本里出现过的每个把握度都当成阈值试一遍，模拟分流后的一致率和成本，在达到目标（比如和大模型 95% 一致）的阈值里，选成本最低的那个。</li>
-</ol>
-<p>概念示意 · 30 条虚构样本</p>
-<p>拖动阈值：多少条交给大模型，结果还剩多少和大模型一致</p>
-<p>每个格子是一条样本，按小模型的把握度从低到高排列。✓ 表示小模型的答案和大模型一致，✗ 表示不一致。把握度不高于阈值的样本改交大模型，结果按大模型算，一定一致。</p>
-<div>
-阈值 τ = 0.72
-<p>左右拖动或用方向键，阈值只取样本里出现过的把握度。</p>
-</div>
-<ol>
-<li><span>✗</span><span>把握度 0.52，小模型与大模型不一致</span></li><li><span>✓</span><span>把握度 0.55，小模型与大模型一致</span></li><li><span>✗</span><span>把握度 0.57，小模型与大模型不一致</span></li><li><span>✗</span><span>把握度 0.60，小模型与大模型不一致</span></li><li><span>✓</span><span>把握度 0.62，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.64，小模型与大模型一致</span></li><li><span>✗</span><span>把握度 0.66，小模型与大模型不一致</span></li><li><span>✓</span><span>把握度 0.68，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.70，小模型与大模型一致</span></li><li><span>✗</span><span>把握度 0.72，小模型与大模型不一致</span></li><li><span>✓</span><span>把握度 0.74，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.76，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.78，小模型与大模型一致</span></li><li><span>✗</span><span>把握度 0.80，小模型与大模型不一致</span></li><li><span>✓</span><span>把握度 0.82，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.84，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.85，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.87，小模型与大模型一致</span></li><li><span>✗</span><span>把握度 0.88，小模型与大模型不一致</span></li><li><span>✓</span><span>把握度 0.90，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.91，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.92，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.93，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.94，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.95，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.96，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.97，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.98，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 0.99，小模型与大模型一致</span></li><li><span>✓</span><span>把握度 1.00，小模型与大模型一致</span></li>
-</ol>
-<p><span>灰底</span>已改交大模型　<span>白底</span>直接采用小模型答案</p>
-<div>交给大模型10 / 30 条（33%）</div>
-<div>与大模型一致28 / 30（93.3%）</div>
-<div>
-<p>按原方法自动找阈值：选一个目标一致率，逐个试样本里的把握度，停在交给大模型最少、仍然达标的那个</p>
-<div>
-目标 90%
-目标 95%
-目标 100%
-</div>
-<p>虚构样本里：目标 90% 时 τ = 0.66，交大模型 7 条；95% 时 τ = 0.80，交 14 条；100% 时 τ = 0.88，交 19 条。</p>
-</div>
-<p>数据是为演示编的，只用来说明「阈值越高越准、也越贵」和选阈值的步骤。真实做法抽约 500 条，由大模型标注；这里的「一致率」指和大模型一致，不是和人工标注一致。</p>
-<p>论文在 8 个数据集上测试，报告 BARGAIN 比其他同类方法多省下的成本最高达 86%。</p>
-<p>后续的 <a href="https://arxiv.org/abs/2601.05536">Task Cascades</a> 论文又加了三项优化：把提示词改写成便宜模型也能答的简化问题；每份文档只读最相关的几段，不读全文，少花输入 token；在多种级联组合里搜索，找出达到准确率目标、成本最低的那一串。和 BARGAIN 这类级联相比，平均再省 48.5% 的成本。</p>
-<p>完整讲解见 <a href="https://youtu.be/FWFjLF_VoVI">Shreya 讲模型级联的录像</a>。</p>
-<h3>错误分析：先看数据，再写评分标准</h3>
-<p>系统表现不如预期时，常见的错误是还没看任何数据，就先写一套评分细则（rubric）。凭想象列出来的问题，实际运行里未必出现；真正让任务失败的问题，反而可能没列进去。</p>
-<p>应该先做<a href="https://hamel.dev/blog/posts/evals-faq/why-is-error-analysis-so-important-in-llm-evals-and-how-is-it-performed.html">错误分析</a>：一条条读实际的运行记录（trace，模型完成一次任务时每一步的输入、输出和工具调用），把反复出现的失误归成一份失败类型分类表，比如下一节教案助手「一次写出两个学习目标」就是一类失败。这是评估里最费人工的环节。Shreya 介绍的 <a href="https://github.com/ai-evals-course/evals-skills">Error Discovery 技能</a>能省掉很多麻烦：你边标注，它边更新失败类型分类表；每发现一种新模式，还会回头检查之前的记录里有没有同类。它用了主动学习（active learning）的思路，说白了就是不随机抽记录给你看，而是根据你已经标过的内容，优先挑最可能暴露新问题、或者最需要人来判断的记录。</p>
-<p>它的工作流程分三步：</p>
-<ol>
-<li>搭一个本地审阅页面：用 Python 标准库起一个本地服务，配一个单文件网页，不用装任何依赖。页面用颜色、间距和字体区分角色、层级和正文与代码，让很长的运行记录读得下去。</li>
-<li>挑第一批样本：提取特征，把记录聚成 6–10 组，挑 15–25 条尽量不同的样本开始看，其中 60%–70% 是各组的代表，30%–40% 随机抽取，并去掉重复。</li>
-<li>人和 Agent 轮流推进：人在页面上读样本、高亮文字、写备注，接受或驳回 Agent 的建议；Agent 根据这些标注更新失败类型分类表，再挑下一批样本推回页面。</li>
-</ol>
-<figure>
-<figcaption>
-<p>图解 · Error Discovery 的审阅循环</p>
-<p>人负责判断，Agent 负责归类和挑样本</p>
-</figcaption>
-<ol>
-<li>
-<span>人</span>
-<strong>读样本、做标注</strong>
-<span>高亮文字、写备注，接受或驳回 Agent 的建议</span>
-</li>
-<li>
-<span>Agent</span>
-<strong>整理失败类型</strong>
-<span>根据标注更新失败类型分类表</span>
-</li>
-<li>
-<span>Agent</span>
-<strong>挑下一批样本</strong>
-<span>广度模式：找没见过的失败类型<br />深度模式：每种类型派一个子 Agent 找同类</span>
-</li>
-</ol>
-<p>↺ 新样本推回审阅页面，回到第一步，循环往复</p>
-</figure>
-<p>Agent 有两种工作方式：广度模式用来发现还没见过的失败类型，会提议新的样本；深度模式把某一种失败类型挖透，每种类型派一个子 Agent，去更多记录里找同类实例。最后得到一份失败类型分类表、一组审过的样本，以及覆盖和收敛情况的总结。</p>
-<p>这个技能具体怎么用，可以看 <a href="https://youtu.be/tqUDjc1HzO4">Shreya 的 Error Discovery 演示录像</a>。</p>
-<h3>教育平台的教训：两个标注员的一致率比随机还低</h3>
-<p>Lucas Machado Rocha 用评估来优化巴西非营利教育平台 <a href="https://novaescola.org.br/">Nova Escola</a>（月活约 100 万用户，服务 20 万名教师）的教案生成助手。他的团队犯过两个错：</p>
-<p>第一，没做错误分析就先写评分标准。结果标准里的大部分条目，在实际输出里从来没出过错，团队白白标注了一批用不上的数据。第二，为一个改提示词就能解决的问题专门做了评估器。助手有时会写出两个学习目标，而正确格式只该有一个；团队改了提示词，问题就没了。什么时候值得为一种失败做自动评估器，Hamel 在<a href="https://hamel.dev/blog/posts/evals-faq/should-i-build-automated-evaluators-for-every-failure-mode-i-find.html">评估 FAQ</a> 里专门讨论过这个取舍。</p>
-<p>标注时还暴露出另一个问题：团队请了两位标注员分别给同一批教案打分，<strong>两人意见一致的比例比随机乱标还低</strong>。两个人认真看同一份教案，结论却几乎对不上，说明问题不在标注员，而在团队没把「什么算好教案」定义清楚，每个人按自己的理解在打分。团队和教学专家一起重写了评分标准，重新标注了数据。</p>
-<p>通过错误分析找出失败类型之后，Lucas 用 <a href="https://hamel.dev/blog/posts/evals-skills/index.html">eval skills</a> 自动完成后面的一部分工作，包括编写评判器（让大模型按评分标准打分的程序），以及拿人工标注去核对评判器打得准不准。评判器本身也是模型，不核对就不知道它给的分能不能信。上线后，他们每天拿 2% 的生产流量跑一遍这套评估，尽早发现效果倒退，比如某次改提示词或换模型后，原本正常的输出变差了。</p>
-<p>Lucas 从头到尾的完整做法，见 <a href="https://youtu.be/mF4CaijvJos">他的分享录像</a>。</p>
-<h2>检索与上下文：多数时候问题出在喂给模型的材料</h2>
-<p>模型答错，很多时候不是模型不够聪明，而是喂给它的材料不对：没找到、缺细节，或者格式已经乱了。这一层是最容易见效的地方，下面五节分别讲怎么让检索保留细节、怎么评估和诊断搜索 Agent、怎么选嵌入模型、怎么把 PDF 读对，以及改写文档时怎么不丢关键信息。</p>
-<h3>多向量检索：每个 token 都留一个向量，再想办法把成本压下来</h3>
-<p>常见的向量检索把每篇文档压成一个向量（一串表示文字意思的数字），检索时比较问题向量和文档向量有多接近。打个比方，这就像把一整本小说缩成一句话简介：大意还在，具体的数字、人名、参数这些细节就被抹平了，这就是信息瓶颈。</p>
-<p>Marek Galovic 讲的多向量检索绕开了这个瓶颈：问题和文档里的每个 token 都各留一个向量。打分方法叫 MaxSim：问题里的每个 token，去文档的所有 token 里找意思最接近的那一个，记下这个最高分；再把问题里所有 token 的最高分加起来，就是这篇文档的得分。这样问题里的每个词都能在文档里找到自己的对应，细节不会在压缩时丢掉。</p>
-<figure>
-<figcaption>
-<p>概念示意 · 分数为虚构</p>
-<p>MaxSim 怎么给一篇文档打分</p>
-<p>问题「电池 续航 多久」有 3 个 token，文档「这款 手机 电量 能撑 两天」有 5 个。表里每格是一对 token 的相似度；每一列只取最高的那格（加粗高亮），三列最高分相加就是文档得分。</p>
-</figcaption>
-<div>
-<div><table>
-<thead>
-<tr><th>文档 token</th><th>电池</th><th>续航</th><th>多久</th></tr>
-</thead>
-<tbody>
-<tr><th>这款</th><td>0.05</td><td>0.05</td><td>0.10</td></tr>
-<tr><th>手机</th><td>0.35</td><td>0.30</td><td>0.05</td></tr>
-<tr><th>电量</th><td><b>0.82</b><span>（本列最高）</span></td><td>0.60</td><td>0.15</td></tr>
-<tr><th>能撑</th><td>0.30</td><td><b>0.71</b><span>（本列最高）</span></td><td>0.35</td></tr>
-<tr><th>两天</th><td>0.10</td><td>0.40</td><td><b>0.66</b><span>（本列最高）</span></td></tr>
-</tbody>
-<tr><th>本列最高</th><td>0.82</td><td>0.71</td><td>0.66</td></tr>
-</table></div>
-</div>
-<p>文档得分 = 0.82 + 0.71 + 0.66 = <b>2.19</b></p>
-<p>对照单向量检索：整个问题一个向量、整篇文档一个向量，只算一次相似度。MaxSim 让「续航」自己去找「能撑」，「多久」自己去找「两天」，细节不会在压缩时被抹平；代价是每个 token 的向量都要存、都要比。</p>
-</figure>
-<p>Marek 的幻灯片提到，这种方法在跨领域检索和长文本检索上达到了目前最好的效果。问题是贵：文档里每个 token 的向量都要存下来，比较时问题的每个 token 都要和文档的每个 token 比一次，比较次数随两边长度相乘增长。Marek 估算，MaxSim 的计算量约是单次向量点积的 2000 倍，存储要多 10 到 100 倍，所以它长期停留在论文里。</p>
-<p>要让它能大规模用起来，Marek 讲的最主要的优化是 <a href="https://www.topk.io/blog/20260311-smve-multi-vector-retrieval">SMVE</a> 。它的核心思路是<strong>先用便宜的索引筛掉大部分文档，只对剩下的少数做精确 MaxSim</strong>。具体做法是把每个 token 的向量投影到一大组随机方向上，只保留数值最大的 8 个；一篇文档所有 token 的结果加起来，得到一个大部分位置为零的向量，放进倒排索引。倒排索引类似书后的关键词索引：按条目直接翻到包含它的页，没出现这个词的页根本不用看。检索时，和问题没有任何共同条目的文档直接跳过，昂贵的 MaxSim 只在剩下的少数候选文档上计算。</p>
-<p>Marek 报告，在十亿篇文档的规模下，p99 延迟低于 100 毫秒，也就是 99% 的查询能在 100 毫秒内返回。他的团队还发布了 <a href="https://huggingface.co/topk-io/Iso-ModernColBERT">Iso-ModernColBERT</a>：GTE-ModernColBERT-v1 的修正版，向量的几何分布能和 SMVE 的随机投影配合；用 bf16 精度运行快约 3 倍，排序质量几乎不降。</p>
-<p><a href="https://maven.com/p/6544a2">Marek 讲多向量检索的完整分享</a>在 Maven 上。</p>
-<h3>搜索 Agent：瓶颈常常在检索器</h3>
-<p>搜索 Agent 不是搜一次就回答，而是自己决定搜什么、读结果、判断还缺什么、再搜，几轮之后才给答案。做这类 Agent 常见三个难题：没有合适的评测题，不知道它在哪一步走偏，以及搞不清问题出在检索还是模型。</p>
-<p>Nandan Thakur 的分享介绍了三个项目，正好对应这三个难题。</p>
-<p><strong>ORBIT：不花钱合成需要多轮搜索的评测题。</strong>没有标注好的评测题时，常见做法是让模型照着文档出题，但这样出的题往往搜一次就能答对。<a href="https://arxiv.org/abs/2604.01195">ORBIT</a> 反过来出题：描述一个对象的几个特征，但不说出它的名字，并检查题目是否难到必须搜好几轮才能答对。比如（示意，非真实题目）：「一位作家出生在海边小城，第一部小说拿过新人奖，后来转行拍电影，他拍的第二部电影叫什么？」要答对，得先搜出这个人是谁，再搜他的作品。</p>
-<p>合成的题可能有错，所以每道题都要验证：搜索 Agent 必须拿源文档逐条核对题目里的说法，另一个独立的评判模型只看这些文档，也得推出同一个答案。<a href="https://github.com/castorini/orbit">ORBIT 流程</a>生成了 2 万道验证过的题，搜索 API 和付费大模型的费用都是零。整个流程完全合成，没有标注数据的团队也能用，可以把同样的做法用在自己的语料上。</p>
-<p><strong>Hawkeye：看清每次运行是怎么展开的。</strong> Hawkeye 是一个可视化分析界面，把搜索 Agent 每次运行是怎么一步步展开的摊开给你看。幻灯片上的一组数据：781 次运行里答对 444 次、答错 46 次、没给出答案 291 次；答对的运行平均搜索 18.9 轮，没给出答案的平均 42.2 轮。也就是说，搜了很多轮还没结果的运行，多半是找不到答案了。有了这样的视图，就能给自己的 Agent 定一个合适的最大搜索轮数，到了上限就停。Hawkeye 的论文还在审稿，暂时没有公开工具，可以让你常用的编程 Agent 照这个思路帮你做一个类似的视图。</p>
-<figure>
-<figcaption>
-<p>实测数据 · Hawkeye 分析幻灯片</p>
-<p>答对的运行，搜索轮数少得多</p>
-</figcaption>
-<p>781 次运行的结果（准确率 56.85%）</p>
-<div>
-<span>答对 444</span>
-<span></span>
-<span>没给出答案 291</span>
-</div>
-<p>答对 444 次 · 答错 46 次 · 没给出答案 291 次</p>
-<p>平均搜索轮数</p>
-<div>
-答对的运行
-<span></span><b>18.9 轮</b>
-</div>
-<div>
-没给出答案的运行
-<span></span><b>42.2 轮</b>
-</div>
-<p>横条按 0–50 轮的比例绘制。</p>
-</figure>
-<p><strong>BrowseComp-Plus：给对文档，模型几乎全答对。</strong> <a href="https://texttron.github.io/BrowseComp-Plus/">BrowseComp-Plus</a> 是 OpenAI <a href="https://openai.com/index/browsecomp/">BrowseComp</a> 的可复现版本。BrowseComp 里都是难找的事实题：答案很短、容易核对，但要搜很多次才找得到。它的重要发现是：<strong>限制准确率的主要是检索器，而不是模型。</strong>做法是让同一个 GPT-4.1 在两种条件下答题：自己用 BM25（按关键词出现的次数给文档打分的传统检索方法）找资料，只答对 14.6%；直接拿到含答案的文档，答对 93.5%。模型没换，差距几乎全来自有没有找到对的文档。</p>
-<p><a href="https://maven.com/p/cbf1b6">Nandan 讲搜索 Agent 的完整分享</a>在 Maven 上。</p>
-<h3>选嵌入模型：别只看排行榜，微调常被忽略</h3>
-<p>嵌入模型（embedding model）在 RAG 里负责把文档片段和问题都变成向量，检索找得准不准，很大程度取决于它。挑模型时常先看 <a href="https://huggingface.co/spaces/mteb/leaderboard">MTEB 排行榜</a>，但它排的是质量，几乎不反映成本。</p>
-<p>Radu Gheorghe 接着讲了几项<a href="https://blog.vespa.ai/embedding-tradeoffs-quantified/">值得考虑的取舍</a>。先说「精度」：它指计算机用多少位（bit）存一个数，位数越少，占的空间越小、算得越快，但数值会粗糙一点，就像把 3.14159 记成 3.14。</p>
-<ul>
-<li>模型量化（模型自身的数用多高精度存，主要影响计算速度）：在 CPU 上，INT8（8 位）模型比 FP32（32 位）快约 3 倍，质量基本保住；在 GPU 上改用 FP16。</li>
-<li>向量精度（输出的向量用多高精度存，主要影响存储）：从 FP32 改成二值，每个数从 32 位变成只存 0 或 1 的 1 位，存储降到原来的 1/32；改成 bfloat16（16 位），存储减半，质量没有可测到的损失。</li>
-<li>Matryoshka 截断模型：这类俄罗斯套娃式模型训练时让最重要的信息集中在向量靠前的维度，所以可以直接丢掉靠后的维度，质量大部分保留，既省存储又加快搜索。</li>
-<li>在你自己数据上的表现：排行榜看不出来，一定要拿自己的数据测，专业领域里排名会大幅变动。常见的短板是多语言支持和上下文长度。</li>
-</ul>
-<p>现成模型在你的领域里还是不够好，<strong>微调嵌入模型</strong>是常被忽略的办法：它比微调大模型容易得多，效果提升往往还更大。Radu 做了开源的无代码微调工具 <a href="https://github.com/vespaai-playground/vespaembed">VespaEmbed</a>，Apache 2.0 许可：从 Hugging Face 选一个基础模型，上传文本对数据，每一对是一个查询（anchor）加上它应该找到的那段文字（positive），比如界面示例里 anchor 是「What is machine learning?」，positive 是一段解释机器学习的文字；再选一个损失函数，点训练。也可以直接在 <a href="https://huggingface.co/spaces/vespa-engine/vespaembed">Hugging Face 上试用</a>。</p>
-<figure>
-<img />
-<figcaption>VespaEmbed 新建项目：任务选文本对（anchor 是查询，positive 是应该被找到的文本），再指定 Hugging Face 上的基础模型。</figcaption>
-</figure>
-<p><a href="https://maven.com/p/fef4e1">Radu 讲选嵌入模型的完整分享</a>在 Maven 上，他讲怎么选、怎么微调嵌入模型的<a href="https://notpptx.com/vespaai/choosing-finetuning-embedder">幻灯片</a>也公开了。</p>
-<h3>选 OCR：多数团队该用接口，模型要按 PDF 的坑来挑</h3>
-<p>要让模型读 PDF 和扫描件，第一步是 OCR，把页面上的文字和结构识别出来。Joe Barrow 用一个决策矩阵帮你选，先回答两个问题：只要纯文字块，还是要完整的文档结构（标题、表格、单元格边界）？调用托管接口，还是自己部署模型？</p>
-<p>两个问题交叉，得到四类选择：</p>
-<ul>
-<li>大云厂商接口（AWS Textract、Google Cloud Vision）：只出文字块，便宜（每千页 0.60–1.50 美元），能给出每个词在页面上的位置框，产品里要在原文上高亮出处时用得上。</li>
-<li>文档处理创业公司的接口（<a href="https://reducto.ai/">Reducto</a>、<a href="https://www.datalab.to/">Datalab</a>、<a href="https://www.extend.ai/">Extend</a>）：出完整结构，功能齐全，但贵（每千页 5–20 美元）。</li>
-<li>开源流水线（<a href="https://github.com/tesseract-ocr/tesseract">Tesseract</a>、<a href="https://github.com/PaddlePaddle/PaddleOCR">PaddleOCR</a>）：只出文字块，便宜、快，但能力范围窄。</li>
-<li>开源视觉语言模型（<a href="https://huggingface.co/lightonai/LightOnOCR-1B-1025">LightOnOCR</a>、<a href="https://huggingface.co/datalab-to/chandra">Chandra</a>、<a href="https://github.com/docling-project/docling">Docling</a>）：出完整结构，需要 GPU 运行，功能基本齐全。</li>
-</ul>
-<figure>
-<figcaption>
-<p>图解 · Joe Barrow 的 OCR 决策矩阵</p>
-<p>两个问题，四类选择</p>
-<p>横向看要什么输出，纵向看怎么部署。价格为每千页。</p>
-</figcaption>
-<div>
-<span></span>
-<span>只要文字块</span>
-<span>要完整结构</span>
-<span>调用接口</span>
-<p>调用接口 · 只要文字块</p>
-<h4>大云厂商</h4>
-<p>AWS Textract、Google Cloud Vision</p>
-<p>便宜，有词级位置框</p>
-<p>$0.60–1.50</p>
-<p>调用接口 · 要完整结构</p>
-<h4>文档处理创业公司</h4>
-<p>Reducto、Datalab、Extend</p>
-<p>贵，但功能齐全</p>
-<p>$5–20</p>
-<span>自己部署</span>
-<p>自己部署 · 只要文字块</p>
-<h4>开源流水线</h4>
-<p>Tesseract、PaddleOCR</p>
-<p>快、便宜，能力窄</p>
-<p>自己部署 · 要完整结构</p>
-<h4>开源视觉语言模型</h4>
-<p>LightOnOCR、Chandra、Docling</p>
-<p>要 GPU，功能基本齐全</p>
-</div>
-</figure>
-<p>Joe 的建议是：<strong>只有大约 5% 的团队应该自己部署</strong>。如果你的重心在做产品，通常用接口更好。</p>
-<p>就算用接口，选哪个模型也很重要，因为 PDF 会以各种意想不到的方式把提取器搞坏。Joe 点出了这几个：</p>
-<ul>
-<li>TeX 编译出的 PDF 里没有空格字符：TeX（论文常用的排版系统）是把每个字形放到指定坐标上排版的，文件里并没有空格字符，简单的提取器会拿到一长串连在一起、一个空格都没有的字母。</li>
-<li>双栏页面没有阅读顺序：按行提取的工具会横着跨栏读，交给大模型的是一段错乱的文字。Textract 这样的云服务也会犯这个错。</li>
-<li>按行输出会丢掉语义结构：标题、表格、单元格边界都没了，后面检索时就失去了上下文。</li>
-<li>扫描质量差时，云接口会凭空编出文字：有人见过 Textract 在一张噪点多的扫描件上返回上百个「the」。</li>
-<li>空白页会让视觉语言模型（能同时看图和处理文字的模型）编出模板文字：一张空白页可能返回页眉之类的文字。</li>
-<li>视觉语言模型输出的 Markdown 没有词级位置框：如果产品要在原 PDF 上高亮出处原文，只靠它输出的 Markdown 可能做不到，因为里面没有每个词的位置。</li>
-<li>注意模型许可证：Chandra 与 <a href="https://github.com/datalab-to/surya">Surya</a> 只对年收入低于 200 万美元、且不与 Datalab 竞争的机构免费，超出这个范围的公司要另外取得授权；GLM-OCR 本身是 MIT 许可，但会引入 Apache 许可的 Paddle 版面模型，两种许可都得遵守。</li>
-</ul>
-<p>想看 PDF 能有多糟，可以翻翻 <a href="https://wtfpdf.com/">WTF PDF</a>，里面收集了能搞坏大多数提取器的文件。Joe 的选型流程很短：先回答那两个问题；抽 50–100 页有代表性的页面；让每个候选模型跑同一批页面；然后直接看原始输出、比较各自怎么出错，再做决定。TeX 没空格、双栏读串这类问题，只看一个总分是看不出来的。</p>
-<p>完整分享见 <a href="https://youtu.be/mSdmMdpfHpI">Joe 讲 OCR 选型的录像</a>；他对开源 OCR 模型的<a href="https://jbarrow.ai/2026-05-09-ocr-cambrian/">研究文章</a>也值得一读。</p>
-<h3>Subtext：写给 Agent 看的脚注，改写时不丢关键决定</h3>
-<p>让 Agent 总结、润色或改写文档时，它会合并句子、删减、换说法。原文里一句话背后的前提和限定，比如「这里的『下一轮』指哪一轮」「这个决定附带什么条件」，没写在句子里，改写后就可能丢掉。</p>
-<p>Bryan Bischof 和 Adam Conway 是 <a href="https://theory.ventures/">Theory Ventures</a> 的 AI 工程师。这家投资机构的投资人会写详细的投资备忘录，每份里都有重要决定，让 Agent 改写时这些决定有被弄丢的风险。他们的解决办法是 <a href="https://github.com/TheoryVentures/subtext-skills">Subtext</a>：一种轻量格式，给每个句子挂上元数据。句子原文不动，作者的澄清说明和还没解决的问题存成元数据，格式是自带说明的 JSON（<code>contextdoc/columnar-v1</code>）。它相当于<strong>写给 Agent 看的脚注</strong>，让 Agent 改写时不偏离原材料。</p>
-<p>举个示意的例子（不是 Theory Ventures 的真实内容）：备忘录里有一句「我们建议暂缓跟投 ACME」。这句话挂上的说明可以是：「ACME 指我们 A 轮投过的那家物流软件公司，不是同名的上市公司」「暂缓的意思是等下个季度续约数据出来再决定，不是放弃」。Agent 改写时读得到这些说明，就知道哪些限定不能丢。</p>
-<p>仓库里有两个技能：</p>
-<ul>
-<li><code>subtext-annotate</code>：把原始文字（邮件、笔记、Markdown）转成 subtext 文档，然后站在一个陌生读者的角度向作者追问（比如没解释的缩写、指代不明、日期含糊、缺背景），再把作者的回答挂到对应的句子上。</li>
-<li><code>subtext-read</code>：读取 <code>.subtext.json</code> 文件，在容易看不懂的地方把说明嵌进去展示，并列出作者没能回答的问题。</li>
-</ul>
-<p>人也能受益。Adam 演示了一个聊天界面原型：每条消息旁边直接显示发送者关联的工单和通话记录，读的人不用再到处找背景。</p>
-<p><a href="https://maven.com/p/ee1f95">Bryan 和 Adam 讲 Subtext 的完整分享</a>在 Maven 上，<a href="https://www.figma.com/deck/OrFaZEXXLmJDokKpdkuzeJ/Subtext?node-id=16-104">幻灯片</a>和<a href="https://github.com/TheoryVentures/subtext-skills">代码仓库</a>也都公开了。</p>
-<h2>系统：速度、成本和运行环境</h2>
-<p>评估和检索理顺之后，要处理的是工程层面的问题：回答太慢、自己部署模型时显存和成本怎么算，以及让 Agent 自己跑代码时怎么防止出事。</p>
-<h3>推理延迟：先看慢在读输入还是写输出</h3>
-<p>回答慢，要先分清是慢在读输入，还是慢在写输出，两种情况的解法完全不同。</p>
-<p>Abi Aryan 的分享把一次推理分成两个阶段：</p>
-<ul>
-<li>预填充（prefill）：模型读完全部输入。打个比方，就像答题前先读题：整段输入可以一起送进 GPU 并行计算，所以每秒能处理很多 token。</li>
-<li>解码（decode）：模型一个接一个地生成输出 token。就像写答案只能一个字一个字写：模型每生成一个 token，都要把它接到前文后面，再算下一个，没法并行，所以按每个 token 算，比预填充慢一个数量级。Abi 在分享里指出，解码的速度主要受内存限制，而不是受算力限制。每生成一个 token，GPU 都要把整个模型的权重和前文的 KV cache 从显存里读一遍，而这一步实际要算的量很小，所以瓶颈在从显存搬数据的速度，GPU 的计算能力大部分用不上。</li>
-</ul>
-<p>她的 <a href="https://colab.research.google.com/drive/1x2Vy8mb-yODuE-mW73hNBh7SavRebuuL">Colab 笔记本</a>让同一个模型跑三种形状的请求，实测用的是 TinyLlama-1.1B-Chat-v1.0（约 11 亿参数的小模型），跑在一块 Tesla T4 显卡上（显存约 15.6 GB）。换更大的模型或更快的显卡，绝对耗时会变，要看的是各阶段的占比规律。下面是笔记本里一次运行的数字：</p>
-<p><strong>长输入、短输出</strong>（RAG、分类、信息抽取）：最友好的形状。输入虽然长，但预填充能并行，很快就读完。实测输入 1205 个 token、输出 25 个，总共 1087.5 毫秒：预填充 386.4 毫秒（每秒约 3119 个 token），解码 701.1 毫秒（每秒约 36 个）。</p>
-<p><strong>短输入、长输出</strong>（Agent 运行轨迹、生成代码、长文写作）：最差的形状，延迟几乎全花在一个一个生成输出上。实测输入 37 个 token、输出 256 个，总共 7952.4 毫秒，其中解码就占了 7918.8 毫秒（每秒约 32 个 token）。</p>
-<p><strong>短输入、短输出</strong>（聊天的一轮、单次问答）：实测输入 25 个 token、输出 32 个，总共 944 毫秒，其中解码占了 903.5 毫秒。而且 25 个 token 太少，喂不满擅长同时算大量数据的 GPU，预填充阶段 GPU 大部分时间闲着。vLLM 这类推理引擎用连续批处理（continuous batching），把很多用户的小请求拼进同一次计算，让 GPU 不闲着。</p>
-<figure>
-<figcaption>
-<p>实测数据 · Abi Aryan 的计时笔记本</p>
-<p>同一个模型，三种请求形状各花了多少时间</p>
-<p>横条长度按总耗时统一比例绘制；浅色段是预填充（读输入），深色段是解码（逐个生成输出）。</p>
-</figcaption>
-<ol>
-<li>
-<div><strong>短输入、短输出</strong><span>输入 25 · 输出 32 个 token</span></div>
-<div><span></span><span></span></div>
-<p>总计 <b>944 ms</b>：预填充 40.5 ms（4.3%），解码 903.5 ms</p>
-</li>
-<li>
-<div><strong>长输入、短输出</strong><span>输入 1205 · 输出 25 个 token</span></div>
-<div><span></span><span></span></div>
-<p>总计 <b>1087.5 ms</b>：预填充 386.4 ms（35.5%），解码 701.1 ms</p>
-</li>
-<li>
-<div><strong>短输入、长输出</strong><span>输入 37 · 输出 256 个 token</span></div>
-<div><span></span><span></span></div>
-<p>总计 <b>7952.4 ms</b>：预填充 33.6 ms（0.4%），解码 7918.8 ms</p>
-</li>
-</ol>
-<div>预填充速度约 617–3119 token/秒</div>
-<div>解码速度约 32–36 token/秒</div>
-<p>数据来自笔记本的一次运行：TinyLlama-1.1B-Chat-v1.0，Tesla T4 显卡。换模型、换机器后绝对数值会变，这里看的是各段占比。</p>
-</figure>
-<p>Abi 的建议：如果主要慢在输出，先把回答缩短；然后再考虑推测解码（speculative decoding，用小模型先猜出后面几个 token，大模型一次性检查、对的就直接用）、换更小的模型或换更好的硬件。如果主要慢在预填充，就把请求合批处理，并缩短上下文。</p>
-<p>这个笔记本适合动手试，有三个值得做的实验：</p>
-<ul>
-<li><strong>批大小</strong>：用同样的请求形状跑批大小 4 和 8，看每个请求的吞吐怎么提升、显存在哪里卡住。</li>
-<li><strong>推理引擎</strong>：把 Hugging Face pipeline 换成 llama.cpp 或 vLLM，这对解码速度的影响最大。</li>
-<li><strong>量化</strong>：换成 INT8 或 INT4 模型，看权重占的显存变小，吞吐通常还会上升。</li>
-</ul>
-<p><a href="https://youtu.be/CKamabikBNs">Abi 讲推理延迟的完整分享</a>可以在 YouTube 上观看。</p>
-<h3>开源模型经济学：一个估显存的公式，和几条部署提醒</h3>
-<p>Zach Mueller 梳理了几个开源模型家族，并分享了他自己日常使用的感受：</p>
-<ul>
-<li>Qwen：27B 稠密模型是他做日常助理型 Agent 的首选，指个人助理类任务（查邮件、查网站、调 API），不是写代码。他自己的后台 Agent 在这个模型上跑了好几个月。</li>
-<li>GLM 5.2：差不多是他写代码的主力，干活稳，不容易分心，也不犯小错。</li>
-<li>DeepSeek V4 Flash：可以直接替代 Claude Haiku。</li>
-<li>Kimi：他写作时最喜欢用，但全精度部署需要一台 8 卡 B200 的机器，很难自己跑。</li>
-</ul>
-<p>挑模型之前，先估一下它能不能放进你的硬件。参数量就是模型里存了多少个数，27B 即 270 亿个。估算权重占多少显存的公式是：</p>
-<p><strong>权重大小（GB）≈ 参数量（B，十亿）× N × 0.5</strong></p>
-<p>这个公式的道理是：16-bit 精度下每个参数占 2 个字节，10 亿个参数就是约 2 GB；公式里的 N × 0.5，正好是不同精度下每个参数占几个字节：</p>
-<ul>
-<li>4-bit 精度：N 取 1（单个参数折合 0.5 字节）</li>
-<li>8-bit 精度：N 取 2（单个参数折合 1 字节）</li>
-<li>16-bit 精度：N 取 4（单个参数折合 2 字节）</li>
-<li>32-bit 精度：N 取 8（单个参数折合 4 字节）</li>
-</ul>
-<p>显存不能只够装权重。模型一边生成，一边要把前文每个 token 的中间结果存在显存里，免得每生成一个新 token 都把前文重算一遍，这部分叫 KV cache，上下文越长占得越多；计算过程中的激活值也要占地方。例如 27B 模型用 4-bit，权重约 27 × 1 × 0.5 = 13.5 GB，留出 KV cache 和激活值的空间后，能放进一张 16 GB 的显卡。精确的算法可以看 EleutherAI 的 <a href="https://blog.eleuther.ai/transformer-math/">transformer math 文章</a>。</p>
-<p>估算器 · 公式来自 Zach Mueller 的分享</p>
-<p>模型权重大概要占多少显存</p>
-<p>权重（GB）≈ 参数量（B）× N × 0.5　<span>N：4-bit 取 1，8-bit 取 2，16-bit 取 4，32-bit 取 8</span></p>
-<div>
-参数量（单位：B，十亿）
-</div>
-<div><table>
-<span>27</span>B 模型在不同精度下的权重大小
-<thead>
-<tr><th>精度</th><th>N</th><th>权重约</th></tr>
-</thead>
-<tbody>
-<tr><th>4-bit</th><td>1</td><td>13.5 GB</td></tr>
-<tr><th>8-bit</th><td>2</td><td>27 GB</td></tr>
-<tr><th>16-bit</th><td>4</td><td>54 GB</td></tr>
-<tr><th>32-bit</th><td>8</td><td>108 GB</td></tr>
-</tbody>
-</table></div>
-<p>只算权重本身。显卡还得给激活值和 KV cache（生成时缓存的中间结果）留空间：27B 模型 4-bit 约 13.5 GB，放进 16 GB 显卡还有余量。精确算法见 EleutherAI 的 transformer math 文章。</p>
-<p>Zach 还提醒了几件事：</p>
-<ul>
-<li>别把私有代码发给 OpenRouter 这类第三方路由服务。路由服务帮你把请求转给不同的模型服务商，请求可能落到数据隐私做法各不相同的服务商那里。</li>
-<li>小心会在会话中途切换服务商的路由。很多服务商会缓存你已经发过的长前缀（比如很长的系统提示词），下一次请求就更快、更便宜；中途换了服务商，这份缓存可能就用不上了。如果要用路由，就用评估实际量一量它对延迟和成本的影响，别靠猜。</li>
-<li>租 GPU 时，他宁可租一台顶配机器，也不租多机 H100 集群。H100 只便宜 10%–20%，多机部署时模型要在几台机器之间来回传数据，机器之间的连接就成了瓶颈。</li>
-</ul>
-<p><a href="https://www.youtube.com/watch?v=Pg-IW5puuv0">Zach 讲开源模型经济学的完整分享</a>可以在 YouTube 上观看。</p>
-<h3>给 Agent 配沙箱：隔离、快速启动、Agent 和工具分开</h3>
-<p>Adam Azzam 讲的是为什么要给 Agent 配沙箱。如果你只在自己电脑上跑编程 Agent，可能还感觉不到沙箱的必要；等写代码的速度上来、同时跑很多个 Agent，或者开始和别人协作，就需要了。沙箱是一个隔离出来、用完可以销毁的临时运行环境；Agent 的代码在里面出了问题，影响范围只限于沙箱。</p>
-<p>很多人第一个想到的是现成的 CI/CD（代码提交后自动跑构建和测试的流水线），但它不合适：CI/CD 启动慢、存活时间短，而 Agent 可能在一个任务上连续干几小时甚至几天，还会改动自己运行环境里的依赖；另外，Agent 写的代码没人审过，一次坏改动就可能让机器崩溃，或者暴露环境里的凭据。</p>
-<p>Agent 数量一多，启动慢就成了瓶颈。<a href="https://ramp.com/">Ramp</a> 的做法是每 30 分钟重新打一次机器镜像（把系统和所需工具都装好的模板），Agent 启动时直接领一台已经准备好的机器，跑一下 <code>git pull</code> 拉最新代码，不到一秒就能开工。</p>
-<p>另一条设计原则是<strong>把 Agent 和它调用的工具分开</strong>，工具崩了不能把 Agent 一起带垮。比如某个工具加载一个很大的 CSV 文件，内存不够崩了，不应该连累一个已经跑了很久的 Agent 任务。Adam 画的示意图里，Agent 在控制面（负责决策和调度的一侧），工具在数据面（负责实际执行的一侧），中间隔着网络。</p>
-<figure>
-<figcaption>
-<p>图解 · 依据 Adam Azzam 的手绘示意图重画</p>
-<p>Agent 和工具分开放，中间隔着网络</p>
-</figcaption>
-<div>
-<p>控制面</p>
-<p>负责决策和调度</p>
-<div>
-<span>Agent</span>
-<span>工具</span>
-</div>
-<div>
-<span></span>
-<span>网络</span>
-</div>
-<p>数据面</p>
-<p>负责实际执行</p>
-<div>
-<span>工具</span>
-<span>工具内存不够崩了</span>
-</div>
-</div>
-<p>例子：数据面里的工具加载超大 CSV 时内存不够崩溃，崩的只是这一侧；控制面里的 Agent 还在，长时间运行的任务不会跟着中断。</p>
-</figure>
-<p>Adam 目前在 <a href="https://modal.com/">Modal</a> 工作。Modal 上的代码在远程运行，速度却快得像在本地。在 Modal 上创建沙箱的 hello world 示例如下，详细用法见 <a href="https://modal.com/docs/guide/sandboxes">Modal 沙箱指南</a>：</p>
-<div><pre><code>import modal
-app = modal.App.lookup("sandbox-hello-world", create_if_missing=True)
-sb = modal.Sandbox.create(app=app)
-process = sb.exec("echo", "hello")
-print(process.stdout.read())
-sb.terminate()
-</code></pre></div>
-<p><a href="https://maven.com/p/0684ab">Adam 讲 Agent 沙箱的完整分享</a>在 Maven 上。</p>
-<h2>后训练：最后一步，先查评测和环境</h2>
-<p>评估分数上不去时，很多人的第一反应是收集数据、训练模型。后训练指在现成模型的基础上，用你的数据继续训练（比如监督微调或强化学习），直接改变模型本身的参数。</p>
-<p>来自 <a href="https://primeintellect.ai/">Prime Intellect</a> 的 Will Brown 和 Florian Brand 提醒：想提高评估分数，微调应该是最后才用的办法，因为很多时候不改模型也能把分数提上去。他们建议先依次做这三件事：</p>
-<ol>
-<li>读运行记录，搞清楚到底哪里失败。</li>
-<li>修评估本身和运行环境。</li>
-<li>改进检索、上下文和外壳。</li>
-</ol>
-<p>第二条听起来意外，但评估里的小问题影响可能很大。有些评测为了防止模型没完没了地跑，会设很紧的超时；这时硬件更好、部署更快，模型能在超时前做完更多步，分数也可能跟着变高。他们举的例子是在 Terminal-Bench 2 上把任务超时乘以 5：</p>
-<ul>
-<li>GPT-5.2 high：52.8% → 60.67%，涨了 7.87 个百分点。</li>
-<li>GPT-5.2 xhigh：46.3% → 60.97%，涨了 14.67 个百分点。</li>
-</ul>
-<p>模型没变，只改了评测环境里的一个设置。放宽之前 high 比 xhigh 高 6.5 个百分点，放宽之后 xhigh 反而略高。如果只看原来的分数，你会得出相反的结论。</p>
-<figure>
-<figcaption>
-<p>实测数据 · Prime Intellect 分享幻灯片</p>
-<p>Terminal-Bench 2：只把任务超时放宽 5 倍</p>
-<p>模型、题目都没变，只改了评测环境里的超时设置。</p>
-</figcaption>
-<div>
-<div>
-<span>high</span>
-<div><span>52.8</span></div>
-<div><span></span><span></span><em>60.67</em></div>
-</div>
-<div>
-<span>xhigh</span>
-<div><span>46.3</span></div>
-<div><span></span><span></span><em>60.97</em></div>
-</div>
-<p><i></i>原超时得分 <i></i>放宽超时后多出的分数（横轴 0–100%）</p>
-</div>
-<p>原超时下 high 比 xhigh 高 6.5 个百分点；放宽后 xhigh 反而高 0.3 个百分点，排名反转。</p>
-</figure>
-<p>他们还列了搭评估环境时常见的坑：</p>
-<ul>
-<li>模型训练时按温度 1 采样，评测时却被强制设成温度 0。温度控制模型输出的随机程度：设成 0 时每次都挑最可能的那个 token，设成 1 时按模型算出的概率抽取。强行改成 0，可能影响基准测试结果能否复现。</li>
-<li>最大 token 数或轮数上限设得太低，模型推理还没做完就被截断。</li>
-<li>给 <a href="https://hamel.dev/notes/llm/ai-product-engineering/systems-agent-sandboxes.html">Agent 沙箱</a>的 CPU 和内存不够。</li>
-<li>外壳太臃肿：换成极简的外壳，让模型直接运行 bash 命令，而不是用一堆专门定制的工具。</li>
-<li>在断定模型做不了某件事之前，先把针对这项任务的技能（skills）放进上下文试试。</li>
-</ul>
-<p>只有两件事同时成立时，才值得去做后训练：</p>
-<ol>
-<li><strong>正确答案能被自动验证</strong>，比如能用测试或程序直接判断对错。训练时模型要做大量尝试，每一次都得自动判出对错，才有信号告诉模型该往哪边改。</li>
-<li><strong>模型在当前评测上的得分大于 0 且小于 100</strong>。得 0 分说明模型一次都没做对，训练时没有做对的例子可以强化；得 100 分则已经没有提升空间。</li>
-</ol>
-<p>想动手试，可以用 Prime Intellect 的 <a href="https://github.com/PrimeIntellect-ai/verifiers">verifiers</a> 库，用 Python 定义任务和奖励；他们的<a href="https://docs.primeintellect.ai/guides/rl-training#hosted-training">托管强化学习服务</a>只需一个简短的配置文件就能跑训练，也有<a href="https://app.primeintellect.ai/dashboard/environments">现成的环境</a>可以直接起步。</p>
-<p><a href="https://maven.com/p/7d699b">Will 和 Florian 讲后训练的完整分享</a>在 Maven 上。</p>
-</div><div><div><div>来源</div><div><span>AI Product Engineering Notes</span><span>Hamel Husain<span>·</span><a href="https://hamel.dev/notes/llm/ai-product-engineering/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://hamel.dev/notes/llm/ai-product-engineering/evals-data-agents.html">Evals for Data Agents</a><span>·</span><a href="https://hamel.dev/notes/llm/ai-product-engineering/evals-model-cascades.html">Cut Classification Costs With a Model Cascade</a><span>·</span><a href="https://hamel.dev/notes/llm/ai-product-engineering/evals-error-analysis.html">Automating Error Analysis</a><span>·</span><a href="https://hamel.dev/notes/llm/ai-product-engineering/evals-production.html">Case Study: Putting Evals Into Production</a><span>·</span><a href="https://hamel.dev/notes/llm/ai-product-engineering/context-multivector-retrieval.html">An Intro to Multivector Retrieval</a><span>·</span><a href="https://hamel.dev/notes/llm/ai-product-engineering/context-search-agents.html">How to Improve Search Agents</a><span>·</span><a href="https://hamel.dev/notes/llm/ai-product-engineering/context-embedding-models.html">How to Optimize Retrieval Embeddings</a><span>·</span><a href="https://hamel.dev/notes/llm/ai-product-engineering/context-ocr.html">How to Choose an OCR Model</a><span>·</span><a href="https://hamel.dev/notes/llm/ai-product-engineering/context-subtext.html">Steer AI Writing With Footnotes for Agents</a><span>·</span><a href="https://hamel.dev/notes/llm/ai-product-engineering/systems-inference-latency.html">Debugging Inference Latency</a><span>·</span><a href="https://hamel.dev/notes/llm/ai-product-engineering/systems-open-model-memory.html">Open Weight Model Economics</a><span>·</span><a href="https://hamel.dev/notes/llm/ai-product-engineering/systems-agent-sandboxes.html">The Case for Agent Sandboxes</a><span>·</span><a href="https://hamel.dev/notes/llm/ai-product-engineering/systems-post-training.html">Turn Eval Results Into a Better Model</a></div></div><div><div>本站说明</div><div>13 篇笔记分别整理自系列分享中的一场讲座；文中组件依据笔记、讲者幻灯片和 Abi Aryan 公开笔记本中的数据重画，标注「示意」的为概念演示。</div></div></div></div></div><div>
-<div>
-<div>AI Product Engineering · 13 Sessions Summary</div>
-<h1>大模型产品工程的四层杠杆：从评测、检索到系统调优</h1>
-<div>不要急着微调模型：按「评估 → 上下文 → 系统外壳 → 后训练」的次序推进，以最低工程代价获取最高确定性。</div>
-<div>建议阅读时间 6 分钟 · 提炼自 Hamel Husain 系列分享 · 覆盖 DAB、BARGAIN、多向量检索、推理延迟与沙箱</div>
-<div>
-<p>Hamel Husain 联合多位头部实践者开展了 13 场「AI 产品工程」分享，把 9.5 小时的实战经验浓缩为体系化指南。当产品效果不如预期、分类调用成本高昂或系统响应迟缓时，许多团队的第一反应往往是改写复杂提示词甚至启动模型微调。然而实际工程中最有效的改进往往遵循清晰的杠杆优先级。</p>
-<p>改评估、检索和外壳，动的是代码、提示词和配置，花钱少、见效快，改坏了也容易退回去；后训练要准备数据、花算力和时间。没有可靠的评估，训练完也没法判断模型是真变好了，还是在别处变差了。</p>
-<div>
-<div>
-<span>Core Hierarchy</span>
-<div>系统调优的四层杠杆优先级</div>
-<p>越靠近顶层，工程改动越轻、反馈越快、风险越低；越靠近底层，改动代价越大、验证门槛越高。排查问题应严格自上而下推进。</p>
-</div>
-<div>
-<div>
-<div>LEVEL 1</div>
-<div>
-<div>评估是地基 (Evals First)</div>
-<div>先看生产 trace 发现真错误，再定评分标准。没有可靠评测，所有改动皆盲人摸象。</div>
-</div>
-<div>地基 · 必须先行</div>
-</div>
-<div>
-<div>LEVEL 2</div>
-<div>
-<div>先改检索与上下文 (Context &amp; Retrieval)</div>
-<div>回答错误多数源于喂料缺失或排版错乱。改材料动的是代码与格式，见效最快且易回退。</div>
-</div>
-<div>高杠杆 · 代码级</div>
-</div>
-<div>
-<div>LEVEL 3</div>
-<div>
-<div>再改系统与外壳 (Systems &amp; Harness)</div>
-<div>解耦预填充与解码延迟，核算显存并预留 KV cache；严格隔离 Agent 与工具执行沙箱。</div>
-</div>
-<div>中成本 · 架构级</div>
-</div>
-<div>
-<div>LEVEL 4</div>
-<div>
-<div>后训练放最后 (Post-Training Last)</div>
-<div>仅当答案可被程序自动验证、且基准得分处于 0 至 100 之间时才考虑微调或强化学习。</div>
-</div>
-<div>高成本 · 权重级</div>
-</div>
-</div>
-</div>
-</div>
-<div>
-<h2>评估层：真错误分析与模型级联降本</h2>
-<p>系统表现不及预期时，最常见的弯路是凭想象撰写评分标准（rubric）。真实场景中，往往大部分条目从未报错，真正致错的模式反而漏网。团队应首先做错误分析：逐条查阅生产运行记录（trace），借助主动学习（如 Error Discovery 技能）归纳反复出现的失败分类表。Nova Escola 教育平台的教训表明，未做错误分析前，两位资深标注员对同一教案的打分一致率甚至比随机乱标还低。</p>
-<p>在工单分类、内容审核等高频任务中，滥用最大模型会导致成本失控。Shreya Shankar 介绍的 BARGAIN 采用模型级联：先由轻量便宜的小模型（如 gpt-5-nano）做出预测并输出把握度，只有把握度低于阈值 τ 的不确定样本才交由大模型重新判别。</p>
-<div>
-<div>模型级联分流机制 (BARGAIN 置信度阈值 τ)</div>
-<div>
-<div>把握度 ≥ τ：小模型自决 (省成本)</div>
-<div>把握度 &lt; τ：大模型复判</div>
-</div>
-<div>
-<span>低成本运行区（把握度高的样本）</span>
-<span>高精度兜底区 (疑难与低置信样本)</span>
-</div>
-</div>
-<div>
-<p>阈值 τ 调高，更多样本会转给大模型，结果更准，也更贵；调低，更多样本留给小模型，省钱，但小模型判错的会更多。级联的目标是用最低成本达成与大模型一致的判定效果，BARGAIN 在实测中比同类方案多节省高达 86% 的成本。</p>
-</div>
-</div>
-<div>
-<h2>检索与上下文：瓶颈往往在检索器而非模型</h2>
-<p>大模型答错问题，极大概率不是推理能力受限，而是检索端未能供给准确材料。OpenAI BrowseComp 的复现实验 BrowseComp-Plus 揭示了一个关键反差：限制准确率的主要是检索器，而不是模型。</p>
-<div>
-<div>
-<div>14.6%</div>
-<div>模型自主检索 (BM25)</div>
-<p>同一个 GPT-4.1 依靠传统关键词检索寻找文档，绝大多数题目无法命中关键证据。</p>
-</div>
-<div>
-<div>93.5%</div>
-<div>直接供给目标文档</div>
-<p>模型保持不变，仅将含有答案的正确文档直接送入上下文，正确率发生质的飞跃。</p>
-</div>
-</div>
-<p>做法是让同一个 GPT-4.1 在两种条件下答题：自己用 BM25（按关键词出现的次数给文档打分的传统检索方法）找资料，只答对 14.6%；直接拿到含答案的文档，答对 93.5%。模型没换，差距几乎全来自有没有找到对的文档。</p>
-<p>针对检索丢失细节的问题，Marek Galovic 演示的多向量检索（MaxSim）让每个 token 保留独立向量，杜绝单向量的信息瓶颈；配合 SMVE 随机投影倒排索引，能在十亿规模下将 p99 检索延迟压入 100 毫秒内。在文档解析端，只有约 5% 的团队该自己部署 OCR，其余用托管接口更省事，警惕 TeX 无空格字符、双栏跨栏乱读等 PDF 经典陷阱；改写场景则可借助 Subtext 格式给段落打上背景脚注，防止 Agent 擅自抹杀限定条件。</p>
-</div>
-<div>
-<h2>系统与外壳：延迟物理学、显存公式与沙箱</h2>
-<p>排查推理耗时时，必须严格区分预填充（prefill）与解码（decode）两个截然不同的物理过程。预填充阶段 GPU 能够并行处理全部输入 token，属于算力密集型；而解码阶段只能一个接一个生成，每生成一个 token，GPU 都要把整个模型的权重和前文的 KV cache 从显存里读一遍，而这一步实际要算的量很小，所以瓶颈在从显存搬数据的速度，GPU 的计算能力大部分用不上。因此「短输入、长输出」（如长篇代码生成）是延迟最恶劣的工况，优化重点应放在缩短输出、推测解码或更换高带宽硬件。</p>
-<div>
-<div>
-<div>86%</div>
-<div>BARGAIN 级联相比同类方法最高节省成本</div>
-</div>
-<div>
-<div>&lt;100ms</div>
-<div>SMVE 多向量检索十亿文档下 p99 延迟</div>
-</div>
-<div>
-<div>+14.67 个百分点</div>
-<div>评测放宽 5 倍超时后 GPT-5.2 xhigh 的得分涨幅</div>
-</div>
-</div>
-<p>评估开源私有化部署时，可采用实用的显存估算基准公式：</p>
-<div>
-<div>Memory Estimation</div>
-<div>权重大小 (GB) ≈ 参数量 (B) × N × 0.5</div>
-<div>16-bit 精度取 N=4 (单参数 2 字节)；8-bit 取 N=2；4-bit 取 N=1 (单参数 0.5 字节)。注意：实际显存还需为随上下文线性膨胀的 KV cache 与计算激活值留足缓冲空间。</div>
-</div>
-<p>当 Agent 进入自主写代码和调用工具阶段，安全沙箱成为刚性基础设施。CI/CD 因启动慢、存活短无法胜任；实践中应采用镜像预热技术（如 Ramp 预打镜像实现秒级开工），并将 Agent 控制面与工具执行数据面物理隔离，防止脏代码和内存溢出击垮主调度进程。</p>
-</div>
-<div>
-<h2>后训练：先查环境设置，把微调作为最后手段</h2>
-<p>当基准测试得分不理想时，切忌盲目收集数据训练模型。Prime Intellect 的实测表明，许多时候仅仅是评测环境的超时设置过紧，导致模型未来得及输出完毕就被截断——在 Terminal-Bench 2 上仅仅将超时乘以 5，GPT-5.2 xhigh 的得分便从 46.3% 跃升至 60.97%，净涨 14.67 个百分点。在排查完运行环境、极简外壳和提示词技能之前，不要断定模型能力不足。</p>
-<p>团队只有在满足以下两项严格条件时，才应当启动后训练（微调或强化学习）：</p>
-<div>
-<div>
-<div>GATE 1</div>
-<div><strong>正确答案能被程序自动验证</strong>：模型在训练探索时需要大量高频尝试，只有存在明确的单测或判题程序提供正负反馈，参数优化才有明确方向。</div>
-</div>
-<div>
-<div>GATE 2</div>
-<div><strong>模型在当前评测得分处于 (0, 100) 之间</strong>：得 0 分说明模型一次都没做对，训练时没有做对的例子可以强化；得 100 分则已经没有提升空间。</div>
-</div>
-</div>
-<div>
-<p><strong>落地行动建议</strong>：在启动任何复杂改造前，先读真实生产运行记录做错误分析，建立失败分类表；分类场景用模型级联分流，抽约 500 条样本定阈值；复杂问答先优化检索器，而不是先换更大的模型；后训练放在最后，且只在答案能自动验证、当前得分在 0 与 100 之间时才启动。</p>
 </div>
 </div>
 </div></div>
