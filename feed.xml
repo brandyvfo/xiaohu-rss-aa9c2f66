@@ -6,7 +6,173 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Fri, 20 Nov 2026 12:00:30 +0000</lastBuildDate>
+<lastBuildDate>Sat, 21 Nov 2026 00:00:57 +0000</lastBuildDate>
+<item>
+<title>【周报】Anthropic 数学家称和 Claude 证明了黎曼猜想：1700 万行 Lean 证明已公开，尚无外部核对 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/riemann-hypothesis-proof-claim/</link>
+<category>周报</category>
+<guid isPermaLink="false">xiaohu:riemann-hypothesis-proof-claim</guid>
+<pubDate>Sat, 21 Nov 2026 00:00:57 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 他是谁，这次为什么值得认真看 02 黎曼猜想到底在说什么 03 Claude 在里面做了什么 04 证明长什么样：我们解开看了 05 接下来要核对什么 06 他还说了什么 AI 解读 / 研究解读 · 11-21 · 约 11 分钟 · 作者 Levent Alpöge Anthropic 数学家称和 Claude 证明了黎曼猜想：1700 万行 Lean 证明已公开，尚无外部</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 周报 · 2026 年 11 月 21 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Anthropic 数学家称和 Claude 证明了黎曼猜想：1700 万行 Lean 证明已公开，尚无外部核对 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/riemann-hypothesis-proof-claim/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>他是谁，这次为什么值得认真看</span></a><a><span>02</span><span>黎曼猜想到底在说什么</span></a><a><span>03</span><span>Claude 在里面做了什么</span></a><a><span>04</span><span>证明长什么样：我们解开看了</span></a><a><span>05</span><span>接下来要核对什么</span></a><a><span>06</span><span>他还说了什么</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>研究解读</a><i>·</i>11-21<i>·</i>约 11 分钟<i>·</i>作者 Levent Alpöge</div><h1>Anthropic 数学家称和 Claude 证明了黎曼猜想：1700 万行 Lean 证明已公开，尚无外部核对</h1><p>悬了 167 年的数学头号难题，答案可能就在 1700 万行代码里，现在只等有人把它跑一遍。</p><div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Levent Alpöge</span><span>11-21 · 约 11 分钟</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div><div><div><div>
+<div></div>
+</div></div><strong>一分钟速览</strong><ul><li>Alpöge 称和 Claude 一起证明了黎曼猜想，方法还能推到广义版本。</li><li>证明只公开 Lean 代码；他生成过 25 万多页文字稿，嫌读不下去没公开。</li><li>目前没有论文，也还没有外部数学家公开说核对过或编译过这份证明。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/riemann-hypothesis-proof-claim/social/zh-f1e74f168c74.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>Anthropic 的数学家 Levent Alpöge 说，他和 Claude 一起证明了黎曼猜想。</p><p>这是数学里最有名的难题：1859 年提出，讲素数怎么分布，悬赏一百万美元，167 年没人解开。</p><ul>
+<li><b>范围：</b>不只黎曼猜想，他说连更大的「广义黎曼猜想」也一起证了。</li>
+<li><b>没有论文：</b>证明是一份 1700 万行的 Lean 代码，计算机能逐行检查对错。</li>
+<li><b>为什么不写成文章：</b>他生成过文字版，超过 25 万页，自己都说没法读。</li>
+<li><b>Claude 的角色：</b>他从学生时代就盯着这道题，可最后冲刺时，「Claude 远远跑到了我前面」。前后大约六周。</li>
+<li><b>现在：</b>还没有外部数学家核对过。</li>
+</ul><h2>他是谁，这次为什么值得认真看</h2><p>Alpöge 2014 年从哈佛数学系本科毕业，2020 年在普林斯顿拿到数学博士，导师是数论学家 Manjul Bhargava；之后在哈佛 Society of Fellows 当了四年青年研究员（Junior Fellow），现在在 Anthropic 工作。</p><p>今年他已经两次因为和 Claude 的合作上了数学新闻。7 月，他贴出了 Claude 给出的雅可比猜想反例，科学美国人说这拉开了数学界「前所未有的夏天」。要分清的是：那次是找到反例、推翻一个猜想，和证明一个猜想是两回事。</p><div><div>
+<div>一年里的四件事</div>
+<div>Claude 和 AI 数学，从反例、下界到这一次的「证明」</div>
+<div>
+<div><span>7 月</span><b>雅可比猜想</b>Alpöge 贴出 Claude 给出的反例。<br /><span>推翻了一个猜想</span></div>
+<div><span>8 月</span><b>ζ 零点下界</b>在线上的零点至少占比：41.6% → 67.2%，他参与内部核对。<br /><span>不是黎曼猜想本身</span></div>
+<div><span>10 月</span><b>OpenAI 一大批数学结果</b>据报道其中一条在理解素数上有重大进展。<br /><span>别家的进展</span></div>
+<div><span>11 月</span><b>黎曼猜想</b>Alpöge 称和 Claude 找到证明，并推到 GRH。<br /><span>声称 · 待核对</span></div>
+</div>
+</div></div><p>8 月，Anthropic 公布：一个未发布的研究版 Claude，把「ζ 函数的零点里，至少有多少比例落在临界线上」这个已知下界，从 41.6% 推到了 67.2%。Alpöge 是在内部研究、核对那份结果的两位数学家之一，结果也请了两位外部专家审阅。</p><div><a>
+<span>站内旧文 · 8 月那次</span>
+<b>Anthropic 让 Claude 试解黎曼猜想：没解出来，却把一个数学下界从 41.6% 推到 67.2%</b>
+<span>41.6% 是什么、Claude 怎么组合了现成的结果、60 个 Agent 是怎么分工的。</span>
+</a></div><p>但那次和这次是两回事。67.2% 只是「至少三分之二的零点在线上」，按科学美国人当时的说法，哪怕推到 100%，也不等于证明了黎曼猜想。牛津大学数学家 James Maynard 当时评价：「再乐观地看，这些方法也没有通往黎曼猜想本身的路。」Anthropic 自己也写明不指望那套技术能证明黎曼猜想。这次走的是另一条路：Stepanov 的方法，加上一串 θ 提升，后面会讲。</p><p>10 月，OpenAI 一口气公开了一大批 AI 做出的数学结果。据科学美国人报道，其中一条在理解素数上取得了重大进展。</p><p>所以这次值得认真对待：说这话的是专业数论学家，8 月他核对过的结果经得起外部审阅，这次还把整份证明交给了机器检查。也必须谨慎：还没有外部数学家公开读过这份证明，作者自己也说还没吃透论证周围的大片数学；Lean 再严格，也只检查交给它的那个命题，命题写歪了，或者定义里藏了假设，它照样会说「通过」。</p><h2>黎曼猜想到底在说什么</h2><h3>素数越往后越稀，但稀得没有规律</h3><p>素数是只能被 1 和自身整除的数：2、3、5、7、11、13……其余的整数都能拆成素数相乘，所以素数是整数的「原子」。从 1 数到 100，素数有 25 个；到了 1000 和 1100 之间，只剩 16 个。越往后越稀，这个大势 18 世纪末的高斯从手算的素数表里就看出来了，还写出了估算公式。可一段一段地数，个数总是上下乱跳。</p><div><div>
+<div>每 100 个数里有几个素数（数到 1 万）</div>
+<div>柱子是真实数出来的，每根代表一段 100 个数</div>
+<div></div>
+<div><span><i></i>每段里的素数个数</span><span><i></i>平滑估计：100 ÷ ln x</span></div>
+<p>大势被平滑曲线抓住了，每一段却都在曲线上下乱跳。黎曼要解释的，就是这些乱跳。</p>
+</div></div><h3>乱跳的部分，能拆成一个个「音」</h3><p>黎曼 1859 年的论文，把这些乱跳和一个函数连了起来，后来叫黎曼 ζ 函数。它的输入是复数，可以想成平面上的一个点：横坐标叫实部，纵坐标叫虚部。每个点代进去都算出一个值，在某些点上这个值正好是 0，这些点就叫「零点」。</p><p>黎曼发现，素数的实际分布和平滑估计之间的偏差，可以精确地拆成无穷多个波，每一对零点贡献一个，就像一个乐音能拆成一串泛音：零点的虚部决定这个波的频率，实部决定它的音量。</p><p>下面这张图按他的公式真的算了一遍。台阶是素数的「加权计数」：从左往右走，每碰到一个素数 p（或者 p 的平方、立方……）就往上跳一级，跳的高度是 ln p。这样计数，台阶整体正好贴着 y = x 这条斜线；数学上把它记作 ψ(x)，就是把 von Mangoldt 函数一项项加起来，后面声明里那句「长度为 X 的 von Mangoldt 和」说的就是它。光有斜线，台阶的拐角一个也拼不出来；把零点一对一对加进去，每加一对多叠一层波，台阶就一点点显形。</p><div><div>
+<div>把零点一对一对加进去，素数台阶就显形了</div>
+<div>按黎曼–von Mangoldt 显式公式实算，用的是真实的前 100 对零点</div>
+<div></div>
+<div><span><i></i>真实的素数台阶 ψ(x)</span><span><i></i>只用平滑项（虚线）</span><span><i></i>加上零点之后</span></div>
+<p>100 对零点已经把 50 以内每个素数和素数幂的位置都拼了出来。拐角处还有小抖动，那是只用了有限多个零点留下的。</p>
+</div></div><h3>猜想本身：零点全排在一条竖线上</h3><p>ζ 的零点分两种。一种落在负实数轴上，−2、−4、−6……位置早就清楚，叫「平凡零点」。其余的都挤在实部 0 到 1 之间的一条竖带里，叫临界带。黎曼猜：这些零点的实部全都等于 ½，也就是全部排在竖带正中那一条线上，这条线叫临界线。他算出的前两个零点，高度（虚部）是 14.13 和 21.02。</p><p>为什么非得在这条线上？前面说过，实部决定波的音量。实部是 ½ 的零点，它那个波的幅度大约按 √x 增长；要是有一个零点跑到实部 0.8，它的波就按 x 的 0.8 次方长，数到 1 万时比前者大十几倍，素数的分布就会偏出平滑估计很远。黎曼猜想等于说：误差最多只有 √x 这个量级（再乘一点对数）。罗格斯大学数学家 Alex Kontorovich 的说法是：「黎曼猜想说的是，素数这支乐队里所有乐器的音量完全一样。」声明的第一句也是这个意思：它要的，是对「某个大小范围里有多少素数」的最优控制。</p><div><div>
+<div>零点要是跑偏了，会怎样</div>
+<div>真实的零点、一个假设跑偏的零点<span>示意图</span>，以及它们的波随 x 长多快</div>
+<div>
+<div><div>复平面（左段压缩画）</div><div></div></div>
+<div><div>波的振幅：实部 ½ 对比实部 0.8</div><div></div></div>
+</div>
+<p>灰点是平凡零点；× 是 s = 1，ζ 在那里没有定义；金线上是真实的前 5 个非平凡零点；红色虚线圈是假设的跑偏零点。实部从 ½ 挪到 0.8，看着只挪了一点，它的波到 x = 1 万时已经大了十几倍。</p>
+</div></div><p>它值一百万美元，不只因为难。Kontorovich 说：「有几百篇论文证明的是『如果黎曼猜想成立，那么 x 成立』。」数学家早就默认它成立、往前走了，一旦它被证明，这一大片结论都不再需要这个前提。1900 年希尔伯特把它列进留给二十世纪的问题清单；2000 年克雷数学研究所把它列为七个千禧年难题之一，悬赏一百万美元。从提出到今天，它悬了 167 年。它难到大多数顶尖数论学家都很少花时间碰它，Maynard 说过：「我真的没有任何好主意，不知道该从哪下手。」</p><h3>广义黎曼猜想（GRH）</h3><p>数学里很多对象都配着一个和 ζ 类似的函数，统称 L 函数，每个都有自己的临界线。其中最常见的一族叫狄利克雷 L 函数，它们管的是「除以 3（或 4、5、8……）余几」的素数各有多少。广义黎曼猜想（GRH）说：每一个狄利克雷 L 函数的零点，也都在实部 ½ 那条线上。（把它推到所有 L 函数，是另一个更大的猜想，这次的声明没有涉及。）</p><p>声明称同一方法证出了 GRH，我们在压缩包里看到，Lean 里也写出了 GRH 的这几条命题。再往前一步的「扩展黎曼猜想」，说的是数域的 ζ 函数（ζ 在更一般的「数的体系」里的版本），他说再多些时间能做到。</p><div><div>
+<div>广义黎曼猜想：每个狄利克雷 L 函数，零点也都在 ½ 上</div>
+<div>ζ 和四个狄利克雷 L 函数，零点按真实数值画（虚部 0 到 32）</div>
+<div></div>
+<p>算到的这些零点，每一列都落在实部 ½ 上。这里只是有限的几个，猜想说的是全部零点、每一个狄利克雷 L 函数。</p>
+</div></div><div><a>
+<span>站内旧文 · 10 月 OpenAI 那批</span>
+<b>OpenAI 公布 722 篇数学手稿：AI 在哪些未解难题上提出了突破？</b>
+<span>其中一组结果在 ζ 和狄利克雷 L 函数上排除了实部大于 7/8 的零点：离「全在 ½ 上」还差一大段，可以和本文对照着看。</span>
+</a></div><h2>Claude 在里面做了什么</h2><p>声明里写，学生时代他就暗暗把这道题当作要花几十年的目标，所以一直刻意熟悉所有可能用得上的工具。最近几个月他和 Claude 一起做了很多不同方向的东西，「但这一次，接近终点时，Claude 远远跑到了我前面。不，Claude 是在终点线前飞翔、起舞、闪闪发光。」</p><p>他描述的分工是：他把两人带上一条路，把两个很不一样的想法放进一个「玩具模型」里结合（其中一个想法本身就很新，后面会说它做到了什么）；再找到和玩具模型对应的真实场景。「然后 Claude 开始让我惊叹。」他也坦白，论证里用到大量高阶群上的自守形式，那恰恰是他自己不太熟的领域。</p><h3>让同行「从椅子上摔下来」的一行</h3><p>他说这样的时刻有几十个，只举一个，「足以让数学家同行从椅子上摔下来」。要看懂它，得先知道两件事。</p><p><b>函数域：</b>整数有个「近亲」叫函数域，可以粗略理解成把整数换成有限域上的多项式。在那里，黎曼猜想的对应版本早就被 Weil 和 Deligne 证明了，是数学家最引以为豪的成果之一，Stepanov 后来给过另一个证明。声明说，他们在玩具模型里的新想法，把这件事证得非常简单，这本身就是一个不小的附带声称。</p><p><b>重数：</b>Stepanov 证明里的关键工具。一个零点可以「算好几次」：曲线直接穿过横轴，算 1 重；碰一下就弹回去，算 2 重；贴平了再穿过去，算 3 重。一个 d 次多项式，零点按重数算最多 d 个。所以如果能造一个多项式，让它在 N 个点上都是 m 重零点，就有 N × m ≤ d，也就是 N ≤ d ÷ m。重数越高，数出来的上界越紧，Stepanov 方法的骨架就是这样数点。</p><p>难处在于，这个工具到了整数上找不到。作者的比喻是：在整数上要重数，「相当于要对整数求导」。他们的办法是用一串 θ 提升（theta lift，自守形式理论里把一个对象搬到更大的群上去的构造）来模仿重数：链上每多一次提升，就多赢一重。</p><p>链要多长？Claude 给的答案是：对长度为 X 的 von Mangoldt 和，链长取 √X。作者在括号里补了一句：「可它还能是别的什么呢？」为什么偏偏是 √X、它怎样让整个论证合上，是行家才看得懂的技术细节，要等正式的论文。可以留意的是，前面说过，√X 正是黎曼猜想预言的误差量级。</p><div><div>
+<div>重数，和用来模仿它的 θ 提升链<span>示意图</span></div>
+<div>先看「一个零点算几次」，再看链长 √X 随 X 怎么长</div>
+<div></div>
+<div><b>Stepanov 数点的骨架：</b>一个 d 次多项式，零点按重数算最多 d 个。让它在 N 个点上都是 m 重零点：<span>N × m ≤ d　→　N ≤ d ÷ m</span>重数 m 越高，点数 N 的上界越紧。整数上没有现成的重数，他们用 θ 提升链去模仿：每提升一次，多赢一重。</div>
+<div></div>
+<p>每个点代表链上的一次 θ 提升。可以留意：√X 也正是黎曼猜想预言的误差量级，链长恰好取了这个数。</p>
+</div></div><h3>二十步，前后六周</h3><p>一位他信任的数学家建议他「直接说重点，给个时间线」，于是声明附了一份 20 步的时间线，是 Claude 在记录里翻找后整理的。几乎每一步都是只有专家能读的术语，但它的形状本身就有信息：</p><ul>
+<li><b>编号不按时间排：</b>第 1、4、11、13 步都在 10 月 6 日，第 19 步又回到 10 月 19 日。</li>
+<li><b>最后两天挤满了：</b>10 月 21 日到 11 月 14 日这 25 天里没有一步标日期，然后 11 月 15 日一天标了 8 步，第二天就是第 20 步：GRH。</li>
+<li><b>按声明的日期看：</b>大部分零件 10 月就有了；11 月 15 日一天把 θ 提升链那一路接通，第二天到了 GRH。</li>
+<li><b>作者自己也打了折扣：</b>他说其中他不熟的部分是在转述 Claude 的总结，「可能完全说不通」，一切以 Lean 为准。</li>
+</ul><div><div>
+<div>20 步时间线：编号和日期对不上</div>
+<div>按日期排开的 20 步：大部分零件在 10 月，11 月 15 日一天 8 步，次日到 GRH。标签是我们对术语的简写，金框是第 8 步（那句 √X）</div>
+<div>　</div>
+<div>
+<div><div>10/6</div><div><span><i>1</i>Stepanov 行列式</span><span><i>4</i>用行列式证 W ≥ 0，自举（从这天起）</span><span><i>11</i>Iwasawa 塔（类比有限域上的鸽巢原理）</span><span><i>13</i>Bost 斜率不等式</span></div></div>
+<div><div>10/8</div><div><span><i>6</i>由 W ≥ 0 推出 &gt; 1 − η</span></div></div>
+<div><div>10/9</div><div><span><i>2</i>CM 曲线上的整除性</span></div></div>
+<div><div>10/14</div><div><span><i>7</i>含 GGP 周期的行列式</span><span><i>16</i>相对迹公式</span></div></div>
+<div><div>10/19</div><div><span><i>3</i>想要「自守性」的二次型（从这天起）</span><span><i>19</i>精确选定 Iwasawa 塔（用 Behrend）</span></div></div>
+<div><div>10/20</div><div><span><i>5</i>改用 von Mangoldt 加权和</span></div></div>
+<div>中间 25 天，没有一步标在这段日子里</div>
+<div><div>11/158 步</div><div><span><i>8</i>θ 提升链赢得 m 重，m 取 √X</span><span><i>9</i>提升的范数与整除性</span><span><i>10</i>m 重提升整除性的下界</span><span><i>12</i>Seesaw：周期变成 Bessel 周期</span><span><i>14</i>算每次提升的「代价」</span><span><i>15</i>跨 Hecke 特征粘出整体结构</span><span><i>17</i>弱化版 Vandiver</span><span><i>18</i>余体积、θ 级数指标、同余</span></div></div>
+<div><div>11/16</div><div><span><i>20</i>GRH</span></div></div>
+</div>
+<p>日期照声明里的时间线（年份都是 2026）。作者说这份时间线是粗略的，其中他不熟的部分以后可能要改写。</p>
+</div></div><h2>证明长什么样：我们解开看了</h2><p>证明以 14 个分卷的压缩包挂在他的网站上，合起来 239,275,554 字节，约 240MB。我们下载、解开，做了只读扫描，没有编译运行。</p><div><div>
+<div>那份证明有多大</div>
+<div>解开后的 .lean 文件，按顶层文件夹分；每一小格约 175 个文件</div>
+<div>
+<div><b>14</b>个分卷</div>
+<div><b>240MB</b>压缩包</div>
+<div><b>1.3GB</b>解开后</div>
+<div><b>175,187</b>个 .lean 文件</div>
+<div><b>17,374,215</b>行</div>
+</div>
+<div></div>
+<div>
+<span><i></i>Development<em>141,928</em></span>
+<span><i></i>Formalism<em>18,254</em></span>
+<span><i></i>GroundTheory<em>8,507</em></span>
+<span><i></i>ReciprocityTheory<em>3,845</em></span>
+<span><i></i>CompanionTheory<em>2,027</em></span>
+<span><i></i>PositivityTheory<em>449</em></span>
+<span><i></i>Lemmata 等其余<em>177</em></span>
+</div>
+<div><b>最终定理在哪：</b>Main.lean（12 行）和 Statements.lean（16 行），一共 2 个文件、28 行，在这张图里只占一格的约百分之一。</div>
+</div></div><p>这些都是 Lean 文件。Lean 是一种「证明助手」：把数学写成它能读的形式，它会逐步检查每一步推理，是不是从定义、公理和前面已经证过的结论推出来的。工程钉死了 Lean 4.33.1 和 Mathlib 的一个具体版本。</p><p>为什么不发文字版？作者说，生成一份细节足够的长文档是常规操作，但那会是一份巨大、读不下去的东西，在自己还没吃透论证周围大片数学之前，贴出这种「slop」显然不合适。他自己生成过，超过 25 万页，Claude 管它叫 GRH 之「书」。他翻开第一条定理，开头在说：因为实数是全序的，所以如果 σ ≠ ½，那么 σ &gt; ½ 或者 σ &lt; ½。</p><h3>1700 万行，最后落在一行</h3><p>整个工程的入口 Main.lean 只有 12 行。第一条定理叫 <code>riemannHypothesis</code>，它要证的命题是 <code>RiemannHypothesis</code>，证明是 <code>rhOfAll</code>：前面 17.5 万个文件，最后汇成这一个名字。</p><div><div>
+<div>最后那条定理，和它引用的定义</div>
+<div>上：Main.lean 里的五条定理　下：Mathlib 里的黎曼猜想定义，逐段翻译</div>
+<div>
+<div><span>Main.lean</span><span>12 行</span></div>
+<div><code>theorem riemannHypothesis : RiemannHypothesis := rhOfAll</code><span>黎曼猜想。命题用的是 Mathlib 现成的定义<span>社区定义</span></span></div>
+<div><code>theorem riemannZeta_eq_zero_re : RiemannZetaZerosOnLine := rhOfAll</code><span>同一句黎曼猜想的另一种写法<span>作者自写</span></span></div>
+<div><code>theorem LFunction_ne_zero_of_half_lt_re : DirichletLNonvanishingRightOfHalf := allChi</code><span>所有狄利克雷 L 函数，在实部大于 ½ 的地方都不为零<span>作者自写</span></span></div>
+<div><code>theorem LFunction_eq_zero_re : DirichletLZerosOnLine := claimAll.2.1</code><span>临界带里，狄利克雷 L 函数的零点实部都是 ½<span>作者自写</span></span></div>
+<div><code>theorem LFunction_eq_zero_re_of_isPrimitive : PrimitiveDirichletLZerosOnLine := critAll</code><span>同上，本原狄利克雷特征的版本<span>作者自写</span></span></div>
+</div>
+<div>
+<div><span>Mathlib/NumberTheory/LSeries/RiemannZeta.lean</span><span>第 182–186 行</span></div>
+<div><code>/-- A formal statement of the **Riemann hypothesis** – constructing a term of this type is worth a million dollars. -/</code><span>注释：黎曼猜想的形式化表述。构造出这个类型的一个项（也就是证明它），值一百万美元。</span></div>
+<div><code>def RiemannHypothesis : Prop :=</code><span>定义一个命题，名叫 RiemannHypothesis：</span></div>
+<div><code>  ∀ (s : ℂ) (_ : riemannZeta s = 0)</code><span>对每一个复数 s，只要 ζ(s) = 0，</span></div>
+<div><code>  (_ : ¬∃ n : ℕ, s = -2 * (n + 1))</code><span>并且 s 不是 −2、−4、−6……（排除平凡零点），</span></div>
+<div><code>  (_ : s ≠ 1),</code><span>并且 s 不是 1，</span></div>
+<div><code>  s.re = 1 / 2</code><span>那么 s 的实部就等于 ½。</span></div>
+</div>
+</div></div><p>关键在 <code>RiemannHypothesis</code> 这个名字从哪来。它不是作者写的，是 Mathlib（Lean 社区共同维护的数学库）里早就有的定义，写好了放在那里等人来证。这意味着「定理写的到底是不是黎曼猜想」，在这一条上有现成答案：只要证明能通过检查，证的就是社区公认的那句话。</p><p>另外四条是作者在 Statements.lean（16 行，只引用 Mathlib）里自己写的：同一句黎曼猜想的另一种写法，以及狄利克雷 L 函数的三条。这三条就是 GRH 本身。它们用的命题是作者自己写的，核对时要逐字看是不是忠实于标准说法。</p><h3>我们扫了一遍常见的「后门」</h3><p>Lean 里有几种写法能让证明「看起来通过」：<code>sorry</code> 是「这一步先跳过」，<code>admit</code> 类似；自己声明一条 <code>axiom</code>，等于直接假定一件事成立；<code>native_decide</code> 把计算交给编译出来的程序，不走 Lean 内核核对；<code>unsafe</code>、<code>implemented_by</code>、<code>extern</code> 能让代码绕开内核的保证。我们在全部 17.5 万个文件里全文搜索，这些一处都没有。</p><p>有几处元编程（写程序去生成证明）值得审核者专门看：BuildAid 里的 5 个文件，用来把几个大模块从库搜索的提示里排除，是构建辅助；Formalism 里有几个自定义策略（<code>kexactB</code>、<code>kcopy</code>），还有一个复制定理声明的命令（<code>cpt_copy_thms</code>，内部用 <code>addDecl</code> 添加定理）。按 Lean 的机制，<code>addDecl</code> 加进来的东西仍然要过内核检查，但这类地方正是审核者会重点看的。</p><p>要说清楚：这是文本搜索，不是审核。它只说明最明显的几种后门不在那里；能不能编译通过、整套论证对不对，要等有足够算力和专业的人去跑、去读。</p><h2>接下来要核对什么</h2><p>科学美国人的报道认为，专家应该很快就能核实命题写得对不对、证明是否正确。照我们看到的结构，核对大概要过这几关：</p><div><div>
+<div>要过的几道关</div>
+<div>每一关现在走到哪了</div>
+<div>
+<div><div>1</div><div><div>证的是不是黎曼猜想？</div><div>黎曼猜想那条用的是 Mathlib 现成定义，这一关压力很小。GRH 那几条是作者自己写的命题，要逐字对照标准说法。</div><div><span>RH：用社区定义</span><span>GRH：要逐字看</span></div></div></div>
+<div><div>2</div><div><div>1700 万行能编译通过吗？</div><div>要很大的机器、很长时间。目前没查到有外部人报告编译通过；我们也没有编译。</div><div><span>还不知道</span></div></div></div>
+<div><div>3</div><div><div>有没有跳步、偷加公理？</div><div>作者说「没有附加假设」。我们的全文搜索里，常见的几种写法都是 0：</div>
+<div><span>sorry　这一步先跳过</span><b>0</b><span>admit</span><b>0</b><span>自定义 axiom</span><b>0</b><span>native_decide</span><b>0</b><span>implemented_by / extern / unsafe</span><b>0</b></div>
+<div><span>文本扫描为 0</span><span>编译后还要让 Lean 列出用到的公理</span></div></div></div>
+<div><div>4</div><div><div>元编程会不会绕过检查？</div><div>有几个自定义策略和一个复制定理的命令（用 addDecl）。按机制仍要过内核检查，但审核者会专门看。</div><div><span>要专门看</span></div></div></div>
+<div><div>5</div><div><div>有人能读懂吗？</div><div>没有论文。作者说自己还没吃透论证周围的数学，打算简化它、讲它、把它好好写出来。</div><div><span>还没有</span></div></div></div>
+</div>
+</div></div><p>编译这一关并不轻松：1700 万行代码加上 Mathlib，要很大的机器跑很久，目前没查到有外部人报告编译通过。作个对照，8 月那份 67.2% 的结果，它的 Lean 证明通过了标准核对工具 comparator；这次还没有人公开做过同样的事。</p><p>更难的一关在人。作者说，眼下的论证「长得惊人」，他打算尽力理解它、理解它必然会有的简化，去讲它，把它好好写出来。他的直觉是它会被大幅简化，「很可能马上就会」；他也承认自己可能在论证里埋了很多奇怪的、不够好的选择，预计更短的证明会很快出现。</p><p>Lean 能回答「对不对」，回答不了「为什么对」。Maynard 说过，他相信黎曼猜想成立有一个很好的理由，「只是我完全不知道那个理由是什么」；「只要我能看懂这个证明，不管它来自外星人、上帝还是 AI，我都会非常兴奋。」一份 1700 万行的机器证明，离「能看懂」还很远。</p><h2>他还说了什么</h2><p>声明的语气一半是告别：「觉得这是一个终结，是很自然的；对我来说，是失去了一盏主要的指路明灯。但一路上看到的东西让我如此惊叹，我相信这是整个科学界某种远为宏大之物的一次黎明。」</p><p>关于时机，他专门写了一段：</p><blockquote>时机糟透了。如果可以，我早就把这一切做完了。这一切发生在一个周日深夜，我给 Dario 发消息……最后问到我能不能公布。我们商量清楚了，事实是有一个必须遵守的约束。……关于时机，有一种显而易见的犬儒解读，但它是错的。</blockquote><p>他没说这个约束和时机具体指什么。</p><p>他也夸了 OpenAI，说自己受益于 OpenAI 那些数学结果背后的人的「好品味」。看过其中一项结果后，他「立刻明白纳维-斯托克斯方程要倒了」，这是他对另一道千禧年难题的个人判断。他还说，OpenAI 那批结果里悄悄收进的一个论证，他一眼认出是「没有重数的 Stepanov」，而这次的论证，正是在想办法把重数补回来。</p><p>声明的最后一句是：「在数学的一个革命时代，我希望这个论证能让人瞥见前方的奇迹，让我们看到，即将在最简单的事物里找到的喜悦和惊奇。」</p><p>接下来最先有答案的，会是那 1700 万行能不能编译通过；人能不能读懂它，要久得多。</p></div><div><div><div>来源</div><div><span>Levent Alpöge 关于黎曼猜想证明的声明（remark.pdf）</span><span>Levent Alpöge<span>·</span>2026-11-20<span>·</span><a href="https://alpo.ge/remark.pdf">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://www.scientificamerican.com/article/anthropic-mathematician-claims-to-prove-riemann-hypothesis-most-famous-problem-in-all-of-math/">Anthropic mathematician claims to prove Riemann hypothesis, most famous problem in all of math（Scientific American）</a><span>·</span><a href="https://alpo.ge/lean.tar.gz.part01">Lean 证明压缩包（14 个分卷，part01…part14）</a><span>·</span><a href="https://www.anthropic.com/research/riemann-zeta">Learning more about Claude's mathematical capabilities（Anthropic）</a><span>·</span><a href="https://www.scientificamerican.com/article/no-ai-didnt-just-solve-the-thorniest-problem-in-math/">No, Anthropic's AI didn't just solve math's hardest problem（Scientific American）</a><span>·</span><a href="https://www.scientificamerican.com/article/the-riemann-hypothesis-is-a-million-dollar-math-problem-hardly-anyone-is-trying-to-solve/">Why no one is trying to solve math's greatest mystery（Scientific American）</a><span>·</span><a href="https://kityates.substack.com/p/ai-may-have-helped-solve-the-most">AI may have helped solve the most famous problem in maths（Kit Yates）</a></div></div><div><div>本站说明</div><div>Lean 压缩包由本站下载解开、只读扫描（行数、文件数、最终定理、Mathlib 定义、可疑写法），未编译运行；Alpöge 履历据其个人主页 CV 和哈佛 Society of Fellows 名录。文中零点数值（ζ 前 100 个、模 3/4/5/8 狄利克雷 L 函数）用 mpmath 计算；全部图为本站自绘。</div></div></div></div></div>
+</div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://alpo.ge/remark.pdf">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Skill lemo-animi：一句话让 Codex 做出带配乐和拟音的定格短片 · XiaoHu.AI</title>
 <link>https://xiaohu.ai/article/lemo-animi-stop-motion/</link>
@@ -75669,298 +75835,6 @@ Fig. 10.3 Solved sudoku puzzle.
 <p>询问某个陈述是真还是假。返回一个 0 到 1 之间的概率数值 <code>noul</code>。
 接近 1 代表很可能是「是」，接近 0 代表很可能是「否」。</p>
 </div></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Google 让老师一句话生成互动练习：Gemini 做界面，四类自动检查兜底，老师最后把关</title>
-<link>https://best.xiaohu.ai/article/teachers-generative-ui-interactives/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:teachers-generative-ui-interactives</guid>
-<pubDate>Fri, 18 Sep 2026 12:01:46 +0000</pubDate>
-<description>老师给出学科、年级和主题，Gemini 生成带关卡、提示和反馈的网页模拟；一次生成只有 3.5% 能过全部检查，自我纠错 10 轮后到 69.3%。目前还没有学生学习效果的数据。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 18 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Google 让老师一句话生成互动练习：Gemini 做界面，四类自动检查兜底，老师最后把关</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/teachers-generative-ui-interactives/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div>正文一页纸</div><div><div><h1>Google 让老师一句话生成互动练习：Gemini 做界面，四类自动检查兜底，老师最后把关</h1><p>老师给出学科、年级和主题，Gemini 生成带关卡、提示和反馈的网页模拟；一次生成只有 3.5% 能过全部检查，自我纠错 10 轮后到 69.3%。目前还没有学生学习效果的数据。</p><strong>一分钟速览</strong><ul><li>老师给出学科、年级和主题，Gemini 就能生成带递进关卡、提示、解法和反馈的网页互动练习。</li><li>真正困难的是把界面做对：一次生成只有 3.5% 通过全部检查，在浏览器中反复测试和修正 10 轮后提高到 69.3%。</li><li>老师负责确定学习目标、挑选候选并最终审核；40 个题目的专家验收通过率达到 86%。</li><li>公开库已有 36 个英文练习可体验，但这项研究目前验证的是内容与可用性，还没有学生学习效果数据。</li></ul><div><p>从在线课本到视频库，数字教育工具虽然改变了学生获取信息的方式，但很多时候数字学习仍然像是一种被动体验。学生坐在屏幕前点击「下一页」，看起来在学习，思维其实处在被动接收状态。</p>
-<p>认知科学领域著名的 ICAP 框架——将学习行为由浅入深分为被动（Passive）、主动（Active）、建设性（Constructive）和互动性（Interactive）四个层级——早就证实，能够动手操作、调整变量并观察即时反馈的「互动式学习」，在建立概念模型和长期记忆上的效果远好于被动听讲。类似物理仿真实验那样的互动工具，以往大多需要专业的开发团队写代码定制，不仅周期长、成本高，而且老师很难根据自己当天的授课进度微调变量。</p>
-<p>Google Research 的「学习互动练习（learning interactives）」实验让老师输入学科、年级和教学主题，再由 Gemini 生成包含关卡、操作控件、数据图表和反馈的网页模拟。</p>
-<figure><figcaption>火箭滑车模拟演示：学生调整加速度和发动机工作时间，测试滑车能否准确停在目标位置（关卡随之解锁推进）</figcaption></figure>
-<p>把近年来在前端领域崭露头角的「生成式界面（generative UI）」——让 AI 根据对话意图动态构建界面组件而非调用预写静态代码的技术——直接搬进教育场景，并没有想象中顺利。配套的技术报告给出了一个很直观的数字：<strong>即使前面的教学规划都已做好，界面一次生成只有 3.5% 能通过全部检查。</strong></p>
-<h2>为什么不能直接拿现成的生成式界面来教书</h2>
-<p>按报告的说法，现成的生成式界面主要擅长做一次性的小部件（widget-like components），不擅长多阶段、有结构的教学模拟。</p>
-<p>放进课堂，直接让大模型「写一个物理实验界面」还会撞上两堵墙：</p>
-<p>第一堵墙是<strong>认知卸载（cognitive offloading）</strong>。大语言模型原本的设计目标是帮用户省事，用最省力的方式给出答案。然而学习过程恰恰需要合理的「认知阻力」——学生必须自己经历推导、试错、碰壁和调整，才能真正理解知识背后的机制。如果 AI 做出来的界面过于智能直接把解题捷径拱手相送，学生就会把思考过程外包给机器，表面上完成了操作，大脑却没有完成知识构建。与此同时，认知研究表明完全不给引导的「纯发现式学习」基本无效（Kirschner、Sweller、Clark 2006），主动学习需要明确的脚手架和引导，而这在课堂上本来是由老师承担的。</p>
-<p>第二堵墙是<strong>动态仿真的物理与教学严谨性</strong>。一个合格的教学互动练习，必须保证后台逻辑遵循准确的科学规律，界面上的数值滑块能实时反映到曲线图上，同时关卡的目标在数学和物理上必须是「存在可行解」的。常规的生成式大模型在写代码时，极易产生各种隐蔽瑕疵：例如报告中记录的一个化学互动练习，虽然基本布置没有问题，但放烧瓶的桌子超出了画面边框，数据读数面板还挡住了部分模拟物件；更严重的是，关卡目标可能根本达不到。</p>
-<p>因此，这套系统没有让模型用一条提示词直接交付成品，而是把教学设计、代码生成和验证拆开。</p>
-<h2>四个阶段拆解：把教学大纲变成关卡游戏</h2>
-<p>为了让生成的界面具备教学价值，研究团队将构建流程拆解为四个前后衔接的阶段，在文本规划、关卡设计、代码实现与教学辅导之间筑起一道道防护栏。</p>
-<p>在整套流程中，教师始终处于主导与把关的核心位置：流程由老师发起请求（包含学科、年级、主题，并可附加额外要求）；随后，AI 生成具体的学习目标，交由老师审核并可自由修改；针对通过的目标，系统为每个请求生成 5 个候选模拟，按报告的设计由老师挑出最符合教学意图的一个（在 12 位教师的实测研究中，则先由内部评审挑出最佳版本再呈现给老师）；新生成的练习最终必须经老师审核通过后，才能正式进入公开库。</p>
-<figure>
-<p>据技术报告图 4 重绘</p>
-<p>一个互动练习是怎么做出来的：四个生成阶段，每一步都要过检查</p>
-<ol>
-<li>
-<span>老师</span>
-<strong>发起请求</strong>
-<span>学科、年级、主题，可附额外要求</span>
-</li>
-<li>
-<span>1</span>
-<div>
-<strong>模拟构想</strong>
-<span>先写学习目标（老师审核、可修改），再写模拟方案：有哪些实体、它们之间的关系、要显示的读数和图表、学生能调的旋钮和按钮</span>
-<span>自动评估 · 不过就带着意见重做</span>
-</div>
-</li>
-<li>
-<span>2</span>
-<div>
-<strong>分级关卡</strong>
-<span>5 个关卡目标逐关生成，每关要具体、好懂、比上一关多一点新东西、又不能难太多</span>
-<span>每关单独检查 · 不过就重写这一关</span>
-</div>
-</li>
-<li>
-<span>3</span>
-<div>
-<strong>生成界面</strong>
-<span>写出 HTML 和 JavaScript，在 Chrome 里实际打开，按四类检查：</span>
-<ul>
-<li>可解性</li><li>读数图表</li><li>操作机制</li><li>视觉</li>
-</ul>
-<span>不过就带着意见回去改 · 一次生成只有 3.5% 全过，改 10 轮后到 69.3%</span>
-</div>
-</li>
-<li>
-<span>4</span>
-<div>
-<strong>辅导内容</strong>
-<span>开场导览、每关的分层提示和完整解法、答对答错时的解释反馈</span>
-<span>自动评估 · 不过就重做</span>
-</div>
-</li>
-<li>
-<span>老师</span>
-<strong>挑选与审核</strong>
-<span>每个请求生成 5 个候选，老师挑最合适的；审核通过才进公开库，不通过就退回</span>
-</li>
-</ol>
-<figcaption>中文示意，不是产品界面。第 3 步的通过率统计以前两步都已验证为前提。</figcaption>
-</figure>
-<p><strong>阶段一：模拟构想（Simulation idea）</strong>。这一阶段完全基于文本进行。老师输入学科、学段和具体题目（例如高中物理的复杂直流与交流电路）。Gemini 首先梳理出一组精确且可测量的学习目标，交由教师审核确认。在明确了「这节课究竟要达成什么认知」之后，模型才会进一步构思具体的模拟场景：有哪些实体对象（如脉冲整形器、谐振器）、实体之间存在什么科学规律、需要显示哪些读数和图表、留给学生操作的调节旋钮有哪些，以及最终的触发动作是什么。</p>
-<p><strong>阶段二：脚手架关卡（Scaffolding）</strong>。有了实验场景，不能直接把学生丢进一个毫无指引的沙盒。系统会让模型把核心概念拆解为 5 个具有阶梯难度的连续关卡。为了避免难度跳跃过大或目标含糊不清，这 5 个目标不是一次性生成的，而是采用逐关递进的方式：前一关的目标通过验证后，再生成下一关，严格要求每一关既要比前一关引入更深入的思考，又不能脱离前置概念的支持。</p>
-<p><strong>阶段三：界面代码构建（Gen-UI）</strong>。在前两个阶段的教学目标完全锁定的基础上，Gemini 开始编写 HTML 和 JavaScript 代码，把抽象的关卡和控制逻辑转化为能够在浏览器里运行的交互界面。这一阶段是技术实现上最脆弱、最容易出错的瓶颈。</p>
-<p><strong>阶段四：教学辅导与反馈（Guidance）</strong>。当界面本身能够正常运行后，系统才会为其追加外围的助学系统。这套系统包括帮助学生熟悉操作的开场导览（Tour）、藏在右侧工具箱里的公式与理论参考、遇到困难时按需点击的分层提示，以及学生尝试成功或失败时的针对性反馈弹窗。</p>
-<p><img /></p>
-<figcaption>互动练习界面：展示数轴对称练习中的关卡目标（上方）、分层提示（左下）、针对性反馈弹窗（中）与理论工具箱（右）</figcaption>
-<p>在这套界面里，系统融入了两项关键的学习支持机制：</p>
-<p><strong>脚手架式提示（Scaffolded hints）</strong>：按学生解题卡壳的程度逐层给出渐进式线索。例如提示会把学生引向相关公式，或解释某个特定术语；提示分为多个层级，只有在学生自己探索之后，最后才会提供完整解法（worked solutions），避免直接给出答案打断主动思考。</p>
-<p><strong>形成性反馈（Formative feedback）</strong>：在学生操作出错或达成目标时，针对当前参数的组合原因进行原理解释。例如在数轴对称练习中成功通关时，弹窗不仅判定过关，还会具体解释：蓝车在 +6，对称位置就是 -6，两车离零点都是 6 个单位。根据老师反馈，答错时也给解释性反馈这项功能是研究后来才加上的（报告 3.1 节），帮助学生在试错过程中修复认知偏差。</p>
-<h2>从 3.5% 到 69.3%：代码生成里的自动对抗与自我迭代</h2>
-<p>在第三阶段（前端代码生成）中，测试数据显示：即使学习目标、模拟构想和关卡规划已经过充分验证，完全不经过反馈检查的单次模型直出，通过所有技术与教学标准的比例只有 3.5%。</p>
-<p>按这套检查标准，一次生成的成品绝大多数都有至少一项不过关。为了解决这个问题，研究团队设计了一套多维度的自动检查机制（Auto-rater），让代码在 Chrome 里实际打开并接受四个维度的审查：</p>
-<ul>
-<li><strong>视觉表现（Visual）</strong>：画面有没有超出边框、元件互相遮挡（比如数据面板挡住实验物件），或者多出会分散注意力的多余元素。</li>
-<li><strong>操作机制（Mechanics）</strong>：按钮、滑块这些控件能不能正常用。</li>
-<li><strong>数据读数（Telemetry）</strong>：检查界面上的实时读数和图表（例如展示 RC 电路瞬态电压与电流变化的实时曲线）。</li>
-<li><strong>可解性验证（Solvability）</strong>：这是技术上最特殊的一环。系统会派出专门的测试 Agent 打开浏览器，像人类学生一样去操作那些旋钮，甚至刻意把参数拉到极端值进行对抗性测试，以此验证当前的关卡目标是否真的能够在现有界面下被成功解出。</li>
-</ul>
-<p>如果任何一项检查不达标，检查意见就会作为反馈交回模型，按意见修改后再查，循环到全部过关（检查依据既包括生成的代码，也包括代码在 Chrome 里实际渲染出的画面）。</p>
-<p>在前置目标已经验证的情况下，界面的综合通过率从第 1 轮的 3.5% 提高到中段的 28.9%，经过 10 轮迭代后达到 69.3%。</p>
-<p>不同检查项的变化并不完全同步：</p>
-<ul>
-<li>数据读数通过率：从初始的 23.3% 稳步提升至 93.5%；</li>
-<li>操作机制通过率：从初始的 67.0% 提升至 98.2%；</li>
-<li>视觉排版通过率：从初始的 47.8% 提升至 84.7%；</li>
-<li>关卡可解性通过率：经历了 85.5% → 72.9% → 87.9% 的曲折变化。</li>
-</ul>
-<p>可解性在中途出现下滑，反映出互动练习各部分相互牵连，各项改进并不单调（改好一处可能碰到另一处）。通过自动化环境进行端到端的真实验证，能够在交付老师审核前及早筛除大量隐蔽缺陷。</p>
-<figure>
-<p>数值取自技术报告图 5、图 6</p>
-<p>自我纠错前后：界面通过各类检查的比例</p>
-<p>前提是模拟构想和关卡目标都已验证，只统计「生成界面」这一步。每组三条依次是第一次生成、中途、最后一次（约 10 轮改进后）。</p>
-<div>
-<p><strong>全部检查都通过</strong><span>综合通过率</span></p>
-<div><span>第一次生成</span><span><span></span></span><span>3.5%</span></div>
-<div><span>中途</span><span><span></span></span><span>28.9%</span></div>
-<div><span>最后一次</span><span><span></span></span><span>69.3%</span></div>
-<p><strong>可解性</strong><span>关卡能不能被解出来</span><em>中途反而下降</em></p>
-<div><span>第一次生成</span><span><span></span></span><span>85.5%</span></div>
-<div><span>中途</span><span><span></span></span><span>72.9%</span></div>
-<div><span>最后一次</span><span><span></span></span><span>87.9%</span></div>
-<p><strong>读数图表</strong><span>实时读数和曲线</span></p>
-<div><span>第一次生成</span><span><span></span></span><span>23.3%</span></div>
-<div><span>中途</span><span><span></span></span><span>88.2%</span></div>
-<div><span>最后一次</span><span><span></span></span><span>93.5%</span></div>
-<p><strong>操作机制</strong><span>按钮滑块能不能用</span></p>
-<div><span>第一次生成</span><span><span></span></span><span>67.0%</span></div>
-<div><span>中途</span><span><span></span></span><span>94.4%</span></div>
-<div><span>最后一次</span><span><span></span></span><span>98.2%</span></div>
-<p><strong>视觉</strong><span>越界、遮挡、多余元素</span></p>
-<div><span>第一次生成</span><span><span></span></span><span>47.8%</span></div>
-<div><span>中途</span><span><span></span></span><span>61.4%</span></div>
-<div><span>最后一次</span><span><span></span></span><span>84.7%</span></div>
-</div>
-<figcaption>解读站根据报告原图重绘。通过率指该类检查没有报错的模拟所占比例；「全部检查都通过」要求四类同时过关，所以低于任何单项。</figcaption>
-</figure>
-<h2>教师与专家怎么评价：理化容易出彩，生物偏向翻页</h2>
-<p>为了验证这些互动练习的实际成色，研究团队开展了两组由一线教师参与的评估。</p>
-<p>第一组评估面向 12 名美国在职 STEM 教师。每位教师根据自己班级的教学需求提交了 3 个定制主题，系统共接收了 36 个生成请求。老师们拿到的学习目标绝大多数原样通过，要求改的也都是小改动。在后台，系统为每个请求生成 5 个候选方案，由内部评审挑出质量最高的一个呈现给老师。在这 36 个请求中，有 3 个因为未能达到基本质量标准被内部直接淘汰，最终展示了 33 个。</p>
-<p>参与测试的教师对这批模拟的可用性（usability）打分全部在 7 分及以上，平均高于 8.1 分（满分 10 分。博客把它概括成老师给「质量」平均打 8 分，报告原文评的是可用性）。老师们在定性反馈中普遍提到，这套工具最大的价值在于能做差异化教学（按不同学生调整）。以往现成的教学模拟大多是定死的软件，老师面对不同接受能力的学生无法调整参数和坡度；而这套系统可以按班级节奏量身定制，内嵌的分层提示也缓解了教师在课堂上一对一辅导分身乏术的窘境。几位老师在研究中也指出了当时的不足：需要把请求和课程标准对齐；也有老师指出当时缺少对错误尝试的解释性反馈（后来已补上）。</p>
-<p>第二组评估则针对 40 个由教学专家设定的 STEM 课题，涵盖从小学高年级到大学本科的跨度。每个顺利通过自动化检查的互动练习，均交由两位教授该学科的英国专业教师独立评审。在严格的验收标准下，互动练习的整体通过率达到了 86%，各细分指标大多落在「良好」或「优秀」区间。</p>
-<p><img /></p>
-<figcaption>40 个练习的专家评分：物理与化学在各项指标上接近优秀，生物学科在交互体验与视觉维度相对偏弱</figcaption>
-<p>学科之间的效果差异很明显：</p>
-<p><strong>物理与化学表现最突出</strong>。无论是碰撞定律、抛体运动还是理想气体方程，其核心概念天然依赖严密的数学公式与连续数值变量，非常契合「滑动旋钮调整参数、观察图表动态响应」的模拟机制，评分最接近「优秀」。</p>
-<p><strong>生物学科表现最弱</strong>。在界面的交互体验和美观度上，生物练习的评分显著落后。原因在于像细胞周期、中心法则等中学生物知识，往往以定性机制和形态记忆为主，缺乏连续的数学控制方程。模型在生成这类内容时，很难找到自然的交互隐喻，最后很容易退化成把静态概念分步陈列的「翻页课本」，失去了真正互动的趣味。</p>
-<p>这些分数衡量的是软件可用性和教学契合度，项目还没有学生在真实课堂中的学习收益数据。它能否提高考试表现或加深概念理解，需要后续课堂研究回答。</p>
-<h2>老师和学校现在能用到什么</h2>
-<p>目前，这项实验已经在 Google Research 网站上线了公开样例库（需登录 Google 账号后查看）。</p>
-<p><img /></p>
-<figcaption>公开样例库：展示 36 个经教师审核的互动练习卡片，可按生物、化学、计算机、地学、数学、物理及不同学段筛选</figcaption>
-<p>库中目前收录了 36 个经过教师逐一审核通过（标有「Vetted by teacher」）的成品互动练习，包括开普勒行星运动定律、具有误导性的数据图表识别、火箭滑车运动学等。所有内容都是英文，以初高中的理科和数学为主，也有一个小学题目和几个计算机题目。</p>
-<p>对于想要尝试定制教学的学校，使用 Google Workspace for Education 的教育机构可以申请加入 Google for Education 的试点计划。参与试点的教师可以向系统提交个性化的课程标准与主题，等待系统生成。但系统并不允许未经验证的代码直接流向学生：新生成的互动练习必须先交由提交申请的老师本人体验并审核通过后，才会被正式收录并开放使用。</p>
-<p>下一步是通过 Google for Education 试点，在真实课堂中验证学生的学习效果。</p>
-</div><div><div><div>来源</div><div><span>The future of practice: Enabling teachers to create learning interactives with generative UI</span><span>Google Research（Gal Elidan、Yael Haramaty）<span>·</span><a href="https://research.google/blog/the-future-of-practice-enabling-teachers-to-create-learning-interactives-with-generative-ui/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://services.google.com/fh/files/misc/learning_interactives.pdf">Harnessing Generative UI for Education: Tailored Learning Interactives（技术报告）</a><span>·</span><a href="https://research.google.com/p/learning-interactives">Learning interactives 样例库</a></div></div><div><div>本站说明</div><div>流程图与通过率图由解读站根据技术报告图 4、图 5、图 6 重绘，数值取自报告原图。</div></div></div></div></div><div>
-<div>
-<div>Google Research / Generative UI in Education</div>
-<h1>给生成式界面装上「认知刹车」：从 3.5% 到 69.3% 的互动教学实验</h1>
-<div>大模型擅长秒给答案，但真正的学习需要试错阻力。Google 用四阶段拆解与浏览器对抗测试，让界面一次生成的全通率从 3.5% 提升到 69.3%。</div>
-<div>核心矛盾：现成 Gen-UI 容易导致认知卸载与代码瑕疵；破局关键：解耦教学规划与代码生成，用测试 Agent 代替学生闭环验错。</div>
-<div>
-<p>认知科学领域的 <span>ICAP 框架</span>早已证实：能够亲自动手操作、调整变量并实时观察反馈的「互动式学习」，在建立概念模型和长期记忆上的效果远胜于被动听讲。然而，将当下流行的「生成式界面（Generative UI）」直接搬进课堂，会立刻撞上两堵坚硬的高墙：</p>
-<p>其一是<strong>认知卸载（Cognitive Offloading）</strong>。大语言模型的设计初衷是替用户省力，但学习本质上需要合理的「认知阻力」——学生必须自己推导试错，才能构建心智模型。若 AI 生成的界面过于智能、直接把捷径送至眼前，学生就会把思考外包给机器；其二是<strong>仿真严谨性</strong>，直接让大模型写复杂科学模拟，极易产生画面溢出、面板遮挡物件，甚至关卡目标在物理规律上根本不可解的严重缺陷。</p>
-<div>
-<div>
-<div>3.5%</div>
-<div>单次直出全通率（无反馈检查时仅 3.5% 达标）</div>
-</div>
-<div>
-<div>2 堵墙</div>
-<div>认知卸载剥夺思考 × 物理与教学逻辑失真</div>
-</div>
-<div>
-<div>10 轮</div>
-<div>在 Chrome 里反复检查、修改 10 轮后，全通率到 69.3%</div>
-</div>
-</div>
-<p>技术报告证实：<strong>即使前面的教学规划都已做好，界面一次生成只有 3.5% 能通过全部检查。</strong> 纯粹依赖单次提示词，生成的只会是不可控的半成品。</p>
-</div>
-<div>
-<div>
-<div>核心突破：四阶段防护流水线与 Chrome 闭环对抗</div>
-<p>为破解生成品质不可控的难题，研究团队放弃了「一步到位写代码」的粗暴做法，将构建流程拆解为四个前后衔接的阶段，把教学大纲转化为可严密解出的关卡游戏：</p>
-<div>
-<div>
-<div>01</div>
-<div>
-<div>模拟构想（Simulation Idea）· 锁定目标</div>
-<p>完全基于文本。教师输入学科、年级与主题后，Gemini 梳理出一组精确且可测量的学习目标，交由教师审核。明确「要达成什么认知」后，再构思实体对象、科学规律、仪表图表与操作旋钮。</p>
-</div>
-</div>
-<div>
-<div>02</div>
-<div>
-<div>脚手架关卡（Scaffolding）· 阶梯递进</div>
-<p>拒绝把学生丢进无指引沙盒。系统将核心概念拆解为 5 个阶梯难度的连续关卡，前一关验证通过后再生成下一关，严格确保每一关既引入更深思考，又依赖前置概念支撑。</p>
-</div>
-</div>
-<div>
-<div>03</div>
-<div>
-<div>界面代码构建（Gen-UI）· 生成界面</div>
-<p>在教学目标完全锁定的基础上，Gemini 开始编写 HTML 与 JavaScript 代码，把抽象关卡和控制逻辑转化为浏览器交互界面。这是技术上最脆弱、最易报错的瓶颈环节。</p>
-</div>
-</div>
-<div>
-<div>04</div>
-<div>
-<div>助学辅导与反馈（Guidance）· 保留阻力</div>
-<p>代码跑通后追加外围系统：按需提供「分层渐进提示（Scaffolded hints）」，仅在探索后才给完整解法；搭配「形成性反馈（Formative feedback）」，在成败瞬间针对参数组合解释科学原理。</p>
-</div>
-</div>
-</div>
-<div>
-<div>Chrome Auto-rater：对抗性审查矩阵</div>
-<p>在代码构建阶段，系统并非静默等待，而是在真实的 Chrome 浏览器中运行多维自动检查。若有任何一项不达标，意见便回传模型迭代修改：</p>
-<div>
-<div>
-<div>视觉排版（Visual）</div>
-<p>检测画面是否超出版面、面板是否遮挡实验器材、是否存在分散注意力的多余元素。</p>
-</div>
-<div>
-<div>操作机制（Mechanics）</div>
-<p>验证滑块、旋钮与触发按钮能否正常响应事件与状态变更。</p>
-</div>
-<div>
-<div>数据读数（Telemetry）</div>
-<p>检查界面上的实时读数和曲线图（例如 RC 电路的瞬态电压与电流曲线）。</p>
-</div>
-<div>
-<div>可解性验证（Solvability）</div>
-<p>派出专属测试 Agent 模拟人类学生转动旋钮，刻意把参数拉至极端值，对抗验证关卡目标是否真正存在数学可行解。</p>
-</div>
-</div>
-</div>
-</div>
-<div>在整套机制中，教师始终位于把关核心：流程由教师发起并设定年级主题，学习目标必须经教师审核确认，每个请求生成 5 个候选，由教师挑选（12 位老师的研究里是内部评审先挑），最终练习必须经老师审核通过后才能进入公开库。</div>
-</div>
-<div>
-<div>从 3.5% 到 69.3%：代码生成的非线性爬坡</div>
-<p>完全不经过反馈检查的单次模型直出，技术与教学全通率仅为 3.5%。引入 Chrome Auto-rater 之后，通过多轮代码重写与对抗审查，综合通过率在中段尝试升至 28.9%，最终在 10 轮自我迭代后达标至 69.3%：</p>
-<div>
-<div>
-<div>数据读数通过率</div>
-<div><div></div></div>
-<div>23.3% → 93.5%</div>
-</div>
-<div>
-<div>操作机制通过率</div>
-<div><div></div></div>
-<div>67.0% → 98.2%</div>
-</div>
-<div>
-<div>视觉排版通过率</div>
-<div><div></div></div>
-<div>47.8% → 84.7%</div>
-</div>
-<div>
-<div>关卡可解性通过率</div>
-<div><div></div></div>
-<div>85.5% → 72.9% → 87.9%</div>
-</div>
-</div>
-<div><strong>非线性特征显现：</strong>关卡可解性在迭代中途出现了先降后升的凹陷（85.5% → 72.9% → 87.9%）。报告的解释是：互动练习的各部分相互牵连，改好一处可能碰到另一处，所以各项并不是一路上升，每轮都要在 Chrome 里整体重查。</div>
-</div>
-<div>
-<div>学科分化与现实边界：理化惊艳、生物受限与收益空白</div>
-<p>在 12 位美国在职 STEM 教师的定制实测（36 个请求中 33 个交给老师，可用性评分全部 7 分以上、平均高于 8.1，满分 10）以及 40 个横跨小学至大学课题的专家评审（每个练习由两位学科老师评分，验收通过率 86%）中，实验呈现出剧烈的学科适应性分化：</p>
-<div>
-<div>
-<div>自然契合 · 优秀</div>
-<div>物理与化学（连续数学方程）</div>
-<p>碰撞定律、抛体运动、理想气体方程等核心概念天然依赖严密的解析公式与连续数值变量。学生「滑动旋钮、调大加速度、观察曲线联动」的隐喻非常自然，仿真与关卡验证高度契合。</p>
-</div>
-<div>
-<div>表现偏弱 · 翻页倾向</div>
-<div>生物学科（定性机制与形态记忆）</div>
-<p>细胞周期、中心法则等中学生物知识大多以定性过程和形态记忆为主，缺乏连续控制方程。AI 难以设计出生动的交互操作，极易退化成分步展示概念的「翻页课本」，失去互动模拟的探索乐趣。</p>
-</div>
-</div>
-<div>
-<strong>客观局限与落地现状：</strong>
-<div>截至目前，整个项目<strong>还没有学生在真实课堂上的学习收益（learning gains）数据</strong>。资深教师给出的高评分反映的是对「软件可用性」与「差异化教学契合度」的认可，但这套工具能否真正帮助学生在考试中拿更高分、概念理解是否更深，仍有待后续课堂实地对照实验来检验。目前，Google 已在公开样例库中开放了 36 个经教师审核的互动练习（英文），使用 Google Workspace for Education 的学校可以报名 Google for Education 试点，课堂实地研究是下一步。</div>
-</div>
-</div>
-</div></div>
-</div></div>
 </div></div></body></html>]]></content:encoded>
 </item>
 </channel>
