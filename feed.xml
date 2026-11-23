@@ -6,7 +6,197 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Sun, 22 Nov 2026 12:00:13 +0000</lastBuildDate>
+<lastBuildDate>Mon, 23 Nov 2026 12:00:20 +0000</lastBuildDate>
+<item>
+<title>【日报】LangChain 公开「知识工厂」搭法：Agent 干活时标出缺的知识，后台 Agent 定期补进知识库 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/langchain-knowledge-factory/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:langchain-knowledge-factory</guid>
+<pubDate>Mon, 23 Nov 2026 12:00:20 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 所属专题 所属专题 知识库、上下文与记忆 → 本页目录 01 上下文和知识，差在能不能反复用 02 软件工厂之后，轮到知识工厂 03 要给 Agent 攒三种知识 04 工厂由三个零件组成 05 一份营收报告，从白天走到夜里 06 LangChain 自己的 Agent 怎么学 07 别等文档写全再开工 AI 解读 / 深度 · 11-23 · 约 8 分钟 · 作者 Harrison Cha</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 23 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">LangChain 公开「知识工厂」搭法：Agent 干活时标出缺的知识，后台 Agent 定期补进知识库 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/langchain-knowledge-factory/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div><div>所属专题</div><span>所属专题</span><a>知识库、上下文与记忆 →</a></div><div>本页目录</div><a><span>01</span><span>上下文和知识，差在能不能反复用</span></a><a><span>02</span><span>软件工厂之后，轮到知识工厂</span></a><a><span>03</span><span>要给 Agent 攒三种知识</span></a><a><span>04</span><span>工厂由三个零件组成</span></a><a><span>05</span><span>一份营收报告，从白天走到夜里</span></a><a><span>06</span><span>LangChain 自己的 Agent 怎么学</span></a><a><span>07</span><span>别等文档写全再开工</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>深度</a><i>·</i>11-23<i>·</i>约 8 分钟<i>·</i>作者 Harrison Chase（LangChain）</div><h1>LangChain 公开「知识工厂」搭法：Agent 干活时标出缺的知识，后台 Agent 定期补进知识库</h1><p>Agent 写得了报告、做得了幻灯片，可它不知道你们公司某个指标按什么口径算、数据该信哪个来源：这些知识有的只在老员工脑子里，有的散在各种文档里。</p><div><div>正文原文</div>收起播客 ⌃☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Harrison Chase（LangChain）</span><span>11-23 · 约 8 分钟</span></div></div><div><div><div><div><span>🎧 听播客版</span>1×<span><span>0:00</span> / <span>--:--</span></span></div><div><div></div></div></div></div><div><div><span><span>0:00</span> / <span>--:--</span></span><div><div></div></div>1×</div></div></div></div>
+<div><div><div><div><div>
+散落各处的经验
+知识工厂
+可反复用的知识
+Slack 里的讨论
+Notion 里的文档
+口口相传的做法
+Agent 运行轨迹
+馆长 Agent
+在后台定期整理
+技能怎么做事
+业务知识公司怎么运转
+取数指南数据在哪、怎么查
+干活的
+Agent
+干活时把缺的、错的知识标出来，交回工厂
+散落各处的经验
+Slack 里的讨论
+Notion 里的文档
+口口相传的做法
+Agent 运行轨迹
+馆长 Agent
+在后台定期整理
+技能怎么做事
+业务知识怎么运转
+取数指南去哪、怎么查
+当上下文
+干活的 Agent
+干活时把缺的、错的知识标出来
+交回工厂
+<div>示意图</div>
+</div></div></div><strong>一分钟速览</strong><ul><li>数据正本已经齐全就不用另存，要写的是取数指南：什么数据在哪、怎么查</li><li>干活的 Agent 只管报错，改交给后台 Agent，否则知识会变乱、前后矛盾</li><li>不必先把文档写全：挑一个重复的活，看 Agent 卡在哪，把缺口补上</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/langchain-knowledge-factory/social/zh-184615e5cd14.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>想让 AI 在公司里真把活干了，卡住的地方往往不在模型够不够聪明，也不只在喂给它的资料够不够多。缺的是知识：公司怎么运转，做事有哪些规矩，数据放在哪、怎么取。</p><p>最得力的员工门儿清：碰到问题，他们知道该找谁、去哪查，也知道某件事为什么非得这么做。可这些东西大多没人系统地写下来，靠人记着、靠口口相传。新同事要跟着老同事干上几个月才摸得清；Agent 每次开工，都像入职第一天。</p><p>LangChain 的办法是给 Agent 建一座「知识工厂」：一套持续收集、整理、维护这些知识的系统，把它们整理好交给 Agent。他们内部的销售 Agent、做设计物料的 Content Studio，还有对外的产品 LangSmith Engine（读 Agent 的运行记录、给出修复建议），背后都是这样一套越用越好的回路。</p><h2>上下文和知识，差在能不能反复用</h2><p>上下文是 Agent 做一件事时手边能拿到的全部东西。知识是其中能反复用的那部分理解：某个指标是什么意思，哪个数据源可信，碰到某种情况公司一般怎么处理。它有时写在文档里，更多时候没写。</p><div><div>
+<div>Agent 接到一个任务时，手边的上下文分两类</div>
+<div>
+<div>
+<h4>直接给的上下文</h4>
+<ul><li>这次任务的要求和对话</li><li>数据仓库里的原始数字本身</li><li>别的系统里已经存好、又全又新的资料</li></ul>
+<div>已经可靠存好，直接递给 Agent</div>
+</div>
+<div>
+<h4>知识</h4>
+<ul><li>某个指标是什么意思</li><li>哪个数据源可信</li><li>某种情况公司一般怎么处理</li></ul>
+<div>要靠知识工厂收集、整理、维护</div>
+</div>
+</div>
+<div><b>边界在这里：</b>数据本身是上下文，每次现查；「数据在哪、怎么查」是知识，后面讲的取数指南就管这个。</div>
+</div></div><p>所以知识只是上下文的一种，也不该是 Agent 拿到的唯一一种。已经稳定存好的东西，直接给 Agent 就行，用不着再加工。知识工厂要做的，是把散落的文档和经验，变成下一次干活能直接用上的知识。</p><div><a>
+<div>站内文章 · 为什么企业知识要保持准确</div>
+<div>Company Brain 到底是什么：企业上下文的四层基础设施</div>
+<div>知识散在各处不会自己消失，Agent 读到旧规则时会把代价放大。这篇讲企业上下文怎么分层维护。</div>
+</a></div><h2>软件工厂之后，轮到知识工厂</h2><p>过去一年半，「软件工厂」这个说法越来越火：最强的工程师不再亲手写软件，改去搭系统，让全公司的人都能更快地做出软件，具体写代码的活交给 Agent。</p><p>一般的知识型工作正在走同一条路。做演示文稿、剪发布视频、给潜在客户发外联邮件，Agent 已经做得来，这些活就该尽量交给它。它们差的，是那些心照不宣、没人写下、散落各处的知识。资源该往这里投：把知识攒起来，更要紧的是搭一座能持续收集、整理、维护知识的工厂。工厂搭好了，才能把更多知识型工作交出去。</p><div><a>
+<div>站内文章 · 「工厂」思路的另一个版本</div>
+<div>Notion 团队 AI 工作指南：100 人各写一份技能，不如 2 人搭一座全队共用的工厂</div>
+<div>Notion 讲的是少数人搭工厂、全队共用；这篇讲工厂里的原料，也就是知识，怎么持续进货。</div>
+</a></div><h2>要给 Agent 攒三种知识</h2><p><b>技能：</b>在你们公司「按规矩」把事做完的步骤、说明和脚本。很多从来没写下来过，一直靠同事之间口口相传。要尽量把它们写下来。</p><p><b>业务知识：</b>关于人、产品、竞争对手、组织的核心信息，不太会过时。这类东西往往写过，可量太大，常常写得不全，甚至写错。</p><p><b>取数指南：</b>前提是公司已经有像样的数据底座（比如 Snowflake、Databricks 这类数据平台），这是 Agent 能干活的地基。数据的正本已经在那里、又全又新，就没必要另存一份。要新维护的，是一份写清楚「什么数据在哪、怎么查」的说明。</p><div><div>
+<div>取数指南存的是地图，数据本身不搬</div>
+<div>
+<div><h4>知识库里：取数指南</h4>营收数据在哪几张表<br />每一列是什么意思<br />该怎么写查询</div>
+<div>→<span>照着去查</span></div>
+<div><h4>数据平台里：原始数据</h4>完整、最新的正本<br />Agent 每次干活现查</div>
+<div><s>在知识库里再存一份数据副本</s>：正本已经又全又新，没必要</div>
+</div>
+<div>示意图</div>
+</div></div><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/langchain-knowledge-factory/img01.jpg" alt="三种知识各落成一份文件：技能是 GitHub 上的 SKILL.md，业务知识是公司 wiki 页面，取数指南是 Context Hub 里的查询指南" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>落到一个具体任务上，三种知识就是三份文件。以写营收报告为例：「按 LangChain 风格写报告」是 GitHub 上的技能文件，「ARR 怎么算」是公司 wiki 里的一页，「营收数据在 BigQuery 和 Salesforce 里怎么取」是 Context Hub 里的查询指南。</figcaption>
+</figure></div><h2>工厂由三个零件组成</h2><p>这些知识 Agent 都离不开，但别指望靠人手工维护，那是个无底洞。要搭一套系统替你维护，它大致长这样：</p><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/langchain-knowledge-factory/img02.jpg" alt="知识工厂的回路：干活的 Agent 产生标记和运行轨迹，连同 Notion、Slack 原始资料交给后台的馆长 Agent，馆长更新知识库，知识再作为上下文回到干活的 Agent" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>干活的 Agent 留下两样东西：标出来的缺漏和错误，以及运行轨迹。它们连同 Notion、Slack 里的原始资料，一起交给在后台按节奏运行的馆长 Agent。馆长更新知识库，知识再当作上下文回到干活的 Agent 手里。</figcaption>
+</figure></div><h3>零件一：让干活的 Agent 随手报缺漏</h3><p>想知道缺哪些知识，最好的办法是让 Agent 边干边报。它接了活却找不到需要的信息，或者发现查到的信息是错的，就该标出来。给它一个工具，最起码能报告「哪里不对」，最好还能顺手提一句「应该改成什么」。</p><p>这有点像前台员工发现系统里一条信息不对：提个工单，然后接着把客人的事办完。Agent 也是这样，报完问题照样把手上的活做完，改不改、怎么改，交给后面专门的角色。</p><h3>零件二：一个在后台整理知识的馆长 Agent</h3><p>知识不该靠人手工更新，太累；也不该只靠用它的那些 Agent 去更新。干活的 Agent 很会发现哪里错了、缺了，可真要改对，得吃透原有的知识和其他数据来源。它们的心思在完成自己的任务上，让它们顺手维护知识，知识库会变得杂乱，前后矛盾。</p><div><div>
+<div>知识该由谁来改</div>
+<div>
+<div><div>✗ 不行</div><h4>人手工维护</h4>工作量太大，跟不上变化</div>
+<div><div>✗ 不行</div><h4>干活的 Agent 顺手改</h4>擅长发现问题，可心思在自己的任务上，改着改着就乱了、互相矛盾</div>
+<div><div>✓ 这样做</div><h4>后台的馆长 Agent</h4>按固定节奏运行，看得到原始资料、运行轨迹和所有标记，专门负责改</div>
+</div>
+</div></div><p>所以要单独设一个馆长 Agent（curator，原意是博物馆、图书馆里管藏品的人），在后台按固定节奏运行，专门更新知识。它要能看到三样东西：知识可能散落的所有原始资料，比如 Notion 和 Slack；Agent 的运行轨迹（trace，Agent 每一步做了什么的完整记录），从里面看出大家实际怎么用 Agent，再沉淀成技能；还有干活的 Agent 标出来的那些问题。</p><div><a>
+<div>站内文章 · 后台整理知识的另一种做法</div>
+<div>Anthropic 公开了给 Claude 设计记忆的思路：记忆分四层，边干边记，晚上通过「做梦」复盘整理</div>
+<div>Anthropic 让 Claude 白天记笔记、晚上「做梦」改错和整理，和这里的馆长 Agent 是同一类思路。</div>
+</a></div><h3>零件三：知识存在哪，反而最不要紧</h3><p>存法很多：按技能格式放在 GitHub 上，在 Notion 里写成一个文件，用 OKF 格式（Open Knowledge Format，用 Markdown 文件加 YAML 头信息表示知识的开放格式）放进 LangSmith 的 Context Hub（LangChain 存放和版本管理 Agent 上下文文件的地方），或者存成 Neo4j（一种图数据库）里的知识图谱（把人、产品、概念存成节点，用连线表示它们的关系）。馆长 Agent 应该都会读写，这不难。</p><p>存成什么文件格式无所谓，难的在另一头：这些知识说到底是 Agent 的记忆，有些记忆该怎么表示，业界还没有标准。这又是整套东西里最没被摸透的一块。</p><div><div>
+<div>存法随意，馆长 Agent 都能读写</div>
+<div>
+<span>GitHub<i>技能格式</i></span>
+<span>Notion<i>写成一个文件</i></span>
+<span>Context Hub<i>OKF 格式</i></span>
+<span>Neo4j<i>知识图谱</i></span>
+</div>
+<div>
+<div><b>「怎么做事」的记忆</b><em>已有共识：</em>写成技能</div>
+<div><b>「是什么」的记忆</b><em>还没有标准：</em>可能会冒出另一套，OKF 也许是候选</div>
+</div>
+</div></div><p>「怎么做事」这类记忆（程序性记忆），行业已经收敛到技能这种格式；「是什么」这类记忆（语义记忆，比如某个指标的定义），大概会出现另一套标准。现在还早，格式上别定得太死，也别搞得太复杂。</p><p>三个零件拼起来，就是一个会自己转的回路。下面这张示意图让它转三圈：每一圈，Agent 撞上一个知识缺口，报上去，馆长 Agent 补好，下一圈就不会再卡在同一个地方。</p><div><div>
+<div>知识库里还有三处空着</div>
+当上下文
+更新
+干活的 Agent
+写报告、做演示……
+标记
+缺的、错的知识
+运行轨迹
+原始资料
+Notion、Slack……
+馆长 Agent
+在后台按固定节奏运行
+待命
+知识库
+当上下文
+更新
+干活的 Agent
+写报告、做演示……
+标记
+缺的、错的知识
+运行轨迹
+原始资料
+Notion、Slack……
+馆长 Agent
+在后台按固定节奏运行
+待命
+知识库
+<div>示意图</div>
+</div></div><h2>一份营收报告，从白天走到夜里</h2><p>设想让 Agent 准备一份营收报告。它需要的基础上下文是原始营收数字，存在 BigQuery 和 Salesforce 里（前者是 Google 的数据仓库，后者是客户管理系统）。在这之上是知识：怎么按 LangChain 的风格写报告，是 GitHub 上按标准格式写的技能；ARR（年度经常性收入）怎么算，这种长期有效的知识写在公司 wiki 里；怎么去 BigQuery 和 Salesforce 取这些变化很快的数据，同样写成技能，只是放在 Context Hub。</p><p>Agent 开跑。它可能发现 BigQuery 里有一列改了名，于是当场找到正确的那一列，再用报问题的工具把这件事标出来，附上建议的列名。</p><p>报告写完，财务负责人和 Agent 一起实时改了几处格式，其中一条是：今后所有 LangChain 文档都要用一个新页眉。</p><p>当天夜里，馆长 Agent 看到了那条标记，又翻了这次运行的轨迹，注意到和财务负责人的那段来回。它据此改了两个技能。</p><div><figure>
+<img src="https://pic.xiaohu.ai/jiedu-media/langchain-knowledge-factory/img03.jpg" alt="营收报告四步：Agent 运行时标记改名的列，财务负责人要求新页眉，当晚馆长 Agent 读到标记和轨迹，两个技能被更新" style="max-width:100%;height:auto;border-radius:8px;" />
+<figcaption>整个例子的四步：白天跑报告时 Agent 标出改名的列，报告写完后财务负责人要求换新页眉，当晚馆长 Agent 读到标记和那段对话，最后两个技能被更新。</figcaption>
+</figure></div><div><div>
+<div>两条线索，各落进哪个技能</div>
+<div><div>白天留下的线索</div><div></div><div>当晚，馆长 Agent 改的技能</div></div>
+<div>
+<div><div>干活的 Agent 标记</div>BigQuery 里这一列改名了，附上建议的新列名</div>
+<div>→</div>
+<div><div>取数技能 · 存在 Context Hub</div>取营收数据时用 <span>旧列名</span> <span>新列名</span></div>
+</div>
+<div>
+<div><div>运行轨迹里的一段对话</div>财务负责人：今后所有 LangChain 文档都用新页眉</div>
+<div>→</div>
+<div><div>写报告技能 · 存在 GitHub</div>报告页眉用 <span>旧页眉</span> <span>新页眉</span></div>
+</div>
+<div>一条来自 Agent 自己报的问题，一条是馆长从运行轨迹里读出来的。两处改动都写进了技能，下次写报告时 Agent 直接读到的就是新写法。</div>
+</div></div><h2>LangChain 自己的 Agent 怎么学</h2><p>这套回路在 LangChain 内部有好几种落法：</p><div><div>
+<div>
+<div>
+<h4>销售 Agent<span>研究潜在客户、写外联邮件草稿</span></h4>
+<ol><li>销售在 Slack 里改了草稿，系统对比改前改后</li><li>改动够大，就让模型提炼出这位销售的风格偏好，按人存起来</li><li>下次起草前先读这些偏好</li><li>每周一个定时任务把记忆压缩一遍，免得越攒越臃肿</li></ol>
+</div>
+<div>
+<h4>Content Studio<span>做博客配图、幻灯片、视频等设计物料</span></h4>
+<ol><li>每做完一单，提炼最多 5 条有证据的教训，挂到用过的技能上</li><li>后面的活给这些教训打分，每周由一个后台 Agent 把证明有用的并进技能和 wiki</li></ol>
+</div>
+<div>
+<h4>LangSmith Engine<span>对外产品</span></h4>
+<ol><li>读 Agent 的运行轨迹，找问题、建议修复</li><li>为每个 Agent 各维护一座知识工厂</li></ol>
+</div>
+</div>
+</div></div><p>销售 Agent 的团队还有一条体会：人工把关这一环不只是为了安全，它也是在收集数据。销售每一次发送、修改、取消，都成了 Agent 能学的信号。</p><h2>别等文档写全再开工</h2><p>目标不是先把所有东西写成文档，再让 Agent 上岗。要搭的是这样一套系统：干活本身会暴露缺了哪些知识，补上这些缺口，下一次就干得更好。起步也简单：挑一个反复要做的活，看 Agent 在哪里卡住，把这个回路接起来。</p><p>要说明的是，这是一篇厂商文章。文中提到的 Context Hub、LangSmith Engine、按计划定时运行的托管 Agent 都是 LangChain 的产品，他们也正和几家客户一起把这套东西接进客户的 Agent。不过知识存在哪本来就不要紧；报缺漏的工具、后台的馆长 Agent、读运行轨迹，这几件事换别的工具也做得了。</p></div><div><div><div>来源</div><div><span>How to build a knowledge factory</span><span>Harrison Chase（LangChain 创始人兼 CEO）<span>·</span>2026-11-21<span>·</span><a href="https://x.com/hwchase17/status/2124181216719151585">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://www.langchain.com/blog/how-we-built-langchains-gtm-agent">How we built LangChain’s GTM agent</a><span>·</span><a href="https://www.langchain.com/blog/design-agent">LangChain Content Studio（design agent）</a><span>·</span><a href="https://www.langchain.com/blog/components-building-company-harness">The five components of building a company harness</a><span>·</span><a href="https://www.langchain.com/langsmith/engine">LangSmith Engine</a><span>·</span><a href="https://github.com/open-knowledge-format/open-knowledge-format">Open Knowledge Format</a></div></div><div><div>本站说明</div><div>三张配图和头图来自原文 X 长文。</div></div></div></div></div>
+<div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://x.com/hwchase17/status/2124181216719151585">看原网页 ↗</a></p></div><div></div><div><div><h1>How to build a knowledge factory</h1></div><div><figure><img src="https://pbs.twimg.com/media/HXqar2DbsAAs_XI.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p>In order to make AI work for your company, the missing bit is not better models, it’s not just more <a href="https://www.langchain.com/blog/context-engineering-for-agents">context</a> - it’s better knowledge. It’s knowledge of how your company works, what standards for operating you have in place, where data is stored and how it’s accessed.</p></div><div><p>Your most efficient employees have this knowledge in their head. They know who to talk to, where to go to answer questions, why you do things in a particular way. That knowledge is often tacit, implicit, scattered - sometimes present only in their head, sometimes scattered across a variety of documents.</p></div><div><p>In order to make AI work for your company, you need to collect, curate, and maintain a representation of that knowledge to pass to agents. The system that helps you do that is what we’re calling a knowledge factory.</p></div><div><p>We’ve built this at LangChain in a few ways. Our internal <a href="https://www.langchain.com/blog/how-we-built-langchains-gtm-agent">GTM</a> and <a href="https://www.langchain.com/blog/design-agent">content studio</a> agents are powered by a knowledge factory. <a href="https://www.langchain.com/langsmith/engine">LangSmith Engine</a> (our agent that runs over traces and suggests fixes) maintains a knowledge factory per agent as well. This blog shares our learnings.</p></div><div><h2>Context vs knowledge</h2></div><div><p>Context is what an agent has available when doing a task.</p></div><div><p>Knowledge is the reusable understanding we maintain so it can do that task correctly: what a metric means, which source to trust, or how we handle a particular situation. Sometimes written down, often not.</p></div><div><p>A knowledge factory turns scattered documents and experience into knowledge that can become context for future work.</p></div><div><p>So knowledge is a form of context that the agent will get, but it’s often not (and shouldn’t be) the only context the agent gets. Other types of context you already ingest/store reliably, and that can just be provided directly to the agent (see the section on quickly changing data below).</p></div><div><h2>From Software Factory to Knowledge Factory</h2></div><div><p>The idea of software factories has risen sharply over the past year and a half. The idea is that rather than having your best engineers actually build software, they should build the factory (the systems) to help everyone at the company build software more efficiently. The actual building of the software can be done by agents.</p></div><div><p>General knowledge work is now following a similar path. Agents are good enough to make presentations, launch videos, do outbound. You should be leveraging them as much as possible for those tasks. But in order for them to accomplish those tasks they need all that tacit, implicit, scattered knowledge.</p></div><div><p>That is where you should devote resources. You need to build that knowledge, and more importantly a factory to collect, curate and maintain that knowledge. That is what will let you outsource more general knowledge tasks to agents.</p></div><div><h2>The pieces of knowledge</h2></div><div><p>There are generally a few pieces of knowledge you want to maintain.</p></div><div><ul><li><strong>How to do the work — Skills.</strong> Procedures, instructions, and scripts for accomplishing tasks the way your company expects.</li><li><strong>How the business works — Domain knowledge.</strong> Definitions, policies, and facts about your products, customers, competitors, and organization.</li><li><strong>Where to get current information — Data access guidance.</strong> Which sources to use, what data lives where, and how to query it.</li></ul></div><div><figure><img src="https://pbs.twimg.com/media/HXqawXSbYAABTuC.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p><strong>Skills</strong>: these are procedures for how to do things “properly” inside your company. Instructions, scripts, for how to accomplish tasks in the particular way that your company requires. Often times, these were never written down before (instead passed coworker to coworker). You should strive to write them down.</p></div><div><p><strong>Domain knowledge</strong>: this is knowledge that does not go stale frequently. It is often core information about people, products, competitors. This is often information that was written down - but was usually incomplete (or incorrect) just due to the sheer amount of knowledge here.</p></div><div><p><strong>Data access guidance</strong>: You should have a good data strategy (Snowflake, Databricks, etc). That’s the foundation of useful agents. If the source of truth of data is there already, and it’s complete and up to date - there’s no need to maintain a separate copy. Rather, the new thing you’ll want to maintain is clear instructions on what data lives where and how to query it.</p></div><div><h2><strong>The pieces of the factory</strong></h2></div><div><p>All of this information is needed for useful agents. Don’t try to maintain it manually - that’s a herculean effort. Rather, you will want to create a system for maintaining it. Generally, the pieces look like:</p></div><div><figure><img src="https://pbs.twimg.com/media/HXqazU-bIAAhZzt.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><p><strong>A way for agents to flag missing knowledge</strong>: One of the best ways to learn what pieces of knowledge are missing is to have agents flag it as they are working. If they are asked to do something, and can’t find information, or find information that they discover is wrong - they should flag it! Give the agent a tool to at a minimum report what is wrong, and optionally suggest the correct update.</p></div><div><p><strong>The curator agent: an agent to update, curate, and maintain this knowledge</strong>: This knowledge should not be kept up to date manually - too much work. And it should not be kept up to date solely by the agents that use it - they are great at flagging what’s wrong or missing, but fixing it requires deep understanding of the underlying knowledge and other sources of data. Asking agents - who are mainly trying to accomplish their own goals - to properly update and maintain this knowledge will cause it to become unruly and full of contradictions. Rather - you will want a curator agent that runs in the background, <a href="https://docs.langchain.com/langsmith/python/managed-deep-agents-schedules">on some cadence</a>, to update this knowledge. It should have access to all the raw sources of data (Notion, Slack, etc) where this knowledge may be scattered. It should have access to <a href="https://www.langchain.com/langsmith/observability">agent traces</a>, so it can see how people are trying to use agents and codify that into skills. It should have access to the things that agents have flagged as wrong (the above section).</p></div><div><p><strong>Storage for the knowledge</strong>: In some ways, this is actually the least important thing. You can store this knowledge in <a href="https://docs.langchain.com/oss/python/deepagents/skills">skill format</a> in GitHub. In a single file in Notion. In <a href="https://github.com/open-knowledge-format/open-knowledge-format">OKF format</a> in <a href="https://www.langchain.com/blog/introducing-context-hub">LangSmith Context Hub</a>. In a knowledge graph in Neo4j. The curator agent should know how to interact with all of these formats (not that hard). In other ways, this is the least explored area. How do you represent <a href="https://www.langchain.com/blog/how-to-give-your-agent-memory">memory</a>? As an industry, we’ve converged on skills for “procedural memory”. For more semantic memory, a different standard will likely emerge (OKF?). It is early and no standard has yet emerged - so it’s probably best to not be too prescriptive or overly complicate what this format should look like.</p></div><div><h2>Putting it all together</h2></div><div><p>Let’s finish with an end to end example of an agent preparing a revenue report.</p></div><div><p>There’s base context the agent will need: the raw revenue numbers, stored in BigQuery and Salesforce.</p></div><div><p>Then there’s knowledge. It may consist of a few different types:</p></div><div><ul><li>Skills: how to create reports in LangChain style. These are stored in GitHub in the standard skills format.</li><li>Long duration knowledge: the way we calculate ARR. This is stored in a company wiki.</li><li>How to access quickly changing knowledge: how to access that raw data in BigQuery/Salesforce. These are also just stored as skills, but this time in Context Hub.</li></ul></div><div><p>The agent runs. Maybe it notices that we renamed a column in BigQuery. It figures out the correct column on the fly. It uses its tool it has to report issues to flag this, and suggest the proper column name.</p></div><div><p>After it creates the report, our finance lead works synchronously with the agent to fix a few formatting issues, including telling it to use a new header we now need to use for all LangChain documents.</p></div><div><p>That night, the curator agent sees the flagged issue. It also inspects the traces of the agent and notices this back and forth with our finance lead. It updates the relevant skills accordingly (to use the new column when fetching data, and to use the new header when drafting report).</p></div><div><figure><img src="https://pbs.twimg.com/media/HXqa3cWbMAAyfJO.jpg" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></figure></div><div><h2>Conclusion</h2></div><div><p>The goal isn’t to document everything before agents can start working. It’s to build a system where doing the work reveals what knowledge is missing, and resolving those gaps makes future work better. Start with one recurring workflow, inspect where agents struggle, and close that loop.</p></div><div><p>We’ve <a href="https://www.langchain.com/blog/components-building-company-harness">built this at LangChain</a>, and are working with a few customers to bring this to their agents (internal and external). If you’re interested in this - please <a href="https://www.langchain.com/contact-sales">reach out</a>, we can help!</p></div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/hwchase17/status/2124181216719151585">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div><span>沿着专题继续读</span><a>知识库、上下文与记忆 →</a></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】a16z 每周图表：Z 世代观点全重合不到一成，过半基金经理预计巨头半年内砍 AI 开支 · XiaoHu.AI</title>
 <link>https://xiaohu.ai/article/a16z-no-gen-z/</link>
@@ -79326,92 +79516,6 @@ Cloudflare 团队的做法正是：<strong>每次针对 Gatekeeper 提出修改�
 <p>主持人用本田宗一郎的“发动机研究实验室”作类比。本田可以制造摩托车、汽车和其他设备，但共同的技术核心是发动机；如果一个新产品不需要发动机，本田就没有必要为了多元化而进入。Mati 认同这套思路。ElevenLabs 的研究侧只专注音频，产品侧则把音频与知识库、大语言模型、品牌素材和企业系统结合起来。</p>
 <p>主持人随后把它归纳成三层，Mati 表示认同：最底层是文本转语音、语音转文字、本地化和对话编排等音频研究；中间是一套可以接入知识、品牌和外部系统的平台；上层才是 ElevenReader、内容创作、客服、销售和运营等具体应用。</p>
 <p>这三层解释了为什么“产品多”并不自动等于失焦。判断新方向时，公司会问：音频是不是这段体验的关键瓶颈，自己的模型能否带来独特提升？如果决定成败的主要问题在视频、图像或通用推理，团队就缺少亲自从头建设的理由。</p>
-</div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】AI 原生服务大爆发： 外部买结果，内部跑系统 让客户买单来帮你打磨产品</title>
-<link>https://best.xiaohu.ai/article/ai-native-services-100b-opportunity/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:ai-native-services-100b-opportunity</guid>
-<pubDate>Mon, 21 Sep 2026 12:00:39 +0000</pubDate>
-<description>客户不想再买一个工具，而是想直接拿到做完的工作。拆开这套创业框架，看交付单元、规则手册、人工复核与四象限选赛道怎样连成一门可扩张的生意。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 21 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">AI 原生服务大爆发： 外部买结果，内部跑系统 让客户买单来帮你打磨产品</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/ai-native-services-100b-opportunity/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>AI 原生服务大爆发： 外部买结果，内部跑系统 让客户买单来帮你打磨产品</h1><p>客户不想再买一个工具，而是想直接拿到做完的工作。拆开这套创业框架，看交付单元、规则手册、人工复核与四象限选赛道怎样连成一门可扩张的生意。</p><strong>一分钟速览</strong><ul><li>AI 原生服务直接销售审核、申报、对账等完成结果，用软件流程承担大部分交付，用人处理高风险和异常情况。</li><li>规模化的关键不只在模型：进件要能表单化，交付要有清楚终点，质量标准要沉淀成规则手册，客户还要知道出了错由谁负责。</li><li>更稳妥的起步路径是先服务五个客户，在真实订单中记录错误，再固定范围、价格、进件和交付；软件化是后续选项，不是起点。</li><li>判断机会时先问两件事：客户是否已经把这项工作外包，交付结果是否可以逐项检查；两项都是，才是最适合起步的区域。</li></ul><div>
-<p>创业投资人 Greg Isenberg 在梳理现代商业服务时提出了一个清晰的切入点：企业每年花约 1 万美元采购财务软件 QuickBooks，却要花约 12 万美元雇佣操作软件的会计师。过去二十年，SaaS 软件公司拼命争夺那 1 万美元的工具预算，而真正庞大的 12 万美元人力交付预算，一直被传统外包和雇佣关系锁死。</p>
-<p>AI 原生服务（AI-native services）打开的正是这笔原本属于人工的存量资金。</p>
-<h2>什么是 AI 原生服务：外部买结果，内部跑系统</h2>
-<p>理解 AI 原生服务，需要分清它的外部体验与内部交付机制。</p>
-<p>从外部看，客户的购买体验与雇佣一家专业服务机构毫无区别。客户买的不是工具账号，而是明确交付的业务结果：企业不需要一套记账软件，他们只需要月底把账做平；不需要一套合同审查系统，他们只需要明确知道这份合同能不能安全签署。这种交付比传统外包更快、报价更低，而且不受作息限制。至于按件收费、包月固定费还是按用量计费，只是结算方式的选择，并不决定一门生意的本质。</p>
-<p>从内部看，交付的底层逻辑完全是在运行一套软件系统。<strong>交付主要由自动化工作流与智能体完成</strong>，人类专家退守在最后一道关卡，只负责把关需要主观判断、合规背书或承担最终责任的边缘环节。</p>
-<p>这与传统外包有着根本区别。传统外包的瓶颈是人，增加营收必须同比例招募员工；AI 原生服务依靠系统运行，<strong>业务增长不再依赖线性扩充人头</strong>，因而能够在承接服务外包预算的同时，保持接近软件的高利润率。</p>
-<h2>为什么爆发点在当下：三股力量的汇合</h2>
-<p>这类商业模式在两年前很难跑通，现在的爆发源于三股力量在同一时间交汇。</p>
-<p>第一是模型能力的实质跨越。两年前大语言模型生成的交付物大多只是粗糙草稿，需要专业人员通篇重写；如今在合同初审、医疗理赔编码、索赔函撰写或月度账目对齐等具体场景中，模型直接输出的已是高度可用的成稿，人类只需要复核确认。</p>
-<p>第二是单次运行成本断崖式下跌。过去处理单项任务需要消耗数美元的调用成本，如今已大幅降至美分量级，单次边际交付成本无限逼近于零。</p>
-<p>第三是存量服务预算极其庞大。企业在各类专业外包服务上的实际开销，远比购买纯软件多得多。以美国市场为例，企业每年在专业服务上的支出约为 4.6 万亿美元，接近软件支出总额的六倍。这笔钱长期沉淀在会计师、经纪人、法务助理、合规员等外部服务机构中。</p>
-<p>先行者的增长路径印证了这一逻辑：</p>
-<ul>
-<li><strong>法律服务 <a>Harvey</a></strong>：承接复杂法律检索与文书工作，年化收入在约五个月内从 1 亿美元跃升至 1.9 亿美元。</li>
-<li><strong>人身诉讼文书 EvenUp</strong>：以每份约 500 美元的价格为律所起草索赔函，替代过去初级律师需要耗费 8 至 12 小时的繁琐流程，年化收入跨过 5,000 万美元。</li>
-<li><strong>小微记账 Kick</strong>：以每月 300 至 500 美元的包月价格承接小企业簿记，收费仅为人工会计的一半，<strong>综合毛利率依然能够维持在 70% 以上</strong>。</li>
-</ul>
-<figure>
-<img />
-<figcaption>模型从粗稿走向成稿、单次运行成本大幅下降与数万亿存量服务预算共同构成了商业基础。</figcaption>
-</figure>
-<h2>商业模式比较：为什么做服务优于纯软件与传统代理</h2>
-<p>创业者在启动业务时，通常会在纯 SaaS、移动应用、传统代理机构与 AI 原生服务之间权衡。这四种模式在交付与扩展逻辑上有着截然不同的表现：</p>
-<div><table>
-<thead>
-<tr>
-<th>比较维度</th>
-<th>传统 SaaS</th>
-<th>移动应用（App）</th>
-<th>传统代理机构</th>
-<th>AI 原生服务</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>客户买什么</strong></td>
-<td>软件工具（自己动手操作）</td>
-<td>移动功能订阅</td>
-<td>专业人员的服务工时</td>
-<td>最终完成的业务结果</td>
-</tr>
-<tr>
-<td><strong>谁完成工作</strong></td>
-<td>客户自己的员工</td>
-<td>客户自己点击操作</td>
-<td>机构雇佣的专业人力</td>
-<td>软件与智能体，人工仅做复核</td>
-</tr>
-<tr>
-<td><strong>规模化的主要约束</strong></td>
-<td>客户仍要自己完成工作</td>
-<td>平台抽成与分发规则</td>
-<td>接更多单就要增加更多人</td>
-<td>软件承担生产，人工集中处理异常</td>
-</tr>
-<tr>
-<td><strong>底层模型变强的影响</strong></td>
-<td>部分功能可能被底座吸收</td>
-<td>同样会被底座能力追赶</td>
-<td>仍然受制于工时</td>
-<td><strong>交付更快、成本更低，毛利随之改善</strong></td>
-</tr>
-</tbody>
-</table></div>
 </div></div></div></div>
 </div></div></body></html>]]></content:encoded>
 </item>
