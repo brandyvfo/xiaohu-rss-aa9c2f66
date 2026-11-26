@@ -6,7 +6,504 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Wed, 25 Nov 2026 12:00:20 +0000</lastBuildDate>
+<lastBuildDate>Thu, 26 Nov 2026 12:00:17 +0000</lastBuildDate>
+<item>
+<title>【日报】Claude Ship 指南：自动完成从代码检查、自动改错到按规则放行的全流程 · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/claude-code-ship/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:claude-code-ship</guid>
+<pubDate>Thu, 26 Nov 2026 12:00:17 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 先分清：手头三条命令，和全队自动化的关系 02 第一步：先在自己的 PR 上跑起来 03 第二步：把重复踩的坑写进仓库的四份文件 04 第三步：推向全队 PR，先观察再强制 05 这周就能动手的四步路线 AI 解读 / AI 实操 · 11-25 · 约 13 分钟 · 作者 Anthropic Claude Ship 指南：自动完成从代码检查、自动改错到按规则放行的全流程 代</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 26 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Claude Ship 指南：自动完成从代码检查、自动改错到按规则放行的全流程 · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/claude-code-ship/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>先分清：手头三条命令，和全队自动化的关系</span></a><a><span>02</span><span>第一步：先在自己的 PR 上跑起来</span></a><a><span>03</span><span>第二步：把重复踩的坑写进仓库的四份文件</span></a><a><span>04</span><span>第三步：推向全队 PR，先观察再强制</span></a><a><span>05</span><span>这周就能动手的四步路线</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>AI 实操</a><i>·</i>11-25<i>·</i>约 13 分钟<i>·</i>作者 Anthropic</div><h1>Claude Ship 指南：自动完成从代码检查、自动改错到按规则放行的全流程</h1><p>代码提交审阅后，测试挂掉、主干冲突、零碎评论最容易打断思路——不用等管理员拍板，个人开发者自己跑几条命令就能把这些收尾交给 Claude。</p><div><div>正文原文</div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Anthropic</span><span>11-25 · 约 13 分钟</span></div></div></div>
+<div><div><div><div><figure>
+<div>
+<span>开完 PR 之后：你继续写下一项，收尾活在背后走完</span>
+<span>示意图</span>
+</div>
+<div>一条本地命令盯住红灯、冲突与评论；同一问题推 3 次仍不过，再把思路和尝试记录交给作者拍板。</div>
+<div>
+<div>
+<div>
+<span>你的工作主线</span>
+<span>保持心流 · 只管拍板</span>
+</div>
+<div>
+<div>
+<div>① 改完当前功能</div>
+<div>敲下 /ship</div>
+</div>
+<div>
+<div>② 切去写下一件</div>
+<div>留出独立目录</div>
+</div>
+<div>
+<div>③ 不被小事打断</div>
+<div>红灯冲突不用停</div>
+</div>
+<div>
+<div>④ 大事才出手</div>
+<div>设计争议或满 3 次</div>
+</div>
+</div>
+<div><div></div></div>
+</div>
+<div>
+<div>
+<span>Claude 后台跟进</span>
+<span>最多盯 7 天 · 同问题推 ≤ 3 次</span>
+</div>
+<div>
+<div>
+<div>① 提交并开 PR</div>
+<div>跳过密钥与规则</div>
+</div>
+<div>
+<div>② 先自查一次</div>
+<div>挑出 bug 先修掉</div>
+</div>
+<div>
+<div>③ 守株待兔改错</div>
+<div>修红灯 · 解冲突</div>
+</div>
+<div>
+<div>④ 就绪或上报</div>
+<div>合并或关闭时退出</div>
+</div>
+</div>
+<div><div></div></div>
+</div>
+</div>
+<div>示意图：本地 <code>/ship</code> 会在当前会话最长盯盘 7 天，只在需要重构设计、遇到解不开的安全问题或同一问题推送 3 次不过时停下叫人。</div>
+</figure></div></div><strong>一分钟速览</strong><ul><li>公共仓库开 /ship 不会自动提交，密钥与规则文件也需手动先交。</li><li>审批文件一上默认分支，规则没点名 Code Review，自动审查就会停。</li><li>Claude 的批准算真实 GitHub 批准，规则过松可能没人看就合入。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/claude-code-ship/social/zh-67d3801898ed.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>现在写代码卡不住人的环节，往往换成了交上去之后的那一串收尾活。你刚提交了一个 PR（Pull Request，代码合并请求），转身切到下一项任务，提示又响了：</p><ul>
+<li><strong>构建亮红灯：</strong>CI（持续集成，每次推送后自动跑的编译、测试与规范检查）在某一项上没跑过；</li>
+<li><strong>审阅飞来评论：</strong>同事一口气留了六条修改意见；</li>
+<li><strong>主干改出了冲突：</strong>别人刚合入的新代码正好撞上你改的那几行。</li>
+</ul><p>每件事都很小，可只要回身去改，刚攒起来的工作思路就被打断一次。在 Claude Code 团队自己的开发流程里，这些零碎跟进常由 Agent 顺手接住——等作者忙完手头的活回来，PR 往往已经被修过一轮。</p><p>围绕最近推出的 Claude Ship，GitHub 仓库里已经能跑起这套流程。就算你是团队里没有仓库管理员权限的开发者或技术负责人，也不用等上面拍板：今天就能用几条本地命令接管自己的 PR，再把跑出来的经验写成仓库里的规则文件，最后拿一份观察模式的试跑方案找管理员全队铺开。决定做什么、怎么建、什么标准才准合并的架构师，依然是你自己。</p><h2>先分清：手头三条命令，和全队自动化的关系</h2><p>提交 PR 之后的交付只有三步：找出问题、修掉问题、拍板能不能合并。Claude Ship 在云端把这三步拆给了三个 Agent——Code Review（已正式上线）、PR Steward（测试版）和 Claude Approvals（测试版）。而在管理员还没给整个仓库打开它们之前，最新版 Claude Code 自带的本地命令就能让你先跑通前两步，最后一步则靠仓库的分支保护和策略文件把关。</p><div><div>
+<div>
+<span>你想让 Claude 接管哪一段，就敲哪条命令</span>
+<span>四种入口</span>
+</div>
+<div>前三条就在你自己的 Claude Code 会话里跑，不需要管理员权限；第四条由管理员按仓库打开。</div>
+<div>
+<div>
+<div>
+<span>/code-review</span>
+<span>你的本地会话</span>
+</div>
+<div>在别人看到代码之前，先帮你把分支里的 bug 挑出来。</div>
+<div><strong>适合时机：</strong>推上远程前先自查，减少后续红灯与返工评论。</div>
+</div>
+<div>
+<div>
+<span>/ship</span>
+<span>你的本地会话</span>
+</div>
+<div>一口气完成提交、开 PR、自动审查修复，并在后面连续盯盘。</div>
+<div><strong>适合时机：</strong>写完改动准备开 PR，或把已有 PR 交给它继续盯修，减少中途打断。</div>
+</div>
+<div>
+<div>
+<span>/steward</span>
+<span>你的本地会话</span>
+</div>
+<div>直接照看一张已经开出来的 PR，只做盯盘与修复，不再重审。</div>
+<div><strong>适合时机：</strong>现有 PR 飘红、卡在冲突循环，需要有人推到绿灯。</div>
+</div>
+<div>
+<div>
+<span>Claude Ship</span>
+<span>Anthropic 云端</span>
+</div>
+<div>按仓库配置把审、修、批接入全队 PR 自动流转，不用个人手动敲命令。</div>
+<div><strong>适合时机：</strong>个人摸清习惯并写出规则后，交给管理员全队接入。</div>
+</div>
+</div>
+</div></div><div><div>
+<a>
+<div>站内相关 · 产品全貌与计费</div>
+<div>Anthropic 发布 Claude Ship：解决 AI 写代码很快、但“交接上线”太慢的问题，让代码上线和写代码一样快</div>
+<div>想看 Code Review、PR Steward 与 Claude Approvals 三个云端 Agent 如何接力、团队内部合并量与撤回率数据以及 token 计费拆解，可对照阅读这篇。</div>
+</a>
+</div></div><h2>第一步：先在自己的 PR 上跑起来</h2><h3>推送前先敲一次 <code>/code-review</code>，把廉价错误留在本地</h3><p>如果全篇只挑一件事今天立刻开始，那就是在推分支前先做本地审查。在这里拦住的 bug，后面就不会变成失败的 CI 或把你拽出专注状态的审阅评论。在 Claude Code 里直接输入：</p><div><pre><code>/code-review</code></pre></div><p>它会一起检查当前分支上的提交记录以及还没提交的本地改动，专抓正确性 bug。常用的几个变体参数：</p><div><pre><code>/code-review high 1234       # 用 high 档审查 1234 号 PR
+/code-review --fix           # 直接把查出的问题改到工作区
+/code-review --comment 1234  # 把发现直接评论到该 PR 上
+/code-review ultra           # 在云端跑更深度的一次审查</code></pre></div><p>思考力度可以从 <code>low</code> 一路调到 <code>max</code>：<code>low</code> 档只给你看它最笃定的问题；往高处调，会抓出更多隐患，同时也会混进一些把握没那么足的提醒。注意 Claude 会记住你上一次用过的档位，碰到高风险改动时记得手动重新设档。</p><p>用之前有三条容易忽略的限制：</p><ul>
+<li><strong><code>ultra</code> 走云端单独计费：</strong>它需要在 <code>claude.ai</code> 登录并在云端运行，可能产生套餐外的单独费用，启用前先看官方 <code>ultrareview</code> 文档。</li>
+<li><strong><code>--fix</code> 先提交再跑：</strong>后台审查期间通过 <code>--fix</code> 写入的修改，<code>/rewind</code>（会话回退指令）未必能完整撤回，想留退路最好先本地提交一次。</li>
+<li><strong>本地不读 <code>REVIEW.md</code>：</strong>本地 <code>/code-review</code> 只读仓库里的 <code>CLAUDE.md</code>，不读 <code>REVIEW.md</code>。这条差异后面配置团队文件时非常关键。</li>
+</ul><p>先对自己的分支多跑几次 <code>/code-review</code>，摸清它擅长抓哪类错误、又容易在哪类地方误判，后面写团队规则时才心里有数。</p><h3>下一张 PR 直接跑 <code>/ship</code>：提交、审查、盯盘一条龙</h3><p>当你准备把改动推上去时，输入 <code>/ship</code>。如果当前分支还没有对应的 PR，它会依次走完四步：</p><ol>
+<li><strong>打包提交：</strong>按 <code>git add -A</code> 的口径暂存并提交未保存改动（遵守 <code>.gitignore</code>，必要时建新分支，用当前会话写提交信息）。提交前会先提示你，按 <code>Esc</code> 可以中止。</li>
+<li><strong>推送并开 PR：</strong>以你的 GitHub 账号名义把分支推上去，打开新的 PR。</li>
+<li><strong>自审并修错：</strong>只要最后一次提交还没被 Code Review 查过，就先跑一遍 <code>/code-review</code>，把确认成立的问题顺手改掉。</li>
+<li><strong>连续盯盘最多 7 天：</strong>守着这张 PR 处理失败的检查、合并冲突和审阅评论，直到 PR 被合并或关闭后退出。</li>
+</ol><p>因为第一步会按 <code>git add -A</code> 的范围提交，敲 <code>/ship</code> 前务必先跑一次 <code>git status</code> 确认工作区干净程度。而且有两类场景它<strong>刻意不替你提交</strong>：名字像密钥的文件以及各种规则文件（<code>CLAUDE.md</code>、<code>REVIEW.md</code>、<code>.claude/</code> 或 <code>.github/</code> 目录下的内容）一律跳过，需要你提前手动提交；如果是在<strong>公共仓库</strong>里运行，它干脆不会提交任何改动——你得自己先 commit，否则已有 PR 里也不会带上这些未提交修改。</p><div><div>
+<div>
+<span><code>/ship</code> 在本地跑一轮时，放行什么、拦住什么</span>
+<span>示意图</span>
+</div>
+<div>规则与密钥文件故意留在工作区，公共仓库全部交还手动提交；盯盘阶段同一个问题最多推 3 次。</div>
+<div>
+<div>
+<div>
+<span>1. 打包提交本地改动</span>
+<span>规则与密钥已跳过</span>
+</div>
+<div>
+<span>✓ src/retry.ts</span>
+<span>✓ tests/retry.test.ts</span>
+<span>✕ .env.local（密钥）</span>
+<span>✕ .claude/approvals.yml（规则）</span>
+</div>
+</div>
+<div>
+<div>
+<span>2. 推送分支、开 PR 并自查</span>
+<span>已修复 1 处有效 bug</span>
+</div>
+<div>
+<span>以你的账号开出 PR</span>
+<span>先跑 /code-review 扫一遍并修好</span>
+</div>
+</div>
+<div>
+<div>
+<span>3. 进入后台盯盘（最长 7 天）</span>
+<span>仅收你、写权限者与指定机器人评论</span>
+</div>
+<div>
+<span>修 CI 红灯</span>
+<span>合主干解冲突</span>
+<span>+my-lint-bot 视作断言</span>
+</div>
+</div>
+<div>
+<div>
+<span>4. 推送次数刹车线：最多 3 次</span>
+<span>满 3 次停手叫作者</span>
+</div>
+<div>
+<span>同一问题连续尝试：</span>
+<span>
+<span>1</span>
+<span>2</span>
+<span>3</span>
+<span>停</span>
+</span>
+<span>满 3 次仍未过，汇总尝试过的解法并上报你。</span>
+</div>
+</div>
+</div>
+</div></div><p>还可以给 <code>/ship</code> 加参数指定力度、PR 编号或额外要盯的检查机器人：</p><div><pre><code>/ship high            # 以 high 档运行
+/ship 41              # 接手处理第 41 号 PR
+/ship +my-lint-bot    # 同时读取 my-lint-bot 的评论
+/ship stop            # 停止当前盯盘</code></pre></div><p>默认情况下，盯盘只会理会你本人、仓库有写权限的协作者以及 Claude GitHub App 的评论。加上 <code>+机器人名</code> 后，那个机器人留下的每条评论都会被当成需要对照代码核实的断言来处理。</p><h3>盯盘跑在你自己电脑上：前提条件与两条安全底线</h3><p>开启盯盘后，Claude 是借你的 GitHub 身份在本地机器上干活，消耗的是你的套餐额度或 API 账单。第一次开盯盘时建议留在电脑旁看几眼，确认消耗速度符合预期。还要同时满足这几条环境条件：</p><ul>
+<li><strong>保持清醒与登录：</strong>笔记本合盖或断会话就会停；必须先跑过 <code>gh auth login</code> 登录 GitHub CLI，且只能盯你自己开的 PR。</li>
+<li><strong>权限与平台限制：</strong>必须开在 <code>auto</code> 模式下才能无人值守盯盘，其他模式每一步都会停下问你，而 <code>bypass-permissions</code> 模式下干脆不会启动盯盘；在 Windows 上，<code>/ship</code> 能开 PR 和跑审查，但不会启动盯盘。</li>
+<li><strong>单独占一个工作目录：</strong>盯盘需要一直停在当前分支的检出目录里。你如果准备立刻切去干别的任务，务必单独开一个 git worktree（工作树，给同一仓库另开一套互不干扰的工作目录）。</li>
+<li><strong>Bash 钩子冲突：</strong>如果仓库的 <code>.claude/settings.json</code> 里给 Bash 配了 <code>PreToolUse</code> 或 <code>PermissionRequest</code> 钩子，盯盘会无法启动，Claude 会说明原因，但仍会帮你做完那轮代码审查。</li>
+</ul><p>更要紧的是<strong>只在完全信任的仓库里开本地盯盘</strong>。盯盘需要时不时把基线分支合进你的分支，然后跑项目里的测试脚本——换句话说，<strong>任何有权限往基线分支合代码的人，都等于能借你的电脑执行命令</strong>。</p><p>虽然 Claude 被明确要求不能直接合并 PR，无人值守轮次里也锁死了 <code>gh</code> 和 <code>git</code> 的合并、强推权限，且盯盘推送的提交会主动绕开规则文件（<code>.github/</code>、<code>CODEOWNERS</code>、<code>CLAUDE.md</code>、<code>.claude/</code> 和 git hooks），但这几道护栏并不防得住所有路径：</p><ul>
+<li>测试脚本依然带着你的本地凭证运行；</li>
+<li>只要你在盯盘某一轮运行期间主动输入了一条消息，那一轮的安全约束就会被解除；</li>
+<li>如果仓库打开了自动合并（auto-merge），盯盘推上去的一个修复可能恰好让 GitHub 放行合并；</li>
+<li>盯盘的提交和推送<strong>不触发本地 git hooks</strong>，所以绝对不能漏掉的检查必须配在 CI 和分支保护规则里。</li>
+</ul><p>第一次使用前，先在 Claude Code 里运行 <code>/ship terms</code> 读完完整条款。</p><h3>PR 已经开了：用 <code>/steward</code> 只盯盘不重审</h3><p>很多 PR 并不需要再来一遍代码审查，只缺一个人把后面的红灯和冲突推到能合并为止。切到对应分支后运行：</p><div><pre><code>/steward 41</code></pre></div><p>如果不写编号，就默认盯当前分支关联的 PR，同样支持 <code>+机器人名</code>。它只启动 <code>/ship</code> 的后半段盯盘，不再先做审查。一个会话同时只能盯一张 PR，开新的会自动停掉旧的；想手动停止可以用 <code>/steward stop</code> 或 <code>/ship stop</code>。若 PR 已经挂了 <code>Steward</code> 标签，或者环境不满足盯盘条件，本地 <code>/steward</code> 不会启动。</p><p><strong>别把两者混在一起：</strong><code>/steward</code> 跑在你自己的会话里、用的是你的账号；团队级的 <code>PR Steward</code> 是管理员开启后以 <code>claude[bot]</code> 身份跑在云端的服务。</p><p><strong>该用在哪：</strong>CI 飘红、或者被主干改动拖进冲突死循环的 PR 最适合交给 <code>/steward</code>；如果 PR 正卡在「接口到底怎么设计」的团队辩论里，不要挂给它——那是人该亲自收场的讨论。</p><h3>大事才叫你：同一问题最多推送 3 次</h3><p>盯盘期间，Claude 只处理小范围、明确的修改。只要碰到下面两类情况就会停手升级给作者：需要重新设计（例如换一套新 API 或扩大需求范围），或者遇到了它自己解不掉的安全问题。同时，针对同一个问题，它<strong>最多只会推送 3 次修复</strong>；3 次之后还没过，就停下来把试过的方案整理给你——连试三轮同一项检查仍失败，往往说明方向本身就不对，该由写代码的人换个思路。</p><div><div>
+<a>
+<div>站内相关 · 为什么定 3 次与如何自查</div>
+<div>Claude Code 团队公开让 AI 自己检查代码的方法：想同时开几十个 Claude 一定要看</div>
+<div>展开讲了「三轮过不了就停手叫人」背后的验证哲学、端到端冒烟测试技能怎么写稳，以及为什么检查规则必须留在被测分支改不到的地方。</div>
+</a>
+</div></div><h2>第二步：把重复踩的坑写进仓库的四份文件</h2><p>用这套流程跑顺几张 PR 后，很快会发现几类重复出现的消耗：同一个审阅人老提醒同一件事、Claude 每次都要自己摸索怎么把测试服务拉起来、或者某条检查老是抽风。把这些规律写进仓库文件，但写进哪一份，取决于到底要让谁读到它。</p><div><div>
+<div>
+<span>四份仓库规则文件，谁真正读得到哪一份</span>
+<span>读取权限路由</span>
+</div>
+<div>本地命令与云端服务读的不是同一套文件；放错文件，写了也会静默失效。</div>
+<div>
+<div>
+<span>本地 /code-review</span>
+<span>本地盯盘 · 验证</span>
+<span>云端 Code Review</span>
+<span>云端 PR Steward</span>
+</div>
+<div>
+<div>
+<span>CLAUDE.md</span>
+<span>代码本身必须遵守的规范</span>
+</div>
+<div>
+<span>✓ /code-review 读</span>
+<span>✓ 本地盯盘读</span>
+<span>✓ 云端 Code Review 读</span>
+<span>✓ 云端 PR Steward 读</span>
+</div>
+</div>
+<div>
+<div>
+<span>REVIEW.md</span>
+<span>PR 应该按什么标准审查</span>
+</div>
+<div>
+<span>✕ /code-review 不读</span>
+<span>✕ 本地盯盘不读</span>
+<span>✓ 云端 Code Review 仅读默认分支</span>
+<span>✓ 云端 PR Steward 读默认分支</span>
+</div>
+</div>
+<div>
+<div>
+<span>.claude/skills/verify/SKILL.md</span>
+<span>怎么启动并实测这个应用</span>
+</div>
+<div>
+<span>✕ /code-review 不跑应用</span>
+<span>✓ Claude Code 验证改动时读</span>
+<span>✕ 云端 Code Review 不运行</span>
+<span>✕ 云端 PR Steward 未列入</span>
+</div>
+</div>
+<div>
+<div>
+<span>.claude/skills/steward/SKILL.md</span>
+<span>修 PR、跑检查的仓库家规</span>
+</div>
+<div>
+<span>✕ /code-review 不管盯盘</span>
+<span>✓ 本地盯盘读当前工作区</span>
+<span>✕ 云端 Code Review 不管修 PR</span>
+<span>✓ 云端 PR Steward 读默认分支</span>
+</div>
+</div>
+</div>
+<div>两条关键盲区：本地 <code>/code-review</code> 不读 <code>REVIEW.md</code>，只在本地用的团队规范请写进 <code>CLAUDE.md</code>；云端 <code>Code Review</code> 不会读取当前 PR 顺手修改过的 <code>REVIEW.md</code>。</div>
+</div></div><h3>把重复出现的审阅意见，沉淀成 <code>REVIEW.md</code></h3><p>假设同一个同事已经在两张 PR 上提醒你：新增数据库查询必须带上租户隔离检查。如果你主要靠本地 <code>/ship</code> 和 <code>/code-review</code>，先写进 <code>CLAUDE.md</code>；如果仓库已经开了云端 Code Review，就把专门管审查口径的规则放进根目录的 <code>REVIEW.md</code>：</p><div><pre><code># Review instructions
+## What Important means here
+Wrong results, leaked data or anything that blocks a rollback.
+Style and naming are Nit at most.
+## Always check
+- Database queries are scoped to the caller's tenant.
+- New API routes have an integration test.
+## Keep it quiet
+- Report at most five Nits.
+- Skip generated files and lockfiles.
+- Behavior claims need a file and line.</code></pre></div><p>写规则有两个硬提醒：第一，云端 Code Review 绝不读当前 PR 自己改出来的 <code>REVIEW.md</code>，而且像「跳过某类路径」「最多报 5 条小毛病」这类约束，只有在默认分支受保护时才会完全生效；第二，别见一条评论就往里加——最好等同一问题<strong>至少在 2 张 PR 上重复出现</strong>再提 PR 加规则，并由人来批准合入，同时定期清理过时的旧规则。</p><div><div>
+<a>
+<div>站内相关 · 审查规则与收敛方法</div>
+<div>Claude Code 团队公开了他们审查 AI 代码的具体工作流程</div>
+<div>看 Claude Code 团队如何写 <code>REVIEW.md</code>、要求给出文件与行号证据，以及如何把 AI 互审控制在收敛轮数内。</div>
+</a>
+</div></div><h3>把反复交代的启动步骤，写成 <code>verify</code> 技能</h3><p>每次都要教 Claude「怎么把项目拉起来、访问哪个健康检查接口、用哪个测试账号点一遍」，不如直接写进 <code>.claude/skills/verify/SKILL.md</code>（可放仓库根目录或对应子服务目录下）：</p><div><pre><code>---
+name: verify
+description: Run the web app and exercise a change end to end. Use before committing.
+---
+1. Start the stack with npm run dev:stack.
+2. Wait for /healthz on port 3000 to return 200.
+3. Sign in with the seeded test account.
+4. Exercise the changed flow in the browser and take a screenshot.
+5. Report the steps you ran and what you saw. Don't report success without them.</code></pre></div><p>照着自己项目的命令改好之后，让 Claude 真正跑几轮，把里头时好时坏的步骤彻底修稳——<strong>一套老是误报、抽风的验证流程，团队里很快就没人会信</strong>。</p><h3>把照看 PR 的家规，写进 <code>steward</code> 技能</h3><p>这一份很容易漏掉。本地盯盘读当前工作目录里的 <code>.claude/skills/steward/SKILL.md</code>，而跑在云端的 PR Steward 读默认分支上的那份：</p><div><pre><code>---
+name: steward
+description: House rules for looking after PRs in this repository
+user-invocable: false
+disable-model-invocation: true
+---
+- Regenerate the lockfile with npm install; don't edit it by hand.
+- `e2e-nightly` is flaky. Re-run it once before looking for a cause.
+- Run npm test and npm run lint before pushing a fix.
+- Leave comments about API design to the author.</code></pre></div><p>开头的两个参数（<code>user-invocable: false</code> 与 <code>disable-model-invocation: true</code>）把它藏在 <code>/</code> 命令菜单之外，也防止模型平白自己调用。它没法放宽盯盘本身的安全限制，但因为任何能往仓库合代码的人都能改它，所以审查这份文件的修改必须像审查 CI 工作流一样严格。</p><h2>第三步：推向全队 PR，先观察再强制</h2><p>自己用 <code>/ship</code> 跑顺几张 PR 后，你对这套机制在团队里能帮上什么忙就有了底。接下来要和拥有仓库管理员权限的人沟通：申请<strong>一个仓库、几位志愿者、划一段试用期限</strong>，按五步把试点安全地搭起来：</p><ol>
+<li><strong>提前对齐预算上限：</strong>明确每月最多愿意花多少审查与修复额度。</li>
+<li><strong>锁住默认分支保护：</strong>要求所有合入必须通过 PR、最新推送必须有批准，且不要把 Claude GitHub App 放进绕过列表。</li>
+<li><strong>开启 Code Review：</strong>由组织 Owner（Claude 团队管理员角色）为试点仓库打开。</li>
+<li><strong>以手动模式开启 PR Steward：</strong>同样由 Owner 开启，只有有写权限的人评论 <code>@claude steward</code> 才介入，或者由 PR 作者自愿开启自动介入；随时评论 <code>@claude stop</code> 叫停。</li>
+<li><strong>先建一份观察模式的审批策略：</strong>策略文件 <code>.claude/approvals.yml</code> 你自己就能提 PR 写好，但合并这一步会正式激活 Claude Approvals，合入前先和 Owner 确认。</li>
+</ol><p>同时记住两条底线：PR Steward 被设计成<strong>绝对不批准、也不合并 PR</strong>，所以真正拦住未达标代码的依然是分支保护；此外，PR Steward 会解析审阅人评论里的文字去执行动作，和所有读文本的 Agent 一样可能被诱导，只把它用在协作者彼此信任的仓库里，并对来自非信任用户的评论触发的修改保持人工复核。</p><h3>配置第一份 <code>.claude/approvals.yml</code>，避开五个暗坑</h3><p>Claude Approvals 只认默认分支上的 <code>.claude/approvals.yml</code>。起步先写一份只看、不批的观察模式规则：</p><div><pre><code># .claude/approvals.yml
+version: 1
+mode: observe
+rules:
+  - purpose: "A change takes two people."
+    paths: ["**"]
+    verdict: { claude: comments, seats: 2 }
+    advisory: [claude/code_review]
+  - purpose: "A change to the review rules takes two people."
+    paths: ["**/.claude/**", "**/REVIEW.md", "**/CLAUDE.md", "**/CODEOWNERS", ".github/**"]
+    nested: inherit
+    verdict: { claude: comments, seats: 2 }</code></pre></div><p>写这份文件时，有五个机制必须一并摸透：</p><ul>
+<li><strong>席位与合并提交坑：</strong><code>seats</code> 是需要批准的人数，PR 作者本人可以占其中一席。但盯盘帮你把基线分支合进来之后，最新提交变成了「合并提交」，作者那一席瞬间就空了——这时需要作者自己在 PR 里补一句 <code>@claude approve</code>。</li>
+<li><strong>规则取最严：</strong><code>claude: comments</code> 表示 Claude 只留言不批准；如果一张 PR 改到多个文件、命中多条规则，最终执行<strong>最严格的那一条</strong>。在 <code>mode: observe</code> 下，检查只告诉你「按规则本该怎么判」，Claude 一个也不会真批。</li>
+<li><strong><code>advisory</code> 这一行千万别删：</strong>策略文件一放上默认分支，Code Review 就只会在命中规则且点名了它的 PR 上自动开跑——删掉这行，仓库的自动审查会立刻静默停掉！<code>advisory</code> 审查本身不改变审批裁决，且沿用仓库现有的 Code Review 设置运行；反过来，只要策略里点名了 <code>claude/code_review</code>，即便管理台原本关着 Code Review，也会开始触发计费审查。</li>
+<li><strong>用 <code>override</code> 试跑「审过就少要一个人」：</strong>想测 Claude 审查通过后能否把 2 个人降成 1 个人（并由 Claude 补上批准），可以把 <code>advisory</code> 换成下面这句：</li>
+</ul><div><pre><code>    override:
+      - { if: "claude/code_review = pass", verdict: { claude: approves, seats: 1 } }</code></pre></div><ul>
+<li><strong>别对关键路径用 <code>override</code>，也别急着自定义分类器：</strong>PR 里的文字有可能带偏 Claude 的审查结论，进而触发 <code>override</code> 降低合并门槛；任何必须人工把关的路径（例如鉴权、计费、CI）都不要加 <code>override</code>，合并含这类审查触发规则的策略前先知会预算负责人——即使还在观察模式，每次推送都可能触发 Code Review 计费。自定义分类器（<code>.claude/classifiers/&lt;name&gt;/def.yml</code>）每次运行都会单独计费（观察模式也照算），起步先用路径和 Code Review 结果就够。</li>
+</ul><div><div>
+<div>
+<span>五张 PR 实测：同一份 <code>approvals.yml</code> 到底怎么判</span>
+<span>规则推演 · 示意图</span>
+</div>
+<div>前 4 张 PR 按三条规则并开启 <code>override</code> 推演；PR #5 单独对比未开 <code>override</code> 且删掉 <code>advisory</code> 行的后果。</div>
+<div>
+<div>
+<strong>规则 A · 常规代码 **</strong>
+      默认 2 人（含作者）；若 Claude 审查通过，降为 1 人 + Claude 批。
+    </div>
+<div>
+<strong>规则 B · 规则目录</strong>
+<code>.claude/</code>、<code>REVIEW.md</code>、<code>.github/</code>：2 人签字，Claude 只评论。
+    </div>
+<div>
+<strong>规则 C · 计费/鉴权</strong>
+<code>src/billing/**</code> 等不配 override：必须 1 位非作者人类签字。
+    </div>
+</div>
+<div></div>
+<div>示意图：Claude 只有在改动涉及的每一条规则都允许时才会给出批准；多文件同时命中多条规则时，始终取最严。</div>
+</div></div><h3>观察一两周，拿这张对照表校准，再按顺序上锁</h3><p>观察模式只有真去复盘才有用。打开一两周后，回头抽查已合并的 PR，把「Claude Approvals 检查栏和评论里写的拟议决定」和「人类审阅人的实际动作」放在一起对账：</p><div><div>
+<div>
+<span>观察模式复盘：四格对照，决定留规则还是收紧</span>
+<span>2×2 校准矩阵</span>
+</div>
+<div>上线强制执行前，最优先解决标红这一格——Claude 以为能过、人类却打了回票的那一类（前两格在加上 <code>override</code> 后才会出现）。</div>
+<div>
+<div>
+<div>判断：本会批准 × 人类：直接通过没意见</div>
+<div>保留这条规则</div>
+<div>自动化判断和团队审阅人的尺度一致，可以放心保留。</div>
+</div>
+<div>
+<div>判断：本会批准 × 人类：要求修改代码</div>
+<div>最危险的盲区：先堵上再转正</div>
+<div>立刻给这类路径加上必须人类签字的规则，或把漏掉的判据补进 <code>REVIEW.md</code>。</div>
+</div>
+<div>
+<div>判断：需要两人 × 人类：每次扫一眼就批</div>
+<div>攒够例子后再考虑放宽</div>
+<div>当前偏保守。多观察足够多张 PR 确认安全后，再把该路径收窄。</div>
+</div>
+<div>
+<div>判断：需要两人 × 人类：真的提出实质追问</div>
+<div>保留这条规则</div>
+<div>人花精力看对了地方，这条门槛拦得值。</div>
+</div>
+</div>
+</div></div><p>对照几张具体 PR 自问三件事：你会怎么判、哪条规则作的决定、要改哪条——先修掉第二格，再放宽其他规则。</p><p>正式转正前还要注意：<strong>Claude 给出的批准，在 GitHub 上算作一次真实有效的批准</strong>。如果仓库分支规则只要求「1 个批准」，而你又开了自动合并（auto-merge）和作者可占 1 席的 <code>override</code>，就会出现「没有任何人类点过批准、PR 就自己合进去」的情况。哪些路径允许这样走、哪些绝不允许，必须提前说死并写进策略里。</p><p>真正上锁按这四步顺序来：</p><ol>
+<li><strong>先写死高危路径的硬规则：</strong>给鉴权、计费、CI 工作流加上不带 <code>if</code> 或 <code>override</code> 的规则，并用 <code>nested: inherit</code> 让子目录也继承这套约束，指名由非作者人类签字：</li>
+</ol><div><pre><code>  - purpose: "Auth, billing and CI take a person who isn't an author."
+    paths: ["src/auth/**", "src/billing/**", ".github/**"]
+    nested: inherit
+    verdict:
+      claude: comments
+      seats: [{ count: 1, from: [humans, "!pr/authors"] }]</code></pre></div><ol>
+<li><strong>删掉 <code>mode: observe</code> 并合并：</strong>合上默认分支后，Claude 就会按规则真正给出批准。</li>
+<li><strong>约 5 分钟后刷新已有 PR：</strong>在还开着的 PR 下评论 <code>@claude approvals rerun</code> 清理过期结果（注意重跑会再次对自定义分类器计费）。</li>
+<li><strong>在 GitHub 设为必需检查：</strong>请仓库管理员把 <code>Claude Approvals</code> 设为合并前的必需状态检查，并指定来源为 Claude App——在此之前，就算检查没过，PR 依然能被合进去。</li>
+</ol><p>AI 工具仍然会漏掉 bug 和安全隐患。原来的自动化测试、安全扫描器和人工审阅人，一个都不要撤。</p><h2>这周就能动手的四步路线</h2><p>在 Claude Code 团队里有一条很清楚的规矩：<strong>谁调用 Agent 做的改动，就由谁像亲手敲出来一样负全责</strong>。需求边界、架构设计、验收证据和合入标准，依然属于团队自己。照着这四步，这周就能把个人习惯接成团队流水线：</p><div><div>
+<div>
+<span>从一个人试水到全队接入：按周推进路线</span>
+<span>行动清单</span>
+</div>
+<div>前两步自己今天就能跑，周五再把总结好的规则 PR 与观察模式策略交给团队。</div>
+<div>
+<div>
+<div>今天</div>
+<div>
+<div>在当前分支跑一次 <code>/code-review</code></div>
+<div>记下它挑中了什么真问题、又漏掉了或误报了什么，为写规则留底稿。</div>
+</div>
+</div>
+<div>
+<div>下个 PR</div>
+<div>
+<div>在完全信任的仓库试 <code>/ship</code>，另开目录试 <code>/steward</code></div>
+<div>第一次坐在旁边看额度变化和修复节奏；<code>/steward</code> 另开一个终端和 git worktree。</div>
+</div>
+</div>
+<div>
+<div>周五前</div>
+<div>
+<div>提一个小 PR 固化最常重复的那条规则</div>
+<div>放进 <code>CLAUDE.md</code>、<code>REVIEW.md</code> 或技能文件；由于 <code>/ship</code> 不会提交规则文件，这次改动需要你手动 commit 并带上观察模式策略示例一起给团队看。</div>
+</div>
+</div>
+<div>
+<div>试点铺开</div>
+<div>
+<div>找管理员开 1 个仓库试跑观察模式 1–2 周</div>
+<div>拿 2×2 对照表修掉盲区后，再锁死敏感路径、去掉 <code>mode: observe</code> 并设为 GitHub 必需检查。</div>
+</div>
+</div>
+</div>
+</div></div></div><div><div><div>来源</div><div><span>A practical guide to shipping with Claude Code</span><span>Addy Osmani<span>·</span>2026-11-24<span>·</span><a href="https://claude.dev/blog/the-work-after-you-open-a-pr/">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://claude.com/resources/articles/introducing-claude-ship">Introducing Claude Ship</a><span>·</span><a href="https://code.claude.com/docs/en/ship-command#what-claude-does-during-a-watch">Claude Code: The /ship command watch behavior</a><span>·</span><a href="https://code.claude.com/docs/en/ultrareview">Claude Code: Ultrareview docs</a><span>·</span><a href="https://code.claude.com/docs/en/approvals-classifiers#add-a-custom-classifier">Claude Approvals: Custom classifiers</a><span>·</span><a href="https://claude.dev/blog/solving-code-review-at-anthropic/">Solving code review at Anthropic</a><span>·</span><a href="https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/">How the Claude Code team thinks about verification</a></div></div><div><div>本站说明</div><div>文中命令用法、配置片段、安全边界说明与 2×2 观察校准对照均整理自 Claude 开发者博客与配套文档。</div></div></div></div></div>
+<div><div>英文原文中英对照中文译文</div><p>原文版权归原作者，这里只供对照阅读。 <a href="https://claude.dev/blog/the-work-after-you-open-a-pr/">看原网页 ↗</a></p></div><div></div><div><div><h1>A practical guide to shipping with Claude Code</h1></div><div><p>After you open a pull request, hand the follow up to Claude Code using /ship. Here's how to dial in your preferences to stay in flow.</p></div><div><p>When you open a pull request, there's usually a bunch of follow-up work to be done:</p></div><div><ul><li>CI fails</li><li>A review comes back with six comments</li><li>A main merge creates a conflict</li></ul></div><div><p>They're all tiny little tasks, but each one takes you off your focus work.</p></div><div><p>On the Claude Code team, an agent commonly does this follow-up work. For example, it can pick up an issue a reviewer found, so when the author gets back, the PR has already been updated once.</p></div><div><p>In my experience this is a more productive and enjoyable way to code. It minimizes context switching and keeps me in a flow state.</p></div><div><p>We've talked about the process the Claude Code team uses for code review <a href="https://claude.dev/blog/solving-code-review-at-anthropic/">here</a>, and about the verification process underneath it <a href="https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/">here</a>. <strong>This post is about getting your own repository set up to do this</strong> using some of the new functionality we recently added with the <a href="https://claude.com/resources/articles/introducing-claude-ship">Claude Ship launch</a>.</p></div><div><p>It's for a developer or tech lead whose team works on GitHub and who doesn't have admin privileges. You can start on your own right now by running a few commands, and save what you learn to files in your repo for the team to review. Admins only need to get involved if your team wants agents doing this automatically on the team's PRs.</p></div><div><p>You're still the architect of the process, so you're defining what to build, how to build it, and what the bar for merging is.</p></div><div><h2>THE POST-PR PROCESS</h2></div><div><p>After you've opened a PR, you want to find issues, address issues, and make a final decision on if the change can be merged.</p></div><div><p>Claude Ship is three agents that tackle this work: Code Review, PR Steward (beta), and Claude Approvals (beta). Code Review is generally available, and the other two are in beta. <code>/ship</code> is a command you run yourself in Claude Code to try Claude Ship on your own pull requests. It comes with the latest version of Claude Code, and it works even before an admin has turned on any of the agents. You can partially automate the first two steps today. The last step is a decision that you set in your branch protections and (if your team adopts one) your policy file. Here is how it breaks down using the three agents that are part of Claude Ship:</p></div><div><div><div><table><thead><tr><th>You want Claude to</th><th>Run</th><th>Where it runs</th></tr></thead><tbody><tr><td>Find bugs before anyone else looks</td><td><code>/code-review</code></td><td>Your session</td></tr><tr><td>Open a PR, review it and keep working on what comes back</td><td><code>/ship</code></td><td>Your session</td></tr><tr><td>Look after a PR you already opened</td><td><code>/steward</code></td><td>Your session</td></tr><tr><td>Do this across a team's PRs automatically</td><td>Claude Ship</td><td>Anthropic's cloud by default, set up by your team</td></tr></tbody></table></div></div></div><div><h2>ON YOUR OWN PRS</h2></div><div><h3>Getting started today with <code>/code-review</code></h3></div><div><p>If you only do one thing from this post, review your branch before you push it. Bugs you catch here are less likely to come back as review comments or failed checks that pull you off your next task. At the Claude Code prompt, enter this command:</p></div><div><p>CODEText</p></div><div><pre><code>/code-review</code></pre></div><div><p>It reviews the commits on your branch and your uncommitted changes for correctness bugs. A few variations to keep in mind:</p></div><div><p>CODEText</p></div><div><pre><code>/code-review high 1234       # review PR 1234 at high effort
+/code-review --fix           # apply the findings to your working tree
+/code-review --comment 1234  # post the findings on the PR
+/code-review ultra           # run a deeper review in the cloud</code></pre></div><div><p>The effort goes from low to max. At low you only see the findings the review is most sure about. Go higher and you see more, including some it's less sure about. Claude remembers the last level you used, so if the risk changes, set it again.</p></div><div><p>A few caveats:</p></div><div><ul><li>You will want to take extra care when using the ultra setting, which runs in the cloud, needs a login at claude.ai, and can be billed separately from your plan. Read the <a href="https://code.claude.com/docs/en/ultrareview">ultrareview docs</a> before trying it.</li><li>Edits made by <code>--fix</code> during a background review may not be caught by <code>/rewind</code>. Commit first if you want an easy way back.</li><li>Local <code>/code-review</code> reads your <code>CLAUDE.md</code> files, but not <code>REVIEW.md</code>. This matters later.</li></ul></div><div><p>The first thing you should do is run <code>/code-review</code> a few times to understand what it catches and where it gets things wrong. You'll use this later.</p></div><div><h3>Run <code>/ship</code> for your next PR</h3></div><div><p>Once you're ready, type:</p></div><div><p>CODEText</p></div><div><pre><code>/ship</code></pre></div><div><p>If you don't have a PR for your branch yet, <code>/ship</code> will:</p></div><div><ol><li>Commit your pending changes. It behaves as if you had run <code>git add -A</code>, so it will respect your <code>.gitignore</code>. It will create a branch if necessary, and it will use your session to write the commit message. You will be notified of this before the commit, and can abort by hitting Esc.</li><li>Push and create the PR as you.</li><li>Perform a code review using <code>/code-review</code>, unless the commit has already been reviewed by Code Review. If the code review reports any issues, it will fix the ones it judges as valid for you.</li><li>Watch the PR for up to seven days. It will work on failing checks, conflicts, and review comments, and will exit if the PR is merged or closed.</li></ol></div><div><p>The first step, where <code>/ship</code> commits your pending changes as if you had run <code>git add -A</code>, sometimes catches people by surprise, so be sure to run <code>git status</code> before running <code>/ship</code>.</p></div><div><p>The command will not commit changes that touch files with names that look like secrets, or files that set rules, like <code>CLAUDE.md</code>, <code>REVIEW.md</code>, or anything in the <code>.claude/</code> or <code>.github/</code> directories. You will need to make these commits manually beforehand.</p></div><div><p>Also, if you are working in a public repository, the command will not commit any changes for you. You will need to commit any pending changes manually before you can proceed, and if the PR already exists, it won't include your pending changes.</p></div><div><p><strong>Optional: specifying effort level, PR, or bot</strong></p></div><div><p>CODEText</p></div><div><pre><code>/ship high            # run at high effort
+/ship 41              # work on pull request #41
+/ship +my-lint-bot    # also read comments from my-lint-bot
+/ship stop            # end the watch</code></pre></div><div><p>The command will by default read comments by you, people with write access, and the Claude GitHub App. You can specify additional bots in the form <code>+name</code>. If that bot comments, it will be treated as an assertion to check against the code.</p></div><div><h4>Letting Claude watch the PR</h4></div><div><p>Claude watches the PR as you, on your machine, and uses your quota. Closing your laptop stops it, so keep the session open and the machine awake. You'll also need to be logged in to the GitHub CLI (run <code>gh auth login</code> first), and it only watches a PR that you opened.</p></div><div><p>For anything other than <a href="https://code.claude.com/docs/en/permission-modes">auto mode</a>, <a href="https://code.claude.com/docs/en/ship-command#what-claude-does-during-a-watch">the watch</a> stops at every prompt and requires your response. It won't watch in bypass-permissions mode. Note that on Windows, <code>/ship</code> opens the PR and reviews, but the watch doesn't start.</p></div><div><p>Ensure that the watch has its own checkout. You need to leave the branch checked out. If you're just going to jump straight into your next task, then make sure to use a separate worktree for one of them.</p></div><div><p>If the watch fails to start, Claude will explain why but still review the PR. For example, you can't run a watch if you have a <code>PreToolUse</code> or <code>PermissionRequest</code> hook on Bash in the <code>.claude/settings.json</code> of your repo.</p></div><div><p>Additionally, the watch uses up model turns while you're away, so it counts against your plan usage or API bill. The first time you use it, it's a good idea to be near your machine to make sure usage is within your expectations.</p></div><div><h4>Only run the watch on repos you trust</h4></div><div><p>The watch will merge the base branch into yours when necessary and then run commands like your tests. In other words, anyone who has the ability to land changes on the base branch has the ability to run commands on your machine during the watch. <strong>Only run the watch locally on a repo where you trust everyone who can land changes on the base branch.</strong></p></div><div><p>Claude is told never to merge the PR, and Claude Code also constrains the gh and git commands it can run during an unattended turn, preventing direct merging or force-pushing. The watch's own commits also leave out the files that set the rules: <code>.github/</code>, <code>CODEOWNERS</code>, <code>CLAUDE.md</code>, <code>.claude/</code>, git hooks, etc.</p></div><div><p>However, this doesn't protect against all vectors. For example, the test script also runs under your credentials, and if you type a message during a turn, that will allow the constraints to be lifted for that turn. Additionally, if auto-merge is enabled, a fix from the watch could end up being what allows GitHub to merge.</p></div><div><p>Furthermore, the commits and pushes made by Claude during the watch are not affected by git hooks in your repo, so make sure any checks that need to be present are added to CI and branch rules.</p></div><div><p>For the full terms of the watch, run <code>/ship terms</code> in the product before your first time using it.</p></div><div><h3><code>/steward</code> for existing PRs</h3></div><div><p>Many PRs don't need another review, but need someone to see them through to merge. If you have such a PR, check out the branch and run:</p></div><div><p>CODEText</p></div><div><pre><code>/steward 41</code></pre></div><div><p>It will run just the watch component of <code>/ship</code>. It will watch the PR you opened and do things like fix failing checks, resolve conflicts, and address comments, without reviewing it first.</p></div><div><p>If you don't specify a PR number, it will watch the PR for the current branch. It will take the same <code>+name</code> bots, and the same caveats as before apply.</p></div><div><p>However, if a PR is already labeled Steward, it will not run the local watch. And if it is unable to run a watch, <code>/steward</code> will not do anything.</p></div><div><p>If you want to stop the watch, you can use either <code>/steward stop</code> or <code>/ship stop</code>. Since a session can only run one watch at a time, starting a new one will terminate the previous one.</p></div><div><p>Don't confuse <code>/steward</code> with PR Steward, which is a team service that runs as <code>claude[bot]</code> after being enabled by an admin. The <code>/steward</code> command runs as you, in your session.</p></div><div><p>A PR that has red checks is a good place to start. A PR that gets stuck in a conflict loop is also a good candidate. On the flip side, a PR that's in the middle of a design debate is a bad one because that's your debate to settle.</p></div><div><h3>Claude escalates bigger calls to you</h3></div><div><p>As part of the watch, Claude is told to make small changes and elevate the bigger ones. Things like:</p></div><div><ul><li>A request to redesign something, like a new API or a bigger scope</li><li>A security issue it wasn't able to resolve</li></ul></div><div><p>It also pushes at most 3 times for a given issue, and then reports the attempted solutions.</p></div><div><p>That's roughly equivalent to our claim in the <a href="https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/">verification blog post</a>: if we keep running the same check and it keeps failing after three rounds, then the approach is probably wrong.</p></div><div><p>At this point, it escalates to the author of the code.</p></div><div><h2>IN YOUR REPO</h2></div><div><p>As you get a few PRs under your belt, you'll start to notice patterns. For instance:</p></div><div><ul><li>The same comment from the same reviewer</li><li>A setup instruction that Claude has to figure out</li><li>A flaky check</li></ul></div><div><p>You can start to write these down for your team, in one of a few files, depending on which tool needs to read it:</p></div><div><div><div><table><thead><tr><th>What keeps repeating</th><th>Put it in</th><th>Read by</th></tr></thead><tbody><tr><td>A convention that code should follow</td><td><code>CLAUDE.md</code></td><td>Claude Code, local <code>/code-review</code>, Code Review and PR Steward</td></tr><tr><td>A rule about how PRs get reviewed</td><td><code>REVIEW.md</code></td><td>Code Review and PR Steward, not local <code>/code-review</code></td></tr><tr><td>How to start and exercise the app</td><td><code>.claude/skills/verify/SKILL.md</code></td><td>Claude Code when it verifies a change</td></tr><tr><td>How PRs here should be looked after</td><td><code>.claude/skills/steward/SKILL.md</code></td><td><code>/ship</code>, <code>/steward</code> and PR Steward</td></tr></tbody></table></div></div></div><div><p>Let's say you get asked by a peer twice to make sure a new query contains a tenant check. If you use local review, you can write this down in <code>CLAUDE.md</code>, since <code>/ship</code> uses <code>/code-review</code> to review. If you have Code Review on your repository, you can write review-only rules in the root <code>REVIEW.md</code>:</p></div><div><p>CODEMarkdown</p></div><div><pre><code># Review instructions
+## What Important means here
+Wrong results, leaked data or anything that blocks a rollback.
+Style and naming are Nit at most.
+## Always check
+- Database queries are scoped to the caller's tenant.
+- New API routes have an integration test.
+## Keep it quiet
+- Report at most five Nits.
+- Skip generated files and lockfiles.
+- Behavior claims need a file and line.</code></pre></div><div><p>Code Review won't read the <code>REVIEW.md</code> file from the PR being reviewed. It will also only respect some instructions, like excluding paths and limiting nits, when the default branch is protected.</p></div><div><p>Not every comment should be elevated. On our team, we have a principle that a pattern has to be repeated on at least 2 PRs to be considered for a rule. A person then approves the PR that adds the rule. That's a good bar to adopt. You should also be deleting rules as needed.</p></div><div><h3>Repeat setup becomes verify skills</h3></div><div><p>If you find yourself constantly telling Claude how to boot up the app and navigate to specific pages, you should just write it down. Create <code>.claude/skills/verify/SKILL.md</code>. This can be in the root or in the directory of the code.</p></div><div><p>CODEMarkdown</p></div><div><pre><code>---
+name: verify
+description: Run the web app and exercise a change end to end. Use before committing.
+---
+1. Start the stack with npm run dev:stack.
+2. Wait for /healthz on port 3000 to return 200.
+3. Sign in with the seeded test account.
+4. Exercise the changed flow in the browser and take a screenshot.
+5. Report the steps you ran and what you saw. Don't report success without them.</code></pre></div><div><p>Be sure to customize the commands.</p></div><div><p>Have Claude run it a few times, and fix any flaky behaviors. People ignore verification they don't trust.</p></div><div><h3>Repeat PR maintenance becomes steward rules</h3></div><div><p>This one can be easy to miss. The local watch reads the <code>.claude/skills/steward/SKILL.md</code> file from your working directory.</p></div><div><p>PR Steward, which runs in Anthropic's cloud, reads it from the default branch.</p></div><div><p>CODEMarkdown</p></div><div><pre><code>---
+name: steward
+description: House rules for looking after PRs in this repository
+user-invocable: false
+disable-model-invocation: true
+---
+- Regenerate the lockfile with npm install; don't edit it by hand.
+- `e2e-nightly` is flaky. Re-run it once before looking for a cause.
+- Run npm test and npm run lint before pushing a fix.
+- Leave comments about API design to the author.</code></pre></div><div><p>In the example above, the two settings keep it out of the / menu and out of the skills Claude picks on its own.</p></div><div><p>The steward file can't change the watch's restrictions. However, anyone who can merge to the repository can edit the file, so review changes to it as carefully as you would review any changes to CI.</p></div><div><p>If your team turns on PR Steward later, those guidelines will apply in Anthropic's cloud once they're on the default branch.</p></div><div><h2>ACROSS YOUR TEAM'S PRS</h2></div><div><h3>Standardizing the post-PR process</h3></div><div><p>Once you've run <code>/ship</code> on a few of your own PRs, you'll have a good sense of what Claude Ship could do across your team's PRs. The rest of this post is for that conversation with your admins: what to ask for, and how to roll it out safely.</p></div><div><p>To <a href="https://code.claude.com/docs/en/claude-ship#who-can-use-claude-ship">get started</a>, you'll need to ask your administrators for a single repository, a few volunteers, and a limited amount of time to test Claude Ship on your own pull requests.</p></div><div><ol><li><strong>Agree on your budget constraints ahead of time.</strong></li><li><strong>Protect the default branch of the repository.</strong> A repository admin can set up this requirement, ensuring that any updates require a PR with an approval on the latest push, and that the Claude GitHub App is not on the bypass list.</li><li><strong>Enable Code Review for this repository.</strong> An Owner, the admin role in your Claude organization, can enable Code Review.</li><li><strong>Enable PR Steward in Manual mode.</strong> The same Owner can enable PR Steward to kick in when a user with write access comments <code>@claude steward</code>, or when authors opt in for it to kick in automatically. Comment <code>@claude stop</code> to stop Steward.</li><li><strong>Create an observe mode approval policy.</strong> This file acts like any other file; you can create it in your own PR, but since merging this file enables Approvals for the repository, clear it with an Owner first.</li></ol></div><div><p>PR Steward is designed not to approve or merge pull requests, so make sure you use branch protection to require the approvals you want before merging.</p></div><div><p>PR Steward reads the comments from reviewers and performs some actions based on them. Like any text-parsing agent, it can be fooled by what people say. Make sure you use it only in repositories with trusted collaborators, and check the changes made by PR Steward on comments from untrusted users.</p></div><div><h3>Configure your first approval policy</h3></div><div><p>For approval policies, Claude Approvals reads from the <code>.claude/approvals.yml</code> file on the default branch. A simple first policy could be:</p></div><div><p>CODEYAML</p></div><div><pre><code># .claude/approvals.yml
+version: 1
+mode: observe
+rules:
+  - purpose: "A change takes two people."
+    paths: ["**"]
+    verdict: { claude: comments, seats: 2 }
+    advisory: [claude/code_review]
+  - purpose: "A change to the review rules takes two people."
+    paths: ["**/.claude/**", "**/REVIEW.md", "**/CLAUDE.md", "**/CODEOWNERS", ".github/**"]
+    nested: inherit
+    verdict: { claude: comments, seats: 2 }</code></pre></div><div><p><code>seats</code> is the number of people who have to approve, and the author can take one of those seats.</p></div><div><p>There's one catch. After the watch has merged the base branch, the most recent commit will be a merge commit, and nobody sits in the author's seat for it, so the PR author should comment <code>@claude approve</code>.</p></div><div><p>When a rule's verdict is <code>claude: comments</code>, Claude won't approve. If more than one rule matches, the strictest one wins. In observe mode the check just tells you what it would have decided. Claude doesn't approve anything.</p></div><div><p>Don't drop the advisory line. Once the policy file is on the default branch, Code Review only kicks off automatically on PRs that match a rule naming it. Without that line, your automatic reviews just stop. Advisory reviews don't change the verdict, and they run on whatever settings you already have. A policy that names Code Review can start billed reviews, even where Code Review is turned off.</p></div><div><p>If you want to see where a passing Claude review could lower what a path needs, swap the advisory line for an override, and update the rule's purpose to match, for example "When Claude's review passes, one is enough and Claude approves."</p></div><div><p>CODEYAML</p></div><div><pre><code>    override:
+      - { if: "claude/code_review = pass", verdict: { claude: approves, seats: 1 } }</code></pre></div><div><p>The override names Code Review too, so those pull requests still get automatic reviews. When a review passes, the override swaps the rule's decision for one seat plus Claude's approval. The author can fill that one seat, so the check can now report that Claude would have approved. But text in a pull request can sway Claude's review, and when it does, this override lowers what that pull request needs.</p></div><div><p>If there are some paths that need to always require a human, put them in a rule without an override (next section, step 1). Before you merge this, tell the budget owner. <strong>A policy that uses Claude's review this way starts billing Code Reviews, even in observe mode.</strong> It can bill whenever you push, regardless of your Code Review settings.</p></div><div><p>You can also build your own classifiers for questions like "is this PR related to a migration?" <a href="https://code.claude.com/docs/en/approvals-classifiers#add-a-custom-classifier">Custom classifiers</a> live in <code>.claude/classifiers/&lt;name&gt;/def.yml</code> on the default branch, and each run is billed, even in observe mode. Start out by focusing on paths and the Code Review result.</p></div><div><h3>Monitoring and transitioning to enforcement</h3></div><div><p>Our team uses the same process as observe mode for our own internal commit gate. It logs the decisions it would have made in observe mode, so we can analyze false positives before making them mandatory. You will see the decisions in the Claude Approvals check and the associated comment.</p></div><div><p>Keep in mind that you only get the value of observe mode if you actually monitor it. After a week or two of having it in place, revisit the merged PRs and see how the decisions compare to your reviewers' behavior.</p></div><div><p>The first two rows apply once you've added the override.</p></div><div><div><div><table><thead><tr><th>The policy said</th><th>Your reviewers</th><th>What to do</th></tr></thead><tbody><tr><td>Would approve</td><td>Approved with nothing to add</td><td>Keep the rule</td></tr><tr><td>Would approve</td><td>Asked for changes</td><td>Add a path rule that needs a person, or fix <code>REVIEW.md</code> if review should have caught it</td></tr><tr><td>Needs two people</td><td>Approved at a glance every time</td><td>Consider narrowing the rule once you've seen enough examples</td></tr><tr><td>Needs two people</td><td>Had real questions</td><td>Keep the rule</td></tr></tbody></table></div></div></div><div><p>Go through a few example PRs. How would you have decided? Which rule made the decision? What would you change? Pay the most attention to the second row, and fix those before you relax any rules.</p></div><div><p>One thing to know before you enforce: Claude's approvals count as real approvals on GitHub. If a ruleset only needs one approval, Claude's can be enough on its own. So read your policy and your branch rules together.</p></div><div><p>If you use auto-merge, and have policies that only the author can fulfill (like the override above), you can have PRs that get merged without anyone doing anything. Decide explicitly whether that's OK for each path, and write it down.</p></div><div><p>Then lock it down in this order:</p></div><div><ol><li>Use a rule without an if or override for paths where you always need a second set of eyes. No classifier result can override it, and <code>nested: inherit</code> carries it into subdirectories that have their own policies. CODEYAML - purpose: "Auth, billing and CI take a person who isn't an author." paths: ["src/auth/<strong>", "src/billing/</strong>", ".github/**"] nested: inherit verdict: claude: comments seats: [{ count: 1, from: [humans, "!pr/authors"] }]</li><li>Remove <code>mode: observe</code> and merge. Now Claude can approve wherever the rules say it approves.</li><li>About five minutes later, comment <code>@claude approvals rerun</code> on open PRs, so any stale results get cleaned up. Reruns can charge for classifiers again.</li><li>Ask a repository admin to make the Claude Approvals check required, and to pick the Claude app as its source. Until then, your PR can get merged regardless of what the check says.</li></ol></div><div><p>Claude Ship and the local commands use AI, and they can miss bugs, security problems, and other issues, so keep all your existing tests, scanners, and reviewers.</p></div><div><h2>THINGS TO TRY THIS WEEK</h2></div><div><p>I'd like to make it clear that for the Claude Code team, the person who called the agent is responsible for a change. It's as if they typed it themselves.</p></div><div><p>Your team should still be responsible for the PR scope, design, evidence, and rules for when it can merge. With these principles in mind, here is where you can get started:</p></div><div><ol><li><strong>Today:</strong> Run <code>/code-review</code> on your current branch. Make a note of what it got wrong and what it missed.</li><li><strong>Next PR:</strong> In a repository where you trust everyone who can merge, try <code>/ship</code>, and stick around. Try <code>/steward</code> on an existing PR, in a different terminal and git checkout.</li><li><strong>By Friday:</strong> Create a small PR with the rule you repeated most, in your <code>CLAUDE.md</code>, <code>REVIEW.md</code>, or a skill. Do the commit yourself, since <code>/ship</code> will not commit rule files. Share the PR and the example observe-mode policy with your team.</li></ol></div><div><p>If you do so, I would love to know which rule file was most impactful, and which tasks you chose to keep doing yourself.</p></div></div>
+</div></div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://claude.dev/blog/the-work-after-you-open-a-pr/">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】Anthropic 发布 58 家企业 AI 访谈报告：三分之二缩减招聘，高回报靠改分工与流程 · XiaoHu.AI</title>
 <link>https://xiaohu.ai/article/anthropic-working-with-ai/</link>
@@ -82283,148 +82780,6 @@ LowMediumHighMax
 <div><strong>真正要检验的，是工作能否连续做下去。</strong><p>结果能否进入可编辑文件、可复用工具与团队流程？组织能否管住权限和预算？这比入口里多了几个 AI 按钮更值得观察。</p></div>
 </div>
 </div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】Anthropic 如何在两周内让 Claude 的常用操作快约 3 倍</title>
-<link>https://best.xiaohu.ai/article/claude-ai-faster-two-weeks/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:claude-ai-faster-two-weeks</guid>
-<pubDate>Sat, 26 Sep 2026 12:01:27 +0000</pubDate>
-<description>Anthropic 报告：两周内 13 项常用操作的提速倍数几何平均为 3.1 倍；网页首次可输入快 5.6 倍，Cowork 发送消息的客户端处理快 19 倍。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 26 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Anthropic 如何在两周内让 Claude 的常用操作快约 3 倍</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/claude-ai-faster-two-weeks/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>Anthropic 如何在两周内让 Claude 的常用操作快约 3 倍</h1><p>Anthropic 报告：两周内 13 项常用操作的提速倍数几何平均为 3.1 倍；网页首次可输入快 5.6 倍，Cowork 发送消息的客户端处理快 19 倍。</p><strong>一分钟速览</strong><ul><li>四类操作覆盖用户日常行为的 95%，细分为 13 项 p75 指标；3.1 倍是这些速度比的几何平均。</li><li>可输入时间的大幅提前来自静态输入框先接住用户输入，真正的 React 界面随后接替；优化覆盖的是客户端等待，不是模型生成速度。</li><li>Claude 的作用不止写优化代码：它建立可重复的实验室基准，回读真实用户数据，并将证实有效的改进锁进 CI。</li><li>工程师继续决定目标、体验取舍和发布节奏；短期开关、人工批准与分批发布支撑了这次高频改动。</li></ul><div>
-<p>打开 Claude，等输入框能打字；切进旧对话，等内容出现；点发送，等页面响应。这些等待通常只有几百毫秒到几秒，却会在每天反复操作时累积。用户向 Anthropic 反映 claude.ai 太慢，工程团队也承认这个问题。</p>
-<p>为此，Anthropic 做了一次为期两周的性能冲刺。团队报告，claude.ai 和桌面端的核心交互整体快了约 3 倍：仅网页版首次打开到可输入的耗时，就从约 3.1 秒缩短到 <strong>0.55 秒</strong>。打开应用、开始对话、切换旧会话和发送消息，都有了不同程度的改善。</p>
-<p>这次冲刺中，Claude 参与寻找瓶颈、建立测试和提交修改，工程师负责目标、取舍与发布。团队称，两周内合并了 3000 多项变更，没有发生面向用户的故障或回滚。</p>
-<h2>核心结果：四类常用操作快在哪里</h2>
-<p>团队跟踪的是占用户日常行为 95% 的四类核心操作：启动应用、开始新会话、加载已有会话与发送消息。结合网页端和桌面端各产品，这四类操作被细化为 13 项具体测量。各项都取第 75 百分位耗时（p75，即约 75% 的观测操作耗时不超过这个数值），再将提速倍数取几何平均，得到 <strong>3.1 倍</strong>。具体到用户手上的操作，变化是这样的：</p>
-<p>变化最明显的是首次打开网页和 Cowork 发送消息：前者从约 3.1 秒降到 0.55 秒，后者的客户端处理从 928 毫秒降到 48 毫秒。这里的发送耗时只计客户端处理，不含模型生成回复。新建和切换会话的等待也普遍缩短。以下将全部 13 项结果按操作展开，前后数字可以直接逐行比较。</p>
-<div><div><span>两周性能冲刺</span><h3>四类操作，前后对照</h3></div><div><strong>3.1×</strong><span>13 项提速倍数的几何平均</span></div></div><p>8 月 13 日 → 8 月 27 日 · p75 耗时 · 单位：毫秒<br />灰条为优化前，绿条为优化后；每一行灰条均为 100%，看绿条即可比较剩余等待比例。</p>
-<h4>打开应用</h4><div><table><thead><tr><th>产品 / 平台</th><th>优化前 → 优化后</th><th>耗时减少</th></tr></thead><tbody>
-<tr><th>claude.ai网页 · 首次加载</th><td><div><span>3,085</span><i>→</i><strong>550</strong></div><div><div></div><div></div></div></td><td>−82%</td></tr>
-<tr><th>桌面应用冷启动</th><td><div><span>6,310</span><i>→</i><strong>3,328</strong></div><div><div></div><div></div></div></td><td>−47%</td></tr>
-</tbody></table></div>
-<h4>开始对话</h4><div><table><thead><tr><th>产品 / 平台</th><th>优化前 → 优化后</th><th>耗时减少</th></tr></thead><tbody>
-<tr><th>Chat网页</th><td><div><span>416</span><i>→</i><strong>273</strong></div><div><div></div><div></div></div></td><td>−34%</td></tr>
-<tr><th>Chat桌面</th><td><div><span>460</span><i>→</i><strong>224</strong></div><div><div></div><div></div></div></td><td>−51%</td></tr>
-<tr><th>Claude Code桌面</th><td><div><span>837</span><i>→</i><strong>347</strong></div><div><div></div><div></div></div></td><td>−59%</td></tr>
-</tbody></table></div>
-<h4>加载旧会话</h4><div><table><thead><tr><th>产品 / 平台</th><th>优化前 → 优化后</th><th>耗时减少</th></tr></thead><tbody>
-<tr><th>Chat网页</th><td><div><span>1,557</span><i>→</i><strong>646</strong></div><div><div></div><div></div></div></td><td>−59%</td></tr>
-<tr><th>Chat桌面</th><td><div><span>1,353</span><i>→</i><strong>488</strong></div><div><div></div><div></div></div></td><td>−64%</td></tr>
-<tr><th>Cowork桌面 · 云会话</th><td><div><span>2,566</span><i>→</i><strong>728</strong></div><div><div></div><div></div></div></td><td>−72%</td></tr>
-<tr><th>Claude Code桌面</th><td><div><span>545</span><i>→</i><strong>262</strong></div><div><div></div><div></div></div></td><td>−52%</td></tr>
-</tbody></table></div>
-<h4>发送消息 仅客户端处理</h4><div><table><thead><tr><th>产品 / 平台</th><th>优化前 → 优化后</th><th>耗时减少</th></tr></thead><tbody>
-<tr><th>Chat网页</th><td><div><span>180</span><i>→</i><strong>59</strong></div><div><div></div><div></div></div></td><td>−67%</td></tr>
-<tr><th>Chat桌面</th><td><div><span>140</span><i>→</i><strong>64</strong></div><div><div></div><div></div></div></td><td>−54%</td></tr>
-<tr><th>Cowork桌面 · 云会话</th><td><div><span>928</span><i>→</i><strong>48</strong></div><div><div></div><div></div></div></td><td>−95%</td></tr>
-<tr><th>Claude Code桌面</th><td><div><span>250</span><i>→</i><strong>52</strong></div><div><div></div><div></div></div></td><td>−79%</td></tr>
-</tbody></table></div>
-<p>发送消息不包含模型生成回复的等待。各行条形独立归一化，绝对耗时请看数字；降幅按原始毫秒值计算并取整。数据来自 Anthropic 工程博客。</p>
-<p>团队据此估计，这些优化每天可为用户累计节省数万小时的等待时间。</p>
-<h2>方法：把一条慢操作变成可重复的优化循环</h2>
-<p>冲刺开始时，团队建了一个专门的 Slack 频道，让使用内部研究模型的 Claude Tag（beta；Anthropic 称其能力大致相当于 Opus 5.5）参与讨论。</p>
-<p>团队先让 Claude 通过 Datadog MCP 分析使用数据，再补齐埋点：每项测量从用户发起操作开始，到对应结果在界面上渲染结束，同时拆分客户端与服务端工作。这样，团队才有了可以横向比较、也能追查慢在哪里的基线。</p>
-<p>工程师先选出约 20 个针对具体用户操作的项目并设目标；到第三天，13 个冲刺目标中已有 12 个达成。完成预定项目后，他们继续寻找新的可测量慢点。</p>
-<p>有人在 Slack 线程里指出某个慢片段，常附录屏或截图；Claude 追踪代码并建立能复现问题的基准，随后提交便于审阅的 PR。部署后，它按版本和平台查看实际使用数据。有效就调低基准上限，无效就关掉开关继续迭代，再寻找这条操作中的下一个慢点。高峰期同时有 150 多条线程；最忙的一天落地 200 多项变更，约三分之一的 PR 还增加了新的遥测或防回退检查。一条线程完成最初的问题后还会继续追查，累计提出五十个、甚至一百个优化 PR；Claude 也会根据其他调查或夜间任务发现的问题主动开启新线程。新增测量持续暴露下一处瓶颈，让这轮冲刺超出了最初的项目清单。</p>
-<h3>测量：从实验室基准到 CI 棘轮</h3>
-<p>团队希望每轮尝试都能快于部署节奏。Claude 可以连续工作数小时，甚至整夜运行；如果每次改动都必须先上线、再等真实用户数据，优化就会不断停下来。实验室基准提供了一个能立即检验想法的环境：先在本地反复试，找到有效候选，再上线验证用户是否真的少等了。</p>
-<p>在性能优化中，用户最终感知到的是墙钟时间（Wall-clock time，即实际耗时毫秒数）。但毫秒读数受系统调度和运行环境波动影响较大，若直接作为 CI 门禁容易引起频繁误报。</p>
-<p>团队采取的做法是结合“实验室指标推动优化”与“线上真实数据验证”的双层测量：</p>
-<ul>
-<li>在纯 JavaScript 路径上，使用 Valgrind 工具配合 Node.js 的确定性模式（<code>node --predictable</code>）统计 CPU 指令数；在浏览器端则关注 React 提交次数、V8 调用次数、样式重算与 DOM 变动等相对确定的计数。</li>
-<li>团队并未把所有指标直接设为门禁，而是要求先在实验中证明这些计数下降确实与实际耗时降低相关，再把有效的基准设为 CI 门禁。如果某项基准不稳定或无法对应实际耗时改善，就将其废弃。</li>
-</ul>
-<p>例如在两个具体的密集计算路径实验中：</p>
-<ul>
-<li>组装会话消息树时，原本解析逻辑将同一消息 ID 在字典中查询了三次；优化为单次查询后，指令数减少了 48%，JIT 预热后的实际运行耗时下降了 78%；</li>
-<li>Claude Code 状态行扫描通过先做廉价首字符判断再执行正则，指令数下降 31%，实际耗时下降 44%。</li>
-</ul>
-<p>在验证两者的对应关系后，团队才在 CI 中加入“棘轮”（Ratchet）：只要相关代码导致指令数上升，CI 就不予通过；若后续改动让计数进一步降低，脚本便自动下调上限，锁定优化成果。这里被锁住的是两个具体计算路径的指令数；整项用户操作是否更快，还要回到上线后的真实数据里看。</p>
-<h3>发布：特性开关与分级灰度</h3>
-<p>在快速迭代过程中，每个 PR 都经过自动化审查并至少获得一名人类工程师批准；团队先建立单元测试，再做优化。</p>
-<p>对于可能影响用户可见表现的风险改动，团队会将其置于短期特性开关（Feature Flags）之后。高风险改动通常遵循分级发布策略：先推给内部员工，再扩大到 1% 的用户，最终全量开放。在两周冲刺期间，团队引入了近 200 个特性开关；同时专门设立讨论线程跟踪开关的生命周期，一旦确认改动稳定，便及时清理分支代码，冲刺结束时已有超过一半的开关被安全移除。</p>
-<h2>案例：静态输入框让用户提前打字</h2>
-<p>在单页 Web 应用中，浏览器加载 HTML 后还要执行 JavaScript、挂载组件树与状态。在这段初始化窗口期内，页面可能已经可见，输入框却还不能使用。</p>
-<p>团队采取的方案是将一个静态输入框（static composer）直接烘焙进初始 HTML 中，让用户在 React 初始化完成前就能直接键入。</p>
-<p>原页录屏对比清晰呈现了这一机制的作用：</p>
-<ol>
-<li><strong>提前获得可输入能力</strong>：原本需要等待 2.93 秒页面才能输入，加入静态输入框后，加载约 0.36 秒即可开始打字。这并不意味着整个 React 应用在 0.36 秒就完成了全部加载与初始化，而是把“能够输入”的时间点大幅提前。</li>
-<li><strong>平滑交接状态</strong>：用户键入过程中，React 继续在后台完成初始化；约 2.96 至 3.16 秒时，真实的 React 输入框接替静态元素，用户已输入的文本得到保留。</li>
-</ol>
-<figure><figcaption>原文演示：限速 4G 下，静态输入框先接受文字，稍后交给真正的 React 输入框；已输入内容保留。</figcaption></figure>
-<p>这种静态占位与动态组件交接的设计本身容易引发视觉瑕疵。如果静态 HTML 与后续 React 渲染在尺寸或位置上有哪怕 1 像素偏差，或者在接替瞬间漏掉按键，用户就会看到明显的跳动或丢字。</p>
-<p>为了保证交接的一致性，团队建立了多项防护机制：</p>
-<ul>
-<li>静态 HTML 标记由真实 React 组件在 jsdom 环境中生成，并用测试防止两者的呈现逐渐偏离；</li>
-<li>在 14 种视口尺寸下进行自动比对，限制对齐偏差在 1 像素以内；</li>
-<li>通过自动化测试模拟在交接过程中的连续按键，确认输入不会丢失；</li>
-<li>在线上监控十分之一像素级别的位移事件。</li>
-</ul>
-<p>内部灰度时，同事仍录到了新标签页打开后的下落。但静态输入框与 React 的交接记录显示没有位移。Claude 最后追到了浏览器窗口高度的变化：</p>
-<ol>
-<li><strong>预渲染时，页面先矮了一截。</strong> Chrome 在用户输入网址时就提前渲染页面。受组织管理的新标签页底部有一个 56 像素高的页脚，预渲染采用了较矮的可用高度。</li>
-<li><strong>页脚消失，输入框跟着下移。</strong> 导航后，页面约在首屏出现 100 毫秒后增高 56 像素；输入框按页面高度的 18% 定位，因此下移约 <code>56 × 18% ≈ 10</code> 像素。</li>
-<li><strong>原测试看不到这次变化。</strong> 无头 Chrome 没有这块浏览器界面；静态输入框和 React 界面又一起移动，测量两者交接偏差也抓不到它。</li>
-</ol>
-<p>团队随后固定了这次高度调整期间的布局，并补上模拟预渲染流程的测试。这个问题此前就存在，只是页面现在显示得更早，才被看见。</p>
-<p>在 Electron 桌面端，团队则利用 V8 引擎的代码缓存（Code Cache）预先编译主进程代码，避免冷启动时反复重新编译，使桌面端冷启动耗时大幅缩减。</p>
-<p>切换对话也有更朴素的优化：输入框在不同对话之间保持挂载，鼠标悬停会话时预取数据，侧边栏的重复渲染减少了 90%。这些改动分别节省了重新创建界面、等待数据与无谓重绘的时间。</p>
-<h2>案例：三个隐藏在代码和指标里的慢点</h2>
-<p>在性能分析中，许多耗时并非来自明显的复杂算法，而是隐藏在细微的底层机制与代码调用路径中。</p>
-<h3>1. 字符编码对语法高亮性能的影响</h3>
-<p>在排查客户端 CPU 偶发停顿时，团队注意到一个现象：部分回复中的代码块在完成渲染后，语法高亮有时会导致页面停顿近 1 秒。</p>
-<p>在实验室中分析调用栈后，团队发现这与非 Latin-1 字符相关：例如破折号（em dash <code>—</code>）或弯引号（curly quotes）。</p>
-<p>在 V8 引擎内部，若字符串中仅包含 Latin-1 字符（每字符占 1 字节），会采用紧凑的单字节形式存储；一旦 Markdown 文本中包含破折号或弯引号等非 Latin-1 字符，V8 会将整段字符串内部存储转为双字节的 UTF-16 编码。这会导致后续正则表达式在执行高亮匹配时，走入相对较慢的双字节路径。</p>
-<p>针对这一问题，团队提交了约 20 行代码：在提取出只含单字节字符的代码块后，将其复制为单字节字符串，再传入语法高亮处理。在原文图表给出的实验条件下（4 vCPU 容器、无头 Chrome，每个数值运行 2—3 次），页面上首个 TypeScript 代码块的主线程阻塞时间从 1.0 秒下降到 0.35 秒，后续每次高亮从 100 毫秒降至 40 毫秒。</p>
-<h3>2. 标准指标未能反映的侧边栏位移</h3>
-<p>在早期版本中，工程师通过录屏发现：页面加载时，左侧侧边栏列表容易出现条目跳动。普通对话与 Cowork 云会话数据返回时机不同，导致列表前后错动。</p>
-<p>但在常规前端监控中，累积布局位移（CLS）并没有报警。原页记录显示，这些跳动单次位移的评分大约仅为 0.008，远低于通常视为良好的 0.1 阈值，导致问题在综合指标中被忽略。</p>
-<p>团队选择直接基于底层的 Layout Instability API 建立遥测，把每次位移条目的来源区域映射到命名分区（如侧边栏、正文区），并区分发生阶段（如首屏渲染前、可输入之后）。这让工程师能回答“用户已经开始操作后，究竟是哪一块还在动”，从总体评分追到具体原因。</p>
-<p>接着，Claude 写了一个刻意制造问题的集成测试：先打开带有会话列表的页面，把侧边栏数据扣住，等首屏绘制后再放行；只要指定区域发生位移，就判失败。同一个测试在主分支上运行 20 次全部失败，在修复 PR 上运行 20 次全部通过。原本只能靠录屏描述的“看着抖”，由此变成了可以反复检验的修复目标。</p>
-<p>线上数据显示：约 31% 的网页访问在页面已可输入且用户没有任何交互时，仍然存在元素位移。结合录屏看，修复前存在 10 行跳动、9 行出现、4 行消失的明显错动。定位到具体来源后，团队批量处理了后发的头部行、用户名加载后光标横向移动、滚动条出现引起的宽度变动等问题，修复后侧边栏条目在固定位置填充，消除了这部分多余位移。</p>
-<figure><figcaption>原文演示：同样在限速 4G 下加载侧边栏，修复后条目在固定位置出现，不再上下挤动。</figcaption></figure>
-<h3>3. 排查中发现并清理的其他瓶颈</h3>
-<p>随着测量深入，团队还在多个关键路径上排查并修复了一批隐藏问题：</p>
-<ul>
-<li><strong>输入路径上的依赖项过多</strong>：对输入组件进行梳理时，发现其输入路径上有 6900 个 React Hooks 和 900 个状态订阅（store subscriptions），都处在每次敲键时可能重新渲染的路径上。这个计数让原本难以注意到的开销有了明确检查对象。</li>
-<li><strong>全局选择器的重算开销</strong>：全局样式中包含一个 <code>:root:has()</code> 伪类选择器，使得每次 DOM 变动额外增加了 24 毫秒的样式重算时间。</li>
-<li><strong>遗留的隐藏重载</strong>：首屏绘制后的一处历史遗留逻辑中存在 <code>location.reload()</code>，导致线上每天产生约 50 万次未被常规加载指标捕获的隐藏重载。</li>
-<li><strong>空闲标签页的主线程读写</strong>：在无操作的闲置标签页中，每分钟有两次将完全相同的缓存快照复制到 IndexedDB，持续占用了主线程资源。</li>
-</ul>
-<h2>案例：让长回复在 120Hz 屏幕上流畅出现</h2>
-<p>大模型产品在交互上的一个显著特征是流式输出（Streaming）：回复内容随着数据块持续推进，页面文本也在持续增长。</p>
-<p>在长回复场景下，文本累积往往会加重前端渲染负担。在原始逻辑中，每个数据块的处理常伴随与整条消息长度成正比的工作量。消息越长，每次新增内容需要重复处理的部分越多，容易导致界面掉帧。</p>
-<p>在 120Hz 高刷新率屏幕上（如支持 ProMotion 的 MacBook Pro），每帧的渲染预算约为 8.33 毫秒。为了优化高刷体验，团队通过 DevTools 的 begin-frame 控制，在实验室搭建了 120Hz 的逐帧评测环境，逐帧测量长回复生成时的耗时分布，并进行了针对性重构：</p>
-<ol>
-<li><strong>缓存已完成块（Memoization）</strong>：对已经输出完毕的内容块做缓存，消除每个数据块中与整条消息长度成正比的重复计算。</li>
-<li><strong>分词逻辑移入 Worker</strong>：仅将处于增长状态的代码围栏（growing code fences）的 tokenization 处理移至 Web Worker，避免占用渲染主线程。</li>
-<li><strong>表格呈现方式的选择</strong>：团队选择在流式输出时逐个单元格显示。这样可以分散原本集中在一帧里的工作量，但逐格出现是否比整行出现更好看，仍由工程师判断。</li>
-</ol>
-<p>在这一专项线程中，团队合并了近 60 个 PR。在团队的测试实验中，一段长回复在主线程的累计阻塞时间从约 750 毫秒降到约 200 毫秒，CPU 占用降至约原本的三分之一；在一台 120Hz MacBook 上，演示长回复从头至尾保持了 120fps。该测试环境随后也被设为夜间回归监控任务。</p>
-<h2>人类工程师负责目标、取舍和关停</h2>
-<p>每条线程都有一名明确的人类负责人。凡是用户能感知的变化，Claude 都会附上修改前后的截图或录屏，让负责人判断体验是否值得。每条线程的范围也被限定在一个基准或一类操作上，避免不断向外扩张。工程师主要负责以下三个维度的裁定：</p>
-<ul>
-<li><strong>提高目标（Ambition）</strong>：在默认设定下，模型对改动范围通常偏向谨慎，容易在评估可行性时留出缓冲，并在达成初始目标后放慢节奏。工程师的作用是鼓励其继续探索更深层的瓶颈，设定更高的优化预期。</li>
-<li><strong>权衡体验与复杂度（Taste）</strong>：模型在寻找毫秒级优化时，需要人类对视觉呈现与工程代价进行取舍。例如在流式文本渲染中，是否为了文字逐字淡入效果牺牲五分之一的单帧渲染预算；或者当一个构建插件 PR 增加了 900 行代码却只能让单次发送节省 2 毫秒时，工程师会因维护复杂度过高而予以否决。</li>
-<li><strong>把控全局节奏（Direction）</strong>：冲刺高峰期同时有超过 150 个讨论线程在运行。工程师需要聚焦各个线程的边界，协调不同线程间的改动优先级，合并相互影响的代码，并在某些方向出现边际收益递减时及时终止探索。</li>
-</ul>
-<h2>写在最后</h2>
-<p>这次冲刺最值得借鉴的，是把一次性能修复接成了持续运转的循环：先找到用户真实经历的等待，再建立能快速试验的基准；候选改动上线后，用真实用户数据确认效果；确认有效，就用自动化检查守住成果。</p>
-<p>测量工具本身也留下了长期价值。新增的遥测会暴露下一处慢点，CI 检查会拦住性能回退，120Hz 测试则在夜间继续运行。团队观察到，其他项目开始主动来做性能审查，新代码也受到这些检查和 Claude 技能的影响。两周积累下来的，既有更快的页面，也有下一次优化可继续使用的工具和工作方式。</p>
-<p>Anthropic 仍列出了尚待改善的第 95 百分位数（p95，即较慢一端的体验）、其他操作路径和超长会话。冲刺还产生了对 Electron、Chromium、Node.js 等上游项目的贡献，团队计划另文展开。本文能展示的是这套方法如何处理已被找到、能够度量的瓶颈；新的慢点仍需继续被发现和解释。</p>
-</div><div><div><div>来源</div><div><span>How we made claude.ai 3x faster in two weeks</span><span>Raymond Wang, Sam Attard, Issac G.<span>·</span><a href="https://claude.dev/blog/how-we-made-claude-ai-faster/">查看主材料</a></span></div></div><div><div>本站说明</div><div>数据、实验和事故情况来自 Anthropic 工程团队的披露。</div></div></div></div></div></div>
 </div></div></body></html>]]></content:encoded>
 </item>
 </channel>
