@@ -6,7 +6,210 @@
 <description>小互解读站（best.xiaohu.ai）文章全文</description>
 <language>zh-cn</language>
 <atom:link href="https://brandyvfo.github.io/xiaohu-rss-aa9c2f66/feed.xml" rel="self" type="application/rss+xml"/>
-<lastBuildDate>Fri, 27 Nov 2026 12:00:12 +0000</lastBuildDate>
+<lastBuildDate>Sat, 28 Nov 2026 12:00:12 +0000</lastBuildDate>
+<item>
+<title>【日报】Ampixa Labs 开源 talkinghead：一张照片加一段语音，MacBook Pro 上实时生成对口型视频，模型只有 169 MB · XiaoHu.AI</title>
+<link>https://xiaohu.ai/article/ampixa-talkinghead/</link>
+<category>日报</category>
+<guid isPermaLink="false">xiaohu:ampixa-talkinghead</guid>
+<pubDate>Sat, 28 Nov 2026 12:00:12 +0000</pubDate>
+<description>阅读导航 专题 · 目录 ＋ ← 全部解读 本页目录 01 「实时」的标准：一帧得在 40 毫秒内算完 02 为什么只有 169 MB：Ditto 的每个大网络都换成了小号的 03 和同类比：快、省显存，口型分输了 04 不装软件，先在浏览器里试 05 装到自己电脑上：一行安装，三行出片 06 现在的短板 AI 解读 / 产品发布 · 11-28 · 约 9 分钟 · 作者 Ampixa Labs Ampixa Labs 开源 talk</description>
+<content:encoded><![CDATA[<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#f4f4f5;">
+<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
+<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
+<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 11 月 28 日</div>
+<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">Ampixa Labs 开源 talkinghead：一张照片加一段语音，MacBook Pro 上实时生成对口型视频，模型只有 169 MB · XiaoHu.AI</h1>
+<div style="margin-bottom:16px;"><a href="https://xiaohu.ai/article/ampixa-talkinghead/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
+<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
+<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><span>阅读导航</span><span>专题 · 目录 ＋</span><div><a>← 全部解读</a><div>本页目录</div><a><span>01</span><span>「实时」的标准：一帧得在 40 毫秒内算完</span></a><a><span>02</span><span>为什么只有 169 MB：Ditto 的每个大网络都换成了小号的</span></a><a><span>03</span><span>和同类比：快、省显存，口型分输了</span></a><a><span>04</span><span>不装软件，先在浏览器里试</span></a><a><span>05</span><span>装到自己电脑上：一行安装，三行出片</span></a><a><span>06</span><span>现在的短板</span></a></div></div><div><div><div><div><a>AI 解读</a><span>/</span><a>产品发布</a><i>·</i>11-28<i>·</i>约 9 分钟<i>·</i>作者 Ampixa Labs</div><h1>Ampixa Labs 开源 talkinghead：一张照片加一段语音，MacBook Pro 上实时生成对口型视频，模型只有 169 MB</h1><p>打开网页挑一张脸、打一句话就能试，照片和声音都不离开你的电脑。</p><div>☆ 收藏<div>分享<div>分享这篇长图、二维码、发到各平台复制链接<div>全文 Markdown · 会员<div>
+<div>
+复制 Markdown
+下载 .md
+</div>
+</div></div></div></div><div><span><span>作者：</span>Ampixa Labs</span><span>11-28 · 约 9 分钟</span><span>⚑ 产品发布</span></div></div></div><div><div><div><div>
+<p>同一句英文，九张脸各说一遍<i>“One photo. Any voice. A talking video, in real time.”<br />一张照片，任意声音，实时生成说话视频。</i></p>
+<div>
+<u>有声</u><span>Alisha Rai<em>真人照片</em></span>
+<u>有声</u><span>卷发男子<em>真人照片</em></span>
+<u>有声</u><span>蒙娜丽莎<em>油画</em></span>
+<u>有声</u><span>拿破仑<em>油画，1812</em></span>
+<u>有声</u><span>林肯<em>1863 年的照片</em></span>
+<u>有声</u><span>尼泊尔传统服饰<em>真人照片</em></span>
+<u>有声</u><span>戴珍珠耳环的少女<em>油画</em></span>
+<u>有声</u><span>白胡子老人<em>真人照片</em></span>
+<u>有声</u><span>梵高<em>油画</em></span>
+</div>
+<p>九段都从一张静止的图生成，模型直出、没有后期，在 MacBook Pro M4 Pro 上每帧用 34–44 毫秒。现在是静音循环，<b>点任意一张可以听它说</b>。照片：Alisha Rai；Jeremy Bishop（CC0）、Bibek Raut（CC BY-SA 4.0）、Angelina Litvin（CC0）摄，来自 Wikimedia Commons；四幅画和 1863 年的林肯照片属于公有领域。配音 Kokoro-82M。</p>
+</div></div></div><strong>一分钟速览</strong><ul><li>它是蚂蚁集团开源模型 Ditto 的瘦身版：每个大网络都换成了照着它学的小网络。</li><li>显存只要 1.2 GB，LatentSync 要 14 GB，速度还快十倍以上。</li><li>口型同步分 7.94，不如 LatentSync 的 9.97，也低于真人视频。</li></ul><div><img src="https://pic.xiaohu.ai/jiedu-media/ampixa-talkinghead/social/zh-d0a58d6a8e88.png" alt="" style="max-width:100%;height:auto;border-radius:8px;" /></div><div><p>让一张照片开口说话（给照片配一段语音，生成嘴形、表情、头部都跟着声音动的视频），现成的模型早就有，卡在又大又慢。Ampixa Labs 在同一块 RTX 4090 显卡上测过三个常用的：</p><ul>
+<li><b>LatentSync：</b>这组测试里口型分最高，可算一帧要 552 毫秒，一秒钟的视频得算将近 14 秒，显存峰值 14 GB。</li>
+<li><b>Wav2Lip：</b>每帧 85 毫秒，显存峰值 19.5 GB。</li>
+<li><b>Ditto</b>（蚂蚁集团开源的「照片说话」模型）<b>：</b>显存只要 1.3 GB，每帧 69.9 毫秒，原版权重有 2.2 GB 左右。</li>
+</ul><p>前两个的显存胃口，普通笔记本带不动；Ditto 省显存，速度在这次测试里还没到实时。</p><p>Ampixa Labs 这次开源的 talkinghead，是把 Ditto 从头到尾缩小了一遍：</p><ul>
+<li><b>笔记本上实时出片：</b>MacBook Pro M4 Pro 上每帧 36.5 毫秒，赶得上每秒 25 帧的播放速度；M3 Pro 和一台 RTX 3050 Ti 笔记本也刚好踩线。</li>
+<li><b>整套模型 169 MB：</b>第一次用时自动下载，不用注册账号，下完可以断网跑。</li>
+<li><b>代码和权重都开放：</b>Apache-2.0 许可证，一行命令安装，三行 Python 出片。</li>
+<li><b>浏览器里就能试：</b>不装任何东西，计算在你自己的显卡上做。</li>
+</ul><p>代价它自己也摆在了明面上：口型同步分比上面三个都低，这次发布的版本还没做过完整评测。</p><div><div><div>
+<p><b>51 秒演示片：</b>一张照片加一段声音，合成一段说话的视频。开场白就是上面九张脸说的那句。</p>
+</div></div></div><h2>「实时」的标准：一帧得在 40 毫秒内算完</h2><p>视频每秒 25 帧，摊到每一帧只有 40 毫秒。算得比这快，出片就比片子本身还短；慢了，就得等。</p><div><div><div>
+<div>三台机器，每帧各用多少毫秒</div>
+<div>横轴 0–50 毫秒。条越短越快，停在红线左边才算实时。</div>
+<div>
+<div><span>40 毫秒 = 每秒 25 帧</span></div>
+<div><div><b>MacBook Pro M4 Pro</b><span>还剩 3.5 毫秒</span></div><div><div><span>36.5</span></div></div></div>
+<div><div><b>MacBook Pro M3 Pro</b><span>还剩 0.1 毫秒</span></div><div><div><span>39.9</span></div></div></div>
+<div><div><b>RTX 3050 Ti 笔记本</b><span>超出 0.3 毫秒</span></div><div><div><span>40.3</span></div></div></div>
+</div>
+<p>计时范围是「渲染循环」：让画面变形、画出这一帧、贴回原图、编码成视频。分析声音、生成动作和加载模型不算在内。3050 Ti 笔记本的 40.3 是三段视频的中位数（40.0–40.5），算是刚好够 25 帧。</p>
+</div></div></div><p>两台 Mac 走的路不完全一样。Mac 芯片里有一块专门跑神经网络的 Neural Engine，「画出这一帧」那一步优先交给它；可在 M3 Pro 上，这块芯片给这个模型算出来的结果是错的。所以程序每次加载都会拿一份存好的标准答案核对一遍，对不上就改走其他计算单元。</p><p>把分析声音、生成动作这些前面的步骤都算进去，给一段 8.5 秒的语音出片要等多久：</p><div><div><div>
+<div>一段 8.5 秒的片子，从按下到拿到视频</div>
+<div>横轴 0–52 秒。条比虚线短，就是出片比片子本身还快。</div>
+<div>
+<div><span>片长 8.5 秒</span></div>
+<div><div><b>MacBook Pro M4 Pro<em>模型已加载</em></b><span></span></div><div><i></i></div></div>
+<div><div><b>RTX 3050 Ti 笔记本<em>模型已加载</em></b><span></span></div><div><i></i></div></div>
+<div><div><b>MacBook Pro M4 Pro<em>第一次运行，要先加载模型</em></b><span></span></div><div><i></i></div></div>
+<div><div><b>浏览器（M4 Pro，Chrome）<em>每帧约 245 毫秒</em></b><span></span></div><div><i></i></div></div>
+</div>
+<p>前三行是整次调用的实测时间。浏览器那行是折算：8.5 秒共 213 帧，每帧约 245 毫秒，合 52 秒左右，和「10 秒的片子大约等一分钟」对得上。3050 Ti 笔记本头一回运行还要另花 3 分钟左右，把模型转成 NVIDIA 的加速格式，之后有缓存。</p>
+</div></div></div><p>所以「实时」落到手上是这样的：在这两款 Mac 上装好了跑，是真快；在浏览器里试，是先等一分钟再看。浏览器慢，是因为网页用不了 Neural Engine。</p><h2>为什么只有 169 MB：Ditto 的每个大网络都换成了小号的</h2><p>talkinghead 没有从零训练。它把 Ditto 原样拿来当「老师」，给每个大网络配一个小得多的「学生」，让学生照着老师的输出练，练到差不多了就顶上去。这种做法叫蒸馏。</p><p>有点像老师傅带徒弟：徒弟不用把师傅几十年的弯路重走一遍，照着师傅做好的成品一件件练手就行。不同的是，这里的徒弟天生就小一号，学得再好也只是「接近」师傅。</p><p>一张照片变成一段说话视频，要过四个大网络，四个都换了：</p><div><div><div>
+<div>四个大网络，各缩了多少</div>
+<div><span><i></i>原版 Ditto</span><span><i></i>talkinghead</span><span>一格 = 500 万个参数</span></div>
+<div>
+<div><b>1</b>听声音</div>
+<div>把语音切成和画面对齐的小段，每帧提一组特征。</div>
+<div><span>原版 <b>3.154 亿</b></span><div></div></div>
+<div><span>学生 <b>1810 万</b></span><div></div></div>
+</div>
+<div>
+<div><b>2</b>定动作</div>
+<div>根据声音特征，决定这几秒里头怎么动、嘴怎么张。</div>
+<div><span>原版 <b>4780 万</b></span><div><div></div><div></div></div></div>
+<div><span>学生 <b>1940 万</b></span><div><div></div><div></div></div></div>
+<div>小圆点是每一段要把网络过几遍：原版 100 遍，学生 1 遍。</div>
+</div>
+<div>
+<div><b>3</b>挪画面</div>
+<div>按每一帧的动作，把照片里的五官挪到新位置。</div>
+<div><span>原版 <b>4550 万</b></span><div></div></div>
+<div><span>学生 <b>1270 万</b></span><div></div></div>
+</div>
+<div>
+<div><b>4</b>画出来</div>
+<div>把挪好的结果画成一帧完整的图像。</div>
+<div><span>原版 <b>5540 万</b></span><div></div></div>
+<div><span>学生 <b>1550 万</b></span><div></div></div>
+</div>
+<div>四个大网络加起来：<b>4.64 亿</b> → <b>6570 万</b>个参数，大约是原来的七分之一。</div>
+</div></div></div><p>每一步具体怎么缩，有几处值得一看：</p><ul>
+<li><b>听声音这一步缩得最狠：</b>原版用的是通用语音模型 HuBERT-large，学生只留一个 4 层的小网络，每次只看前 20 帧和后 4 帧的声音。</li>
+<li><b>定动作这一步省的主要是遍数：</b>原版是扩散模型，像冲洗照片一样一遍遍把噪声洗成动作，每段洗 100 遍。学生拿走老师 8 层里的 2 层，只算最后一遍，直接给出结果。他们也试过只留 1 层，或者从零训练一个更窄的网络，口型分分别掉了 0.14 和 0.74。</li>
+<li><b>挪画面这一步有个卷积占了三分之二的运行时间：</b>学生把它从 7×7×7 缩到了 3×3×3，再拿掉最深的一层。</li>
+<li><b>画出来这一步砍掉一半宽度：</b>刚砍完还没重练时，画面和老师相比只有 6.2 dB（衡量两张图有多接近的分数，越高越像），必须重练；练完回到 31.1 dB。</li>
+</ul><p>训练数据全是开放许可的：英语和尼泊尔语语音各约 30 小时，外加 2,495 张 Wikimedia Commons 上的肖像。有一套抓来的、没有授权记录的语音数据被排除在外。训练脚本目前还没放出来，公开的是一份照着能复现的配方。</p><h3>每换一个网络都要验收，最后一步没过</h3><p>验收办法是：把新学生换进去，用 7 组「人脸 × 语音」各渲染一遍，再和原版 Ditto 的结果比口型分。打分用的是 SyncNet（一个专门判断嘴形和声音对不对得上的模型，分数叫 LSE-C，越高越同步）。学生的分减去老师的分，取这个差值误差范围的下限，高于 −0.25 才算过，负责人还要并排看一遍片子。</p><div><div><div>
+<div>四次验收：学生比老师的口型分高多少、低多少</div>
+<div>圆点是 7 组的平均差值，0 表示和原版一样。横线是误差范围伸到的下限。</div>
+<div>
+<div><span>门槛 −0.25</span></div>
+<div><div><b>1 听声音</b><span><span>−0.03</span> · 通过</span></div><div><div></div></div></div>
+<div><div><b>2 定动作</b><span><span>+0.16</span> · 通过</span></div><div><div></div></div></div>
+<div><div><b>3 挪画面</b><span><span>+0.01</span> · 通过</span></div><div><div></div></div></div>
+<div><div><b>4 画出来（实时版）</b><span><span>−0.51</span>，下限 <span>−0.77</span> · 没过</span></div><div><div></div><div></div></div></div>
+<div><span>−0.8</span><span>−0.5</span><span>−0.25</span><span>0</span><span>+0.2</span></div>
+</div>
+<p>判定看的是下限有没有掉进虚线左边的红色区域，细竖线是 0。前三步只公布了平均值和「通过」的结论，所以图上没有横线。第 4 步没过，看片之后照样发布了。</p>
+</div></div></div><p>没过为什么还发？理由是看片复核后接受。他们试过把口型这一项的训练权重加大，分数能拉回到 −0.41，可那个版本在一张人脸很小的照片上把口型丢了，就没发。</p><p>这道验收本身有多可靠，他们也自己列了四条：</p><ul>
+<li>只有 7 组、一个随机种子，样本很小。原版自己换三个种子跑，分数就会波动 0.03 到 0.29。</li>
+<li>−0.25 这条线，是看完第一步的结果之后才定的。</li>
+<li>看片不是盲评，看的人知道哪个是学生。</li>
+<li>第 4 步验收时用的还是原版的声音特征，没有换上第 1 步的学生。四个学生全部装在一起的完整评测，还没做。</li>
+</ul><h2>和同类比：快、省显存，口型分输了</h2><p>和其他对口型模型的比较，是在一块 RTX 4090 上用 12 段 HDTF（研究里常用的高清说话人视频集）测试片做的：</p><div><div><div>
+<div>RTX 4090 上的四项对比</div>
+<div><span><i></i>talkinghead（较早的版本）</span><span><i></i>其他模型</span><span><i></i>真人视频</span></div>
+<div>
+<div>每帧耗时<span>一格 = 10 毫秒，越少越快</span></div>
+<div><div><b>talkinghead</b><span><b>43.4</b> 毫秒（发布帖写 46.8）</span></div><div></div></div>
+<div><div><b>原版 Ditto</b><span><b>69.9</b> 毫秒</span></div><div></div></div>
+<div><div><b>Wav2Lip</b><span><b>85.0</b> 毫秒</span></div><div></div></div>
+<div><div><b>LatentSync</b><span><b>552</b> 毫秒</span></div><div></div></div>
+</div>
+<div>
+<div>显存峰值<span>一格 = 0.5 GB，越少越省</span></div>
+<div><div><b>talkinghead</b><span><b>1.2</b> GB</span></div><div></div></div>
+<div><div><b>原版 Ditto</b><span><b>1.3</b> GB</span></div><div></div></div>
+<div><div><b>LatentSync</b><span><b>14</b> GB</span></div><div></div></div>
+<div><div><b>Wav2Lip</b><span><b>19.5</b> GB</span></div><div></div></div>
+</div>
+<div>
+<div>口型同步分 LSE-C<span>横轴 0–10，越高越同步</span></div>
+<div><div><b>talkinghead</b></div><div><div><span>7.94</span></div></div></div>
+<div><div><b>原版 Ditto</b></div><div><div><span>8.38</span></div></div></div>
+<div><div><b>真人视频本身</b></div><div><div><span>8.75</span></div></div></div>
+<div><div><b>Wav2Lip</b></div><div><div><span>9.59</span></div></div></div>
+<div><div><b>LatentSync</b></div><div><div><span>9.97</span></div></div></div>
+</div>
+<div>
+<div>像不像本人<span>生成的脸和原图的相似度，满分 1</span></div>
+<div><div><b>0.96</b>talkinghead</div><div><b>0.96</b>原版 Ditto</div><div><b>0.91</b>LatentSync</div><div><b>0.90</b>Wav2Lip</div></div>
+</div>
+<p>耗时算的是整条流程（找脸、生成、贴回、写文件，不含加载模型），取各模型的中位数。</p>
+</div></div></div><p>速度和显存这两项，talkinghead 领先得很明显；口型分排在最后，连真人视频本身的 8.75 都没到。至于「像不像本人」，它和原版 Ditto 并列最高。</p><p>读这张表有四个前提：</p><ul>
+<li><b>测的是更早的一个版本：</b>用的正是上一节提到的那个「分数拉回 −0.41、最后没发」的渲染器，找脸的方法也是旧的。它和这次发布的版本接近，但不是同一个。</li>
+<li><b>各家计时的片段数不一样：</b>talkinghead 12 段，Wav2Lip 7 段，Ditto 3 段，LatentSync 只计了 1 段。</li>
+<li><b>显卡是云上分时共享的：</b>不是独占一块卡测出来的成绩。</li>
+<li><b>干的活不一样：</b>Wav2Lip 和 LatentSync 是给一段真视频换嘴型，头怎么动是现成的；talkinghead 和 Ditto 手里只有一张照片，头部动作也得自己编。</li>
+</ul><p>还有一点别和前面搞混：这里的 43.4 毫秒是整条流程在 4090 上用通用框架跑出来的，前面笔记本的 36.5 毫秒只算渲染循环，又用了各家芯片的专用加速，两个数不是一个口径，不能拿来比谁的机器快。</p><h3>46.8 还是 43.4，12 倍还是 13 倍</h3><p>同一项测试，有两个版本的数字在流传。发布帖、帖里的配图和演示片写的是每帧 46.8 毫秒，比 LatentSync 快约 12 倍；仓库说明和官网上是 43.4 毫秒，官网脚注给出的算式是约 13 倍。两处为什么不一样，没有说明。</p><div><div><div>
+<div>两个版本各自算一遍</div>
+<div>
+<div><b>552 ÷ 46.8 ≈ 11.8</b><span>发布帖和演示片的数，对应「快约 12 倍」</span></div>
+<div><b>552 ÷ 43.4 ≈ 12.7</b><span>仓库说明和官网的数，对应「约 13 倍」</span></div>
+<div><b>14 ÷ 1.2 ≈ 11.7</b><span>显存两边一致，对应「省约 12 倍」</span></div>
+</div>
+<p>两个版本各自都算得通，差别只在 talkinghead 自己那一帧是 46.8 还是 43.4 毫秒。不管取哪个，结论都是比 LatentSync 快十倍以上。</p>
+</div></div></div><div><div><div>
+<img src="https://pic.xiaohu.ai/jiedu-media/ampixa-talkinghead/tweet2.jpg" alt="发布帖配图：左侧 36.5 毫秒和 169 MB 两个大数字，右侧是 RTX 4090 上的每帧耗时和显存峰值条形图" style="max-width:100%;height:auto;border-radius:8px;" />
+<p><b>发布帖的配图：</b>这张图上写的是 46.8。另外注意它的条形用了平方根刻度，552 那条看上去只有 46.8 的三倍多长，实际差了十倍以上；上面那张按格子画的图是等比例的。</p>
+</div></div></div><h3>这次发布的版本，口型到底怎么样</h3><p>目前能确定的不多。这个版本的口型分只在个别例子上测过：一张全身照里的小脸配尼泊尔语，talkinghead 4.93，原版 Ditto 5.12。开头那九段英文样片，口型分在 5.5 到 8.5 之间。</p><p>更早的版本做过一轮 15 组的对比（尼泊尔语加英语）：用没做实时优化的「完整画质」渲染器时是 5.23，原版 5.31，差得很少。换成这次发布的实时渲染器，就是上一节验收里那个 −0.51。另外，这次找脸的方法从 InsightFace 换成了 MediaPipe，在 6 组对照里平均又低了 0.11。</p><p>仓库说明给自己的定性是「口型接近原版 Ditto，但不相等」，完整评测列在计划里。</p><h2>不装软件，先在浏览器里试</h2><p>演示页把同一套网络搬进了浏览器标签页，用你自己电脑的显卡算。挑一张脸，再挑一段声音，或者直接打一句想让它说的话，也可以用自己的照片和录音。</p><div><div><div>
+<img src="https://pic.xiaohu.ai/jiedu-media/ampixa-talkinghead/tweet3.jpg" alt="发布帖配图：浏览器演示示意，左边一张照片，右边是生成的说话画面，下方是安装命令" style="max-width:100%;height:auto;border-radius:8px;" />
+<p><b>浏览器演示的示意画面：</b>在浏览器里不是实时，10 秒的片子大约要一分钟。</p>
+</div></div></div><p>试之前要知道的几件事：</p><ul>
+<li><b>要用电脑上的 Chrome 或 Edge：</b>而且得是比较新的版本，手机浏览器不行。</li>
+<li><b>第一次会下载 168 MB 的模型：</b>下完存在浏览器缓存里，以后不用再下。</li>
+<li><b>照片和声音不上传：</b>从头到尾都在这个标签页里算。</li>
+<li><b>打字让它说的那个声音只会英语：</b>用的是 Ampixa Labs 自家一个只有 10.4 万个参数的迷你语音模型 sanoTTS，同样在标签页里跑。</li>
+<li><b>口型和安装版一致：</b>同样的输入，两边口型分是 5.66 对 5.44、4.54 对 4.63，互有高低。</li>
+</ul><p>地址是 <a href="https://ampixa.com/talkinghead/demo">ampixa.com/talkinghead/demo</a>。</p><h2>装到自己电脑上：一行安装，三行出片</h2><p>需要 Python 3.10 以上和 ffmpeg。苹果芯片的 Mac 和普通 CPU 用第一行，NVIDIA 显卡用第二行：</p><div><pre><code>pip install "git+https://github.com/Ampixa/talkinghead.git"
+pip install "ampixa-talkinghead[tensorrt] @ git+https://github.com/Ampixa/talkinghead.git"</code></pre></div><p>然后给它一张照片、一段录音：</p><div><pre><code>from ampixa_talkinghead import Avatar
+avatar = Avatar("photo.jpg")            # 认脸，做一次，1–3 秒
+avatar.speak("speech.wav", "out.mp4")   # 出片</code></pre></div><p>能调的东西不多，够用：</p><ul>
+<li><b>表情：</b>八种可选，生气、厌恶、害怕、开心、平静、难过、惊讶、轻蔑。表情控制能达到原模型效果的 70–95%。</li>
+<li><b>头动幅度：</b>0 是完全不动，1 是默认，1.5 更活泼。</li>
+<li><b>点头摇头：</b>设成自动，它会跟着说话的节奏加点头和歪头；也可以自己指定第几秒点头、摇头、往哪边看。</li>
+<li><b>可重复：</b>同一个随机种子、同样的输入，每次出来的视频一样。</li>
+</ul><p>不想写代码的话，装好后运行 <code>ampixa-talkinghead-web</code>，会在本机打开一个网页界面，选脸、选声音、出片、下载，速度和命令行一样。</p><p>它会自己判断这台机器走哪条路：苹果芯片和 NVIDIA 显卡走实时渲染器；其他机器用 CPU 跑完整画质的版本，那就是离线出片了。拿不准自己的机器算哪一档，调用 <code>device_report()</code>，它花 2 秒左右测一下，每帧 40 毫秒以内报「realtime」，否则报「offline」。</p><h2>现在的短板</h2><ul>
+<li><b>只有英语和尼泊尔语：</b>模型是针对这两种语言训练和评测的，中文没有提到。</li>
+<li><b>给视频换配音还不能用：</b>这个模式会保留原视频的头部动作，只让嘴和表情跟新的声音走，目前标着「实验性，还没准备好」。</li>
+<li><b>挑照片：</b>最好是正脸、闭着嘴。照片里露了牙，说话时嘴就合不上。</li>
+<li><b>这几种脸效果差：</b>笔触很重或大胡子的画像、全身照里很小的脸、侧脸。侧脸和风格化太强的脸可能直接报错找不到人脸。</li>
+<li><b>没有水印：</b>生成的视频文件里只写了一条「AI 生成」的元数据标签，很容易被抹掉。</li>
+</ul><div><div><div>
+<p><b>尼泊尔语样片：</b>和开头第一张脸是同一张照片，换成了一段 9 秒的尼泊尔语。默认静音，点播放条上的喇叭可以开声音。照片为用户提供（Alisha Rai）。</p>
+</div></div></div><p>最后一条和技术无关。这个工具做的事，就是让照片里的人看上去说了他没说过的话。仓库说明写的使用边界是：只用你有权使用的照片，当事人同意的照片，或者公有领域的艺术作品；不要拿来骗人、冒充、骚扰或诈骗；发出去的视频要说明是 AI 生成的。演示片结尾有一段用真人新闻照片做的搞笑视频，画面角落标了「AI-generated」。</p><div><div><div><a><i>站内旧文 · 同样是「一张照片加一段语音」，走的是另一头</i><b>美团开源数字人模型 LongCat-Video-Avatar 1.6：一张照片加一段语音，连说 10 分钟不走样</b><span>talkinghead 求的是小和快；LongCat 求的是画质和长时间不走样，连手势都跟着声音动。</span></a></div></div></div><div><div><div><a><i>站内旧文 · 不想自己装，看收费工具怎么选</i><b>2026 年 10 款 AI 口型同步工具大比拼：内置翻译 18 到 175+ 种，单次最长 60 分钟</b><span>云端的口型同步工具各家怎么收费、单次能做多长，一张台账摆开。</span></a></div></div></div></div><div><div><div>来源</div><div><span>talkinghead 发布帖（3 条）</span><span>Ampixa Labs<span>·</span>2026-11-27<span>·</span><a href="https://x.com/__ampixa__/status/2126183579764007316">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://github.com/Ampixa/talkinghead">talkinghead 仓库说明与训练说明（GitHub）</a><span>·</span><a href="https://ampixa.com/talkinghead">talkinghead 官网</a><span>·</span><a href="https://ampixa.com/talkinghead/demo">浏览器演示页</a><span>·</span><a href="https://huggingface.co/ampixa/talkinghead">模型卡（Hugging Face）</a></div></div><div><div>本站说明</div><div>视频和配图来自 Ampixa Labs。九段样片的照片：Alisha Rai（用户提供）；Jeremy Bishop（CC0）、Bibek Raut（CC BY-SA 4.0）、Angelina Litvin（CC0）摄，Wikimedia Commons；画作和 1863 年林肯照片为公有领域；由 CC BY-SA 照片生成的视频同样按 CC BY-SA 共享。配音 Kokoro-82M（Apache-2.0）、Google FLEURS（CC BY 4.0）。</div></div></div></div></div>
+</div><div><div>
+<div><span>↑ 正文结束</span></div>
+<div><div>✓ 本篇全文免费开放</div><p>读完还有疑问？会员每天能问小互 30 次，每句带出处；还有一份按你口味挑好的每日 AI 日报。</p><div><a>成为会员 $59/年</a><a>按月 $6.99</a></div><p>7 天内不满意全额退 · <a>看会员能多什么 →</a></p></div>
+<div>
+👍 这篇讲明白了
+分享
+<a href="https://x.com/__ampixa__/status/2126183579764007316">阅读原文 ↗</a>
+</div>
+<div><div>📮 新解读每晚进邮箱</div><p>读完觉得有用？留个邮箱，每晚一封当天的新解读，随时退订。</p>订阅<div></div></div>
+</div></div></div>
+</div></div></body></html>]]></content:encoded>
+</item>
 <item>
 <title>【日报】让AI 能掌握电影大师的配色画面：迪金斯、王家卫、韦斯·安德森 15 位大师 5 种配色思路（附调色 Skill） · XiaoHu.AI</title>
 <link>https://xiaohu.ai/article/ai-master-color-grading/</link>
@@ -85261,53 +85464,6 @@ export default defineConfig(({ mode }) =&gt; ({
 <p>官方材料展示了共享晨报、权限设置、日历创建和 PDF 预填等具体流程，但没有公布任务成功率、错误率、响应速度、长期记忆保留规则或外部安全测试。四段视频属于官方选择的产品演示，不能视为复杂家庭环境中的稳定性测试。</p>
 <p>基于目前资料，可以把 CC 理解为 Google 对“多人共同使用一个 AI 代理”的一次具体产品实验：它尝试用独立身份、成员分别授权、共享晨报、任务执行和人工确认来处理家庭协作。至于这些机制在真实家庭中是否足够可靠，还需要后续开放测试和实际数据证明。</p>
 </div><div><div><div>来源</div><div><span>CC, our experimental AI agent built for families</span><span>Google AI<span>·</span><a href="https://x.com/GoogleAI/status/2104645904682946908">查看主材料</a></span></div></div><div><div>延伸</div><div><a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/cc-expanding-to-groups/">The new CC, an AI agent built for families</a><span>·</span><a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/cc-ai-agent/">Help boost your daily productivity with CC</a></div></div><div><div>本站说明</div><div>能力、权限和可用范围均按 Google 官方说明；产品演示不等于独立实测。</div></div></div></div></div></div>
-</div></div></body></html>]]></content:encoded>
-</item>
-<item>
-<title>【日报】为什么在 AI 泛滥的时代，最终赢家依然大概率是 OpenAI？</title>
-<link>https://best.xiaohu.ai/article/openai-creates-customers-distribution/</link>
-<category>日报</category>
-<guid isPermaLink="false">xiaohu:openai-creates-customers-distribution</guid>
-<pubDate>Tue, 29 Sep 2026 12:01:36 +0000</pubDate>
-<description>模型会被追平，API 流量也会搬家。David George 仍然看好 OpenAI，因为它最擅长让人形成新的 AI 使用习惯，再从海量真实需求中找出下一步该造什么。</description>
-<content:encoded><![CDATA[<!DOCTYPE html>
-<html lang="zh-CN">
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background-color:#f4f4f5;">
-<div style="max-width:680px;margin:0 auto;padding:24px 12px;">
-<div style="background:#ffffff;border:1px solid #e8e8e8;border-radius:12px;padding:32px 28px;font-family:Georgia,'Times New Roman','Songti SC','STSong',serif;">
-<div style="font-size:13px;color:#8a8a8a;margin-bottom:8px;">小互解读站 · 日报 · 2026 年 9 月 29 日</div>
-<h1 style="font-size:26px;line-height:1.4;margin:0 0 8px 0;color:#18181b;">为什么在 AI 泛滥的时代，最终赢家依然大概率是 OpenAI？</h1>
-<div style="margin-bottom:16px;"><a href="https://best.xiaohu.ai/article/openai-creates-customers-distribution/" style="font-size:14px;color:#e11d48;">阅读原文</a></div>
-<div style="height:4px;background:#e11d48;border-radius:2px;margin:0 0 24px 0;"></div>
-<div style="font-size:17px;line-height:1.9;color:#27272a;"><div><div><h1>为什么在 AI 泛滥的时代，最终赢家依然大概率是 OpenAI？</h1><p>模型会被追平，API 流量也会搬家。David George 仍然看好 OpenAI，因为它最擅长让人形成新的 AI 使用习惯，再从海量真实需求中找出下一步该造什么。</p><strong>一分钟速览</strong><ul><li>当模型可以按任务随时替换，一时的跑分、价格和 API 份额很难单独构成长期护城河。</li><li>OpenAI 更特别的能力，是让人开始用 AI 做以前不会做的事；ChatGPT 的空白对话框就是最典型的一次。</li><li>用户越多、需求越杂，OpenAI 越容易看见大家反复卡在哪里，再把解决办法做成所有开发者都能使用的基础能力。</li><li>真正的平台不只提供模型接口，还要让 Agent 能安全地运行代码、读取数据、调用工具，并在越权或失败时停下来。</li><li>这套看多逻辑仍是一项投资判断：它押注广泛分发会反过来改善模型、产品和成本，但这条因果链尚未被证明。</li></ul><div><p>如果各家的模型都会变强，今天的第一名明天就可能被追上，那么 OpenAI 凭什么长期赢？</p>
-<p>a16z 合伙人 David George 给出的答案，不是模型、芯片，也不是谁的 Token 更便宜。他看好 OpenAI，是因为它同时擅长两件更难复制的事：<strong>先让人形成一种以前没有的 AI 使用习惯，再把这种习惯推向足够多的人。</strong></p>
-<p>ChatGPT 就是最典型的例子。它不是把已有的聊天机器人做得更好，而是让普通人第一次习惯了这样解决问题：不必先找软件、学菜单、想关键词，只要在一个空白框里直接说自己想要什么。</p>
-<p>这篇文章最重要的地方，是把 AI 竞争的因果关系倒了过来。通常我们以为，模型更强，所以用户更多。David George 的判断是：将来可能恰好相反——<strong>因为 OpenAI 接触的用户最多、问题最杂，它才更容易知道下一代模型和产品应该补什么。</strong> 用户越多，它越会造；越会造，又会吸引更多用户。</p>
-<figure>
-<img />
-<figcaption>OAI Signals 图表显示，OpenAI 内部每周活跃企业用户中，插件和 Skills 使用率分别为 95% 和 93%；“头部企业”为 21% 和 19%，“典型企业”为 9% 和 3%。</figcaption>
-</figure>
-<h2>前沿 AI 公司要把领先变成长期优势，有四种办法</h2>
-<ol>
-<li>创造以前没有的使用行为。</li>
-<li>把产品分发给大量用户。</li>
-<li>找到能把价值变成收入的定价方式。</li>
-<li>建立让客户不愿意换走的迁移成本。</li>
-</ol>
-<p>他先把第 4 项——让客户难以换走——大幅打了折扣，范围是模型 API 层。开发者可以让 Claude 写代码、用 GPT 做分析，再给批处理任务接入更便宜的模型，甚至按每项任务选择供应商。接入和评测仍有成本，但通常不必因为换一个模型就推倒整个产品。各家的模型又都在进步，很难指望一次领先就让客户长期留下来。至于产品、协作关系和平台层能否形成迁移成本，原文把它留作尚未解决的问题。</p>
-<p>文中援引的一组 OpenRouter 市场份额变化，也显示 OpenAI 与 Anthropic 的调用份额可以在短时间内大幅翻转。它不能单独证明用户没有忠诚度，但至少说明一件事：<strong>调用量不等于牢固的客户关系。价格或性能一变，流量就可能搬家。</strong></p>
-<p>再看第三项：把价格降下来。便宜当然重要，但各家都在用规模效应、垂直整合和自研芯片压低 Token 成本。David George 的判断是，最后能做到最好价格性能比的，很可能本来就是规模最大的公司。因此，“便宜”更像赢得规模之后得到的奖励，而不是最初赢下市场的原因。</p>
-<p>因此，第 4 项在模型层很难守住；第 3 项仍重要，却更像赢得规模后的结果。David George 把决定长期差距的关键放在前两项：</p>
-<ol>
-<li><strong>创造新行为</strong>：让人开始用 AI 做以前不会做、也没想到能做的事。</li>
-<li><strong>建立分发</strong>：把这种新行为送到更多人手里，并不断看见他们接下来还想做什么。</li>
-</ol>
-<p>后面的整套论证，其实都在解释这两件事为什么会互相强化。</p>
-<h2>“创造客户”不是找客户，而是创造一种新习惯</h2>
-<p>ChatGPT 刚上线时，OpenAI 内部并没有把它当成注定成功的消费产品。Sam Altman 后来回忆，产品虽然增长很快，不少人仍觉得大家只是图新鲜聊几句：“这很好玩，但聊天机器人总不能就是我们真正要做的产品吧？”团队甚至讨论过继续寻找别的方向。</p>
-<p>彼得·蒂尔看到的却不是一个聊天玩具，而是一种刚刚诞生的客户。他提醒 Altman：这就是产品。那个空白对话框和 Google 搜索框一样，表面上几乎什么都没有，却允许任何人带着自己的问题走进来。</p>
-</div></div></div></div>
 </div></div></body></html>]]></content:encoded>
 </item>
 </channel>
